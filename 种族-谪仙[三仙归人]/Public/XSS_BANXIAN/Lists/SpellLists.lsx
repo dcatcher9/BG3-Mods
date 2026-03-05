@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+  <version major="4" minor="0" revision="9" build="328" />
+  <region id="SpellLists">
+    <node id="root">
+      <children>
+        <node id="SpellList">
+          <attribute id="Comment" type="LSString" value="tian level1" />
+          <attribute id="Spells" type="LSString" value="Shout_CuiTi_ZhouTian_NX;BANXIAN_FaBao_FireBreath" />
+          <attribute id="UUID" type="guid" value="e88ae5a1-576c-4d80-b1a5-ef3f6dd8e001" />
+        </node>
+        <node id="SpellList">
+          <attribute id="Comment" type="LSString" value="renxian level1" />
+          <attribute id="Spells" type="LSString" value="BANXIAN_WZPLG_Container;BANXIAN_FaBao_FireBreath" />
+          <attribute id="UUID" type="guid" value="e88ae5a1-576c-4d80-b1a5-ef3f6dd8eb01" />
+        </node>
+        <node id="SpellList">
+          <attribute id="Comment" type="LSString" value="yaoxian level1" />
+          <attribute id="Spells" type="LSString" value="BANXIAN_FaBao_FireBreath_YAO" />
+          <attribute id="UUID" type="guid" value="e88ae5a1-576c-4d80-b1a5-ef3f6dd8ec01" />
+        </node>
+        <node id="SpellList">
+          <attribute id="Comment" type="LSString" value="fly" />
+          <attribute id="Spells" type="LSString" value="BANXIAN_JDChangeResource" />
+          <attribute id="UUID" type="guid" value="e88ae5a1-576c-4d80-b1a5-ef3f6dd8e002" />
+        </node>
+        <node id="SpellList">
+          <attribute id="Comment" type="LSString" value="LQ" />
+          <attribute id="Spells" type="LSString" value="ZHENFA_Flags" />
+          <attribute id="UUID" type="guid" value="e88ae5a1-576c-4d80-b1a5-ef3f6da00002" />
+        </node>
+        <node id="SpellList">
+          <attribute id="Comment" type="LSString" value="JD" />
+          <attribute id="Spells" type="LSString" value="BANXIAN_JDChangeResource" />
+          <attribute id="UUID" type="guid" value="e88ae5a1-576c-4d80-b1a5-ef3f6daaa002" />
+        </node>
+        <node id="SpellList">
+          <attribute id="Comment" type="LSString" value="JD" />
+          <attribute id="Spells" type="LSString" value="BANXIAN_JDChangeResource_WarlockSpellSlot" />
+          <attribute id="UUID" type="guid" value="e88ae5a1-576c-4d80-b1a5-ef3f6daab002" />
+        </node>
+        <node id="SpellList">
+          <attribute id="Comment" type="LSString" value="YY" />
+          <attribute id="Spells" type="LSString" value="BANXIAN_YYNoMoreConcentration" />
+          <attribute id="UUID" type="guid" value="e88ae5a1-576c-4d80-b1a5-ef3f6daaa003" />
+        </node>
+        <node id="SpellList">
+          <attribute id="Comment" type="LSString" value="xianren mode" />
+          <attribute id="Spells" type="LSString" value="Shout_BanXian_XianRen_Mode;BANXIAN_SHENTONG_Container;BANXIAN_YYNoMoreConcentration" />
+          <attribute id="UUID" type="guid" value="e88ae5a1-576c-4d80-b1a5-ef3f6dd8e003" />
+        </node>
+      </children>
+    </node>
+  </region>
+</save>

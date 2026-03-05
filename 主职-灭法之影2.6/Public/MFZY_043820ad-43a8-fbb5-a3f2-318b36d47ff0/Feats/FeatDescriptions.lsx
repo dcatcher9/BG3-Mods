@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="7" revision="1" build="3"/>
+    <region id="FeatDescriptions">
+        <node id="root">
+            <children>
+                <node id="FeatDescription">
+                    <attribute id="Description" type="TranslatedString" handle="h45a03c41g4e61gf257g5503gf6fb661b4f55" version="2"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h9078e856g9214ge252g5873g5845ff95b66b" version="1"/>
+                    <attribute id="ExactMatch" type="FixedString" value="基础被动"/>
+                    <attribute id="FeatId" type="guid" value="7664276d-2f34-4d8a-a352-43d4d16b8b9e"/>
+                    <attribute id="UUID" type="guid" value="bf7a4e2e-213a-466c-a374-3afe12bdf6e5"/>
+                </node>
+                <node id="FeatDescription">
+                    <attribute id="Description" type="TranslatedString" handle="h60f3f01bg9b1cgb119g2c52ga0a1828c96af" version="4"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="hc04a932cgdd1egfbf9gada9gb4bdc8fa3b40" version="1"/>
+                    <attribute id="ExactMatch" type="FixedString" value="轮回乐园契约者"/>
+                    <attribute id="FeatId" type="guid" value="be557e26-368e-4c6b-9986-e5a7f7b562d6"/>
+                    <attribute id="UUID" type="guid" value="434ed327-38c3-4b35-b85d-cc11bc259bb6"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

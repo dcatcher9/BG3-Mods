@@ -1,0 +1,2372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="0" revision="9" build="328" lslib_meta="v1,bswap_guids" />
+	<region id="Templates">
+		<node id="Templates">
+			<children>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa02" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240806dv001001" version="1" />
+					<attribute id="Name" type="LSString" value="BANXAIN_FeMale" />
+					<attribute id="CharacterVisualResourceID" type="FixedString" value="95be872d-586e-4969-8c85-89b154d81c01" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="ParentTemplateId" type="FixedString" value="e3c07ecd-d3f7-4661-b029-18dee1f3114e" />
+					<attribute id="Race" type="guid" value="00a16d50-80fd-4f6a-8849-90d68bd117b2" />
+					<attribute id="LevelOverride" type="int32" value="1" />
+					<attribute id="Stats" type="FixedString" value="BANXAIN_Male" />
+					<attribute id="SpellSet" type="FixedString" value="CommonPlayerActions_BANXAIN" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+					<children>
+						<node id="StatusList">
+							<children>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa01" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240806dv001001" version="1" />
+					<attribute id="Name" type="LSString" value="BANXAIN_Male" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="ParentTemplateId" type="FixedString" value="80d0ef19-f11e-482f-96ab-f184a9460b8e" />
+					<attribute id="CharacterVisualResourceID" type="FixedString" value="95be872d-586e-4969-8c85-89b154d81c02" />
+					<attribute id="Race" type="guid" value="00a16d50-80fd-4f6a-8849-90d68bd117b2" />
+					<attribute id="LevelOverride" type="int32" value="1" />
+					<attribute id="Stats" type="FixedString" value="BANXAIN_Male" />
+					<attribute id="SpellSet" type="FixedString" value="CommonPlayerActions_BANXAIN" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+					<children>
+						<node id="StatusList">
+							<children>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa04" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240806dv001001" version="1" />
+					<attribute id="Name" type="LSString" value="BANXAIN_FeMaleStrong" />
+					<attribute id="CharacterVisualResourceID" type="FixedString" value="95be872d-586e-4969-8c85-89b154d81c03" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="ParentTemplateId" type="FixedString" value="3303e8f6-a7e4-4b24-b64c-d64bbc152803" />
+					<attribute id="Race" type="guid" value="00a16d50-80fd-4f6a-8849-90d68bd117b2" />
+					<attribute id="Stats" type="FixedString" value="BANXAIN_Male" />
+					<attribute id="SpellSet" type="FixedString" value="CommonPlayerActions_BANXAIN" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+					<children>
+						<node id="StatusList">
+							<children>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa03" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240806dv001001" version="1" />
+					<attribute id="Name" type="LSString" value="BANXAIN_MaleStrong" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="ParentTemplateId" type="FixedString" value="056fffd0-9009-4627-84c2-f0a22e311ec7" />
+					<attribute id="CharacterVisualResourceID" type="FixedString" value="95be872d-586e-4969-8c85-89b154d81c04" />
+					<attribute id="Race" type="guid" value="00a16d50-80fd-4f6a-8849-90d68bd117b2" />
+					<attribute id="LevelOverride" type="int32" value="1" />
+					<attribute id="Stats" type="FixedString" value="BANXAIN_Male" />
+					<attribute id="SpellSet" type="FixedString" value="CommonPlayerActions_BANXAIN" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+					<children>
+						<node id="StatusList">
+							<children>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09eca02" />
+					<attribute id="Name" type="LSString" value="BANXAIN_FeMale_Tian" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa02" />
+					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e01" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+					<children>
+						<node id="StatusList">
+							<children>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="CUITI_ZHOUTIAN" />
+								</node>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="CUITI_ZHOUTIAN_OWNER" />
+								</node>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09eca01" />
+					<attribute id="Name" type="LSString" value="BANXAIN_FeMaleStrong_Tian" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa01" />
+					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e01" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+					<children>
+						<node id="StatusList">
+							<children>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="CUITI_ZHOUTIAN" />
+								</node>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="CUITI_ZHOUTIAN_OWNER" />
+								</node>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09eca04" />
+					<attribute id="Name" type="LSString" value="BANXAIN_MaleStrong_Tian" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa04" />
+					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e01" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+					<children>
+						<node id="StatusList">
+							<children>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="CUITI_ZHOUTIAN" />
+								</node>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="CUITI_ZHOUTIAN_OWNER" />
+								</node>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09eca03" />
+					<attribute id="Name" type="LSString" value="BANXAIN_Male_Tian" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa03" />
+					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e01" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+					<children>
+						<node id="StatusList">
+							<children>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="CUITI_ZHOUTIAN" />
+								</node>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="CUITI_ZHOUTIAN_OWNER" />
+								</node>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09ecb02" />
+					<attribute id="Name" type="LSString" value="BANXAIN_FeMale_Ren" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa02" />
+					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e02" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+					<children>
+						<node id="StatusList">
+							<children>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="RENXIAN_STATUS" />
+								</node>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09ecb01" />
+					<attribute id="Name" type="LSString" value="BANXAIN_FeMaleStrong_Ren" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa01" />
+					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e02" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+					<children>
+						<node id="StatusList">
+							<children>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="RENXIAN_STATUS" />
+								</node>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09ecb04" />
+					<attribute id="Name" type="LSString" value="BANXAIN_MaleStrong_Ren" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa04" />
+					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e02" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+					<children>
+						<node id="StatusList">
+							<children>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="RENXIAN_STATUS" />
+								</node>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09ecb03" />
+					<attribute id="Name" type="LSString" value="BANXAIN_Male_Ren" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa03" />
+					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e02" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+					<children>
+						<node id="StatusList">
+							<children>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="RENXIAN_STATUS" />
+								</node>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09ecc02" />
+					<attribute id="Name" type="LSString" value="BANXAIN_FeMale_Yao" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa02" />
+					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e03" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+					<children>
+						<node id="StatusList">
+							<children>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="YAOXIAN_STATUS" />
+								</node>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09ecc01" />
+					<attribute id="Name" type="LSString" value="BANXAIN_FeMaleStrong_Yao" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa01" />
+					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e03" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+					<children>
+						<node id="StatusList">
+							<children>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="YAOXIAN_STATUS" />
+								</node>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09ecc04" />
+					<attribute id="Name" type="LSString" value="BANXAIN_MaleStrong_Yao" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa04" />
+					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e03" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+					<children>
+						<node id="StatusList">
+							<children>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="YAOXIAN_STATUS" />
+								</node>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09ecc03" />
+					<attribute id="Name" type="LSString" value="BANXAIN_Male_Yao" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa03" />
+					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e03" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+					<children>
+						<node id="StatusList">
+							<children>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="YAOXIAN_STATUS" />
+								</node>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20241217zx001b01" version="1" />
+					<attribute id="DevComment" type="LSString" value="Shouldn't be a stone tablets - referred to as a book in dialog" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20241217zx001a01" version="1" />
+					<attribute id="Icon" type="FixedString" value="Item_BOOK_Wizards_Tome_Antidote_Recipe_A" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="7a0dd130-06de-4c39-a05a-d918aaa96a9f" />
+					<attribute id="Name" type="LSString" value="BOOK_ZHEXIAN" />
+					<attribute id="OnUseDescription" type="TranslatedString" handle="h1a69b83eg230ag45b2gbe2egbac86d4c7d83" version="1" />
+					<attribute id="ParentTemplateId" type="FixedString" value="23f65dff-a1ca-42fb-91ee-4cbb69450336" />
+					<attribute id="PhysicsTemplate" type="FixedString" value="98dbf071-55b7-147a-80e3-c26e6788a077" />
+					<attribute id="StoryItem" type="bool" value="True" />
+					<attribute id="IsTradable" type="uint8" value="1" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="UnknownDescription" type="TranslatedString" handle="h224349deg308ag4edbg8009g93f85882089a" version="1" />
+					<attribute id="VisualTemplate" type="FixedString" value="f5abb5a7-6625-6b95-9e36-1187543e22d9" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209031" />
+					<children>
+						<node id="Bounds">
+							<children>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="0.1040949" />
+									<attribute id="Max" type="fvec3" value="0.1468028 0.07600501 0.2003841" />
+									<attribute id="Min" type="fvec3" value="-0.1468028 -0.0006350577 -0.2003841" />
+									<attribute id="Radius" type="float" value="0.2398401" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="0" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="0.1040949" />
+									<attribute id="Max" type="fvec3" value="0.1468028 0.07600501 0.2003841" />
+									<attribute id="Min" type="fvec3" value="-0.1468028 -0.0006350577 -0.2003841" />
+									<attribute id="Radius" type="float" value="0.2398401" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="1" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="0.1040949" />
+									<attribute id="Max" type="fvec3" value="0.1468028 0.07600501 0.2003841" />
+									<attribute id="Min" type="fvec3" value="-0.1468028 -0.0006350577 -0.2003841" />
+									<attribute id="Radius" type="float" value="0.2398401" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="2" />
+								</node>
+							</children>
+						</node>
+						<node id="OnDestroyActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="26" />
+									<children>
+										<node id="Attributes">
+											<attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+											<attribute id="Animation" type="FixedString" value="" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="PlayOnHUD" type="bool" value="False" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="11" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="" />
+											<attribute id="BookId" type="FixedString" value="BOOK_ZHEXIAN" />
+											<attribute id="Conditions" type="LSString" value="" />
+										</node>
+									</children>
+								</node>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="30" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="RecipeID" type="FixedString" value="ALCH_Potion_Antidote_Mugwort" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20241217zx001b02" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20241217zx001a02" version="1" />
+					<attribute id="Icon" type="FixedString" value="Item_BOOK_Wizards_Tome_Antidote_Recipe_A" />
+					<attribute id="MapKey" type="FixedString" value="7a0dd130-06de-4c39-a05a-d918aaa96a01" />
+					<attribute id="Name" type="LSString" value="BanXian_GongLve_LianQi_Yu" />
+					<attribute id="ParentTemplateId" type="FixedString" value="7a0dd130-06de-4c39-a05a-d918aaa96a9f" />
+					<attribute id="Stats" type="FixedString" value="BK_BanXian_GongLve_LianQi_Yu" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209031" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="11" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="" />
+											<attribute id="BookId" type="FixedString" value="BanXian_GongLve_LianQi_Yu" />
+											<attribute id="Conditions" type="LSString" value="" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20241217zx001b03" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20241217zx001a03" version="1" />
+					<attribute id="Icon" type="FixedString" value="Item_BOOK_Wizards_Tome_Antidote_Recipe_A" />
+					<attribute id="MapKey" type="FixedString" value="7a0dd130-06de-4c39-a05a-d918aaa96a02" />
+					<attribute id="Name" type="LSString" value="BanXian_GongLve_XiaoChangshi_FeiLenCui" />
+					<attribute id="ParentTemplateId" type="FixedString" value="7a0dd130-06de-4c39-a05a-d918aaa96a9f" />
+					<attribute id="Stats" type="FixedString" value="BK_BanXian_GongLve_XiaoChangshi_FeiLenCui" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209031" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="11" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="" />
+											<attribute id="BookId" type="FixedString" value="BanXian_GongLve_XiaoChangshi_FeiLenCui" />
+											<attribute id="Conditions" type="LSString" value="" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b00" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a00" version="1" />
+					<attribute id="DropSound" type="FixedString" value="7f06581c-2518-4a88-84f1-23e95feb2d81" />
+					<attribute id="OnUseDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c00" version="1" />
+					<attribute id="TreasureOnDestroy" type="bool" value="True" />
+					<attribute id="Icon" type="FixedString" value="DR_BaoMinDan" />
+					<attribute id="InventoryMoveSound" type="FixedString" value="7f06581c-2518-4a88-84f1-23e95feb2d81" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Name" type="LSString" value="DY_Base" />
+					<attribute id="ParentTemplateId" type="FixedString" value="6d34fb12-b441-4d83-a661-49d08f43eb89" />
+					<attribute id="PhysicsTemplate" type="FixedString" value="5615295e-a52a-625b-221f-65753c80be0b" />
+					<attribute id="PickupSound" type="FixedString" value="877087fe-2014-4e2e-b97b-aab11c37df05" />
+					<attribute id="Stats" type="FixedString" value="DY_Base" />
+					<attribute id="StoryItem" type="bool" value="False" />
+					<attribute id="IsTradable" type="uint8" value="1" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="VisualTemplate" type="FixedString" value="cdaa0cac-e72a-1e90-7503-d51ef24c59e6" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<attribute id="maxStackAmount" type="int32" value="9" />
+					<children>
+						<node id="Bounds">
+							<children>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="1" />
+									<attribute id="Max" type="fvec3" value="0.06482527 0.1276792 0.06482521" />
+									<attribute id="Min" type="fvec3" value="-0.06482515 -0.001971275 -0.06482521" />
+									<attribute id="Radius" type="float" value="0.433013" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="1" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="1" />
+									<attribute id="Max" type="fvec3" value="0.06482527 0.1276792 0.06482521" />
+									<attribute id="Min" type="fvec3" value="-0.06482515 -0.001971275 -0.06482521" />
+									<attribute id="Radius" type="float" value="0.2165065" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="0" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="1" />
+									<attribute id="Max" type="fvec3" value="0.06482527 0.1276792 0.06482521" />
+									<attribute id="Min" type="fvec3" value="-0.06482515 -0.001971275 -0.06482521" />
+									<attribute id="Radius" type="float" value="0.433013" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="2" />
+								</node>
+							</children>
+						</node>
+						<node id="InventoryList" />
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DT_BASE_LONGREST" />
+											<attribute id="StatusDuration" type="int32" value="0" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b01" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a01" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c01" version="1" />
+					<attribute id="Icon" type="FixedString" value="DT_BiOJinDan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a01" />
+					<attribute id="Name" type="LSString" value="DT_BiOJinDan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DT_BiOJinDan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DT_BIO_JINDAN" />
+											<attribute id="StatusDuration" type="int32" value="1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b02" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a02" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c02" version="1" />
+					<attribute id="Icon" type="FixedString" value="DT_BiOXiaoHuanDan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a02" />
+					<attribute id="Name" type="LSString" value="DT_BiOXiaoHuanDan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DT_BiOXiaoHuanDan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DT_BIO_XIAOHUANDAN" />
+											<attribute id="StatusDuration" type="int32" value="1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b03" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a03" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c03" version="1" />
+					<attribute id="Icon" type="FixedString" value="DT_BuYangDan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a03" />
+					<attribute id="Name" type="LSString" value="DT_BuYangDan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DT_BuYangDan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DT_BUYANG_DAN_SIGNAL" />
+											<attribute id="StatusDuration" type="int32" value="0" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b04" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a04" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c04" version="1" />
+					<attribute id="Icon" type="FixedString" value="DT_JiuZhuanJinDan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a04" />
+					<attribute id="Name" type="LSString" value="DT_JiuZhuanJinDan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DT_JiuZhuanJinDan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DT_JIUZHUAN_JINDAN" />
+											<attribute id="StatusDuration" type="int32" value="0" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b05" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a05" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c05" version="1" />
+					<attribute id="Icon" type="FixedString" value="DT_JiuZhuanXiaoHuanDan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a05" />
+					<attribute id="Name" type="LSString" value="DT_JiuZhuanXiaoHuanDan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DT_JiuZhuanXiaoHuanDan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DT_JIUZHUAN_XIAOHUANDAN" />
+											<attribute id="StatusDuration" type="int32" value="0" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b06" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a06" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c06" version="1" />
+					<attribute id="Icon" type="FixedString" value="DT_SanHuaJiuZiGao" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a06" />
+					<attribute id="Name" type="LSString" value="DT_SanHuaJiuZiGao" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DT_SanHuaJiuZiGao" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DT_SANHUAJIUZI_GAO" />
+											<attribute id="StatusDuration" type="int32" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b07" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a07" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c07" version="1" />
+					<attribute id="Icon" type="FixedString" value="DT_ShuiYuDan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a07" />
+					<attribute id="Name" type="LSString" value="DT_ShuiYuDan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DT_ShuiYuDan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DT_SHUIYU_DAN_SIGNAL" />
+											<attribute id="StatusDuration" type="int32" value="0" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b08" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a08" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c08" version="1" />
+					<attribute id="Icon" type="FixedString" value="DT_TaiYiXiaoHuanDan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a08" />
+					<attribute id="Name" type="LSString" value="DT_TaiYiXiaoHuanDan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DT_TaiYiXiaoHuanDan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DT_TAIYI_XIAOHUANDAN" />
+											<attribute id="StatusDuration" type="int32" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b09" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a09" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c09" version="1" />
+					<attribute id="Icon" type="FixedString" value="DT_TaiYiZiJinDan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a09" />
+					<attribute id="Name" type="LSString" value="DT_TaiYiZiJinDan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DT_TaiYiZiJinDan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DT_TAIYI_ZIJINDAN" />
+											<attribute id="StatusDuration" type="int32" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b10" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a10" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c10" version="1" />
+					<attribute id="Icon" type="FixedString" value="DT_TieNiuDan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a10" />
+					<attribute id="Name" type="LSString" value="DT_TieNiuDan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DT_TieNiuDan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DT_TIENIU_DAN_SIGNAL" />
+											<attribute id="StatusDuration" type="int32" value="0" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b11" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a11" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c11" version="1" />
+					<attribute id="Icon" type="FixedString" value="DT_WuJinDan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a11" />
+					<attribute id="Name" type="LSString" value="DT_WuJinDan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DT_WuJinDan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DT_WUJIN_DAN_SIGNAL" />
+											<attribute id="StatusDuration" type="int32" value="0" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b12" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a12" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c12" version="1" />
+					<attribute id="Icon" type="FixedString" value="DT_WuXinYao" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a12" />
+					<attribute id="Name" type="LSString" value="DT_WuXinYao" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DT_WuXinYao" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DT_WUXIN_DAN_SIGNAL" />
+											<attribute id="StatusDuration" type="int32" value="0" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b13" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a13" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c13" version="1" />
+					<attribute id="Icon" type="FixedString" value="DT_WuYunDan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a13" />
+					<attribute id="Name" type="LSString" value="DT_WuYunDan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DT_WuYunDan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DT_WUYUN_DAN" />
+											<attribute id="StatusDuration" type="int32" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b14" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a14" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c14" version="1" />
+					<attribute id="Icon" type="FixedString" value="DR_BaoLinWan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a14" />
+					<attribute id="Name" type="LSString" value="DR_BaoLinWan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DR_BaoLinWan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DR_BAOLIN_WAN" />
+											<attribute id="StatusDuration" type="int32" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b15" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a15" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c15" version="1" />
+					<attribute id="Icon" type="FixedString" value="DR_BaoMinDan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a15" />
+					<attribute id="Name" type="LSString" value="DR_BaoMinDan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DR_BaoMinDan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DR_BAOMIN_DAN" />
+											<attribute id="StatusDuration" type="int32" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b16" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a16" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c16" version="1" />
+					<attribute id="Icon" type="FixedString" value="DR_BeiLiWan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a16" />
+					<attribute id="Name" type="LSString" value="DR_BeiLiWan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DR_BeiLiWan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DR_BEILI_WAN" />
+											<attribute id="StatusDuration" type="int32" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b17" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a17" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c17" version="1" />
+					<attribute id="Icon" type="FixedString" value="DR_BiXiongYao" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a17" />
+					<attribute id="Name" type="LSString" value="DR_BiXiongYao" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DR_BiXiongYao" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DR_BIXIONG_YAO" />
+											<attribute id="StatusDuration" type="int32" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b18" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a18" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c18" version="1" />
+					<attribute id="Icon" type="FixedString" value="DR_CanShiWan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a18" />
+					<attribute id="Name" type="LSString" value="DR_CanShiWan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DR_CanShiWan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DR_CANSHI_WAN" />
+											<attribute id="StatusDuration" type="int32" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b19" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a19" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c19" version="1" />
+					<attribute id="Icon" type="FixedString" value="DR_ChaoYuanGao" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a19" />
+					<attribute id="Name" type="LSString" value="DR_ChaoYuanGao" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DR_ChaoYuanGao" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DR_CHAOYUAN_GAO" />
+											<attribute id="StatusDuration" type="int32" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b20" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a20" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c20" version="1" />
+					<attribute id="Icon" type="FixedString" value="DR_DengXianSan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a20" />
+					<attribute id="Name" type="LSString" value="DR_DengXianSan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DR_DengXianSan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DR_DENGXIAN_SAN" />
+											<attribute id="StatusDuration" type="int32" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b21" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a21" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c21" version="1" />
+					<attribute id="Icon" type="FixedString" value="DR_DuZhangSan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a21" />
+					<attribute id="Name" type="LSString" value="DR_DuZhangSan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DR_DuZhangSan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DR_DUZHANG_SAN" />
+											<attribute id="StatusDuration" type="int32" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b22" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a22" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c22" version="1" />
+					<attribute id="Icon" type="FixedString" value="DR_FuHuJuZhenWan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a22" />
+					<attribute id="Name" type="LSString" value="DR_FuHuJuZhenWan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DR_FuHuJuZhenWan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DR_JUZHENFUHU_WAN" />
+											<attribute id="StatusDuration" type="int32" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b23" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a23" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c23" version="1" />
+					<attribute id="Icon" type="FixedString" value="DR_FuHuWan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a23" />
+					<attribute id="Name" type="LSString" value="DR_FuHuWan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DR_FuHuWan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DR_FUHU_WAN" />
+											<attribute id="StatusDuration" type="int32" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b24" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a24" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c24" version="1" />
+					<attribute id="Icon" type="FixedString" value="DR_JianGuYao" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a24" />
+					<attribute id="Name" type="LSString" value="DR_JianGuYao" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DR_JianGuYao" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DR_JIANGU_YAO" />
+											<attribute id="StatusDuration" type="int32" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b25" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a25" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c25" version="1" />
+					<attribute id="Icon" type="FixedString" value="DR_JiaWeiCanSHIwan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a25" />
+					<attribute id="Name" type="LSString" value="DR_JiaWeiCanSHIwan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DR_JiaWeiCanSHIwan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DR_JIAWEICANSHI_WAN" />
+											<attribute id="StatusDuration" type="int32" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b26" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a26" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c26" version="1" />
+					<attribute id="Icon" type="FixedString" value="DR_JingZhongDan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a26" />
+					<attribute id="Name" type="LSString" value="DR_JingZhongDan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DR_JingZhongDan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DR_JINGZHONG_DAN" />
+											<attribute id="StatusDuration" type="int32" value="0" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b27" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a27" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c27" version="1" />
+					<attribute id="Icon" type="FixedString" value="DR_JiuZhuanHuanHunDan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a27" />
+					<attribute id="Name" type="LSString" value="DR_JiuZhuanHuanHunDan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DR_JiuZhuanHuanHunDan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DR_JIUZHUANHUANHUN_DAN" />
+											<attribute id="StatusDuration" type="int32" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b28" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a28" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c28" version="1" />
+					<attribute id="Icon" type="FixedString" value="DR_LongGuangBeiLiWan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a28" />
+					<attribute id="Name" type="LSString" value="DR_LongGuangBeiLiWan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DR_LongGuangBeiLiWan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DR_LONGGUANGBEILI_WAN" />
+											<attribute id="StatusDuration" type="int32" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b29" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a29" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c29" version="1" />
+					<attribute id="Icon" type="FixedString" value="DR_QiFanHuoDan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a29" />
+					<attribute id="Name" type="LSString" value="DR_QiFanHuoDan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DR_QiFanHuoDan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DR_QIFANHUO_DAN" />
+											<attribute id="StatusDuration" type="int32" value="0" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b30" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a30" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c30" version="1" />
+					<attribute id="Icon" type="FixedString" value="DR_QinLiangSan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a30" />
+					<attribute id="Name" type="LSString" value="DR_QinLiangSan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DR_QinLiangSan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DR_QINLIANG_SAN" />
+											<attribute id="StatusDuration" type="int32" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b31" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a31" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c31" version="1" />
+					<attribute id="Icon" type="FixedString" value="DR_QinShenSan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a31" />
+					<attribute id="Name" type="LSString" value="DR_QinShenSan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DR_QinShenSan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DR_QINSHEN_SAN" />
+											<attribute id="StatusDuration" type="int32" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b32" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a32" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c32" version="1" />
+					<attribute id="Icon" type="FixedString" value="DR_ShenXiaoSan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a32" />
+					<attribute id="Name" type="LSString" value="DR_ShenXiaoSan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DR_ShenXiaoSan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DR_SHENXIAO_SAN" />
+											<attribute id="StatusDuration" type="int32" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b33" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a33" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c33" version="1" />
+					<attribute id="Icon" type="FixedString" value="DR_WenLiSan" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a33" />
+					<attribute id="Name" type="LSString" value="DR_WenLiSan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DR_WenLiSan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DR_WENLI_SAN" />
+											<attribute id="StatusDuration" type="int32" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b34" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a34" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c34" version="1" />
+					<attribute id="Icon" type="FixedString" value="DR_YanShouGao" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a34" />
+					<attribute id="Name" type="LSString" value="DR_YanShouGao" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DR_YanShouGao" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DR_YANSHOU_GAO" />
+											<attribute id="StatusDuration" type="int32" value="1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00b35" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00a35" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c35" version="1" />
+					<attribute id="Icon" type="FixedString" value="DR_YiQiGao" />
+					<attribute id="MapKey" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a35" />
+					<attribute id="Name" type="LSString" value="DR_YiQiGao" />
+					<attribute id="ParentTemplateId" type="FixedString" value="73e01945-24a6-406e-8d29-73460ea00a00" />
+					<attribute id="Stats" type="FixedString" value="DR_YiQiGao" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="DR_YIQI_GAO" />
+											<attribute id="StatusDuration" type="int32" value="1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00b00" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00a00" version="1" />
+					<attribute id="Icon" type="FixedString" value="Item_alch_extract_earth_3" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a00" />
+					<attribute id="Name" type="LSString" value="YC_Base_YaoZha" />
+					<attribute id="ParentTemplateId" type="FixedString" value="b707f039-af1d-456d-a606-1604f1d776c1" />
+					<attribute id="Stats" type="FixedString" value="YC_Base_YaoZha" />
+					<attribute id="StoryItem" type="bool" value="False" />
+					<attribute id="IsTradable" type="uint8" value="1" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00b01" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00a01" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00c01" version="1" />
+					<attribute id="Icon" type="FixedString" value="YC_BaiJiang" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a01" />
+					<attribute id="Name" type="LSString" value="YC_BaiJiang" />
+					<attribute id="ParentTemplateId" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a00" />
+					<attribute id="Stats" type="FixedString" value="YC_BaiJiang" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00b02" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00a02" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00c02" version="1" />
+					<attribute id="Icon" type="FixedString" value="YC_BiO" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a02" />
+					<attribute id="Name" type="LSString" value="YC_BiO" />
+					<attribute id="ParentTemplateId" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a00" />
+					<attribute id="Stats" type="FixedString" value="YC_BiO" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00b03" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00a03" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00c03" version="1" />
+					<attribute id="Icon" type="FixedString" value="YC_DiYongJinLian" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a03" />
+					<attribute id="Name" type="LSString" value="YC_DiYongJinLian" />
+					<attribute id="ParentTemplateId" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a00" />
+					<attribute id="Stats" type="FixedString" value="YC_DiYongJinLian" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00b04" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00a04" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00c04" version="1" />
+					<attribute id="Icon" type="FixedString" value="YC_GanCao" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a04" />
+					<attribute id="Name" type="LSString" value="YC_GanCao" />
+					<attribute id="ParentTemplateId" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a00" />
+					<attribute id="Stats" type="FixedString" value="YC_GanCao" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00b05" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00a05" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00c05" version="1" />
+					<attribute id="Icon" type="FixedString" value="YC_GeXun" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a05" />
+					<attribute id="Name" type="LSString" value="YC_GeXun" />
+					<attribute id="ParentTemplateId" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a00" />
+					<attribute id="Stats" type="FixedString" value="YC_GeXun" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00b06" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00a06" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00c06" version="1" />
+					<attribute id="Icon" type="FixedString" value="YC_HouTouJun" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a06" />
+					<attribute id="Name" type="LSString" value="YC_HouTouJun" />
+					<attribute id="ParentTemplateId" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a00" />
+					<attribute id="Stats" type="FixedString" value="YC_HouTouJun" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00b07" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00a07" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00c07" version="1" />
+					<attribute id="Icon" type="FixedString" value="YC_HuoLingCao" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a07" />
+					<attribute id="Name" type="LSString" value="YC_HuoLingCao" />
+					<attribute id="ParentTemplateId" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a00" />
+					<attribute id="Stats" type="FixedString" value="YC_HuoLingCao" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00b08" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00a08" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00c08" version="1" />
+					<attribute id="Icon" type="FixedString" value="YC_HuoLingSha" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a08" />
+					<attribute id="Name" type="LSString" value="YC_HuoLingSha" />
+					<attribute id="ParentTemplateId" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a00" />
+					<attribute id="Stats" type="FixedString" value="YC_HuoLingSha" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00b09" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00a09" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00c09" version="1" />
+					<attribute id="Icon" type="FixedString" value="YC_HuoZao" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a09" />
+					<attribute id="Name" type="LSString" value="YC_HuoZao" />
+					<attribute id="ParentTemplateId" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a00" />
+					<attribute id="Stats" type="FixedString" value="YC_HuoZao" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00b10" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00a10" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00c10" version="1" />
+					<attribute id="Icon" type="FixedString" value="YC_JiaoLi" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a10" />
+					<attribute id="Name" type="LSString" value="YC_JiaoLi" />
+					<attribute id="ParentTemplateId" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a00" />
+					<attribute id="Stats" type="FixedString" value="YC_JiaoLi" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00b11" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00a11" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00c11" version="1" />
+					<attribute id="Icon" type="FixedString" value="YC_JiuYeLingZhiCao" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a11" />
+					<attribute id="Name" type="LSString" value="YC_JiuYeLingZhiCao" />
+					<attribute id="ParentTemplateId" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a00" />
+					<attribute id="Stats" type="FixedString" value="YC_JiuYeLingZhiCao" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00b12" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00a12" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00c12" version="1" />
+					<attribute id="Icon" type="FixedString" value="YC_LaoShanShen" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a12" />
+					<attribute id="Name" type="LSString" value="YC_LaoShanShen" />
+					<attribute id="ParentTemplateId" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a00" />
+					<attribute id="Stats" type="FixedString" value="YC_LaoShanShen" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00b13" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00a13" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00c13" version="1" />
+					<attribute id="Icon" type="FixedString" value="YC_LongDan" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a13" />
+					<attribute id="Name" type="LSString" value="YC_LongDan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a00" />
+					<attribute id="Stats" type="FixedString" value="YC_LongDan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00b14" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00a14" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00c14" version="1" />
+					<attribute id="Icon" type="FixedString" value="YC_QianNianRenShen" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a14" />
+					<attribute id="Name" type="LSString" value="YC_QianNianRenShen" />
+					<attribute id="ParentTemplateId" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a00" />
+					<attribute id="Stats" type="FixedString" value="YC_QianNianRenShen" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00b15" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00a15" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00c15" version="1" />
+					<attribute id="Icon" type="FixedString" value="YC_ShuYuHua" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a15" />
+					<attribute id="Name" type="LSString" value="YC_ShuYuHua" />
+					<attribute id="ParentTemplateId" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a00" />
+					<attribute id="Stats" type="FixedString" value="YC_ShuYuHua" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00b16" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00a16" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00c16" version="1" />
+					<attribute id="Icon" type="FixedString" value="YC_ShuZhenZhu" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a16" />
+					<attribute id="Name" type="LSString" value="YC_ShuZhenZhu" />
+					<attribute id="ParentTemplateId" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a00" />
+					<attribute id="Stats" type="FixedString" value="YC_ShuZhenZhu" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00b17" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00a17" version="1" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115yca00c17" version="1" />
+					<attribute id="Icon" type="FixedString" value="YC_ZiZhi" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a17" />
+					<attribute id="Name" type="LSString" value="YC_ZiZhi" />
+					<attribute id="ParentTemplateId" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745ccb00a00" />
+					<attribute id="Stats" type="FixedString" value="YC_ZiZhi" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115bca00b01" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115bca00a01" version="1" />
+					<attribute id="Icon" type="FixedString" value="BC_DaLiTieJiao" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745bca00a01" />
+					<attribute id="Name" type="LSString" value="BC_DaLiTieJiao" />
+					<attribute id="OnUseDescription" type="TranslatedString" handle="" version="0" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+					<attribute id="ParentTemplateId" type="FixedString" value="fffed42d-f849-47ad-9931-3f7fe72e364c" />
+					<attribute id="Stats" type="FixedString" value="BC_DaLiTieJiao" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144818875517633012" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115bca00b02" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115bca00a02" version="1" />
+					<attribute id="Icon" type="FixedString" value="BC_YaoShengJiao" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745bca00a02" />
+					<attribute id="Name" type="LSString" value="BC_YaoShengJiao" />
+					<attribute id="OnUseDescription" type="TranslatedString" handle="" version="0" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+					<attribute id="ParentTemplateId" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745bca00a01" />
+					<attribute id="Stats" type="FixedString" value="BC_YaoShengJiao" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144818875517633012" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115bca00b03" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115bca00a03" version="1" />
+					<attribute id="Icon" type="FixedString" value="BC_HeiSeYanMou" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745bca00a03" />
+					<attribute id="Name" type="LSString" value="BC_HeiSeYanMou" />
+					<attribute id="ParentTemplateId" type="FixedString" value="8eeeb260-9a9f-48aa-b1bf-f86a2f7f8399" />
+					<attribute id="Stats" type="FixedString" value="BC_HeiSeYanMou" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115205255725658" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115bca00b04" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115bca00a04" version="1" />
+					<attribute id="Icon" type="FixedString" value="BC_JinSeYanMou" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745bca00a04" />
+					<attribute id="Name" type="LSString" value="BC_JinSeYanMou" />
+					<attribute id="ParentTemplateId" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745bca00a03" />
+					<attribute id="Stats" type="FixedString" value="BC_JinSeYanMou" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115205255725658" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115bca00b05" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115bca00a05" version="1" />
+					<attribute id="OnUseDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250115dya00c00" version="1" />
+					<attribute id="Icon" type="FixedString" value="BC_LingLongNeiDan" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745bca00a05" />
+					<attribute id="Name" type="LSString" value="BC_LingLongNeiDan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="894e64ad-3d0c-4ef7-8cb0-8a130bc37561" />
+					<attribute id="Stats" type="FixedString" value="BC_LingLongNeiDan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="895ce382-397d-4b9a-9e8f-6ee3b1ff3a13" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="BC_LINGLONGNEIDAN" />
+											<attribute id="StatusDuration" type="int32" value="0" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115bca00b06" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115bca00a06" version="1" />
+					<attribute id="Icon" type="FixedString" value="BC_YaoHe" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745bca00a06" />
+					<attribute id="Name" type="LSString" value="BC_YaoHe" />
+					<attribute id="ParentTemplateId" type="FixedString" value="001f36eb-a95b-455c-9fb7-ed6ae5f071b8" />
+					<attribute id="Stats" type="FixedString" value="BC_YaoHe" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403208705" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115bca00b07" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115bca00a07" version="1" />
+					<attribute id="Icon" type="FixedString" value="BC_LongZhu" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745bca00a07" />
+					<attribute id="Name" type="LSString" value="BC_LongZhu" />
+					<attribute id="ParentTemplateId" type="FixedString" value="31d1a9c1-bac0-4738-87ef-23f67b492051" />
+					<attribute id="Stats" type="FixedString" value="BC_LongZhu" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115188075855913" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115bca00b08" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115bca00a08" version="1" />
+					<attribute id="Icon" type="FixedString" value="BC_TieZhongXue" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745bca00a08" />
+					<attribute id="Name" type="LSString" value="BC_TieZhongXue" />
+					<attribute id="ParentTemplateId" type="FixedString" value="523d0cea-7f79-4f5c-ad4b-3c09633609e6" />
+					<attribute id="Stats" type="FixedString" value="BC_TieZhongXue" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209027" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115bca00b09" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115bca00a09" version="1" />
+					<attribute id="Icon" type="FixedString" value="BC_YuChuiYa" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745bca00a09" />
+					<attribute id="Name" type="LSString" value="BC_YuChuiYa" />
+					<attribute id="ParentTemplateId" type="FixedString" value="80169178-734d-48f0-9022-d3392a009c92" />
+					<attribute id="Stats" type="FixedString" value="BC_YuChuiYa" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115188075855944" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115bca00b10" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115bca00a10" version="1" />
+					<attribute id="Icon" type="FixedString" value="BC_ZhenLeiGu" />
+					<attribute id="MapKey" type="FixedString" value="987e1e7e-9656-4fdf-a0d2-e745bca00a10" />
+					<attribute id="Name" type="LSString" value="BC_ZhenLeiGu" />
+					<attribute id="ParentTemplateId" type="FixedString" value="8f7f7240-0218-4aa9-b849-bc2f57e21b5e" />
+					<attribute id="Stats" type="FixedString" value="BC_ZhenLeiGu" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209035" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250115bdl00b00" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250115bdl00a00" version="1" />
+					<attribute id="MapKey" type="FixedString" value="6207bd5e-fee8-4e3d-87e4-c563ddb00a00" />
+					<attribute id="Name" type="LSString" value="DanLu_Base" />
+					<attribute id="ParentTemplateId" type="FixedString" value="df3bce00-2381-499e-8026-c97cb1cff58d" />
+					<attribute id="CanBePickedUp" type="bool" value="True" />
+					<attribute id="WalkThrough" type="bool" value="False" />
+					<attribute id="Stats" type="FixedString" value="DL_DanLuBase" />
+					<attribute id="StoryItem" type="bool" value="False" />
+					<attribute id="IsTradable" type="uint8" value="1" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+					<children>
+						<node id="Scripts" />
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="23" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="" />
+											<attribute id="CombineSlots" type="int8" value="3" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="IsBase" type="bool" value="True" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="BookType" type="uint8" value="8" />
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250222lpa00b00" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250222lpa00a00" version="1" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="Icon" type="FixedString" value="Item_CONS_GEN_Food_Plate_A" />
+					<attribute id="MapKey" type="FixedString" value="fac0b4bb-24f7-4bc0-8b57-8f419cb9f728" />
+					<attribute id="Name" type="LSString" value="BanXian_ZhenfaTool_LuoPan" />
+					<attribute id="ParentTemplateId" type="FixedString" value="1f4773b1-a218-46d6-ab3e-a5cd13dcc697" />
+					<attribute id="OnUseDescription" type="TranslatedString" handle="stringsofmodmadebyxss20250222lpa00c00" version="1" />
+					<attribute id="Stats" type="FixedString" value="OBJ_ZhenfaTool_LuoPan" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209030" />
+					<children>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="12" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="" />
+											<attribute id="ClassId" type="guid" value="a865965f-501b-46e9-9eaa-7748e8c04d09" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="False" />
+											<attribute id="SkillID" type="FixedString" value="ZhenFa_Tool_LuoPan_Measure" />
+										</node>
+									</children>
+								</node>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="33" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="Consume" type="bool" value="False" />
+											<attribute id="SpellId" type="FixedString" value="ZhenFa_Tool_LuoPan_Measure" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+						<node id="Bounds">
+							<children>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="0.18436" />
+									<attribute id="Max" type="fvec3" value="0.2515951 0.04992208 0.2665268" />
+									<attribute id="Min" type="fvec3" value="-0.2515951 -0.005960617 -0.210584" />
+									<attribute id="Radius" type="float" value="0.1564845" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="0" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="0.18436" />
+									<attribute id="Max" type="fvec3" value="0.2515951 0.04992208 0.2665268" />
+									<attribute id="Min" type="fvec3" value="-0.2515951 -0.005960617 -0.210584" />
+									<attribute id="Radius" type="float" value="0.312969" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="1" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="0.18436" />
+									<attribute id="Max" type="fvec3" value="0.2515951 0.04992208 0.2665268" />
+									<attribute id="Min" type="fvec3" value="-0.2515951 -0.005960617 -0.210584" />
+									<attribute id="Radius" type="float" value="0.312969" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="2" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="CanClickThrough" type="bool" value="True" />
+					<attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250221zfa00b00" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250221zfa00a00" version="1" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="82434a0e-dd6c-4530-aeed-f3cf7b00a000" />
+					<attribute id="Name" type="LSString" value="ZHENFA_Core" />
+					<attribute id="ParentTemplateId" type="FixedString" value="e40d1292-1da8-4c8f-b1dc-213cfdd4e135" />
+					<attribute id="PhysicsTemplate" type="FixedString" value="5615295e-a52a-625b-221f-65753c80be0b" />
+					<attribute id="Stats" type="FixedString" value="OBJ_GenericImmutableObject" />
+					<attribute id="TechnicalDescription" type="TranslatedString" handle="he718b944g3a85g4774g81a4g1088e48c69c8" version="1" />
+					<attribute id="TechnicalDescriptionParams" type="LSString" value="Distance(15)" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="VisualTemplate" type="FixedString" value="cdaa0cac-e72a-1e90-7503-d51ef24c59e6" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209024" />
+					<children>
+						<node id="OnUsePeaceActions" />
+						<node id="Scripts" />
+						<node id="StatusList" />
+						<node id="Tags">
+							<children>
+								<node id="Tag">
+									<attribute id="Object" type="guid" value="292e7f29-ff10-462d-8be9-94ddd18970ea" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250221zfb00a00" version="1" />
+					<attribute id="MapKey" type="FixedString" value="82434a0e-dd6c-4530-aeed-f3cf7b00b000" />
+					<attribute id="Name" type="LSString" value="ZHENFA_Flag" />
+					<attribute id="ParentTemplateId" type="FixedString" value="b3b9353a-4b03-4599-bcc2-a0b86807f430" />
+					<attribute id="Stats" type="FixedString" value="BANXIAN_ZhenFa_Flags" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+					<children>
+						<node id="LocomotionParams" />
+						<node id="SkillList" />
+						<node id="Tags" />
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250221zfb00a01" version="1" />
+					<attribute id="MapKey" type="FixedString" value="82434a0e-dd6c-4530-aeed-f3cf7b00b001" />
+					<attribute id="Name" type="LSString" value="ZHENFA_Flag" />
+					<attribute id="ParentTemplateId" type="FixedString" value="82434a0e-dd6c-4530-aeed-f3cf7b00b000" />
+					<attribute id="Stats" type="FixedString" value="BANXIAN_ZhenFa_Flags_1" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250221zfb00a02" version="1" />
+					<attribute id="MapKey" type="FixedString" value="82434a0e-dd6c-4530-aeed-f3cf7b00b002" />
+					<attribute id="Name" type="LSString" value="ZHENFA_Flag" />
+					<attribute id="ParentTemplateId" type="FixedString" value="82434a0e-dd6c-4530-aeed-f3cf7b00b000" />
+					<attribute id="Stats" type="FixedString" value="BANXIAN_ZhenFa_Flags_2" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250221zfb00a03" version="1" />
+					<attribute id="MapKey" type="FixedString" value="82434a0e-dd6c-4530-aeed-f3cf7b00b003" />
+					<attribute id="Name" type="LSString" value="ZHENFA_Flag" />
+					<attribute id="ParentTemplateId" type="FixedString" value="82434a0e-dd6c-4530-aeed-f3cf7b00b000" />
+					<attribute id="Stats" type="FixedString" value="BANXIAN_ZhenFa_Flags_3" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250221zfb00a04" version="1" />
+					<attribute id="MapKey" type="FixedString" value="82434a0e-dd6c-4530-aeed-f3cf7b00b004" />
+					<attribute id="Name" type="LSString" value="ZHENFA_Flag" />
+					<attribute id="ParentTemplateId" type="FixedString" value="82434a0e-dd6c-4530-aeed-f3cf7b00b000" />
+					<attribute id="Stats" type="FixedString" value="BANXIAN_ZhenFa_Flags_4" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250221zfb00a05" version="1" />
+					<attribute id="MapKey" type="FixedString" value="82434a0e-dd6c-4530-aeed-f3cf7b00b005" />
+					<attribute id="Name" type="LSString" value="ZHENFA_Flag" />
+					<attribute id="ParentTemplateId" type="FixedString" value="82434a0e-dd6c-4530-aeed-f3cf7b00b000" />
+					<attribute id="Stats" type="FixedString" value="BANXIAN_ZhenFa_Flags_5" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250221zfb00a06" version="1" />
+					<attribute id="MapKey" type="FixedString" value="82434a0e-dd6c-4530-aeed-f3cf7b00b006" />
+					<attribute id="Name" type="LSString" value="ZHENFA_Flag" />
+					<attribute id="ParentTemplateId" type="FixedString" value="82434a0e-dd6c-4530-aeed-f3cf7b00b000" />
+					<attribute id="Stats" type="FixedString" value="BANXIAN_ZhenFa_Flags_6" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250221zfb00a07" version="1" />
+					<attribute id="MapKey" type="FixedString" value="82434a0e-dd6c-4530-aeed-f3cf7b00b007" />
+					<attribute id="Name" type="LSString" value="ZHENFA_Flag" />
+					<attribute id="ParentTemplateId" type="FixedString" value="82434a0e-dd6c-4530-aeed-f3cf7b00b000" />
+					<attribute id="Stats" type="FixedString" value="BANXIAN_ZhenFa_Flags_7" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250221zfb00a08" version="1" />
+					<attribute id="MapKey" type="FixedString" value="82434a0e-dd6c-4530-aeed-f3cf7b00b008" />
+					<attribute id="Name" type="LSString" value="ZHENFA_Flag" />
+					<attribute id="ParentTemplateId" type="FixedString" value="82434a0e-dd6c-4530-aeed-f3cf7b00b000" />
+					<attribute id="Stats" type="FixedString" value="BANXIAN_ZhenFa_Flags_8" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="5e9f9fbd-f2ec-4471-a5e5-1452f8a35e54" />
+					<attribute id="Name" type="LSString" value="Dragon_Yao_Gold" />
+					<attribute id="ParentTemplateId" type="FixedString" value="64383f18-9830-40c2-8681-657cf36afc05" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403208908" />
+					<children>
+						<node id="LayerList">
+							<children>
+								<node id="Layers">
+									<children>
+										<node id="Object">
+											<attribute id="MapKey" type="FixedString" value="END_Main" />
+											<children>
+												<node id="Layer">
+													<attribute id="Object" type="guid" value="804b69d4-43f2-bf8e-7880-01fbb4e8b6a3" />
+												</node>
+												<node id="Layer">
+													<attribute id="Object" type="guid" value="2149e054-6664-c722-3547-4ad7f36e1b3f" />
+												</node>
+												<node id="Layer">
+													<attribute id="Object" type="guid" value="3dd65ac9-f0aa-eb86-0050-85092aa3d87a" />
+												</node>
+											</children>
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+						<node id="LocomotionParams">
+							<attribute id="IsMovementEnabled" type="bool" value="False" />
+						</node>
+						<node id="SkillList">
+							<children>
+								<node id="Skill">
+									<attribute id="AIFlags" type="uint16" value="0" />
+									<attribute id="FallbackStartRound" type="int32" value="-1" />
+									<attribute id="LearningStrategy" type="uint8" value="0" />
+									<attribute id="MinimumImpact" type="int32" value="0" />
+									<attribute id="OnlyCastOnSelf" type="bool" value="False" />
+									<attribute id="ScoreModifier" type="float" value="1.25" />
+									<attribute id="Skill" type="FixedString" value="Target_Slam_Dragon" />
+									<attribute id="SpellCastingAbility" type="uint8" value="0" />
+									<attribute id="StartRound" type="int32" value="0" />
+									<children>
+										<node id="SourceConditions">
+											<attribute id="MaximumHealthPercentage" type="int32" value="100" />
+											<attribute id="MinimumHealthPercentage" type="int32" value="0" />
+											<children>
+												<node id="Tags" />
+											</children>
+										</node>
+										<node id="TargetConditions">
+											<attribute id="MaximumHealthPercentage" type="int32" value="100" />
+											<attribute id="MinimumHealthPercentage" type="int32" value="0" />
+											<children>
+												<node id="Tags" />
+											</children>
+										</node>
+									</children>
+								</node>
+								<node id="Skill">
+									<attribute id="AIFlags" type="uint16" value="0" />
+									<attribute id="FallbackStartRound" type="int32" value="-1" />
+									<attribute id="LearningStrategy" type="uint8" value="0" />
+									<attribute id="MinimumImpact" type="int32" value="0" />
+									<attribute id="OnlyCastOnSelf" type="bool" value="False" />
+									<attribute id="ScoreModifier" type="float" value="1" />
+									<attribute id="Skill" type="FixedString" value="Target_Fly_Dragon" />
+									<attribute id="SpellCastingAbility" type="uint8" value="0" />
+									<attribute id="StartRound" type="int32" value="0" />
+									<children>
+										<node id="SourceConditions">
+											<attribute id="MaximumHealthPercentage" type="int32" value="100" />
+											<attribute id="MinimumHealthPercentage" type="int32" value="0" />
+											<children>
+												<node id="Tags" />
+											</children>
+										</node>
+										<node id="TargetConditions">
+											<attribute id="MaximumHealthPercentage" type="int32" value="100" />
+											<attribute id="MinimumHealthPercentage" type="int32" value="0" />
+											<children>
+												<node id="Tags" />
+											</children>
+										</node>
+									</children>
+								</node>
+								<node id="Skill">
+									<attribute id="AIFlags" type="uint16" value="0" />
+									<attribute id="FallbackStartRound" type="int32" value="-1" />
+									<attribute id="LearningStrategy" type="uint8" value="0" />
+									<attribute id="MinimumImpact" type="int32" value="0" />
+									<attribute id="OnlyCastOnSelf" type="bool" value="False" />
+									<attribute id="ScoreModifier" type="float" value="1" />
+									<attribute id="Skill" type="FixedString" value="Projectile_Fireball_Dragon" />
+									<attribute id="SpellCastingAbility" type="uint8" value="0" />
+									<attribute id="StartRound" type="int32" value="0" />
+									<children>
+										<node id="SourceConditions">
+											<attribute id="MaximumHealthPercentage" type="int32" value="100" />
+											<attribute id="MinimumHealthPercentage" type="int32" value="0" />
+											<children>
+												<node id="Tags" />
+											</children>
+										</node>
+										<node id="TargetConditions">
+											<attribute id="MaximumHealthPercentage" type="int32" value="100" />
+											<attribute id="MinimumHealthPercentage" type="int32" value="0" />
+											<children>
+												<node id="Tags" />
+											</children>
+										</node>
+									</children>
+								</node>
+								<node id="Skill">
+									<attribute id="AIFlags" type="uint16" value="0" />
+									<attribute id="FallbackStartRound" type="int32" value="-1" />
+									<attribute id="LearningStrategy" type="uint8" value="0" />
+									<attribute id="MinimumImpact" type="int32" value="0" />
+									<attribute id="OnlyCastOnSelf" type="bool" value="False" />
+									<attribute id="ScoreModifier" type="float" value="1" />
+									<attribute id="Skill" type="FixedString" value="Shout_FrightfulPresence_Dragon" />
+									<attribute id="SpellCastingAbility" type="uint8" value="0" />
+									<attribute id="StartRound" type="int32" value="0" />
+									<children>
+										<node id="SourceConditions">
+											<attribute id="MaximumHealthPercentage" type="int32" value="100" />
+											<attribute id="MinimumHealthPercentage" type="int32" value="0" />
+											<children>
+												<node id="Tags" />
+											</children>
+										</node>
+										<node id="TargetConditions">
+											<attribute id="MaximumHealthPercentage" type="int32" value="100" />
+											<attribute id="MinimumHealthPercentage" type="int32" value="0" />
+											<children>
+												<node id="Tags" />
+											</children>
+										</node>
+									</children>
+								</node>
+								<node id="Skill">
+									<attribute id="AIFlags" type="uint16" value="0" />
+									<attribute id="FallbackStartRound" type="int32" value="-1" />
+									<attribute id="LearningStrategy" type="uint8" value="0" />
+									<attribute id="MinimumImpact" type="int32" value="0" />
+									<attribute id="OnlyCastOnSelf" type="bool" value="False" />
+									<attribute id="ScoreModifier" type="float" value="1.3" />
+									<attribute id="Skill" type="FixedString" value="Target_Multiattack_Dragon" />
+									<attribute id="SpellCastingAbility" type="uint8" value="0" />
+									<attribute id="StartRound" type="int32" value="0" />
+									<children>
+										<node id="SourceConditions">
+											<attribute id="MaximumHealthPercentage" type="int32" value="100" />
+											<attribute id="MinimumHealthPercentage" type="int32" value="0" />
+											<children>
+												<node id="Tags" />
+											</children>
+										</node>
+										<node id="TargetConditions">
+											<attribute id="MaximumHealthPercentage" type="int32" value="100" />
+											<attribute id="MinimumHealthPercentage" type="int32" value="0" />
+											<children>
+												<node id="Tags" />
+											</children>
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+						<node id="StatusList">
+							<children>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="END_NETHERBRAIN_DRAGONDOMINATION" />
+								</node>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="END_INITIATIVE_DEBUFF" />
+								</node>
+							</children>
+						</node>
+						<node id="Tags">
+							<children>
+								<node id="Tag">
+									<attribute id="Object" type="guid" value="a50cb0b1-29a6-4711-a71d-0dc3e3642287" />
+								</node>
+							</children>
+						</node>
+						<node id="Transform">
+							<attribute id="Position" type="fvec3" value="5548.86 6.40594 478.8594" />
+							<attribute id="RotationQuat" type="fvec4" value="0 0.7943388 0 0.607475" />
+							<attribute id="Scale" type="float" value="1" />
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

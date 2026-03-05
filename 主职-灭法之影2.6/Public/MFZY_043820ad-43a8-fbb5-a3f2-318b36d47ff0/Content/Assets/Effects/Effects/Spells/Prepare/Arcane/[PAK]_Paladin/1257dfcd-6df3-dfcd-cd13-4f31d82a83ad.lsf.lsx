@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids,lsf_keys_adjacency" />
+	<region id="TextureBank">
+		<node id="TextureBank">
+			<children>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="1257dfcd-6df3-dfcd-cd13-4f31d82a83ad" />
+					<attribute id="Name" type="LSString" value="newAtlas" />
+					<attribute id="SourceFile" type="LSString" value="Public/MFZY_043820ad-43a8-fbb5-a3f2-318b36d47ff0/Assets/Textures/Icons/newAtlas.dds" />
+					<attribute id="Template" type="FixedString" value="newAtlas" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Type" type="int32" value="1" />
+					<attribute id="SRGB" type="bool" value="False" />
+					<attribute id="Width" type="int32" value="1024" />
+					<attribute id="Height" type="int32" value="1024" />
+					<attribute id="Depth" type="int32" value="1" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

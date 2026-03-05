@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+  <version major="4" minor="0" revision="9" build="328" />
+  <region id="SkillLists">
+    <node id="root">
+      <children>
+        <node id="SkillList">
+                    <attribute id="Name" type="FixedString" value="所有熟练项" />
+                    <attribute id="Skills" type="LSString" value="Acrobatics, AnimalHandling, Arcana, Athletics, Deception, History, Insight, Intimidation, Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, SleightOfHand, Stealth, Survival" />
+                    <attribute id="UUID" type="guid" value="c150bff8-7fa3-462c-8910-ae2833d1c479" />
+                </node>
+      </children>
+    </node>
+  </region>
+</save>

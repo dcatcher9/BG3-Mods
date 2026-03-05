@@ -1,0 +1,8 @@
+{
+  "RequiredVersion": 14,
+  "ModTable": "XSS_BANXIAN",
+  "FeatureFlags": [
+    "Osiris",
+    "Lua"
+  ]
+}

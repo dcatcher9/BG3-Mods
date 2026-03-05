@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="7" revision="1" build="3"/>
+    <region id="ConditionErrors">
+        <node id="root">
+            <children>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h027e76f9g0088gbbefg18a3g2a6e03be38d9" version="3"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="20XQZ"/>
+                    <attribute id="UUID" type="guid" value="33599382-1587-47bb-b1fc-162f4441e7e7"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="hd2d09dccg4231g47f7g6653g08ebbb034ef9" version="1"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="50XQZ"/>
+                    <attribute id="UUID" type="guid" value="853c99ec-00f2-48f6-918d-8d72396677d5"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h05ef32e7g409fg0389g2f52g96d892cf3d13" version="2"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="60XQZ"/>
+                    <attribute id="UUID" type="guid" value="1373c5ad-664d-4184-8f73-ddb74e2144a5"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="hbaa591edga9f8g3c3eg5addg80cc809933da" version="2"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="30XQZ"/>
+                    <attribute id="UUID" type="guid" value="d11c3fb2-11a7-4dac-9b32-ef92e098370d"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="hb9210a9cga563gc551gd3cega5f408305e8e" version="2"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="40XQZ"/>
+                    <attribute id="UUID" type="guid" value="0f3caae2-a78c-465d-91d2-01b7543bb8b7"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="habfb9cb9gb50cgf55ag7d99ge99c2ec3809b" version="2"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="70XQZ"/>
+                    <attribute id="UUID" type="guid" value="bcd6ce4c-cbe0-4348-abe4-06d716b1fec3"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="hf32cd864gfa81g9523g585ag5ccd77eb27a7" version="2"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="80XQZ"/>
+                    <attribute id="UUID" type="guid" value="dc7347ed-20c4-4d7f-a513-e051678d057a"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="hd0baef8dgd78egfabfg0e81ga3ef10c663c8" version="2"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="90XQZ"/>
+                    <attribute id="UUID" type="guid" value="801d622b-b056-4b02-8ea2-9e76827bfab8"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h99c66d9fge911g19a4g0314g6d8a556cf89b" version="2"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="100XQZ"/>
+                    <attribute id="UUID" type="guid" value="a71100a5-82db-4976-b57a-4d7488205750"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h55390807g11b7gc3c1g02f7g408dda7325b2" version="2"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="110XQZ"/>
+                    <attribute id="UUID" type="guid" value="1ba4ea16-7ece-4b12-9f64-7d004cc3d528"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h73bf4037g994bg2f70g9b08gd15f15030b4b" version="2"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="120XQZ"/>
+                    <attribute id="UUID" type="guid" value="e5190ef4-6ba8-46da-9773-d1f0af395deb"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h38190e2dg016bgd0aag4b1fgc5255f220c14" version="2"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="130XQZ"/>
+                    <attribute id="UUID" type="guid" value="c97770a5-bdcc-4373-9759-cda8a96f0c73"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="hc97b6e1eg52b7g96f3gbbc8g857b9f647c5e" version="2"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="140XQZ"/>
+                    <attribute id="UUID" type="guid" value="484f78c0-2646-4291-bbfa-64061e2e563f"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="hc1d0751eg878cgafb4gfbf2g5ccf82bcd5bd" version="2"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="150XQZ"/>
+                    <attribute id="UUID" type="guid" value="22d030e0-ecfd-47be-b1c7-e3e70cc9ea05"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h85a996ffgcd6eg2c5ag9fa0g62ca1cd64126" version="2"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="200XQZ"/>
+                    <attribute id="UUID" type="guid" value="3cb32ce3-72be-4599-9235-9c6edf8b9041"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h41e8a2a4g05feg7889ga25agddcfc58b0468" version="2"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="400XQZ"/>
+                    <attribute id="UUID" type="guid" value="156cf460-d8d2-4622-9c10-a5c3993c3d37"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="hf6a66d76gf7a1g6dbegf1deg1e83e82b8f18" version="2"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="600XQZ"/>
+                    <attribute id="UUID" type="guid" value="0355ca0a-4d88-4f1b-81bb-189248e556c6"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h2313e6dfg28f6g50aegeee5g096bbbe345c2" version="2"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="800XQZ"/>
+                    <attribute id="UUID" type="guid" value="384c46b1-9e7e-4de0-adb3-e3f47eb60980"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

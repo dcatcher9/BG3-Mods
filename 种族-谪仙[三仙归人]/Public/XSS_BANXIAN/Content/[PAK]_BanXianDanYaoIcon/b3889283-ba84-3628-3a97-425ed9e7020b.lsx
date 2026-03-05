@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids" />
+	<region id="TextureBank">
+		<node id="TextureBank">
+			<children>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="b3889283-ba84-3628-3a97-425ed9e7020b" />
+					<attribute id="Name" type="LSString" value="newAtlas" />
+					<attribute id="SourceFile" type="LSString" value="Public/XSS_BANXIAN/Assets/Textures/Icons/newAtlas.DDS" />
+					<attribute id="Template" type="FixedString" value="newAtlas" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Type" type="int32" value="1" />
+					<attribute id="SRGB" type="bool" value="False" />
+					<attribute id="Width" type="int32" value="4096" />
+					<attribute id="Height" type="int32" value="4096" />
+					<attribute id="Depth" type="int32" value="1" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="7" revision="1" build="3"/>
+    <region id="Feats">
+        <node id="root">
+            <children>
+                <node id="Feat">
+                    <attribute id="CanBeTakenMultipleTimes" type="bool" value="true"/>
+                    <attribute id="Name" type="FixedString" value="基础被动"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Basic_Recovery,Basic_Physique"/>
+                    <attribute id="Selectors" type="LSString" value="SelectAbilities(b63a0dfe-562c-4842-8374-1e270871e4d0,2,2,FeatASI);SelectPassives(88cc6dfb-5557-4a7e-867a-e789d7d0fa5f,1)"/>
+                    <attribute id="UUID" type="guid" value="7664276d-2f34-4d8a-a352-43d4d16b8b9e"/>
+                </node>
+                <node id="Feat">
+                    <attribute id="Name" type="FixedString" value="轮回乐园契约者"/>
+                    <attribute id="PassivesAdded" type="LSString" value="KILL_LingHunQianBi;KILL_LeYuanBi;KILL_BaiSe_BaoXiang;KILL_BaiSe_BaoXiangSuiPian;LunHuiLeYuanXiTong"/>
+                    <attribute id="UUID" type="guid" value="be557e26-368e-4c6b-9986-e5a7f7b562d6"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

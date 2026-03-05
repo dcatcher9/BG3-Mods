@@ -1,0 +1,6 @@
+new spellset "BuBuWang2"
+add spell "Shout_Charge_FullSpeed"
+new spellset "New_Stat_0"
+add spell "Target_Loyal_Protection_of_the_Lord_2"
+new spellset "BaHa4"
+add spell "Target_chaofeng"

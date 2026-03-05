@@ -1,0 +1,13 @@
+
+new equipment "EQP_BANXIAN"
+add initialweaponset "Melee"
+add equipmentgroup
+add equipment entry "ARM_Underwear_Incubus"
+add equipmentgroup
+add equipment entry "BK_BanXian_GongLve_XiaoChangshi_FeiLenCui"
+add equipmentgroup
+add equipment entry "DL_DanLuBase"
+add equipmentgroup
+add equipment entry "OBJ_ZhenfaTool_LuoPan"
+add equipmentgroup
+add equipment entry "OBJ_Potion_Of_Vitality"

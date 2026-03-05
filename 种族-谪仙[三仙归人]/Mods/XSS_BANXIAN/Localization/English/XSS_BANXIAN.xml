@@ -1,0 +1,1470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<contentList date="25/05/2024 12:47">
+  <content contentuid="stringsofmodmadebyxss20240930dv001001" version="1">谪仙</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001a01" version="1">天仙</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001b01" version="1">人仙</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001c01" version="1">妖仙</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001002" version="1">一觉游仙好梦  任它竹冷松寒
+  轩辕事  古今谈  风流河山
+  沉醉负白首  舒怀成大观
+  醒  亦在人间
+  梦  亦在人间</content>
+  <content contentuid="stringsofmodmadebyxss20240930tag01a01" version="1">空壳</content>
+  <content contentuid="stringsofmodmadebyxss20240930tag01b01" version="1">该生物没有灵魂。</content>
+  <content contentuid="stringsofmodmadebyxss20240830ex0000a6" version="1">目标必须为本土生物</content>
+
+
+  <content contentuid="stringsofmodmadebyxss20250218jj001a00" version="1">神识</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj001b00" version="1">仙人必修的精神力量，可以提升造成的心灵伤害和其抗性以及自身感知属性。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj001a01" version="1">分神术</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj001b01" version="1">开发你的神识。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb06a01" version="1">分神术：夺灵</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb06b01" version="1">夺取一个生物的灵根。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb06c01" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;目标必须已觉醒灵根！</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj001c01" version="1">分神术：担山</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj001d01" version="1">消耗神识，操控一个物体的位置。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj001e01" version="1">分神术：掌日</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj001f01" version="1">消耗神识上限，控制一个傀儡。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj001g01" version="1">神识不足</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj002h01" version="1">无法探查</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj002h02" version="1">没有觉醒灵根</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj002h03" version="1">此刻不宜夺舍</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj001h01" version="1">该傀儡行动受神识主人的影响。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj001i01" version="1">正在用神识控制着傀儡</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj001j01" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;神识必须超过目标等级的两倍！</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj001a02" version="1">分神术：内观</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj001b02" version="1">探查生物的身体状况。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj001c02" version="1">分神术：洞观</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj001d02" version="1">探查范围内的非友方生物。</content>
+
+  <content contentuid="stringsofmodmadebyxss20250218jj003a01" version="1">金丹</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj003b01" version="1">气点、神识上限获得大幅提升。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj003a02" version="1">金丹术</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj003b02" version="1">将其他资源转化为气点。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj003c02" version="1">将气点转化为其他资源。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj003a03" version="1">恢复1个气点。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj003b03" version="1">恢复2个气点。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj003c03" version="1">恢复3个气点。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj003d03" version="1">恢复4个气点。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj003e03" version="1">恢复5个气点。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj003f03" version="1">恢复6个气点。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj003a04" version="1">恢复1个奥术回想充能。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj003b04" version="1">恢复1个术法点。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj003c04" version="1">恢复1个1环法术位。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj003d04" version="1">恢复1个2环法术位。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj003e04" version="1">恢复1个3环法术位。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj003f04" version="1">恢复1个4环法术位。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj003g04" version="1">恢复1个5环法术位。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj003h04" version="1">恢复1个6环法术位。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj003i04" version="1">恢复1个邪术师法术位。</content>
+
+  <content contentuid="stringsofmodmadebyxss20250218jj004a01" version="1">元婴</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj004b01" version="1">气点、神识上限获得大幅提升。每回复生命值。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj004c01" version="1">激活：每回合恢复气点。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj004a02" version="1">元婴术</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj004b02" version="1">施展需要专注的法术时不再需要专注,但需要消耗1点神识上限。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj004c02" version="1">持续期间将停止元婴的增益。</content>
+  <content contentuid="stringsofmodmadebyxss20250218jj004d02" version="1">元婴出窍</content>
+
+
+  <content contentuid="stringsofmodmadebyxss20240930dv001003" version="1">淬体</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001004" version="1">选择一个穴窍进行冲击。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001a05" version="1">大道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001b05" version="1">修道修道，你修什么道，就走什么路。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001c05" version="1">修行进度</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001d05" version="1">每次短休、长修后你都会获得该等同于你等级的&lt;LSTag Type="Status" Tooltip="BANXIAN_DH_YEAR"&gt;道行&lt;/LSTag&gt;，天数每满365天后转化为1年道行。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001e05" version="1">道行</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001f05" version="1">你积累的道行年数。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001g05" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;每有1年道行，提升1点生命值上限。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001a06" version="1">谪仙·仙人模式</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001b06" version="1">消耗你的&lt;LSTag Type="Status" Tooltip="BANXIAN_DH_YEAR"&gt;道行&lt;/LSTag&gt;，进入仙人模式。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001c06" version="1">&lt;LSTag Type="Status" Tooltip="BANXIAN_DH_DAY"&gt;修行进度&lt;/LSTag&gt;: [1]天。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001a07" version="1">腾云驾雾</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001b07" version="1">免疫劣势地形和坠落伤害，远程武器攻击掷骰+1，&lt;LSTag Tooltip="ArmourClass"&gt;护甲等级&lt;/LSTag&gt;+2，且不受低地影响。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001a08" version="1">道痕</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001b08" version="1">你修道留下的残痕，既可以在你丢失道行后加速你的修行，也可以在你转修大道后阻碍你的修行。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001c08" version="1">道心动摇</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001d08" version="1">修道一途贵在专一，你需要一些时间去斩断旧的大道并领悟新的大道。</content>
+  <content contentuid="stringsofmodmadebyxss20240930bx001a10" version="1">灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001b10" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1a11" version="1">火灵根权重</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1b11" version="1">火土灵根权重</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1c11" version="1">火水灵根权重</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1d11" version="1">天火灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1e11" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;天灵根
+你的火焰伤害获得增加等同于你施法属性调整值的加值。
+无视火焰伤害抗性，施展法术环位低于或等于你的境界的火焰伤害类型的法术时，不消耗法术位。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1f11" version="1">火灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1g11" version="1">你的火焰伤害获得增加等同于你施法属性调整值的加值。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1a12" version="1">土灵根权重</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1b12" version="1">土金灵根权重</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1c12" version="1">土木灵根权重</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1d12" version="1">天土灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1e12" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;天灵根
+受到的伤害减少[1]。
+受到的伤害再减少[2]。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1f12" version="1">土灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1g12" version="1">受到的伤害减少[1]。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1a13" version="1">金灵根权重</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1b13" version="1">金水灵根权重</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1c13" version="1">金火灵根权重</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1d13" version="1">天金灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1e13" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;天灵根
+使用金属武器攻击时，攻击掷骰获得优势，伤害掷骰取两次结果的最高值。
+使用金属武器攻击时，一定会命中并造成重击。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1f13" version="1">金灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1g13" version="1">使用金属武器攻击时，攻击掷骰获得优势，伤害掷骰取两次结果的最高值。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1a14" version="1">水灵根权重</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1b14" version="1">水木灵根权重</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1c14" version="1">水土灵根权重</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1d14" version="1">天水灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1e14" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;天灵根
+潮湿状态下移动速度翻倍。
+施展寒冷伤害类型的法术不再需要消耗动作或附赠动作。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1f14" version="1">水灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1g14" version="1">潮湿状态下移动速度翻倍，造成寒冷伤害类型的法术变为消耗附赠动作。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1a15" version="1">木灵根权重</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1b15" version="1">木火灵根权重</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1c15" version="1">木金灵根权重</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1d15" version="1">天木灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1e15" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;天灵根
+治疗目标时使其额外回复[1]。
+治疗目标时还可以消除疲惫和负面状态。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1f15" version="1">木灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1g15" version="1">治疗目标时使其额外回复[1]。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1h11" version="1">仙火灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1i11" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;仙灵根
+无视火焰伤害抗性与免疫，火焰伤害掷骰最低值为20。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1h12" version="1">仙土灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1i12" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;仙灵根
+受到的所有类型伤害进一步减少（等级阶梯值）。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1h13" version="1">仙金灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1i13" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;仙灵根
+使用金属武器攻击时，一定会命中并造成重击，伤害掷骰最低值为20。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1h14" version="1">仙水灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1i14" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;仙灵根
+魅力+5，获得寒冷伤害抗性，无视寒冷伤害抗性。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1h15" version="1">仙木灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1i15" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;仙灵根
+体质+5，承受法术治疗最大化，施法治疗时获得临时生命值。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1j11" version="1">圣火灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1k11" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;圣灵根
+无视火焰伤害抗性与免疫，火焰伤害掷骰最低值为20。额外获得等同施法属性调整值的火焰加值并获得2个额外重击骰。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1j12" version="1">圣土灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1k12" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;圣灵根
+受到的所有类型伤害进一步减少（等级阶梯值+体质调整值）。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1j13" version="1">圣金灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1k13" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;圣灵根
+使用金属武器攻击时，一定会命中并造成重击，伤害掷骰最低值为20。无视物理伤害抗性。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1j14" version="1">圣水灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1k14" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;圣灵根
+魅力+8，无视寒冷伤害免疫，寒冷伤害掷骰最低值为20。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1j15" version="1">圣木灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1k15" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;圣灵根
+体质+8，承受与施予的治疗最大化，任何治疗都能清除负面状态。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1a16" version="1">资质</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1b16" version="1">提升气点上限和修行的速度。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1c16" version="1">先天资质</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1d16" version="1">先天资质决定了你的修行难度，越是平庸的资质，修行越是困难。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1017" version="1">灵根破碎</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1a17" version="1">先天道体</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1b17" version="1">大帝之资</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1c17" version="1">先天慧根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1d17" version="1">平平无奇</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1e17" version="1">？？？？</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1a18" version="1">圣人下凡，初始提供6~10点&lt;LSTag Type="Status" Tooltip="BANXIAN_LG_TZ"&gt;先天资质&lt;/LSTag&gt;，灵根广博，覆盖4~5种属性。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1b18" version="1">天之骄子，初始提供3~5点&lt;LSTag Type="Status" Tooltip="BANXIAN_LG_TZ"&gt;先天资质&lt;/LSTag&gt;，灵根精专，覆盖3种属性。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1c18" version="1">百里挑一，初始提供2点&lt;LSTag Type="Status" Tooltip="BANXIAN_LG_TZ"&gt;先天资质&lt;/LSTag&gt;，灵根集中，覆盖1~2种属性。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1d18" version="1">平平无奇，初始提供1点&lt;LSTag Type="Status" Tooltip="BANXIAN_LG_TZ"&gt;先天资质&lt;/LSTag&gt;，灵根高度集中，仅覆盖1~2种属性。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b1e18" version="1">会是什么资质呢？</content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2a10" version="1">混沌灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2b10" version="1">你的短休可以恢复长休才能恢复的资源。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2c10" version="1">天混沌灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2d10" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;天灵根
+你的短休可以恢复长休才能恢复的资源。所有属性+1。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2e10" version="1">仙混沌灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2f10" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;仙灵根
+你的短休可以恢复长休才能恢复的资源。所有属性共计+3（天+1，仙+2）。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2g10" version="1">圣混沌灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2h10" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;圣灵根
+你的短休可以恢复长休才能恢复的资源。所有属性共计+6（天+1，仙+2，圣+3）。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2a11" version="1">冰灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2b11" version="1">站在冰面上时攻击掷骰获得优势，你发动或受到攻击时会对目标施加1层&lt;LSTag Type="Status" Tooltip="MAG_FROST"&gt;覆霜&lt;/LSTag&gt;状态。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2c11" version="1">天冰灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2d11" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;天灵根
+站在冰面上时攻击掷骰获得优势，你发动或受到攻击时会对目标施加1层&lt;LSTag Type="Status" Tooltip="MAG_FROST"&gt;覆霜&lt;/LSTag&gt;状态。
+被你冰冻的目标会一直持续至长休。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2a12" version="1">风灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2b12" version="1">反应+1,移动速度+3m。获得雷鸣伤害抗性，免疫&lt;LSTag Type="Status" Tooltip="HASTE_LETHARGY"&gt;昏睡&lt;/LSTag&gt;状态。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2c12" version="1">天风灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2d12" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;天灵根
+反应+1,移动速度+3m。获得雷鸣伤害抗性，免疫&lt;LSTag Type="Status" Tooltip="HASTE_LETHARGY"&gt;昏睡&lt;/LSTag&gt;状态。
+动作、附赠动作+1。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2a13" version="1">雷灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2b13" version="1">获得闪电伤害抗性，解锁闪电充能上限，战斗中每次施法会获得闪电充能，触发&lt;LSTag Tooltip="CriticalHit"&gt;重击&lt;/LSTag&gt;所需的点数-1,获得一个额外重击骰，且你的闪电充能可以提供减伤。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2c13" version="1">天雷灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2d13" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;天灵根
+获得闪电伤害抗性，当你施展法术时会获得2层闪电充能，解锁闪电充能上限，触发&lt;LSTag Tooltip="CriticalHit"&gt;重击&lt;/LSTag&gt;所需的点数-1,获得一个额外重击骰，且你的闪电充能可以提供减伤。
+无视闪电伤害抗性，闪电充能可以提供增伤，当超过5层时攻击总是最大限度地造成伤害。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2a14" version="1">血灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2b14" version="1">对目标发动近战攻击时，有吸血效果，若发动法术攻击，还会施加&lt;LSTag Type="Status" Tooltip="BLEEDING"&gt;流血&lt;/LSTag&gt;状态。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2c14" version="1">天血灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2d14" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;天灵根
+对目标发动近战攻击时，有吸血效果，若发动法术攻击，还会施加&lt;LSTag Type="Status" Tooltip="BLEEDING"&gt;流血&lt;/LSTag&gt;状态。
+施加&lt;LSTag Type="Status" Tooltip="BLEEDING"&gt;流血&lt;/LSTag&gt;状态时，还会施加一些诅咒。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2a15" version="1">光灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2b15" version="1">处于阳光下时，每回合结束时回复[1]，若生命值已满，则会使三维属性获得提升。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2c15" version="1">天光灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2d15" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;天灵根
+处于阳光下时，每回合结束时回复[1]，若生命值已满，则会使三维属性获得提升。
+生命值恢复和属性加值效果获得提升。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2a16" version="1">暗灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2b16" version="1">处于遮蔽下时，可以消耗反应使你具有优势的攻击造成&lt;LSTag Tooltip="CriticalHit"&gt;重击&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2c16" version="1">天暗灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2d16" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;天灵根
+处于遮蔽下时，可以消耗反应使你具有优势的攻击造成&lt;LSTag Tooltip="CriticalHit"&gt;重击&lt;/LSTag&gt;。
+不再依赖优势。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2a17" version="1">毒灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2b17" version="1">你在攻击时会对目标额外造成[1]，但自身也可能受到同样伤害。你享受&lt;LSTag Type="Status" Tooltip="POISONED"&gt;中毒&lt;/LSTag&gt;状态。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2c17" version="1">天毒灵根</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2d17" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;天灵根
+你在攻击时会对目标额外造成[1]，但自身也可能受到同样伤害。你享受&lt;LSTag Type="Status" Tooltip="POISONED"&gt;中毒&lt;/LSTag&gt;状态。
+毒素伤害会取最大值。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2e17" version="1">毒发</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2f17" version="1">每到阴天下雨的时候，两肋处会出现麻痒感，而且会逐渐增强，持续一个时辰以上，午时和子时各发作一次。每当深夜，大约三更天左右地时候，头顶和脚心都会出现针扎般的刺痛，全身痉挛，至少半个时辰。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0b2g17" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;毒灵根：攻击掷骰、属性检定获得优势。</content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dv001a09" version="1">筑基期</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001b09" version="1">第2境界，境界骰升级为2d6，使用主手武器发动攻击后，你可以发动一次额外的攻击。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001c09" version="1">精通法术后，施展法术同样可以触发。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001a10" version="1">金丹期</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001b10" version="1">第3境界，境界骰升级为3d8，使用主手武器发动攻击后，你可以发动两次额外的攻击。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001a11" version="1">元婴期</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001b11" version="1">第4境界，境界骰升级为4d10，使用主手武器发动攻击后，你可以发动三次额外的攻击。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001a12" version="1">化神期</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001b12" version="1">第5境界，境界骰升级为5d12，使用主手武器发动攻击后，你可以发动四次额外的攻击。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001a13" version="1">炼虚期</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001b13" version="1">第6境界，境界骰升级为6d20，使用主手武器发动攻击后，你可以发动五次额外的攻击。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001a14" version="1">合体期</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001b14" version="1">第7境界，境界骰升级为7d20，使用主手武器发动攻击后，你可以发动六次额外的攻击。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001a15" version="1">大乘期</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001b15" version="1">第8境界，境界骰升级为8d20，使用主手武器发动攻击后，你可以发动七次额外的攻击。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001a16" version="1">渡劫期</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001b16" version="1">第9境界，境界骰升级为9d20，使用主手武器发动攻击后，你可以发动八次额外的攻击。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001a17" version="1">真仙</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001b17" version="1">第10境界，境界骰升级为10d20，使用主手武器发动攻击后，你可以发动九次额外的攻击。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001a18" version="1">万法诀</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv001b18" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;筑基期功法
+你可以更快地施展法术。</content>
+  <content contentuid="stringsofmodmadebyxss20250430dv001a00" version="1">选修功法：万法诀</content>
+  <content contentuid="stringsofmodmadebyxss20250430dv001b00" version="1">通过研究施法的本质，你学会了如何像喝水一样去施法。</content>
+  <content contentuid="stringsofmodmadebyxss20250430dv001a01" version="1">选修功法：怒血诀</content>
+  <content contentuid="stringsofmodmadebyxss20250430dv001b01" version="1">通过研究施法的本质，你学会了如何像喝水一样去施法。</content>
+  <content contentuid="stringsofmodmadebyxss20250430dv001a02" version="1">选修功法：灵目诀</content>
+  <content contentuid="stringsofmodmadebyxss20250430dv001b02" version="1">通过研究施法的本质，你学会了如何像喝水一样去施法。</content>
+  <content contentuid="stringsofmodmadebyxss20250430dv001a03" version="1">选修功法：神·焚诀</content>
+  <content contentuid="stringsofmodmadebyxss20250430dv001b03" version="1">通过研究施法的本质，你学会了如何像喝水一样去施法。</content>
+
+  
+  <content contentuid="stringsofmodmadebyxss20240930dva01a01" version="1">修罗道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b01" version="1">你的武器攻击额外造成等同于你道行年数的伤害。
+
+&lt;LSTag Type="Image" Info="SoftWarning"/&gt;重击时，对目标施加&lt;LSTag Type="Status" Tooltip="BLEEDING"&gt;流血&lt;/LSTag&gt;状态
+回合开始时，每层&lt;LSTag Type="Status" Tooltip="BLEEDING"&gt;流血&lt;/LSTag&gt;状态会使目标失去1%的最大&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01c01" version="1">每杀死一个生物，获得该等同于你们等级总和的&lt;LSTag Type="Status" Tooltip="BANXIAN_DH_YEAR"&gt;道行&lt;/LSTag&gt;天数。若目标的&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;上限大于[1],则额外获得1年&lt;LSTag Type="Status" Tooltip="BANXIAN_DH_YEAR"&gt;道行&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01d01" version="1">失血过多</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01a02" version="1">仙人模式·修罗道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b02" version="1">你的攻击造成挥砍伤害时总是取最大值，并消耗你1年&lt;LSTag Type="Status" Tooltip="BANXIAN_DH_YEAR"&gt;道行&lt;/LSTag&gt;。</content> 
+
+  <content contentuid="stringsofmodmadebyxss20240930dva01a03" version="1">饿鬼道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b03" version="1">你饥不择食，可以吞食自身的状态。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01c03" version="1">吞食目标状态，并恢复等同于状态总层数的生命值。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01d03" version="1">吞食状态，获得该等该状态层数的&lt;LSTag Type="Status" Tooltip="BANXIAN_DH_YEAR"&gt;道行&lt;/LSTag&gt;天数和生命值回复。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01a04" version="1">仙人模式·饿鬼道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b04" version="1">每回合开始时偷取附近生物的状态。(暂未开发！)</content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dva01a05" version="1">人间道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b05" version="1">你的所有技能检定额外获得等同于&lt;LSTag Type="Status" Tooltip="BANXIAN_DH_YEAR"&gt;道行&lt;/LSTag&gt;年数的掷骰加值。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01c05" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01a06" version="1">仙人模式·人间道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b06" version="1">每回合开始时消耗1年&lt;LSTag Type="Status" Tooltip="BANXIAN_DH_YEAR"&gt;道行&lt;/LSTag&gt;，你所有的技能检定必定大成功</content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dva01a07" version="1">畜生道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b07" version="1">你的荒野形态不再消耗动作资源，变形为野兽或怪物时，伤害和伤害减免会获得对应&lt;LSTag Type="Status" Tooltip="BANXIAN_DH_YEAR"&gt;道行&lt;/LSTag&gt;年份的提升。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01c07" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01a08" version="1">仙人模式·畜生道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b08" version="1">消耗一年&lt;LSTag Type="Status" Tooltip="BANXIAN_DH_YEAR"&gt;道行&lt;/LSTag&gt;，你在本场战斗中的荒野变形免费</content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dva01a09" version="1">地狱道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b09" version="1">受到伤害或造成火焰伤害时，对目标施加1层&lt;LSTag Type="Status" Tooltip="BURNING_YEHUO"&gt;业火&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01c09" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01a10" version="1">仙人模式·地狱道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b10" version="1">范围内携带&lt;LSTag Type="Status" Tooltip="BURNING_YEHUO"&gt;业火&lt;/LSTag&gt;的生物每回合为你提供1&lt;LSTag Tooltip="ArmourClass"&gt;护甲等级&lt;/LSTag&gt;和1&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;恢复。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01a11" version="1">业火</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b11" version="1">罪孽之火缠绕着你，使你受到的火焰伤害增加1d4。回合开始时，受到[1]。</content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dva01a12" version="1">天    道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b12" version="1">当你发动一次攻击时，可同时降下&lt;LSTag Type="Spell" Tooltip="Target_CallLightning_TianLei"&gt;天雷&lt;/LSTag&gt;。并目标施加&lt;LSTag Type="Status" Tooltip="TIANDAO_HENG"&gt;天痕&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01c12" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01a13" version="1">仙人模式·天道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b13" version="1">你的每次攻击都会引来天雷。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01a14" version="1">天痕</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b14" version="1">无法恢复&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;，受到的伤害随持续时间而增加。
+陷入雷鸣、闪电伤害的易伤状态。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01c14" version="1">天雷</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb01c14" version="1">重击天雷</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01d14" version="1">在目标处降下3道雷罚，每道对3m范围内生物造成[1]，该伤害无视目标的闪电伤害&lt;LSTag Tooltip="Resistant"&gt;抗性&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01e14" version="1">雷罚额外造成[1]。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01f14" version="1">心悸</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01g14" version="1">移动速度减半，力量、体质、智力豁免检定获得劣势。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01h14" version="1">当心悸层数过高时，无法施展天道神通。</content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dva01015" version="1">剑心</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01a15" version="1">剑    道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b15" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;战斗开始时，获得同于道行年数+1层&lt;LSTag Type="Status" Tooltip="JIANDAO_YI"&gt;剑意&lt;/LSTag&gt;。
+&lt;LSTag Type="Image" Info="SoftWarning"/&gt;当你使用近战武器攻击命中一个生物时，施加等同于&lt;LSTag Type="Status" Tooltip="JIANDAO_YI"&gt;剑意&lt;/LSTag&gt;层数的&lt;LSTag Type="Status" Tooltip="JIANDAO_KI"&gt;剑气&lt;/LSTag&gt;，并提升1层&lt;LSTag Type="Status" Tooltip="JIANDAO_YI"&gt;剑意&lt;/LSTag&gt;
+&lt;LSTag Type="Image" Info="SoftWarning"/&gt;施展一道法术后，获得施法关键属性调整值*法术等级层&lt;LSTag Type="Status" Tooltip="JIANDAO_ZHEN"&gt;振剑&lt;/LSTag&gt;</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01c15" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01a16" version="1">仙人模式·剑道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b16" version="1">当你装备近战武器时，近战武器攻击距离获得提升，且你的剑气可以触发武器特效,无视挥砍伤害&lt;LSTag Tooltip="Resistant"&gt;抗性&lt;/LSTag&gt;以及&lt;LSTag Tooltip="Immune"&gt;免疫&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01a17" version="1">剑气</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b17" version="1">回合结束时，受到[1]，该伤害无视挥砍伤害抗性和免疫。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01c17" version="1">当目标拥有&lt;LSTag Tooltip="TemporaryHitPoints"&gt;临时生命值&lt;/LSTag&gt;时，&lt;LSTag Type="Status" Tooltip="JIANDAO_KI"&gt;剑气&lt;/LSTag&gt;造成的伤害翻倍。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01d17" version="1">剑意</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01e17" version="1">近战武器和&lt;LSTag Type="Status" Tooltip="JIANDAO_KI"&gt;剑气&lt;/LSTag&gt;的伤害+1。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01f17" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01g17" version="1">振剑</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01h17" version="1">近战武器的下一次攻击伤害+1。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01i17" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;武器伤害无视目标的抗性及免疫</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01j17" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;蓝振：变为闪电伤害，并将振剑转为闪电充能</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01k17" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;紫振：伤害最大化</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01l17" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;黄振：变为光耀伤害，并将振剑转为光耀法球</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01m17" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;红振：百分比增伤</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01n17" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;黑振：减少生命值上限，禁疗</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01o17" version="1">共鸣并引爆目标身上的所有&lt;LSTag Type="Status" Tooltip="JIANDAO_KI"&gt;剑气&lt;/LSTag&gt;，造成&lt;LSTag Type="Status" Tooltip="JIANDAO_ZHEN"&gt;振剑&lt;/LSTag&gt;层数*&lt;LSTag Type="Status" Tooltip="JIANDAO_KI"&gt;剑气&lt;/LSTag&gt;层数点挥砍伤害。</content>  
+  <content contentuid="stringsofmodmadebyxss20250504dva01a00" version="1">切换见切姿态</content>
+  <content contentuid="stringsofmodmadebyxss20250504dva01b00" version="1">切换至见切姿态。</content>
+  <content contentuid="stringsofmodmadebyxss20250504dva02a00" version="1">切换招架姿态</content>
+  <content contentuid="stringsofmodmadebyxss20250504dva02b00" version="1">切换至招架姿态。</content>
+  <content contentuid="stringsofmodmadebyxss20250504dva01a01" version="1">招架姿态</content>
+  <content contentuid="stringsofmodmadebyxss20250504dva01b01" version="1">招架针对你发起的攻击，使其伤害减少。</content>
+  <content contentuid="stringsofmodmadebyxss20250504dva01a02" version="1">招架攻击</content>
+  <content contentuid="stringsofmodmadebyxss20250504dva01b02" version="1">招架针对你发起的攻击，使其伤害减少。</content>
+  <content contentuid="stringsofmodmadebyxss20250504dva02a01" version="1">见切姿态</content>
+  <content contentuid="stringsofmodmadebyxss20250504dva02b01" version="1">闪避针对你发起的攻击。</content>
+  <content contentuid="stringsofmodmadebyxss20250504dva02a02" version="1">闪避攻击</content>
+  <content contentuid="stringsofmodmadebyxss20250504dva02b02" version="1">闪避针对你发起的攻击。</content>
+  <content contentuid="stringsofmodmadebyxss20250504dva03a01" version="1">反击</content>
+  <content contentuid="stringsofmodmadebyxss20250504dva03b01" version="1">发起反击。</content>
+  <content contentuid="stringsofmodmadebyxss20250504dva03a02" version="1">弹返</content>
+  <content contentuid="stringsofmodmadebyxss20250504dva03b02" version="1">弹回攻击。</content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dva01a18" version="1">力    道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b18" version="1">你的力量随&lt;LSTag Type="Status" Tooltip="BANXIAN_DH_YEAR"&gt;道行&lt;/LSTag&gt;获得提升。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01c18" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01a19" version="1">仙人模式·力道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b19" version="1">免疫低于你的&lt;LSTag Type="Status" Tooltip="BANXIAN_DH_YEAR"&gt;道行&lt;/LSTag&gt;的伤害。当你的力量高于目标生命值时，你的近战攻击会立即杀死目标。</content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dva01a20" version="1">财    道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b20" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01c20" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01a21" version="1">仙人模式·财道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b21" version="1"></content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dva01a22" version="1">合欢道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b22" version="1">你的魅力随&lt;LSTag Type="Status" Tooltip="BANXIAN_DH_YEAR"&gt;道行&lt;/LSTag&gt;获得提升。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01c22" version="1">征服</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01d22" version="1">消耗道行，征服修为低于自身的目标，控制其下半身，从而夺取其大脑控制权。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01e22" version="1">做鬼也风流！</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01a23" version="1">仙人模式·合欢道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b23" version="1">当你受到伤害后，立刻将伤害转移至被你征服的生物身上。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01a24" version="1">采补</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b24" version="1">对一个无法反抗你的生物进行采补,若目标生命值低于自己，则直接死亡。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01c24" version="1">目标必须处于被魅惑、被支配、昏迷、昏睡、醉酒状态之一。</content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dva01a25" version="1">羿    道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b25" version="1">你的射箭技艺随&lt;LSTag Type="Status" Tooltip="BANXIAN_DH_YEAR"&gt;道行&lt;/LSTag&gt;获得提升。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01c25" version="1">渡灵</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01d25" version="1">使用远程武器发动攻击时，射程提升50%，重击阈值-2，并额外造成等同于境界骰的伤害。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01e25" version="1">双飞</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01f25" version="1">使用远程武器发动攻击时，弹道数量额外+1。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01a26" version="1">追风</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b26" version="1">对路劲上的敌人造成[1]。</content>
+
+
+  <content contentuid="stringsofmodmadebyxss20240930dv002001" version="1">冲窍</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002002" version="1">用&lt;LSTag Type="ActionResource" Tooltip="KiPoint"&gt;气&lt;/LSTag&gt;冲击你的穴窍，使其继续往下运行。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv0020b2" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;境界越高，需要的&lt;LSTag Type="ActionResource" Tooltip="KiPoint"&gt;气点&lt;/LSTag&gt;越多！</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva02002" version="1">穴窍未打通。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002003" version="1">周天锻体决</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002004" version="1">将气流转在周天穴窍之间循环淬炼穴窍来锻体,打通&lt;LSTag Type="Status" Tooltip="CUITI_ZHOUTIAN_SHORT"&gt;小周天&lt;/LSTag&gt;,&lt;LSTag Type="Status" Tooltip="CUITI_ZHOUTIAN_LONG"&gt;大周天&lt;/LSTag&gt;后会提升锻体效果。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002005" version="1">反噬</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002006" version="1">受到[1]。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002007" version="1">境界骰</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002008" version="1">由等同于境界的基数与随境界提升的面数组成。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002009" version="1">大周天</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002010" version="1">运气路线:&lt;LSTag Type="Passive" Tooltip="CuiTi_ZhouTian_1"&gt;气海&lt;/LSTag&gt;-&lt;LSTag Type="Passive" Tooltip="CuiTi_ZhouTian_2"&gt;神阙&lt;/LSTag&gt;-&lt;LSTag Type="Passive" Tooltip="CuiTi_ZhouTian_3"&gt;巨阙&lt;/LSTag&gt;-&lt;LSTag Type="Passive" Tooltip="CuiTi_ZhouTian_4"&gt;膻中&lt;/LSTag&gt;-&lt;LSTag Type="Passive" Tooltip="CuiTi_ZhouTian_5"&gt;紫宫&lt;/LSTag&gt;-&lt;LSTag Type="Passive" Tooltip="CuiTi_ZhouTian_6"&gt;璇玑&lt;/LSTag&gt;-&lt;LSTag Type="Passive" Tooltip="CuiTi_ZhouTian_7"&gt;百会&lt;/LSTag&gt;-&lt;LSTag Type="Passive" Tooltip="CuiTi_ZhouTian_8"&gt;风府&lt;/LSTag&gt;-&lt;LSTag Type="Passive" Tooltip="CuiTi_ZhouTian_9"&gt;神道&lt;/LSTag&gt;-&lt;LSTag Type="Passive" Tooltip="CuiTi_ZhouTian_10"&gt;灵台&lt;/LSTag&gt;-&lt;LSTag Type="Passive" Tooltip="CuiTi_ZhouTian_11"&gt;中枢&lt;/LSTag&gt;-&lt;LSTag Type="Passive" Tooltip="CuiTi_ZhouTian_12"&gt;悬枢&lt;/LSTag&gt;
+  运行一周后，恢复长休资源。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002011" version="1">小周天</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002012" version="1">运气路线:&lt;LSTag Type="Passive" Tooltip="CuiTi_ZhouTian_1"&gt;气海&lt;/LSTag&gt;-&lt;LSTag Type="Passive" Tooltip="CuiTi_ZhouTian_5"&gt;紫宫&lt;/LSTag&gt;-&lt;LSTag Type="Passive" Tooltip="CuiTi_ZhouTian_7"&gt;百会&lt;/LSTag&gt;-&lt;LSTag Type="Passive" Tooltip="CuiTi_ZhouTian_12"&gt;悬枢&lt;/LSTag&gt;
+  运行一周后，恢复短休资源。</content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dv002a01" version="1">气海</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002b01" version="1">&lt;LSTag Type="ActionResource" Tooltip="KiPoint"&gt;气点&lt;/LSTag&gt;翻倍。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002c01" version="1">恢复所有&lt;LSTag Type="ActionResource" Tooltip="KiPoint"&gt;气点&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002d01" version="1">当前·气海穴:恢复所有&lt;LSTag Type="ActionResource" Tooltip="KiPoint"&gt;气点&lt;/LSTag&gt;</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002e01" version="1">大周天·下游·神阙穴：恢复一半&lt;LSTag Type="ActionResource" Tooltip="KiPoint"&gt;气点&lt;/LSTag&gt;。
+小周天·下游·紫宫穴：移除并免疫&lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;中毒&lt;/LSTag&gt;、患病状态。 </content>
+  
+  <content contentuid="stringsofmodmadebyxss20240930dv002a02" version="1">神阙</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002b02" version="1">体质增加。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002c02" version="1">移除并免疫&lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;中毒&lt;/LSTag&gt;、患病状态。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002d02" version="1">当前·神阙穴：移除并免疫&lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;中毒&lt;/LSTag&gt;、患病状态。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002e02" version="1">大周天·下游·巨阙穴：本回合徒手攻击、武器攻击额外造成与力量&lt;LSTag Tooltip="AbilityModifier"&gt;调整值&lt;/LSTag&gt;数值相等的伤害。
+小周天·下游·紫宫穴：移除并免疫&lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;中毒&lt;/LSTag&gt;、患病状态。 </content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dv002a03" version="1">巨阙</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002b03" version="1">力量增加。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002c03" version="1">本回合徒手攻击、武器攻击额外造成与力量&lt;LSTag Tooltip="AbilityModifier"&gt;调整值&lt;/LSTag&gt;数值相等的伤害。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002d03" version="1">当前·巨阙穴：本回合徒手攻击、武器攻击额外造成与力量&lt;LSTag Tooltip="AbilityModifier"&gt;调整值&lt;/LSTag&gt;数值相等的伤害。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002e03" version="1">大周天·下游·膻中穴：获得&lt;LSTag Tooltip="TemporaryHitPoints"&gt;临时生命值&lt;/LSTag&gt;,随境界提升。
+小周天·下游·紫宫穴：移除并免疫&lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;中毒&lt;/LSTag&gt;、患病状态。 </content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dv002a04" version="1">膻中</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002b04" version="1">&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;随境界获得额外提升。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002c04" version="1">获得&lt;LSTag Tooltip="TemporaryHitPoints"&gt;临时生命值&lt;/LSTag&gt;,随境界提升。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002d04" version="1">当前·膻中穴：获得&lt;LSTag Tooltip="TemporaryHitPoints"&gt;临时生命值&lt;/LSTag&gt;,随境界提升。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002e04" version="1">下游·紫宫穴：恢复一半&lt;LSTag Type="ActionResource" Tooltip="KiPoint"&gt;气点&lt;/LSTag&gt;。</content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dv002a05" version="1">紫宫</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002b05" version="1">额外获得&lt;LSTag Type="ActionResource" Tooltip="KiPoint"&gt;气点&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002c05" version="1">恢复一半&lt;LSTag Type="ActionResource" Tooltip="KiPoint"&gt;气点&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002d05" version="1">当前·紫宫穴：恢复一半&lt;LSTag Type="ActionResource" Tooltip="KiPoint"&gt;气点&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002e05" version="1">大周天·下游·璇玑穴：拥有&lt;LSTag Type="ActionResource" Tooltip="KiPoint"&gt;气点&lt;/LSTag&gt;时，&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;不会降到0。
+小周天·下游·百会穴：移除&lt;LSTag Type="Status" Tooltip="CHARMED"&gt;魅惑&lt;/LSTag&gt;、&lt;LSTag Type="Status" Tooltip="FRIGHTENED"&gt;恐慌&lt;/LSTag&gt;、&lt;LSTag Type="Status" Tooltip="FEARED"&gt;恐惧&lt;/LSTag&gt;、&lt;LSTag Type="Status" Tooltip="STUNNED"&gt;震慑&lt;/LSTag&gt;、&lt;LSTag Type="Status" Tooltip="SLEEPING"&gt;沉睡&lt;/LSTag&gt;状态。</content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dv002a06" version="1">璇玑</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002b06" version="1">受到的挥砍、穿刺和钝击伤害减少。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002c06" version="1">每回合一次，拥有&lt;LSTag Type="ActionResource" Tooltip="KiPoint"&gt;气点&lt;/LSTag&gt;时，&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;不会降到0。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002d06" version="1">当前·璇玑穴：每回合一次，拥有&lt;LSTag Type="ActionResource" Tooltip="KiPoint"&gt;气点&lt;/LSTag&gt;时，&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;不会降到0。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002e06" version="1">下游·百会穴：移除&lt;LSTag Type="Status" Tooltip="CHARMED"&gt;魅惑&lt;/LSTag&gt;、&lt;LSTag Type="Status" Tooltip="FRIGHTENED"&gt;恐慌&lt;/LSTag&gt;、&lt;LSTag Type="Status" Tooltip="FEARED"&gt;恐惧&lt;/LSTag&gt;、&lt;LSTag Type="Status" Tooltip="STUNNED"&gt;震慑&lt;/LSTag&gt;、&lt;LSTag Type="Status" Tooltip="SLEEPING"&gt;沉睡&lt;/LSTag&gt;状态。</content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dv002a07" version="1">百会</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002b07" version="1">智力增加。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002c07" version="1">移除&lt;LSTag Type="Status" Tooltip="CHARMED"&gt;魅惑&lt;/LSTag&gt;、&lt;LSTag Type="Status" Tooltip="FRIGHTENED"&gt;恐慌&lt;/LSTag&gt;、&lt;LSTag Type="Status" Tooltip="FEARED"&gt;恐惧&lt;/LSTag&gt;、&lt;LSTag Type="Status" Tooltip="STUNNED"&gt;震慑&lt;/LSTag&gt;、&lt;LSTag Type="Status" Tooltip="SLEEPING"&gt;沉睡&lt;/LSTag&gt;状态。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002d07" version="1">当前·百会穴：移除&lt;LSTag Type="Status" Tooltip="CHARMED"&gt;魅惑&lt;/LSTag&gt;、&lt;LSTag Type="Status" Tooltip="FRIGHTENED"&gt;恐慌&lt;/LSTag&gt;、&lt;LSTag Type="Status" Tooltip="FEARED"&gt;恐惧&lt;/LSTag&gt;、&lt;LSTag Type="Status" Tooltip="STUNNED"&gt;震慑&lt;/LSTag&gt;、&lt;LSTag Type="Status" Tooltip="SLEEPING"&gt;沉睡&lt;/LSTag&gt;状态。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002e07" version="1">大周天·下游·风府穴：恢复所有&lt;LSTag Tooltip="MovementSpeed"&gt;移动速度&lt;/LSTag&gt;，本回合&lt;LSTag Tooltip="MovementSpeed"&gt;移动速度&lt;/LSTag&gt;翻倍。
+小周天·下游·悬枢穴：恢复等同于境界骰的&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;。</content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dv002a08" version="1">风府</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002b08" version="1">敏捷增加。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002c08" version="1">恢复所有&lt;LSTag Tooltip="MovementSpeed"&gt;移动速度&lt;/LSTag&gt;，本回合&lt;LSTag Tooltip="MovementSpeed"&gt;移动速度&lt;/LSTag&gt;翻倍。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002d08" version="1">当前·风府穴：恢复所有&lt;LSTag Tooltip="MovementSpeed"&gt;移动速度&lt;/LSTag&gt;，本回合&lt;LSTag Tooltip="MovementSpeed"&gt;移动速度&lt;/LSTag&gt;翻倍。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002e08" version="1">大周天·下游·神道穴：本回合魅力&lt;LSTag Tooltip="SavingThrow"&gt;豁免检定&lt;/LSTag&gt;获得&lt;LSTag Tooltip="Advantage"&gt;优势&lt;/LSTag&gt;。
+小周天·下游·悬枢穴：恢复等同于境界骰的&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;。</content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dv002a09" version="1">神道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002b09" version="1">魅力增加。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002c09" version="1">本回合魅力&lt;LSTag Tooltip="SavingThrow"&gt;豁免检定&lt;/LSTag&gt;获得&lt;LSTag Tooltip="Advantage"&gt;优势&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002d09" version="1">当前·神道穴：本回合魅力&lt;LSTag Tooltip="SavingThrow"&gt;豁免检定&lt;/LSTag&gt;获得&lt;LSTag Tooltip="Advantage"&gt;优势&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002e09" version="1">大周天·下游·灵台穴：恢复1个&lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;附赠动作&lt;/LSTag&gt;，本回合感知&lt;LSTag Tooltip="SavingThrow"&gt;豁免检定&lt;/LSTag&gt;获得&lt;LSTag Tooltip="Advantage"&gt;优势&lt;/LSTag&gt;。
+小周天·下游·悬枢穴：恢复等同于境界骰的&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;。</content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dv002a10" version="1">灵台</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002b10" version="1">感知增加。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002c10" version="1">恢复1个&lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;附赠动作&lt;/LSTag&gt;，本回合感知&lt;LSTag Tooltip="SavingThrow"&gt;豁免检定&lt;/LSTag&gt;获得&lt;LSTag Tooltip="Advantage"&gt;优势&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002d10" version="1">当前·灵台穴：恢复1个&lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;附赠动作&lt;/LSTag&gt;，本回合感知&lt;LSTag Tooltip="SavingThrow"&gt;豁免检定&lt;/LSTag&gt;获得&lt;LSTag Tooltip="Advantage"&gt;优势&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002e10" version="1">大周天·下游·中枢穴：恢复等同于境界骰的&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;。
+小周天·下游·悬枢穴：恢复等同于境界骰的&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;。</content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dv002a11" version="1">中枢</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002b11" version="1">受到的所有伤害减少。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002c11" version="1">恢复等同于境界骰的&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002d11" version="1">当前·中枢穴：</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002e11" version="1">大周天·下游·悬枢穴：恢复等同于境界骰的&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;。
+小周天·下游·悬枢穴：恢复等同于境界骰的&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;。</content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dv002a12" version="1">悬枢</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002b12" version="1">&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;获得境界骰最大值提升。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002c12" version="1">恢复等同于境界骰的&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002d12" version="1">当前·悬枢穴：恢复等同于境界骰的&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv002e12" version="1">下游·悬枢穴：恢复所有&lt;LSTag Type="ActionResource" Tooltip="KiPoint"&gt;气点&lt;/LSTag&gt;,随境界提升。</content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dv003a01" version="1">逆行·气海</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003b01" version="1">受到1次&lt;LSTag Type="Status" Tooltip="BANXIAN_FANSHI"&gt;反噬&lt;/LSTag&gt;，失去2&lt;LSTag Type="ActionResource" Tooltip="KiPoint"&gt;气点&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003a02" version="1">逆行·神阙</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003b02" version="1">受到1次&lt;LSTag Type="Status" Tooltip="BANXIAN_FANSHI"&gt;反噬&lt;/LSTag&gt;，移除并免疫&lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;中毒&lt;/LSTag&gt;、患病状态。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003a03" version="1">逆行·巨阙</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003b03" version="1">受到1次&lt;LSTag Type="Status" Tooltip="BANXIAN_FANSHI"&gt;反噬&lt;/LSTag&gt;，本回合徒手攻击、武器攻击额外造成与力量&lt;LSTag Tooltip="AbilityModifier"&gt;调整值&lt;/LSTag&gt;数值相等的伤害，触发&lt;LSTag Tooltip="CriticalHit"&gt;重击&lt;/LSTag&gt;所需的点数-1。此效果可以叠加。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003a04" version="1">逆行·膻中</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003b04" version="1">受到1次&lt;LSTag Type="Status" Tooltip="BANXIAN_FANSHI"&gt;反噬&lt;/LSTag&gt;，获得随境界提升的&lt;LSTag Tooltip="TemporaryHitPoints"&gt;临时生命值&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003a05" version="1">逆行·紫宫</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003b05" version="1">受到1次&lt;LSTag Type="Status" Tooltip="BANXIAN_FANSHI"&gt;反噬&lt;/LSTag&gt;，失去1&lt;LSTag Type="ActionResource" Tooltip="KiPoint"&gt;气点&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003a06" version="1">逆行·璇玑</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003b06" version="1">受到1次&lt;LSTag Type="Status" Tooltip="BANXIAN_FANSHI"&gt;反噬&lt;/LSTag&gt;，拥有&lt;LSTag Type="ActionResource" Tooltip="KiPoint"&gt;气点&lt;/LSTag&gt;时，&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;不会降到0。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003a07" version="1">逆行·百会</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003b07" version="1">受到1次&lt;LSTag Type="Status" Tooltip="BANXIAN_FANSHI"&gt;反噬&lt;/LSTag&gt;,移除&lt;LSTag Type="Status" Tooltip="CHARMED"&gt;魅惑&lt;/LSTag&gt;、&lt;LSTag Type="Status" Tooltip="FRIGHTENED"&gt;恐慌&lt;/LSTag&gt;、&lt;LSTag Type="Status" Tooltip="FEARED"&gt;恐惧&lt;/LSTag&gt;&lt;LSTag Type="Status" Tooltip="STUNNED"&gt;震慑&lt;/LSTag&gt;、&lt;/LSTag&gt;，&lt;LSTag Type="Status" Tooltip="SLEEPING"&gt;沉睡&lt;/LSTag&gt;状态。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003a08" version="1">逆行·风府</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003b08" version="1">受到1次&lt;LSTag Type="Status" Tooltip="BANXIAN_FANSHI"&gt;反噬&lt;/LSTag&gt;,恢复所有&lt;LSTag Tooltip="MovementSpeed"&gt;移动速度&lt;/LSTag&gt;，本回合&lt;LSTag Tooltip="MovementSpeed"&gt;移动速度&lt;/LSTag&gt;翻倍。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003a09" version="1">逆行·神道</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003b09" version="1">并受到1次&lt;LSTag Type="Status" Tooltip="BANXIAN_FANSHI"&gt;反噬&lt;/LSTag&gt;，本回合魅力&lt;LSTag Tooltip="SavingThrow"&gt;豁免检定&lt;/LSTag&gt;获得&lt;LSTag Tooltip="Disadvantage"&gt;劣势&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003a10" version="1">逆行·灵台</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003b10" version="1">受到1次&lt;LSTag Type="Status" Tooltip="BANXIAN_FANSHI"&gt;反噬&lt;/LSTag&gt;，本回合感知&lt;LSTag Tooltip="SavingThrow"&gt;豁免检定&lt;/LSTag&gt;获得&lt;LSTag Tooltip="Disadvantage"&gt;劣势&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003a11" version="1">逆行·中枢</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003b11" version="1">受到1次&lt;LSTag Type="Status" Tooltip="BANXIAN_FANSHI"&gt;反噬&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003a12" version="1">逆行·悬枢</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003b12" version="1">受到1次&lt;LSTag Type="Status" Tooltip="BANXIAN_FANSHI"&gt;反噬&lt;/LSTag&gt;。</content>
+
+
+
+
+  <content contentuid="stringsofmodmadebyxss20240930dvb02a00" version="1">五转锻灵功</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02b00" version="1">通过灵根的引导用气激发身体的潜能。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02c00" version="1">相生</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02d00" version="1">相克</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02a01" version="1">五转锻灵功·火</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02b01" version="1">[火灵根权重][境界][流转]下一次攻击时，造成的火焰伤害增加。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02c01" version="1">[木灵根权重][境界][流转]同时恢复自身&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02d01" version="1">[流转]同时获得额外攻击掷骰。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02a02" version="1">五转锻灵功·土</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02b02" version="1">[土灵根权重][流转]本回合获得减伤。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02c02" version="1">减伤效果变为获得临时&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;，同时获得物理伤害&lt;LSTag Tooltip="Resistant"&gt;抗性&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02d02" version="1">减伤效果变为免疫一定伤害。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02a03" version="1">五转锻灵功·金</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02b03" version="1">[金灵根权重][流转]下一次攻击伤害提升，且触发&lt;LSTag Tooltip="CriticalHit"&gt;重击&lt;/LSTag&gt;所需点数-1。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02c03" version="1">额外效果变为额外增加1个&lt;LSTag Tooltip="CriticalHit"&gt;重击&lt;/LSTag&gt;骰。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02d03" version="1">额外效果变为变为无视目标&lt;LSTag Tooltip="Resistant"&gt;抗性&lt;/LSTag&gt;及&lt;LSTag Tooltip="Immune"&gt;免疫&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02a04" version="1">五转锻灵功·水</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02b04" version="1">[流转]每回合额外恢复1气点。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02c04" version="1">[流转]效果变为恢复1个附赠动作。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02d04" version="1">[流转]效果变为恢复1个动作。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02a05" version="1">五转锻灵功·木</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02b05" version="1">[木灵根权重][境界]回复&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02c05" version="1">[水灵根权重]回复效果改为移除所有负面状态。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02d05" version="1">[火灵根权重][境界]回复改为本回合&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;上限提升。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02a06" version="1">五转锻灵功·冰</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02b06" version="1">下一次施展寒冷伤害类型的法术不消耗法术位或气点。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02a07" version="1">五转锻灵功·风</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02b07" version="1">[流转]获得1回合&lt;LSTag Type="Status" Tooltip="HASTE"&gt;加速&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02a08" version="1">五转锻灵功·雷</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02b08" version="1">[流转]获得1回合&lt;LSTag Type="Status" Tooltip="MAG_CHARGED_LIGHTNING"&gt;闪电充能&lt;/LSTag&gt;，充能满时，下一次施展闪电伤害类型的法术不消耗法术位或气点。</content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dvb02a09" version="1">流转</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02b09" version="1">五脏藏元功的气点消耗+1。每有1层流转，施展法术时，掷骰+1，并额外造成等同目标最大生命值1%的伤害。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02c09" version="1">逆流转</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb02d09" version="1">五脏藏元功的气点消耗+1。</content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dvb03a00" version="1">补根术</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb03b00" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb03a01" version="1">补根术·火</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb03b01" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb03a02" version="1">补根术·土</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb03b02" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb03a03" version="1">补根术·金</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb03b03" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb03a04" version="1">补根术·水</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb03b04" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb03a05" version="1">补根术·木</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb03b05" version="1"></content>
+
+
+  <content contentuid="stringsofmodmadebyxss20240930dvb04a00" version="1">五脏藏元功</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb04b00" version="1">你可以不消耗法术位施展法术。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb04c00" version="1">积攒元气</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb04d00" version="1">每次触发对应相生后获得，元气满后可以不消耗法术位施展法术。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb05a01" version="1">五脏藏元功·心</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb05b01" version="1">用心脏来储存元气。近战攻击掷骰时，投两次结果并取最高值。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb05a02" version="1">五脏藏元功·脾</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb05b02" version="1">用脾脏来储存元气。&lt;LSTag Tooltip="ArmourClass"&gt;护甲等级&lt;/LSTag&gt;+2。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb05a03" version="1">五脏藏元功·肺</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb05b03" version="1">用肺脏来储存元气。获得一个额外重击骰。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb05a04" version="1">五脏藏元功·肾</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb05b04" version="1">用肾脏来储存元气。获得5个额外气点。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb05a05" version="1">五脏藏元功·肝</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb05b05" version="1">用肝脏来储存元气。受到治疗效果时取最大结果。</content>
+
+  
+  <content contentuid="stringsofmodmadebyxss20240930dv004a01" version="1">大品天仙诀</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv004b01" version="1">天仙修炼的功法,集心法,神通之大成。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb04a01" version="1">五行登仙诀</content>
+  <content contentuid="stringsofmodmadebyxss20240930dvb04b01" version="1">人仙修炼的功法,集心法,神通之大成。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv004c01" version="1">可以从卷轴中学习法术。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv004d01" version="1">可以用&lt;LSTag Type="ActionResource" Tooltip="KiPoint"&gt;气点&lt;/LSTag&gt;来替代法术位消耗。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv004e01" version="1">可以用&lt;LSTag Type="ActionResource" Tooltip="KiPoint"&gt;气点&lt;/LSTag&gt;来强化你的法术。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv004a02" version="1">大品天仙诀:触类旁通</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv004b02" version="1">你习得了以下法术。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv004a03" version="1">大品天仙诀:练气化精</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv004b03" version="1">在你拥有&lt;LSTag Type="ActionResource" Tooltip="KiPoint"&gt;气点&lt;/LSTag&gt;时，可以将你的境界骰加值计入到你的徒手攻击伤害和法师伤害骰上。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv004a04" version="1">大品天仙诀:神通</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv004b04" version="1">经过刻苦的修炼，你领域了一个神通法术。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv004a05" version="1">弄焰诀</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv004b05" version="1">你施展的法术和攻击无视火焰&lt;LSTag Tooltip="Resistant"&gt;抗性&lt;/LSTag&gt;。此外，当你施展一道法术造成火焰伤害时，你无法掷出一个1。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv004a06" version="1">怒血诀</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv004b06" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;筑基期功法
+当你的生命值低于50%时，发动&lt;LSTag Tooltip="CriticalHit"&gt;重击&lt;/LSTag&gt;时再额外投掷一个伤害骰子，触发&lt;LSTag Tooltip="CriticalHit"&gt;重击&lt;/LSTag&gt;所需的点数-1。此效果可以叠加。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv004a07" version="1">灵目诀</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv004b07" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;筑基期功法
+你可以在黑暗中看清物体，触发&lt;LSTag Tooltip="CriticalHit"&gt;重击&lt;/LSTag&gt;所需的点数-1。此效果可以叠加。</content>
+
+  <content contentuid="stringsofmodmadebyxss20240930dv005000" version="1">周天锻体决</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005001" version="1">周天锻体决:练气前期</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005002" version="1">周天锻体决:练气中期</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005003" version="1">周天锻体决:练气后期</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005004" version="1">周天锻体决:筑基前期</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005005" version="1">周天锻体决:筑基中期</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005006" version="1">周天锻体决:筑基后期</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005007" version="1">周天锻体决:结丹前期</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005008" version="1">周天锻体决:结丹中期</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005009" version="1">周天锻体决:结丹后期</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005010" version="1">周天锻体决:元婴前期</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005011" version="1">周天锻体决:元婴中期</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005012" version="1">周天锻体决:元婴后期</content>
+
+
+
+  
+  <content contentuid="stringsofmodmadebyxss20240930dv005a01" version="1">百脉锻宝诀</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005b01" version="1">将你的身体炼成法宝，炼制大成者可运罡气护体，塑不灭金身。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005a02" version="1">百脉锻宝诀：补天</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005b02" version="1">受到近战攻击&lt;LSTag Tooltip="CriticalHit"&gt;重击&lt;/LSTag&gt;时，减少该伤害并对攻击者施加[1]回合&lt;LSTag Type="Status" Tooltip="MAG_ATTACK_DEBUFF"&gt;手臂酸软&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005c02" version="1">百脉锻宝诀·大成：反弹受到的伤害。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005a03" version="1">百脉锻宝诀：千钧</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005b03" version="1">你的近战徒手攻击可以无视钝击伤害&lt;LSTag Tooltip="Immune"&gt;免疫&lt;/LSTag&gt;，且对物体的攻击必定造成&lt;LSTag Tooltip="CriticalHit"&gt;重击&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005c03" version="1">百脉锻宝诀·小成·千手：解锁双武器战斗风格以及双持客，并额外获得一个&lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;附赠动作&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005a04" version="1">百脉锻宝诀：千机</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005b04" version="1">&lt;LSTag Type="ActionResource" Tooltip="ActionPoint"&gt;动作&lt;/LSTag&gt;和&lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;附赠动作&lt;/LSTag&gt;可以任意交换使用。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005c04" version="1">百脉锻宝诀·小成·千手：额外获得一个&lt;LSTag Type="ActionResource" Tooltip="ActionPoint"&gt;动作&lt;/LSTag&gt;和&lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;附赠动作&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005d04" version="1">当你发动一次主手攻击后，即使没有&lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;附赠动作&lt;/LSTag&gt;也能连续使出副手攻击。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005a05" version="1">百脉锻宝诀：逐日</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005b05" version="1">不会被强制移动。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005c05" version="1">百脉锻宝诀·小成·齐天：&lt;LSTag Tooltip="MovementSpeed"&gt;移动速度&lt;/LSTag&gt;+9。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005a06" version="1">百脉锻宝诀：追星</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005b06" version="1">&lt;LSTag Tooltip="MovementSpeed"&gt;移动速度&lt;/LSTag&gt;不会被劣势地形、法术或魔法效果降低。不会被麻痹或束缚。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005c06" version="1">百脉锻宝诀·小成·齐天：&lt;LSTag Tooltip="MovementSpeed"&gt;移动速度&lt;/LSTag&gt;+9。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005a07" version="1">百脉锻宝诀：鸿蒙</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005b07" version="1">在不装备护甲时，基础&lt;LSTag Tooltip="ArmourClass"&gt;护甲等级&lt;/LSTag&gt;为[1]。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005c07" version="1">百脉锻宝诀·大成：获得获得所有非魔法伤害&lt;LSTag Tooltip="Immune"&gt;免疫&lt;/LSTag&gt;，可随地大小变。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv006a01" version="1">百脉锻宝诀·小成：千手</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv006b01" version="1">额外获得一个&lt;LSTag Type="ActionResource" Tooltip="ActionPoint"&gt;动作&lt;/LSTag&gt;和&lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;附赠动作&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv006c01" version="1">。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv006a02" version="1">百脉锻宝诀·小成：齐天</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv006b02" version="1">&lt;LSTag Tooltip="MovementSpeed"&gt;移动速度&lt;/LSTag&gt;+9。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv006c02" version="1">。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv006a03" version="1">百脉锻宝诀·大成·圆满</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv006b03" version="1">你的身体如法宝般坚不可摧。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv006c03" version="1">。</content>
+
+
+  <content contentuid="stringsofmodmadebyxss20240930dv007a01" version="1">百脉锻宝诀·补天</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv007b01" version="1">你的百脉锻宝诀已经大成，现在需要吞噬装备来完成炼制。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv007a02" version="1">百脉锻宝诀·补天</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv007b02" version="1">吞噬你穿着的装备来使百脉锻宝诀获得圆满。</content>
+
+
+  <content contentuid="stringsofmodmadebyxss20240930dv008a00" version="1">大品天仙诀·神通</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv008b00" version="1">你从功法中领悟了强力的神通法术，需要有一定道行后方可施展。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv008a01" version="1">神通·地煞·七十二变</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv008b01" version="1">变成任意一个生物的模样，同时复制其属性值和生命值。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv008c01" version="1">神通·地煞·七十二变·解除</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv008d01" version="1">解除你的变形。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv008a02" version="1">神通·天罡·三十六变</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv008b02" version="1">变成任意一个生物的模样，同时复制其被动。</content>
+
+
+
+  <content contentuid="stringsofmodmadebyxss20240930dv009a00" version="1">神·焚诀</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv009b00" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;结丹期功法
+你可以同时使用多种神火。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv009a01" version="1">洗业金火</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv009b01" version="1">免疫业火以及火焰伤害。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv009c01" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;淬火效率提升至1d8！</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv009a02" version="1">焚天紫火</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv009b02" version="1">火焰伤害获得提升。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv009c02" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;淬火效率提升至1d12！</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv009a03" version="1">幽冥鬼火</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv009b03" version="1">无视火焰伤害免疫。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv009c03" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;淬火效率提升至1d6！</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv009a04" version="1">六丁神火</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv009b04" version="1">极大提高淬火效率。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv009c04" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;淬火效率提升至1d20！</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv009a05" version="1">三昧真火</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv009b05" version="1">火焰伤害的伤害掷骰取两次的最高结果。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv009c05" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;淬火效率提升至1d8！</content>
+
+
+  <content contentuid="stringsofmodmadebyxss20250115dya00a00" version="1">原丹</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b00" version="1">丹药原型</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c00" version="1">嗑</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a01" version="1">碧藕金丹</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c01" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后，大幅提高生命值上限。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b01" version="1">
+如来将悟空压在五行山下，天庭举办“安天大会”。寿星闻风而来，奉上紫芝瑶草，碧藕金丹。所以物品描述中提到“南极之方，寿星仙丹”。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a02" version="1">碧藕小还丹</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c02" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后，提高生命值上限。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b02" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a03" version="1">补阳丹</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c03" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后，提升寒冷伤害抗性，同时增强火灵根。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b03" version="1">
+神仙吃的壮阳药，药效很强力。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a04" version="1">九转金丹</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c04" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后，可凭空大幅涨进修为。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b04" version="1">
+王母闻言，即去见玉帝，备陈前事。说不了，又见那造酒的一班人，同仙官等来奏：“不知甚么人，搅乱了‘蟠桃大会’，偷吃了玉液琼浆，其八珍百味，亦俱偷吃了。”又有四个大天师来奏上：“太上道祖来了。”玉帝即同王母出迎。老君朝礼毕，道：“老道宫中，炼了些‘九转金丹’，伺候陛下做‘丹元大会’，不期被贼偷去，特启陛下知之。”</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a05" version="1">九转小还丹</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c05" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后，可凭空涨进修为。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b05" version="1">
+正行处，忽见一座高山，那怪把红光结聚，现了本相，撞入洞里，取出一柄九齿钉钯来战。行者喝一声道：“泼怪！你是那里来的邪魔？怎么知道我老孙的名号？你有甚么本事，实实供来，饶你性命！”
+那怪道：“是你也不知我的手段！上前来站稳着，我说与你听：
+我自小生来心性拙，贪闲爱懒无休歇。不曾养性与修真，混沌迷心熬日月。忽然闲里遇真仙，就把寒温坐下说。劝我回心莫堕凡，伤生造下无边孽。有朝大限命终时，八难三途悔不喋。听言意转要修行，闻语心回求妙诀。有缘立地拜为师，指示天关并地阙。得传九转大还丹，工夫昼夜无时辍。上至顶门泥丸宫，下至脚板涌泉穴。周流肾水入华池，丹田补得温温热。婴儿姹女配阴阳，铅汞相投分日月。离龙坎虎用调和，灵龟吸尽金乌血。三花聚顶得归根，五气朝元通透彻。功圆行满却飞升，天仙对对来迎接。朗然足下彩云生，身轻体健朝金阙。玉皇设宴会群仙，各分品级排班列。敕封元帅管天河，总督水兵称宪节。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a06" version="1">三花九子膏</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c06" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后，可免疫目盲状态。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b06" version="1">
+那老者道：“……我这敝处，却无卖眼药的。老汉也有些迎风冷泪，曾遇异人，传了一方，名唤‘三花九子膏’，能治一切风眼。”。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a07" version="1">水玉丹</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c07" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后，提升火焰伤害抗性，同时增强水灵根。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b07" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a08" version="1">太乙小还丹</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c08" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后，解锁更多法术位。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b08" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a09" version="1">太乙紫金丹</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c09" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后，解锁更多高环法术位。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b09" version="1">
+出自《是斋百一选方》卷十七，又名太乙紫金锭、紫金锭、紫金丹、玉枢丹、玉枢散等。由“山慈菇（去皮，洗，焙）、 文蛤（即 五倍子 ，洗，焙）各二两， 千金子仁（研去油，取霜）一两，红芽 大戟（去芦，洗，焙）一两半， 麝香三钱（《 外科正宗》方加 朱砂、 雄黄各三钱，其他方书多遵该二方，但有的组成药物与剂量略有出入）”制成。是一种内服外敷兼可的解毒丹方，被视为解毒开闭的经典方剂，有解诸毒、疗诸疮、利关窍之功效。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a10" version="1">铁牛丹</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c10" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后，提升2点力量和挥砍、穿刺、钝击伤害抗性，且不会被迫移动,同时增强土灵根。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b10" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a11" version="1">乌金丹</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c11" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后，提升毒素伤害抗性，可增强金灵根。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b11" version="1">
+早是天晓，却说那国王耽病设朝，请唐僧见了，即命众官快往会同馆参拜神僧孙长老取药去。多官随至馆中，对行者拜伏于地道：“我王特命臣等拜领妙剂。”行者叫八戒取盒儿，揭开盖子，递与多官。多官启问：“此药何名？好见王回话。”行者道：“此名乌金丹。”八戒二人暗中作笑道：“锅灰拌的，怎么不是乌金！”</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a12" version="1">无心药</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c12" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后，提升体质，同时增强木灵根。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b12" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a13" version="1">五蕴丹</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c13" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后，可脱胎换骨，洗筋伐髓，提升资质，重塑灵根。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b13" version="1">
+五蕴乃是佛教用语。指的是佛教关于人体和其身心现象都是由哪些要素构成的理论。佛教认为世间一切事物都是由五蕴和合而成，人的身体也是由五蕴和合而成的。 提到五蕴的佛经众多，如《杂阿含经》、《大毘婆沙论》、《楞严经》、《心经》等。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a14" version="1">宝鳞丸</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c14" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后一日内，受到的伤害减少。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b14" version="1">
+静能制动，沉能制浮，宽能制褊，缓能制急。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a15" version="1">保命丹</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c15" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后一日内，生命值翻倍，恢复所有生命值。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b15" version="1">
+虚斋云：“食服常温，四体皆春；心气常顺，百病自遁。”至哉斯言！</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a16" version="1">倍力丸</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c16" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后一日内，触发重击所需掷骰-2。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b16" version="1">
+力微休负重，言轻莫劝人。无钱休入众，遭难莫寻亲。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a17" version="1">避凶药</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c17" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后一日内，所有针对自己的攻击掷骰将得劣势。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b17" version="1">
+三藏依言，策马又进。行不上一里之遥，又听得叫声：“救人！”
+长老道：“徒弟，这个叫声，不是鬼魅妖邪；若是鬼魅妖邪，但有出声，无有回声。你听他叫一声，又叫一声，想必是个有难之人。我们可去救他一救。”
+行者道：“师父，今日且把这慈悲心略收起收起，待过了此山，再发慈悲罢。这去处凶多吉少。你知道那倚草附木之说 [注 1]，是物可以成精。诸般还可，只有一般蟒蛇，但修得年远日深，成了精魅，善能知人小名儿。他若在草科里，或山凹中，叫人一声，人不答应还可；若答应一声，他就把人元神绰去，当夜跟来，断然伤人性命。且走！且走！古人云：‘脱得去，谢神明。’切不可听他。”</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a18" version="1">参势丸</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c18" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后一日内，攻击掷骰增加少许。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b18" version="1">
+夫兵形象水，水之形，避高而趋下，兵之形，避实而击虚。水因地而制流，兵因敌而制胜。故兵无常势，水无常形，能因敌变化而取胜者，谓之神。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a19" version="1">朝元膏</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c19" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后一日内，解锁额外法术位。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b19" version="1">
+自小生来心性拙，贪闲爱懒无休歇。不曾养性与修真，混沌迷心熬日月。
+忽然闲里遇真仙，就把寒温坐下说。劝我回心莫堕凡，伤生造下无边孽。
+有朝大限命终时，八难三途悔不喋。听言意转要修行，闻语心回求妙诀。
+有缘立地拜为师，指示天关并地阙。得传九转大还丹，工夫昼夜无时辍。
+上至顶门泥丸宫，下至脚板涌泉穴。周流肾水入华池，丹田补得温温热。
+婴儿姹女配阴阳，铅汞相投分日月。离龙坎虎用调和，灵龟吸尽金乌血。
+三花聚顶得归根，五气朝元通透彻。功圆行满却飞升，天仙对对来迎接。
+朗然足下彩云生，身轻体健朝金阙。玉皇设宴会群仙，各分品级排班列。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a20" version="1">登仙散</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c20" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后一日内，动作、附赠动作和反应+1。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b20" version="1">
+尔时菩萨乃以广大慈悲，无边法力，亿万化身，以心会意，以意会身，恍惚之间，变作凌虚仙子：鹤氅仙风飒，飘飖欲步虚。苍颜松柏老，秀色古今无。去去还无住，如如自有殊。总来归一法，只是隔邪躯。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a21" version="1">度瘴散</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c21" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后一日内，免疫中毒状态。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b21" version="1">
+度瘴散，辟山瘴恶气，若有黑雾郁勃及西南温风，皆为疫疠之候方。麻黄、椒各五分，乌头三分，细辛、术、防风、桔梗、桂、干姜各一分，捣，筛，平旦酒服一盏匕，辟毒诸恶气，冒雾行，尤宜服之。”</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a22" version="1">聚珍伏虎丸</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c22" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后一日内，造成的伤害提升。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b22" version="1">
+三个小王子礼拜道：“朱师、沙师之兵，俱随身带在衣下，即可取之。孙师为何自耳中取出？见风即长，何也？”行者笑道：“你不知我这棍不是凡间等闲可有者。这棍是：
+鸿濛初判陶熔铁，大禹神人亲所设。
+湖海江河浅共深，曾将此棍知之切。
+开山治水太平时，流落东洋镇海阙。
+日久年深放彩霞，能消能长能光洁。
+老孙有分取将来，变化无方随口诀。
+要大弥于宇宙间，要小却似针儿节。
+棍名如意号金箍，天上人间称一绝。
+重该一万三千五百斤，或粗或细能生灭。
+也曾助我闹天宫，也曾随我攻地阙。
+伏虎降龙处处通，炼魔荡怪方方彻。
+举头一指太阳昏，天地鬼神皆胆怯。
+混沌仙传到至今，原来不是凡间铁。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a23" version="1">伏虎丸</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c23" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后一日内，造成的伤害提升少许。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b23" version="1">
+伏虎丹可祛风活血、化痰通络，以期改善肢体不利情况、使人有“伏虎”之力，故名。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a24" version="1">坚骨药</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c24" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后一日内，受到的伤害减少少许。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b24" version="1">
+八戒听说，跌脚捶胸道：“早知我去好来！都是那沙僧惫懒！你不阻我啊，我径奔彩楼之下，一绣球打着我老猪，那公主招了我，却不美哉，妙哉！俊刮标致，停当，大家造化耍子儿，何等有趣！”沙僧上前，把他脸上一抹道：“不羞！不羞！好个嘴巴骨子！三钱银子买了老驴，自夸骑得！要是一绣球打着你，就连夜烧退送纸也还道迟了，敢惹你这晦气进门！”八戒道：“你这黑子不知趣！丑自丑，还有些风味。自古道，皮肉粗糙，骨格坚强，各有一得可取。”</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a25" version="1">加味参势丸</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c25" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后一日内，攻击掷骰获得优势。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b25" version="1">
+旁有传言玉女接上表文，玉皇亦从头看过。表曰：
+“幽冥境界，乃地之阴司。天有神而地有鬼，阴阳转轮；禽有生而兽有死，反复雌雄。生生化化，孕女成男，此自然之数，不能易也。今有花果山水廉洞天产妖猴孙悟空，逞强行凶，不服拘唤。弄神通，打绝九幽鬼使；恃势力，惊伤十代慈王。大闹罗森，强销名号。致使猴属之类无拘，猕猴之畜多寿；寂灭轮回，各无生死。贫僧具表，冒渎天威。伏乞调遣神兵，收降此妖，整理阴阳，永安地府。谨奏。”</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a26" version="1">镜中丹</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c26" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后一日内，获得高等隐形状态。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b26" version="1">
+是故子墨子言曰：古者有语曰：“君子不镜于水而镜于人。镜于水，见面之容；镜于人，则知吉与凶。”今以攻战为利，则盖尝鉴之于智伯之事乎？此其为不吉而凶，既可得而知矣。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a27" version="1">九转还魂丹</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c27" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后，濒死时立即恢复所有生命值,并移除负面状态。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b27" version="1">
+万望道祖垂怜，把九转还魂丹借得一千丸儿，与我老孙搭救他也。”
+老君道：“这猴子胡说！甚么一千丸，二千丸！当饭吃哩！我那丹是那里土块捘的，这等容易？咄！快去！没有！
+”行者笑道：“百十丸儿也罢。”
+老君道：“也没有。”
+行者道：“十来丸也罢。”
+老君怒道：“这泼猴却也缠帐！没有，没有！出去，出去！”</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a28" version="1">龙光倍力丸</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c28" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后，触发重击所需掷骰-1，重击骰+1，攻击掷骰+1，伤害+1。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b28" version="1">
+光，即龙身上的光。喻指不同寻常的光辉。[1]
+所谓“龙光倍力丸”应该是指增加药物成分后,药效更强,并且散发出非常光芒的的倍力丸。
+“龙光倍力丸”的描述，摘自《老子·道经·第三十三章》：
+知人者智，自知者明。胜人者有力，自胜者强。知足者富。强行者有志。不失其所者久。死而不亡者寿。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a29" version="1">七返火丹</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c29" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后，重置技能冷却时间。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b29" version="1">
+行者道：“老官，走了牛也！走了牛也！”老君大惊道：“这孽畜几时走了？”正嚷间，那童儿方醒，跪于当面道：“爷爷，弟子睡着，不知是几时走的。”老君骂道：“你这厮如何盹睡？”童儿叩头道：“弟子在丹房里拾得一粒丹，当时吃了，就在此睡着。”老君道：“想是前日炼的七返火丹，吊了一粒，被这厮拾吃了。那丹吃一粒，该睡七日哩，那孽畜因你睡着，无人看管，遂乘机走下界去，今亦是七日矣。”</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a30" version="1">清凉散</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c30" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后一日内，获得火焰伤害免疫，免疫燃烧类状态。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b30" version="1">
+罗刹、土地俱感激谢恩，随后相送。行者、八戒、沙僧，保着三藏遂此前进，真个是身体清凉，足下滋润。诚所谓：
+坎离既济真元合，水火均平大道成。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a31" version="1">轻身散</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c31" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后一日内，移动速度翻倍。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b31" version="1">
+二魔道：“你们都各回本寨，但不许报与大王知道。若是惊动了他，必然走了风讯，败了我计策。我自有个神通变化，可以拿他。”众妖散去，他独跳下山来，在那道路之旁，摇身一变，变做个年老的道者，真个是怎生打扮？但见他：星冠晃亮，鹤发蓬松。羽衣围绣带，云履缀黄棕。神清目朗如仙客，体健身轻似寿翁。说甚么清牛道士，也强如素券先生。妆成假象如真象，捏作虚情似实情。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a32" version="1">神霄散</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c32" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后一日内，免疫震慑、感电状态，攻击额外造成少许闪电伤害。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b32" version="1">
+爱之如父母， 仰之如日月，敬之如鬼神，畏之如雷霆。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a33" version="1">温里散</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c33" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后一日内，获得寒冷伤害免疫，免疫冰冻状态。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b33" version="1">
+却说唐长老师徒四人歇在陈家，将近天晓，师徒们衾寒枕冷。八戒咳歌打战睡不得，叫道：“师兄，冷啊！”行者道：“你这呆子，忒不长俊！出家人寒暑不侵，怎么怕冷？”</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a34" version="1">延寿膏</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c34" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后，少许提升生命值上限。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b34" version="1">
+要做快活人，切莫寻烦恼。要做长寿人，莫做短命事。要做有后人，莫做无后事。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00a35" version="1">益气膏</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00c35" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后，提升1点气点上限。</content>
+  <content contentuid="stringsofmodmadebyxss20250115dya00b35" version="1">
+罗刹道：“泼猴少要饶舌，伸过头来，等我砍上几剑，若受得疼痛，就借扇子与你；若忍耐不得，教你早见阎君！”行者叉手向前，笑道：“嫂嫂切莫多言。老孙伸着光头，任尊砍上多少，但没气力便罢。是必借扇子用用。”</content>
+
+  <content contentuid="stringsofmodmadebyxss20250115yca00a00" version="1">药渣</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00b00" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00a01" version="1">白僵</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00c01" version="1">虫病风死，蜕化无成，其色自白。可用于炼制镜中丹，朝元膏。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00b01" version="1">李时珍曰：蚕从替，象其头身之形，从䖵，以其系也。俗作蚕字者非矣。蚕音腆，蚯蚓之名也。蚕病风死，其色自白，故曰白僵。死而不朽曰僵。再养者曰原蚕。蚕之屎曰沙，皮曰蜕，瓮曰茧，蛹曰螝（音龟）蛾曰罗，卵曰[虫允]（音允），蚕初出曰䖢（音苗），蚕纸曰“连”也。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00a02" version="1">碧藕</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00c02" version="1">原生十洲三岛，乃神仙之物。可用于炼制温里散、神霄散、清凉散、避凶药、度瘴散。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00b02" version="1">那大圣至瀛洲，只见那丹崖珠树之下，有几个皓发皤髯之辈，童颜鹤鬓之仙，在那里着棋饮酒，谈笑讴歌。真个是：
+祥云光满，瑞霭香浮。彩鸾鸣洞口，玄鹤舞山头。碧藕冰桃为按酒，交梨火枣寿千秋。一个个丹诏无闻，仙符有籍；逍遥随浪荡，散淡任清幽。周天甲子难拘管，大地乾坤只自由，献果玄猿，对对参随多美爱；衔花白鹿，双双拱伏甚绸缪。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00a03" version="1">地涌金莲</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00c03" version="1">原生佛前，乃显圣之祥瑞也。可用于炼制：镜中丹，保命丹。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00b03" version="1">真个是：
+天花乱坠，地涌金莲。
+妙演三乘教，精微万法全。
+慢摇麈尾喷珠玉[2]，响振雷霆动九天。
+说一会道，讲一会禅，三家配合本如然。
+开明一字皈诚理，指引无生了性玄</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00a04" version="1">甘草</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00c04" version="1">十药九草，药中国老。可用于炼制朝元膏、益气膏、延寿膏、加味参势丸、参势丸、避凶药。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00b04" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00a05" version="1">葛蕈</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00c05" version="1">色赤脆，傍木丛生。可用于炼制益气膏、倍力丸、伏虎丸、坚骨药。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00b05" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00a06" version="1">猴头菌</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00c06" version="1">皆草木根腐坏而成，似珊瑚，独活凡间，不生仙境。可用于炼制聚珍伏虎丸，龙光倍力丸。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00b06" version="1">《菌谱》中提及：杜蕈者，生土中，俗言毒蜇气所成，食之杀人。甚美有恶，宜在所黜。食肉不食马肝，未为不知味也。凡中其毒者必笑，解之宜以苦茗杂白矾，勺新水并咽之，无不立愈。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00a08" version="1">火灵砂</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00c08" version="1">八卦炉中之炉渣，随火砖落入凡间也。可用于炼制七返火丹。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00b08" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00a07" version="1">火铃草</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00c07" version="1">万丈崖间，独它流光焕烂。可用于炼制七返火丹，保命丹，温里散。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00b07" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00a09" version="1">火枣</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00c09" version="1">原生南极之方。火焰山一种，皆由铁扇公主亲手所植。可用于炼制七返火丹，登仙散。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00b09" version="1">那大圣至瀛洲，只见那丹崖珠树之下，有几个皓发皤髯之辈，童颜鹤鬓之仙，在那里着棋饮酒，谈笑讴歌。真个是：
+祥云光满，瑞霭香浮。彩鸾鸣洞口，玄鹤舞山头。碧藕冰桃为按酒，交梨火枣寿千秋。一个个丹诏无闻，仙符有籍；逍遥随浪荡，散淡任清幽。周天甲子难拘管，大地乾坤只自由，献果玄猿，对对参随多美爱；衔花白鹿，双双拱伏甚绸缪。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00a10" version="1">交梨</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00c10" version="1">赤脚大仙携其下凡，后有此一种。可用于炼制丹药。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00b10" version="1">只见赤脚大仙来至。向玉帝前頫囟[1]礼毕，又对佛祖谢道：“深感法力，降伏妖猴。无物可以表敬，特具交梨二颗，火枣数枚奉献。”</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00a11" version="1">九叶灵芝草</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00c11" version="1">九叶连茎，原生大罗天，灵虚殿前。可用于炼制九转还魂丹，登仙散。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00b11" version="1">公主又去大罗天上，灵虚殿前，偷了王母娘娘的九叶灵芝草，养在那潭底下，金光霞彩，昼夜光明。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00a12" version="1">老山参</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00c12" version="1">相传人形皆具者，有神。可用于炼制龙光倍力丸、倍力丸、参势丸。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00b12" version="1">人参，传统中草药。五加科，人参属。因气候原因，人参会经历休眠期。地上部分枯掉，看起来好像消失。
+野生人参常称为“野山参”，其物种已被列入《国家重点保护野生植物名录》，属于国家二级重点保护野生植物。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00a13" version="1">龙胆</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00c13" version="1">味苦如胆，亦补胆气不足。可用于炼制神霄散、坚骨药。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00b13" version="1">龙胆，是龙胆科龙胆属多年生草本植物，因其叶如龙葵，味苦如胆，故名“龙胆”</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00a14" version="1">千年人参</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00c14" version="1">又名皱面还丹，有价无市，买卖需仔细。可用于炼制加味参势丸，九转还魂丹。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00b14" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00a16" version="1">树珍珠</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00c16" version="1">生于珠树，有大品之相。可用于炼制炼制加味参势丸、度瘴散。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00b16" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00a15" version="1">漱玉花</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00c15" version="1">有异香，嗅之即觉清凉舒爽。可用于炼制延寿膏、清凉散。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00b15" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00a17" version="1">紫芝</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00c17" version="1">三秀瑞草，色如紫金。可用于炼制聚珍伏虎丸、轻身散、伏虎丸。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00b17" version="1">寿星又到。见玉帝礼毕，又见如来，申谢曰：“始闻那妖猴被老君引至兜率宫煅炼，以为必致平安，不期他又反出。幸如来善伏此怪。设宴奉谢，故此闻风而来。更无他物可献，特具紫芝瑶草，碧藕金丹奉上。”</content>
+
+  
+  <content contentuid="stringsofmodmadebyxss20250115bca00a01" version="1">大力铁角</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00c01" version="1">昔年被斩的牛头，遗下了此角。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00b01" version="1">昔年被斩的牛头，遗下了此角。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00d01" version="1">器纹·铁角</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00e01" version="1">每当你获得临时生命值时，徒手攻击和武器伤害获得等同于临时生命值的加值。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00f01" version="1">每当你获得临时生命值时，护甲等级额外获得+2。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00g01" version="1">当你使用动作如潮时，可以额外获得1个动作。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00a02" version="1">妖生角</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00c02" version="1">此污秽的角，是怨毒，亦是诅咒。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00b02" version="1">此污秽的角，是怨毒，亦是诅咒。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00d02" version="1">器纹·妖角</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00e02" version="1">每回合一次，当你施展一个法术时，徒手攻击和近战武器的伤害掷骰+1，并获得1点临时生命值。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca0be02" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;效果随法术等级提升！</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00f02" version="1">每回合一次，当你进入荒野形态时，伤害+1，受到的伤害-1。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00g02" version="1">法术位上限额外提升3点。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00h02" version="1">攀上新高</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00i02" version="1">法术位上限额外提升3点。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00a03" version="1">黑色眼眸</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00c03" version="1">混沌速心，眸光里尽是欲海狂波的业力。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00b03" version="1">混沌速心，眸光里尽是欲海狂波的业力。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00d03" version="1">器纹·黑眸</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00e03" version="1">被这把武器击杀的生物会在一回合后转化为不死生物为你战斗。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00ea3" version="1">不死军团</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00eb3" version="1">为你效力！</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00f03" version="1">战斗中，每回合结束时最大生命值提升1点，效果随等级提升。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00g03" version="1">你控制的不死军团的攻击和最大生命值获得提升，效果随等级提升。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00a04" version="1">金色眼眸</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00c04" version="1">肋下千眼之一，隐有金色光华。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00b04" version="1">肋下千眼之一，隐有金色光华。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00d04" version="1">器纹·金眸</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca0ba04" version="1">圣盾</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca0bb04" version="1">下一次受到的伤害减少至1。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00e04" version="1">发动武器攻击后，获得圣盾。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00f04" version="1">获得圣盾时，若已有圣盾，则近战武器的伤害掷骰+1。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00g04" version="1">当你治疗一个生物后，使其获得圣盾。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00a05" version="1">玲珑内丹</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00c05" version="1">天地间有强能者，以肉身为炉鼎，以精、气、神为药材，于体内聚形凝结而成的珍贵原丹。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00b05" version="1">天地间有强能者，以肉身为炉鼎，以精、气、神为药材，于体内聚形凝结而成的珍贵原丹。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00a06" version="1">妖核</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00c06" version="1">心有凶狂，小妖们只结得未熟之丹。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00b06" version="1">心有凶狂，小妖们只结得未熟之丹。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00a07" version="1">龙珠</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00c07" version="1">此乃神龙项下明珠，色亮飘光，彩艳非常。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00b07" version="1">此乃神龙项下明珠，色亮飘光，彩艳非常。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00d07" version="1">器纹·龙珠</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00e07" version="1">武器攻击额外造成[1]。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00f07" version="1">过量治疗：提升器纹·龙珠的额外光耀伤害的骰面。最多提升4次。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00g07" version="1">过量治疗：造成光耀伤害时，最小伤害骰+1。最多提升3次。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00a08" version="1">铁中血</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00c08" version="1">蚊子上铁牛，痛下苦功夫。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00b08" version="1">蚊子上铁牛，痛下苦功夫。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00d08" version="1">器纹·铁血</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca0ba08" version="1">死亡轮盘</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca0bb08" version="1">锁定一个目标，使其五回合以后即死，期间自身无法攻击和移动。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00e08" version="1">发动武器攻击时，损失自身10点生命值，并提升等量伤害。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00f08" version="1">当你在你的回合被攻击后，回溯该伤害，并获得+1伤害。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00g08" version="1">施展一道法术时，你可以以消耗生命值为代价代替法术位消耗。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00h08" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;每一环法术位，消耗增加10%最大生命值。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00a09" version="1">玉垂牙</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00c09" version="1">秀士吮血，以牙还牙。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00b09" version="1">秀士吮血，以牙还牙。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00d09" version="1">器纹·玉牙</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00e09" version="1">每回合一次，武器攻击造成重击时，恢复偷袭骰。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00f09" version="1">每回合一次，武器攻击造成重击时，恢复移动速度。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00g09" version="1">每回合一次，武器攻击造成重击时，恢复附赠动作。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00a10" version="1">震雷骨</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00c10" version="1">这龙骨，引领电光，响振雷霆。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00b10" version="1">这龙骨，引领电光，响振雷霆。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00d10" version="1">器纹·雷骨</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00e10" version="1">法术迸发：下一次武器攻击的伤害触发3次。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00f10" version="1">法术迸发：下一次攻击额外造成[1]。</content>
+  <content contentuid="stringsofmodmadebyxss20250115bca00g10" version="1">法术迸发：下一个法术额外获得2个可瞄准目标。</content>
+
+  
+  <content contentuid="stringsofmodmadebyxss20250115bdl00a00" version="1">炼丹炉</content>
+  <content contentuid="stringsofmodmadebyxss20250115bdl00b00" version="1">最基础的炼丹炉，可以容纳三味药材。</content>
+
+
+  <content contentuid="stringsofmodmadebyxss20250228bca00a00" version="1">本相</content>
+  <content contentuid="stringsofmodmadebyxss20250228bca00b00" version="1">变为你化形前的模样。</content>
+  <content contentuid="stringsofmodmadebyxss20250228bca00c00" version="1">你的修行起源。</content>
+  <content contentuid="stringsofmodmadebyxss20250228bca00a01" version="1">熊妖</content>
+  <content contentuid="stringsofmodmadebyxss20250228bca00b01" version="1">额外将你的力量调整值计入到近战攻击的伤害掷骰上。</content>
+  <content contentuid="stringsofmodmadebyxss20250228bca00a02" version="1">黑鸦精</content>
+  <content contentuid="stringsofmodmadebyxss20250228bca00b02" version="1">你能在黑暗中看清物体。</content>
+  <content contentuid="stringsofmodmadebyxss20250228bca00a03" version="1">蟹妖</content>
+  <content contentuid="stringsofmodmadebyxss20250228bca00b03" version="1">你的徒手攻击命中时可能会对目标施加流血。</content>
+  <content contentuid="stringsofmodmadebyxss20250228bca00a04" version="1">蛙妖</content>
+  <content contentuid="stringsofmodmadebyxss20250228bca00b04" version="1">潮湿时，移动速度翻倍。</content>
+  <content contentuid="stringsofmodmadebyxss20250228bca00a05" version="1">豹精</content>
+  <content contentuid="stringsofmodmadebyxss20250228bca00b05" version="1">疾走状态下，近战攻击的伤害掷骰取两次结果中的最大值。</content>
+  <content contentuid="stringsofmodmadebyxss20250228bca00a06" version="1">鼠精</content>
+  <content contentuid="stringsofmodmadebyxss20250228bca00b06" version="1">求生、洞悉、隐匿和巧手检定中获得优势。</content>
+  <content contentuid="stringsofmodmadebyxss20250228bca00a07" version="1">虎妖</content>
+  <content contentuid="stringsofmodmadebyxss20250228bca00b07" version="1">发动近战攻击并重击时，重击伤害骰+1，并对目标施加2层破甲撕裂。</content>
+  <content contentuid="stringsofmodmadebyxss20250228bca00a08" version="1">蜘蛛精</content>
+  <content contentuid="stringsofmodmadebyxss20250228bca00b08" version="1">你在蛛网上行动时，不消耗移动速度，并且免疫借机攻击。</content>
+  <content contentuid="stringsofmodmadebyxss20250228bca00a09" version="1">狼妖</content>
+  <content contentuid="stringsofmodmadebyxss20250228bca00b09" version="1">对流血目标发动的近战攻击获得劣势，但必定为重击。</content>
+  <content contentuid="stringsofmodmadebyxss20250228bca00a10" version="1">金龙</content>
+  <content contentuid="stringsofmodmadebyxss20250228bca00b10" version="1">火焰法术的法术位需求降低一级。</content>
+
+
+  <content contentuid="stringsofmodmadebyxss20250218bca00a00" version="1">梵圣真魔功</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00b00" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20250218bca01a00" version="1">真魔形态</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca01b00" version="1">回合结束时，失去1/12最大生命值。</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00c00" version="1">梵圣真魔功</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00d00" version="1">狂暴会使你进入真魔形态。</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00e00" version="1">梵圣真魔功:魔窍</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00f00" version="1">真魔休九窍，请选择你的魔窍。</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00a01" version="1">梵圣真魔功：第一重</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00b01" version="1">未装备护甲时，基础护甲等级获得提升。</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00c01" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;真魔形态下：攻击掷骰获得提升！</content>
+  <content contentuid="stringsofmodmadebyxss20250218bcb00a01" version="1">魔窍：玄冥枢</content>
+  <content contentuid="stringsofmodmadebyxss20250218bcb00b01" version="1">徒手攻击额外造成[1]。</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00a02" version="1">梵圣真魔功：第二重</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00b02" version="1">&lt;LSTag Type="Passive" Tooltip="BANXIAN_FSZMG_Level1"&gt;第一重&lt;/LSTag&gt;效果获得升级：先攻获得提升。</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00c02" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;真魔形态下：移动速度和最大生命值获得提升！</content>
+  <content contentuid="stringsofmodmadebyxss20250218bcb00a02" version="1">魔窍：绛渊府</content>
+  <content contentuid="stringsofmodmadebyxss20250218bcb00b02" version="1">针对流血生物的攻击掷骰具有优势。</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00a03" version="1">梵圣真魔功：第三重</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00b03" version="1">&lt;LSTag Type="Passive" Tooltip="BANXIAN_FSZMG_Level2"&gt;第二重&lt;/LSTag&gt;效果获得升级：触发重击所需的攻击掷骰减少。</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00c03" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;真魔形态下：重击时的伤害骰子增加！</content>
+  <content contentuid="stringsofmodmadebyxss20250218bcb00a03" version="1">魔窍：太虚瞳</content>
+  <content contentuid="stringsofmodmadebyxss20250218bcb00b03" version="1">触发重击所需的攻击掷骰-1。</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00a04" version="1">梵圣真魔功：第四重</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00b04" version="1">&lt;LSTag Type="Passive" Tooltip="BANXIAN_FSZMG_Level3"&gt;第三重&lt;/LSTag&gt;效果获得升级：移动速度和反应提升。</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00c04" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;真魔形态下：获得额外动作和附赠动作！</content>
+  <content contentuid="stringsofmodmadebyxss20250218bcb00a04" version="1">魔窍：归墟府</content>
+  <content contentuid="stringsofmodmadebyxss20250218bcb00b04" version="1">每击杀一个生物获得1层&lt;LSTag Type="Status" Tooltip="FSZMG_MQ_SHIDAN"&gt;噬丹&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20250218bcb00c04" version="1">噬丹</content>
+  <content contentuid="stringsofmodmadebyxss20250218bcb00d04" version="1">三维属性获得获得提升，回合开始时，每有1层噬丹，回复1点气点。</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00a05" version="1">梵圣真魔功：第五重</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00b05" version="1">&lt;LSTag Type="Passive" Tooltip="BANXIAN_FSZMG_Level4"&gt;第四重&lt;/LSTag&gt;效果获得升级：全属性获得提升。</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00c05" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;真魔形态下：获得全属性豁免检定优势和加值！</content>
+  <content contentuid="stringsofmodmadebyxss20250218bcb00a05" version="1">魔窍：劫雷龛</content>
+  <content contentuid="stringsofmodmadebyxss20250218bcb00b05" version="1">获得雷鸣伤害免疫，免疫&lt;LSTag Type="Status" Tooltip="STUNNED"&gt;震慑&lt;/LSTag&gt;状态。</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00a06" version="1">梵圣真魔功：第六重</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00b06" version="1">&lt;LSTag Type="Passive" Tooltip="BANXIAN_FSZMG_Level5"&gt;第五重&lt;/LSTag&gt;效果获得升级：获得所有物理伤害类型的免疫。</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00c06" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;真魔形态下：你的攻击无视所有物理伤害类型的免疫！</content>
+  <content contentuid="stringsofmodmadebyxss20250218bcb00a06" version="1">魔窍：幻蜃楼</content>
+  <content contentuid="stringsofmodmadebyxss20250218bcb00b06" version="1">你可以随时施展伪装术，并且只消耗附赠动作。</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00a07" version="1">梵圣真魔功：第七重</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00b07" version="1">&lt;LSTag Type="Passive" Tooltip="BANXIAN_FSZMG_Level6"&gt;第六重&lt;/LSTag&gt;效果获得升级：受到的伤害大幅减少。</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00c07" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;真魔形态下：近战攻击造成的伤害大幅增加！</content>
+  <content contentuid="stringsofmodmadebyxss20250218bcb00a07" version="1">魔窍：业莲台</content>
+  <content contentuid="stringsofmodmadebyxss20250218bcb00b07" version="1">当你移动时，对附近[2]内生物或物体造成[1]。</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00a08" version="1">梵圣真魔功：第八重</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00b08" version="1">&lt;LSTag Type="Passive" Tooltip="BANXIAN_FSZMG_Level7"&gt;第七重&lt;/LSTag&gt;效果获得升级：免疫低于你生命值上限的伤害。</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00c08" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;真魔形态下：你的近战攻击额外造成范围伤害！</content>
+  <content contentuid="stringsofmodmadebyxss20250218bcb00a08" version="1">魔窍：破劫脊</content>
+  <content contentuid="stringsofmodmadebyxss20250218bcb00b08" version="1">重击时，你的伤害骰子额外增加一枚。</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00a09" version="1">梵圣真魔功：第九重</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00b09" version="1">&lt;LSTag Type="Passive" Tooltip="BANXIAN_FSZMG_Level8"&gt;第八重&lt;/LSTag&gt;效果获得升级：回合开始时回复所有生命值并移除所有负面状态。</content>
+  <content contentuid="stringsofmodmadebyxss20250218bca00c09" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;真魔形态下：生成领域，削弱领域内的敌人并对其造成伤害！</content>
+  <content contentuid="stringsofmodmadebyxss20250218bcb00a09" version="1">魔窍：寂神台</content>
+  <content contentuid="stringsofmodmadebyxss20250218bcb00b09" version="1">受到的心灵伤害减半，并将其两倍转化为立场伤害返还给攻击者。</content>
+
+
+  <content contentuid="stringsofmodmadebyxss20250222lpa00a00" version="1">罗盘</content>
+  <content contentuid="stringsofmodmadebyxss20250222lpa00b00" version="1">用于阵法测绘的基础工具。</content>
+  <content contentuid="stringsofmodmadebyxss20250222lpa00c00" version="1">罗盘：测算</content>
+  <content contentuid="stringsofmodmadebyxss20250222lpa00d00" version="1">用罗盘测算目标方位。</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfa00a00" version="1">阵法：阵眼</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfa00b00" version="1">放置阵眼</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfa00a01" version="1">阵法激活：聚灵阵</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfa00b01" version="1">每回合恢复[1]点气点。</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfa00c01" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;阵旗距阵眼距离必须控制在[1]到[2]！</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfa01a00" version="1">聚灵阵</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfa01b00" version="1">该阵眼可以聚集天地灵气，使阵内灵气充沛，但需要消耗大量灵气安置。</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfa01a01" version="1">一阶聚灵阵</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfa01a02" version="1">二阶聚灵阵</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfa01a03" version="1">三阶聚灵阵</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfa01a04" version="1">四阶聚灵阵</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfa01a05" version="1">五阶聚灵阵</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfa01a06" version="1">六阶聚灵阵</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfa01a07" version="1">七阶聚灵阵</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfa01a08" version="1">八阶聚灵阵</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfa01a09" version="1">九阶聚灵阵</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfb00a00" version="1">阵法：阵旗</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfb00b00" version="1">放置阵旗</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfb00a01" version="1">乾旗</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfb00b01" version="1">乾为天。</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfb00a02" version="1">坤旗</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfb00b02" version="1">坤为地。</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfb00a03" version="1">巽旗</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfb00b03" version="1">巽为风。</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfb00a04" version="1">震旗</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfb00b04" version="1">震为雷。</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfb00a05" version="1">坎旗</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfb00b05" version="1">坎为水。</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfb00a06" version="1">离旗</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfb00b06" version="1">离为火。</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfb00a07" version="1">艮旗</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfb00b07" version="1">艮为山。</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfb00a08" version="1">兑旗</content>
+  <content contentuid="stringsofmodmadebyxss20250221zfb00b08" version="1">兑为泽。</content>
+
+
+  <content contentuid="stringsofmodmadebyxss20250303zfa00a00" version="1">真火</content>
+  <content contentuid="stringsofmodmadebyxss20250303zfa0ba00" version="1">妖火</content>
+  <content contentuid="stringsofmodmadebyxss20250303zfa00b00" version="1">运用灵气催生体内的真火，从嘴中吐出。可以对物体进行&lt;LSTag Type="Status" Tooltip="BANXIAN_FABAO_FIREBREATH_BURNING"&gt;淬火&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20250303zfa0bb00" version="1">运用灵气催生体内的妖火，从嘴中吐出。可以对物体进行&lt;LSTag Type="Status" Tooltip="BANXIAN_FABAO_FIREBREATH_BURNING"&gt;淬火&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20250303zfb00a00" version="1">淬火</content>
+  <content contentuid="stringsofmodmadebyxss20250303zfb00b00" version="1">受影响的生物或物体每回合受到[1],每有1层淬火，此伤害+1。</content>
+  <content contentuid="stringsofmodmadebyxss20250303zfb00a01" version="1">炼器就绪</content>
+  <content contentuid="stringsofmodmadebyxss20250303zfb00b01" version="1">对&lt;LSTag Type="Status" Tooltip="UND_ADAMANTINEGOLEM_SUPERHEATED"&gt;过热&lt;/LSTag&gt;的目标&lt;LSTag Type="Status" Tooltip="BANXIAN_FABAO_FIREBREATH_BURNING"&gt;淬火&lt;/LSTag&gt;可以将已炼化的材料融入新装备。</content>
+  <content contentuid="stringsofmodmadebyxss20250303zfb00c01" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;期间无法炼化新的材料！</content>
+  <content contentuid="stringsofmodmadebyxss20250303zfb00c00" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;到达10层后，获得2回合&lt;LSTag Type="Status" Tooltip="UND_ADAMANTINEGOLEM_SUPERHEATED"&gt;过热&lt;/LSTag&gt;状态。到达100层后，物体会被炼化。</content>
+  <content contentuid="stringsofmodmadebyxss20250303zfa00a01" version="1">真火·锥形</content>
+  <content contentuid="stringsofmodmadebyxss20250303zfa0ba01" version="1">妖火·锥形</content>
+  <content contentuid="stringsofmodmadebyxss20250303zfa00b01" version="1">将真火以锥形范围覆盖目标，造成[1],并对范围内目标进行&lt;LSTag Type="Status" Tooltip="BANXIAN_FABAO_FIREBREATH_BURNING"&gt;淬火&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20250303zfa0bb01" version="1">将妖火以锥形范围覆盖目标，造成[1],并对范围内目标进行&lt;LSTag Type="Status" Tooltip="BANXIAN_FABAO_FIREBREATH_BURNING"&gt;淬火&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20250303zfa00a02" version="1">真火·矩形</content>
+  <content contentuid="stringsofmodmadebyxss20250303zfa0ba02" version="1">妖火·矩形</content>
+  <content contentuid="stringsofmodmadebyxss20250303zfa00b02" version="1">将真火以矩形范围覆盖目标，造成[1]并对范围内目标进行&lt;LSTag Type="Status" Tooltip="BANXIAN_FABAO_FIREBREATH_BURNING"&gt;淬火&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20250303zfa0bb02" version="1">将妖火以矩形范围覆盖目标，造成[1]并对范围内目标进行&lt;LSTag Type="Status" Tooltip="BANXIAN_FABAO_FIREBREATH_BURNING"&gt;淬火&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20250303zfa00a03" version="1">真火·线形</content>
+  <content contentuid="stringsofmodmadebyxss20250303zfa0ba03" version="1">妖火·线形</content>
+  <content contentuid="stringsofmodmadebyxss20250303zfa00b03" version="1">将真火压缩为[2]道射线灼烧目标，造成[1]并对目标进行&lt;LSTag Type="Status" Tooltip="BANXIAN_FABAO_FIREBREATH_BURNING"&gt;淬火&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20250303zfa0bb03" version="1">将妖火压缩为[2]道射线灼烧目标，造成[1]并对目标进行&lt;LSTag Type="Status" Tooltip="BANXIAN_FABAO_FIREBREATH_BURNING"&gt;淬火&lt;/LSTag&gt;。</content>
+
+  <content contentuid="stringsofmodmadebyxss20250304zfa00a00" version="1">打坐</content>
+  <content contentuid="stringsofmodmadebyxss20250304zfa00b00" version="1">专心修炼,吐纳灵气。</content>
+  <content contentuid="stringsofmodmadebyxss20250304zfb00a01" version="1">火灵气</content>
+  <content contentuid="stringsofmodmadebyxss20250304zfb00a02" version="1">土灵气</content>
+  <content contentuid="stringsofmodmadebyxss20250304zfb00a03" version="1">金灵气</content>
+  <content contentuid="stringsofmodmadebyxss20250304zfb00a04" version="1">水灵气</content>
+  <content contentuid="stringsofmodmadebyxss20250304zfb00a05" version="1">木灵气</content>
+  <content contentuid="stringsofmodmadebyxss20250304zfb00a06" version="1">精炼灵气</content>
+  <content contentuid="stringsofmodmadebyxss20250304zfb00b06" version="1">当精炼灵气填满灵根平均权重后，获得短休效果。</content>
+  <content contentuid="stringsofmodmadebyxss20250304zfa00a01" version="1">纳气</content>
+  <content contentuid="stringsofmodmadebyxss20250304zfa00b01" version="1">吸收灵气。</content>
+  <content contentuid="stringsofmodmadebyxss20250304zfa00a02" version="1">吐气</content>
+  <content contentuid="stringsofmodmadebyxss20250304zfa00b02" version="1">当只有一种灵气，或剩余灵气数量相等时，可以精炼灵气。</content>
+  <content contentuid="stringsofmodmadebyxss20250304zfa00c02" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;灵气总数必须大于10！</content>
+  <content contentuid="stringsofmodmadebyxss20250304zfa00a03" version="1">生·火灵气</content>
+  <content contentuid="stringsofmodmadebyxss20250304zfa00b03" version="1">依据五行相生，将火灵气转化为土灵气。</content>
+  <content contentuid="stringsofmodmadebyxss20250304zfa00a04" version="1">生·土灵气</content>
+  <content contentuid="stringsofmodmadebyxss20250304zfa00b04" version="1">依据五行相生，将火灵气转化为金灵气。</content>
+  <content contentuid="stringsofmodmadebyxss20250304zfa00a05" version="1">生·金灵气</content>
+  <content contentuid="stringsofmodmadebyxss20250304zfa00b05" version="1">依据五行相生，将火灵气转化为水灵气。</content>
+  <content contentuid="stringsofmodmadebyxss20250304zfa00a06" version="1">生·水灵气</content>
+  <content contentuid="stringsofmodmadebyxss20250304zfa00b06" version="1">依据五行相生，将火灵气转化为木灵气。</content>
+  <content contentuid="stringsofmodmadebyxss20250304zfa00a07" version="1">生·木灵气</content>
+  <content contentuid="stringsofmodmadebyxss20250304zfa00b07" version="1">依据五行相生，将火灵气转化为火灵气。</content>
+
+
+  <content contentuid="stringsofmodmadebyxss20250627fsa00a01" version="1">仙门奇书</content>
+  <content contentuid="stringsofmodmadebyxss20250627fsa00b01" version="1">收录了一些奇妙法术。</content>
+
+  <content contentuid="stringsofmodmadebyxss20250626fsa00a01" version="1">点金术</content>
+  <content contentuid="stringsofmodmadebyxss20250626fsa00b01" version="1">将一个物体&lt;LSTag Type="Status" Tooltip="BANXIAN_GOLDIFIED"&gt;纯金化&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20250626fsa00c01" version="1">纯金化</content>
+  <content contentuid="stringsofmodmadebyxss20250626fsa00d01" version="1">受点金术影响，完全变为黄金。
+&lt;LSTag Type="Image" Info="SoftWarning"/&gt;可以被融化为金币。</content>
+
+
+
+
+  <content contentuid="stringsofmodmadebyxss20250321hta00a01" version="1">《谪仙》：所谓天灵根，即某一属性灵根积累到极高境界（至少50点）后觉醒的极致形态，它能带来远超寻常灵根的能力，且可同时觉醒多种天灵根。  ————熊长老</content>
+  <content contentuid="stringsofmodmadebyxss20250321hta00a02" version="1">《谪仙》：像炼器那般去耐心炼化火种，即可将其化为己有。  ————熊长老</content>
+  <content contentuid="stringsofmodmadebyxss20250321hta00a03" version="1">《谪仙》：天道，除魔卫道；修罗道，杀生证道；人间道，轮回悟道。  ————熊长老</content>
+
+  <content contentuid="stringsofmodmadebyxss20241217zx001a01" version="1">《无字天书》</content>
+  <content contentuid="stringsofmodmadebyxss20241217zx001b01" version="1">这是一本没有字的书。</content>
+  <content contentuid="stringsofmodmadebyxss20241217zxbk1001" version="1"></content>
+  <content contentuid="stringsofmodmadebyxss20241217zx001a02" version="1">《炼器心得》</content>
+  <content contentuid="stringsofmodmadebyxss20241217zx001b02" version="1">鱼道人（浴缸里的鱼儿） 著。</content>
+  <content contentuid="stringsofmodmadebyxss20241217zxbk1002" version="1">拉瑞安修仙小伙伴，在最新谪仙更新中我们都会解锁喷火的技能，通过这个技能我们可以进行传说中的炼器。每一位向往炼就自己最心仪武器装备的小伙伴请遵照炼器三要素，推开炼器大门。
+
+第一，炼器之根火焰，谪仙最开始只拥有凡火（1D4），某些天赋异禀解锁天火灵根可以让此火焰效果翻倍。随着旅程中形形色色敌人，某些在击杀会发现其携带特殊火焰。第一章螺壳舰中boss札尔克携带着1D6的幽冥鬼火，我们艰难的干死他之后，以凡火煅烧其尸体即可获得我们第一种异种火焰幽冥鬼火，也让我们初步推开了炼器的大门。
+
+第二，炼器之体寄宿所有炼器效果器胚。选择一件武器或者一件装备作为炼器的本体承载所有我们想要能力，该武器和装备必须是唯一性物品否则无法承载那神奇的力量。装备和武器各自有不同的本质混炼可能造成不可逆转的伤害，装备分两种词条装备（通过词条赋予该装备某些神秘效果）技能装备（通过装备上技能或主动或被动，主动让我们获得一个主动技能，被动让我们获得某些鉴定属性优势）我们炼器最好的器胚就是词条装备，我们可以为它附着其他各种各样强大的有趣的能力可主动可被动。所有器胚的成长都在于每一位谪仙的冒险和探索，寻找更强的词条炼制在你想要的器胚，持续塑造，持续提升，收获我们专属神器。
+
+第三，炼器之魂被炼化的各种养分。每一件带有自己能力的武器装备都可以成为炼器的养料选择炼化，滋养胚体。同样武器和装备二分，装备分词条和技能两类。词条可以完美炼化提取后附着胚体强化胚体。技能可以炼化提取强化提升技能类胚体。
+
+当我们集齐三要素，接下来我们开始炼器：
+炼器步骤，炼化养分，加热胚体，养分附着胚体，炼器成。请多加修炼多多尝试。火候，炼器规划，炼器是小道亦是大道，小到提高偷鸡摸狗之能，大到一步登天。
+</content>
+  <content contentuid="stringsofmodmadebyxss20241217zx001a03" version="1">《修仙小常识》</content>
+  <content contentuid="stringsofmodmadebyxss20241217zx001b03" version="1">讲述了一些修仙的常识，帮助散修们快速了解谪仙。</content>
+  <content contentuid="stringsofmodmadebyxss20241217zxbk1003" version="1">修仙小常识
+       ————合欢道天仙小修士-翡冷翠.著
+
+洪荒时代和末法时代区别:洪荒时代所有人都有概率觉醒灵根，末法时代只有你一人可以觉醒灵根
+
+
+分神术篇：
+分神术:夺灵，把一个有灵根的生物的灵根夺过来自己用。
+分神术:担山，可以操控敌人随意摆弄，被扔到地上的敌人会倒地一回合。
+分神术:掌日，（神识由感知加值决定）可以操控敌人。
+分神术:内观可以查看自己的资质，大道，灵根，道行。
+分神术:洞观可以查看一定范围内的人的灵根和道行，灵根和道行是随机的，敌人道行随等级在一定范围内提升，有些人有有些人没有。
+分神术:夺灵可以夺人灵根。
+
+修为道行篇：1-4级为练气前期到练气巅峰，前中后为小境界，巅峰为过度，不算小境界突破，以此类推5-8为筑基期、9-12为结丹期、13-20为元婴期。道行会在长休和短休后增长，增长数量和等级相关。
+不同大道有不同特殊方式快速增长道行，如:天道击杀邪魔类生物;力道只要攻击就能涨道行;合欢道可以通过采补有道行的且处于失能状态（昏睡，醉酒，倒地等）的人大量获取道行（邪法;勿要沉迷）
+
+
+灵根篇:开局会自动觉醒五行灵根，可用分神术:内观查询自身与他人灵根配比。气运出众之人可能觉醒异灵根，如:冰风雷血光暗毒混沌等。灵根分为四阶境界：凡灵根（各元素≥10）、天灵根（≥50）、仙灵根（≥150）、圣灵根（≥500），境界越高威能越强，圣灵根境界近乎传说（灵根效果请移步特殊灵根篇）。若是天生灵根混乱未觉醒特殊灵根，也可采用夺灵、炼丹等方式逆天改命。具体为:分神术:夺灵;搜集珍惜药材炼制五行属性丹药改变五行灵根，遵循五行相生调配出异灵根，运气奇佳者更是能调配出高阶灵根（具体移步炼丹篇）
+
+特殊灵根篇:
+光灵根：处于阳光下时，每回合结束时回复生命，若生命值已满则使三维属性获得提升。
+天光灵根：阳光回血量翻倍，属性提升效果增强；获得光耀伤害抗性，免疫目盲。
+仙光灵根：回血量进一步提升，无视光耀伤害抗性。
+圣光灵根：回血量大幅提升，无视光耀伤害免疫。
+暗灵根：处于遮蔽下时，可以消耗反应使你具有优势的攻击造重击。
+天暗灵根：不再依赖优势；获得死灵伤害抗性。
+仙暗灵根：无视死灵伤害抗性。
+圣暗灵根：暴击阈值额外降低1。
+毒灵根：你在攻击时会对目标额外造成毒素伤害，但自身也可能受到同样伤害。
+天毒灵根：无视毒素伤害抗性，毒素伤害取最大值。
+仙毒灵根：无视毒素免疫，毒素伤害取最大值，重击骰+1。
+圣毒灵根：重击骰共+2。
+冰灵根：获得寒冷伤害抗性和无视寒冷伤害抗性，站在冰面上时攻击掷骰获得优势。
+天冰灵根：造成寒冷伤害总是取最大伤害掷骰，被冻结的敌人将永久冰封。
+仙冰灵根：无视寒冷免疫，造成寒冷伤害取最大值。
+圣冰灵根：重击骰+2。
+风灵根：反应+1，移动速度+3m。获得雷鸣伤害抗性，免疫昏睡状态。
+天风灵根：动作、附赠动作+1。
+仙风灵根：动作+2，附赠动作+1，反应+2。
+圣风灵根：动作+3，附赠动作+2，反应+2。
+雷灵根：获得闪电伤害抗性和无视闪电伤害抗性，解锁闪电充能上限，超过5层时护甲等级+2。
+天雷灵根：闪电充能可以提供护甲等级和增伤，超过5层时造成闪电伤害总是取最大伤害掷骰。
+仙雷灵根：无视闪电免疫，闪电充能增伤效果更强，满充能时伤害取最大值。
+圣雷灵根：闪电伤害总是取最大值，暴击阈值降低，重击骰增加。
+血灵根：攻击时对目标有吸血效果；对流血目标施法时使其流血。
+天血灵根：近战攻击吸血不再依靠流血状态；生命值低于50%时攻击和伤害掷骰+2；击杀敌人后恢复其最大生命值的25%。
+仙血灵根：生命值低于50%时攻击和伤害掷骰+5；击杀敌人后恢复其最大生命值的50%。
+圣血灵根：生命值低于50%时掷骰+8；击杀敌人后完全恢复生命值并额外获得临时生命值。
+混沌灵根：短休可以恢复长休才能恢复的资源。
+天混沌灵根：全属性+1。
+仙混沌灵根：全属性+2。
+圣混沌灵根：全属性+3。
+
+灵根配比篇：
+异灵根觉醒无需特定比例，只要所有组合元素均达到对应境界阈值即可自动觉醒。
+境界阈值：凡≥10 / 天≥50 / 仙≥150 / 圣≥500
+
+冰灵根 = 水 + 土
+风灵根 = 土 + 木
+雷灵根 = 金 + 水
+血灵根 = 木 + 火
+光灵根 = 火 + 木 + 土
+暗灵根 = 水 + 金 + 木
+毒灵根 = 木 + 火 + 水
+混沌灵根 = 五行皆备（火土金水木）
+
+
+灵根调配篇：
+五行丹药各有专精，服用后直接增强对应属性灵根，无需消耗其他灵根。
+铁牛丹（土）、乌金丹（金）、无心药（木）、水玉丹（水）、补阳丹（火）。
+
+
+炼丹篇：在杀死敌人后有一定概率从其身上搜出珍奇药材，可用于炼制稀有丹药，配合炼丹炉使用（采药小技巧:非致命开关下击倒敌人可以摸一次尸体，再击杀之后可以再摸一次尸体，可以让爆率翻倍）。丹药妙用无穷，据说可以大幅增长生命，凭空增长大量修为，永久增加各种抗性等等，更有五蕴丹和五行丹药可以夺天造化，增长资质，增强灵根（药方难觅，静待后解）
+
+
+宝材丹方篇：
+——大力铁角
+器纹-铁角
+-每当你获得临时生命值时，徒手攻击和武器伤害获得等同于临时生命值的加值。
+-每当你获得临时生命值时,护甲等级额外获得+2。
+-当你使用动作如潮时可以额外获得1个动作。
+
+——妖生角
+器纹-妖角-
+-每回合一次，当你施展一个法术时，徒手攻击和近战武器的伤害掷般+1并获得1点临时生命值。效果随法术等级提升!
+-每回合一次，当你进入荒野形态时，伤害+1受到的伤害-1。
+-法术位上限额外提升3点。
+攀上新高
+法术位上限额外提升3点。
+
+——黑色眼眸
+器纹•黑眸
+-被这把武器击杀的生物会在一回合后转化为不死生物为你战斗。
+-战斗中每回合结束时最大生命值提升1点效果随等级提升。
+-你控制的不死军团的攻击和最大生命值获得提升，效果随等级提升。
+
+——金色眼眸
+器纹·金眸
+圣盾
+下一次受到的伤害减少至1。
+-发动武器攻击后，获得圣盾。
+-获得圣盾时，若已有圣盾，则近战武器的伤害掷骰+1。
+-当你治疗一个生物后，使其获得圣盾。
+
+——龙珠
+器纹•龙珠
+-武器攻击额外造成伤害。
+-过量治疗提升器纹·龙珠的额外光耀伤害的骰面。最多提升4次。
+-过量治疗:造成光耀伤害时,最小伤害骰+1。最多提升3次。
+
+——铁中血
+器纹-铁血
+死亡轮盘
+锁定一个目标，使其五回合以后即死，期间自身无法攻击和移动。
+-发动武器攻击时损失自身10点生命值并提升等量伤害。
+-当你在你的回合被攻击后,回湖该伤害,并获得+1伤害。
+-施展一道法术时，你可以以消耗生命值为代价代替法术位消耗。每一环法术位消耗增加10%最大生命值。
+
+——玉垂牙
+器纹.玉牙
+-每回合一次，武器攻击造成重击时,恢复偷袭骰。
+-每回合一次，武器攻击造成重击时，，恢复移动速度。
+-每回合一次，武器攻击造成重击时，恢复附赠动作。
+
+——震雷骨
+器纹•雷骨
+法术迸发：下一次武器攻击伤害触发三次。
+法术迸发：下一次攻击额外造成伤害。
+法术迸发：下一个法术额外获得两个可瞄准目标。
+--三种词条分别对应炼器可获得词条部位：武器；护甲；饰品
+
+
+丹方篇：
+碧藕金丹--服用后，大幅提高生命值上限。
+配方：碧藕小还丹-碧藕小还丹-碧藕小还丹
+
+碧藕小还丹--服用后，提高生命值上限。
+配方：心脏-碧藕-玲珑内丹
+
+九转金丹--服用后，可凭空大幅涨进修为。
+配方：九转小还丹-九转小还丹-九转小还丹
+
+九转小还丹--服用后，可凭空涨进修为。
+配方：玲珑内丹-玲珑内丹-玲珑内丹
+
+三花九子膏--服用后，可免疫目盲状态。
+配方：漱玉花-九叶灵芝草-玲珑内丹
+
+太乙紫金丹--服用后，解锁更多高环法术位。
+配方：太乙小还丹-太乙小还丹-太乙小还丹
+
+太乙小还丹--服用后，解锁更多法术位。
+配方：妖核-玲珑内丹-玲珑内丹
+
+宝鳞丸--服用后一日内，受到的伤害减少。
+配方：龙胆-葛蕈-老山参
+
+保命丹--服用后一日内，生命值翻倍，恢真所有生命值。
+配方：地涌金莲-火铃草-妖核
+
+倍力丸--御后一日内，触发重击所需掷骰。
+配方：葛草-老山参-妖核
+
+避凶药--服用后一日内，所有针对自己的攻击掷骰将得劣势。
+配方：碧藕-甘草-妖核
+
+参势丸--服用后一日内，攻击掷骰增加少许。
+配方：老山参-甘草-妖核
+
+朝元膏--服用后一日内，解锁额外法术位。
+配方：妖核-甘草-白僵
+
+度瘴散--服用后一日内，免疫中毒状态。
+配方：简易毒素-树珍珠-碧藕
+
+伏虎丸--服用后一日内，造成的伤害提升少许。
+配方：紫芝-葛蕈-妖核
+
+坚骨药--服用后一日内，受到的伤害减少少许。
+配方：龙胆-葛蕈-妖核
+
+镜中丹--服用后一日内，获得高等隐形状态。
+配方：地涌金莲-白僵-妖核
+
+清凉散--服用后一日内，获得火焰伤害免疫，免疫燃烧类状态。  
+配方：碧藕    -漱玉花-妖核
+
+轻身散--服用后一日内，移动速度翻倍。
+配方：紫芝-交梨-妖核
+
+神霄散--服用后一日内，免疫震慑、感电状态，攻击额外造成少许闪电伤害。
+配方：龙胆-碧藕-妖核
+
+温里散--服用后一日内，获得寒冷伤害免疫，免疫冰冻状态。
+配方：火铃草-碧藕-妖核
+
+延寿膏--服用后，少许提升生命值上限。
+配方：心脏-甘草-漱玉花
+
+益气育--服用后，提升1点气点上限。
+配方：交梨-甘草-妖核
+
+登仙散--服用后一日内，动作，附赠动作和反应＋1。
+配方：交梨-九叶灵芝草-火枣
+
+七返火丹--服用后，重置技能冷却时间。
+配方：火铃草-火铃砂-火枣
+
+聚珍伏虎丸--服用后一日内，造成的伤害提升。
+配方：紫芝-猴头菌-妖核
+
+加味参势丸--服用后一日内，攻击掷骰获得优势。
+配方：甘草-千年人-树珍珠
+
+龙光倍力丸--服用后，触发重击所需掷骰-1重击骰+1,攻击掷骰+1,伤害+1。
+配方：紫芝-老山参-猴头菌
+
+九转还魂丹--服用后，濒死时立即恢眞所有生命值，并移除负面状态。
+配方：九叶灵芝草-千年人参-猴头菌
+
+乌金丹--服用后，提升毒素抗性，同时可提升金灵根。
+配方：金锭-烟粉包-玲珑内丹
+
+无心药--服用后，提升体质，同时可增强木灵根。
+配方：心脏-铁中血-玲珑內丹
+
+水玉丹--服用后，提升火焰抗性，同时可增强水灵根。
+配方：龙珠-碧藕-玲珑内丹
+
+补阳丹--服用后，提升寒冷伤害抗性，同时可增强火灵根。
+配方：火枣-千年人参-玲珑内丹
+
+铁牛丹--服用后，提两点力量和挥砍，穿刺，钝击伤害抗性，且不会被迫移动同时可增强土灵根。
+配方：大力铁牛角-玲珑内丹-玲珑内丹（植物类敌人可提升药材掉落概率，特殊宝财/药材有特殊掉落方式）
+
+
+炼器篇
+异火:游戏有数种异火，分别位于螺壳舰首领扎尔克，拉斐尔，复仇熔炉复仇侍卫，凯瑟里克·索姆，安苏身上。击败这些强敌，用真火灼烧其肉体，数次之后可得到其存有的异火（可右键调查自身查看，被动栏可开关）不同异火有不同妙用，有些可以帮助战斗，有些则可以大幅提升炼器能力。
+炼器:使用真火灼烧一件装备/宝材作为材料，淬火达到一定程度后将失去这件装备/宝材获得十回合炼器就绪，之后用真火灼烧另一件作为胚子的装备，达到过热状态后再用真火灼烧一次胚子将直接失去炼器就绪状态且炼器完成，作为胚子的装备将获得材料的词条。（获得炼器就绪状态后需在十回合内将词条转移到胚子上，否则炼器失败），目前只可以将mod装备作为材料而不可以作为胚子，作为胚子无效。且作为胚子的装备需为唯一性装备。宝材建议炼化好词条后最后炼化到胚子上。
+淬火需求:，炼化普通/精/稀有/珍奇/传奇装备所需要的淬火层数分别为12/48/108/192/300；宝材需要365层淬火，此外火灵根使用真火时，额外施加一层淬火。
+
+
+炼妖篇
+一些特殊敌人尸体可以用真火淬炼，达到一定程度后可获取其精华。
+如：眼魔，牛头人，巨龙等
+眼魔：5级眼魔可以炼化出金色眼眸，9级黑色眼眸
+牛头人：9级牛头人可以炼化出大力铁牛角
+邪魔，提夫林，牛有概率掉落妖生角，也可进行炼化
+炼妖有一定等级限制，大妖才可进行炼妖，具体等级请自行探索
+炼妖淬火层数需求：7*7*等级
+
+
+合欢道修仙小贴士:征服可以消耗道行直接征服一个道行比你低的敌人为你所用成为你的仆从，且可以随你传送，用的好妙用无穷，切记勿要征服关键剧情人物，极易翻车！
+</content>
+  <content contentuid="stringsofmodmadebyxss20250304zjj00a00" version="1">周天炼体</content>
+</contentList>

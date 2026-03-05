@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="0" revision="0" build="34"/>
+    <region id="Hints">
+        <node id="root">
+            <attribute id="HintDuration" type="float" value="5"/>
+            <children>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TIANLINGGEN"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a02" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_LIANHUASHENHUO"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a03" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_SHANGSANDAO"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TEST2"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TEST3"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TEST4"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TEST5"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TEST6"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TEST7"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TEST8"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TEST9"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TES10"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TES12"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TES13"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TES14"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TES15"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TES16"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TES17"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TES18"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TES19"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TES20"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TES21"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TES22"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TES23"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TES24"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TES25"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TES26"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TES27"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TES28"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TES29"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TES30"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TES31"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TES32"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+                <node id="Hint">
+                    <attribute id="Controller" type="bool" value="false"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250321hta00a01" version="1"/>
+                    <attribute id="HintKey" type="FixedString" value="HINT_BANXIAN_TES33"/>
+                    <attribute id="Internal" type="bool" value="false"/>
+                    <attribute id="Keyboard" type="bool" value="true"/>
+                    <attribute id="WikiPage" type="LSString" value=""/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

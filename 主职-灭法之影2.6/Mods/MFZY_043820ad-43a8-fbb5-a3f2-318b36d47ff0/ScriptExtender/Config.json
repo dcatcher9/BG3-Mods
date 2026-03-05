@@ -1,0 +1,8 @@
+{
+    "RequiredVersion": 4,
+    "ModTable": "MFZY_043820ad-43a8-fbb5-a3f2-318b36d47ff0",
+    "FeatureFlags": [
+      "Osiris",
+      "Lua"
+    ]
+  }

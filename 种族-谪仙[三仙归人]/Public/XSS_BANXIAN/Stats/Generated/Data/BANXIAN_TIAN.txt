@@ -1,0 +1,869 @@
+
+/////////////////////////////
+/
+/         大品天仙诀         //主修功法  
+/
+/////////////////////////////   
+//大品天仙诀  可以用气来代替法术位消耗
+new entry "BANXIAN_GONGFA_BASE"
+type "PassiveData"
+data "Icon" "PassiveFeature_BlessingsOfKnowledge"
+data "DisplayName" "stringsofmodmadebyxss20240930dv004a01;1"
+data "Description" "stringsofmodmadebyxss20240930dv004d01;1"
+data "Properties" "IsToggled;ToggledDefaultAddToHotbar;Highlighted"
+data "Boosts" "UnlockSpellVariant(BanXianSpellLevel(1),ModifyIconGlow(),ModifyTooltipDescription(),ModifyUseCosts(Replace,SpellSlot,0,-1,SpellSlot),ModifyUseCosts(Replace,WarlockSpellSlot,0,-1,WarlockSpellSlot),ModifyUseCosts(Replace,SpellSlotsGroup,0,-1,SpellSlotsGroup),ModifyUseCosts(Add,KiPoint,2,0));UnlockSpellVariant(BanXianSpellLevel(2),ModifyIconGlow(),ModifyTooltipDescription(),ModifyUseCosts(Replace,SpellSlot,0,-1,SpellSlot),ModifyUseCosts(Replace,WarlockSpellSlot,0,-1,WarlockSpellSlot),ModifyUseCosts(Replace,SpellSlotsGroup,0,-1,SpellSlotsGroup),ModifyUseCosts(Add,KiPoint,3,0));UnlockSpellVariant(BanXianSpellLevel(3),ModifyIconGlow(),ModifyTooltipDescription(),ModifyUseCosts(Replace,SpellSlot,0,-1,SpellSlot),ModifyUseCosts(Replace,WarlockSpellSlot,0,-1,WarlockSpellSlot),ModifyUseCosts(Replace,SpellSlotsGroup,0,-1,SpellSlotsGroup),ModifyUseCosts(Add,KiPoint,4,0));UnlockSpellVariant(BanXianSpellLevel(4),ModifyIconGlow(),ModifyTooltipDescription(),ModifyUseCosts(Replace,SpellSlot,0,-1,SpellSlot),ModifyUseCosts(Replace,WarlockSpellSlot,0,-1,WarlockSpellSlot),ModifyUseCosts(Replace,SpellSlotsGroup,0,-1,SpellSlotsGroup),ModifyUseCosts(Add,KiPoint,5,0));UnlockSpellVariant(BanXianSpellLevel(5),ModifyIconGlow(),ModifyTooltipDescription(),ModifyUseCosts(Replace,SpellSlot,0,-1,SpellSlot),ModifyUseCosts(Replace,WarlockSpellSlot,0,-1,WarlockSpellSlot),ModifyUseCosts(Replace,SpellSlotsGroup,0,-1,SpellSlotsGroup),ModifyUseCosts(Add,KiPoint,6,0));UnlockSpellVariant(BanXianSpellLevel(6),ModifyIconGlow(),ModifyTooltipDescription(),ModifyUseCosts(Replace,SpellSlot,0,-1,SpellSlot),ModifyUseCosts(Replace,WarlockSpellSlot,0,-1,WarlockSpellSlot),ModifyUseCosts(Replace,SpellSlotsGroup,0,-1,SpellSlotsGroup),ModifyUseCosts(Add,KiPoint,7,0))"
+
+//用气加强法术攻击掷骰???
+new entry "BANXIAN_GONGFA_ENHANCESPELL_1"
+type "PassiveData"
+data "Icon" "PassiveFeature_BlessingsOfKnowledge"
+data "DisplayName" "stringsofmodmadebyxss20240930dv004a01;1"
+data "Description" "stringsofmodmadebyxss20240930dv004d01;1"
+
+//用气加强法术伤害掷骰???
+new entry "BANXIAN_GONGFA_ENHANCESPELL_2"
+type "PassiveData"
+data "Icon" "PassiveFeature_BlessingsOfKnowledge"
+data "DisplayName" "stringsofmodmadebyxss20240930dv004a01;1"
+data "Description" "stringsofmodmadebyxss20240930dv004d01;1"
+
+//用气加强法术豁免难度???
+new entry "BANXIAN_GONGFA_ENHANCESPELL_3"
+type "PassiveData"
+data "Icon" "PassiveFeature_BlessingsOfKnowledge"
+data "DisplayName" "stringsofmodmadebyxss20240930dv004a01;1"
+data "Description" "stringsofmodmadebyxss20240930dv004d01;1"
+
+//炼气化精
+new entry "BANXAIN_TIAN_DiceToDamage"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20240930dv004a03;1"
+data "Description" "stringsofmodmadebyxss20240930dv004b03;1"
+data "Icon" "PassiveFeature_MartialArts_BonusUnarmedStrike"
+data "Properties" "IsToggled;Highlighted;ToggledDefaultAddToHotbar"
+//data "Boosts" "IF(IsMeleeUnarmedAttack() and BanXian_LingQiBianYi_Lei()):CharacterUnarmedDamage(max(1, LevelMapValue(BanXianDice)), Lightning);IF(IsMeleeUnarmedAttack() and BanXian_LingQiBianYi_Bing()):CharacterUnarmedDamage(max(1, LevelMapValue(BanXianDice)), Cold);IF(IsMeleeUnarmedAttack() and BanXian_LingQiBianYi_Du()):CharacterUnarmedDamage(max(1, LevelMapValue(BanXianDice)), Poison);  IF(IsMeleeUnarmedAttack() and BanXian_LingQiBianYi_None()):CharacterUnarmedDamage(max(1, LevelMapValue(BanXianDice)), Bludgeoning);IF(((IsSpell() or IsCantrip())) and BanXian_LingQiBianYi_Lei()):DamageBonus(max(1, LevelMapValue(BanXianDice)),Lightning);IF(((IsSpell() or IsCantrip())) and BanXian_LingQiBianYi_Bing()):DamageBonus(max(0, LevelMapValue(BanXianDice)),Cold);   IF(((IsSpell() or IsCantrip())) and BanXian_LingQiBianYi_Du()):DamageBonus(max(0, LevelMapValue(BanXianDice)),Poison);   IF(((IsSpell() or IsCantrip())) and BanXian_LingQiBianYi_None()):DamageBonus(max(0, LevelMapValue(BanXianDice)));  UnlockSpellVariant((IsSpell() or IsMeleeUnarmedAttack() or IsCantrip()),ModifyIconGlow(),ModifyTooltipDescription(),ModifyUseCosts(Add,KiPoint,1,0))"
+data "Boosts" "IF((IsMeleeAttack() or IsRangedAttack())):CharacterWeaponDamage(max(1, LevelMapValue(BanXiangHP)), Bludgeoning);IF((IsSpell() or IsCantrip())):DamageBonus(max(0, LevelMapValue(BanXianDice)));UnlockSpellVariant((IsSpell() or (IsMeleeAttack() or IsRangedAttack()) or IsCantrip()),ModifyIconGlow(),ModifyTooltipDescription(),ModifyUseCosts(Add,KiPoint,1,0))"
+data "ToggleGroup" "BANXAIN_Dice"
+
+
+
+
+/////////////////////////////
+/
+/         周天淬体诀          
+/
+/////////////////////////////  
+//观察运气状态    可用于随时观察运气状态  使用后激活穴窍对应临时增益
+new entry "Shout_CuiTi_ZhouTian_NX"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_WholenessOfBody"
+data "Cooldown" "OncePerTurn"
+data "SpellProperties" "IF(HasStatus('BANXIAN_JJ_TIER_1',context.Source)):UseActionResource(KiPoint,1,0);IF(HasStatus('BANXIAN_JJ_TIER_2',context.Source)):UseActionResource(KiPoint,2,0);IF(HasStatus('BANXIAN_JJ_TIER_3',context.Source)):UseActionResource(KiPoint,4,0);IF(HasStatus('BANXIAN_JJ_TIER_4',context.Source)):UseActionResource(KiPoint,8,0);IF(HasStatus('BANXIAN_JJ_TIER_5',context.Source)):UseActionResource(KiPoint,16,0);IF(HasStatus('BANXIAN_JJ_TIER_6',context.Source)):UseActionResource(KiPoint,32,0);IF(HasStatus('BANXIAN_JJ_TIER_7',context.Source)):UseActionResource(KiPoint,64,0);IF(HasStatus('BANXIAN_JJ_TIER_8',context.Source)):UseActionResource(KiPoint,128,0);IF(HasStatus('BANXIAN_JJ_TIER_9',context.Source)):UseActionResource(KiPoint,256,0);IF(HasStatus('BANXIAN_JJ_TIER_10',context.Source)):UseActionResource(KiPoint,512,0); ApplyStatus(SIGNAL_READD_PASSIVES,100,0);IF(HasStatus('CUITI_ZHOUTIAN_LONG')):ApplyStatus(Shout_CuiTi_ZhouTian_LONG,100,0);IF(not HasStatus('CUITI_ZHOUTIAN_LONG')):ApplyStatus(Shout_CuiTi_ZhouTian_SHORT,100,0)"
+data "UseCosts" "ActionPoint:1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002001;1"
+data "Description" "stringsofmodmadebyxss20240930dv002002;1"
+data "ExtraDescription" "stringsofmodmadebyxss20240930dv0020b2;1"
+data "TooltipDamageList" ""
+data "TooltipStatusApply" ""
+//data "Requirements" "ZhouTianWorkCheck() or (ZhouTianNXWorkCheck() and ((HasStatus('CUITI_ZHOUTIAN_LONG') and ZhouTianLongBreak()) or (HasStatus('CUITI_ZHOUTIAN_SHORT') and ZhouTianShortBreak())))"
+//data "SpellAnimation" "ce3e8ebe-7f0f-4c7a-864b-bdc54dc50054,,;,,;a79b0c69-4aec-4cea-b2d9-f5867cf29fad,,;d5c52aaf-07ef-410d-be9c-3f4d2f2cbfa7,,;abea8ae2-0956-4f76-b46c-434eec5bdd2a,,;,,;e550f983-faab-412b-a55d-237a1e17d4da,,;a79b0c69-4aec-4cea-b2d9-f5867cf29fad,,;,,"
+//data "RequirementConditions" "ZhouTianWorkCheck()"
+data "RequirementConditions" "(HasStatus('BANXIAN_JJ_TIER_1',context.Source) and HasActionResource('KiPoint', 1, 0, false, true, context.Source)) or (HasStatus('BANXIAN_JJ_TIER_2',context.Source) and HasActionResource('KiPoint', 2, 0, false, true, context.Source)) or (HasStatus('BANXIAN_JJ_TIER_3',context.Source) and HasActionResource('KiPoint', 4, 0, false, true, context.Source)) or (HasStatus('BANXIAN_JJ_TIER_4',context.Source) and HasActionResource('KiPoint', 8, 0, false, true, context.Source)) or (HasStatus('BANXIAN_JJ_TIER_5',context.Source) and HasActionResource('KiPoint', 16, 0, false, true, context.Source)) or (HasStatus('BANXIAN_JJ_TIER_6',context.Source) and HasActionResource('KiPoint', 32, 0, false, true, context.Source)) or (HasStatus('BANXIAN_JJ_TIER_7',context.Source) and HasActionResource('KiPoint', 64, 0, false, true, context.Source)) or (HasStatus('BANXIAN_JJ_TIER_8',context.Source) and HasActionResource('KiPoint', 128, 0, false, true, context.Source)) or (HasStatus('BANXIAN_JJ_TIER_9',context.Source) and HasActionResource('KiPoint', 256, 0, false, true, context.Source)) or (HasStatus('BANXIAN_JJ_TIER_10',context.Source) and HasActionResource('KiPoint', 512, 0, false, true, context.Source))"
+data "SpellFlags" "Temporary;Wildshape"
+
+new entry "Shout_CuiTi_ZhouTian_LONG"
+type "StatusData"
+data "StatusType" "BOOST" 
+data "StackId" "Shout_CuiTi_ZhouTian"
+data "StackType" "Overwrite"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+data "OnApplyFunctors" "IF(HasStatus('CUITI_ZHOUTIAN_1') or HasStatus('CUITI_ZHOUTIAN_1_NX')):ApplyStatus(CUITI_ZHOUTIAN_2,100,-1); IF(HasStatus('CUITI_ZHOUTIAN_2') or HasStatus('CUITI_ZHOUTIAN_2_NX')):ApplyStatus(CUITI_ZHOUTIAN_3,100,-1); IF(HasStatus('CUITI_ZHOUTIAN_3') or HasStatus('CUITI_ZHOUTIAN_3_NX')):ApplyStatus(CUITI_ZHOUTIAN_4,100,-1); IF(HasStatus('CUITI_ZHOUTIAN_4') or HasStatus('CUITI_ZHOUTIAN_4_NX')):ApplyStatus(CUITI_ZHOUTIAN_5,100,-1); IF(HasStatus('CUITI_ZHOUTIAN_1') or HasStatus('CUITI_ZHOUTIAN_1_NX')):ApplyStatus(CUITI_ZHOUTIAN_2,100,-1);IF(HasStatus('CUITI_ZHOUTIAN_5') or HasStatus('CUITI_ZHOUTIAN_5_NX')):ApplyStatus(CUITI_ZHOUTIAN_6,100,-1); IF(HasStatus('CUITI_ZHOUTIAN_6') or HasStatus('CUITI_ZHOUTIAN_6_NX')):ApplyStatus(CUITI_ZHOUTIAN_7,100,-1); IF(HasStatus('CUITI_ZHOUTIAN_7') or HasStatus('CUITI_ZHOUTIAN_7_NX')):ApplyStatus(CUITI_ZHOUTIAN_8,100,-1); IF(HasStatus('CUITI_ZHOUTIAN_8') or HasStatus('CUITI_ZHOUTIAN_8_NX')):ApplyStatus(CUITI_ZHOUTIAN_9,100,-1); IF(HasStatus('CUITI_ZHOUTIAN_9') or HasStatus('CUITI_ZHOUTIAN_9_NX')):ApplyStatus(CUITI_ZHOUTIAN_10,100,-1); IF(HasStatus('CUITI_ZHOUTIAN_10') or HasStatus('CUITI_ZHOUTIAN_10_NX')):ApplyStatus(CUITI_ZHOUTIAN_11,100,-1); IF(HasStatus('CUITI_ZHOUTIAN_11') or HasStatus('CUITI_ZHOUTIAN_11_NX')):ApplyStatus(CUITI_ZHOUTIAN_12,100,-1); IF(HasStatus('CUITI_ZHOUTIAN_12') or HasStatus('CUITI_ZHOUTIAN_12_NX')):ApplyStatus(CUITI_ZHOUTIAN_1,100,-1);"
+
+new entry "Shout_CuiTi_ZhouTian_SHORT"
+type "StatusData"
+data "StatusType" "BOOST"
+using "Shout_CuiTi_ZhouTian_LONG"
+data "OnApplyFunctors" "IF(HasStatus('CUITI_ZHOUTIAN_1') or HasStatus('CUITI_ZHOUTIAN_1_NX') or HasStatus('CUITI_ZHOUTIAN_2') or HasStatus('CUITI_ZHOUTIAN_2_NX') or HasStatus('CUITI_ZHOUTIAN_3') or HasStatus('CUITI_ZHOUTIAN_3_NX') or HasStatus('CUITI_ZHOUTIAN_4') or HasStatus('CUITI_ZHOUTIAN_4_NX')):ApplyStatus(CUITI_ZHOUTIAN_5,100,-1); IF(HasStatus('CUITI_ZHOUTIAN_5') or HasStatus('CUITI_ZHOUTIAN_5_NX') or HasStatus('CUITI_ZHOUTIAN_6') or HasStatus('CUITI_ZHOUTIAN_6_NX')):ApplyStatus(CUITI_ZHOUTIAN_7,100,-1); IF(HasStatus('CUITI_ZHOUTIAN_7') or HasStatus('CUITI_ZHOUTIAN_7_NX') or HasStatus('CUITI_ZHOUTIAN_8') or HasStatus('CUITI_ZHOUTIAN_8_NX') or HasStatus('CUITI_ZHOUTIAN_9') or HasStatus('CUITI_ZHOUTIAN_9_NX') or HasStatus('CUITI_ZHOUTIAN_10') or HasStatus('CUITI_ZHOUTIAN_10_NX') or HasStatus('CUITI_ZHOUTIAN_11') or HasStatus('CUITI_ZHOUTIAN_11_NX')):ApplyStatus(CUITI_ZHOUTIAN_12,100,-1); IF(HasStatus('CUITI_ZHOUTIAN_12') or HasStatus('CUITI_ZHOUTIAN_12_NX')):ApplyStatus(CUITI_ZHOUTIAN_1,100,-1); "
+
+
+
+//切换周天路线  在大周天和小周天路线之间切换  
+new entry "CuiTi_ZhouTian_Change"
+type "PassiveData"
+//data "Icon" "PassiveFeature_PurityOfBody"
+data "Icon" "Action_Monk_WholenessOfBody"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002003;1" 
+data "Description" "stringsofmodmadebyxss20240930dv002004;1"
+data "Properties" "IsToggled;ToggledDefaultAddToHotbar;Highlighted"
+data "Boosts" ""
+data "ToggleOnFunctors" "ApplyStatus(CUITI_ZHOUTIAN_LONG,100,-1)"
+data "ToggleOffFunctors" "ApplyStatus(CUITI_ZHOUTIAN_SHORT,100,-1)"
+
+new entry "CUITI_ZHOUTIAN_OWNER"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002a00;1"
+data "StackId" "CUITI_ZHOUTIAN_OWNER"
+data "StackType" "Overwrite"
+//data "Passives" "CuiTi_ZhouTian_1_CC;CuiTi_ZhouTian_2_CC;CuiTi_ZhouTian_3_CC;CuiTi_ZhouTian_4_CC;CuiTi_ZhouTian_5_CC;CuiTi_ZhouTian_6_CC;CuiTi_ZhouTian_7_CC;CuiTi_ZhouTian_8_CC;CuiTi_ZhouTian_9_CC;CuiTi_ZhouTian_10_CC;CuiTi_ZhouTian_11_CC;CuiTi_ZhouTian_12_CC"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;ApplyToDead;IgnoreResting"
+
+new entry "CUITI_ZHOUTIAN"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002a00;1"
+data "StackId" "CUITI_ZHOUTIAN"
+data "StackType" "Overwrite"
+data "TickType" "StartTurn"
+data "TickFunctors" "ApplyStatus(CUITI_ZHOUTIAN_1,100,-1)"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;ApplyToDead;IgnoreResting"
+
+new entry "CUITI_ZHOUTIAN_LONG"
+type "StatusData"
+data "StatusType" "BOOST"
+data "Icon" "Action_Monk_WholenessOfBody"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002009;1"
+data "Description" "stringsofmodmadebyxss20240930dv002010;1"
+data "StackId" "CUITI_ZHOUTIAN_MODE"
+data "StackType" "Overwrite"
+//data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;ApplyToDead;IgnoreResting"
+
+new entry "CUITI_ZHOUTIAN_SHORT"
+type "StatusData"
+data "StatusType" "BOOST"
+data "Icon" "Action_Monk_WholenessOfBody"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002011;1"
+data "Description" "stringsofmodmadebyxss20240930dv002012;1"
+data "StackId" "CUITI_ZHOUTIAN_MODE"
+data "StackType" "Overwrite"
+//data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;ApplyToDead;IgnoreResting"
+
+new entry "SIGNAL_READD_PASSIVES"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;ApplyToDead;IgnoreResting"
+
+
+
+
+
+///////////////////////////// 
+/
+/         周天--穴窍       /升级时12选一打通，获得永久基础加成  运气经过穴窍时获得临时加成    周天打通后安全地逆行经脉
+/
+/////////////////////////////  
+new entry "CuiTi_ZhouTian_1"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002a01;1"
+data "Description" "stringsofmodmadebyxss20240930dv002b01;1"
+data "Properties" "IsHidden"
+data "BoostContext" "OnCreate;OnLongRest"
+data "BoostCondition" ""
+data "Boosts" "ActionResourceMultiplier(KiPoint,200,0)"
+
+new entry "CuiTi_ZhouTian_2"
+type "PassiveData"
+using "CuiTi_ZhouTian_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002a02;1"
+data "Description" "stringsofmodmadebyxss20240930dv002b02;1"
+data "Boosts" ""
+
+new entry "CuiTi_ZhouTian_3"
+type "PassiveData"
+using "CuiTi_ZhouTian_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002a03;1"
+data "Description" "stringsofmodmadebyxss20240930dv002b03;1"
+data "Boosts" ""
+new entry "CuiTi_ZhouTian_4"
+type "PassiveData"
+using "CuiTi_ZhouTian_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002a04;1"
+data "Description" "stringsofmodmadebyxss20240930dv002b04;1"
+data "Boosts" "IncreaseMaxHP(LevelMapValue(BanXiangHP))"
+
+new entry "CuiTi_ZhouTian_5"
+type "PassiveData"
+using "CuiTi_ZhouTian_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002a05;1"
+data "Description" "stringsofmodmadebyxss20240930dv002b05;1"
+data "Boosts" "ActionResource(KiPoint,LevelMapValue(BanXianAbilityBonus),0)"
+
+new entry "CuiTi_ZhouTian_6"
+type "PassiveData"
+using "CuiTi_ZhouTian_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002a06;1"
+data "Description" "stringsofmodmadebyxss20240930dv002b06;1"
+data "Boosts" "DamageReduction(Slashing, Flat, BanXianDice);DamageReduction(Piercing, Flat, BanXianDice);DamageReduction(Bludgeoning, Flat, BanXianDice)"
+
+new entry "CuiTi_ZhouTian_7"
+type "PassiveData"
+using "CuiTi_ZhouTian_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002a07;1"
+data "Description" "stringsofmodmadebyxss20240930dv002b07;1"
+data "Boosts" ""
+
+new entry "CuiTi_ZhouTian_8"
+type "PassiveData"
+using "CuiTi_ZhouTian_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002a08;1"
+data "Description" "stringsofmodmadebyxss20240930dv002b08;1"
+data "Boosts" ""
+
+new entry "CuiTi_ZhouTian_9"
+type "PassiveData"
+using "CuiTi_ZhouTian_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002a09;1"
+data "Description" "stringsofmodmadebyxss20240930dv002b09;1"
+data "Boosts" ""
+
+new entry "CuiTi_ZhouTian_10"
+type "PassiveData"
+using "CuiTi_ZhouTian_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002a10;1"
+data "Description" "stringsofmodmadebyxss20240930dv002b10;1"
+data "Boosts" ""
+
+new entry "CuiTi_ZhouTian_11"
+type "PassiveData"
+using "CuiTi_ZhouTian_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002a11;1"
+data "Description" "stringsofmodmadebyxss20240930dv002b11;1"
+data "Boosts" "DamageReduction(All, Flat, LevelMapValue(BanXianAbilityBonus))"
+
+new entry "CuiTi_ZhouTian_12"
+type "PassiveData"
+using "CuiTi_ZhouTian_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002a12;1"
+data "Description" "stringsofmodmadebyxss20240930dv002b12;1"
+data "Boosts" "IncreaseMaxHP(LevelMapValue(BanXiangHP))"
+
+new entry "CuiTi_ZhouTian_ShortBreak"
+type "PassiveData"
+using "CuiTi_ZhouTian_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002011;1"
+data "Description" "stringsofmodmadebyxss20240930dv002012;1"
+data "Boosts" "ActionResource(KiPoint,LevelMapValue(BanXianAbilityBonus),0);IncreaseMaxHP(LevelMapValue(BanXiangHP));Ability(Intelligence, LevelMapValue(BanXianAbilityBonus))"
+
+new entry "CuiTi_ZhouTian_LongBreak"
+type "PassiveData"
+using "CuiTi_ZhouTian_ShortBreak"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002009;1"
+data "Description" "stringsofmodmadebyxss20240930dv002010;1"
+data "Boosts" "ActionResource(KiPoint,LevelMapValue(BanXiangHP),0);DamageReduction(All, Flat,IncreaseMaxHP(LevelMapValue(BanXiangHP)*4))"
+
+
+
+//周天--运气  每运行完一周天，下一周天获得强化  狂暴时会逆行经脉，攻击增强，每回合损失血量，并进入疯狂状态  
+new entry "CUITI_ZHOUTIAN_1"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002d01;1"
+data "Description" "stringsofmodmadebyxss20240930dv002e01;1"
+data "StackId" "CUITI_ZHOUTIAN"
+data "StackType" "Overwrite"
+data "TickType" "StartTurn"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;ApplyToDead;IgnoreResting"
+data "OnApplyFunctors" "RestoreResource(KiPoint,100%,0)"
+data "Boosts" "UnlockSpellVariant(SpellId('Shout_CuiTi_ZhouTian_NX'), ModifyIconGlow(), ModifyTooltipDescription())"
+data "TickFunctors" "IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG') and HasPassive('CuiTi_ZhouTian_2')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_LONG,100,2);IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT') and HasPassive('CuiTi_ZhouTian_5')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_SHORT,100,2);  IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG') and HasPassive('CuiTi_ZhouTian_2')):ApplyStatus(CUITI_ZHOUTIAN_2,100,-1);IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT') and HasPassive('CuiTi_ZhouTian_5')):ApplyStatus(CUITI_ZHOUTIAN_5,100,-1); IF(ZhouTianNiXingCheck()):ApplyStatus(CUITI_ZHOUTIAN_12_NX,100,-1)"
+
+new entry "CUITI_ZHOUTIAN_2"
+type "StatusData"
+data "StatusType" "BOOST"
+using "CUITI_ZHOUTIAN_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002d02;1"
+data "Description" "stringsofmodmadebyxss20240930dv002e02;1"
+data "OnApplyFunctors" "ApplyStatus(CUITI_ZHOUTIAN_2_REMOVEDEBUFF,100,0)"
+data "TickFunctors" "IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG') and HasPassive('CuiTi_ZhouTian_3')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_LONG,100,2);IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT') and HasPassive('CuiTi_ZhouTian_5')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_SHORT,100,2);  IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG') and HasPassive('CuiTi_ZhouTian_3')):ApplyStatus(CUITI_ZHOUTIAN_3,100,-1);IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT') and HasPassive('CuiTi_ZhouTian_5')):ApplyStatus(CUITI_ZHOUTIAN_5,100,-1); IF(ZhouTianNiXingCheck()):ApplyStatus(CUITI_ZHOUTIAN_1_NX,100,-1)"
+
+new entry "CUITI_ZHOUTIAN_2_REMOVEDEBUFF"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+data "OnApplyFunctors" "RemoveStatus(SG_Poisoned);RemoveStatus(SG_Disease)"
+
+new entry "CUITI_ZHOUTIAN_3"
+type "StatusData"
+data "StatusType" "BOOST"
+using "CUITI_ZHOUTIAN_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002d03;1"
+data "Description" "stringsofmodmadebyxss20240930dv002e03;1"
+data "Boosts" "UnlockSpellVariant(SpellId('Shout_CuiTi_ZhouTian_NX'), ModifyIconGlow(), ModifyTooltipDescription()); CharacterUnarmedDamage(StrengthModifier, Bludgeoning); CharacterWeaponDamage(StrengthModifier, WeaponDamageType)"
+data "OnApplyFunctors" ""
+data "TickFunctors" "IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG') and HasPassive('CuiTi_ZhouTian_4')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_LONG,100,2);IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT') and HasPassive('CuiTi_ZhouTian_5')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_SHORT,100,2); IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG') and HasPassive('CuiTi_ZhouTian_4')):ApplyStatus(CUITI_ZHOUTIAN_4,100,-1);IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT') and HasPassive('CuiTi_ZhouTian_5')):ApplyStatus(CUITI_ZHOUTIAN_5,100,-1); IF(ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG')):ApplyStatus(CUITI_ZHOUTIAN_2_NX,100,-1);IF(ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT')):ApplyStatus(CUITI_ZHOUTIAN_1_NX,100,-1)"
+
+new entry "CUITI_ZHOUTIAN_4"
+type "StatusData"
+data "StatusType" "BOOST"
+using "CUITI_ZHOUTIAN_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002d04;1"
+data "Description" "stringsofmodmadebyxss20240930dv002e04;1"
+data "Boosts" "UnlockSpellVariant(SpellId('Shout_CuiTi_ZhouTian_NX'), ModifyIconGlow(), ModifyTooltipDescription()); TemporaryHP(LevelMapValue(BanXianCantrip)*Level)"
+data "OnApplyFunctors" ""
+data "TickFunctors" "IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG')  and HasPassive('CuiTi_ZhouTian_5')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_LONG,100,2);IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT')  and HasPassive('CuiTi_ZhouTian_5')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_SHORT,100,2);  IF(not ZhouTianNiXingCheck() and HasPassive('CuiTi_ZhouTian_5')):ApplyStatus(CUITI_ZHOUTIAN_5,100,-1); IF(ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG') and HasPassive('CuiTi_ZhouTian_3')):ApplyStatus(CUITI_ZHOUTIAN_3_NX,100,-1);IF(ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT')):ApplyStatus(CUITI_ZHOUTIAN_1_NX,100,-1)"
+
+new entry "CUITI_ZHOUTIAN_5"
+type "StatusData"
+data "StatusType" "BOOST"
+using "CUITI_ZHOUTIAN_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002d05;1"
+data "Description" "stringsofmodmadebyxss20240930dv002e05;1"
+data "OnApplyFunctors" "RestoreResource(KiPoint,50%,0)"
+data "TickFunctors" "IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG') and HasPassive('CuiTi_ZhouTian_6')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_LONG,100,2);IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT') and HasPassive('CuiTi_ZhouTian_7')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_SHORT,100,2);  IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG') and HasPassive('CuiTi_ZhouTian_6')):ApplyStatus(CUITI_ZHOUTIAN_6,100,-1);IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT') and HasPassive('CuiTi_ZhouTian_7')):ApplyStatus(CUITI_ZHOUTIAN_7,100,-1); IF(ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG')):ApplyStatus(CUITI_ZHOUTIAN_4_NX,100,-1);IF(ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT')):ApplyStatus(CUITI_ZHOUTIAN_1_NX,100,-1)"
+
+new entry "CUITI_ZHOUTIAN_6"
+type "StatusData"
+data "StatusType" "BOOST"
+using "CUITI_ZHOUTIAN_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002d06;1"
+data "Description" "stringsofmodmadebyxss20240930dv002e06;1"
+data "ExtraDescription" "stringsofmodmadebyxss20240930dv002c06;1"
+data "Boosts" "UnlockSpellVariant(SpellId('Shout_CuiTi_ZhouTian_NX'), ModifyIconGlow(), ModifyTooltipDescription()); IF(KiPointNum1() and not HasStatus('CUITI_ZHOUTIAN_XUANJI_BLOCK',context.Source)):DownedStatus(RELENTLESS_ENDURANCE_DOWNED_XUANJI,5)"
+data "OnApplyFunctors" "RemoveStatus(SG_Charmed)"
+data "Passives" "CUITI_ZHOUTIAN_6_Passives"
+data "TickFunctors" "IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG') and HasPassive('CuiTi_ZhouTian_7')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_LONG,100,2);IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT') and HasPassive('CuiTi_ZhouTian_7')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_SHORT,100,2); IF(not ZhouTianNiXingCheck() and HasPassive('CuiTi_ZhouTian_7')):ApplyStatus(CUITI_ZHOUTIAN_7,100,-1); IF(ZhouTianNiXingCheck()):ApplyStatus(CUITI_ZHOUTIAN_5_NX,100,-1)"
+
+//璇玑被动
+new entry "CUITI_ZHOUTIAN_6_Passives"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002a06;1"
+data "Description" "stringsofmodmadebyxss20240930dv002c06;1"
+data "Properties" "IsHidden"
+
+new entry "RELENTLESS_ENDURANCE_DOWNED_XUANJI"
+type "StatusData"
+data "StatusType" "DOWNED"
+using "RELENTLESS_ENDURANCE_DOWNED"
+//data "OnApplyFunctors" "ApplyStatus(SELF,CUITI_ZHOUTIAN_XUANJI_BLOCK,100,-1);RegainHitPoints(1,Guaranteed)"
+data "OnApplyFunctors" "ApplyStatus(SELF,CUITI_ZHOUTIAN_XUANJI_BLOCK,100,1);UseActionResource(KiPoint,1,0);RegainHitPoints(1,Guaranteed)"
+data "StatusGroups" "SG_Incapacitated"
+data "ApplyEffect" ""
+
+new entry "CUITI_ZHOUTIAN_XUANJI_BLOCK"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackId" "CUITI_ZHOUTIAN_XUANJI_BLOCK"
+data "StackType" "Overwrite"
+data "RemoveConditions" "not Combat()"
+data "RemoveEvents" "OnCombatEnded"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+
+new entry "CUITI_ZHOUTIAN_7"
+type "StatusData"
+data "StatusType" "BOOST"
+using "CUITI_ZHOUTIAN_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002d07;1"
+data "Description" "stringsofmodmadebyxss20240930dv002e07;1"
+data "OnApplyFunctors" "ApplyStatus(CUITI_ZHOUTIAN_7_REMOVEDEBUFF,100,0)"
+data "TickFunctors" "IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG') and HasPassive('CuiTi_ZhouTian_8')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_LONG,100,2);IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT') and HasPassive('CuiTi_ZhouTian_12')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_SHORT,100,2); IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG') and HasPassive('CuiTi_ZhouTian_8')):ApplyStatus(CUITI_ZHOUTIAN_8,100,-1);IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT') and HasPassive('CuiTi_ZhouTian_12')):ApplyStatus(CUITI_ZHOUTIAN_12,100,-1); IF(ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG')):ApplyStatus(CUITI_ZHOUTIAN_6_NX,100,-1);IF(ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT')):ApplyStatus(CUITI_ZHOUTIAN_5_NX,100,-1)"
+
+new entry "CUITI_ZHOUTIAN_7_REMOVEDEBUFF"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+data "OnApplyFunctors" "RemoveStatus(SG_Charmed);RemoveStatus(SG_Frightened);RemoveStatus(FEARED);RemoveStatus(SG_Stunned);RemoveStatus(SG_Paralyzed);RemoveStatus(SG_Sleeping);RemoveStatus(SG_Sleeping_Magical)"
+
+new entry "CUITI_ZHOUTIAN_8"
+type "StatusData"
+data "StatusType" "BOOST"
+using "CUITI_ZHOUTIAN_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002d08;1"
+data "Description" "stringsofmodmadebyxss20240930dv002e08;1"
+data "Boosts" "UnlockSpellVariant(SpellId('Shout_CuiTi_ZhouTian_NX'), ModifyIconGlow(), ModifyTooltipDescription()); ActionResourceMultiplier(Movement,200,0);IgnoreLeaveAttackRange()"
+data "OnApplyFunctors" "RestoreResource(Movement,100%,0)"
+data "TickFunctors" "IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG') and HasPassive('CuiTi_ZhouTian_9')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_LONG,100,2);IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT') and HasPassive('CuiTi_ZhouTian_12')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_SHORT,100,2); IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG') and HasPassive('CuiTi_ZhouTian_9')):ApplyStatus(CUITI_ZHOUTIAN_9,100,-1);IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT') and HasPassive('CuiTi_ZhouTian_12')):ApplyStatus(CUITI_ZHOUTIAN_12,100,-1); IF(ZhouTianNiXingCheck()):ApplyStatus(CUITI_ZHOUTIAN_7_NX,100,-1)"
+
+new entry "CUITI_ZHOUTIAN_9"
+type "StatusData"
+data "StatusType" "BOOST"
+using "CUITI_ZHOUTIAN_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002d09;1"
+data "Description" "stringsofmodmadebyxss20240930dv002e09;1"
+data "Boosts" "UnlockSpellVariant(SpellId('Shout_CuiTi_ZhouTian_NX'), ModifyIconGlow(), ModifyTooltipDescription()); Advantage(SavingThrow,Charisma)"
+data "OnApplyFunctors" "RemoveStatus(BURNING)" 
+data "TickFunctors" "IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG') and HasPassive('CuiTi_ZhouTian_10')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_LONG,100,2);IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT') and HasPassive('CuiTi_ZhouTian_12')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_SHORT,100,2); IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG') and HasPassive('CuiTi_ZhouTian_10')):ApplyStatus(CUITI_ZHOUTIAN_10,100,-1);IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT') and HasPassive('CuiTi_ZhouTian_12')):ApplyStatus(CUITI_ZHOUTIAN_12,100,-1); IF(ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG')):ApplyStatus(CUITI_ZHOUTIAN_8_NX,100,-1);IF(ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT')):ApplyStatus(CUITI_ZHOUTIAN_7_NX,100,-1)"
+
+new entry "CUITI_ZHOUTIAN_10"
+type "StatusData"
+data "StatusType" "BOOST"
+using "CUITI_ZHOUTIAN_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002d10;1"
+data "Description" "stringsofmodmadebyxss20240930dv002e10;1"
+data "Boosts" "UnlockSpellVariant(SpellId('Shout_CuiTi_ZhouTian_NX'), ModifyIconGlow(), ModifyTooltipDescription()); Advantage(SavingThrow,Wisdom)"
+data "OnApplyFunctors" "RestoreResource(BonusActionPoint,1,0)"
+data "TickFunctors" "IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG') and HasPassive('CuiTi_ZhouTian_11')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_LONG,100,2);IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT') and HasPassive('CuiTi_ZhouTian_12')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_SHORT,100,2); IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG') and HasPassive('CuiTi_ZhouTian_11')):ApplyStatus(CUITI_ZHOUTIAN_11,100,-1);IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT') and HasPassive('CuiTi_ZhouTian_12')):ApplyStatus(CUITI_ZHOUTIAN_12,100,-1); IF(ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG')):ApplyStatus(CUITI_ZHOUTIAN_9_NX,100,-1);IF(ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT')):ApplyStatus(CUITI_ZHOUTIAN_7_NX,100,-1)"
+
+new entry "CUITI_ZHOUTIAN_11"
+type "StatusData"
+data "StatusType" "BOOST"
+using "CUITI_ZHOUTIAN_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002d11;1"
+data "Description" "stringsofmodmadebyxss20240930dv002e11;1"
+data "Boosts" "UnlockSpellVariant(SpellId('Shout_CuiTi_ZhouTian_NX'), ModifyIconGlow(), ModifyTooltipDescription())"
+data "OnApplyFunctors" "IF(HasHPPercentageLessThan(100)):RegainHitPoints(LevelMapValue(BanXianDice))"
+data "TickFunctors" "IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG') and HasPassive('CuiTi_ZhouTian_12')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_LONG,100,2);IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT') and HasPassive('CuiTi_ZhouTian_12')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_SHORT,100,2);  IF(not ZhouTianNiXingCheck() and HasPassive('CuiTi_ZhouTian_12')):ApplyStatus(CUITI_ZHOUTIAN_12,100,-1); IF(ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG')):ApplyStatus(CUITI_ZHOUTIAN_10_NX,100,-1);IF(ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT')):ApplyStatus(CUITI_ZHOUTIAN_7_NX,100,-1)"
+
+new entry "CUITI_ZHOUTIAN_12"
+type "StatusData"
+data "StatusType" "BOOST"
+using "CUITI_ZHOUTIAN_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv002d12;1"
+data "Description" "stringsofmodmadebyxss20240930dv002e12;1"
+data "OnApplyFunctors" "IF(HasHPPercentageLessThan(100)):RegainHitPoints(LevelMapValue(BanXianDice))"
+data "TickFunctors" "IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG') and HasPassive('CuiTi_ZhouTian_1')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_LONG,100,2);IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT') and HasPassive('CuiTi_ZhouTian_1')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_SHORT,100,2); IF(not ZhouTianNiXingCheck() and HasPassive('CuiTi_ZhouTian_1')):ApplyStatus(CUITI_ZHOUTIAN_1,100,-1); IF(ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG')):ApplyStatus(CUITI_ZHOUTIAN_11_NX,100,-1);IF(ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT')):ApplyStatus(CUITI_ZHOUTIAN_7_NX,100,-1)"
+
+new entry "CUITI_ZHOUTIAN_CIRCLE_LONG"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackId" "CUITI_ZHOUTIAN_CIRCLE"
+data "StackType" "Additive"
+data "OnApplyFunctors" "IF(StatusDurationEqualOrMoreThan('CUITI_ZHOUTIAN_CIRCLE_LONG',13)): ApplyStatus(CUITI_ZHOUTIAN_FUNCTORS_LONG,100,1)"
+data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator"
+
+new entry "CUITI_ZHOUTIAN_CIRCLE_SHORT"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackId" "CUITI_ZHOUTIAN_CIRCLE"
+data "StackType" "Additive"
+data "OnApplyFunctors" "IF(StatusDurationEqualOrMoreThan('CUITI_ZHOUTIAN_CIRCLE_SHORT',4)): ApplyStatus(CUITI_ZHOUTIAN_FUNCTORS_SHORT,100,1)"
+data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator"
+
+
+new entry "CUITI_ZHOUTIAN_FUNCTORS_LONG"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackId" "CUITI_ZHOUTIAN_FUNCTORS"
+data "StackType" "Overwrite"
+data "OnApplyFunctors" ""
+data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator"
+
+
+new entry "CUITI_ZHOUTIAN_FUNCTORS_SHORT"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackId" "CUITI_ZHOUTIAN_FUNCTORS"
+data "StackType" "Overwrite"
+data "OnApplyFunctors" ""
+data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator"
+
+
+
+
+//大周天--运气--逆行
+new entry "CUITI_ZHOUTIAN_1_NX"
+type "StatusData"
+using "CUITI_ZHOUTIAN_1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv003a01;1"
+data "Description" "stringsofmodmadebyxss20240930dv003b01;1"
+data "OnApplyFunctors" "IF(not IgnoreNiXingCheck() and not SavingThrow(Ability.Wisdom, 15)):ApplyStatus(MADNESS,100,2); IF(not IgnoreNiXingCheck()):UseActionResource(KiPoint,2);IF(not IgnoreNiXingCheck()):ApplyStatus(BANXIAN_FANSHI,100,0)"
+
+new entry "CUITI_ZHOUTIAN_2_NX"
+type "StatusData"
+using "CUITI_ZHOUTIAN_2"
+data "DisplayName" "stringsofmodmadebyxss20240930dv003a02;1"
+data "Description" "stringsofmodmadebyxss20240930dv003b02;1"
+data "OnApplyFunctors" "IF(not IgnoreNiXingCheck() and not SavingThrow(Ability.Wisdom, 15)):ApplyStatus(MADNESS,100,2); IF(not IgnoreNiXingCheck()):ApplyStatus(CUITI_ZHOUTIAN_2_REMOVEDEBUFF,100,0); IF(not IgnoreNiXingCheck()):ApplyStatus(BANXIAN_FANSHI,100,0)"
+
+new entry "CUITI_ZHOUTIAN_3_NX"
+type "StatusData"
+using "CUITI_ZHOUTIAN_3"
+data "DisplayName" "stringsofmodmadebyxss20240930dv003a03;1"
+data "Description" "stringsofmodmadebyxss20240930dv003b03;1"
+data "Boosts" "UnlockSpellVariant(SpellId('Shout_CuiTi_ZhouTian_NX'), ModifyIconGlow(), ModifyTooltipDescription()); CharacterUnarmedDamage(StrengthModifier, Bludgeoning); CharacterWeaponDamage(StrengthModifier, WeaponDamageType); ReduceCriticalAttackThreshold(1)"
+data "OnApplyFunctors" "IF(not IgnoreNiXingCheck() and not SavingThrow(Ability.Wisdom, 15)):ApplyStatus(MADNESS,100,2); IF(not IgnoreNiXingCheck()):ApplyStatus(BANXIAN_FANSHI,100,0)"
+
+new entry "CUITI_ZHOUTIAN_4_NX"
+type "StatusData"
+using "CUITI_ZHOUTIAN_4"
+data "DisplayName" "stringsofmodmadebyxss20240930dv003a04;1"
+data "Description" "stringsofmodmadebyxss20240930dv003b04;1"
+data "Boosts" "UnlockSpellVariant(SpellId('Shout_CuiTi_ZhouTian_NX'), ModifyIconGlow(), ModifyTooltipDescription()); TemporaryHP(LevelMapValue(BanXianCantrip)*Level)"
+data "OnApplyFunctors" "IF(not IgnoreNiXingCheck() and not SavingThrow(Ability.Wisdom, 15)):ApplyStatus(MADNESS,100,2); IF(not IgnoreNiXingCheck()):ApplyStatus(BANXIAN_FANSHI,100,0)"
+
+new entry "CUITI_ZHOUTIAN_5_NX"
+type "StatusData"
+using "CUITI_ZHOUTIAN_5"
+data "DisplayName" "stringsofmodmadebyxss20240930dv003a05;1"
+data "Description" "stringsofmodmadebyxss20240930dv003b05;1"
+data "OnApplyFunctors" "ApplyStatus(MADNESS,100,2); IF(not IgnoreNiXingCheck()):UseActionResource(KiPoint,1,0); IF(not IgnoreNiXingCheck()):ApplyStatus(BANXIAN_FANSHI,100,0)"
+
+new entry "CUITI_ZHOUTIAN_6_NX"
+type "StatusData"
+using "CUITI_ZHOUTIAN_6"
+data "DisplayName" "stringsofmodmadebyxss20240930dv003a06;1"
+data "Description" "stringsofmodmadebyxss20240930dv003b06;1"
+data "Boosts" "UnlockSpellVariant(SpellId('Shout_CuiTi_ZhouTian_NX'), ModifyIconGlow(), ModifyTooltipDescription()); DownedStatus(RELENTLESS_ENDURANCE_DOWNED,5)"
+data "Passives" "CUITI_ZHOUTIAN_6_Passives"
+data "OnApplyFunctors" "IF(not IgnoreNiXingCheck() and not SavingThrow(Ability.Wisdom, 15)):ApplyStatus(MADNESS,100,2); IF(not IgnoreNiXingCheck()):ApplyStatus(BANXIAN_FANSHI,100,0)"
+
+new entry "CUITI_ZHOUTIAN_7_NX"
+type "StatusData"
+using "CUITI_ZHOUTIAN_7"
+data "DisplayName" "stringsofmodmadebyxss20240930dv003a07;1"
+data "Description" "stringsofmodmadebyxss20240930dv003b07;1"
+data "Boosts" "UnlockSpellVariant(SpellId('Shout_CuiTi_ZhouTian_NX'), ModifyIconGlow(), ModifyTooltipDescription()); RollBonus(Attack, LevelMapValue(BanXianCantrip))"
+data "OnApplyFunctors" "IF(not IgnoreNiXingCheck() and not SavingThrow(Ability.Wisdom, 15)):ApplyStatus(MADNESS,100,2); IF(not IgnoreNiXingCheck()):ApplyStatus(BANXIAN_FANSHI,100,0)"
+
+new entry "CUITI_ZHOUTIAN_8_NX"
+type "StatusData"
+using "CUITI_ZHOUTIAN_8"
+data "DisplayName" "stringsofmodmadebyxss20240930dv003a08;1"
+data "Description" "stringsofmodmadebyxss20240930dv003b08;1"
+data "Boosts" "UnlockSpellVariant(SpellId('Shout_CuiTi_ZhouTian_NX'), ModifyIconGlow(), ModifyTooltipDescription()); ActionResourceMultiplier(Movement,200,0);IgnoreLeaveAttackRange()"
+data "OnApplyFunctors" "IF(not IgnoreNiXingCheck() and not SavingThrow(Ability.Wisdom, 15)):ApplyStatus(MADNESS,100,2); RestoreResource(Movement,100%,0); IF(not IgnoreNiXingCheck()):ApplyStatus(BANXIAN_FANSHI,100,0)"
+
+new entry "CUITI_ZHOUTIAN_9_NX"
+type "StatusData"
+using "CUITI_ZHOUTIAN_9"
+data "DisplayName" "stringsofmodmadebyxss20240930dv003a09;1"
+data "Description" "stringsofmodmadebyxss20240930dv003b09;1"
+data "OnApplyFunctors" "IF(not IgnoreNiXingCheck() and not SavingThrow(Ability.Wisdom, 15)):ApplyStatus(MADNESS,100,2); IF(not IgnoreNiXingCheck()):ApplyStatus(BANXIAN_FANSHI,100,0)"
+
+new entry "CUITI_ZHOUTIAN_10_NX"
+type "StatusData"
+using "CUITI_ZHOUTIAN_10"
+data "DisplayName" "stringsofmodmadebyxss20240930dv003a10;1"
+data "Description" "stringsofmodmadebyxss20240930dv003b10;1"
+data "Boosts" "UnlockSpellVariant(SpellId('Shout_CuiTi_ZhouTian_NX'), ModifyIconGlow(), ModifyTooltipDescription()); Disadvantage(SavingThrow,Charisma)"
+data "OnApplyFunctors" "IF(not IgnoreNiXingCheck() and not SavingThrow(Ability.Wisdom, 15)):ApplyStatus(MADNESS,100,2); IF(not IgnoreNiXingCheck()):ApplyStatus(BANXIAN_FANSHI,100,0)"
+
+new entry "CUITI_ZHOUTIAN_11_NX"
+type "StatusData"
+using "CUITI_ZHOUTIAN_11"
+data "DisplayName" "stringsofmodmadebyxss20240930dv003a11;1"
+data "Description" "stringsofmodmadebyxss20240930dv003b11;1"
+data "Boosts" "UnlockSpellVariant(SpellId('Shout_CuiTi_ZhouTian_NX'), ModifyIconGlow(), ModifyTooltipDescription()); Disadvantage(SavingThrow,Wisdom)"
+data "OnApplyFunctors" "IF(not IgnoreNiXingCheck() and not SavingThrow(Ability.Wisdom, 15)):ApplyStatus(MADNESS,100,2); IF(not IgnoreNiXingCheck()):ApplyStatus(BANXIAN_FANSHI,100,0)"
+
+new entry "CUITI_ZHOUTIAN_12_NX"
+type "StatusData"
+using "CUITI_ZHOUTIAN_12"
+data "DisplayName" "stringsofmodmadebyxss20240930dv003a12;1"
+data "Description" "stringsofmodmadebyxss20240930dv003b12;1"
+data "Passives" "CUITI_ZHOUTIAN_12_NX_Passives"
+data "TickType" "EndTurn"
+data "TickFunctors" "IF(not ZhouTianNiXingCheck()):ApplyStatus(CUITI_ZHOUTIAN_1,100,-1); IF(ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG')):ApplyStatus(CUITI_ZHOUTIAN_11_NX,100,-1);IF(ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT')):ApplyStatus(CUITI_ZHOUTIAN_7_NX,100,-1)"
+
+//悬枢被动
+new entry "CUITI_ZHOUTIAN_12_NX_Passives"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20240930dv003a12;1"
+data "Description" "stringsofmodmadebyxss20240930dv003b12;1"
+data "Properties" "IsHidden"
+data "Boosts" ""
+data "StatsFunctorContext" "OnAttack"
+data "Conditions" "not (IsMiss() or IsCriticalMiss()) and not Self(context.Target,context.Source)"
+data "StatsFunctors" "DealDamage(LevelMapValue(BanXianDice), Psychic, Magical); ApplyStatus(SELF, BANXIAN_FANSHI, 100, 0)"
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////
+/
+/         百脉锻宝诀       /
+/
+/////////////////////////////  
+// 头
+new entry "FABAO_BAIMAI_1"
+type "PassiveData"
+data "Icon" "Action_Monk_WholenessOfBody"
+data "DisplayName" "stringsofmodmadebyxss20240930dv005a02;1"
+data "Description" "stringsofmodmadebyxss20240930dv005b02;1"
+data "DescriptionParams" "2"
+//data "ExtraDescription" "stringsofmodmadebyxss20240930dv005c02;1"
+data "Properties" "Highlighted"
+data "BoostContext" "OnCreate;OnLongRest"
+data "BoostConditions" ""
+data "Boosts" "IF(IsMeleeAttack() and Character() and IsCritical() and not IsCriticalMiss()):DamageReduction(All, Flat, 1000)"
+//data "Passives" "FABAO_BAIMAI_1_Passives"
+data "StatsFunctorContext" "OnDamaged"
+data "Conditions" "IsMeleeAttack() and Character() and ((IsCritical() and not IsCriticalMiss()) or (IsMiss() or IsCriticalMiss()))"
+data "StatsFunctors" "ApplyStatus(SWAP,MAG_ATTACK_DEBUFF,100,2)"
+
+new entry "FABAO_BAIMAI_1_Passives"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20240930dv005a02;1"
+data "Properties" "IsHidden"
+data "BoostContext" "OnStatusApplied;OnStatusRemoved"
+data "BoostConditions" "HasPassive('FABAO_BAIMAI_S',context.Target) and IsMeleeAttack() and Character() and IsCritical() and not IsCriticalMiss()"
+data "Boosts" "RedirectDamage(1,,,true)"
+
+new entry "FABAO_BAIMAI_1_Hidden"
+type "PassiveData"
+using "FABAO_BAIMAI_1"
+data "Properties" "IsHidden"
+
+// 左臂
+new entry "FABAO_BAIMAI_2"
+type "PassiveData"
+data "Icon" "Action_Monk_WholenessOfBody"
+data "DisplayName" "stringsofmodmadebyxss20240930dv005a03;1"
+data "Description" "stringsofmodmadebyxss20240930dv005b03;1"
+data "ExtraDescription" "stringsofmodmadebyxss20240930dv005c03;1"
+data "Properties" "Highlighted"
+data "BoostContext" "OnCreate;OnLongRest"
+data "BoostConditions" ""
+data "Boosts" "IF(IsMeleeUnarmedAttack()):IgnoreResistance(Bludgeoning,Immune); IF(IsMeleeUnarmedAttack()):IgnoreResistance(Bludgeoning,Resistant); IF(Item(context.Target) and IsMeleeUnarmedAttack()):CriticalHit(AttackRoll,Success, ForcedAlways)"
+data "StatsFunctorContext" "OnAttack"
+data "Conditions" "IsMeleeUnarmedAttack() and HasPassive('FABAO_BAIMAI_S') and KiPointNum1()"
+data "StatsFunctors" "PROJECTILE:CreateExplosion(Projectile_MAG_Mobility_ExplosionOnJump_Explosion);RemoveStatus(SG_Invisible)"
+
+new entry "FABAO_BAIMAI_2_Hidden"
+type "PassiveData"
+using "FABAO_BAIMAI_2"
+data "Properties" "IsHidden"
+
+// 右臂
+new entry "FABAO_BAIMAI_3_OLD" 
+type "PassiveData"
+data "Icon" "Action_Monk_WholenessOfBody"
+data "DisplayName" "stringsofmodmadebyxss20240930dv005a04;1"
+data "Description" "stringsofmodmadebyxss20240930dv005b04;1"
+data "ExtraDescription" "stringsofmodmadebyxss20240930dv005c04;1"
+data "Properties" "IsToggled;ToggledDefaultAddToHotbar;Highlighted"
+data "BoostContext" "OnCreate;OnLongRest"
+data "BoostConditions" ""
+data "Boosts" ""
+data "ToggleOnFunctors" "ApplyStatus(FABAO_BAIMAI_3_FREEBOOST, 100, -1)"
+data "ToggleOffFunctors" "RemoveStatus(FABAO_BAIMAI_3_FREEBOOST)"
+
+new entry "FABAO_BAIMAI_3_Hidden"
+type "PassiveData"
+using "FABAO_BAIMAI_3"
+data "Properties" "IsHidden"
+
+new entry "FABAO_BAIMAI_3_FREEBOOST"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "stringsofmodmadebyxss20240930dv005a04;1"
+data "Description" "stringsofmodmadebyxss20240930dv005b04;1"
+data "StackPriority" "1"
+data "StackId" "FABAO_BAIMAI_3_FREEBOOST"
+data "StackType" "Overwrite"
+//data "BoostContext" "OnCreate;OnCast"
+//data "BoostConditions" "not (SpellId('Shout_ActionToBonusAction') or SpellId('Shout_BonusActionToAction'))"
+data "Boosts" "UnlockSpellVariant(FABAOBAIMAI3FREEBOOSTCHECK(),ModifyTooltipDescription());ActionResourceConsumeMultiplier(ActionPoint,0,0);ActionResourceConsumeMultiplier(BonusActionPoint,0,0)"
+data "Passives" "FABAO_BAIMAI_3_FREEBOOST_Passives"
+data "StatusPropertyFlags" "DisableCombatlog;DisablePortraitIndicator;DisableOverhead;ApplyToDead;IgnoreResting"
+
+
+new entry "FABAO_BAIMAI_3_FREEBOOST_Passives"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20240930dv005a04;1"
+data "Properties" "IsHidden"
+data "StatsFunctorContext" "OnCast;OnActionResourcesChanged;OnCreate"
+data "Conditions" "FABAOBAIMAI3FREEBOOSTCHECK()"
+data "StatsFunctors" "IF(context.HasContextFlag(StatsFunctorContext.OnCast) and not HasActionResource('ActionPoint', 1, 0, false, true, context.Source) and HasActionResource('BonusActionPoint', 1, 0, false, true, context.Source)):UseActionResource(BonusActionPoint,1,0,true);IF(context.HasContextFlag(StatsFunctorContext.OnCast) and HasActionResource('ActionPoint', 1, 0, false, true, context.Source)):UseActionResource(ActionPoint,1,0,true);IF((not HasActionResource('ActionPoint', 1, 0, false, true, context.Source) and not HasActionResource('BonusActionPoint', 1, 0, false, true, context.Source)) and not HasStatus('FABAO_BAIMAI_3_FREEBOOST_DRAINED')):ApplyStatus(FABAO_BAIMAI_3_FREEBOOST_DRAINED,100,1)"
+
+new entry "FABAO_BAIMAI_3_FREEBOOST_DRAINED"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackPriority" "2"
+data "StackId" "FABAO_BAIMAI_3_FREEBOOST"
+data "StackType" "Overwrite"
+data "StatusPropertyFlags" "DisableCombatlog;DisablePortraitIndicator;DisableOverhead;ApplyToDead"
+data "TickType" "EndTurn"
+data "TickFunctors" "RemoveStatus(FABAO_BAIMAI_3_FREEBOOST_DRAINED)"
+data "OnRemoveFunctors" "ApplyStatus(FABAO_BAIMAI_3_FREEBOOST,100,-1)"
+
+// 右臂-新
+new entry "FABAO_BAIMAI_3" 
+type "PassiveData"
+data "Icon" "Action_Monk_WholenessOfBody"
+data "DisplayName" "stringsofmodmadebyxss20240930dv005a04;1"
+data "Description" "stringsofmodmadebyxss20240930dv005d04;1"
+data "ExtraDescription" "stringsofmodmadebyxss20240930dv005c04;1"
+data "Properties" "Highlighted"
+data "Boosts" ""
+//data "StatsFunctorContext" "OnAttack"
+//data "Conditions" "SpellId('Target_MainHandAttack') or SpellId('Projectile_MainHandAttack')"
+//data "StatsFunctors" "IF(HasActionResource('BonusActionPoint', 1, 0, false, true, context.Source)):RestoreResource(SELF,BonusActionPoint,1,0); IF(not HasActionResource('BonusActionPoint', 1, 0, false, true, context.Source)):ApplyStatus(SELF,FABAO_BAIMAI_3_FREEATTACK_OFFHAND,100,1)"
+
+new entry "FABAO_BAIMAI_3_FREEATTACK_OFFHAND"
+type "StatusData"
+data "StatusType" "BOOST"
+data "Icon" "Action_Monk_WholenessOfBody"
+data "DisplayName" "stringsofmodmadebyxss20240930dv005a04;1"
+data "Description" "stringsofmodmadebyxss20240930dv005d04;1"
+data "StackId" "FABAO_BAIMAI_3_FREEATTACK_OFFHAND"
+data "StackType" "Overwrite"
+data "Boosts" "UnlockSpellVariant(OffHandAttackSpell(),ModifyIconGlow(),ModifyTooltipDescription(),ModifyUseCosts(Replace,BonusActionPoint,0,-1,BonusActionPoint))"
+data "RemoveConditions" "(OffHandAttackSpell() and HasUseCosts('BonusActionPoint',false,context.Target)) or IsOffHandAttack()"
+data "RemoveEvents" "OnSpellCast"
+
+
+
+
+//2E
+new entry "Shout_ActionToBonusAction"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_Dash"
+data "AIFlags" "GrantsResources;UseAsSupportingActionOnly"
+data "SpellProperties" "ApplyStatus(ACTION_TO_BONUSACTION,100,1)"
+data "DisplayName" "h0f438b86g1accg45adg882bg3e50efa6face;1"
+data "Description" "h630d40acge160g49bdgb311g4ec0cf4dba11;1"
+data "TooltipStatusApply" "ApplyStatus(ACTION_TO_BONUSACTION,100,1)"
+data "UseCosts" "ActionPoint:1"
+data "Requirements" "Combat"
+data "RequirementConditions" "not HasPassive('FABAO_BAIMAI_3')"
+data "Icon" "Spell_2e_ActionToBonusAction"
+
+new entry "Shout_BonusActionToAction"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_ActionToBonusAction"
+data "SpellProperties" "ApplyStatus(BONUSACTION_TO_ACTION,100,1)"
+data "DisplayName" "h42fbfd1fg51e9g439ag9975g12410a613003;1"
+data "Description" "hadcdbe18ga3acg4342gbe9ag3db11e4b6da8;1"
+data "TooltipStatusApply" "ApplyStatus(BONUSACTION_TO_ACTION,100,1)"
+data "UseCosts" "BonusActionPoint:2"
+data "Requirements" "Combat"
+data "Icon" "Spell_2e_BonusActionToAction"
+
+
+// 左腿
+new entry "FABAO_BAIMAI_4"
+type "PassiveData"
+data "Icon" "Action_Monk_WholenessOfBody"
+data "DisplayName" "stringsofmodmadebyxss20240930dv005a05;1"
+data "Description" "stringsofmodmadebyxss20240930dv005b05;1"
+data "ExtraDescription" "stringsofmodmadebyxss20240930dv005c05;1"
+data "Properties" "Highlighted"
+data "Boosts" "Attribute(Grounded)"
+
+new entry "FABAO_BAIMAI_4_Hidden"
+type "PassiveData"
+using "FABAO_BAIMAI_4"
+data "Properties" "IsHidden"
+
+// 右腿
+new entry "FABAO_BAIMAI_5"
+type "PassiveData"
+data "Icon" "Action_Monk_WholenessOfBody"
+data "DisplayName" "stringsofmodmadebyxss20240930dv005a06;1"
+data "Description" "stringsofmodmadebyxss20240930dv005b06;1"
+data "ExtraDescription" "stringsofmodmadebyxss20240930dv005c06;1"
+data "Properties" "Highlighted"
+data "Boosts" "StatusImmunity(SG_Paralyzed);StatusImmunity(SG_Restrained);StatusImmunity(SG_DifficultTerrain);ActionResourcePreventReduction(Movement)"
+
+new entry "FABAO_BAIMAI_5_Hidden"
+type "PassiveData"
+using "FABAO_BAIMAI_5"
+data "Properties" "IsHidden"
+
+// 躯干
+new entry "FABAO_BAIMAI_6"
+type "PassiveData"
+data "Icon" "Action_Monk_WholenessOfBody"
+data "DisplayName" "stringsofmodmadebyxss20240930dv005a07;1"
+data "Description" "stringsofmodmadebyxss20240930dv005b07;1"
+data "DescriptionParams" "18"
+data "ExtraDescription" "stringsofmodmadebyxss20240930dv005c07;1"
+data "Properties" "Highlighted"
+data "BoostContext" "OnEquip;OnCreate"
+data "BoostConditions" "not WearingArmor(context.Source)"
+data "Boosts" "ACOverrideFormula(18,true,Dexterity)"
+
+new entry "FABAO_BAIMAI_6_Hidden"
+type "PassiveData"
+using "FABAO_BAIMAI_6"
+data "Properties" "IsHidden"
+
+// 小成·臂
+new entry "FABAO_BAIMAI_A1"
+type "PassiveData"
+data "Icon" "Action_Monk_WholenessOfBody"
+data "DisplayName" "stringsofmodmadebyxss20240930dv006a01;1"
+data "Description" "stringsofmodmadebyxss20240930dv006b01;1"
+data "Properties" "Highlighted"
+data "BoostContext" "OnCreate;OnLongRest"
+data "BoostConditions" ""
+data "Boosts" "TwoWeaponFighting();ActionResource(BonusActionPoint,1,0);DualWielding(true);DualWielding(false)"
+
+new entry "FABAO_BAIMAI_A1_Hidden"
+type "PassiveData"
+using "FABAO_BAIMAI_A1"
+data "Properties" "IsHidden"
+
+// 小成·腿
+new entry "FABAO_BAIMAI_A2"
+type "PassiveData"
+data "Icon" "Action_Monk_WholenessOfBody"
+data "DisplayName" "stringsofmodmadebyxss20240930dv006a02;1"
+data "Description" "stringsofmodmadebyxss20240930dv006b02;1"
+data "Properties" "Highlighted"
+data "BoostContext" "OnCreate;OnLongRest"
+data "BoostConditions" ""
+data "Boosts" "ActionResource(Movement,9,0)"
+
+new entry "FABAO_BAIMAI_A2_Hidden"
+type "PassiveData"
+using "FABAO_BAIMAI_A2"
+data "Properties" "IsHidden"
+
+// 大成
+new entry "FABAO_BAIMAI_S"
+type "PassiveData"
+data "Icon" "Action_Monk_WholenessOfBody"
+data "DisplayName" "stringsofmodmadebyxss20240930dv006a03;1"
+data "Description" "stringsofmodmadebyxss20240930dv006b03;1"
+data "Properties" "Highlighted"
+data "Boosts" "Resistance(All,ImmuneToNonMagical); UnlockSpell(Target_EnlargeReduce)"
+
+
+
+
+/////////////////////////////
+/
+/         百脉锻宝诀·吞宝    /
+/
+/////////////////////////////  
+new entry "FABAO_BAIMAI_EAT_STATUS"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "stringsofmodmadebyxss20240930dv007a01;1"
+data "Description" "stringsofmodmadebyxss20240930dv007b01;1"
+data "StackId" "FABAO_BAIMAI_EAT_STATUS"
+data "Boosts" "UnlockSpell(FABAO_BAIMAI_EAT)"
+data "StatusPropertyFlags" "DisableCombatlog;DisablePortraitIndicator;DisableOverhead;ApplyToDead;IgnoreResting"
+
+new entry "SIGNAL_FABAO_BAIMAI_EAT_1"
+type "StatusData"
+data "StatusType" "INCAPACITATED"
+using "LOW_CAZADORSPALACE_RITUAL_INCAPACITATED"
+data "OnRemoveFunctors" "ApplyStatus(SIGNAL_FABAO_BAIMAI_EATED,100,1);ApplyStatus(SELF,LOW_RAPHAEL_REMOVE_VFX,100,1)"
+data "StatusEffect" "7318e3cf-fd8d-4383-bfe4-342078649edb"
+data "StatusGroups" ""
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;ApplyToDead;IgnoreResting;LoseControl"
+
+new entry "SIGNAL_FABAO_BAIMAI_EATED"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StatusEffect" "dd02e9e1-8ab7-4da0-9097-26fd886c06d4"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;ApplyToDead"
+
+
+new entry "FABAO_BAIMAI_EAT"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_HarmonyOfFireAndWater"
+data "Cooldown" "OncePerTurn"
+data "RequirementConditions" "not HasPassive('FABAO_BAIMAI_S')"
+data "SpellProperties" "ApplyStatus(SELF,SIGNAL_FABAO_BAIMAI_EAT_1,100,1);RemoveStatus(SELF,FABAO_BAIMAI_EAT_STATUS)"
+data "UseCosts" ""
+data "DisplayName" "stringsofmodmadebyxss20240930dv007a02;1"
+data "Description" "stringsofmodmadebyxss20240930dv007b02;1"
+data "TooltipDamageList" ""
+data "TooltipStatusApply" ""
+data "Requirements" "!Combat"
+data "SpellFlags" "Temporary"

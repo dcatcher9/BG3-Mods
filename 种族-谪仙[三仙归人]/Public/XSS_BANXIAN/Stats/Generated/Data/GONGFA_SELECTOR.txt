@@ -1,0 +1,318 @@
+
+/////////////////////////////
+/
+/         弄焰诀         //选修功法  
+/
+/////////////////////////////  
+//大品天仙诀  可以用气来代替法术位消耗
+new entry "BANXIAN_GONGFA_FireMixer"
+type "PassiveData"
+data "Icon" "PassiveFeature_ElementalAdept_Fire"
+data "DisplayName" "stringsofmodmadebyxss20240930dv004a05;1"
+data "Description" "stringsofmodmadebyxss20240930dv004d05;1"
+data "Properties" "Highlighted"
+data "Boosts" "IF(MainDamageTypeIs(DamageType.Fire)):MinimumRollResult(Damage,2);IgnoreResistance(Fire,Resistant)"
+
+
+//洗业金火
+new entry "BANXIAN_Fire_of_Gold"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20240930dv009a01;1"
+data "Description" "stringsofmodmadebyxss20240930dv009b01;1"
+data "ExtraDescription" "stringsofmodmadebyxss20240930dv009c01;1"
+data "Icon" "PassiveFeature_DraconicAncestry_Gold"
+data "Properties" "IsToggled;ToggledDefaultOn;Highlighted;ToggledDefaultAddToHotbar"
+data "ToggleOnFunctors" "IF(not HasPassive('BANXIAN_GONGFA_FenJue',context.Source)):ApplyStatus(BANXAIN_FIRE_GOLD, 100, -1); IF(HasPassive('BANXIAN_GONGFA_FenJue',context.Source)):ApplyStatus(BANXAIN_FIRE_GOLD_FENJUE, 100, -1)"
+data "ToggleOffFunctors" "RemoveStatus(BANXAIN_FIRE_GOLD);RemoveStatus(BANXAIN_FIRE_GOLD_FENJUE)"
+//data "ToggleGroup" "BANXIANFire"
+
+new entry "BANXAIN_FIRE_GOLD"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "stringsofmodmadebyxss20240930dv009a01;1"
+data "StackId" "BANXAIN_FIRE"
+data "StackPriority" "10"
+data "StackType" "Overwrite"
+data "Passives" "BANXIAN_Fire_of_Gold_Boosts"
+data "StatusPropertyFlags" "DisableCombatlog;DisablePortraitIndicator;DisableOverhead;IgnoreResting"
+
+new entry "BANXAIN_FIRE_GOLD_FENJUE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "BANXAIN_FIRE_GOLD"
+data "StackId" "BANXAIN_FIRE_GOLD_FENJUE"
+data "StackPriority" "20"
+
+new entry "BANXIAN_Fire_of_Gold_Boosts"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20240930dv009a01;1"
+data "Icon" "PassiveFeature_DraconicAncestry_Gold"
+data "Properties" "IsHidden"
+data "Boosts" "StatusImmunity(BURNING_YEHUO);Resistance(Fire,Immune); UnlockSpellVariant(SpellDamageTypeIs(DamageType.Fire),ModifyIconGlow(),ModifyTooltipDescription()); Resistance(Fire,Immune)"
+
+
+new entry "BURNING_BANXIAN_FIRE_OF_GOLD"
+type "StatusData"
+data "StatusType" "BOOST"
+using "BURNING"
+data "DisplayName" "stringsofmodmadebyxss20240930dv009a01;1"
+data "Icon" "Action_Mag_HellfireCleave"
+data "StackId" "BURNING"
+data "StackPriority" "20"
+data "StackType" "Additive"
+data "Boosts" "Advantage(AttackTarget);GameplayLight(3,false,0.1);StatusImmunity(SG_Invisible);BlockRegainHP()"
+data "TooltipDamage" "DealDamage((Target.BURNING_BANXIAN_FIRE_OF_GOLD.Duration)d4,Fire)"
+data "TickFunctors" "IF(not Tagged('TORCH')):DealDamage((Target.BURNING_BANXIAN_FIRE_OF_GOLD.Duration)d4,Fire,Magical)"
+data "OnApplyFunctors" "IF(not Tagged('TORCH')):DealDamage((Target.BURNING_BANXIAN_FIRE_OF_GOLD.Duration)d4,Fire,Magical)"
+data "StatusGroups" "SG_Light"
+data "StatusPropertyFlags" "InitiateCombat;Burning;DisableOverhead"
+data "ApplyEffect" "887e86db-a1a5-4ea2-8b96-e3195e66b24c"
+data "StatusEffect" "423ef553-a009-40d0-b110-1f5398b1b774"
+
+//焚天紫火
+new entry "BANXIAN_Fire_of_Purple"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20240930dv009a02;1"
+data "Description" "stringsofmodmadebyxss20240930dv009b02;1"
+data "ExtraDescription" "stringsofmodmadebyxss20240930dv009c02;1"
+data "Icon" "PassiveFeature_DraconicAncestry_Brass"
+data "Properties" "IsToggled;ToggledDefaultOn;Highlighted;ToggledDefaultAddToHotbar"
+data "ToggleOnFunctors" "IF(not HasPassive('BANXIAN_GONGFA_FenJue',context.Source)):ApplyStatus(BANXAIN_FIRE_PURPLE, 100, -1); IF(HasPassive('BANXIAN_GONGFA_FenJue',context.Source)):ApplyStatus(BANXAIN_FIRE_PURPLE_FENJUE, 100, -1)"
+data "ToggleOffFunctors" "RemoveStatus(BANXAIN_FIRE_PURPLE);RemoveStatus(BANXAIN_FIRE_PURPLE_FENJUE)"
+//data "ToggleGroup" "BANXIANFire"
+
+new entry "BANXAIN_FIRE_PURPLE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "BANXAIN_FIRE_GOLD"
+data "DisplayName" "stringsofmodmadebyxss20240930dv009a02;1"
+data "Passives" "BANXIAN_Fire_of_Purple_Boosts"
+
+new entry "BANXAIN_FIRE_PURPLE_FENJUE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "BANXAIN_FIRE_PURPLE"
+data "StackId" "BANXAIN_FIRE_PURPLE_FENJUE"
+data "StackPriority" "20"
+
+new entry "BANXIAN_Fire_of_Purple_Boosts"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20240930dv009a02;1"
+data "Description" "stringsofmodmadebyxss20240930dv009b02;1"
+data "ExtraDescription" "stringsofmodmadebyxss20240930dv009c02;1"
+data "Icon" "PassiveFeature_DraconicAncestry_Brass"
+data "Properties" "IsHidden"
+data "Boosts" "IF(IsDamageTypeFire()):DamageBonus(SpellCastingAbilityModifier,Fire); UnlockSpellVariant(SpellDamageTypeIs(DamageType.Fire),ModifyIconGlow(),ModifyTooltipDescription())"
+
+new entry "BURNING_BANXIAN_FIRE_OF_PURPLE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "BURNING_BANXIAN_FIRE_OF_GOLD"
+data "DisplayName" "stringsofmodmadebyxss20240930dv009a02;1"
+data "TooltipDamage" "DealDamage((Target.BURNING_BANXIAN_FIRE_OF_PURPLE.Duration)d6,Fire)"
+data "TickFunctors" "IF(not Tagged('TORCH')):DealDamage((Target.BURNING_BANXIAN_FIRE_OF_PURPLE.Duration)d6,Fire,Magical)"
+data "OnApplyFunctors" "IF(not Tagged('TORCH')):DealDamage((Target.BURNING_BANXIAN_FIRE_OF_PURPLE.Duration)d6,Fire,Magical)"
+data "ApplyEffect" ""
+data "StatusEffect" "2156dd48-f83b-4060-9a4e-cab994da8857"
+
+
+//幽冥鬼火
+new entry "BANXIAN_Fire_of_Ghost"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20240930dv009a03;1"
+data "Description" "stringsofmodmadebyxss20240930dv009b03;1"
+data "ExtraDescription" "stringsofmodmadebyxss20240930dv009c03;1"
+data "Icon" "PassiveFeature_DraconicAncestry_Gold"
+data "Properties" "IsToggled;ToggledDefaultOn;Highlighted;ToggledDefaultAddToHotbar"
+data "ToggleOnFunctors" "IF(not HasPassive('BANXIAN_GONGFA_FenJue',context.Source)):ApplyStatus(BANXAIN_FIRE_GHOST, 100, -1); IF(HasPassive('BANXIAN_GONGFA_FenJue',context.Source)):ApplyStatus(BANXAIN_FIRE_GHOST_FENJUE, 100, -1)"
+data "ToggleOffFunctors" "RemoveStatus(BANXAIN_FIRE_GHOST);RemoveStatus(BANXAIN_FIRE_GHOST_FENJUE)"
+//data "ToggleGroup" "BANXIANFire"
+
+new entry "BANXAIN_FIRE_GHOST"
+type "StatusData"
+data "StatusType" "BOOST"
+using "BANXAIN_FIRE_GOLD"
+data "DisplayName" "stringsofmodmadebyxss20240930dv009a03;1"
+data "Passives" "BANXIAN_Fire_of_Ghost_Boosts"
+
+new entry "BANXAIN_FIRE_GHOST_FENJUE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "BANXAIN_FIRE_GHOST"
+data "StackId" "BANXAIN_FIRE_GHOST_FENJUE"
+data "StackPriority" "20"
+
+new entry "BANXIAN_Fire_of_Ghost_Boosts"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20240930dv009a03;1"
+data "Icon" "PassiveFeature_DraconicAncestry_Gold"
+data "Properties" "IsHidden"
+data "Boosts" "IgnoreResistance(Fire,Immune); UnlockSpellVariant(SpellDamageTypeIs(DamageType.Fire),ModifyIconGlow(),ModifyTooltipDescription())"
+
+new entry "BURNING_BANXIAN_FIRE_OF_GHOST"
+type "StatusData"
+data "StatusType" "BOOST"
+using "BURNING_BANXIAN_FIRE_OF_GOLD"
+data "DisplayName" "stringsofmodmadebyxss20240930dv009a03;1"
+data "TooltipDamage" "DealDamage((Target.BURNING_BANXIAN_FIRE_OF_GHOST.Duration)d4,Fire)"
+data "TickFunctors" "IF(not Tagged('TORCH')):DealDamage((Target.BURNING_BANXIAN_FIRE_OF_GHOST.Duration)d4,Fire,Magical)"
+data "OnApplyFunctors" "IF(not Tagged('TORCH')):DealDamage((Target.BURNING_BANXIAN_FIRE_OF_GHOST.Duration)d4,Fire,Magical)"
+data "ApplyEffect" ""
+data "StatusEffect" "2156dd48-f83b-4060-9a4e-cab994da8857"
+
+
+//六丁神火
+new entry "BANXIAN_Fire_of_SixDing"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20240930dv009a04;1"
+data "Description" "stringsofmodmadebyxss20240930dv009b04;1"
+data "ExtraDescription" "stringsofmodmadebyxss20240930dv009c04;1"
+data "Icon" "PassiveFeature_DraconicAncestry_Brass"
+data "Properties" "IsToggled;ToggledDefaultOn;Highlighted;ToggledDefaultAddToHotbar"
+data "ToggleOnFunctors" "IF(not HasPassive('BANXIAN_GONGFA_FenJue',context.Source)):ApplyStatus(BANXAIN_FIRE_SIXDING, 100, -1); IF(HasPassive('BANXIAN_GONGFA_FenJue',context.Source)):ApplyStatus(BANXAIN_FIRE_SIXDING_FENJUE, 100, -1)"
+data "ToggleOffFunctors" "RemoveStatus(BANXAIN_FIRE_SIXDING);RemoveStatus(BANXAIN_FIRE_SIXDING_FENJUE)"
+//data "ToggleGroup" "BANXIANFire"
+
+new entry "BANXAIN_FIRE_SIXDING"
+type "StatusData"
+data "StatusType" "BOOST"
+using "BANXAIN_FIRE_GOLD"
+data "DisplayName" "stringsofmodmadebyxss20240930dv009a04;1"
+data "Passives" "BANXIAN_Fire_of_SixDing_Boosts"
+
+new entry "BANXAIN_FIRE_SIXDING_FENJUE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "BANXAIN_FIRE_SIXDING"
+data "StackId" "BANXAIN_FIRE_SIXDING_FENJUE"
+data "StackPriority" "20"
+
+new entry "BANXIAN_Fire_of_SixDing_Boosts"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20240930dv009a04;1"
+data "Icon" "PassiveFeature_DraconicAncestry_Brass"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpellVariant(SpellDamageTypeIs(DamageType.Fire),ModifyIconGlow(),ModifyTooltipDescription())"
+
+new entry "BURNING_BANXIAN_FIRE_OF_SIXDING"
+type "StatusData"
+data "StatusType" "BOOST"
+using "BURNING_BANXIAN_FIRE_OF_GOLD"
+data "DisplayName" "stringsofmodmadebyxss20240930dv009a04;1"
+data "TooltipDamage" "DealDamage(6,Fire)"
+data "TickFunctors" "IF(not Tagged('TORCH')):DealDamage(6,Fire,Magical)"
+data "OnApplyFunctors" "IF(not Tagged('TORCH')):DealDamage(6,Fire,Magical)"
+data "ApplyEffect" ""
+data "StatusEffect" "2156dd48-f83b-4060-9a4e-cab994da8857"
+
+
+//三昧真火
+new entry "BANXIAN_Fire_of_ThreeMei"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20240930dv009a05;1"
+data "Description" "stringsofmodmadebyxss20240930dv009b05;1"
+data "ExtraDescription" "stringsofmodmadebyxss20240930dv009c05;1"
+data "Icon" "PassiveFeature_DraconicAncestry_Gold"
+data "Properties" "IsToggled;ToggledDefaultOn;Highlighted;ToggledDefaultAddToHotbar"
+data "ToggleOnFunctors" "IF(not HasPassive('BANXIAN_GONGFA_FenJue',context.Source)):ApplyStatus(BANXAIN_FIRE_THREEMEI, 100, -1); IF(HasPassive('BANXIAN_GONGFA_FenJue',context.Source)):ApplyStatus(BANXAIN_FIRE_THREEMEI_FENJUE, 100, -1)"
+data "ToggleOffFunctors" "RemoveStatus(BANXAIN_FIRE_THREEMEI);RemoveStatus(BANXAIN_FIRE_THREEMEI_FENJUE)"
+//data "ToggleGroup" "BANXIANFire"
+
+new entry "BANXAIN_FIRE_THREEMEI"
+type "StatusData"
+data "StatusType" "BOOST"
+using "BANXAIN_FIRE_GOLD"
+data "DisplayName" "stringsofmodmadebyxss20240930dv009a05;1"
+data "Passives" "BANXIAN_Fire_of_ThreeMei_Boosts"
+
+new entry "BANXAIN_FIRE_THREEMEI_FENJUE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "BANXAIN_FIRE_THREEMEI"
+data "StackId" "BANXAIN_FIRE_THREEMEI_FENJUE"
+data "StackPriority" "20"
+
+new entry "BANXIAN_Fire_of_ThreeMei_Boosts"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20240930dv009a05;1"
+data "Icon" "PassiveFeature_DraconicAncestry_Gold"
+data "Properties" "IsHidden"
+data "Boosts" "IF(IsDamageTypeFire()):Reroll(Damage,20,false); UnlockSpellVariant(SpellDamageTypeIs(DamageType.Fire),ModifyIconGlow(),ModifyTooltipDescription())"
+
+new entry "BURNING_BANXIAN_FIRE_OF_THREEMEI"
+type "StatusData"
+data "StatusType" "BOOST"
+using "BURNING_BANXIAN_FIRE_OF_GOLD"
+data "DisplayName" "stringsofmodmadebyxss20240930dv009a03;1"
+data "TooltipDamage" "DealDamage((Target.BURNING_BANXIAN_FIRE_OF_THREEMEI.Duration)d4,Fire,,,0,,true,true)"
+data "TickFunctors" "IF(not Tagged('TORCH')):DealDamage((Target.BURNING_BANXIAN_FIRE_OF_THREEMEI.Duration)d4,Fire,Magical,,0,,true,true)"
+data "OnApplyFunctors" "IF(not Tagged('TORCH')):DealDamage((Target.BURNING_BANXIAN_FIRE_OF_THREEMEI.Duration)d4,Fire,Magical,,0,,true,true)"
+data "ApplyEffect" ""
+data "StatusEffect" "2156dd48-f83b-4060-9a4e-cab994da8857"
+
+/////////////////////////////
+/
+/         怒血诀         //选修功法  
+/
+/////////////////////////////  
+//大品天仙诀  可以用气来代替法术位消耗
+new entry "BANXIAN_GONGFA_RageBloode"
+type "PassiveData"
+data "Icon" "PassiveFeature_BrutalCritical"
+data "DisplayName" "stringsofmodmadebyxss20240930dv004a06;1"
+data "Description" "stringsofmodmadebyxss20240930dv004b06;1"
+data "Properties" "Highlighted"
+data "BoostConditions" "CharacterLevelGreaterThan(4, context.Source) and HasPassive('BANXAIN_Shenshi', context.Source)"
+data "Boosts" "IF(HasHPPercentageWithoutTemporaryHPLessThan(50, context.Source)):CriticalHitExtraDice(1); IF(HasHPPercentageWithoutTemporaryHPLessThan(50, context.Source)):ReduceCriticalAttackThreshold(1)"
+
+
+
+
+/////////////////////////////
+/
+/         灵目诀         //选修功法  
+/
+/////////////////////////////  
+new entry "BANXIAN_GONGFA_DarkEyes"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20240930dv004a07;1"
+data "Description" "stringsofmodmadebyxss20240930dv004b07;1"
+data "DescriptionParams" "Distance(24)"
+data "Icon" "PassiveFeature_DevilsSight"
+data "Properties" "Highlighted"
+data "BoostConditions" "CharacterLevelGreaterThan(4, context.Source) and HasPassive('BANXAIN_Shenshi', context.Source)"
+data "Boosts" "CriticalHitExtraDice(1); DarkvisionRangeMin(24);ActiveCharacterLight(c46e7ba8-e746-7020-5146-287474d7b9f7);StatusImmunity(BLINDED_DARKNESS);IgnoreSurfaceCover(SurfaceDarknessCloud)"
+
+
+
+
+/////////////////////////////
+/
+/         神·焚诀         //选修功法  
+/
+/////////////////////////////  
+new entry "BANXIAN_GONGFA_FenJue"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20240930dv009a00;1"
+data "Description" "stringsofmodmadebyxss20240930dv009b00;1"
+data "Properties" "Highlighted"
+data "Icon" "PassiveFeature_DraconicAncestry_Gold"
+data "BoostConditions" "CharacterLevelGreaterThan(9, context.Source) and HasPassive('BANXAIN_Shenshi', context.Source)"
+data "Boosts" "UnlockSpellVariant(SpellDamageTypeIs(DamageType.Fire),ModifyIconGlow(),ModifyTooltipDescription())"
+
+
+
+
+/////////////////////////////
+/
+/         仙门奇术         //选修功法  
+/
+/////////////////////////////  
+new entry "BANXIAN_GONGFA_QiShu"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20250627fsa00a01;1"
+data "Description" "stringsofmodmadebyxss20250627fsa00b01;1"
+data "Properties" "Highlighted"
+data "Icon" "Spell_Transmutation_FleshToGold"
+data "BoostConditions" ""
+data "Boosts" "UnlockSpell(Target_Spell_MetalCoating)"

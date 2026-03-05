@@ -1,0 +1,16 @@
+new entry "OBJ_Book_Zhexian"
+type "Object"
+using "OBJ_Book"
+data "RootTemplate" "7a0dd130-06de-4c39-a05a-d918aaa96a9f"
+
+new entry "BK_BanXian_GongLve_LianQi_Yu"
+type "Object"
+using "OBJ_Book"
+data "RootTemplate" "7a0dd130-06de-4c39-a05a-d918aaa96a01"
+data "ValueOverride" "98"
+
+new entry "BK_BanXian_GongLve_XiaoChangshi_FeiLenCui"
+type "Object"
+using "OBJ_Book"
+data "RootTemplate" "7a0dd130-06de-4c39-a05a-d918aaa96a02"
+data "ValueOverride" "198"

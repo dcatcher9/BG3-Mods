@@ -1,0 +1,6 @@
+new CraftingPreviewData "LianJinChanWu"
+type "ObjectCategories"
+data "Category" "LianJinChanWu"
+data "Icon" "Items_CONS_Drink_Wine_C"
+data "Tooltip" "h8cae3baeg3b5egc399g71c0g48db6f61780a;2"
+

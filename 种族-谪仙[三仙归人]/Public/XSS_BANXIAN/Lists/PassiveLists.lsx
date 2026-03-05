@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+  <version major="4" minor="0" revision="9" build="328" />
+  <region id="PassiveLists">
+    <node id="root">
+      <children>
+        <node id="PassiveList">
+          <attribute id="Name" type="LSString" value="Zizhi" />
+          <attribute id="Passives" type="LSString" value="BanXian_LingGen_T0,BanXian_LingGen_T1,BanXian_LingGen_T2,BanXian_LingGen_T3,BanXian_LingGen_Blank" />
+          <attribute id="UUID" type="guid" value="1d2d1f9a-5ff8-4547-be46-7d2a7569a001" />
+        </node>
+        <node id="PassiveList">
+          <attribute id="Name" type="FixedString" value="BANXAIN CUITI ZOUTIAN" />
+          <attribute id="Passives" type="LSString" value="CuiTi_ZhouTian_1,CuiTi_ZhouTian_2,CuiTi_ZhouTian_3,CuiTi_ZhouTian_4,CuiTi_ZhouTian_5,CuiTi_ZhouTian_6,CuiTi_ZhouTian_7,CuiTi_ZhouTian_8,CuiTi_ZhouTian_9,CuiTi_ZhouTian_10,CuiTi_ZhouTian_11,CuiTi_ZhouTian_12" />
+          <attribute id="UUID" type="guid" value="fc2bb64c-817b-4375-860c-758a6bb84001" />
+          </node>
+        <node id="PassiveList">
+          <attribute id="Name" type="FixedString" value="BANXAIN CUITI ZOUTIAN" />
+          <attribute id="Passives" type="LSString" value="BanXian_WZCYG_Xin,BanXian_WZCYG_Pi,BanXian_WZCYG_Fei,BanXian_WZCYG_Shen,BanXian_WZCYG_Gan" />
+          <attribute id="UUID" type="guid" value="fc2bb64c-817b-4375-860c-758a6bb84b01" />
+          </node>
+        <node id="PassiveList">
+          <attribute id="Name" type="FixedString" value="BANXAIN FABAO BAIMAI" />
+          <attribute id="Passives" type="LSString" value="FABAO_BAIMAI_1,FABAO_BAIMAI_2,FABAO_BAIMAI_3,FABAO_BAIMAI_4,FABAO_BAIMAI_5,FABAO_BAIMAI_6" />
+          <attribute id="UUID" type="guid" value="fc2bb64c-817b-4375-860c-758a6bb84002" />
+          </node>
+        <node id="PassiveList">
+          <attribute id="Name" type="FixedString" value="BANXAIN FABAO MOQIAO" />
+          <attribute id="Passives" type="LSString" value="BANXIAN_FSZMG_MoQiao1,BANXIAN_FSZMG_MoQiao2,BANXIAN_FSZMG_MoQiao3,BANXIAN_FSZMG_MoQiao4,BANXIAN_FSZMG_MoQiao5,BANXIAN_FSZMG_MoQiao6,BANXIAN_FSZMG_MoQiao7,BANXIAN_FSZMG_MoQiao8,BANXIAN_FSZMG_MoQiao9" />
+          <attribute id="UUID" type="guid" value="fe243d3c-5eed-4a8c-b411-80aff5aaa000" />
+          </node>
+        <node id="PassiveList">
+          <attribute id="Name" type="FixedString" value="BANXAIN FABAO dadao" />
+          <attribute id="Passives" type="LSString" value="BanXian_DH_Tian,BanXian_DH_XiuLuo,BanXian_DH_RenJian,BanXian_DH_ChuSheng,BanXian_DH_EGui,BanXian_DH_DiYu,BanXian_DH_Jian,BanXian_DH_Li,BanXian_DH_HeHuan,BanXian_DH_Yi" />
+          <attribute id="UUID" type="guid" value="fc2bb64c-817b-4375-860c-758a6bb84003" />
+          </node>
+        <node id="PassiveList">
+          <attribute id="Name" type="FixedString" value="BANXAIN DADAO TIAN" />
+          <attribute id="Passives" type="LSString" value="BanXian_DH_Tian,BanXian_DH_XiuLuo,BanXian_DH_Jian,BanXian_DH_Li,BanXian_DH_HeHuan,BanXian_DH_Yi" />
+          <attribute id="UUID" type="guid" value="fc2bb64c-817b-4375-860c-758a6bb84a03" />
+          </node>
+        <node id="PassiveList">
+          <attribute id="Name" type="FixedString" value="BANXAIN DADAO REN" />
+          <attribute id="Passives" type="LSString" value="BanXian_DH_Tian,BanXian_DH_XiuLuo,BanXian_DH_RenJian,BanXian_DH_Jian,BanXian_DH_Li,BanXian_DH_HeHuan,BanXian_DH_Yi" />
+          <attribute id="UUID" type="guid" value="fc2bb64c-817b-4375-860c-758a6bb84b03" />
+          </node>
+        <node id="PassiveList">
+          <attribute id="Name" type="FixedString" value="BANXAIN DADAO YAO" />
+          <attribute id="Passives" type="LSString" value="BanXian_DH_ChuSheng,BanXian_DH_EGui,BanXian_DH_DiYu,BanXian_DH_Jian,BanXian_DH_Li,BanXian_DH_HeHuan,BanXian_DH_Yi" />
+          <attribute id="UUID" type="guid" value="fc2bb64c-817b-4375-860c-758a6bb84c03" />
+          </node>
+        <node id="PassiveList">
+          <attribute id="Name" type="FixedString" value="BANXAIN BENXIANG YAO" />
+          <attribute id="Passives" type="LSString" value="BANXIAN_Yao_Bear,BANXIAN_Yao_Raven,BANXIAN_Yao_Crab,BANXIAN_Yao_Frog,BANXIAN_Yao_Panther,BANXIAN_Yao_Rat,BANXIAN_Yao_SaberTooth,BANXIAN_Yao_Spider,BANXIAN_Yao_Wolf" />
+          <attribute id="UUID" type="guid" value="a4d51edf-392e-4825-83be-1ee66e4a4258" />
+          </node>
+        <node id="PassiveList">
+          <attribute id="Name" type="FixedString" value="banxian shentong tianxian" />
+          <attribute id="Passives" type="LSString" value="BANXIAN_Polymorph_72_Passive,BANXIAN_Polymorph_36_Passive" />
+          <attribute id="UUID" type="guid" value="3da265a0-317d-49bc-b58a-8db851e72a01" />
+          </node>
+        <node id="PassiveList">
+          <attribute id="Name" type="FixedString" value="JD" />
+          <attribute id="Passives" type="LSString" value="BANXIAN_JinDanBoosts" />
+          <attribute id="UUID" type="guid" value="10dcc608-7c41-4cc4-b974-1d968baaa009" />
+          </node>
+      </children>
+    </node>
+  </region>
+</save>

@@ -1,0 +1,46 @@
+new equipment "M_F"
+add initialweaponset "Melee"
+add equipmentgroup
+add equipment entry "LAN_KAI_FENG_YI"
+add equipmentgroup
+add equipment entry "KUANG_LIE_ZHI_YE"
+add equipmentgroup
+add equipment entry "ARM_Shoes"
+add equipmentgroup
+add equipment entry "LeYuanBi_BaiSe"
+add equipmentgroup
+add equipment entry "LeYuanBi_BaiSe"
+add equipmentgroup
+add equipment entry "LeYuanBi_BaiSe"
+add equipmentgroup
+add equipment entry "BaoXiang_BaiSe"
+add equipmentgroup
+add equipment entry "TaiYangShenABoLuo"
+add equipmentgroup
+add equipment entry "TaiYangShenABoLuo"
+add equipmentgroup
+add equipment entry "TaiYangShenABoLuo"
+add equipmentgroup
+add equipment entry "OBJ_Potion_Healing"
+add equipmentgroup
+add equipment entry "OBJ_Potion_Healing"
+add equipmentgroup
+add equipment entry "OBJ_Potion_Healing"
+add equipmentgroup
+add equipment entry "OBJ_Scroll_Revivify"
+add equipmentgroup
+add equipment entry "OBJ_Keychain"
+add equipmentgroup
+add equipment entry "OBJ_Backpack_CampSupplies"
+add equipmentgroup
+add equipment entry "OBJ_Bag_AlchemyPouch"
+
+new equipment "BOOM"
+add initialweaponset "Melee"
+add equipmentgroup
+add equipment entry "TaiYangShenABoLuo"
+add equipmentgroup
+add equipment entry "TaiYangShenABoLuo"
+add equipmentgroup
+add equipment entry "TaiYangShenABoLuo"
+

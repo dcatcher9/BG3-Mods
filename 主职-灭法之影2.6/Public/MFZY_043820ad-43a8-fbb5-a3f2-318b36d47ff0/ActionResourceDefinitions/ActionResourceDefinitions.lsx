@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+  <version major="4" minor="0" revision="9" build="328" />
+  <region id="ActionResourceDefinitions">
+    <node id="root">
+      <children>
+        <node id="ActionResourceDefinition">
+                    <attribute id="Description" type="TranslatedString" handle="h8b1c5208gd2dfg49d9g3b7bg77ebe966bf01" version="2" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h3a7d7188gc4d9g4d41gfd13g7e3f2736b2b2" version="3" />
+                    <attribute id="MaxLevel" type="uint32" value="0" />
+                    <attribute id="Name" type="FixedString" value="Mana_Point" />
+                    <attribute id="ReplenishType" type="FixedString" value="Rest" />
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true" />
+                    <attribute id="UUID" type="guid" value="03276ebd-b916-49c4-a542-83850148b561" />
+                </node>
+        <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h9d763457g69c0g004ege5dag5471a32a11c3" version="2" />
+                    <attribute id="IsHidden" type="bool" value="true" />
+                    <attribute id="Name" type="FixedString" value="Soul_Gazing_Interrupt" />
+                    <attribute id="UUID" type="guid" value="b3939d76-9e91-4fdf-bbd1-282f294cbdca" />
+                </node>
+        <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h18aa1d02gf7b1g71aegd043gaf46f48d5685" version="1" />
+                    <attribute id="MaxLevel" type="uint32" value="0" />
+                    <attribute id="Name" type="FixedString" value="Zhuang_Tian" />
+                    <attribute id="ReplenishType" type="FixedString" value="Rest" />
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true" />
+                    <attribute id="UUID" type="guid" value="10879636-8224-4be5-8f10-bde6563c389e" />
+                </node>
+        <node id="ActionResourceDefinition">
+                    <attribute id="Description" type="TranslatedString" handle="h02411c89gc634g1523g5d77g5d60b3b7cad1" version="1" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hfb08c583g02d4g9351gc868g06c4e6a47aca" version="1" />
+                    <attribute id="MaxLevel" type="uint32" value="0" />
+                    <attribute id="Name" type="FixedString" value="X_CanQuan" />
+                    <attribute id="ReplenishType" type="FixedString" value="Rest" />
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true" />
+                    <attribute id="UUID" type="guid" value="e3a53d02-cddd-4559-b9f8-7f2d356fa309" />
+                </node>
+      </children>
+    </node>
+  </region>
+</save>

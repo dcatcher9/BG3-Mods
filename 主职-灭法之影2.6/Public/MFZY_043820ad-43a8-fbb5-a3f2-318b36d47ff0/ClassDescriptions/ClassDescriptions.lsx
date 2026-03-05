@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+  <version major="4" minor="0" revision="9" build="328" />
+  <region id="ClassDescriptions">
+    <node id="root">
+      <children>
+        <node id="ClassDescription">
+                    <attribute id="BaseHp" type="int32" value="15" />
+                    <attribute id="CanLearnSpells" type="bool" value="false" />
+                    <attribute id="ClassEquipment" type="FixedString" value="M_F" />
+                    <attribute id="ClassHotbarColumns" type="int32" value="5" />
+                    <attribute id="CommonHotbarColumns" type="int32" value="9" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hed1d0a58g6ad3gba8cgfd4dge98c357aa700" version="3" />
+                    <attribute id="HpPerLevel" type="int32" value="9" />
+                    <attribute id="ItemsHotbarColumns" type="int32" value="2" />
+                    <attribute id="LearningStrategy" type="uint8" value="1" />
+                    <attribute id="MustPrepareSpells" type="bool" value="false" />
+                    <attribute id="Name" type="FixedString" value="Exinction_Magic" />
+                    <attribute id="PrimaryAbility" type="uint8" value="2" />
+                    <attribute id="ProgressionTableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <attribute id="ShortName" type="TranslatedString" handle="h89830a7fg8a91g4070ga688gae74789b704b" version="1" />
+                    <attribute id="SpellCastingAbility" type="uint8" value="4" />
+                    <attribute id="UUID" type="guid" value="3276c7e3-7f3b-413e-9e80-302cfe11142c" />
+                </node>
+        <node id="ClassDescription">
+                    <attribute id="BaseHp" type="int32" value="15" />
+                    <attribute id="CanLearnSpells" type="bool" value="false" />
+                    <attribute id="ClassHotbarColumns" type="int32" value="5" />
+                    <attribute id="CommonHotbarColumns" type="int32" value="9" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="he23d370fg15c3g0dccgade5gc225baf8151c" version="2" />
+                    <attribute id="HpPerLevel" type="int32" value="9" />
+                    <attribute id="ItemsHotbarColumns" type="int32" value="2" />
+                    <attribute id="LearningStrategy" type="uint8" value="1" />
+                    <attribute id="MustPrepareSpells" type="bool" value="false" />
+                    <attribute id="Name" type="FixedString" value="Broken_Soul_Shadow" />
+                    <attribute id="ParentGuid" type="guid" value="3276c7e3-7f3b-413e-9e80-302cfe11142c" />
+                    <attribute id="PrimaryAbility" type="uint8" value="2" />
+                    <attribute id="ProgressionTableUUID" type="guid" value="7e8564a2-3670-464b-bc06-37c243f7ad5e" />
+                    <attribute id="SpellCastingAbility" type="uint8" value="4" />
+                    <attribute id="UUID" type="guid" value="389b80fe-5662-4a81-af5f-1ad3df0b59bf" />
+                </node>
+      </children>
+    </node>
+  </region>
+</save>

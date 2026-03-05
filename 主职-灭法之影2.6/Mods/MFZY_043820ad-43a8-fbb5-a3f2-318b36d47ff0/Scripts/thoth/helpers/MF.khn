@@ -1,0 +1,297 @@
+
+function RateOfCustom(threshold)
+    local random_num = math.random(1,20)
+    return ConditionResult(random_num < threshold)
+end
+
+function RateOfCustom30(threshold)
+    local random_num = math.random(1,30)
+    return ConditionResult(random_num < threshold)
+end
+
+function RateOfCustom50(threshold)
+    local random_num = math.random(1,50)
+    return ConditionResult(random_num < threshold)
+end
+
+function RateOfCustom100(threshold)
+    local random_num = math.random(1,100)
+    return ConditionResult(random_num < threshold)
+end
+
+function Has200Pure_Nnergy(entity)
+    local entity = entity or context.Target
+    return ConditionResult(GetStatusDuration('Pure_Nnergy', entity) >= 200)
+end
+
+function Has20XQZ(entity)
+    local entity = entity or context.Target
+    return ConditionResult(GetStatusDuration('Blood_Gas', entity) >= 20)
+end
+
+function Has30XQZ(entity)
+    local entity = entity or context.Target
+    return ConditionResult(GetStatusDuration('Blood_Gas', entity) >= 30)
+end
+
+function Has40XQZ(entity)
+    local entity = entity or context.Target
+    return ConditionResult(GetStatusDuration('Blood_Gas', entity) >= 40)
+end
+
+function Has50XQZ(entity)
+    local entity = entity or context.Target
+    return ConditionResult(GetStatusDuration('Blood_Gas', entity) >= 50)
+end
+
+function Has60XQZ(entity)
+    local entity = entity or context.Target
+    return ConditionResult(GetStatusDuration('Blood_Gas', entity) >= 60)
+end
+
+function Has70XQZ(entity)
+    local entity = entity or context.Target
+    return ConditionResult(GetStatusDuration('Blood_Gas', entity) >= 70)
+end
+
+function Has80XQZ(entity)
+    local entity = entity or context.Target
+    return ConditionResult(GetStatusDuration('Blood_Gas', entity) >= 80)
+end
+
+function Has90XQZ(entity)
+    local entity = entity or context.Target
+    return ConditionResult(GetStatusDuration('Blood_Gas', entity) >= 90)
+end
+
+function Has100XQZ(entity)
+    local entity = entity or context.Target
+    return ConditionResult(GetStatusDuration('Blood_Gas', entity) >= 100)
+end
+
+function Has110XQZ(entity)
+    local entity = entity or context.Target
+    return ConditionResult(GetStatusDuration('Blood_Gas', entity) >= 110)
+end
+
+function Has120XQZ(entity)
+    local entity = entity or context.Target
+    return ConditionResult(GetStatusDuration('Blood_Gas', entity) >= 120)
+end
+
+function Has130XQZ(entity)
+    local entity = entity or context.Target
+    return ConditionResult(GetStatusDuration('Blood_Gas', entity) >= 130)
+end
+
+function Has140XQZ(entity)
+    local entity = entity or context.Target
+    return ConditionResult(GetStatusDuration('Blood_Gas', entity) >= 140)
+end
+
+function Has150XQZ(entity)
+    local entity = entity or context.Target
+    return ConditionResult(GetStatusDuration('Blood_Gas', entity) >= 150)
+end
+
+function Has200XQZ(entity)
+    local entity = entity or context.Target
+    return ConditionResult(GetStatusDuration('Blood_Gas', entity) >= 200)
+end
+
+function Has400XQZ(entity)
+    local entity = entity or context.Target
+    return ConditionResult(GetStatusDuration('Blood_Gas', entity) >= 400)
+end
+
+function Has600XQZ(entity)
+    local entity = entity or context.Target
+    return ConditionResult(GetStatusDuration('Blood_Gas', entity) >= 600)
+end
+
+function Has800XQZ(entity)
+    local entity = entity or context.Target
+    return ConditionResult(GetStatusDuration('Blood_Gas', entity) >= 800)
+end
+
+function Need_200_Pure_Nnergy(entity)
+    local entity = entity or context.Target
+    local result = Has200Pure_Nnergy(entity)
+    return ConditionResult(result.Result, {ConditionError("200Pure_Nnergy")})
+end
+
+function Need_20_XQZ(entity)
+    local entity = entity or context.Target
+    local result = Has20XQZ(entity)
+    return ConditionResult(result.Result, {ConditionError("20XQZ")})
+end
+
+function Need_30_XQZ(entity)
+    local entity = entity or context.Target
+    local result = Has30XQZ(entity)
+    return ConditionResult(result.Result, {ConditionError("30XQZ")})
+end
+
+function Need_40_XQZ(entity)
+    local entity = entity or context.Target
+    local result = Has40XQZ(entity)
+    return ConditionResult(result.Result, {ConditionError("40XQZ")})
+end
+
+function Need_50_XQZ(entity)
+    local entity = entity or context.Target
+    local result = Has50XQZ(entity)
+    return ConditionResult(result.Result, {ConditionError("50XQZ")})
+end
+
+function Need_60_XQZ(entity)
+    local entity = entity or context.Target
+    local result = Has60XQZ(entity)
+    return ConditionResult(result.Result, {ConditionError("60XQZ")})
+end
+
+function Need_70_XQZ(entity)
+    local entity = entity or context.Target
+    local result = Has70XQZ(entity)
+    return ConditionResult(result.Result, {ConditionError("70XQZ")})
+end
+
+function Need_80_XQZ(entity)
+    local entity = entity or context.Target
+    local result = Has80XQZ(entity)
+    return ConditionResult(result.Result, {ConditionError("80XQZ")})
+end
+
+function Need_90_XQZ(entity)
+    local entity = entity or context.Target
+    local result = Has90XQZ(entity)
+    return ConditionResult(result.Result, {ConditionError("90XQZ")})
+end
+
+function Need_100_XQZ(entity)
+    local entity = entity or context.Target
+    local result = Has100XQZ(entity)
+    return ConditionResult(result.Result, {ConditionError("100XQZ")})
+end
+
+function Need_110_XQZ(entity)
+    local entity = entity or context.Target
+    local result = Has110XQZ(entity)
+    return ConditionResult(result.Result, {ConditionError("110XQZ")})
+end
+
+function Need_120_XQZ(entity)
+    local entity = entity or context.Target
+    local result = Has120XQZ(entity)
+    return ConditionResult(result.Result, {ConditionError("120XQZ")})
+end
+
+function Need_130_XQZ(entity)
+    local entity = entity or context.Target
+    local result = Has130XQZ(entity)
+    return ConditionResult(result.Result, {ConditionError("130XQZ")})
+end
+
+function Need_140_XQZ(entity)
+    local entity = entity or context.Target
+    local result = Has140XQZ(entity)
+    return ConditionResult(result.Result, {ConditionError("140XQZ")})
+end
+
+function Need_150_XQZ(entity)
+    local entity = entity or context.Target
+    local result = Has150XQZ(entity)
+    return ConditionResult(result.Result, {ConditionError("150XQZ")})
+end
+
+function Need_200_XQZ(entity)
+    local entity = entity or context.Target
+    local result = Has200XQZ(entity)
+    return ConditionResult(result.Result, {ConditionError("200XQZ")})
+end
+
+function Need_400_XQZ(entity)
+    local entity = entity or context.Target
+    local result = Has400XQZ(entity)
+    return ConditionResult(result.Result, {ConditionError("400XQZ")})
+end
+
+function Need_600_XQZ(entity)
+    local entity = entity or context.Target
+    local result = Has600XQZ(entity)
+    return ConditionResult(result.Result, {ConditionError("600XQZ")})
+end
+
+function Need_800_XQZ(entity)
+    local entity = entity or context.Target
+    local result = Has800XQZ(entity)
+    return ConditionResult(result.Result, {ConditionError("800XQZ")})
+end
+
+function CHAO_MaxHP60(entity)
+    local entity = entity or context.Target
+    return ConditionResult(GetStatusDuration('Soul_Gazing_JISHU', entity) > GetStatusDuration('Soul_Gazing_MAXHP', entity))
+end
+
+function ClassLevelHigherOrEqualThan(level, class, entity)
+    local entity = entity or context.Source
+    return ConditionResult(entity.GetClassLevel(class) * 2 + 20 >= level)
+end
+
+function ClassLevelEqualThan(level, class, entity)
+    local entity = entity or context.Source
+    return ConditionResult(entity.GetClassLevel(class) == level)
+end
+
+function FelBloodDexInterval(threshold)
+    return ConditionResult(GetModifier(context.Source.Dexterity) >= threshold)
+end     
+
+function FelBloodStrInterval(threshold)
+    return ConditionResult(GetModifier(context.Source.Strength) >= threshold)
+end
+
+function FelBloodConInterval(threshold)
+    return ConditionResult(GetModifier(context.Source.Constitution) >= threshold)
+end
+
+function FelBloodIntInterval(threshold)
+    return ConditionResult(GetModifier(context.Source.Intelligence) >= threshold)
+end
+
+function FelBloodWisInterval(threshold)
+    return ConditionResult(GetModifier(context.Source.Wisdom) >= threshold)
+end
+
+function FelBloodChaInterval(threshold)
+    return ConditionResult(GetModifier(context.Source.Charisma) >= threshold)
+end
+
+function RDDSpellCheck()
+    return (SpellId('Target_Blade_Knife_Extreme_1') | SpellId('Target_Blade_Knife_Extreme_2') | SpellId('Target_Blade_Knife_Extreme_3') | SpellId('Target_Blade_Knife_Extreme_4') | SpellId('Target_Blade_Knife_Extreme_5') | SpellId('Target_Blade_Knife_Extreme_6') | SpellId('Target_Blade_Knife_Extreme_7') | SpellId('Target_Blade_Knife_Extreme_8') | SpellId('Target_Blade_Knife_Extreme_9') | SpellId('Target_Blade_Knife_Time_1') | SpellId('Target_Blade_Knife_Time_2') | SpellId('Target_Blade_Knife_Time_3') | SpellId('Target_Blade_Knife_Time_4') | SpellId('Target_Blade_Knife_Time_5') | SpellId('Target_Blade_Knife_Time_6') | SpellId('Target_Blade_Knife_Time_7') | SpellId('Target_Blade_Knife_Time_8') | SpellId('Target_Blade_Knife_Time_9') | SpellId('Target_Blade_Knife_Green_Ghost_1') |SpellId('Target_Blade_Knife_Green_Ghost_2') | SpellId('Target_Blade_Knife_Green_Ghost_3') | SpellId('Target_Blade_Knife_Green_Ghost_4') | SpellId('Target_Blade_Knife_Green_Ghost_5') |SpellId('Target_Blade_Knife_Green_Ghost_6') | SpellId('Target_Blade_Knife_Green_Ghost_7') | SpellId('Target_Blade_Knife_Green_Ghost_8') | SpellId('Target_Blade_Knife_Green_Ghost_9') | SpellId('Target_Blade_Knife_Absolute_Seclusion_1') | SpellId('Target_Blade_Knife_Absolute_Seclusion_2') | SpellId('Target_Blade_Knife_Absolute_Seclusion_3') | SpellId('Target_Blade_Knife_Absolute_Seclusion_4') | SpellId('Target_Blade_Knife_Absolute_Seclusion_5') | SpellId('Target_Blade_Knife_Absolute_Seclusion_6') | SpellId('Target_Blade_Knife_Absolute_Seclusion_7') | SpellId('Target_Blade_Knife_Absolute_Seclusion_8') | SpellId('Target_Blade_Knife_Absolute_Seclusion_9') | SpellId('Zone_Blade_Knife_Stream_1') | SpellId('Zone_Blade_Knife_Stream_2') | SpellId('Zone_Blade_Knife_Stream_3') | SpellId('Zone_Blade_Knife_Stream_4') | SpellId('Zone_Blade_Knife_Stream_5') | SpellId('Zone_Blade_Knife_Stream_6') | SpellId('Zone_Blade_Knife_Stream_7') | SpellId('Zone_Blade_Knife_Stream_8') | SpellId('Zone_Blade_Knife_Stream_9') | SpellId('Rush_Blade_Knife_Jueying') | SpellId('Shout_Blade_Knife_Ring_breakage_1') | SpellId('Shout_Blade_Knife_Ring_breakage_2') | SpellId('Shout_Blade_Knife_Ring_breakage_3') | SpellId('Shout_Blade_Knife_Ring_breakage_4') | SpellId('Shout_Blade_Knife_Ring_breakage_5') | SpellId('Shout_Blade_Knife_Ring_breakage_6') | SpellId('Shout_Blade_Knife_Ring_breakage_7') | SpellId('Shout_Blade_Knife_Ring_breakage_8') | SpellId('Shout_Blade_Knife_Ring_breakage_9') | SpellId('Shout_Blade_Knife_Exceed_Ringbreakage_1') | SpellId('Shout_Blade_Knife_Exceed_Ringbreakage_2') | SpellId('Shout_Blade_Knife_Exceed_Ringbreakage_3') | SpellId('Shout_Blade_Knife_Exceed_Ringbreakage_4') | SpellId('Shout_Blade_Knife_Exceed_Ringbreakage_5') | SpellId('Shout_Blade_Knife_Exceed_Ringbreakage_6'))
+end
+
+function RDDXueQiSpellCheck()
+    return (SpellId('Target_Blade_Knife_Blood_Explosion_1') | SpellId('Target_Blade_Knife_Blood_Explosion_2') | SpellId('Target_Blade_Knife_Blood_Explosion_3') | SpellId('Target_Blade_Knife_Blood_Explosion_4') | SpellId('Target_Blade_Knife_Blood_Explosion_5') | SpellId('Target_Blade_Knife_Blood_Explosion_6') | SpellId('Target_Blade_Knife_Blood_Explosion_7') | SpellId('Target_Blade_Knife_Blood_Shadow_1') | SpellId('Target_Blade_Knife_Blood_Shadow_2') | SpellId('Target_Blade_Knife_Blood_Shadow_3') | SpellId('Target_Blade_Knife_Blood_Shadow_4') | SpellId('Target_Blade_Knife_Blood_Shadow_5') | SpellId('Target_Blade_Knife_Blood_Shadow_6') | SpellId('Target_Blade_Knife_Blood_Shadow_7') | SpellId('Zone_Blade_Knife_Killing_1') | SpellId('Zone_Blade_Knife_Killing_2') | SpellId('Zone_Blade_Knife_Killing_3') | SpellId('Zone_Blade_Knife_Killing_4') | SpellId('Zone_Blade_Knife_Killing_5') | SpellId('Zone_Blade_Knife_Killing_6') | SpellId('Zone_Blade_Knife_Killing_7') | SpellId('Zone_Blood_Smoke_Cannon_1') | SpellId('Zone_Blood_Smoke_Cannon_2') | SpellId('Zone_Blood_Smoke_Cannon_3') | SpellId('Rush_Blade_Knife_Blood_Blade') | SpellId('Rush_Blood_Beast'))
+end
+
+function SoulSpellCheck()
+    return (SpellId('Target_Soul_Silk_1') | SpellId('Target_Soul_Silk_2') | SpellId('Target_Soul_Silk_3') | SpellId('Target_Soul_Gazing_T'))
+end
+
+function ElementSpellCheck()
+    return (SpellId('Target_JIE_LEI'))
+end
+
+function MeleeWeaponAttackSpellCheck()
+    return not HasStringInSpellRoll('MeleeWeaponAttack')
+end
+
+function IsRangedAttack()
+    result = context.HitDescription.AttackType == AttackType.RangedWeaponAttack or context.HitDescription.AttackType == AttackType.RangedSpellAttack or context.HitDescription.AttackType == AttackType.RangedUnarmedAttack or context.HitDescription.AttackType == AttackType.RangedOffHandWeaponAttack
+	return ConditionResult(result)
+end
+
+function LeYuanBi_TargetMaxHpHighThan(value)
+    return ConditionResult(context.Target.MaxHP >= value)
+end

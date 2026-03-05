@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+  <version major="4" minor="0" revision="9" build="328" />
+  <region id="Progressions">
+    <node id="root">
+      <children>
+        <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="ActionResource(Mana_Point,200,0);ActionResource(X_CanQuan,1,0);Proficiency(LightArmor);Proficiency(MediumArmor);Proficiency(Shields);Proficiency(SimpleWeapons);Proficiency(MartialWeapons)" />
+                    <attribute id="Level" type="uint8" value="1" />
+                    <attribute id="Name" type="LSString" value="Exinction_Magic" />
+                    <attribute id="PassivesAdded" type="LSString" value="KILL_LingHunQianBi;JNSJC_ZSBD;KILL_LeYuanBi;KILL_BaiSe_BaoXiang;KILL_BaiSe_BaoXiangSuiPian;KILL_QingTongXunZhang;LunHuiLeYuanXiTong;Basic_Disease_shadow_A;Spirit_eater;Qinggang_Shadow_Beidong;Proficiency_swordsmanship;Proficiency_MeleeCombat;Proficiency_Gun;Spiritual_MP_20Max;Real_Properties;Real_Properties_Dexterity;Real_Properties_Charisma;Real_Properties_Strength;Real_Properties_Constitution;Real_Properties_Intelligence;Real_Properties_Wisdom;Real_Properties_SLX;Element_affinity;Element_ZF;" />
+                    <attribute id="ProgressionType" type="uint8" value="0" />
+                    <attribute id="Selectors" type="LSString" value="AddSpells(ba379f61-ca23-4c71-939e-d55650cd5731);SelectEquipment(d84eb227-d0d0-4b3e-b6ca-547be769da7c,1,MFZR);SelectSkills(c150bff8-7fa3-462c-8910-ae2833d1c479,2);SelectEquipment(1c7fc7c9-eea5-4616-bc6a-efd66a6f93a4,1);" />
+                    <attribute id="TableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <attribute id="UUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <children>
+                        <node id="SubClasses">
+                            <children>
+                                <node id="SubClass">
+                                    <attribute id="Object" type="guid" value="389b80fe-5662-4a81-af5f-1ad3df0b59bf" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+        <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="ActionResource(Mana_Point,200,0)" />
+                    <attribute id="Level" type="uint8" value="2" />
+                    <attribute id="Name" type="LSString" value="Exinction_Magic" />
+                    <attribute id="PassivesAdded" type="LSString" value="Alchemy_Biology_LV1;Alcoholic_Pharmaceutics_LV1;Extinction_Magic_Constitution;" />
+                    <attribute id="ProgressionType" type="uint8" value="0" />
+                    <attribute id="Selectors" type="LSString" value="AddSpells(e38d2e8d-7ca8-432e-9bd9-5011df86b497);" />
+                    <attribute id="TableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <attribute id="UUID" type="guid" value="0bbbac40-8d73-4b9e-8597-fafbacd96167" />
+                </node>
+        <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="ActionResource(Mana_Point,200,0)" />
+                    <attribute id="Level" type="uint8" value="3" />
+                    <attribute id="Name" type="LSString" value="Exinction_Magic" />
+                    <attribute id="PassivesAdded" type="LSString" value="Keen_Eye_LV1" />
+                    <attribute id="ProgressionType" type="uint8" value="0" />
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(67cfc7a3-48c0-4aca-9675-d2404ee2e1b0,2,0,QY)" />
+                    <attribute id="TableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <attribute id="UUID" type="guid" value="718b68ba-7a32-4fa6-95a9-bfff6de2f2bf" />
+                </node>
+        <node id="Progression">
+                    <attribute id="AllowImprovement" type="bool" value="true" />
+                    <attribute id="Boosts" type="LSString" value="ActionResource(Mana_Point,400,0)" />
+                    <attribute id="Level" type="uint8" value="4" />
+                    <attribute id="Name" type="LSString" value="Exinction_Magic" />
+                    <attribute id="PassivesAdded" type="LSString" value="Blood_Gas_Arousal;Element_affinity_LV4;QinggangYing_AoGe" />
+                    <attribute id="ProgressionType" type="uint8" value="0" />
+                    <attribute id="Selectors" type="LSString" value="AddSpells(1adc9e4b-0573-4a1f-a678-65d25a43e54d);SelectSpells(f1ff9bdf-10ec-4940-9a51-c4eb82495ccc,1,0,POXIAO)" />
+                    <attribute id="TableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <attribute id="UUID" type="guid" value="0804a725-db09-420d-ad3f-4b9ac2d1c879" />
+                </node>
+        <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="ActionResource(Mana_Point,200,0)" />
+                    <attribute id="Level" type="uint8" value="5" />
+                    <attribute id="Name" type="LSString" value="Exinction_Magic" />
+                    <attribute id="ProgressionType" type="uint8" value="0" />
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(67cfc7a3-48c0-4aca-9675-d2404ee2e1b0,2,0,QY)" />
+                    <attribute id="TableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <attribute id="UUID" type="guid" value="19cc3e77-6fb8-4c3f-9d69-af2d36013ffa" />
+                </node>
+        <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="ActionResource(Mana_Point,200,0)" />
+                    <attribute id="Level" type="uint8" value="6" />
+                    <attribute id="Name" type="LSString" value="Exinction_Magic" />
+                    <attribute id="PassivesAdded" type="LSString" value="Keen_Eye_LV2;Alchemy_Biology_LV1;Alcoholic_Pharmaceutics_LV1;QingYingWang_Passive;" />
+                    <attribute id="ProgressionType" type="uint8" value="0" />
+                    <attribute id="Selectors" type="LSString" value=";AddSpells(bcf84f90-7075-4062-95c0-4e384e6bc423);SelectSpells(f1ff9bdf-10ec-4940-9a51-c4eb82495ccc,1,0,POXIAO)" />
+                    <attribute id="TableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <attribute id="UUID" type="guid" value="f4b5c0b5-8734-4900-9055-d1fd8bc3154b" />
+                </node>
+        <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="ActionResource(Mana_Point,200,0)" />
+                    <attribute id="Level" type="uint8" value="7" />
+                    <attribute id="Name" type="LSString" value="Exinction_Magic" />
+                    <attribute id="PassivesAdded" type="LSString" value="Goddess's_favor;" />
+                    <attribute id="ProgressionType" type="uint8" value="0" />
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(67cfc7a3-48c0-4aca-9675-d2404ee2e1b0,2,0,QY);" />
+                    <attribute id="TableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <attribute id="UUID" type="guid" value="e40c4aa1-23fa-455d-a568-b26dadd7dfbc" />
+                </node>
+        <node id="Progression">
+                    <attribute id="AllowImprovement" type="bool" value="true" />
+                    <attribute id="Boosts" type="LSString" value="ActionResource(Mana_Point,400,0)" />
+                    <attribute id="Level" type="uint8" value="8" />
+                    <attribute id="Name" type="LSString" value="Exinction_Magic" />
+                    <attribute id="PassivesAdded" type="LSString" value="Blood_Gas_Count_1;Blood_ZF;Blood_Gas_Count_200Max;Element_affinity_LV8;Soul_Electricity;" />
+                    <attribute id="ProgressionType" type="uint8" value="0" />
+                    <attribute id="Selectors" type="LSString" value="AddSpells(9d570275-1e70-4a11-97a1-579584e68d1e);SelectSpells(c61d5e51-e4d5-4cf6-93da-772c8ea0f3ef,1,0,XQ)" />
+                    <attribute id="TableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <attribute id="UUID" type="guid" value="c67c7e49-caf5-4c37-987c-9381082c9374" />
+                </node>
+        <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="ActionResource(Mana_Point,200,0)" />
+                    <attribute id="Level" type="uint8" value="9" />
+                    <attribute id="Name" type="LSString" value="Exinction_Magic" />
+                    <attribute id="ProgressionType" type="uint8" value="0" />
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(c61d5e51-e4d5-4cf6-93da-772c8ea0f3ef,1,0,XQ);AddSpells(beb0da9f-0e48-4746-a37b-49301fe3b809)" />
+                    <attribute id="TableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <attribute id="UUID" type="guid" value="eadc4cd3-cd51-4cd5-8c20-b65174df6f29" />
+                </node>
+        <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="ActionResource(Mana_Point,200,0)" />
+                    <attribute id="Level" type="uint8" value="10" />
+                    <attribute id="Name" type="LSString" value="Exinction_Magic" />
+                    <attribute id="PassivesAdded" type="LSString" value="Energy_block_A" />
+                    <attribute id="ProgressionType" type="uint8" value="0" />
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(c61d5e51-e4d5-4cf6-93da-772c8ea0f3ef,1,0,XQ);" />
+                    <attribute id="TableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <attribute id="UUID" type="guid" value="498f42d0-5fec-4138-91e7-edfdcc097b4b" />
+                </node>
+        <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="ActionResource(Mana_Point,200,0)" />
+                    <attribute id="Level" type="uint8" value="11" />
+                    <attribute id="Name" type="LSString" value="Exinction_Magic" />
+                    <attribute id="PassivesAdded" type="LSString" value="Soul_Gazing;Soul_Gazing_boosts;Soul_Gazing_P;Soul_Gazing_MAX;Soul_Collapse_P" />
+                    <attribute id="ProgressionType" type="uint8" value="0" />
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(c61d5e51-e4d5-4cf6-93da-772c8ea0f3ef,1,0,XQ);" />
+                    <attribute id="TableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <attribute id="UUID" type="guid" value="2019355b-95e4-409b-b90d-06aaafc9d75f" />
+                </node>
+        <node id="Progression">
+                    <attribute id="AllowImprovement" type="bool" value="true" />
+                    <attribute id="Boosts" type="LSString" value="ActionResource(Mana_Point,400,0)" />
+                    <attribute id="Level" type="uint8" value="12" />
+                    <attribute id="Name" type="LSString" value="Exinction_Magic" />
+                    <attribute id="PassivesAdded" type="LSString" value="Blood_Gas_Count_400Max;Basic_RevivalofBlood_XUEQI;Blood_Loss_SHOU;Blood_Loss_SHOU_1;Blood_Loss_JIAN;Blood_Loss_JIAN_1;Element_affinity_LV12;Jueying_Ren" />
+                    <attribute id="PassivesRemoved" type="LSString" value="Blood_Gas_Count_200Max" />
+                    <attribute id="ProgressionType" type="uint8" value="0" />
+                    <attribute id="Selectors" type="LSString" value="AddSpells(254725e6-8ac6-4a6a-9c8e-58a34eb6c0ce);" />
+                    <attribute id="TableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <attribute id="UUID" type="guid" value="2f9e6670-61f2-415b-ae4f-52e8e807cd6c" />
+                </node>
+        <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="ActionResource(Mana_Point,200,0)" />
+                    <attribute id="Level" type="uint8" value="13" />
+                    <attribute id="Name" type="LSString" value="Exinction_Magic" />
+                    <attribute id="ProgressionType" type="uint8" value="0" />
+                    <attribute id="TableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <attribute id="UUID" type="guid" value="207c4dd2-ce7e-4de2-b0c0-583e41d3c93a" />
+                </node>
+        <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="ActionResource(Mana_Point,200,0)" />
+                    <attribute id="Level" type="uint8" value="14" />
+                    <attribute id="Name" type="LSString" value="Exinction_Magic" />
+                    <attribute id="PassivesAdded" type="LSString" value="War_Soul_Shadow" />
+                    <attribute id="ProgressionType" type="uint8" value="0" />
+                    <attribute id="TableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <attribute id="UUID" type="guid" value="3b8b8da4-b8c6-4fb5-ba75-9b9d8f88e7b4" />
+                </node>
+        <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="ActionResource(Mana_Point,200,0)" />
+                    <attribute id="Level" type="uint8" value="15" />
+                    <attribute id="Name" type="LSString" value="Exinction_Magic" />
+                    <attribute id="PassivesAdded" type="LSString" value="Devouring_Shadow" />
+                    <attribute id="ProgressionType" type="uint8" value="0" />
+                    <attribute id="TableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <attribute id="UUID" type="guid" value="9e3d6a93-2ff1-452f-81a3-7fb17e406e8e" />
+                </node>
+        <node id="Progression">
+                    <attribute id="AllowImprovement" type="bool" value="true" />
+                    <attribute id="Boosts" type="LSString" value="ActionResource(Mana_Point,400,0)" />
+                    <attribute id="Level" type="uint8" value="16" />
+                    <attribute id="Name" type="LSString" value="Exinction_Magic" />
+                    <attribute id="PassivesAdded" type="LSString" value="Blood_Gas_Count_600Max;Element_affinity_LV16;Blast;Illness_Shadow" />
+                    <attribute id="PassivesRemoved" type="LSString" value="Blood_Gas_Count_400Max" />
+                    <attribute id="ProgressionType" type="uint8" value="0" />
+                    <attribute id="TableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <attribute id="UUID" type="guid" value="512d76e8-446c-41c9-a4e5-6df866ba45f5" />
+                </node>
+        <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="ActionResource(Mana_Point,200,0)" />
+                    <attribute id="Level" type="uint8" value="17" />
+                    <attribute id="Name" type="LSString" value="Exinction_Magic" />
+                    <attribute id="PassivesAdded" type="LSString" value="Hunting_Shadow" />
+                    <attribute id="ProgressionType" type="uint8" value="0" />
+                    <attribute id="TableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <attribute id="UUID" type="guid" value="26f8db6f-a22d-403e-888f-79ee5062a858" />
+                </node>
+        <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="ActionResource(Mana_Point,200,0)" />
+                    <attribute id="Level" type="uint8" value="18" />
+                    <attribute id="Name" type="LSString" value="Exinction_Magic" />
+                    <attribute id="PassivesAdded" type="LSString" value="Deadly_Bloom" />
+                    <attribute id="ProgressionType" type="uint8" value="0" />
+                    <attribute id="TableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <attribute id="UUID" type="guid" value="c9422b06-29e4-4098-aee4-abb57319d18c" />
+                </node>
+        <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="ActionResource(Mana_Point,200,0)" />
+                    <attribute id="Level" type="uint8" value="19" />
+                    <attribute id="Name" type="LSString" value="Exinction_Magic" />
+                    <attribute id="ProgressionType" type="uint8" value="0" />
+                    <attribute id="TableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <attribute id="UUID" type="guid" value="c2f69c7e-61cc-4526-a632-11cf253a0ec8" />
+                </node>
+        <node id="Progression">
+                    <attribute id="AllowImprovement" type="bool" value="true" />
+                    <attribute id="Boosts" type="LSString" value="ActionResource(Mana_Point,400,0)" />
+                    <attribute id="Level" type="uint8" value="20" />
+                    <attribute id="Name" type="LSString" value="Exinction_Magic" />
+                    <attribute id="PassivesAdded" type="LSString" value="Blood_Gas_Count_800Max;Element_affinity_LV20;Qinggang_Ying_EX" />
+                    <attribute id="PassivesRemoved" type="LSString" value="Blood_Gas_Count_600Max;" />
+                    <attribute id="ProgressionType" type="uint8" value="0" />
+                    <attribute id="TableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <attribute id="UUID" type="guid" value="6c01a47c-9421-42db-97a9-173c57892816" />
+                </node>
+        <node id="Progression">
+                    <attribute id="Level" type="uint8" value="21" />
+                    <attribute id="Name" type="LSString" value="Exinction_Magic" />
+                    <attribute id="ProgressionType" type="uint8" value="0" />
+                    <attribute id="TableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <attribute id="UUID" type="guid" value="efa3a882-3066-4a50-9b52-d4490a6dae68" />
+                </node>
+        <node id="Progression">
+                    <attribute id="Level" type="uint8" value="1" />
+                    <attribute id="Name" type="LSString" value="Broken_Soul_Shadow" />
+                    <attribute id="ProgressionType" type="uint8" value="1" />
+                    <attribute id="TableUUID" type="guid" value="7e8564a2-3670-464b-bc06-37c243f7ad5e" />
+                    <attribute id="UUID" type="guid" value="3f02492e-b72e-4088-93ae-e8712d296c4b" />
+                </node>
+        <node id="Progression">
+                    <attribute id="Level" type="uint8" value="2" />
+                    <attribute id="Name" type="LSString" value="Broken_Soul_Shadow" />
+                    <attribute id="PassivesAdded" type="LSString" value="Lingying_Constitution;" />
+                    <attribute id="ProgressionType" type="uint8" value="1" />
+                    <attribute id="TableUUID" type="guid" value="7e8564a2-3670-464b-bc06-37c243f7ad5e" />
+                    <attribute id="UUID" type="guid" value="c0fcb421-2d18-479a-b292-f2776ba98585" />
+                </node>
+        <node id="Progression">
+                    <attribute id="Level" type="uint8" value="3" />
+                    <attribute id="Name" type="LSString" value="Broken_Soul_Shadow" />
+                    <attribute id="ProgressionType" type="uint8" value="1" />
+                    <attribute id="TableUUID" type="guid" value="7e8564a2-3670-464b-bc06-37c243f7ad5e" />
+                    <attribute id="UUID" type="guid" value="98dbfd09-227b-4b7b-9b9f-2f6411c59b6f" />
+                </node>
+      </children>
+    </node>
+  </region>
+</save>

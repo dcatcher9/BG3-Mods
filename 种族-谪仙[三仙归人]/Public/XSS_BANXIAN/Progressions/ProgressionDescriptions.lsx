@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+  <version major="4" minor="0" revision="9" build="328" />
+  <region id="ProgressionDescriptions">
+    <node id="root">
+      <children>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv001002" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv001001" version="1" />
+          <attribute id="ProgressionTableId" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27d" />
+          <attribute id="Type" type="FixedString" value="BANXIAN" />
+          <attribute id="UUID" type="guid" value="8c862ffd-b375-4fcf-bacd-bbadfd76bf01" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv001002" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv001a01" version="1" />
+          <attribute id="ProgressionTableId" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
+          <attribute id="Type" type="FixedString" value="TianXian" />
+          <attribute id="UUID" type="guid" value="8c862ffd-b375-4fcf-bacd-bbadfd76bfa1" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv001002" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv001b01" version="1" />
+          <attribute id="ProgressionTableId" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
+          <attribute id="Type" type="FixedString" value="RenXian" />
+          <attribute id="UUID" type="guid" value="8c862ffd-b375-4fcf-bacd-bbadfd76bfb1" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv001002" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv001c01" version="1" />
+          <attribute id="ProgressionTableId" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
+          <attribute id="Type" type="FixedString" value="YaoXian" />
+          <attribute id="UUID" type="guid" value="8c862ffd-b375-4fcf-bacd-bbadfd76bfc1" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv0b1d16" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv0b1c16" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANTIANZI" />
+          <attribute id="UUID" type="guid" value="becf8802-1705-4b06-95eb-2e26abfafef5" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv002004" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv002003" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANCUITI" />
+          <attribute id="UUID" type="guid" value="8c862ffd-b375-4fcf-bacd-bbadfd76bfb2" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv004b02" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv004a02" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANLEARNSPELL" />
+          <attribute id="UUID" type="guid" value="8c862ffd-b375-4fcf-bacd-bbadfd76bf03" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dvb04a00" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dvb04a01" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANWZCYG" />
+          <attribute id="UUID" type="guid" value="8c862ffd-b375-4fcf-bacd-bbadfd76bb03" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv005b01" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv005a01" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANFABAOBAIMAI" />
+          <attribute id="UUID" type="guid" value="8c862ffd-b375-4fcf-bacd-bbadfd76bf04" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv002004" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv005001" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANJingJieA1" />
+          <attribute id="UUID" type="guid" value="8c862ffd-b375-4fcf-bacd-bbadfd76bf05" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv002004" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv005002" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANJingJieA2" />
+          <attribute id="UUID" type="guid" value="8c862ffd-b375-4fcf-bacd-bbadfd76bf06" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv002004" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv005003" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANJingJieA3" />
+          <attribute id="UUID" type="guid" value="8c862ffd-b375-4fcf-bacd-bbadfd76bf07" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv002004" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv005004" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANJingJieB1" />
+          <attribute id="UUID" type="guid" value="8c862ffd-b375-4fcf-bacd-bbadfd76bf08" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv002004" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv005005" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANJingJieB2" />
+          <attribute id="UUID" type="guid" value="8c862ffd-b375-4fcf-bacd-bbadfd76bf09" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv002004" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv005006" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANJingJieB3" />
+          <attribute id="UUID" type="guid" value="8c862ffd-b375-4fcf-bacd-bbadfd76bf10" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv002004" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv005007" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANJingJieC1" />
+          <attribute id="UUID" type="guid" value="8c862ffd-b375-4fcf-bacd-bbadfd76bf11" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv002004" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv005008" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANJingJieC2" />
+          <attribute id="UUID" type="guid" value="8c862ffd-b375-4fcf-bacd-bbadfd76bf12" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv002004" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv005009" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANJingJieC3" />
+          <attribute id="UUID" type="guid" value="8c862ffd-b375-4fcf-bacd-bbadfd76bf13" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv002004" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv005010" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANJingJieD1" />
+          <attribute id="UUID" type="guid" value="8c862ffd-b375-4fcf-bacd-bbadfd76bf14" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv002004" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv005011" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANJingJieD2" />
+          <attribute id="UUID" type="guid" value="8c862ffd-b375-4fcf-bacd-bbadfd76bf15" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv002004" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv005012" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANJingJieD3" />
+          <attribute id="UUID" type="guid" value="8c862ffd-b375-4fcf-bacd-bbadfd76bf16" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv001b05" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv001a05" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANDADAO" />
+          <attribute id="UUID" type="guid" value="8c862ffd-b375-4fcf-bacd-bbadfd76bf17" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250228bca00a00" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250228bca00c00" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANBENXIANG" />
+          <attribute id="UUID" type="guid" value="877ae037-f147-4851-b0ec-5cf59d094846" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv004b04" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv004a04" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANSHENTONGTIANXIAN" />
+          <attribute id="UUID" type="guid" value="b2efe8cb-6ab5-4054-a226-949c36ac6a01" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250218bca00f00" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250218bca00e00" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANFSZMG_MQ" />
+          <attribute id="UUID" type="guid" value="a3200864-d0c2-4811-ab93-558c4b78aa00" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250218bca00f00" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250218bca00a01" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANFSZMG_CHONGSHU_1" />
+          <attribute id="UUID" type="guid" value="a3200864-d0c2-4811-ab93-558c4b78aa01" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250218bca00f00" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250218bca00a02" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANFSZMG_CHONGSHU_2" />
+          <attribute id="UUID" type="guid" value="a3200864-d0c2-4811-ab93-558c4b78aa02" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250218bca00f00" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250218bca00a03" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANFSZMG_CHONGSHU_3" />
+          <attribute id="UUID" type="guid" value="a3200864-d0c2-4811-ab93-558c4b78aa03" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250218bca00f00" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250218bca00a04" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANFSZMG_CHONGSHU_4" />
+          <attribute id="UUID" type="guid" value="a3200864-d0c2-4811-ab93-558c4b78aa04" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250218bca00f00" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250218bca00a05" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANFSZMG_CHONGSHU_5" />
+          <attribute id="UUID" type="guid" value="a3200864-d0c2-4811-ab93-558c4b78aa05" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250218bca00f00" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250218bca00a06" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANFSZMG_CHONGSHU_6" />
+          <attribute id="UUID" type="guid" value="a3200864-d0c2-4811-ab93-558c4b78aa06" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250218bca00f00" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250218bca00a07" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANFSZMG_CHONGSHU_7" />
+          <attribute id="UUID" type="guid" value="a3200864-d0c2-4811-ab93-558c4b78aa07" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250218bca00f00" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250218bca00a08" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANFSZMG_CHONGSHU_8" />
+          <attribute id="UUID" type="guid" value="a3200864-d0c2-4811-ab93-558c4b78aa08" />
+        </node>
+        <node id="ProgressionDescription">
+          <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250218bca00f00" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250218bca00a09" version="1" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANFSZMG_CHONGSHU_9" />
+          <attribute id="UUID" type="guid" value="a3200864-d0c2-4811-ab93-558c4b78aa09" />
+        </node>
+      </children>
+    </node>
+  </region>
+</save>

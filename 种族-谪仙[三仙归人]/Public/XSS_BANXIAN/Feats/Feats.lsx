@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="322"/>
+    <region id="Feats">
+        <node id="root">
+            <children>
+                <node id="Feat">
+                    <attribute id="Name" type="FixedString" value="BanXian_ExtraGongFa_Spell"/>
+                    <attribute id="PassivesAdded" type="LSString" value="BanXian_ExtraAttack_Spell"/>
+                    <attribute id="Requirements" type="LSString" value="HasPassive(&apos;BANXIAN_JinDanBoosts&apos;)"/>
+                    <attribute id="UUID" type="guid" value="535d0680-299e-4260-acbf-537a5dd21a00"/>
+                </node>
+                <node id="Feat">
+                    <attribute id="Name" type="FixedString" value="BanXian_ExtraGongFa_RageBloode"/>
+                    <attribute id="PassivesAdded" type="LSString" value="BANXIAN_GONGFA_RageBloode"/>
+                    <attribute id="UUID" type="guid" value="535d0680-299e-4260-acbf-537a5dd21a01"/>
+                </node>
+                <node id="Feat">
+                    <attribute id="Name" type="FixedString" value="BanXian_ExtraGongFa_DarkEyes"/>
+                    <attribute id="PassivesAdded" type="LSString" value="BANXIAN_GONGFA_DarkEyes"/>
+                    <attribute id="UUID" type="guid" value="535d0680-299e-4260-acbf-537a5dd21a02"/>
+                </node>
+                <node id="Feat">
+                    <attribute id="Name" type="FixedString" value="BanXian_ExtraGongFa_FenJue"/>
+                    <attribute id="PassivesAdded" type="LSString" value="BANXIAN_GONGFA_FenJue"/>
+                    <attribute id="UUID" type="guid" value="535d0680-299e-4260-acbf-537a5dd21a03"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

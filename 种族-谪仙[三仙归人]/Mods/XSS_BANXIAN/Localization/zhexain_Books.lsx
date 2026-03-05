@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="0" revision="9" build="322" lslib_meta="v1,bswap_guids" />
+	<region id="TranslatedStringKeys">
+		<node id="TranslatedStringKeys">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" type="TranslatedString" handle="stringsofmodmadebyxss20241217zxbk1001" version="1" />
+					<attribute id="UUID" type="FixedString" value="BOOK_ZHEXIAN" />
+					<attribute id="Speaker" type="FixedString" value="" />
+					<attribute id="ExtraData" type="LSString" value="" />
+					<attribute id="Stub" type="bool" value="True" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" type="TranslatedString" handle="stringsofmodmadebyxss20250222lpa00d00" version="1" />
+					<attribute id="UUID" type="FixedString" value="BanXian_Zhenfa_Tool_LuoPan_USE" />
+					<attribute id="Speaker" type="FixedString" value="" />
+					<attribute id="ExtraData" type="LSString" value="" />
+					<attribute id="Stub" type="bool" value="True" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" type="TranslatedString" handle="stringsofmodmadebyxss20241217zxbk1002" version="1" />
+					<attribute id="UUID" type="FixedString" value="BanXian_GongLve_LianQi_Yu" />
+					<attribute id="Speaker" type="FixedString" value="" />
+					<attribute id="ExtraData" type="LSString" value="" />
+					<attribute id="Stub" type="bool" value="True" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" type="TranslatedString" handle="stringsofmodmadebyxss20241217zxbk1003" version="1" />
+					<attribute id="UUID" type="FixedString" value="BanXian_GongLve_XiaoChangshi_FeiLenCui" />
+					<attribute id="Speaker" type="FixedString" value="" />
+					<attribute id="ExtraData" type="LSString" value="" />
+					<attribute id="Stub" type="bool" value="True" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

@@ -1,0 +1,33 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_OneTimeRewards_MFZYWP(1,(ITEMROOT)MF_WanFaShuoMin_e72ed5bb-208d-4b3a-b3d9-8eca233e078b);
+DB_OneTimeRewards_MFZYWP(2,MF_WanFaShuoMin_e72ed5bb-208d-4b3a-b3d9-8eca233e078b);
+KBSECTION
+//On entering camp, add reward 1 (slayer cloak) to inventory
+IF
+FlagSet(CAMP_GLO_State_InCamp_161b7223-039d-4ebe-986f-1dcd9a66733f, _Player, _)
+THEN
+PROC_OneTimeReward_GiveReward_MFZYWP(1,1,1,_Player);
+
+//On game start, add reward 2 (Raphael Armor) to inventory
+IF
+LevelGameplayStarted(_,_)
+AND
+DB_Avatars(_Player)
+THEN
+PROC_OneTimeReward_GiveReward_MFZYWP(2,1,1,_Player);
+
+//Send to inventory (DO NOT MODIFY THIS EXCEPT REPLACING "_MODNAME" WITH YOUR MODS NAME!)
+PROC
+PROC_OneTimeReward_GiveReward_MFZYWP((INTEGER)_RewardNo,(INTEGER)_Amount,(INTEGER)_Notification,(GUIDSTRING)_Player)
+AND
+NOT DB_OneTimeRewards_RewardGiven_MFZYWP(_RewardNo)
+AND
+DB_OneTimeRewards_MFZYWP(_RewardNo,_Reward)
+THEN
+DB_OneTimeRewards_RewardGiven_MFZYWP(_RewardNo);
+TemplateAddTo(_Reward,_Player,_Amount,_Notification);
+EXITSECTION
+
+ENDEXITSECTION

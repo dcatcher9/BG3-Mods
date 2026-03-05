@@ -1,0 +1,822 @@
+local __util = require 'larian.util'
+
+function IsAbandoned(entity)
+    local entity = entity or context.Target
+    return ~IsLocalBorn(entity)
+end
+
+function IsLocalBorn(entity)
+    return ConditionResult(false)
+end
+
+function Shenshi_SourceSpellDC(fallbackDC, entity, ability)
+    local entity = entity or context.Source
+	local spellDC = fallbackDC or 10 -- Global default so that we don't return 0
+    local ability = ability or context.PreferredCastingAbility
+	if entity.IsValid then
+        try
+		    spellDC = CalculateSpellDC(ability, entity)
+        catch e then
+        end
+	end
+	return spellDC
+end
+
+
+function SpellDC_HEHUAN()
+    return 8 + context.Source.ProficiencyBonus + GetModifier(context.Source.Constitution)
+end
+
+function DuLGSaveDC()
+    return 8 + context.Source.Level
+end
+
+function SpellDC_ShenshiControl(entity)
+    local entity = entity or context.Source
+	local spellDC = GetModifier(context.Source.Wisdom) - GetModifier(context.Target.Wisdom)
+
+    if Tagged('NOSOUL',entity) == 1 or Tagged('CONSTRUCT',entity) or Tagged('UNDEAD',entity) then
+        spellDC = 99
+    end
+    
+
+    return spellDC
+end
+
+function IsTargetHPLess()
+    result = context.Source.HP > context.Target.HP
+    return ConditionResult(result)
+end
+
+function TargetHPLessThanYourStrength()
+    result = context.Source.Strength >= context.Target.HP
+    return ConditionResult(result)
+end
+
+function BLEEDINGPercentageMoreThan(value,entity)
+    local entity = entity or context.Source
+    result = GetStatusDuration('BLEEDING', entity) > (entity.MaxHP * value)/100
+    return ConditionResult(result)
+end
+
+function IsTargetWeaker()
+    result = (GetStatusDuration('BANXIAN_DH_YEAR', context.Source) >= GetStatusDuration('BANXIAN_DH_YEAR', context.Target) and GetStatusDuration('BANXIAN_DH_YEAR', context.Source) >= context.Target.Level) or HasStatus('DOMINATE_HEHUAN',context.Target)
+    return ConditionResult(result)
+end
+
+function CharacterLevelGreaterThanTarget()
+    return ConditionResult(context.Source.Level >= context.Target.Level, {ConditionError("IsNotCharacterLevelGreaterThan")})
+end
+
+function CantResist(entity)
+    local entity = entity or context.Target
+    result =  HasStatus('SG_Fleeing',entity) | HasStatus('SG_Incapacitated',entity) | HasStatus('SG_Unconscious',entity) | HasStatus('SG_Restrained',entity) | HasStatus('KNOCKED_OUT',entity) | HasStatus('SG_Dominated',entity) | HasStatus('SG_Sleeping',entity) | HasStatus('SG_Sleeping_Magical',entity)
+    return ConditionResult(result.Result, {ConditionError("CanResist")})
+end
+
+function ZhouTianNiXingCheck()
+    return HasStatus('SG_Rage') | HasStatus('MENTAL_ARROW') | HasStatus('MENTALSLAM')
+end
+
+function IgnoreNiXingCheck()
+    return HasStatus('CALM_EMOTIONS') | HasStatus('POTION_OF_RESISTANCE_PSYCHIC') | HasStatus('RESISTANCE_PSYCHIC') | HasPassive('Tranquility') | HasPassive('StillnessOfMind') | HasPassive('ORI_Karlach_FirstUpgrade')
+end
+
+function ZhouTianWorkCheck()
+    local result = (HasStatus('CUITI_ZHOUTIAN_1') & HasPassive('CuiTi_ZhouTian_1')) | (HasStatus('CUITI_ZHOUTIAN_2') & HasPassive('CuiTi_ZhouTian_2')) | (HasStatus('CUITI_ZHOUTIAN_3') & HasPassive('CuiTi_ZhouTian_3')) | (HasStatus('CUITI_ZHOUTIAN_4') & HasPassive('CuiTi_ZhouTian_4')) | (HasStatus('CUITI_ZHOUTIAN_5') & HasPassive('CuiTi_ZhouTian_5')) | (HasStatus('CUITI_ZHOUTIAN_6') & HasPassive('CuiTi_ZhouTian_6')) | (HasStatus('CUITI_ZHOUTIAN_7') & HasPassive('CuiTi_ZhouTian_7')) | (HasStatus('CUITI_ZHOUTIAN_8') & HasPassive('CuiTi_ZhouTian_8')) | (HasStatus('CUITI_ZHOUTIAN_9') & HasPassive('CuiTi_ZhouTian_9')) | (HasStatus('CUITI_ZHOUTIAN_10') & HasPassive('CuiTi_ZhouTian_10')) | (HasStatus('CUITI_ZHOUTIAN_11') & HasPassive('CuiTi_ZhouTian_11')) | (HasStatus('CUITI_ZHOUTIAN_12') & HasPassive('CuiTi_ZhouTian_12'))
+    return ConditionResult(result.Result, {ConditionError("NotBreakXueQiao")})
+end
+
+function ZhouTianNXWorkCheck()
+    return HasStatus('CUITI_ZHOUTIAN_1_NX') | HasStatus('CUITI_ZHOUTIAN_2_NX') | HasStatus('CUITI_ZHOUTIAN_3_NX') | HasStatus('CUITI_ZHOUTIAN_4_NX') | HasStatus('CUITI_ZHOUTIAN_5_NX') | HasStatus('CUITI_ZHOUTIAN_6_NX') | HasStatus('CUITI_ZHOUTIAN_7_NX') | HasStatus('CUITI_ZHOUTIAN_8_NX') | HasStatus('CUITI_ZHOUTIAN_9_NX') | HasStatus('CUITI_ZHOUTIAN_10_NX') | HasStatus('CUITI_ZHOUTIAN_11_NX') | HasStatus('CUITI_ZHOUTIAN_12_NX')
+end
+
+function ZhouTianLongBreak()
+    return HasPassive('CuiTi_ZhouTian_1') & HasPassive('CuiTi_ZhouTian_2') & HasPassive('CuiTi_ZhouTian_3') & HasPassive('CuiTi_ZhouTian_4') & HasPassive('CuiTi_ZhouTian_5') & HasPassive('CuiTi_ZhouTian_6') & HasPassive('CuiTi_ZhouTian_7') & HasPassive('CuiTi_ZhouTian_8') & HasPassive('CuiTi_ZhouTian_9') & HasPassive('CuiTi_ZhouTian_10') & HasPassive('CuiTi_ZhouTian_11') & HasPassive('CuiTi_ZhouTian_12')
+end
+
+function ZhouTianShortBreak()
+    return HasPassive('CuiTi_ZhouTian_1') & HasPassive('CuiTi_ZhouTian_5') & HasPassive('CuiTi_ZhouTian_7') & HasPassive('CuiTi_ZhouTian_12') & ~ZhouTianLongBreak()
+end
+
+function NotZhouTianShortBreak()
+    return ~ZhouTianShortBreak() & ~ZhouTianLongBreak()
+end
+
+function NotZhouTianXunHuan()
+    return HasStatus('CUITI_ZHOUTIAN_1') | HasStatus('CUITI_ZHOUTIAN_1_NX') | HasStatus('CUITI_ZHOUTIAN_2') | HasStatus('CUITI_ZHOUTIAN_2_NX') | HasStatus('CUITI_ZHOUTIAN_3') | HasStatus('CUITI_ZHOUTIAN_3_NX') | HasStatus('CUITI_ZHOUTIAN_4') | HasStatus('CUITI_ZHOUTIAN_4_NX') | HasStatus('CUITI_ZHOUTIAN_5') | HasStatus('CUITI_ZHOUTIAN_5_NX') | HasStatus('CUITI_ZHOUTIAN_6') | HasStatus('CUITI_ZHOUTIAN_6_NX') | HasStatus('CUITI_ZHOUTIAN_7') | HasStatus('CUITI_ZHOUTIAN_7_NX') | HasStatus('CUITI_ZHOUTIAN_8') | HasStatus('CUITI_ZHOUTIAN_8_NX') | HasStatus('CUITI_ZHOUTIAN_9') | HasStatus('CUITI_ZHOUTIAN_9_NX') | HasStatus('CUITI_ZHOUTIAN_10') | HasStatus('CUITI_ZHOUTIAN_10_NX') | HasStatus('CUITI_ZHOUTIAN_11') | HasStatus('CUITI_ZHOUTIAN_11_NX') | HasStatus('CUITI_ZHOUTIAN_12') | HasStatus('CUITI_ZHOUTIAN_12_NX')
+end
+
+function KiPointNum1()
+    return HasActionResource('KiPoint', 1, 0, false, true, context.Source)
+end
+
+
+
+
+
+
+function BanXianSpellLevel(value)
+    return ((IsSpellLevel(value)) & (HasUseCosts('SpellSlot') | HasUseCosts('WarlockSpellSlot')) & HasSpellFlag(SpellFlags.Spell))
+end
+
+function BanXianSpellLevelTo6()
+    return ((IsSpellLevel(1) | IsSpellLevel(2) | IsSpellLevel(3) | IsSpellLevel(4) | IsSpellLevel(5) | IsSpellLevel(6)) & (HasUseCosts('SpellSlot') | HasUseCosts('WarlockSpellSlot')) & HasSpellFlag(SpellFlags.Spell))
+end
+
+function FireSpellLevel(value)
+    return ((IsSpellLevel(value)) & (HasUseCosts('SpellSlot') | HasUseCosts('WarlockSpellSlot')) & HasSpellFlag(SpellFlags.Spell) & SpellDamageTypeIs(DamageType.Fire))
+end
+
+function ColdSpellCheck()
+    return (HasUseCosts('SpellSlot') | HasUseCosts('WarlockSpellSlot')) & HasSpellFlag(SpellFlags.Spell) & SpellDamageTypeIs(DamageType.Cold)
+end
+
+
+
+
+
+
+
+
+function BanXianWildShapeSpellCheck()
+    return HasUseCosts('WildShape')
+end
+
+
+
+
+function DHMARKMoreThanYEAR(stringStatusName,entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration(stringStatusName, entity) > GetStatusDuration('BANXIAN_DH_YEAR', entity))
+end
+
+
+
+
+
+local _ALL_DH_MARKS = {'BANXIAN_DH_MARK_TIAN','BANXIAN_DH_MARK_XIULUO','BANXIAN_DH_MARK_RENJIAN','BANXIAN_DH_MARK_CHUSHENG','BANXIAN_DH_MARK_EGUI','BANXIAN_DH_MARK_DIYU','BANXIAN_DH_MARK_JIAN','BANXIAN_DH_MARK_LI'}
+
+local function _marksExcluding(own)
+    local t = {}
+    for _, v in ipairs(_ALL_DH_MARKS) do
+        if v ~= own then t[#t+1] = v end
+    end
+    return t
+end
+
+local function _MARKBLOCKED(passive, ownMark, entity)
+    entity = entity or context.Source
+    local Blocked = HasAnyStatus(_marksExcluding(ownMark), {}, {}, entity, context.Source, false).Result
+    return HasPassive(passive, entity) & Blocked
+end
+
+function MARKBLOCKED_Tian(entity)    return _MARKBLOCKED('BanXian_DH_Tian',    'BANXIAN_DH_MARK_TIAN',    entity) end
+function MARKBLOCKED_XiuLuo(entity)  return _MARKBLOCKED('BanXian_DH_XiuLuo',  'BANXIAN_DH_MARK_XIULUO',  entity) end
+function MARKBLOCKED_RenJian(entity) return _MARKBLOCKED('BanXian_DH_RenJian', 'BANXIAN_DH_MARK_RENJIAN', entity) end
+function MARKBLOCKED_ChuSheng(entity)return _MARKBLOCKED('BanXian_DH_ChuSheng','BANXIAN_DH_MARK_CHUSHENG',entity) end
+function MARKBLOCKED_EGui(entity)    return _MARKBLOCKED('BanXian_DH_EGui',    'BANXIAN_DH_MARK_EGUI',    entity) end
+function MARKBLOCKED_DiYu(entity)    return _MARKBLOCKED('BanXian_DH_DiYu',    'BANXIAN_DH_MARK_DIYU',    entity) end
+function MARKBLOCKED_Jian(entity)    return _MARKBLOCKED('BanXian_DH_Jian',    'BANXIAN_DH_MARK_JIAN',    entity) end
+function MARKBLOCKED_Li(entity)      return _MARKBLOCKED('BanXian_DH_Li',      'BANXIAN_DH_MARK_LI',      entity) end
+
+function ISDHMARKBLOCKED(entity)
+    local entity = entity or context.Source
+    return MARKBLOCKED_Tian(entity) | MARKBLOCKED_XiuLuo(entity) | MARKBLOCKED_RenJian(entity) | MARKBLOCKED_ChuSheng(entity) | MARKBLOCKED_EGui(entity) | MARKBLOCKED_DiYu(entity) | MARKBLOCKED_Jian(entity) | MARKBLOCKED_Li(entity)
+end
+
+
+
+
+
+function DaoXinStable(entity)
+    local entity = entity or context.Source
+
+    return ~HasStatus('BANXIAN_DH_HEART_UNSTABLE',entity)
+end
+
+function DaoXinUnStable(entity)
+    local entity = entity or context.Source
+
+    return HasStatus('BANXIAN_DH_HEART_UNSTABLE',entity)
+end
+
+
+
+
+
+
+
+
+
+
+function BanXianExtraAttackSpellCheck()
+    return IsSpell() | HasStringInSpellRoll('WeaponAttack') | HasStringInSpellRoll('UnarmedAttack') | HasStringInSpellRoll('ThrowAttack') | SpellId('Target_CommandersStrike') | SpellId('Target_Bufotoxin_Frog_Summon') | SpellId('Projectile_ArrowOfSmokepowder')
+end
+
+function BanXianExtraAttackCheck()
+    return BanXianExtraAttackSpellCheck() & HasUseCosts('ActionPoint',false)
+end
+
+function BanXianHasAnyExtraAttack(entity)
+    local entity = entity or context.Target
+	local result = HasAnyStatus({'EXTRA_ATTACK_BANXIAN','EXTRA_ATTACK_2_BANXIAN','EXTRA_ATTACK_3_BANXIAN','EXTRA_ATTACK_4_BANXIAN','EXTRA_ATTACK_5_BANXIAN','EXTRA_ATTACK_6_BANXIAN','EXTRA_ATTACK_7_BANXIAN','EXTRA_ATTACK_8_BANXIAN','EXTRA_ATTACK_9_BANXIAN','EXTRA_ATTACK_WAR_MAGIC','EXTRA_ATTACK_WAR_PRIEST','MAG_MARTIAL_EXERTION','WILDSTRIKE_EXTRA_ATTACK','WILDSTRIKE_2_EXTRA_ATTACK','STALKERS_FLURRY','EXTRA_ATTACK_THIRSTING_BLADE','COMMANDERS_STRIKE_D10','COMMANDERS_STRIKE_D8'},{},{}, entity, context.Source, false).Result
+    return ConditionResult(result)
+end
+
+function HasAnyExtraAttack_t(entity)
+    local entity = entity or context.Target
+	local result = HasAnyStatus({'EXTRA_ATTACK','EXTRA_ATTACK_2','EXTRA_ATTACK_3','EXTRA_ATTACK_4','EXTRA_ATTACK_5','EXTRA_ATTACK_6','EXTRA_ATTACK_7','EXTRA_ATTACK_8','EXTRA_ATTACK_9','EXTRA_ATTACK_WAR_MAGIC','EXTRA_ATTACK_WAR_PRIEST','MAG_MARTIAL_EXERTION','WILDSTRIKE_EXTRA_ATTACK','WILDSTRIKE_2_EXTRA_ATTACK','STALKERS_FLURRY','EXTRA_ATTACK_THIRSTING_BLADE','COMMANDERS_STRIKE_D10','COMMANDERS_STRIKE_D8'},{},{}, entity, context.Source, false).Result
+    return ConditionResult(result)
+end
+
+local _SHARED_EA_QUEUE_SUFFIX = {
+    'EXTRA_ATTACK_WAR_MAGIC_Q', 'MAG_MARTIAL_EXERTION_Q', 'WILDSTRIKE_EXTRA_ATTACK_Q',
+    'STALKERS_FLURRY_Q', 'EXTRA_ATTACK_THIRSTING_BLADE_Q', 'COMMANDERS_STRIKE_Q_D10',
+    'COMMANDERS_STRIKE_Q_D8', 'WILDSTRIKE_2_EXTRA_ATTACK_Q', 'EXTRA_ATTACK_WAR_PRIEST_Q'
+}
+
+local function _HasHigherPriorityQueued(status, entity, priorityList)
+    entity = entity or context.Target
+    for _, v in ipairs(priorityList) do
+        if v == status then return ConditionResult(false) end
+        if HasStatus(v, entity, context.Source, false).Result then return ConditionResult(true) end
+    end
+    return ConditionResult(false)
+end
+
+function HasHigherPriorityExtraAttackQueued_t(status, entity)
+    local queue = {
+        'EXTRA_ATTACK_9_Q','EXTRA_ATTACK_8_Q','EXTRA_ATTACK_7_Q','EXTRA_ATTACK_6_Q',
+        'EXTRA_ATTACK_5_Q','EXTRA_ATTACK_4_Q','EXTRA_ATTACK_3_Q','EXTRA_ATTACK_2_Q','EXTRA_ATTACK_Q'
+    }
+    for _, v in ipairs(_SHARED_EA_QUEUE_SUFFIX) do queue[#queue+1] = v end
+    return _HasHigherPriorityQueued(status, entity, queue)
+end
+
+function HasHigherPriorityExtraAttackQueued_BanXian(status, entity)
+    local queue = {
+        'EXTRA_ATTACK_9_Q_BANXIAN','EXTRA_ATTACK_8_Q_BANXIAN','EXTRA_ATTACK_7_Q_BANXIAN',
+        'EXTRA_ATTACK_6_Q_BANXIAN','EXTRA_ATTACK_5_Q_BANXIAN','EXTRA_ATTACK_4_Q_BANXIAN',
+        'EXTRA_ATTACK_3_Q_BANXIAN','EXTRA_ATTACK_2_Q_BANXIAN','EXTRA_ATTACK_Q_BANXIAN'
+    }
+    for _, v in ipairs(_SHARED_EA_QUEUE_SUFFIX) do queue[#queue+1] = v end
+    return _HasHigherPriorityQueued(status, entity, queue)
+end
+
+
+
+
+
+
+
+function FABAOBAIMAI3FREEBOOSTCHECK()
+    return (HasUseCosts('BonusActionPoint',true) | HasUseCosts('ActionPoint',true) | (~HasActionResource('ActionPoint', 1, 0, false, true, context.Source) & ~HasActionResource('BonusActionPoint', 1, 0, false, true, context.Source))) & ~(SpellId('Shout_ActionToBonusAction') | SpellId('Shout_BonusActionToAction'))
+end
+
+function FABAOBAIMAI3FREEBOOSTCHECK_ACTIONPOINT()
+    return HasUseCosts('ActionPoint',true)
+end
+
+function FABAOBAIMAI3FREEBOOSTCHECK_BONUSACTIONPOINT()
+    return HasUseCosts('BonusActionPoint',true)
+end
+
+
+function IsEquipedSword(entity)
+    local entity = entity or context.Source
+    local weapon = GetActiveWeapon(entity)
+    return IsWeaponOfProficiencyGroup('Daggers', weapon) | IsWeaponOfProficiencyGroup('Shortswords', weapon) | IsWeaponOfProficiencyGroup('Longswords', weapon) | IsWeaponOfProficiencyGroup('Greatswords', weapon) | IsWeaponOfProficiencyGroup('Rapiers', weapon) | IsWeaponOfProficiencyGroup('Scimitars', weapon) | IsWeaponOfProficiencyGroup('Handaxes', weapon) | IsWeaponOfProficiencyGroup('Battleaxes', weapon) | IsWeaponOfProficiencyGroup('Greataxes', weapon) | IsWeaponOfProficiencyGroup('Clubs', weapon) | IsWeaponOfProficiencyGroup('Greatclubs', weapon) | IsWeaponOfProficiencyGroup('Maces', weapon) | IsWeaponOfProficiencyGroup('Warhammers', weapon) | IsWeaponOfProficiencyGroup('Mauls', weapon) | IsWeaponOfProficiencyGroup('Flails', weapon) | IsWeaponOfProficiencyGroup('Quarterstaffs', weapon) | IsWeaponOfProficiencyGroup('Spears', weapon) | IsWeaponOfProficiencyGroup('Glaives', weapon) | IsWeaponOfProficiencyGroup('Halberds', weapon) | IsWeaponOfProficiencyGroup('Pikes', weapon) | IsWeaponOfProficiencyGroup('Tridents', weapon) | IsWeaponOfProficiencyGroup('WarPicks', weapon) | IsWeaponOfProficiencyGroup('Whips', weapon) | IsWeaponOfProficiencyGroup('Lances', weapon) | IsWeaponOfProficiencyGroup('Sickles', weapon) | IsWeaponOfProficiencyGroup('LightHammers', weapon) | IsWeaponOfProficiencyGroup('Javelins', weapon)
+end
+
+function IsEquipedBow(entity)
+    local entity = entity or context.Source
+    local weapon = GetActiveWeapon(entity)
+    return IsWeaponOfProficiencyGroup('Longbows', weapon) | IsWeaponOfProficiencyGroup('Shortbows', weapon) | IsWeaponOfProficiencyGroup('LightCrossbows', weapon) | IsWeaponOfProficiencyGroup('HeavyCrossbows', weapon) | IsWeaponOfProficiencyGroup('HandCrossbows', weapon) | IsWeaponOfProficiencyGroup('Darts', weapon) | IsWeaponOfProficiencyGroup('Slings', weapon)
+end
+
+function YiDaoRangedSpellCheck()
+    return HasStringInSpellRoll('RangedWeaponAttack')
+end
+
+function MeleeWeaponAttackCheck()
+    return TargetRadiusGreaterThan(0) & IsMeleeWeaponAttack()
+end
+
+function IsXianRenMode(entity)
+    local entity = entity or context.Source
+    return HasStatus('MODE_BANXIAN_DH_TIAN_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_XIULUO_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_RENJIAN_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_EGUI_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_DIYU_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_JIAN_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_LI_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_HEHUAN_TECHNICAL',entity)
+end
+
+
+
+
+
+function WZPLGLZSpellCheck()
+    return SpellId('BANXIAN_WZPLG_H') | SpellId('BANXIAN_WZPLG_T') | SpellId('BANXIAN_WZPLG_J') | SpellId('BANXIAN_WZPLG_S') | SpellId('BANXIAN_WZPLG_M') | SpellId('BANXIAN_WZPLG_LEI') | SpellId('BANXIAN_WZPLG_FENG') | SpellId('BANXIAN_WZPLG_BING')
+end
+
+
+-- 冰灵根: 水+土 均达到阈值(>=10)
+function YiLingGen_Bing(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_S', entity) >= 10 and GetStatusDuration('BANXIAN_LG_T', entity) >= 10)
+end
+
+-- 雷灵根: 金+水 均达到阈值
+function YiLingGen_Lei(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_J', entity) >= 10 and GetStatusDuration('BANXIAN_LG_S', entity) >= 10)
+end
+
+-- 风灵根: 土+木 均达到阈值
+function YiLingGen_Feng(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_T', entity) >= 10 and GetStatusDuration('BANXIAN_LG_M', entity) >= 10)
+end
+
+-- 血灵根: 木+火 均达到阈值
+function YiLingGen_Xue(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_M', entity) >= 10 and GetStatusDuration('BANXIAN_LG_H', entity) >= 10)
+end
+
+-- 光灵根: 火+木+土 均达到阈值
+function YiLingGen_Guang(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_H', entity) >= 10 and GetStatusDuration('BANXIAN_LG_M', entity) >= 10 and GetStatusDuration('BANXIAN_LG_T', entity) >= 10)
+end
+
+-- 暗灵根: 水+金+木 均达到阈值
+function YiLingGen_An(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_S', entity) >= 10 and GetStatusDuration('BANXIAN_LG_J', entity) >= 10 and GetStatusDuration('BANXIAN_LG_M', entity) >= 10)
+end
+
+-- 毒灵根: 木+火+水 均达到阈值
+function YiLingGen_Du(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_M', entity) >= 10 and GetStatusDuration('BANXIAN_LG_H', entity) >= 10 and GetStatusDuration('BANXIAN_LG_S', entity) >= 10)
+end
+
+-- 混沌灵根: 五行皆达到阈值
+function YiLingGen_HunDun(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_H', entity) >= 10 and GetStatusDuration('BANXIAN_LG_T', entity) >= 10 and GetStatusDuration('BANXIAN_LG_J', entity) >= 10 and GetStatusDuration('BANXIAN_LG_S', entity) >= 10 and GetStatusDuration('BANXIAN_LG_M', entity) >= 10)
+end
+
+
+
+
+function LG_GUANG_BOOSTCHECK(entity)
+    local entity = entity or context.Source
+
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_GUANG_BOOST', entity)*1 < entity.Level)
+end
+
+function LG_AN_CRITICALHITCheck()
+    local notCrit = context.InterruptedRoll.NaturalRoll < 20 and context.InterruptedRoll.NaturalRoll > 1
+    local isHit = context.InterruptedRoll.Total >= context.InterruptedRoll.Difficulty
+
+    return ConditionResult(notCrit and isHit)
+end
+
+
+
+
+function HasLingGen(entity)
+    local entity = entity or context.Target
+    result = HasStatus('BANXIAN_LG_H',entity) | HasStatus('BANXIAN_LG_T',entity) | HasStatus('BANXIAN_LG_J',entity) | HasStatus('BANXIAN_LG_S',entity) | HasStatus('BANXIAN_LG_M',entity)
+
+    return ConditionResult(result.Result, {ConditionError("notHasLingGen")})
+end
+
+
+-- 阈值灵根检测：灵根值达到阈值（>=10点）即激活效果
+function IsActiveLingGen(Name,entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration(Name, entity) >= 10)
+end
+
+-- 天单系灵根：灵根值达到天灵根阈值（>=50点）即激活天灵根效果
+function IsTianActiveLingGen(Name,entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration(Name, entity) >= 50)
+end
+
+-- 天异灵根：所有组合元素均达到天灵根阈值（>=50）
+-- 天冰灵根: 水+土
+function IsTianLingGenBing(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_S', entity) >= 50 and GetStatusDuration('BANXIAN_LG_T', entity) >= 50)
+end
+
+-- 天风灵根: 土+木
+function IsTianLingGenFeng(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_T', entity) >= 50 and GetStatusDuration('BANXIAN_LG_M', entity) >= 50)
+end
+
+-- 天雷灵根: 金+水
+function IsTianLingGenLei(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_J', entity) >= 50 and GetStatusDuration('BANXIAN_LG_S', entity) >= 50)
+end
+
+-- 天血灵根: 木+火
+function IsTianLingGenXue(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_M', entity) >= 50 and GetStatusDuration('BANXIAN_LG_H', entity) >= 50)
+end
+
+-- 天光灵根: 火+木+土
+function IsTianLingGenGuang(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_H', entity) >= 50 and GetStatusDuration('BANXIAN_LG_M', entity) >= 50 and GetStatusDuration('BANXIAN_LG_T', entity) >= 50)
+end
+
+-- 天暗灵根: 水+金+木
+function IsTianLingGenAn(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_S', entity) >= 50 and GetStatusDuration('BANXIAN_LG_J', entity) >= 50 and GetStatusDuration('BANXIAN_LG_M', entity) >= 50)
+end
+
+-- 天毒灵根: 木+火+水
+function IsTianLingGenDu(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_M', entity) >= 50 and GetStatusDuration('BANXIAN_LG_H', entity) >= 50 and GetStatusDuration('BANXIAN_LG_S', entity) >= 50)
+end
+
+-- 天混沌灵根: 五行皆备达到天灵根阈值（>=50）
+function IsTianLingGenHunDun(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_H', entity) >= 50 and GetStatusDuration('BANXIAN_LG_T', entity) >= 50 and GetStatusDuration('BANXIAN_LG_J', entity) >= 50 and GetStatusDuration('BANXIAN_LG_S', entity) >= 50 and GetStatusDuration('BANXIAN_LG_M', entity) >= 50)
+end
+
+-- 仙单系灵根：灵根值达到仙灵根阈值（>=150点）即激活仙灵根效果
+function IsXianActiveLingGen(Name, entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration(Name, entity) >= 150)
+end
+
+-- 圣单系灵根：灵根值达到圣灵根阈值（>=500点）即激活圣灵根效果
+function IsShengActiveLingGen(Name, entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration(Name, entity) >= 500)
+end
+
+-- 仙异灵根：所有组合元素均达到仙灵根阈值（>=150）
+-- 仙冰灵根: 水+土
+function IsXianLingGenBing(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_S', entity) >= 150 and GetStatusDuration('BANXIAN_LG_T', entity) >= 150)
+end
+
+-- 仙风灵根: 土+木
+function IsXianLingGenFeng(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_T', entity) >= 150 and GetStatusDuration('BANXIAN_LG_M', entity) >= 150)
+end
+
+-- 仙雷灵根: 金+水
+function IsXianLingGenLei(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_J', entity) >= 150 and GetStatusDuration('BANXIAN_LG_S', entity) >= 150)
+end
+
+-- 仙血灵根: 木+火
+function IsXianLingGenXue(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_M', entity) >= 150 and GetStatusDuration('BANXIAN_LG_H', entity) >= 150)
+end
+
+-- 仙光灵根: 火+木+土
+function IsXianLingGenGuang(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_H', entity) >= 150 and GetStatusDuration('BANXIAN_LG_M', entity) >= 150 and GetStatusDuration('BANXIAN_LG_T', entity) >= 150)
+end
+
+-- 仙暗灵根: 水+金+木
+function IsXianLingGenAn(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_S', entity) >= 150 and GetStatusDuration('BANXIAN_LG_J', entity) >= 150 and GetStatusDuration('BANXIAN_LG_M', entity) >= 150)
+end
+
+-- 仙毒灵根: 木+火+水
+function IsXianLingGenDu(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_M', entity) >= 150 and GetStatusDuration('BANXIAN_LG_H', entity) >= 150 and GetStatusDuration('BANXIAN_LG_S', entity) >= 150)
+end
+
+-- 仙混沌灵根: 五行皆备达到仙灵根阈值（>=150）
+function IsXianLingGenHunDun(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_H', entity) >= 150 and GetStatusDuration('BANXIAN_LG_T', entity) >= 150 and GetStatusDuration('BANXIAN_LG_J', entity) >= 150 and GetStatusDuration('BANXIAN_LG_S', entity) >= 150 and GetStatusDuration('BANXIAN_LG_M', entity) >= 150)
+end
+
+-- 圣异灵根：所有组合元素均达到圣灵根阈值（>=500）
+-- 圣冰灵根: 水+土
+function IsShengLingGenBing(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_S', entity) >= 500 and GetStatusDuration('BANXIAN_LG_T', entity) >= 500)
+end
+
+-- 圣风灵根: 土+木
+function IsShengLingGenFeng(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_T', entity) >= 500 and GetStatusDuration('BANXIAN_LG_M', entity) >= 500)
+end
+
+-- 圣雷灵根: 金+水
+function IsShengLingGenLei(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_J', entity) >= 500 and GetStatusDuration('BANXIAN_LG_S', entity) >= 500)
+end
+
+-- 圣血灵根: 木+火
+function IsShengLingGenXue(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_M', entity) >= 500 and GetStatusDuration('BANXIAN_LG_H', entity) >= 500)
+end
+
+-- 圣光灵根: 火+木+土
+function IsShengLingGenGuang(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_H', entity) >= 500 and GetStatusDuration('BANXIAN_LG_M', entity) >= 500 and GetStatusDuration('BANXIAN_LG_T', entity) >= 500)
+end
+
+-- 圣暗灵根: 水+金+木
+function IsShengLingGenAn(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_S', entity) >= 500 and GetStatusDuration('BANXIAN_LG_J', entity) >= 500 and GetStatusDuration('BANXIAN_LG_M', entity) >= 500)
+end
+
+-- 圣毒灵根: 木+火+水
+function IsShengLingGenDu(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_M', entity) >= 500 and GetStatusDuration('BANXIAN_LG_H', entity) >= 500 and GetStatusDuration('BANXIAN_LG_S', entity) >= 500)
+end
+
+-- 圣混沌灵根: 五行皆备达到圣灵根阈值（>=500）
+function IsShengLingGenHunDun(entity)
+    local entity = entity or context.Source
+    return ConditionResult(GetStatusDuration('BANXIAN_LG_H', entity) >= 500 and GetStatusDuration('BANXIAN_LG_T', entity) >= 500 and GetStatusDuration('BANXIAN_LG_J', entity) >= 500 and GetStatusDuration('BANXIAN_LG_S', entity) >= 500 and GetStatusDuration('BANXIAN_LG_M', entity) >= 500)
+end
+
+
+
+
+function ColdDamageTypeSpellCheck()
+    return IsSpell() & (HasUseCosts('SpellSlot') | HasUseCosts('WarlockSpellSlot')) & SpellDamageTypeIs(DamageType.Cold)
+end
+
+function LightningDamageTypeSpellCheck()
+    return IsSpell() & (HasUseCosts('SpellSlot') | HasUseCosts('WarlockSpellSlot')) & SpellDamageTypeIs(DamageType.Lightning)
+end
+
+
+
+function LightningChargeACCheck(entity)
+    entity = entity or context.Source
+
+    result = GetStatusDuration('MAG_CHARGED_LIGHTNING', entity) ~= GetStatusDuration('MAG_CHARGED_LIGHTNING_LGLEI_AC', entity)
+    return ConditionResult(result)
+end
+
+
+
+function WZPLGLZDuration(value,entity)
+    value = value or 0
+    entity = entity or context.Source
+
+    result = GetStatusDuration('BANXIAN_WZPLG_LZ', entity) == value
+    return ConditionResult(result)
+end
+
+
+
+
+
+
+
+function BanXianShenshiControlCheck(entity)
+    entity = entity or context.Target
+    local level = entity.Level*2
+    local result = HasActionResource('ShenshiPoint', level, 0, false, false, context.Source)
+
+    return ConditionResult(result.Result, {ConditionError("TargetLevelHigherThanShenshi")})
+end
+
+function ConcentrationSpellCheck()
+    return HasSpellFlag(SpellFlags.Concentration) & ~(SpellId('BANXIAN_YYNoMoreConcentration') | SpellId('Shout_WildShape_Bear_YaoXian') | SpellId('Shout_WildShape_Raven_YaoXian') | SpellId('Shout_WildShape_Crab_YaoXian') | SpellId('Shout_WildShape_Frog_YaoXian') | SpellId('Shout_WildShape_Panther_YaoXian') | SpellId('Shout_WildShape_Rat_YaoXian') | SpellId('Shout_WildShape_SaberTooth_YaoXian') | SpellId('Shout_WildShape_Spider_YaoXian') | SpellId('Shout_WildShape_Wolf_YaoXian'))
+end
+
+function CanShenshiCheck()
+    return ConditionResult(GetModifier(context.Source.Wisdom) >= GetModifier(context.Target.Wisdom), {ConditionError("CannotCheckTarget")})
+end
+
+
+function IsZhenfaFlags(entity)
+    entity = entity or context.Target
+    return HasStatus('BANXIAN_ZHENFA_FALGS_JULING_AURA_QIAN',entity) | HasStatus('BANXIAN_ZHENFA_FALGS_JULING_AURA_KUN',entity) | HasStatus('BANXIAN_ZHENFA_FALGS_JULING_AURA_XUN',entity) | HasStatus('BANXIAN_ZHENFA_FALGS_JULING_AURA_ZHEN',entity) | HasStatus('BANXIAN_ZHENFA_FALGS_JULING_AURA_KAN',entity) | HasStatus('BANXIAN_ZHENFA_FALGS_JULING_AURA_LI',entity) | HasStatus('BANXIAN_ZHENFA_FALGS_JULING_AURA_GEN',entity) | HasStatus('BANXIAN_ZHENFA_FALGS_JULING_AURA_DUI',entity)
+end
+
+
+function CuiHuoSpellCheck()
+    return SpellId('BANXIAN_FaBao_FireBreath') | SpellId('BANXIAN_FaBao_FireBreath_Cone') | SpellId('BANXIAN_FaBao_FireBreath_Line') | SpellId('BANXIAN_FaBao_FireBreath_YAO') | SpellId('BANXIAN_FaBao_FireBreath_YAO_Cone') | SpellId('BANXIAN_FaBao_FireBreath_YAO_Line')
+end
+
+
+
+
+
+
+
+
+
+
+function BanxianXiulianKiFlashCheck_H(entity)
+    entity = entity or context.Source
+
+    return ConditionResult(GetStatusDuration('BANXIAN_XIULIAN_LINGQI_H', entity) >= 10)
+end
+
+function BanxianXiulianKiFlashCheck_HN(entity)
+    entity = entity or context.Source
+
+    return HasStatus('BANXIAN_XIULIAN_LINGQI_T',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_J',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_S',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_M',entity)
+end
+
+function BanxianXiulianKiFlashCheck_T(entity)
+    entity = entity or context.Source
+
+    return ConditionResult(GetStatusDuration('BANXIAN_XIULIAN_LINGQI_T', entity) >= 10)
+end
+
+function BanxianXiulianKiFlashCheck_TN(entity)
+    entity = entity or context.Source
+
+    return HasStatus('BANXIAN_XIULIAN_LINGQI_H',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_J',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_S',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_M',entity)
+end
+
+function BanxianXiulianKiFlashCheck_J(entity)
+    entity = entity or context.Source
+
+    return ConditionResult(GetStatusDuration('BANXIAN_XIULIAN_LINGQI_J', entity) >= 10)
+end
+
+function BanxianXiulianKiFlashCheck_JN(entity)
+    entity = entity or context.Source
+
+    return HasStatus('BANXIAN_XIULIAN_LINGQI_T',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_H',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_S',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_M',entity)
+end
+
+function BanxianXiulianKiFlashCheck_S(entity)
+    entity = entity or context.Source
+
+    return ConditionResult(GetStatusDuration('BANXIAN_XIULIAN_LINGQI_S', entity) >= 10)
+end
+
+function BanxianXiulianKiFlashCheck_SN(entity)
+    entity = entity or context.Source
+
+    return HasStatus('BANXIAN_XIULIAN_LINGQI_T',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_J',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_H',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_M',entity)
+end
+
+function BanxianXiulianKiFlashCheck_M(entity)
+    entity = entity or context.Source
+
+    return ConditionResult(GetStatusDuration('BANXIAN_XIULIAN_LINGQI_M', entity) >= 10)
+end
+
+function BanxianXiulianKiFlashCheck_MN(entity)
+    entity = entity or context.Source
+
+    return HasStatus('BANXIAN_XIULIAN_LINGQI_T',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_J',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_S',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_H',entity)
+end
+
+function BanxianXiulianKiFlashCheck_ALL(entity)
+    entity = entity or context.Source
+
+    return ConditionResult(GetStatusDuration('BANXIAN_XIULIAN_LINGQI_H', entity) >= 2)
+end
+
+function BanxianXiulianKiFlashCheck_ALLN(entity)
+    entity = entity or context.Source
+
+    return ConditionResult(GetStatusDuration('BANXIAN_XIULIAN_LINGQI_H', entity) == GetStatusDuration('BANXIAN_XIULIAN_LINGQI_T', entity) and GetStatusDuration('BANXIAN_XIULIAN_LINGQI_J', entity) == GetStatusDuration('BANXIAN_XIULIAN_LINGQI_S', entity) and GetStatusDuration('BANXIAN_XIULIAN_LINGQI_H', entity) == GetStatusDuration('BANXIAN_XIULIAN_LINGQI_M', entity) and GetStatusDuration('BANXIAN_XIULIAN_LINGQI_H', entity) == GetStatusDuration('BANXIAN_XIULIAN_LINGQI_J', entity))
+end
+
+
+
+
+function BanxianXiulianKiFlashCheck(entity)
+    entity = entity or context.Source
+
+    return (BanxianXiulianKiFlashCheck_H() & ~BanxianXiulianKiFlashCheck_HN()) | (BanxianXiulianKiFlashCheck_T() & ~BanxianXiulianKiFlashCheck_TN()) | (BanxianXiulianKiFlashCheck_J() & ~BanxianXiulianKiFlashCheck_JN())  | (BanxianXiulianKiFlashCheck_S() & ~BanxianXiulianKiFlashCheck_SN())  | (BanxianXiulianKiFlashCheck_M() & ~BanxianXiulianKiFlashCheck_MN())  | (BanxianXiulianKiFlashCheck_ALL() & BanxianXiulianKiFlashCheck_ALLN()) 
+end
+
+function Ki_FlashCheck(entity)
+    entity = entity or context.Source
+
+    return ConditionResult(GetStatusDuration('BANXIAN_XIULIAN_LINGQI_JINGLIAN', entity) >= (GetStatusDuration('BANXIAN_LG_H', entity) + GetStatusDuration('BANXIAN_LG_T', entity) + GetStatusDuration('BANXIAN_LG_J', entity) + GetStatusDuration('BANXIAN_LG_S', entity) + GetStatusDuration('BANXIAN_LG_M', entity))/5)
+end
+
+
+
+function HasYiHuo(entity)
+    entity = entity or context.Source
+
+    return HasPassive('BANXIAN_Fire_of_Gold',entity) | HasPassive('BANXIAN_Fire_of_Ghost',entity) | HasPassive('BANXIAN_Fire_of_ThreeMei',entity) | HasPassive('BANXIAN_Fire_of_Purple',entity) | HasPassive('BANXIAN_Fire_of_SixDing',entity)
+end
+
+
+function Shenshi_TelekinesisCheck()
+    local result = Dead() | Item() | Ally()
+    if not result.Result then
+        local st = ~SavingThrow(Ability.Strength, Shenshi_SourceSpellDC())
+        return ConditionResult(st.Result, {}, {}, st.Chance)
+    end
+
+    return result
+end
+
+
+function IsPerfectParry()
+    return ConditionResult(context.HitDescription.TotalDamageDone <= 0)
+end
+
+function IsFlatValueInterruptInteresting_Enemy(max, entity)
+    local entity = entity or context.Target
+    local max = max or 0
+    if context.InterruptedRoll.RollCritical ~= RollCritical.None then
+        return ConditionResult(false, {ConditionError("IsCriticalFailSuccess")})
+    end
+
+    local rollSuccess = context.InterruptedRoll.Total >= context.InterruptedRoll.Difficulty
+    local result = rollSuccess and ((context.InterruptedRoll.Total - context.InterruptedRoll.Difficulty) < max)
+
+    return ConditionResult(result)
+end
+
+
+
+
+
+function ZhengLeiGu_TwinnedProjectileSpellCheck()
+    return ~AreaRadiusGreaterThan(0) & (HasSpellFlag(SpellFlags.Spell) | NonSpellMetamagicAbilities()) & SpellTypeIs(SpellType.Projectile) & ~MetamagicExclusionSpells() & ~SpellId('Projectile_WitchBolt')
+end
+
+function ZhengLeiGu_TwinnedTargetSpellCheck()
+    return TargetRadiusGreaterThan(1.5) & ~AreaRadiusGreaterThan(0) & (HasSpellFlag(SpellFlags.Spell) | NonSpellMetamagicAbilities()) & SpellTypeIs(SpellType.Target) & ~HasFunctor(StatsFunctorType.Summon) & ~MetamagicExclusionSpells()
+end
+
+function ZhengLeiGu_TwinnedTargetTouchSpellCheck()
+    return TargetRadiusGreaterThan(0) & ~TargetRadiusGreaterThan(1.5) & ~AreaRadiusGreaterThan(0) & (HasSpellFlag(SpellFlags.Spell) | NonSpellMetamagicAbilities()) & SpellTypeIs(SpellType.Target) & ~HasFunctor(StatsFunctorType.Summon) & ~MetamagicExclusionSpells()
+end
+
+
+
+
+
+function BanXian_LingQiBianYi_Lei(entity)
+    local entity = entity or context.Source
+
+    return HasStatus('BANXIAN_LG_LEI',entity) | HasStatus('BANXIAN_LG_LEI_TIAN',entity)
+end
+
+function BanXian_LingQiBianYi_Bing(entity)
+    local entity = entity or context.Source
+
+    return (HasStatus('BANXIAN_LG_BING',entity) | HasStatus('BANXIAN_LG_BING_TIAN',entity)) & ~(HasStatus('BANXIAN_LG_LEI',entity) | HasStatus('BANXIAN_LG_LEI_TIAN',entity))
+end
+
+function BanXian_LingQiBianYi_Du(entity)
+    local entity = entity or context.Source
+
+    return (HasStatus('BANXIAN_LG_DU',entity) | HasStatus('BANXIAN_LG_DU_TIAN',entity)) & ~(HasStatus('BANXIAN_LG_BING',entity) | HasStatus('BANXIAN_LG_BING_TIAN',entity)) & ~(HasStatus('BANXIAN_LG_LEI',entity) | HasStatus('BANXIAN_LG_LEI_TIAN',entity))
+end
+
+function BanXian_LingQiBianYi_None(entity)
+    local entity = entity or context.Source
+
+    return ~(HasStatus('BANXIAN_LG_BING',entity) | HasStatus('BANXIAN_LG_BING_TIAN',entity) | HasStatus('BANXIAN_LG_LEI',entity) | HasStatus('BANXIAN_LG_LEI_TIAN',entity) | HasStatus('BANXIAN_LG_DU',entity) | HasStatus('BANXIAN_LG_DU_TIAN',entity))
+end
+
+
+
+function OffHandAttackSpell()
+    return HasStringInSpellRoll('WeaponAttack') & HasUseCosts('BonusActionPoint',false)
+end
+
+
+function TianDao_XinJiTooHigh(entity)
+    local entity = entity or context.Source
+    result = GetStatusDuration('BANXIAN_STATUS_TIANDAO_XINJI', entity) > GetStatusDuration('BANXIAN_DH_YEAR', entity)
+
+    return ConditionResult(result)
+end
+
+
+
+

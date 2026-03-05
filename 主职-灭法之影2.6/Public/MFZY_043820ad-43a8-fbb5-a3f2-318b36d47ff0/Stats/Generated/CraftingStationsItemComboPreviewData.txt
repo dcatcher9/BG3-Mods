@@ -1,0 +1,7 @@
+new CraftingPreviewData "LianJinChanWu"
+type "ObjectCategories"
+data "Station" "LianJinChanWu"
+data "StatsID" "LianJinChanWu"
+data "Icon" "Items_CONS_Drink_Wine_C"
+data "Tooltip" "h08c37743g0b5cg2343gc12ag277d43e34d8c;1"
+

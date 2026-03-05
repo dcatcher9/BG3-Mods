@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="3" revision="0" build="0"/>
+    <region id="ConditionErrors">
+        <node id="root">
+            <children>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240830ex0000a6" version="1"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="DPMustBeLocal"/>
+                    <attribute id="UUID" type="guid" value="033f1424-6184-4591-bfbc-859a696e7401"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dva02002" version="1"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="NotBreakXueQiao"/>
+                    <attribute id="UUID" type="guid" value="bd74a0ba-0db0-4f8c-a5ae-373bfc0d73c0"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250218jj001g01" version="1"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="TargetLevelHigherThanShenshi"/>
+                    <attribute id="UUID" type="guid" value="bd74a0ba-0db0-4f8c-a5ae-373bfc0d73c1"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250218jj002h01" version="1"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="CannotCheckTarget"/>
+                    <attribute id="UUID" type="guid" value="bd74a0ba-0db0-4f8c-a5ae-373bfc0d73c2"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250218jj002h02" version="1"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="notHasLingGen"/>
+                    <attribute id="UUID" type="guid" value="bd74a0ba-0db0-4f8c-a5ae-373bfc0d73c3"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250218jj002h03" version="1"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="CanResist"/>
+                    <attribute id="UUID" type="guid" value="bd74a0ba-0db0-4f8c-a5ae-373bfc0d73c3"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

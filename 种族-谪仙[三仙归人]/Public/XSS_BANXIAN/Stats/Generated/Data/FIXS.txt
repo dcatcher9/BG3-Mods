@@ -1,0 +1,364 @@
+//唯一武器
+new entry "DLC_DD_WPN_Sebilles_Needle"
+type "Weapon"
+using "WPN_Dagger"
+data "RootTemplate" "0eadec28-a9ce-4dbf-be86-63f58a49b902"
+data "ValueOverride" "1"
+data "Unique" "1"
+
+new entry "DLC_DD_Red_Price_Cloak"
+type "Armor"
+using "_Back_Magic"
+data "RootTemplate" "be8f2382-576f-426f-ae90-45544b507e07"
+data "ValueOverride" "1"
+data "Unique" "1"
+
+new entry "DLC_DD_Beasts_Tricorn"
+type "Armor"
+using "_Head_Magic"
+data "RootTemplate" "d7696865-e8c2-4c44-a890-a43f5b6f9752"
+data "ValueLevel" ""
+data "ValueUUID" "4c5217d8-0232-4592-9e32-2fd729123f53"
+data "ValueOverride" "1"
+data "Unique" "1"
+
+new entry "WPN_Katana"
+type "Weapon"
+using "WPN_Longsword_1"
+data "RootTemplate" "7050c02e-f0e1-46b8-9400-2514805ecd2e"
+data "BoostsOnEquipMainHand" "UnlockSpell(Target_OpeningAttack);UnlockSpell(Target_Slash_New);UnlockSpell(Rush_SpringAttack);"
+data "Weapon Properties" "Versatile;Melee;Dippable"
+data "Unique" "1"
+
+
+//米尔寇
+new entry "WPN_Apostle_Scythe"
+type "Weapon"
+using "WPN_Glaive"
+data "RootTemplate" "3112f0f5-4073-45d2-8e37-eeafa1558896"
+data "UseConditions" "Tagged('APOSTLE_OF_MYRKUL', context.Source) or HasPassive('BanXian_DH_DiYu', context.Source)"
+data "Damage" "2d12"
+data "WeaponRange" "500"
+data "Boosts" "UnlockSpell(Zone_Cleave_Apostle)"
+data "BoostsOnEquipMainHand" ""
+data "BoostsOnEquipOffHand" ""
+data "Unique" "1"
+
+
+//流血-修罗道
+new entry "BLEEDING_XIULUO"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "h36efa902g81b7g4e3eg8137gb6149662d91c;1"
+data "Description" "hc32e5c52g3e8fg420cgbbedgfaf5a2f80b22;9"
+data "DescriptionParams" "DealDamage(2,Slashing);"
+data "Icon" "Status_Bleeding"
+data "StillAnimationType" "Weakened"
+data "StillAnimationPriority" "Weakened"
+data "StackId" "BLEEDING"
+data "StackType" "Additive"
+data "TickType" "StartTurn"
+data "Boosts" "Disadvantage(SavingThrow, Constitution)"
+data "RemoveEvents" "OnHeal"
+data "TooltipDamage" "DealDamage(2, Slashing);"
+data "TickFunctors" "IF(not HasStatus('BLEEDING_BANXIAN_TECHNICAL',context.Source)):DealDamage(2, Slashing);AI_ONLY:DealDamage(1,Slashing); IF(HasStatus('BLEEDING_BANXIAN_TECHNICAL',context.Source)):DealDamage(2+BANXIAN_DH_YEAR.Duration, Slashing,,,0,,true,true,,true)"
+data "StatusPropertyFlags" "InitiateCombat"
+data "StatusGroups" "SG_Condition"
+
+//闪电充能-雷灵根
+new entry "MAG_CHARGED_LIGHTNING"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "h9c3b0b3bge6d4g4991g91d4g1368d245f149;2"
+data "Description" "he61586f0g9f00g47f9gad15gd252421230ba;11"
+data "DescriptionParams" "1;DealDamage(1,Lightning);5;DealDamage(1d8,Lightning)"
+data "Icon" "statIcons_LightningCharge"
+data "SoundStart" "Misc_Status_Shocked_Enter"
+data "SoundLoop" "Misc_Status_Shocked_MO"
+data "StackId" "MAG_CHARGED_LIGHTNING"
+data "StackType" "Additive"
+data "TickType" "StartTurn"
+data "Boosts" "RollBonus(Attack, 1)"
+data "Passives" "MAG_ChargedLightning_LightningDamage_Passive;MAG_ChargedLightning_LightningDischarge_Passive"
+data "TickFunctors" "IF(HasMaximumLightningCharge(context.Target) and not HasStatus('BANXIAN_LG_LEI',context.Target) and not HasStatus('BANXIAN_LG_LEI_TIAN',context.Target)):SetStatusDuration(MAG_CHARGED_LIGHTNING, 7, ForceSet) "
+data "ApplyEffect" "a9c27d75-ec3d-445f-b055-1b37832b17fc"
+data "StatusEffect" "f1f32058-58e9-4b39-98e4-eef5fa389a25"
+
+
+
+//多打
+//Passives
+new entry "ExtraAttack_3"
+type "PassiveData"
+using "ExtraAttack_2"
+data "DisplayName" "h3e6c622egb059g47e7gb925g7e82eae1bfda;2"
+data "Description" "h36aba2dbg6f37g4343ga32egcab0fd7edcb3;1"
+data "Icon" "PassiveFeature_ExtraAttack"
+data "Properties" "Highlighted"
+data "Conditions" "(context.HasContextFlag(StatsFunctorContext.OnCast) and ExtraAttackSpellCheck() and HasUseCosts('ActionPoint', true) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and not HasStatus('SLAYER_PLAYER',context.Source) and not HasStatus('SLAYER_PLAYER_10',context.Source) and TurnBased(context.Source)) or (context.HasContextFlag(StatsFunctorContext.OnStatusRemoved) and StatusId('INITIAL_ATTACK_TECHNICAL') and TurnBased()) or (context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and StatusId('EXTRA_ATTACK_3_Q'))"
+data "StatsFunctors" "IF(context.HasContextFlag(StatsFunctorContext.OnCast)):ApplyStatus(SELF,EXTRA_ATTACK_3_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusRemoved)):ApplyStatus(EXTRA_ATTACK_3_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and not HasHigherPriorityExtraAttackQueued_t('EXTRA_ATTACK_3_Q') and not HasAnyExtraAttack_t()):ApplyStatus(EXTRA_ATTACK_3, 100, 1)"
+
+new entry "ExtraAttack_4"
+type "PassiveData"
+using "ExtraAttack_2"
+data "DisplayName" "h3e6c622egb059g47e7gb925g7e82eae1bfda;2"
+data "Description" "h36aba2dbg6f37g4343ga32egcab0fd7edcb3;1"
+data "Icon" "PassiveFeature_ExtraAttack"
+data "Properties" "Highlighted"
+data "Conditions" "(context.HasContextFlag(StatsFunctorContext.OnCast) and ExtraAttackSpellCheck() and HasUseCosts('ActionPoint', true) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and not HasStatus('SLAYER_PLAYER',context.Source) and not HasStatus('SLAYER_PLAYER_10',context.Source) and TurnBased(context.Source)) or (context.HasContextFlag(StatsFunctorContext.OnStatusRemoved) and StatusId('INITIAL_ATTACK_TECHNICAL') and TurnBased()) or (context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and StatusId('EXTRA_ATTACK_4_Q'))"
+data "StatsFunctors" "IF(context.HasContextFlag(StatsFunctorContext.OnCast)):ApplyStatus(SELF,EXTRA_ATTACK_4_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusRemoved)):ApplyStatus(EXTRA_ATTACK_4_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and not HasHigherPriorityExtraAttackQueued_t('EXTRA_ATTACK_4_Q') and not HasAnyExtraAttack_t()):ApplyStatus(EXTRA_ATTACK_4, 100, 1)"
+
+new entry "ExtraAttack_5"
+type "PassiveData"
+using "ExtraAttack_2"
+data "DisplayName" "h3e6c622egb059g47e7gb925g7e82eae1bfda;2"
+data "Description" "h36aba2dbg6f37g4343ga32egcab0fd7edcb3;1"
+data "Icon" "PassiveFeature_ExtraAttack"
+data "Properties" "Highlighted"
+data "Conditions" "(context.HasContextFlag(StatsFunctorContext.OnCast) and ExtraAttackSpellCheck() and HasUseCosts('ActionPoint', true) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and not HasStatus('SLAYER_PLAYER',context.Source) and not HasStatus('SLAYER_PLAYER_10',context.Source) and TurnBased(context.Source)) or (context.HasContextFlag(StatsFunctorContext.OnStatusRemoved) and StatusId('INITIAL_ATTACK_TECHNICAL') and TurnBased()) or (context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and StatusId('EXTRA_ATTACK_5_Q'))"
+data "StatsFunctors" "IF(context.HasContextFlag(StatsFunctorContext.OnCast)):ApplyStatus(SELF,EXTRA_ATTACK_5_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusRemoved)):ApplyStatus(EXTRA_ATTACK_5_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and not HasHigherPriorityExtraAttackQueued_t('EXTRA_ATTACK_5_Q') and not HasAnyExtraAttack_t()):ApplyStatus(EXTRA_ATTACK_5, 100, 1)"
+
+new entry "ExtraAttack_6"
+type "PassiveData"
+using "ExtraAttack_2"
+data "DisplayName" "h3e6c622egb059g47e7gb925g7e82eae1bfda;2"
+data "Description" "h36aba2dbg6f37g4343ga32egcab0fd7edcb3;1"
+data "Icon" "PassiveFeature_ExtraAttack"
+data "Properties" "Highlighted"
+data "Conditions" "(context.HasContextFlag(StatsFunctorContext.OnCast) and ExtraAttackSpellCheck() and HasUseCosts('ActionPoint', true) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and not HasStatus('SLAYER_PLAYER',context.Source) and not HasStatus('SLAYER_PLAYER_10',context.Source) and TurnBased(context.Source)) or (context.HasContextFlag(StatsFunctorContext.OnStatusRemoved) and StatusId('INITIAL_ATTACK_TECHNICAL') and TurnBased()) or (context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and StatusId('EXTRA_ATTACK_6_Q'))"
+data "StatsFunctors" "IF(context.HasContextFlag(StatsFunctorContext.OnCast)):ApplyStatus(SELF,EXTRA_ATTACK_6_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusRemoved)):ApplyStatus(EXTRA_ATTACK_6_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and not HasHigherPriorityExtraAttackQueued_t('EXTRA_ATTACK_6_Q') and not HasAnyExtraAttack_t()):ApplyStatus(EXTRA_ATTACK_6, 100, 1)"
+
+new entry "ExtraAttack_7"
+type "PassiveData"
+using "ExtraAttack_2"
+data "DisplayName" "h3e6c622egb059g47e7gb925g7e82eae1bfda;2"
+data "Description" "h36aba2dbg6f37g4343ga32egcab0fd7edcb3;1"
+data "Icon" "PassiveFeature_ExtraAttack"
+data "Properties" "Highlighted"
+data "Conditions" "(context.HasContextFlag(StatsFunctorContext.OnCast) and ExtraAttackSpellCheck() and HasUseCosts('ActionPoint', true) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and not HasStatus('SLAYER_PLAYER',context.Source) and not HasStatus('SLAYER_PLAYER_10',context.Source) and TurnBased(context.Source)) or (context.HasContextFlag(StatsFunctorContext.OnStatusRemoved) and StatusId('INITIAL_ATTACK_TECHNICAL') and TurnBased()) or (context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and StatusId('EXTRA_ATTACK_7_Q'))"
+data "StatsFunctors" "IF(context.HasContextFlag(StatsFunctorContext.OnCast)):ApplyStatus(SELF,EXTRA_ATTACK_7_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusRemoved)):ApplyStatus(EXTRA_ATTACK_7_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and not HasHigherPriorityExtraAttackQueued_t('EXTRA_ATTACK_7_Q') and not HasAnyExtraAttack_t()):ApplyStatus(EXTRA_ATTACK_7, 100, 1)"
+
+new entry "ExtraAttack_8"
+type "PassiveData"
+using "ExtraAttack_2"
+data "DisplayName" "h3e6c622egb059g47e7gb925g7e82eae1bfda;2"
+data "Description" "h36aba2dbg6f37g4343ga32egcab0fd7edcb3;1"
+data "Icon" "PassiveFeature_ExtraAttack"
+data "Properties" "Highlighted"
+data "Conditions" "(context.HasContextFlag(StatsFunctorContext.OnCast) and ExtraAttackSpellCheck() and HasUseCosts('ActionPoint', true) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and not HasStatus('SLAYER_PLAYER',context.Source) and not HasStatus('SLAYER_PLAYER_10',context.Source) and TurnBased(context.Source)) or (context.HasContextFlag(StatsFunctorContext.OnStatusRemoved) and StatusId('INITIAL_ATTACK_TECHNICAL') and TurnBased()) or (context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and StatusId('EXTRA_ATTACK_8_Q'))"
+data "StatsFunctors" "IF(context.HasContextFlag(StatsFunctorContext.OnCast)):ApplyStatus(SELF,EXTRA_ATTACK_8_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusRemoved)):ApplyStatus(EXTRA_ATTACK_8_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and not HasHigherPriorityExtraAttackQueued_t('EXTRA_ATTACK_8_Q') and not HasAnyExtraAttack_t()):ApplyStatus(EXTRA_ATTACK_8, 100, 1)"
+
+new entry "ExtraAttack_9"
+type "PassiveData"
+using "ExtraAttack_2"
+data "DisplayName" "h3e6c622egb059g47e7gb925g7e82eae1bfda;2"
+data "Description" "h36aba2dbg6f37g4343ga32egcab0fd7edcb3;1"
+data "Icon" "PassiveFeature_ExtraAttack"
+data "Properties" "Highlighted"
+data "Conditions" "(context.HasContextFlag(StatsFunctorContext.OnCast) and ExtraAttackSpellCheck() and HasUseCosts('ActionPoint', true) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and not HasStatus('SLAYER_PLAYER',context.Source) and not HasStatus('SLAYER_PLAYER_10',context.Source) and TurnBased(context.Source)) or (context.HasContextFlag(StatsFunctorContext.OnStatusRemoved) and StatusId('INITIAL_ATTACK_TECHNICAL') and TurnBased()) or (context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and StatusId('EXTRA_ATTACK_9_Q'))"
+data "StatsFunctors" "IF(context.HasContextFlag(StatsFunctorContext.OnCast)):ApplyStatus(SELF,EXTRA_ATTACK_9_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusRemoved)):ApplyStatus(EXTRA_ATTACK_9_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and not HasHigherPriorityExtraAttackQueued_t('EXTRA_ATTACK_9_Q') and not HasAnyExtraAttack_t()):ApplyStatus(EXTRA_ATTACK_9, 100, 1)"
+
+
+
+
+
+//4打 buff 让攻击免费
+new entry "EXTRA_ATTACK_3"
+type "StatusData"
+data "StatusType" "BOOST"
+using "EXTRA_ATTACK"
+data "DisplayName" "h6a104185g3665g4b72gbd67gb69e64737e6e;2"
+data "Description" "had45e9fbgaac2g42c6g8c14g0619fd979d2b;2"
+data "StackId" "EXTRA_ATTACK"
+data "StackPriority" "60"
+data "TickType" "StartTurn"
+data "Boosts" "UnlockSpellVariant(ExtraAttackCheck(),ModifyUseCosts(Replace,ActionPoint,0,0,ActionPoint),ModifyIconGlow(),ModifyTooltipDescription())"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.Condition)):ApplyStatus(EXTRA_ATTACK_2_Q, 100, 1)"
+
+new entry "EXTRA_ATTACK_3_Q"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "h016c5fb4g9c75g4a51gbb14g891d82699208;1"
+data "StackId" "EXTRA_ATTACK"
+data "StackPriority" "50"
+data "TickType" "StartTurn"
+data "RemoveConditions" "not RemoveCause(StatusRemoveCause.TimeOut) and not HasHigherPriorityExtraAttackQueued_t('EXTRA_ATTACK_3_Q') and not HasAnyExtraAttack_t()"
+data "RemoveEvents" "OnStatusRemoved"
+data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator;ApplyToDead"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.Condition)):ApplyStatus(EXTRA_ATTACK_3, 100, 1)"
+
+
+//5打 buff 让攻击免费
+new entry "EXTRA_ATTACK_4"
+type "StatusData"
+data "StatusType" "BOOST"
+using "EXTRA_ATTACK"
+data "DisplayName" "h6a104185g3665g4b72gbd67gb69e64737e6e;2"
+data "Description" "had45e9fbgaac2g42c6g8c14g0619fd979d2b;2"
+data "StackId" "EXTRA_ATTACK"
+data "StackPriority" "80"
+data "TickType" "StartTurn"
+data "Boosts" "UnlockSpellVariant(ExtraAttackCheck(),ModifyUseCosts(Replace,ActionPoint,0,0,ActionPoint),ModifyIconGlow(),ModifyTooltipDescription())"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.Condition)):ApplyStatus(EXTRA_ATTACK_3_Q, 100, 1)"
+
+new entry "EXTRA_ATTACK_4_Q"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "h016c5fb4g9c75g4a51gbb14g891d82699208;1"
+data "StackId" "EXTRA_ATTACK"
+data "StackPriority" "70"
+data "TickType" "StartTurn"
+data "RemoveConditions" "not RemoveCause(StatusRemoveCause.TimeOut) and not HasHigherPriorityExtraAttackQueued_t('EXTRA_ATTACK_4_Q') and not HasAnyExtraAttack_t()"
+data "RemoveEvents" "OnStatusRemoved"
+data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator;ApplyToDead"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.Condition)):ApplyStatus(EXTRA_ATTACK_4, 100, 1)"
+
+
+//6打 buff 让攻击免费
+new entry "EXTRA_ATTACK_5"
+type "StatusData"
+data "StatusType" "BOOST"
+using "EXTRA_ATTACK"
+data "DisplayName" "h6a104185g3665g4b72gbd67gb69e64737e6e;2"
+data "Description" "had45e9fbgaac2g42c6g8c14g0619fd979d2b;2"
+data "StackId" "EXTRA_ATTACK"
+data "StackPriority" "100"
+data "TickType" "StartTurn"
+data "Boosts" "UnlockSpellVariant(ExtraAttackCheck(),ModifyUseCosts(Replace,ActionPoint,0,0,ActionPoint),ModifyIconGlow(),ModifyTooltipDescription())"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.Condition)):ApplyStatus(EXTRA_ATTACK_4_Q, 100, 1)"
+
+new entry "EXTRA_ATTACK_5_Q"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "h016c5fb4g9c75g4a51gbb14g891d82699208;1"
+data "StackId" "EXTRA_ATTACK"
+data "StackPriority" "90"
+data "TickType" "StartTurn"
+data "RemoveConditions" "not RemoveCause(StatusRemoveCause.TimeOut) and not HasHigherPriorityExtraAttackQueued_t('EXTRA_ATTACK_5_Q') and not HasAnyExtraAttack_t()"
+data "RemoveEvents" "OnStatusRemoved"
+data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator;ApplyToDead"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.Condition)):ApplyStatus(EXTRA_ATTACK_5, 100, 1)"
+
+
+
+
+
+
+
+//7打 buff 让攻击免费
+new entry "EXTRA_ATTACK_6"
+type "StatusData"
+data "StatusType" "BOOST"
+using "EXTRA_ATTACK"
+data "DisplayName" "h6a104185g3665g4b72gbd67gb69e64737e6e;2"
+data "Description" "had45e9fbgaac2g42c6g8c14g0619fd979d2b;2"
+data "StackId" "EXTRA_ATTACK"
+data "StackPriority" "120"
+data "TickType" "StartTurn"
+data "Boosts" "UnlockSpellVariant(ExtraAttackCheck(),ModifyUseCosts(Replace,ActionPoint,0,0,ActionPoint),ModifyIconGlow(),ModifyTooltipDescription())"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.Condition)):ApplyStatus(EXTRA_ATTACK_5_Q, 100, 1)"
+
+new entry "EXTRA_ATTACK_6_Q"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "h016c5fb4g9c75g4a51gbb14g891d82699208;1"
+data "StackId" "EXTRA_ATTACK"
+data "StackPriority" "110"
+data "TickType" "StartTurn"
+data "RemoveConditions" "not RemoveCause(StatusRemoveCause.TimeOut) and not HasHigherPriorityExtraAttackQueued_t('EXTRA_ATTACK_6_Q') and not HasAnyExtraAttack_t()"
+data "RemoveEvents" "OnStatusRemoved"
+data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator;ApplyToDead"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.Condition)):ApplyStatus(EXTRA_ATTACK_6, 100, 1)"
+
+
+//8打 buff 让攻击免费
+new entry "EXTRA_ATTACK_7"
+type "StatusData"
+data "StatusType" "BOOST"
+using "EXTRA_ATTACK"
+data "DisplayName" "h6a104185g3665g4b72gbd67gb69e64737e6e;2"
+data "Description" "had45e9fbgaac2g42c6g8c14g0619fd979d2b;2"
+data "StackId" "EXTRA_ATTACK"
+data "StackPriority" "140"
+data "TickType" "StartTurn"
+data "Boosts" "UnlockSpellVariant(ExtraAttackCheck(),ModifyUseCosts(Replace,ActionPoint,0,0,ActionPoint),ModifyIconGlow(),ModifyTooltipDescription())"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.Condition)):ApplyStatus(EXTRA_ATTACK_6_Q, 100, 1)"
+
+new entry "EXTRA_ATTACK_7_Q"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "h016c5fb4g9c75g4a51gbb14g891d82699208;1"
+data "StackId" "EXTRA_ATTACK"
+data "StackPriority" "130"
+data "TickType" "StartTurn"
+data "RemoveConditions" "not RemoveCause(StatusRemoveCause.TimeOut) and not HasHigherPriorityExtraAttackQueued_t('EXTRA_ATTACK_7_Q') and not HasAnyExtraAttack_t()"
+data "RemoveEvents" "OnStatusRemoved"
+data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator;ApplyToDead"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.Condition)):ApplyStatus(EXTRA_ATTACK_7, 100, 1)"
+
+
+//9打 buff 让攻击免费
+new entry "EXTRA_ATTACK_8"
+type "StatusData"
+data "StatusType" "BOOST"
+using "EXTRA_ATTACK"
+data "DisplayName" "h6a104185g3665g4b72gbd67gb69e64737e6e;2"
+data "Description" "had45e9fbgaac2g42c6g8c14g0619fd979d2b;2"
+data "StackId" "EXTRA_ATTACK"
+data "StackPriority" "160"
+data "TickType" "StartTurn"
+data "Boosts" "UnlockSpellVariant(ExtraAttackCheck(),ModifyUseCosts(Replace,ActionPoint,0,0,ActionPoint),ModifyIconGlow(),ModifyTooltipDescription())"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.Condition)):ApplyStatus(EXTRA_ATTACK_7_Q, 100, 1)"
+
+new entry "EXTRA_ATTACK_8_Q"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "h016c5fb4g9c75g4a51gbb14g891d82699208;1"
+data "StackId" "EXTRA_ATTACK"
+data "StackPriority" "150"
+data "TickType" "StartTurn"
+data "RemoveConditions" "not RemoveCause(StatusRemoveCause.TimeOut) and not HasHigherPriorityExtraAttackQueued_t('EXTRA_ATTACK_8_Q') and not HasAnyExtraAttack_t()"
+data "RemoveEvents" "OnStatusRemoved"
+data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator;ApplyToDead"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.Condition)):ApplyStatus(EXTRA_ATTACK_8, 100, 1)"
+
+
+//10打 buff 让攻击免费
+new entry "EXTRA_ATTACK_9"
+type "StatusData"
+data "StatusType" "BOOST"
+using "EXTRA_ATTACK"
+data "DisplayName" "h6a104185g3665g4b72gbd67gb69e64737e6e;2"
+data "Description" "had45e9fbgaac2g42c6g8c14g0619fd979d2b;2"
+data "StackId" "EXTRA_ATTACK"
+data "StackPriority" "180"
+data "TickType" "StartTurn"
+data "Boosts" "UnlockSpellVariant(ExtraAttackCheck(),ModifyUseCosts(Replace,ActionPoint,0,0,ActionPoint),ModifyIconGlow(),ModifyTooltipDescription())"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.Condition)):ApplyStatus(EXTRA_ATTACK_8_Q, 100, 1)"
+
+new entry "EXTRA_ATTACK_9_Q"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "h016c5fb4g9c75g4a51gbb14g891d82699208;1"
+data "StackId" "EXTRA_ATTACK"
+data "StackPriority" "170"
+data "TickType" "StartTurn"
+data "RemoveConditions" "not RemoveCause(StatusRemoveCause.TimeOut) and not HasHigherPriorityExtraAttackQueued_t('EXTRA_ATTACK_9_Q') and not HasAnyExtraAttack_t()"
+data "RemoveEvents" "OnStatusRemoved"
+data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator;ApplyToDead"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.Condition)):ApplyStatus(EXTRA_ATTACK_9, 100, 1)"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

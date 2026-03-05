@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+  <version major="4" minor="0" revision="9" build="328" />
+  <region id="AbilityLists">
+    <node id="root">
+      <children>
+        <node id="AbilityList">
+                    <attribute id="Abilities" type="LSString" value="Strength, Dexterity, Constitution, Intelligence, Wisdom" />
+                    <attribute id="Name" type="FixedString" value="真实属性" />
+                    <attribute id="UUID" type="guid" value="b63a0dfe-562c-4842-8374-1e270871e4d0" />
+                </node>
+        <node id="AbilityList">
+                    <attribute id="Abilities" type="LSString" value="Strength, Dexterity, Constitution, Intelligence, Wisdom,Charisma" />
+                    <attribute id="Name" type="FixedString" value="所有属性 " />
+                    <attribute id="UUID" type="guid" value="142c81ef-984e-4a7c-bc0b-e1223e84100e" />
+                </node>
+      </children>
+    </node>
+  </region>
+</save>

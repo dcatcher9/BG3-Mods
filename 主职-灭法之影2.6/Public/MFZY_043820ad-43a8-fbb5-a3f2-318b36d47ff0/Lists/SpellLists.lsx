@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+  <version major="4" minor="0" revision="9" build="328" />
+  <region id="SpellLists">
+    <node id="root">
+      <children>
+        <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="1" />
+                    <attribute id="Spells" type="LSString" value="Target_Liu_Shi_Ti;Shout_Real_Properties;Shout_Xia_ChuFang;Shout_LunHui_RongYuShangDian_A;" />
+                    <attribute id="UUID" type="guid" value="ba379f61-ca23-4c71-939e-d55650cd5731" />
+                </node>
+        <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="2" />
+                    <attribute id="Spells" type="LSString" value="Shout_Meditation_of_Heart" />
+                    <attribute id="UUID" type="guid" value="e38d2e8d-7ca8-432e-9bd9-5011df86b497" />
+                </node>
+        <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="3" />
+                    <attribute id="Spells" type="LSString" value="Target_Blade_Knife_Extreme;Target_Blade_Knife_Time;Target_Blade_Knife_Green_Ghost;Target_Blade_Knife_Absolute_Seclusion;Zone_Blade_Knife_Stream;Shout_Blade_Knife_Ring_breakage" />
+                    <attribute id="UUID" type="guid" value="67cfc7a3-48c0-4aca-9675-d2404ee2e1b0" />
+                </node>
+        <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="4" />
+                    <attribute id="Spells" type="LSString" value="Shout_Breath_Release;" />
+                    <attribute id="UUID" type="guid" value="1adc9e4b-0573-4a1f-a678-65d25a43e54d" />
+                </node>
+        <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="5" />
+                    <attribute id="UUID" type="guid" value="c0687c38-f490-477f-bd92-2773ce541e02" />
+                </node>
+        <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="6" />
+                    <attribute id="Spells" type="LSString" value="Rush_Blade_Knife_Jueying" />
+                    <attribute id="UUID" type="guid" value="bcf84f90-7075-4062-95c0-4e384e6bc423" />
+                </node>
+        <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="7" />
+                    <attribute id="UUID" type="guid" value="71a42bbe-e841-42e5-b477-9069feb56690" />
+                </node>
+        <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="8" />
+                    <attribute id="Spells" type="LSString" value="Rush_Blood_Beast;Shout_Bollod_Release;Shout_Devouring_Nucleus" />
+                    <attribute id="UUID" type="guid" value="9d570275-1e70-4a11-97a1-579584e68d1e" />
+                </node>
+        <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="8.1" />
+                    <attribute id="Spells" type="LSString" value="Rush_Blade_Knife_Blood_Blade;Zone_Blade_Knife_Killing;Target_Blade_Knife_Blood_Explosion;Target_Blade_Knife_Blood_Shadow" />
+                    <attribute id="UUID" type="guid" value="c61d5e51-e4d5-4cf6-93da-772c8ea0f3ef" />
+                </node>
+        <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="9" />
+                    <attribute id="Spells" type="LSString" value="Target_Soul_Silk;Shout_Blade_Knife_Exceed_Ringbreakage;" />
+                    <attribute id="UUID" type="guid" value="beb0da9f-0e48-4746-a37b-49301fe3b809" />
+                </node>
+        <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="10" />
+                    <attribute id="UUID" type="guid" value="bcb786c3-51d6-440b-a0c6-8d085e061832" />
+                </node>
+        <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="11" />
+                    <attribute id="UUID" type="guid" value="09fdda9c-77ce-4675-89ea-38a8cbec3490" />
+                </node>
+        <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="12" />
+                    <attribute id="Spells" type="LSString" value="Zone_Blood_Smoke_Cannon;" />
+                    <attribute id="UUID" type="guid" value="254725e6-8ac6-4a6a-9c8e-58a34eb6c0ce" />
+                </node>
+        <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="宗师1" />
+                    <attribute id="Spells" type="LSString" value="Shout_DS_ZS;Shout_QX_ZS;Shout_JZ_ZS;" />
+                    <attribute id="UUID" type="guid" value="3e88ecec-e122-4924-baee-fbb2126c42e3" />
+                </node>
+        <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="宗师2" />
+                    <attribute id="Spells" type="LSString" value="Shout_DS_ZS_1;Shout_QX_ZS_1;Shout_JZ_ZS_1;" />
+                    <attribute id="UUID" type="guid" value="ef02cf0e-d32b-4c62-8e7d-e0f61bd73870" />
+                </node>
+        <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="宗师3" />
+                    <attribute id="Spells" type="LSString" value="Shout_DS_ZS_2;Shout_QX_ZS_2;Shout_JZ_ZS_2;" />
+                    <attribute id="UUID" type="guid" value="2ce9085e-3d19-41d7-af7f-8bcd567fd8da" />
+                </node>
+        <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="破晓冒险团召唤物" />
+                    <attribute id="Spells" type="LSString" value="Target_MXT_BuBuWang;Target_MXT_BaHa;" />
+                    <attribute id="UUID" type="guid" value="f1ff9bdf-10ec-4940-9a51-c4eb82495ccc" />
+                </node>
+      </children>
+    </node>
+  </region>
+</save>

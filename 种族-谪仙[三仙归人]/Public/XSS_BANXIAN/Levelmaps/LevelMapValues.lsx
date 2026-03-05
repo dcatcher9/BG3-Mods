@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="2" revision="0" build="100"/>
+    <region id="LevelMapValues">
+        <node id="root">
+            <children>
+                <node id="LevelMapSeries">境界骰
+                    <attribute id="Level1" type="LSString" value="1d4"/>练气
+                    <attribute id="Level4" type="LSString" value="1d6"/>
+                    <attribute id="Level5" type="LSString" value="2d6"/>筑基
+                    <attribute id="Level8" type="LSString" value="2d8"/>
+                    <attribute id="Level9" type="LSString" value="3d8"/>结丹
+                    <attribute id="Level12" type="LSString" value="3d10"/>
+                    <attribute id="Level13" type="LSString" value="6d10"/>元婴
+                    <attribute id="Level15" type="LSString" value="7d10"/>
+                    <attribute id="Level17" type="LSString" value="8d10"/>
+                    <attribute id="Level19" type="LSString" value="9d12"/>
+                    <attribute id="Level21" type="LSString" value="10d12"/>化神
+                    <attribute id="Level26" type="LSString" value="20d12"/>
+                    <attribute id="Level31" type="LSString" value="30d12"/>
+                    <attribute id="Level36" type="LSString" value="30d20"/>
+                    <attribute id="Level41" type="LSString" value="40d20"/>炼虚
+                    <attribute id="Level46" type="LSString" value="60d20"/>
+                    <attribute id="Level51" type="LSString" value="80d20"/>
+                    <attribute id="Level56" type="LSString" value="90d20"/>
+                    <attribute id="Level61" type="LSString" value="100d20"/>合体
+                    <attribute id="Level66" type="LSString" value="200d20"/>
+                    <attribute id="Level71" type="LSString" value="400d20"/>
+                    <attribute id="Level76" type="LSString" value="800d20"/>
+                    <attribute id="Level81" type="LSString" value="1000d20"/>大乘
+                    <attribute id="Level86" type="LSString" value="2000d20"/>
+                    <attribute id="Level91" type="LSString" value="4000d20"/>
+                    <attribute id="Level96" type="LSString" value="10000d20"/>渡劫
+                    <attribute id="Level100" type="LSString" value="10000d100"/>真仙
+                    <attribute id="Name" type="FixedString" value="BanXianDice"/>
+                    <attribute id="UUID" type="guid" value="27416287-e94a-4362-a817-0005e38a0a01"/>
+                </node>
+                <node id="LevelMapSeries">境界骰重击
+                    <attribute id="Level1" type="LSString" value="2d4"/>练气
+                    <attribute id="Level4" type="LSString" value="2d6"/>
+                    <attribute id="Level5" type="LSString" value="4d6"/>筑基
+                    <attribute id="Level8" type="LSString" value="4d8"/>
+                    <attribute id="Level9" type="LSString" value="6d8"/>结丹
+                    <attribute id="Level12" type="LSString" value="6d10"/>
+                    <attribute id="Level13" type="LSString" value="12d10"/>元婴
+                    <attribute id="Level15" type="LSString" value="14d10"/>
+                    <attribute id="Level17" type="LSString" value="16d10"/>
+                    <attribute id="Level19" type="LSString" value="18d12"/>
+                    <attribute id="Level21" type="LSString" value="20d12"/>化神
+                    <attribute id="Level26" type="LSString" value="40d12"/>
+                    <attribute id="Level31" type="LSString" value="60d12"/>
+                    <attribute id="Level36" type="LSString" value="60d20"/>
+                    <attribute id="Level41" type="LSString" value="80d20"/>炼虚
+                    <attribute id="Level46" type="LSString" value="120d20"/>
+                    <attribute id="Level51" type="LSString" value="160d20"/>
+                    <attribute id="Level56" type="LSString" value="180d20"/>
+                    <attribute id="Level61" type="LSString" value="200d20"/>合体
+                    <attribute id="Level66" type="LSString" value="400d20"/>
+                    <attribute id="Level71" type="LSString" value="800d20"/>
+                    <attribute id="Level76" type="LSString" value="1600d20"/>
+                    <attribute id="Level81" type="LSString" value="2000d20"/>大乘
+                    <attribute id="Level86" type="LSString" value="4000d20"/>
+                    <attribute id="Level91" type="LSString" value="8000d20"/>
+                    <attribute id="Level96" type="LSString" value="20000d20"/>渡劫
+                    <attribute id="Level100" type="LSString" value="20000d100"/>真仙
+                    <attribute id="Name" type="FixedString" value="CritcalBanXianDice"/>
+                    <attribute id="UUID" type="guid" value="27416287-e94a-4362-a817-0005e38a0b01"/>
+                </node>
+                <node id="LevelMapSeries">境界
+                    <attribute id="Level1" type="LSString" value="1"/>练气
+                    <attribute id="Level5" type="LSString" value="2"/>筑基
+                    <attribute id="Level9" type="LSString" value="3"/>结丹
+                    <attribute id="Level13" type="LSString" value="4"/>元婴
+                    <attribute id="Level21" type="LSString" value="5"/>化神
+                    <attribute id="Level41" type="LSString" value="6"/>炼虚
+                    <attribute id="Level61" type="LSString" value="7"/>合体
+                    <attribute id="Level81" type="LSString" value="8"/>大乘
+                    <attribute id="Level96" type="LSString" value="9"/>渡劫
+                    <attribute id="Level100" type="LSString" value="10"/>真仙
+                    <attribute id="Name" type="FixedString" value="BanXianCantrip"/>
+                    <attribute id="UUID" type="guid" value="27416287-e94a-4362-a817-0005e38a0a02"/>
+                </node>
+                <node id="LevelMapSeries">境界-属性加值
+                    <attribute id="Level1" type="LSString" value="1"/>练气
+                    <attribute id="Level5" type="LSString" value="2"/>筑基
+                    <attribute id="Level9" type="LSString" value="4"/>结丹
+                    <attribute id="Level13" type="LSString" value="8"/>元婴
+                    <attribute id="Level21" type="LSString" value="16"/>化神
+                    <attribute id="Level41" type="LSString" value="32"/>炼虚
+                    <attribute id="Level61" type="LSString" value="64"/>合体
+                    <attribute id="Level81" type="LSString" value="128"/>大乘
+                    <attribute id="Level96" type="LSString" value="256"/>渡劫
+                    <attribute id="Level100" type="LSString" value="512"/>真仙
+                    <attribute id="Name" type="FixedString" value="BanXianAbilityBonus"/>
+                    <attribute id="UUID" type="guid" value="27416287-e94a-4362-a817-0005e38a0a02"/>
+                </node>
+                <node id="LevelMapSeries">境界骰最大值
+                    <attribute id="Level1" type="LSString" value="4"/>练气
+                    <attribute id="Level4" type="LSString" value="6"/>
+                    <attribute id="Level5" type="LSString" value="12"/>筑基
+                    <attribute id="Level8" type="LSString" value="16"/>
+                    <attribute id="Level9" type="LSString" value="24"/>结丹
+                    <attribute id="Level12" type="LSString" value="30"/>
+                    <attribute id="Level13" type="LSString" value="60"/>元婴
+                    <attribute id="Level15" type="LSString" value="70"/>
+                    <attribute id="Level17" type="LSString" value="80"/>
+                    <attribute id="Level19" type="LSString" value="108"/>
+                    <attribute id="Level21" type="LSString" value="120"/>化神
+                    <attribute id="Level26" type="LSString" value="240"/>
+                    <attribute id="Level31" type="LSString" value="360"/>
+                    <attribute id="Level36" type="LSString" value="600"/>
+                    <attribute id="Level41" type="LSString" value="800"/>炼虚
+                    <attribute id="Level46" type="LSString" value="1200"/>
+                    <attribute id="Level51" type="LSString" value="1600"/>
+                    <attribute id="Level56" type="LSString" value="1800"/>
+                    <attribute id="Level61" type="LSString" value="2000"/>合体
+                    <attribute id="Level66" type="LSString" value="4000"/>
+                    <attribute id="Level71" type="LSString" value="8000"/>
+                    <attribute id="Level76" type="LSString" value="16000"/>
+                    <attribute id="Level81" type="LSString" value="20000"/>大乘
+                    <attribute id="Level86" type="LSString" value="40000"/>
+                    <attribute id="Level91" type="LSString" value="80000"/>
+                    <attribute id="Level96" type="LSString" value="200000"/>渡劫
+                    <attribute id="Level100" type="LSString" value="1000000"/>真仙
+                    <attribute id="Name" type="FixedString" value="BanXiangHP"/>
+                    <attribute id="UUID" type="guid" value="27416287-e94a-4362-a817-0005e38a0a02"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

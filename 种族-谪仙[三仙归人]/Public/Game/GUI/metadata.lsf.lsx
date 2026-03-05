@@ -1,0 +1,1264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids" />
+	<region id="config">
+		<node id="config">
+			<children>
+				<node id="entries">
+					<children>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/CC/icons_races/BANXIAN.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="380" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="380" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/BC_DaLiTieJiao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/BC_HeiSeYanMou.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/BC_JinSeYanMou.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/BC_LingLongNeiDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/BC_LongZhu.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/BC_TieZhongXue.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/BC_YaoHe.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/BC_YaoShengJiao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/BC_YuChuiYa.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/BC_ZhenLeiGu.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DR_BaoLinWan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DR_BaoMinDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DR_BeiLiWan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DR_BiXiongYao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DR_CanShiWan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DR_ChaoYuanGao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DR_DengXianSan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DR_DuZhangSan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DR_FuHuJuZhenWan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DR_FuHuWan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DR_JianGuYao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DR_JiaWeiCanSHIwan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DR_JingZhongDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DR_JiuZhuanHuanHunDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DR_LongGuangBeiLiWan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DR_QiFanHuoDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DR_QinLiangSan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DR_QinShenSan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DR_ShenXiaoSan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DR_WenLiSan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DR_YanShouGao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DR_YiQiGao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DT_BiOJinDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DT_BiOXiaoHuanDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DT_BuYangDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DT_JiuZhuanJinDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DT_JiuZhuanXiaoHuanDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DT_SanHuaJiuZiGao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DT_ShuiYuDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DT_TaiYiXiaoHuanDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DT_TaiYiZiJinDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DT_TieNiuDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DT_WuJinDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DT_WuXinYao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/DT_WuYunDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/YC_BaiJiang.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/YC_BiO.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/YC_DiYongJinLian.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/YC_GanCao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/YC_GeXun.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/YC_HouTouJun.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/YC_HuoLingCao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/YC_HuoLingSha.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/YC_HuoZao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/YC_JiaoLi.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/YC_JiuYeLingZhiCao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/YC_LaoShanShen.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/YC_LongDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/YC_QianNianRenShen.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/YC_ShuYuHua.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/YC_ShuZhenZhu.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/ControllerUIIcons/items_png/YC_ZiZhi.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/BC_DaLiTieJiao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/BC_HeiSeYanMou.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/BC_JinSeYanMou.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/BC_LingLongNeiDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/BC_LongZhu.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/BC_TieZhongXue.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/BC_YaoHe.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/BC_YaoShengJiao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/BC_YuChuiYa.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/BC_ZhenLeiGu.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DR_BaoLinWan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DR_BaoMinDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DR_BeiLiWan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DR_BiXiongYao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DR_CanShiWan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DR_ChaoYuanGao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DR_DengXianSan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DR_DuZhangSan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DR_FuHuJuZhenWan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DR_FuHuWan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DR_JianGuYao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DR_JiaWeiCanSHIwan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DR_JingZhongDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DR_JiuZhuanHuanHunDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DR_LongGuangBeiLiWan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DR_QiFanHuoDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DR_QinLiangSan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DR_QinShenSan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DR_ShenXiaoSan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DR_WenLiSan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DR_YanShouGao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DR_YiQiGao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DT_BiOJinDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DT_BiOXiaoHuanDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DT_BuYangDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DT_JiuZhuanJinDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DT_JiuZhuanXiaoHuanDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DT_SanHuaJiuZiGao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DT_ShuiYuDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DT_TaiYiXiaoHuanDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DT_TaiYiZiJinDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DT_TieNiuDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DT_WuJinDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DT_WuXinYao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/DT_WuYunDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/YC_BaiJiang.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/YC_BiO.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/YC_DiYongJinLian.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/YC_GanCao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/YC_GeXun.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/YC_HouTouJun.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/YC_HuoLingCao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/YC_HuoLingSha.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/YC_HuoZao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/YC_JiaoLi.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/YC_JiuYeLingZhiCao.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/YC_LaoShanShen.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/YC_LongDan.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/YC_QianNianRenShen.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/YC_ShuYuHua.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/YC_ShuZhenZhu.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+						<node id="Object">
+							<attribute id="MapKey" type="FixedString" value="Assets/Tooltips/ItemIcons/YC_ZiZhi.png" />
+							<children>
+								<node id="entries">
+									<attribute id="h" type="int16" value="1024" />
+									<attribute id="mipcount" type="int8" value="1" />
+									<attribute id="w" type="int16" value="1024" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

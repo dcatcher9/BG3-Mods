@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+  <version major="4" minor="0" revision="9" build="328" />
+  <region id="EquipmentLists">
+    <node id="root">
+      <children>
+        <node id="EquipmentList">
+                    <attribute id="Items" type="LSString" value="ZHAN_LONG_SHAN" />
+                    <attribute id="Name" type="FixedString" value="灭法之影武器" />
+                    <attribute id="UUID" type="guid" value="d84eb227-d0d0-4b3e-b6ca-547be769da7c" />
+                </node>
+        <node id="EquipmentList">
+                    <attribute id="Items" type="LSString" value="MF_WanFaShuoMin" />
+                    <attribute id="Name" type="FixedString" value="玩法说明" />
+                    <attribute id="UUID" type="guid" value="1c7fc7c9-eea5-4616-bc6a-efd66a6f93a4" />
+                </node>
+      </children>
+    </node>
+  </region>
+</save>
