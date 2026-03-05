@@ -165,13 +165,13 @@
 					<attribute id="BoundsMin" type="fvec3" value="-2.5 -2.5 -2.5" />
 					<attribute id="CullingDistance" type="float" value="30" />
 					<attribute id="Duration" type="float" value="4.1" />
-					<attribute id="EffectName" type="FixedString" value="BANXAIN_FLY_TEST_01" />
+					<attribute id="EffectName" type="FixedString" value="BANXIAN_FLY_TEST_01" />
 					<attribute id="ID" type="FixedString" value="2f5f76e2-e850-4ea2-af18-04a194871acd" />
 					<attribute id="Initialized" type="bool" value="True" />
 					<attribute id="InterruptionMode" type="uint32" value="2" />
 					<attribute id="Looping" type="bool" value="True" />
-					<attribute id="Name" type="LSString" value="BANXAIN_FLY_TEST_01" />
-					<attribute id="SourceFile" type="LSString" value="Public/XSS_BANXIAN/Assets/Effects/Effects_Banks/BANXAIN_FLY_TEST_01.lsfx" />
+					<attribute id="Name" type="LSString" value="BANXIAN_FLY_TEST_01" />
+					<attribute id="SourceFile" type="LSString" value="Public/XSS_BANXIAN/Assets/Effects/Effects_Banks/BANXIAN_FLY_TEST_01.lsfx" />
 					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209032" />
 					<children>
 						<node id="Dependencies">
@@ -204,13 +204,13 @@
 					<attribute id="Center" type="fvec3" value="0 0 -5" />
 					<attribute id="CullingDistance" type="float" value="0" />
 					<attribute id="Duration" type="float" value="2" />
-					<attribute id="EffectName" type="FixedString" value="BANXAIN_LIGHT_LINK_TEST_01" />
+					<attribute id="EffectName" type="FixedString" value="BANXIAN_LIGHT_LINK_TEST_01" />
 					<attribute id="ID" type="FixedString" value="530224ae-4a08-47b4-af24-3e4fefe3fee5" />
 					<attribute id="InterruptionMode" type="uint32" value="0" />
 					<attribute id="Looping" type="bool" value="True" />
-					<attribute id="Name" type="LSString" value="BANXAIN_LIGHT_LINK_TEST_01" />
+					<attribute id="Name" type="LSString" value="BANXIAN_LIGHT_LINK_TEST_01" />
 					<attribute id="Radius" type="float" value="8.660254" />
-					<attribute id="SourceFile" type="LSString" value="Public/XSS_BANXIAN/Assets/Effects/Effects_Banks/BANXAIN_LIGHT_LINK_TEST_01.lsfx" />
+					<attribute id="SourceFile" type="LSString" value="Public/XSS_BANXIAN/Assets/Effects/Effects_Banks/BANXIAN_LIGHT_LINK_TEST_01.lsfx" />
 					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209006" />
 					<children>
 						<node id="Dependencies">
@@ -243,13 +243,13 @@
 					<attribute id="Center" type="fvec3" value="0 1.5 -0.33" />
 					<attribute id="CullingDistance" type="float" value="0" />
 					<attribute id="Duration" type="float" value="2" />
-					<attribute id="EffectName" type="FixedString" value="BANXAIN_EGUI_ROOT_01" />
+					<attribute id="EffectName" type="FixedString" value="BANXIAN_EGUI_ROOT_01" />
 					<attribute id="ID" type="FixedString" value="f69578f2-5b69-4250-9be0-5da44013f0c0" />
 					<attribute id="InterruptionMode" type="uint32" value="2" />
 					<attribute id="Looping" type="bool" value="True" />
-					<attribute id="Name" type="LSString" value="BANXAIN_EGUI_ROOT_01" />
+					<attribute id="Name" type="LSString" value="BANXIAN_EGUI_ROOT_01" />
 					<attribute id="Radius" type="float" value="3.464102" />
-					<attribute id="SourceFile" type="LSString" value="Public/XSS_BANXIAN/Assets/Effects/Effects_Banks/BANXAIN_EGUI_ROOT_01.lsfx" />
+					<attribute id="SourceFile" type="LSString" value="Public/XSS_BANXIAN/Assets/Effects/Effects_Banks/BANXIAN_EGUI_ROOT_01.lsfx" />
 					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209006" />
 					<children>
 						<node id="Dependencies">

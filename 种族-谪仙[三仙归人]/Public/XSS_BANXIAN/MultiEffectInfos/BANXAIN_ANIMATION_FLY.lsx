@@ -4,7 +4,7 @@
 	<region id="MultiEffectInfos">
 		<node id="MultiEffectInfos">
 			<attribute id="UUID" type="guid" value="c5cb3c8e-55cd-4b12-b83a-1499d2b874f2" />
-			<attribute id="Name" type="LSString" value="BANXAIN_ANIMATION_FLY" />
+			<attribute id="Name" type="LSString" value="BANXIAN_ANIMATION_FLY" />
 			<children>
 				<node id="EffectInfo">
 					<attribute id="UUID" type="guid" value="d9c26e99-4eeb-4c54-be14-64300229e14b" />

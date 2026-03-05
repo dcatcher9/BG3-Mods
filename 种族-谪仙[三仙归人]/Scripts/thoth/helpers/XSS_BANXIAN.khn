@@ -41,11 +41,17 @@ function SpellDC_ShenshiControl(entity)
 end
 
 function IsTargetHPLess()
+    if not context.Target or not context.Target.IsValid then
+        return ConditionResult(false)
+    end
     local result = context.Source.HP > context.Target.HP
     return ConditionResult(result)
 end
 
 function TargetHPLessThanYourStrength()
+    if not context.Target or not context.Target.IsValid then
+        return ConditionResult(false)
+    end
     local result = context.Source.Strength >= context.Target.HP
     return ConditionResult(result)
 end
@@ -57,11 +63,17 @@ function BLEEDINGPercentageMoreThan(value,entity)
 end
 
 function IsTargetWeaker()
+    if not context.Target or not context.Target.IsValid then
+        return ConditionResult(false)
+    end
     local result = (GetStatusDuration('BANXIAN_DH_YEAR', context.Source) >= GetStatusDuration('BANXIAN_DH_YEAR', context.Target) and GetStatusDuration('BANXIAN_DH_YEAR', context.Source) >= context.Target.Level) or HasStatus('DOMINATE_HEHUAN',context.Target)
     return ConditionResult(result)
 end
 
 function CharacterLevelGreaterThanTarget()
+    if not context.Target or not context.Target.IsValid then
+        return ConditionResult(false, {ConditionError("IsNotCharacterLevelGreaterThan")})
+    end
     return ConditionResult(context.Source.Level >= context.Target.Level, {ConditionError("IsNotCharacterLevelGreaterThan")})
 end
 
@@ -609,6 +621,9 @@ function ConcentrationSpellCheck()
 end
 
 function CanShenshiCheck()
+    if not context.Target or not context.Target.IsValid then
+        return ConditionResult(false, {ConditionError("CannotCheckTarget")})
+    end
     return ConditionResult(GetModifier(context.Source.Wisdom) >= GetModifier(context.Target.Wisdom), {ConditionError("CannotCheckTarget")})
 end
 

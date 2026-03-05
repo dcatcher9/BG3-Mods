@@ -655,7 +655,7 @@ end
 --刷新神识状态
 function Utils.ShenShi.Check(Object)
 
-    if Osi.HasPassive(Object, 'BANXAIN_Shenshi') == 1 then
+    if Osi.HasPassive(Object, 'BANXIAN_Shenshi') == 1 then
         local k = Utils.Get.ActionReourceMax(Object,'0032115b-77c3-43c8-9385-630e657b2fcc')
         if Ext.Stats.Get('BanXian_SS_BOOST_'..k) ~= nil then
             Osi.ApplyStatus(Object, 'BanXian_SS_BOOST_'..k, -1, 1, Object)

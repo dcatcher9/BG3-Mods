@@ -3,7 +3,7 @@
 /           打坐状态       //
 /
 /////////////////////////////  
-new entry "BANXAIN_Xiulian"
+new entry "BANXIAN_Xiulian"
 type "PassiveData"
 data "Icon" "Skill_Druid_NaturalRecovery"
 data "DisplayName" "stringsofmodmadebyxss20250304zfa00a00;1"

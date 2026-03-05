@@ -35,7 +35,7 @@ data "DisplayName" "stringsofmodmadebyxss20240930dv004a01;1"
 data "Description" "stringsofmodmadebyxss20240930dv004d01;1"
 
 //炼气化精
-new entry "BANXAIN_TIAN_DiceToDamage"
+new entry "BANXIAN_TIAN_DiceToDamage"
 type "PassiveData"
 data "DisplayName" "stringsofmodmadebyxss20240930dv004a03;1"
 data "Description" "stringsofmodmadebyxss20240930dv004b03;1"
@@ -43,7 +43,7 @@ data "Icon" "PassiveFeature_MartialArts_BonusUnarmedStrike"
 data "Properties" "IsToggled;Highlighted;ToggledDefaultAddToHotbar"
 //data "Boosts" "IF(IsMeleeUnarmedAttack() and BanXian_LingQiBianYi_Lei()):CharacterUnarmedDamage(max(1, LevelMapValue(BanXianDice)), Lightning);IF(IsMeleeUnarmedAttack() and BanXian_LingQiBianYi_Bing()):CharacterUnarmedDamage(max(1, LevelMapValue(BanXianDice)), Cold);IF(IsMeleeUnarmedAttack() and BanXian_LingQiBianYi_Du()):CharacterUnarmedDamage(max(1, LevelMapValue(BanXianDice)), Poison);  IF(IsMeleeUnarmedAttack() and BanXian_LingQiBianYi_None()):CharacterUnarmedDamage(max(1, LevelMapValue(BanXianDice)), Bludgeoning);IF(((IsSpell() or IsCantrip())) and BanXian_LingQiBianYi_Lei()):DamageBonus(max(1, LevelMapValue(BanXianDice)),Lightning);IF(((IsSpell() or IsCantrip())) and BanXian_LingQiBianYi_Bing()):DamageBonus(max(0, LevelMapValue(BanXianDice)),Cold);   IF(((IsSpell() or IsCantrip())) and BanXian_LingQiBianYi_Du()):DamageBonus(max(0, LevelMapValue(BanXianDice)),Poison);   IF(((IsSpell() or IsCantrip())) and BanXian_LingQiBianYi_None()):DamageBonus(max(0, LevelMapValue(BanXianDice)));  UnlockSpellVariant((IsSpell() or IsMeleeUnarmedAttack() or IsCantrip()),ModifyIconGlow(),ModifyTooltipDescription(),ModifyUseCosts(Add,KiPoint,1,0))"
 data "Boosts" "IF((IsMeleeAttack() or IsRangedAttack())):CharacterWeaponDamage(max(1, LevelMapValue(BanXiangHP)), Bludgeoning);IF((IsSpell() or IsCantrip())):DamageBonus(max(0, LevelMapValue(BanXianDice)));UnlockSpellVariant((IsSpell() or (IsMeleeAttack() or IsRangedAttack()) or IsCantrip()),ModifyIconGlow(),ModifyTooltipDescription(),ModifyUseCosts(Add,KiPoint,1,0))"
-data "ToggleGroup" "BANXAIN_Dice"
+data "ToggleGroup" "BANXIAN_Dice"
 
 
 

@@ -1,4 +1,4 @@
-new spellset "CommonPlayerActions_BANXAIN"
+new spellset "CommonPlayerActions_BANXIAN"
 add spell "Projectile_Jump"
 add spell "Target_Dip"
 add spell "Shout_Hide"

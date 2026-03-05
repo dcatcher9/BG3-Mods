@@ -7,14 +7,14 @@
 				<node id="GameObjects">
 					<attribute id="MapKey" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa02" />
 					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240806dv001001" version="1" />
-					<attribute id="Name" type="LSString" value="BANXAIN_FeMale" />
+					<attribute id="Name" type="LSString" value="BANXIAN_FeMale" />
 					<attribute id="CharacterVisualResourceID" type="FixedString" value="95be872d-586e-4969-8c85-89b154d81c01" />
 					<attribute id="Type" type="FixedString" value="character" />
 					<attribute id="ParentTemplateId" type="FixedString" value="e3c07ecd-d3f7-4661-b029-18dee1f3114e" />
 					<attribute id="Race" type="guid" value="00a16d50-80fd-4f6a-8849-90d68bd117b2" />
 					<attribute id="LevelOverride" type="int32" value="1" />
-					<attribute id="Stats" type="FixedString" value="BANXAIN_Male" />
-					<attribute id="SpellSet" type="FixedString" value="CommonPlayerActions_BANXAIN" />
+					<attribute id="Stats" type="FixedString" value="BANXIAN_Male" />
+					<attribute id="SpellSet" type="FixedString" value="CommonPlayerActions_BANXIAN" />
 					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
 					<children>
 						<node id="StatusList">
@@ -29,14 +29,14 @@
 				<node id="GameObjects">
 					<attribute id="MapKey" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa01" />
 					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240806dv001001" version="1" />
-					<attribute id="Name" type="LSString" value="BANXAIN_Male" />
+					<attribute id="Name" type="LSString" value="BANXIAN_Male" />
 					<attribute id="Type" type="FixedString" value="character" />
 					<attribute id="ParentTemplateId" type="FixedString" value="80d0ef19-f11e-482f-96ab-f184a9460b8e" />
 					<attribute id="CharacterVisualResourceID" type="FixedString" value="95be872d-586e-4969-8c85-89b154d81c02" />
 					<attribute id="Race" type="guid" value="00a16d50-80fd-4f6a-8849-90d68bd117b2" />
 					<attribute id="LevelOverride" type="int32" value="1" />
-					<attribute id="Stats" type="FixedString" value="BANXAIN_Male" />
-					<attribute id="SpellSet" type="FixedString" value="CommonPlayerActions_BANXAIN" />
+					<attribute id="Stats" type="FixedString" value="BANXIAN_Male" />
+					<attribute id="SpellSet" type="FixedString" value="CommonPlayerActions_BANXIAN" />
 					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
 					<children>
 						<node id="StatusList">
@@ -51,13 +51,13 @@
 				<node id="GameObjects">
 					<attribute id="MapKey" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa04" />
 					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240806dv001001" version="1" />
-					<attribute id="Name" type="LSString" value="BANXAIN_FeMaleStrong" />
+					<attribute id="Name" type="LSString" value="BANXIAN_FeMaleStrong" />
 					<attribute id="CharacterVisualResourceID" type="FixedString" value="95be872d-586e-4969-8c85-89b154d81c03" />
 					<attribute id="Type" type="FixedString" value="character" />
 					<attribute id="ParentTemplateId" type="FixedString" value="3303e8f6-a7e4-4b24-b64c-d64bbc152803" />
 					<attribute id="Race" type="guid" value="00a16d50-80fd-4f6a-8849-90d68bd117b2" />
-					<attribute id="Stats" type="FixedString" value="BANXAIN_Male" />
-					<attribute id="SpellSet" type="FixedString" value="CommonPlayerActions_BANXAIN" />
+					<attribute id="Stats" type="FixedString" value="BANXIAN_Male" />
+					<attribute id="SpellSet" type="FixedString" value="CommonPlayerActions_BANXIAN" />
 					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
 					<children>
 						<node id="StatusList">
@@ -72,14 +72,14 @@
 				<node id="GameObjects">
 					<attribute id="MapKey" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa03" />
 					<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240806dv001001" version="1" />
-					<attribute id="Name" type="LSString" value="BANXAIN_MaleStrong" />
+					<attribute id="Name" type="LSString" value="BANXIAN_MaleStrong" />
 					<attribute id="Type" type="FixedString" value="character" />
 					<attribute id="ParentTemplateId" type="FixedString" value="056fffd0-9009-4627-84c2-f0a22e311ec7" />
 					<attribute id="CharacterVisualResourceID" type="FixedString" value="95be872d-586e-4969-8c85-89b154d81c04" />
 					<attribute id="Race" type="guid" value="00a16d50-80fd-4f6a-8849-90d68bd117b2" />
 					<attribute id="LevelOverride" type="int32" value="1" />
-					<attribute id="Stats" type="FixedString" value="BANXAIN_Male" />
-					<attribute id="SpellSet" type="FixedString" value="CommonPlayerActions_BANXAIN" />
+					<attribute id="Stats" type="FixedString" value="BANXIAN_Male" />
+					<attribute id="SpellSet" type="FixedString" value="CommonPlayerActions_BANXIAN" />
 					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
 					<children>
 						<node id="StatusList">
@@ -93,7 +93,7 @@
 				</node>
 				<node id="GameObjects">
 					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09eca02" />
-					<attribute id="Name" type="LSString" value="BANXAIN_FeMale_Tian" />
+					<attribute id="Name" type="LSString" value="BANXIAN_FeMale_Tian" />
 					<attribute id="Type" type="FixedString" value="character" />
 					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa02" />
 					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e01" />
@@ -116,7 +116,7 @@
 				</node>
 				<node id="GameObjects">
 					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09eca01" />
-					<attribute id="Name" type="LSString" value="BANXAIN_FeMaleStrong_Tian" />
+					<attribute id="Name" type="LSString" value="BANXIAN_FeMaleStrong_Tian" />
 					<attribute id="Type" type="FixedString" value="character" />
 					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa01" />
 					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e01" />
@@ -139,7 +139,7 @@
 				</node>
 				<node id="GameObjects">
 					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09eca04" />
-					<attribute id="Name" type="LSString" value="BANXAIN_MaleStrong_Tian" />
+					<attribute id="Name" type="LSString" value="BANXIAN_MaleStrong_Tian" />
 					<attribute id="Type" type="FixedString" value="character" />
 					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa04" />
 					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e01" />
@@ -162,7 +162,7 @@
 				</node>
 				<node id="GameObjects">
 					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09eca03" />
-					<attribute id="Name" type="LSString" value="BANXAIN_Male_Tian" />
+					<attribute id="Name" type="LSString" value="BANXIAN_Male_Tian" />
 					<attribute id="Type" type="FixedString" value="character" />
 					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa03" />
 					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e01" />
@@ -185,7 +185,7 @@
 				</node>
 				<node id="GameObjects">
 					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09ecb02" />
-					<attribute id="Name" type="LSString" value="BANXAIN_FeMale_Ren" />
+					<attribute id="Name" type="LSString" value="BANXIAN_FeMale_Ren" />
 					<attribute id="Type" type="FixedString" value="character" />
 					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa02" />
 					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e02" />
@@ -205,7 +205,7 @@
 				</node>
 				<node id="GameObjects">
 					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09ecb01" />
-					<attribute id="Name" type="LSString" value="BANXAIN_FeMaleStrong_Ren" />
+					<attribute id="Name" type="LSString" value="BANXIAN_FeMaleStrong_Ren" />
 					<attribute id="Type" type="FixedString" value="character" />
 					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa01" />
 					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e02" />
@@ -225,7 +225,7 @@
 				</node>
 				<node id="GameObjects">
 					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09ecb04" />
-					<attribute id="Name" type="LSString" value="BANXAIN_MaleStrong_Ren" />
+					<attribute id="Name" type="LSString" value="BANXIAN_MaleStrong_Ren" />
 					<attribute id="Type" type="FixedString" value="character" />
 					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa04" />
 					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e02" />
@@ -245,7 +245,7 @@
 				</node>
 				<node id="GameObjects">
 					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09ecb03" />
-					<attribute id="Name" type="LSString" value="BANXAIN_Male_Ren" />
+					<attribute id="Name" type="LSString" value="BANXIAN_Male_Ren" />
 					<attribute id="Type" type="FixedString" value="character" />
 					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa03" />
 					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e02" />
@@ -265,7 +265,7 @@
 				</node>
 				<node id="GameObjects">
 					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09ecc02" />
-					<attribute id="Name" type="LSString" value="BANXAIN_FeMale_Yao" />
+					<attribute id="Name" type="LSString" value="BANXIAN_FeMale_Yao" />
 					<attribute id="Type" type="FixedString" value="character" />
 					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa02" />
 					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e03" />
@@ -285,7 +285,7 @@
 				</node>
 				<node id="GameObjects">
 					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09ecc01" />
-					<attribute id="Name" type="LSString" value="BANXAIN_FeMaleStrong_Yao" />
+					<attribute id="Name" type="LSString" value="BANXIAN_FeMaleStrong_Yao" />
 					<attribute id="Type" type="FixedString" value="character" />
 					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa01" />
 					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e03" />
@@ -305,7 +305,7 @@
 				</node>
 				<node id="GameObjects">
 					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09ecc04" />
-					<attribute id="Name" type="LSString" value="BANXAIN_MaleStrong_Yao" />
+					<attribute id="Name" type="LSString" value="BANXIAN_MaleStrong_Yao" />
 					<attribute id="Type" type="FixedString" value="character" />
 					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa04" />
 					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e03" />
@@ -325,7 +325,7 @@
 				</node>
 				<node id="GameObjects">
 					<attribute id="MapKey" type="FixedString" value="fe47302b-a4f6-40ce-a59d-6945c09ecc03" />
-					<attribute id="Name" type="LSString" value="BANXAIN_Male_Yao" />
+					<attribute id="Name" type="LSString" value="BANXIAN_Male_Yao" />
 					<attribute id="Type" type="FixedString" value="character" />
 					<attribute id="ParentTemplateId" type="FixedString" value="01c60433-2c48-443e-a48a-592c6c33aa03" />
 					<attribute id="Race" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e03" />

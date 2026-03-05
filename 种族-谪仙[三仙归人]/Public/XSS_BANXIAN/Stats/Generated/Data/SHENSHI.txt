@@ -3,7 +3,7 @@
 /            神识
 /
 /////////////////////////////
-new entry "BANXAIN_Shenshi"
+new entry "BANXIAN_Shenshi"
 type "PassiveData"
 data "DisplayName" "stringsofmodmadebyxss20250218jj001a00;1"
 data "Description" "stringsofmodmadebyxss20250218jj001b00;1"

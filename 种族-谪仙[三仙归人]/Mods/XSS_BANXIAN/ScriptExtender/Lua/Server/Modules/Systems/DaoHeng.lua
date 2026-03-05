@@ -73,10 +73,10 @@ function DaoHeng.Check(Object)
     end
 
     --亚种判定
-    if Osi.IsTagged(Object, '409e244f-5b8a-48f0-a51f-398b4efb6a01') == 1 and Osi.HasActiveStatus(Object, 'BANXAIN_TAG_TIANXIAN') == 0 then
-        Osi.ApplyStatus(Object, 'BANXAIN_TAG_TIANXIAN', -1, 1, Object)
-    elseif Osi.IsTagged(Object, '409e244f-5b8a-48f0-a51f-398b4efb6b01') == 1 and Osi.HasActiveStatus(Object, 'BANXAIN_TAG_RENXIAN') == 0 then
-        Osi.ApplyStatus(Object, 'BANXAIN_TAG_RENXIAN', -1, 1, Object)
+    if Osi.IsTagged(Object, '409e244f-5b8a-48f0-a51f-398b4efb6a01') == 1 and Osi.HasActiveStatus(Object, 'BANXIAN_TAG_TIANXIAN') == 0 then
+        Osi.ApplyStatus(Object, 'BANXIAN_TAG_TIANXIAN', -1, 1, Object)
+    elseif Osi.IsTagged(Object, '409e244f-5b8a-48f0-a51f-398b4efb6b01') == 1 and Osi.HasActiveStatus(Object, 'BANXIAN_TAG_RENXIAN') == 0 then
+        Osi.ApplyStatus(Object, 'BANXIAN_TAG_RENXIAN', -1, 1, Object)
     end
 
 end

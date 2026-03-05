@@ -4,7 +4,7 @@
 	<region id="MultiEffectInfos">
 		<node id="MultiEffectInfos">
 			<attribute id="UUID" type="guid" value="b96faaf1-4fcb-4ae3-979f-c214ba594989" />
-			<attribute id="Name" type="LSString" value="BANXAIN_DHLOOP_TIAN_1" />
+			<attribute id="Name" type="LSString" value="BANXIAN_DHLOOP_TIAN_1" />
 			<children>
 				<node id="EffectInfo">
 					<attribute id="UUID" type="guid" value="9954943f-5c58-44ec-9143-abdbe403ef58" />

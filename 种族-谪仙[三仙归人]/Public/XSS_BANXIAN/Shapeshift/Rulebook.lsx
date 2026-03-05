@@ -4,7 +4,7 @@
     <region id="Rulebook">
         <node id="root">
             <children>
-                <node id="Rule">BANXAIN_SHENTONG_72
+                <node id="Rule">BANXIAN_SHENTONG_72
                     <attribute id="ApplySpellsFromTemplate" type="bool" value="true"/>
                     <attribute id="ApplyTagsFromTemplate" type="bool" value="true"/>
                     <attribute id="ApplyVisual" type="bool" value="true"/>
@@ -77,7 +77,7 @@
                         </node>
                     </children>
                 </node>
-                <node id="Rule">BANXAIN_SHENTONG_36
+                <node id="Rule">BANXIAN_SHENTONG_36
                     <attribute id="ApplySpellsFromTemplate" type="bool" value="true"/>
                     <attribute id="ApplyTagsFromTemplate" type="bool" value="true"/>
                     <attribute id="ApplyVisual" type="bool" value="true"/>
