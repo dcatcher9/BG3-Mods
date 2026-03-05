@@ -15,7 +15,7 @@
           <attribute id="UUID" type="guid" value="fc2bb64c-817b-4375-860c-758a6bb84001" />
           </node>
         <node id="PassiveList">
-          <attribute id="Name" type="FixedString" value="BANXIAN CUITI ZOUTIAN" />
+          <attribute id="Name" type="FixedString" value="BANXIAN WZCYG ORGANS" />
           <attribute id="Passives" type="LSString" value="BanXian_WZCYG_Xin,BanXian_WZCYG_Pi,BanXian_WZCYG_Fei,BanXian_WZCYG_Shen,BanXian_WZCYG_Gan" />
           <attribute id="UUID" type="guid" value="fc2bb64c-817b-4375-860c-758a6bb84b01" />
           </node>

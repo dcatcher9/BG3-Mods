@@ -436,7 +436,7 @@ function DaoHeng.Jian.Projectile_Replace_Before(ID,Animation)
     for j, _ in pairs(spell) do
         local OVERRIDE = false
         
-        for _, type in pairs(Variables.Constants.SpellModifierList_Chnage) do
+        for _, type in pairs(Variables.Constants.SpellModifierList_Change) do
             if j == type then
                 OVERRIDE = true
                 break
@@ -467,7 +467,7 @@ function DaoHeng.Jian.Projectile_Replace_After(ID)
     for j, _ in pairs(spell) do
         local OVERRIDE = false
         
-        for _, type in pairs(Variables.Constants.SpellModifierList_Chnage) do
+        for _, type in pairs(Variables.Constants.SpellModifierList_Change) do
             if j == type then
                 OVERRIDE = true
                 break

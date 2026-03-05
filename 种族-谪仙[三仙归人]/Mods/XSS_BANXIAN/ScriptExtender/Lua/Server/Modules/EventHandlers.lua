@@ -42,7 +42,7 @@ end
 
 
 --
-function SaveAppearance(player, slot)
+local function SaveAppearance(player, slot)
     local entity = Ext.Entity.Get(player)
     
     -- 正确获取组件
@@ -78,7 +78,7 @@ function SaveAppearance(player, slot)
 end
 
 
-function LoadAppearance(player, slot)
+local function LoadAppearance(player, slot)
     local preset = PersistentVars.AppearancePresets[slot]
     if not preset then return end
 

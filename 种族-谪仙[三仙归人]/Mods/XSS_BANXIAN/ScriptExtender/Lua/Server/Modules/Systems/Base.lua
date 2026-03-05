@@ -298,13 +298,13 @@ function Base.OnUsingSpellOnTarget_before(Caster, Target, Name)
     
     if Name == "Target_MainHandAttack" and Osi.HasPassive(Caster,"FABAO_BAIMAI_3") == 1 then
         --检查副手装备 是否留有附赠动作
-        if Osi.GetEquippedItem(Caster, "Melee Offhand Weapon") ~= nil and Utils.Get.ActionReource(Caster,"420c8df5-45c2-4253-93c2-7ec44e127930") < 1 then
+        if Osi.GetEquippedItem(Caster, "Melee Offhand Weapon") ~= nil and Utils.Get.ActionResource(Caster,"420c8df5-45c2-4253-93c2-7ec44e127930") < 1 then
             Osi.UseSpell(Caster, "Target_OffhandAttack", Target)
         end
     end
 
     if Name == "Projectile_MainHandAttack" and Osi.HasPassive(Caster,"FABAO_BAIMAI_3") == 1 then
-        if Osi.GetEquippedItem(Caster, "Ranged Offhand Weapon") ~= nil and Utils.Get.ActionReource(Caster,"420c8df5-45c2-4253-93c2-7ec44e127930") < 1 then
+        if Osi.GetEquippedItem(Caster, "Ranged Offhand Weapon") ~= nil and Utils.Get.ActionResource(Caster,"420c8df5-45c2-4253-93c2-7ec44e127930") < 1 then
             Osi.UseSpell(Caster, "Projectile_OffhandAttack", Target)
         end
     end

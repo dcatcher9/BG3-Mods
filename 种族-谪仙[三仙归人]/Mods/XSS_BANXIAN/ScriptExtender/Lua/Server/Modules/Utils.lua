@@ -193,7 +193,6 @@ function Utils.Seprate_Strings(PASSIVES)
         -- 移除首尾空格
         local cleaned = passive:match("^%s*(.-)%s*$")
         table.insert(Strings, cleaned)
-        _P('[炼器分离词条]'..cleaned) --DEBUG
     end
 
     return Strings
@@ -304,7 +303,7 @@ function Utils.Get.Dao(Character)
     --获取修为
     local DH_YEAR,DH_DAY = Osi.GetStatusTurns(Character, 'BANXIAN_DH_YEAR'),Osi.GetStatusTurns(Character, 'BANXIAN_DH_DAY')
 
-    if DH_DAY >= 365 then
+    if DH_DAY and DH_DAY >= 365 then
         local increase_year = math.floor(DH_DAY/365)
         DH_DAY = DH_DAY-increase_year*365
         DH_YEAR = DH_YEAR+increase_year
@@ -321,9 +320,9 @@ function Utils.Get.Dao(Character)
     end
     --_P(DH_DAY)
     if DH_DAY ~= nil then
-        if DH_YEAR ~= 0 then
+        if DH_YEAR and DH_YEAR ~= 0 then
             RESULT = RESULT..DH_DAY.."日  "
-        elseif DH_YEAR == 0 then
+        elseif not DH_YEAR or DH_YEAR == 0 then
             RESULT = RESULT.."  修为："..DH_DAY.."日  "
         end
     end
@@ -353,35 +352,35 @@ function Utils.Get.Dao(Character)
 end
 
 --获取资源点
-function Utils.Get.ActionReource(Object,ReourceID)
+function Utils.Get.ActionResource(Object,ResourceID)
     local entity = Ext.Entity.Get(Object)
     --_D(entity:GetAllComponents()) --DEBUG
     --_D(entity.ActionResources) --DEBUG
-    if entity.ActionResources.Resources[ReourceID] then
-        return math.floor(entity.ActionResources.Resources[ReourceID][1].Amount)
+    if entity.ActionResources.Resources[ResourceID] then
+        return math.floor(entity.ActionResources.Resources[ResourceID][1].Amount)
     else
         return 0
     end
 end
 
 --获取最大资源点
-function Utils.Get.ActionReourceMax(Object,ReourceID)
+function Utils.Get.ActionResourceMax(Object,ResourceID)
     local entity = Ext.Entity.Get(Object)
     --_D(entity:GetAllComponents()) --DEBUG
     --_D(entity.ActionResources) --DEBUG
-    if entity.ActionResources.Resources[ReourceID] then
-        return math.floor(entity.ActionResources.Resources[ReourceID][1].MaxAmount)
+    if entity.ActionResources.Resources[ResourceID] then
+        return math.floor(entity.ActionResources.Resources[ResourceID][1].MaxAmount)
     else
         return 0
     end
 end
 
 --获取资源类型
-function Utils.Get.ActionReourceCooldown(Object,ReourceID)
+function Utils.Get.ActionResourceCooldown(Object,ResourceID)
     local entity = Ext.Entity.Get(Object)
     --_D(entity:GetAllComponents()) --DEBUG
-    if entity.ActionResources.Resources[ReourceID] then
-        return math.floor(entity.ActionResources.Resources[ReourceID][1].ReplenishType)
+    if entity.ActionResources.Resources[ResourceID] then
+        return math.floor(entity.ActionResources.Resources[ResourceID][1].ReplenishType)
     else
         return nil
     end
@@ -391,7 +390,6 @@ end
 function Utils.Get.MaxTemporaryHp(Object)
     local entity = Ext.Entity.Get(Object)
     --_D(entity:GetAllComponents())
-    _P(entity.Health.MaxTemporaryHp)
     return math.floor(entity.Health.MaxTemporaryHp)
 end
 
@@ -399,7 +397,6 @@ end
 function Utils.Get.TemporaryHp(Object)
     local entity = Ext.Entity.Get(Object)
     --_D(entity:GetAllComponents())
-    _P(entity.Health.TemporaryHp)
     return math.floor(entity.Health.TemporaryHp)
 end
 
@@ -656,7 +653,7 @@ end
 function Utils.ShenShi.Check(Object)
 
     if Osi.HasPassive(Object, 'BANXIAN_Shenshi') == 1 then
-        local k = Utils.Get.ActionReourceMax(Object,'0032115b-77c3-43c8-9385-630e657b2fcc')
+        local k = Utils.Get.ActionResourceMax(Object,'0032115b-77c3-43c8-9385-630e657b2fcc')
         if Ext.Stats.Get('BanXian_SS_BOOST_'..k) ~= nil then
             Osi.ApplyStatus(Object, 'BanXian_SS_BOOST_'..k, -1, 1, Object)
         else

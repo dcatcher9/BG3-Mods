@@ -420,7 +420,7 @@ Variables.Constants = {
 
         }
     },
-    SpellModifierList_Chnage = {
+    SpellModifierList_Change = {
         "PrepareEffect",
         "CastEffect",
         "Trajectories",
