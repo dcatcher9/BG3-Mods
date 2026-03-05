@@ -121,7 +121,7 @@ function Base.ShenTong.TianXian.Transform_Cancle(Caster, Status)
     Osi.ClearIndividualRelation(Caster, PersistentVars['BanXian_Target_Faction'])
 
         --遍历变身被动组，消除被动
-        local k = PersistentVars['BanXian_36_CopyPassives_Constant_'..Caster.."Number"]
+        local k = PersistentVars['BanXian_36_CopyPassives_Constant_'..Caster.."Number"] or 0
         _P(k) --DEBUG
         if k >= 1 then
             for i = 1, k, 1 do
@@ -137,7 +137,7 @@ function Base.ShenTong.TianXian.Transform_Cancle(Caster, Status)
         end
 
         --遍历变身状态组
-        local l = PersistentVars['BanXian_36_CopyStatus_Constant_'..Caster.."Number"]
+        local l = PersistentVars['BanXian_36_CopyStatus_Constant_'..Caster.."Number"] or 0
         _P(l) --DEBUG
         if l >= 1 then
             for j = 1, l, 1 do

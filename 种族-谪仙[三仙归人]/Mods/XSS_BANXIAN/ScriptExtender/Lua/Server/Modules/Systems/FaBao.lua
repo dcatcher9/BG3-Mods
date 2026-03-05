@@ -47,25 +47,6 @@ function FaBao.Init()
 end
 
 
--- 获取当前存档ID (关键!)
-local function GetSavegameID()
-    -- 方法1: 直接检查GameState可用性
-    if Ext.GameState and Ext.GameState.GetSavegameHandle then
-        local handle = Ext.GameState.GetSavegameHandle()
-        if handle and handle ~= "" then
-            return handle
-        end
-    end
-    
-    -- 方法2: 尝试通过其他方式获取存档ID
-    local sessionId = Ext.Game.GetCurrentLevel() or ""
-    if sessionId ~= "" then
-        return "session_"..sessionId
-    end
-    
-    -- 方法3: 使用全局回退ID
-    return "global_fallback"
-end
 
 -- 在修改前验证状态有效性
 function FaBao.ValidateStat(stat)
@@ -576,11 +557,15 @@ end
 function FaBao.RestoreStatsForSave_new()
     _P("恢复炼器数据") --DEBUG
     for _, ID in ipairs(Ext.Stats.GetStats("Weapon")) do
-        Utils.FaBao_LianQiLoadStats(ID)
+        if PersistentVars[ID.."_IsFABAO"] == true then
+            Utils.FaBao_LianQiLoadStats(ID)
+        end
     end
 
     for _, ID in ipairs(Ext.Stats.GetStats("Armor")) do
-        Utils.FaBao_LianQiLoadStats(ID)
+        if PersistentVars[ID.."_IsFABAO"] == true then
+            Utils.FaBao_LianQiLoadStats(ID)
+        end
     end
 
 end

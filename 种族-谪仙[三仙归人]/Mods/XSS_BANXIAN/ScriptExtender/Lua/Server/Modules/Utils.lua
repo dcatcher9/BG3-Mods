@@ -657,7 +657,7 @@ function Utils.ShenShi.Check(Object)
         if Ext.Stats.Get('BanXian_SS_BOOST_'..k) ~= nil then
             Osi.ApplyStatus(Object, 'BanXian_SS_BOOST_'..k, -1, 1, Object)
         else
-            Stats = Ext.Stats.Create('BanXian_SS_BOOST_'..k, 'StatusData', 'BanXian_SS_BOOST')
+            local Stats = Ext.Stats.Create('BanXian_SS_BOOST_'..k, 'StatusData', 'BanXian_SS_BOOST')
             if k ~= 0 then
                 Stats.Boosts = "IF(IsDamageTypePsychic()):DamageBonus("..k..",Psychic);DamageReduction(Psychic,Threshold,"..k..");Ability(Wisdom,"..k..")"
             end
@@ -685,7 +685,7 @@ function Utils.DaDao.Li(Object)
             if Ext.Stats.Get('BanXian_DH_STR_'..k) ~= nil then
                 Osi.ApplyStatus(Object, 'BanXian_DH_STR_'..k, -1, 1, Object)
             else
-                Stats = Ext.Stats.Create('BanXian_DH_STR_'..k, 'StatusData', 'BanXian_DH_STR')
+                local Stats = Ext.Stats.Create('BanXian_DH_STR_'..k, 'StatusData', 'BanXian_DH_STR')
                 Stats.Boosts = "Ability(Strength,"..k..")"
                 Stats:Sync()
                 Osi.ApplyStatus(Object, 'BanXian_DH_STR_'..k, -1, 1, Object)
@@ -705,7 +705,7 @@ function Utils.DaDao.Hehuan(Object)
             if Ext.Stats.Get('BanXian_DH_CHA_'..k) ~= nil then
                 Osi.ApplyStatus(Object, 'BanXian_DH_CHA_'..k, -1, 1, Object)
             else
-                Stats = Ext.Stats.Create('BanXian_DH_CHA_'..k, 'StatusData', 'BanXian_DH_CHA')
+                local Stats = Ext.Stats.Create('BanXian_DH_CHA_'..k, 'StatusData', 'BanXian_DH_CHA')
                 Stats.Boosts = "Ability(Charisma,"..k..")"
                 Stats:Sync()
                 Osi.ApplyStatus(Object, 'BanXian_DH_CHA_'..k, -1, 1, Object)

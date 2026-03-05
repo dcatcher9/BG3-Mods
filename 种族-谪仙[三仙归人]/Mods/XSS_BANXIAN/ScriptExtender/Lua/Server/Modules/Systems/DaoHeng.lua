@@ -26,7 +26,7 @@ function DaoHeng.Init()
     Ext.Osiris.RegisterListener("StatusApplied", 4, "after", DaoHeng.OnStatusApplied_after)
 
     -- 注册事件监听大道相关状态
-    Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", DaoHeng.OnStatusRemoved_before)
+    Ext.Osiris.RegisterListener("StatusRemoved", 4, "before", DaoHeng.OnStatusRemoved_before)
 
     -- 注册事件监听大道相关施法
     Ext.Osiris.RegisterListener("UsingSpell", 5, "after", DaoHeng.OnUsingSpell_after)
@@ -133,15 +133,14 @@ function DaoHeng.XiuLuo.AddDH(Target, BanXian)
     Ext.Utils.Print("[修罗道/天道][level]="..level.."[k]="..k.."[DH_Day]="..DH_Day.."[DH_Year]="..DH_Year.."[MaxHP]="..MaxHP)--debug
 
     local DH_Day_new = DH_Day + level*k
-    if DH_Day_new >= 365 then
+    while DH_Day_new >= 365 do
         DH_Year = DH_Year + 1
-        Osi.ApplyStatus(BanXian, 'BANXIAN_DH_YEAR', DH_Year*6, 1)
         DH_Day_new = DH_Day_new - 365
-        Osi.ApplyStatus(BanXian, 'BANXIAN_DH_DAY', DH_Day_new*6, 1)
     end
+    Osi.ApplyStatus(BanXian, 'BANXIAN_DH_YEAR', DH_Year*6, 1)
     Osi.ApplyStatus(BanXian, 'BANXIAN_DH_DAY', DH_Day_new*6, 1)
 
-    Ext.Utils.Print("[修罗道/天道 现有道行][DH_Day]="..DH_Day.."[DH_Year]="..DH_Year)--debug
+    Ext.Utils.Print("[修罗道/天道 现有道行][DH_Day]="..DH_Day_new.."[DH_Year]="..DH_Year)--debug
 end
 
 
@@ -219,7 +218,7 @@ function DaoHeng.EGUI.Functors_Eat(EGui,Target)
     local Food = Target
     if ( Ext.Entity.Get(Food):GetComponent("StatusContainer") ~= nil ) then
 	
-        for entry,_ in pairs(Ext.Entity.Get(Food).StatusContainer.Statuses) do
+        for _,entry in pairs(Ext.Entity.Get(Food).StatusContainer.Statuses) do
           -- 排除持续至长休的状态
           if ( Osi.GetStatusTurns(Food, entry.StatusID.ID) ~= -1 ) then
             local Filter = Utils.Filter.Status.IsSpecial(entry.StatusID.ID) or Utils.Filter.Status.IsDebuff(entry.StatusID.ID)

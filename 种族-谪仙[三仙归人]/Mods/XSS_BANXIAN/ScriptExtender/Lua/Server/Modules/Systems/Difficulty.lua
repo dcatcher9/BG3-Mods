@@ -113,25 +113,25 @@ function Difficulty.HardCore.Start(Object)
     if Level >= 5 and Level < 9 then --筑基
         Utils.AddPassive_Safe(Object,'ExtraAttack_BanXian')
     elseif Level >= 9 and Level < 13 then --结丹
-        Utils.AddPassive_Safe(Object,'ExtraAttack_BanXian_2')
+        Utils.AddPassive_Safe(Object,'ExtraAttack_2_BanXian')
         Utils.AddPassive_Safe(Object,'BANXIAN_JinDan')
         Utils.AddPassive_Safe(Object,'BANXIAN_JinDanBoosts')
     elseif Level >= 13 and Level < 21 then --元婴
-        Utils.AddPassive_Safe(Object,'ExtraAttack_BanXian_3')
+        Utils.AddPassive_Safe(Object,'ExtraAttack_3_BanXian')
         Utils.AddPassive_Safe(Object,'BANXIAN_YuanYing')
         Utils.AddPassive_Safe(Object,'BANXIAN_YuanYingBoosts')
     elseif Level >= 21 and Level < 41 then --化神
-        Utils.AddPassive_Safe(Object,'ExtraAttack_BanXian_4')
+        Utils.AddPassive_Safe(Object,'ExtraAttack_4_BanXian')
     elseif Level >= 41 and Level < 61 then --炼虚
-        Utils.AddPassive_Safe(Object,'ExtraAttack_BanXian_5')
+        Utils.AddPassive_Safe(Object,'ExtraAttack_5_BanXian')
     elseif Level >= 61 and Level < 81 then --合体
-        Utils.AddPassive_Safe(Object,'ExtraAttack_BanXian_6')
+        Utils.AddPassive_Safe(Object,'ExtraAttack_6_BanXian')
     elseif Level >= 81 and Level < 99 then --大乘
-        Utils.AddPassive_Safe(Object,'ExtraAttack_BanXian_7')
+        Utils.AddPassive_Safe(Object,'ExtraAttack_7_BanXian')
     elseif Level == 99 then --渡劫
-        Utils.AddPassive_Safe(Object,'ExtraAttack_BanXian_8')
+        Utils.AddPassive_Safe(Object,'ExtraAttack_8_BanXian')
     elseif Level >= 100 then --真仙
-        Utils.AddPassive_Safe(Object,'ExtraAttack_BanXian_9')
+        Utils.AddPassive_Safe(Object,'ExtraAttack_9_BanXian')
     end
 
 end

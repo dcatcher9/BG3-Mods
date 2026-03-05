@@ -61,7 +61,6 @@ function GongFa.Tianxian.ZhouTianCuiTi.ShortRest(Object)
     for ResourceUUID, ResourceList in pairs(entity.ActionResources.Resources) do
         for _, Resource in ipairs(ResourceList) do -- ResourceList是GUID对应的资源列表
             -- 处理逻辑
-        _D(Resource)
         local ReplenishType = Resource.ReplenishType
         for _, type in ipairs(ReplenishType) do
             if type == "ShortRest" then
@@ -70,18 +69,17 @@ function GongFa.Tianxian.ZhouTianCuiTi.ShortRest(Object)
         end
         end
     end
-    
+
 end
 
 --周天淬体诀:LONGREST
 function GongFa.Tianxian.ZhouTianCuiTi.LongRest(Object)
     local entity = Ext.Entity.Get(Object)
     --_D(entity.ActionResources) --DEBUG
-    
+
     for ResourceUUID, ResourceList in pairs(entity.ActionResources.Resources) do
         for _, Resource in ipairs(ResourceList) do -- ResourceList是GUID对应的资源列表
             -- 处理逻辑
-        _D(Resource)
         local ReplenishType = Resource.ReplenishType
         for _, type in ipairs(ReplenishType) do
             if type == "Rest" then

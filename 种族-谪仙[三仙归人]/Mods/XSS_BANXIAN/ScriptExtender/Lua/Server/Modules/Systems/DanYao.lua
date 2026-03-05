@@ -80,7 +80,7 @@ function DanYao.Drop.YaoCai(Object)
         end
 
         -- 判断是否掉落
-        if Level_Ex <= Level and Level >= droplevel then
+        if Level_Ex <= Level and (not droplevel or Level >= droplevel) then
             local templateID = id < 10 and '987e1e7e-9656-4fdf-a0d2-e745bca00a0'..id or '987e1e7e-9656-4fdf-a0d2-e745bca00a'..id
             Osi.TemplateAddTo(templateID, Object, Amount, 1)
             --_P("[DanYao.Drop.YaoCai] 掉落宝材：ID=", id, ", 数量=", Amount)  --DEBUG

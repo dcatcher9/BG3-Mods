@@ -246,7 +246,7 @@ function EventHandlers.OnLongRestFinished_after()
     if PersistentVars['GAME_DAYS'] == nil then
         PersistentVars['GAME_DAYS'] = 1
         _P('[PersistentVars]JL数据[GAME_DAYS]: '..1) --DEBUG
-    elseif PersistentVars['GAME_DAYS'] ~= nil then
+    else
         PersistentVars['GAME_DAYS'] = PersistentVars['GAME_DAYS'] + 1
         _P('[PersistentVars]JL数据[GAME_DAYS]: '..PersistentVars['GAME_DAYS']) --DEBUG
     end
