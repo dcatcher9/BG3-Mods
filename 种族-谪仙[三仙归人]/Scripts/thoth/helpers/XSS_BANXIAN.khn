@@ -14,10 +14,7 @@ function Shenshi_SourceSpellDC(fallbackDC, entity, ability)
 	local spellDC = fallbackDC or 10 -- Global default so that we don't return 0
     local ability = ability or context.PreferredCastingAbility
 	if entity.IsValid then
-        try
-		    spellDC = CalculateSpellDC(ability, entity)
-        catch e then
-        end
+		spellDC = CalculateSpellDC(ability, entity)
 	end
 	return spellDC
 end
@@ -44,23 +41,23 @@ function SpellDC_ShenshiControl(entity)
 end
 
 function IsTargetHPLess()
-    result = context.Source.HP > context.Target.HP
+    local result = context.Source.HP > context.Target.HP
     return ConditionResult(result)
 end
 
 function TargetHPLessThanYourStrength()
-    result = context.Source.Strength >= context.Target.HP
+    local result = context.Source.Strength >= context.Target.HP
     return ConditionResult(result)
 end
 
 function BLEEDINGPercentageMoreThan(value,entity)
     local entity = entity or context.Source
-    result = GetStatusDuration('BLEEDING', entity) > (entity.MaxHP * value)/100
+    local result = GetStatusDuration('BLEEDING', entity) > (entity.MaxHP * value)/100
     return ConditionResult(result)
 end
 
 function IsTargetWeaker()
-    result = (GetStatusDuration('BANXIAN_DH_YEAR', context.Source) >= GetStatusDuration('BANXIAN_DH_YEAR', context.Target) and GetStatusDuration('BANXIAN_DH_YEAR', context.Source) >= context.Target.Level) or HasStatus('DOMINATE_HEHUAN',context.Target)
+    local result = (GetStatusDuration('BANXIAN_DH_YEAR', context.Source) >= GetStatusDuration('BANXIAN_DH_YEAR', context.Target) and GetStatusDuration('BANXIAN_DH_YEAR', context.Source) >= context.Target.Level) or HasStatus('DOMINATE_HEHUAN',context.Target)
     return ConditionResult(result)
 end
 
@@ -70,7 +67,7 @@ end
 
 function CantResist(entity)
     local entity = entity or context.Target
-    result =  HasStatus('SG_Fleeing',entity) | HasStatus('SG_Incapacitated',entity) | HasStatus('SG_Unconscious',entity) | HasStatus('SG_Restrained',entity) | HasStatus('KNOCKED_OUT',entity) | HasStatus('SG_Dominated',entity) | HasStatus('SG_Sleeping',entity) | HasStatus('SG_Sleeping_Magical',entity)
+    local result =  HasStatus('SG_Fleeing',entity) | HasStatus('SG_Incapacitated',entity) | HasStatus('SG_Unconscious',entity) | HasStatus('SG_Restrained',entity) | HasStatus('KNOCKED_OUT',entity) | HasStatus('SG_Dominated',entity) | HasStatus('SG_Sleeping',entity) | HasStatus('SG_Sleeping_Magical',entity)
     return ConditionResult(result.Result, {ConditionError("CanResist")})
 end
 
@@ -386,7 +383,7 @@ end
 
 function HasLingGen(entity)
     local entity = entity or context.Target
-    result = HasStatus('BANXIAN_LG_H',entity) | HasStatus('BANXIAN_LG_T',entity) | HasStatus('BANXIAN_LG_J',entity) | HasStatus('BANXIAN_LG_S',entity) | HasStatus('BANXIAN_LG_M',entity)
+    local result = HasStatus('BANXIAN_LG_H',entity) | HasStatus('BANXIAN_LG_T',entity) | HasStatus('BANXIAN_LG_J',entity) | HasStatus('BANXIAN_LG_S',entity) | HasStatus('BANXIAN_LG_M',entity)
 
     return ConditionResult(result.Result, {ConditionError("notHasLingGen")})
 end
@@ -579,7 +576,7 @@ end
 function LightningChargeACCheck(entity)
     entity = entity or context.Source
 
-    result = GetStatusDuration('MAG_CHARGED_LIGHTNING', entity) ~= GetStatusDuration('MAG_CHARGED_LIGHTNING_LGLEI_AC', entity)
+    local result = GetStatusDuration('MAG_CHARGED_LIGHTNING', entity) ~= GetStatusDuration('MAG_CHARGED_LIGHTNING_LGLEI_AC', entity)
     return ConditionResult(result)
 end
 
@@ -589,7 +586,7 @@ function WZPLGLZDuration(value,entity)
     value = value or 0
     entity = entity or context.Source
 
-    result = GetStatusDuration('BANXIAN_WZPLG_LZ', entity) == value
+    local result = GetStatusDuration('BANXIAN_WZPLG_LZ', entity) == value
     return ConditionResult(result)
 end
 
@@ -812,11 +809,7 @@ end
 
 function TianDao_XinJiTooHigh(entity)
     local entity = entity or context.Source
-    result = GetStatusDuration('BANXIAN_STATUS_TIANDAO_XINJI', entity) > GetStatusDuration('BANXIAN_DH_YEAR', entity)
+    local result = GetStatusDuration('BANXIAN_STATUS_TIANDAO_XINJI', entity) > GetStatusDuration('BANXIAN_DH_YEAR', entity)
 
     return ConditionResult(result)
 end
-
-
-
-
