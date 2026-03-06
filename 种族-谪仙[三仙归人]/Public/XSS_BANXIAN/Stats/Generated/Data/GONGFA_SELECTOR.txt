@@ -48,7 +48,7 @@ type "PassiveData"
 data "DisplayName" "stringsofmodmadebyxss20240930dv009a01;1"
 data "Icon" "PassiveFeature_DraconicAncestry_Gold"
 data "Properties" "IsHidden"
-data "Boosts" "StatusImmunity(BURNING_YEHUO);Resistance(Fire,Immune); UnlockSpellVariant(SpellDamageTypeIs(DamageType.Fire),ModifyIconGlow(),ModifyTooltipDescription()); Resistance(Fire,Immune)"
+data "Boosts" "StatusImmunity(BURNING_YEHUO);Resistance(Fire,Immune); UnlockSpellVariant(SpellDamageTypeIs(DamageType.Fire),ModifyIconGlow(),ModifyTooltipDescription())"
 
 
 new entry "BURNING_BANXIAN_FIRE_OF_GOLD"
@@ -243,7 +243,7 @@ new entry "BURNING_BANXIAN_FIRE_OF_THREEMEI"
 type "StatusData"
 data "StatusType" "BOOST"
 using "BURNING_BANXIAN_FIRE_OF_GOLD"
-data "DisplayName" "stringsofmodmadebyxss20240930dv009a03;1"
+data "DisplayName" "stringsofmodmadebyxss20240930dv009a05;1"
 data "TooltipDamage" "DealDamage((Target.BURNING_BANXIAN_FIRE_OF_THREEMEI.Duration)d4,Fire,,,0,,true,true)"
 data "TickFunctors" "IF(not Tagged('TORCH')):DealDamage((Target.BURNING_BANXIAN_FIRE_OF_THREEMEI.Duration)d4,Fire,Magical,,0,,true,true)"
 data "OnApplyFunctors" "IF(not Tagged('TORCH')):DealDamage((Target.BURNING_BANXIAN_FIRE_OF_THREEMEI.Duration)d4,Fire,Magical,,0,,true,true)"
@@ -255,7 +255,6 @@ data "StatusEffect" "2156dd48-f83b-4060-9a4e-cab994da8857"
 /         怒血诀         //选修功法  
 /
 /////////////////////////////  
-//大品天仙诀  可以用气来代替法术位消耗
 new entry "BANXIAN_GONGFA_RageBloode"
 type "PassiveData"
 data "Icon" "PassiveFeature_BrutalCritical"

@@ -26,8 +26,7 @@ function ShenShi.OpenMessage(Object, Causee)
     local Message = RESULT_ZZ.."\n"..RESULT_LG.."\n"..RESULT_DD
 
     Osi.OpenMessageBox(Causee, Message)
-    LingGen.ApplyYiLingGen_Check(Object)
-    LingGen.ApplyTopLingGen_Check(Object)
+    LingGen.ApplyAllChecks(Object)
 
 end
 

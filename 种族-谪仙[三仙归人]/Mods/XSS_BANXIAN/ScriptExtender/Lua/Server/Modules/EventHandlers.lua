@@ -170,11 +170,7 @@ function EventHandlers.OnStatusApplied_after(Object, Status, Causee, StoryAction
         _P('LoadAppearance!') --DEBUG
         
     end
-    if Status == 'DEBUG_GETCLASS' then
-        local entity = Ext.Entity.Get(Object)
-        --_D('LoadAppearance!') --DEBUG
-        
-    end
+
     if Status == 'CUITI_ZHOUTIAN_OWNER' then
         Utils.BanXian.JingjieBoost(Object)
     end
@@ -201,8 +197,7 @@ function EventHandlers.OnTimerFinished_after(Timer)
         Osi.TimerLaunch('BanXian_AddLingGen_2', 2000)
     elseif Timer == "BanXian_AddLingGen_2" then
         local Object = PersistentVars['BXAddLingGen_Waiting']
-        Systems.LingGen.ApplyYiLingGen_Check(Object)
-        Systems.LingGen.ApplyTopLingGen_Check(Object)
+        Systems.LingGen.ApplyAllChecks(Object)
         PersistentVars['BXAddLingGen_Waiting'] = nil
     elseif Timer == 'Banxian_LuoPan_Caculate' then
         local Caster,X,Z = Variables.Constants.ZhenFa.LuoPan.Caster,Variables.Constants.ZhenFa.LuoPan.X,Variables.Constants.ZhenFa.LuoPan.Z
@@ -234,9 +229,6 @@ function EventHandlers.OnTimerFinished_after(Timer)
         end
     end
 
-    if Timer == "TianXian_DualAttackRecover" then
-        Systems.Base.TianXian.DualAttack_After()
-    end
 
 end
 

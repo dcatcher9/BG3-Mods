@@ -138,7 +138,6 @@ end
 
 --敌人修为增加：长休
 function Difficulty.IncreaseDH.LongRest()
-    local k = 1
     for key, Object in pairs(PersistentVars) do
         if string.find(key,'BANXIANLIST_NO.') and Osi.IsPlayer(Object) == 0 then
             if Object ~= nil and Osi.IsDead(Object) == 0 then
@@ -149,7 +148,7 @@ function Difficulty.IncreaseDH.LongRest()
                 local ZZ = math.max(1, Osi.GetStatusTurns(Object, 'BANXIAN_LG_TZ') or 1)
 
                 local IncreaseDays = 1
-                if ZZ ~= nil and Level ~=nil and Days ~= nil then
+                if Level ~= nil and Days ~= nil then
                     if IsBoss == 1 then
                         IncreaseDays = IncreaseDays*math.random(1,20)*ZZ*Level + Days
                     else
@@ -176,7 +175,6 @@ function Difficulty.IncreaseDH.LongRest()
                 end
 
             end
-            k = k + 1
         end
     end
 end
@@ -265,7 +263,7 @@ end
 -- 事件·难度状态监听
 function Difficulty.OnTutorialBoxClosed_after(Character, Message)
     _P('[Difficulty]OnTutorialBoxClosed_after')
-    --Utils.FaBao_LianQiSaveOriginalStats()
+    --Utils.FaBao_LianQiSaveAllStats("[OriginalStatsLianQi]")
 
 end
 

@@ -159,6 +159,12 @@ function LingGen.ApplyYiLingGen_Check(Object)
 
 end
 
+--合并检测（异灵根+主灵根，所有调用点均需同时触发两者）
+function LingGen.ApplyAllChecks(Object)
+    LingGen.ApplyYiLingGen_Check(Object)
+    LingGen.ApplyTopLingGen_Check(Object)
+end
+
 --主灵根检测（凡10/天50/仙150/圣500）
 function LingGen.ApplyTopLingGen_Check(Object)
 
@@ -246,7 +252,7 @@ function LingGen.Add_First(Object)
         _P('[Add_First] 大帝之资覆盖: r='..r..' TZ='..TZ)
     elseif Osi.HasPassive(Object, 'BanXian_LingGen_T2') == 1 then
         r,TZ = 20,2
-        _P('[Add_First] 仙天慧根覆盖: r='..r..' TZ='..TZ)
+        _P('[Add_First] 先天慧根覆盖: r='..r..' TZ='..TZ)
     elseif Osi.HasPassive(Object, 'BanXian_LingGen_T3') == 1 then
         r,TZ = 10,1
         _P('[Add_First] 平平无奇覆盖: r='..r..' TZ='..TZ)
@@ -262,7 +268,7 @@ function LingGen.Add_First(Object)
         -- 根据灵根类型生成偏向
         local Pf = {}
         local Pf_num
-        if r <= 20 then -- 平平无奇/仙天慧根（1-2个主属性）
+        if r <= 20 then -- 平平无奇/先天慧根（1-2个主属性）
             Pf_num = math.random(1,2)
             for k = 1, Pf_num do
                 repeat -- 确保不重复属性
@@ -339,7 +345,7 @@ function LingGen.Add_First(Object)
     elseif r == 20 then
         if Osi.HasPassive(Object,'BanXian_LingGen_T2') == 0 then
             Osi.AddPassive(Object, 'BanXian_LingGen_T2')
-            Ext.Utils.Print('觉醒灵根资质[仙天慧根]:'..TZ..'资质点')
+            Ext.Utils.Print('觉醒灵根资质[先天慧根]:'..TZ..'资质点')
         end
     elseif r == 10 then
         if Osi.HasPassive(Object,'BanXian_LingGen_T3') == 0 then
@@ -372,8 +378,7 @@ function LingGen.Add_First(Object)
         Osi.ApplyStatus(Object, 'BANXIAN_LG_M', lg.e * 6)
         Ext.Utils.Print('觉醒灵根[木]:'..lg.e..'/'..r)
     end
-    LingGen.ApplyYiLingGen_Check(Object)
-    LingGen.ApplyTopLingGen_Check(Object)
+    LingGen.ApplyAllChecks(Object)
     Utils.ShenShi.Check(Object)
     Utils.BanXianList_AddtoList(Object)
 end
@@ -404,12 +409,10 @@ function LingGen.Take_Devastatingly(caster, target)
     end
 
     --重新检测施法者灵根效果
-    LingGen.ApplyYiLingGen_Check(caster)
-    LingGen.ApplyTopLingGen_Check(caster)
+    LingGen.ApplyAllChecks(caster)
 
     --重新检测目标灵根效果（清除已失效的异灵根）
-    LingGen.ApplyYiLingGen_Check(target)
-    LingGen.ApplyTopLingGen_Check(target)
+    LingGen.ApplyAllChecks(target)
 
 end
 
@@ -463,8 +466,7 @@ function LingGen.OnStatusApplied_after(Object, Status, Causee)
     end
 
     if Status == 'SIGNAL_YLG_CHECK' then
-        LingGen.ApplyYiLingGen_Check(Object)
-        LingGen.ApplyTopLingGen_Check(Object)
+        LingGen.ApplyAllChecks(Object)
     end
 
     if Status == "SIGNAL_LG_HUNDUN_SHORTREST" then

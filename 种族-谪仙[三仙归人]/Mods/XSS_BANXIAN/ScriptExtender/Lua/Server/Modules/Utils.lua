@@ -158,7 +158,7 @@ end
 
 
 --获取境界值
-function Utils.GetBnaxianJingjie(Character)
+function Utils.GetBanxianJingjie(Character)
     local Level = Osi.GetLevel(Character)
 
     if Level >= 1 and Level < 5 then
@@ -478,44 +478,24 @@ end
 --                                         Save                                              --
 --                                                                                             --
 -------------------------------------------------------------------------------------------------
---备份原始数据
-function Utils.FaBao_LianQiSaveOriginalStats()
+--备份/保存所有炼器数据（prefix：存储键前缀，如"[OriginalStatsLianQi]"或"[SaveStatsLianQi]"）
+function Utils.FaBao_LianQiSaveAllStats(prefix)
     for _, ID in ipairs(Ext.Stats.GetStats("Weapon")) do
         local stat = Ext.Stats.Get(ID)
 
         for TYPE, VALUE in pairs(Variables.Constants.FaBao.Weapon) do
-            PersistentVars["[OriginalStatsLianQi]"..ID.."_"..TYPE] = stat[TYPE]
+            PersistentVars[prefix..ID.."_"..TYPE] = stat[TYPE]
         end
-        PersistentVars["[OriginalStatsLianQi]"..ID.."_Rarity"] = stat.Rarity
+        PersistentVars[prefix..ID.."_Rarity"] = stat.Rarity
     end
 
     for _, ID in ipairs(Ext.Stats.GetStats("Armor")) do
         local stat = Ext.Stats.Get(ID)
 
         for TYPE, VALUE in pairs(Variables.Constants.FaBao.Base) do
-            PersistentVars["[OriginalStatsLianQi]"..ID.."_"..TYPE] = stat[TYPE]
+            PersistentVars[prefix..ID.."_"..TYPE] = stat[TYPE]
         end
-        PersistentVars["[OriginalStatsLianQi]"..ID.."_Rarity"] = stat.Rarity
-    end
-end
-
-function Utils.FaBao_LianQiSaveOriginalStats_new()
-    for _, ID in ipairs(Ext.Stats.GetStats("Weapon")) do
-        local stat = Ext.Stats.Get(ID)
-
-        for TYPE, VALUE in pairs(Variables.Constants.FaBao.Weapon) do
-            PersistentVars["[SaveStatsLianQi]"..ID.."_"..TYPE] = stat[TYPE]
-        end
-        PersistentVars["[SaveStatsLianQi]"..ID.."_Rarity"] = stat.Rarity
-    end
-
-    for _, ID in ipairs(Ext.Stats.GetStats("Armor")) do
-        local stat = Ext.Stats.Get(ID)
-
-        for TYPE, VALUE in pairs(Variables.Constants.FaBao.Base) do
-            PersistentVars["[SaveStatsLianQi]"..ID.."_"..TYPE] = stat[TYPE]
-        end
-        PersistentVars["[SaveStatsLianQi]"..ID.."_Rarity"] = stat.Rarity
+        PersistentVars[prefix..ID.."_Rarity"] = stat.Rarity
     end
 end
 
@@ -878,7 +858,7 @@ end
 --------------------------------------------------------------------------------------------------
 ---刷新境界增益：炼体周天（力量、体质、智力、敏捷、魅力、感知）
 function Utils.BanXian.JingjieBoost(Object)
-    local JJ = Utils.GetBnaxianJingjie(Object)
+    local JJ = Utils.GetBanxianJingjie(Object)
     if not JJ then return end
 
     -- 累积加值：境界N获得前N级之和，即 2^N - 1
@@ -949,7 +929,6 @@ end
 --恢复谪仙数据
 function Utils.BanXianList_RecoverStatsStart()
 
-    local k = 1
     for key, Object in pairs(PersistentVars) do
         --_P(key)
         if string.find(key,'BANXIANLIST_NO.') then
@@ -970,7 +949,6 @@ function Utils.BanXianList_RecoverStatsStart()
                     Osi.ApplyStatus(Object, 'BANXIAN_LG_TZ', 12)
                 end
             end
-            k = k + 1
         end
     end
 

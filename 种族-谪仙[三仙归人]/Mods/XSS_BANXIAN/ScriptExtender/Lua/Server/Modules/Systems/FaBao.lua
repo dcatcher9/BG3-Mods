@@ -656,7 +656,7 @@ end
 function FaBao.GameLoded_LianQi()
     --备份原始数据
     if PersistentVars['LainQi_OriginalStats_Saved'] ~= 1 then
-        Utils.FaBao_LianQiSaveOriginalStats_new()
+        Utils.FaBao_LianQiSaveAllStats("[SaveStatsLianQi]")
         PersistentVars['LainQi_OriginalStats_Saved'] = 1
     end
     
@@ -697,7 +697,7 @@ function FaBao.OnStatusApplied_after(Object, Status, Causee)
 
         if Osi.GetStatusTurns(Object,'BANXIAN_FABAO_FIREBREATH_BURNING') >= FaBao.LianHua.GetThreshold(Object) and Osi.HasActiveStatus(Object,'BANXIAN_FABAO_ACTIVEBOOSTS') == 0 then
             FaBao.LianHua.GetBoosts(Object)
-            local Turn = Utils.GetBnaxianJingjie(Causee) + 1 --获取境界值
+            local Turn = Utils.GetBanxianJingjie(Causee) + 1 --获取境界值
             Osi.ApplyStatus(Causee,'BANXIAN_FABAO_ACTIVEBOOSTS',Turn*6,1,Causee)  --炼器状态
         end
 

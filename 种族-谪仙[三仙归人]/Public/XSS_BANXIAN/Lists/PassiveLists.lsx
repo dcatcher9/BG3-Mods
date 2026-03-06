@@ -5,7 +5,7 @@
     <node id="root">
       <children>
         <node id="PassiveList">
-          <attribute id="Name" type="LSString" value="Zizhi" />
+          <attribute id="Name" type="FixedString" value="Zizhi" />
           <attribute id="Passives" type="LSString" value="BanXian_LingGen_T0,BanXian_LingGen_T1,BanXian_LingGen_T2,BanXian_LingGen_T3,BanXian_LingGen_Blank" />
           <attribute id="UUID" type="guid" value="1d2d1f9a-5ff8-4547-be46-7d2a7569a001" />
         </node>

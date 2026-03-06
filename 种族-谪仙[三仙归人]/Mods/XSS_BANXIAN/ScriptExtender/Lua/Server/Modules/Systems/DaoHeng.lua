@@ -174,7 +174,7 @@ function DaoHeng.Tian.ReduceDH(Target, BanXian)
     if DH_Day_new < 0 then
         DH_Year = DH_Year - 1
         DH_Day_new = DH_Day_new + 365
-        if DH_Year > 0 then
+        if DH_Year >= 0 then
             Osi.ApplyStatus(BanXian, 'BANXIAN_DH_YEAR', DH_Year*6, 1)
         end
         Osi.ApplyStatus(BanXian, 'BANXIAN_DH_DAY', DH_Day_new*6, 1)

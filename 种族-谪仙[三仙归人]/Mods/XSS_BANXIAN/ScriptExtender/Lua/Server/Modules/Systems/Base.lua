@@ -92,15 +92,6 @@ function Base.TianXian.DualAttack_Before(Caster)
     end
 end
 
---双持攻击·施法后
-function Base.TianXian.DualAttack_After()
-    --local spell = Ext.Stats.Get('Target_MainHandAttack')
-    --_D(spell.DualWieldingUseCosts)
-    --spell.DualWieldingUseCosts = "BonusActionPoint:1"
-    --spell:Sync()
-    --_P('复原双持攻击')
-end
-
 
 
 
