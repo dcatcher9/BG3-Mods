@@ -69,6 +69,7 @@ function GongFa.Tianxian.ZhouTianCuiTi.ShortRest(Object)
         end
         end
     end
+    entity:Replicate("ActionResources")
 
 end
 
@@ -88,7 +89,8 @@ function GongFa.Tianxian.ZhouTianCuiTi.LongRest(Object)
         end
         end
     end
-    
+    entity:Replicate("ActionResources")
+
 end
 
 --百脉锻宝诀

@@ -1,4 +1,3 @@
-PersistentVars = {}
 local Variables = {}
 
 -- 常量

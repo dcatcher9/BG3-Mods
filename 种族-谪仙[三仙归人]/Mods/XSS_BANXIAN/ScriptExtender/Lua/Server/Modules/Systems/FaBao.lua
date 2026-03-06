@@ -532,27 +532,6 @@ function FaBao.LianHua.RecoverStatsStart_OnEquipped(FABAO)
 end
 
 
---新恢复逻辑
-function FaBao.RestoreStatsForSave()
-    -- 安全重置所有状态
-    _P("恢复炼器数据") --DEBUG
-    for _, ID in ipairs(Ext.Stats.GetStats("Weapon")) do
-        local stat = Ext.Stats.Get(ID)
-        if PersistentVars[ID.."_IsFABAO"] == true then
-            _P('恢复炼器数据'..ID) --DEBUG
-            Utils.FaBao_LianQiLoadStats(ID)
-        end
-    end
-
-    for _, ID in ipairs(Ext.Stats.GetStats("Armor")) do
-        local stat = Ext.Stats.Get(ID)
-        if PersistentVars[ID.."_IsFABAO"] == true then
-            _P('恢复炼器数据'..ID) --DEBUG
-            Utils.FaBao_LianQiLoadStats(ID)
-        end
-    end
-
-end
 
 function FaBao.RestoreStatsForSave_new()
     _P("恢复炼器数据") --DEBUG
@@ -669,7 +648,7 @@ end
 
 ---------------------------------------------------------
 --点金术-融化金币
-function BANXIAN_GOLDIFIED_ToGold(Object,Causee)
+local function BANXIAN_GOLDIFIED_ToGold(Object,Causee)
     local Weight = Utils.GetEntityWeight(Object)
 
     --Osi.TemplateAddTo("1c3c9c74-34a1-4685-989e-410dc080be6f", Causee, Weight*0.1,0)
@@ -774,15 +753,6 @@ function FaBao.OnUsingSpell_after(Caster, Spell, SpellType, SpellElement, StoryA
     end
 end
 
--- 事件·大道相关攻击后
-function FaBao.OnAttackedBy_after(Defender, AttackerOwner, Attacker, DamageType, DamageAmount, DamageCause, StoryActionID)
-
-    if Osi.HasActiveStatus(Defender, 'TIEZHONGXUE_BOOST_ARMOR_TECHNICAL_ROUND') == 1 and DamageAmount >= 1 then
-        --FaBao.Passives.Armor.TieZhongXue_RecoverHP(Defender,DamageAmount)
-    end
-
-end
-
 -- 事件·炼器相关选择后
 function FaBao.OnMessageBoxYesNoClosed(Character, Message, Result)
     if Message == PersistentVars['LianQi_Choice_Message'] then
@@ -815,22 +785,6 @@ end
 
 -- 事件·相关添加后
 function FaBao.OnTemplateAddedTo(Template, Object, InventoryHolder, AddType)
-    _P('添加物品') --DEBUG
-    --_P(Template)
-    --_P(Object)
-    --_P(AddType)
-    --_P(PersistentVars['BANXIAN_GOLDIFIED_ToGold_IsActive'])
-    if Template == "LOOT_Gold_A_1c3c9c74-34a1-4685-989e-410dc080be6fxxxx" and PersistentVars['BANXIAN_GOLDIFIED_ToGold_IsActive'] == true then
-        _P('转移金币') --DEBUG
-        local GoldenObj = PersistentVars['BANXIAN_GOLDIFIED_ToGold_ActiveObject']
-        local x,y,z = Osi.GetPosition(GoldenObj)
-        Osi.TeleportToPosition(Object, x, y, z, '', 0, 0, 0, 1, 0)
-
-        Osi.TeleportToPosition(GoldenObj, 0, 0, 0, '', 0, 0, 0, 1, 0)
-        Osi.RequestDelete(GoldenObj)
-        PersistentVars['BANXIAN_GOLDIFIED_ToGold_IsActive'] = nil
-        PersistentVars['BANXIAN_GOLDIFIED_ToGold_ActiveObject'] = nil
-    end
 end
 
 --读档监听

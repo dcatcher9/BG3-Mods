@@ -29,9 +29,6 @@ function DaoHeng.Init()
     Ext.Osiris.RegisterListener("StatusRemoved", 4, "before", DaoHeng.OnStatusRemoved_before)
 
     -- 注册事件监听大道相关施法
-    Ext.Osiris.RegisterListener("UsingSpell", 5, "after", DaoHeng.OnUsingSpell_after)
-
-    -- 注册事件监听大道相关施法
     Ext.Osiris.RegisterListener("UsingSpell", 5, "before", DaoHeng.OnUsingSpell_before)
 
     -- 注册事件监听大道相关施法
@@ -268,19 +265,19 @@ function DaoHeng.HeHuan.TakeDH(Caster,Target)
     increase_day = increase_day + Osi.GetStatusTurns(Caster, 'BANXIAN_DH_DAY')
     increase_year = increase_year + Osi.GetStatusTurns(Caster, 'BANXIAN_DH_YEAR')
 
-    if TAREGET_DH_YEAR > Osi.GetStatusTurns(Caster, 'BANXIAN_DH_YEAR') then
-        increase_year = Osi.GetStatusTurns(Caster, 'BANXIAN_DH_YEAR')/2
-
+    local caster_year = Osi.GetStatusTurns(Caster, 'BANXIAN_DH_YEAR')
+    if TAREGET_DH_YEAR > caster_year then
+        --目标道行更深：施法者损失一半年道行，但仍获得天数进度
+        increase_year = caster_year / 2
         Osi.ApplyStatus(Caster, 'BANXIAN_DH_YEAR', increase_year*6, 1)
-        Osi.ApplyStatus(Target, 'BANXIAN_DH_YEAR',(TAREGET_DH_YEAR+increase_year)*6, 1)
-        
-        else
-
-            Osi.RemoveStatus(Target, 'BANXIAN_DH_YEAR')
-            Osi.RemoveStatus(Target, 'BANXIAN_DH_DAY')
-            Osi.ApplyStatus(Caster, 'BANXIAN_DH_YEAR', increase_year*6, 1)
-            Osi.ApplyStatus(Caster, 'BANXIAN_DH_DAY', increase_day*6, 1)
-
+        Osi.ApplyStatus(Caster, 'BANXIAN_DH_DAY', increase_day*6, 1)
+        Osi.ApplyStatus(Target, 'BANXIAN_DH_YEAR', (TAREGET_DH_YEAR + increase_year)*6, 1)
+    else
+        --目标道行较浅：施法者夺取目标全部修为
+        Osi.RemoveStatus(Target, 'BANXIAN_DH_YEAR')
+        Osi.RemoveStatus(Target, 'BANXIAN_DH_DAY')
+        Osi.ApplyStatus(Caster, 'BANXIAN_DH_YEAR', increase_year*6, 1)
+        Osi.ApplyStatus(Caster, 'BANXIAN_DH_DAY', increase_day*6, 1)
     end
 end
 
@@ -348,7 +345,7 @@ end
 
 --合欢道随从承受伤害
 function DaoHeng.HeHuan.FollowerProtect(Defender, Attacker, DamageType, DamageAmount)
-    local Causee = Osi.GetTemplate(Defender)
+    local Causee = Defender
     for i = 1, 100, 1 do
         if PersistentVars['[HEHUAN_FOLLOWER]'..Causee..'_'..i] ~= nil then
             _P('[伤害转移至][NO.'..i..']:'..PersistentVars['[HEHUAN_FOLLOWER]'..Causee..'_'..i]) --debug
@@ -504,8 +501,8 @@ function DaoHeng.OnStatusApplied_before(Object, Status, Causee)
     if Status == 'DYING' and  Osi.HasActiveStatus(Object, 'BURNING_YEHUO') == 1 then
         _P('[携带业火死亡]： '..Object) --debug
         _P('[击杀者]： '..Causee) --debug
-        local Causee = Utils.Get.YeHuoSource(Object)
-        DaoHeng.DiYu.AddDH(Object,Causee)
+        local FireSource = Utils.Get.YeHuoSource(Object)
+        DaoHeng.DiYu.AddDH(Object, FireSource)
     end
 
 end
@@ -623,15 +620,6 @@ function DaoHeng.OnUsingSpellOnTarget_before(Caster, Target, Name)
             end
         end
     end
-end
-
--- 事件·大道相关施法后
-function DaoHeng.OnUsingSpell_after(Caster, Spell)
-    --if Spell == 'Target_MainHandAttack' then
-        --DaoHeng.ShiJian.Record(Caster)
-    --elseif Spell == 'Projectile_MainHandAttack' then
-        --DaoHeng.ShiJian.Reload(Caster)
-    --end
 end
 
 -- 事件·大道相关施法前
