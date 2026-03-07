@@ -19,9 +19,9 @@ function ShenShi.OpenMessage(Object, Causee)
     Utils.ShenShi.Check(Object)
 
     local ZZ,RESULT_ZZ = Utils.Get.ZiZhi(Object)
-    local LG_H,LG_T,LG_J,LG_S,LG_M,RESULT_LG = Utils.Get.LingGen(Object)
+    local _,_,_,_,_,RESULT_LG = Utils.Get.LingGen(Object)
     DaoHeng.Check(Object)
-    local DaDAO,DaDao_Name,DH_YEAR,DH_DAY,DaoHen,DaoHen_Name,DaoHen_Year,RESULT_DD = Utils.Get.Dao(Object)
+    local _,_,_,_,_,_,_,RESULT_DD = Utils.Get.Dao(Object)
 
     local Message = RESULT_ZZ.."\n"..RESULT_LG.."\n"..RESULT_DD
 

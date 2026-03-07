@@ -175,9 +175,6 @@ function DanYao.OnStatusApplied_after(Object, Status, Causee)
         local Empty = Osi.IsInventoryEmpty(Object)
         _P(DisplayName) --DEBUG
         _P(Empty) --DEBUG
-
-        local entity = Ext.Entity.Get(Object)
-        --_D(entity:GetAllComponents())
     end
 
 end

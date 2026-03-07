@@ -58,7 +58,7 @@ function GongFa.Tianxian.ZhouTianCuiTi.ShortRest(Object)
     local entity = Ext.Entity.Get(Object)
     --_D(entity.ActionResources) --DEBUG
     
-    for ResourceUUID, ResourceList in pairs(entity.ActionResources.Resources) do
+    for _, ResourceList in pairs(entity.ActionResources.Resources) do
         for _, Resource in ipairs(ResourceList) do -- ResourceList是GUID对应的资源列表
             -- 处理逻辑
         local ReplenishType = Resource.ReplenishType
@@ -78,7 +78,7 @@ function GongFa.Tianxian.ZhouTianCuiTi.LongRest(Object)
     local entity = Ext.Entity.Get(Object)
     --_D(entity.ActionResources) --DEBUG
 
-    for ResourceUUID, ResourceList in pairs(entity.ActionResources.Resources) do
+    for _, ResourceList in pairs(entity.ActionResources.Resources) do
         for _, Resource in ipairs(ResourceList) do -- ResourceList是GUID对应的资源列表
             -- 处理逻辑
         local ReplenishType = Resource.ReplenishType

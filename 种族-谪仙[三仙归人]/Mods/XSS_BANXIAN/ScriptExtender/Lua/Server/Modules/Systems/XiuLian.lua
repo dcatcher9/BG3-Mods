@@ -25,7 +25,7 @@ function XiuLian.Ki_Take(Object)
     local TZ = Osi.GetStatusTurns(Object, 'BANXIAN_LG_TZ')
 
     --获取灵根
-    local LG_H,LG_T,LG_J,LG_S,LG_M,RESULT_LG = Utils.Get.LingGen(Object)
+    local LG_H,LG_T,LG_J,LG_S,LG_M,_ = Utils.Get.LingGen(Object)
     local LG_TOTAL = LG_H + LG_T + LG_J + LG_S + LG_M
 
     if LG_TOTAL == 0 then return end  --灵根尚未觉醒，无法吸收灵气

@@ -39,17 +39,15 @@ function Difficulty.HardCore.Caculate_DaoHeng(k,Level,IsBoss,Days)
     local DH_YEAR = 0
     local DH_DAY = math.random(1,364)
 
-    local Days_increase = 1
     local min = 0
     local max = Level*k
     if IsBoss == 1 then
         min = 1  --BOSS保底
-        Days_increase = Days  --游戏天数加成
         DH_YEAR = max + Days
         _P('[Caculate_DaoHeng]'..DH_YEAR)
     elseif IsBoss ~= 1 then
         if math.random(1,4) < Level then
-            Days_increase = math.random(1,Days)  --游戏天数加成
+            local Days_increase = math.random(1,Days)  --游戏天数加成
             DH_YEAR = math.random(min,max) + Days_increase  --25%概率获得min~max年道行
             _P('[Caculate_DaoHeng]'..DH_YEAR)
         end
@@ -63,7 +61,6 @@ end
 function Difficulty.HardCore.Start(Object)
     local k = 1 --难度系数
     local Race_DaDao = Variables.Constants.Difficulty.Race_DaDao
-    local DADAO_NAME = Variables.Constants.DaDao
 
     --觉醒灵根
     LingGen.Add_First(Object)

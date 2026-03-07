@@ -41,7 +41,7 @@ end
 
 --刷新大道情况
 function DaoHeng.Check(Object)
-    local DaDAO,DaDao_Name,DH_YEAR,DH_DAY,DaoHen,DaoHen_Name,DaoHen_Year,RESULT_DD = Utils.Get.Dao(Object)
+    local DaDAO,_,DH_YEAR,_,DaoHen,_,DaoHen_Year,_ = Utils.Get.Dao(Object)
 
     --没有道痕或道心坚定时，同步道痕
     if (DaoHen == nil or DaoHen == Variables.Constants.DaoHen[DaDAO]) and DaDAO ~= nil and DH_YEAR ~= nil then
@@ -69,7 +69,7 @@ function DaoHeng.Daohen.Functors(Object)
     _P('触发道痕功能') --DEBUG
 
     --获取当前道行
-    local DaDAO,DaDao_Name,DH_YEAR,DH_DAY,DaoHen,DaoHen_Name,DaoHen_Year,RESULT_DD = Utils.Get.Dao(Object)
+    local DaDAO,_,DH_YEAR,_,DaoHen,_,DaoHen_Year,_ = Utils.Get.Dao(Object)
     if DaoHen_Year ~= nil then
 
         if DaoHen == Variables.Constants.DaoHen[DaDAO] then --道心坚定,加道行
@@ -205,14 +205,14 @@ function DaoHeng.HeHuan.TakeDH(Caster,Target)
     local level = Osi.GetLevel(Target)
     local MaxHP = Osi.GetMaxHitpoints(Target)
     local CASTER_LG_TZ = Osi.GetStatusTurns(Caster, 'BANXIAN_LG_TZ') or 0
-    local TAREGET_LG_TZ = Osi.GetStatusTurns(Target, 'BANXIAN_LG_TZ') or 0
-    local TAREGET_DH_YEAR = Osi.GetStatusTurns(Target, 'BANXIAN_DH_YEAR') or 0
+    local TARGET_LG_TZ = Osi.GetStatusTurns(Target, 'BANXIAN_LG_TZ') or 0
+    local TARGET_DH_YEAR = Osi.GetStatusTurns(Target, 'BANXIAN_DH_YEAR') or 0
 
-    local increase_day = level*(1+TAREGET_LG_TZ)
+    local increase_day = level*(1+TARGET_LG_TZ)
 
-    local P = math.max(0.05,(TAREGET_LG_TZ - CASTER_LG_TZ + 1)/20)
-    local increase_year = TAREGET_DH_YEAR*P
-    if MaxHP >= 100 and TAREGET_DH_YEAR == 0 then
+    local P = math.max(0.05,(TARGET_LG_TZ - CASTER_LG_TZ + 1)/20)
+    local increase_year = TARGET_DH_YEAR*P
+    if MaxHP >= 100 and TARGET_DH_YEAR == 0 then
         for i = 1, 10, 1 do
             MaxHP = MaxHP/10
             if math.floor(MaxHP) >= 1 then
@@ -229,12 +229,12 @@ function DaoHeng.HeHuan.TakeDH(Caster,Target)
     increase_year = increase_year + (Osi.GetStatusTurns(Caster, 'BANXIAN_DH_YEAR') or 0)
 
     local caster_year = Osi.GetStatusTurns(Caster, 'BANXIAN_DH_YEAR') or 0
-    if TAREGET_DH_YEAR > caster_year then
+    if TARGET_DH_YEAR > caster_year then
         --目标道行更深：施法者损失一半年道行，但仍获得天数进度
         increase_year = caster_year / 2
         Osi.ApplyStatus(Caster, 'BANXIAN_DH_YEAR', increase_year*6, 1)
         Osi.ApplyStatus(Caster, 'BANXIAN_DH_DAY', increase_day*6, 1)
-        Osi.ApplyStatus(Target, 'BANXIAN_DH_YEAR', (TAREGET_DH_YEAR + increase_year)*6, 1)
+        Osi.ApplyStatus(Target, 'BANXIAN_DH_YEAR', (TARGET_DH_YEAR + increase_year)*6, 1)
     else
         --目标道行较浅：施法者夺取目标全部修为
         Osi.RemoveStatus(Target, 'BANXIAN_DH_YEAR')
@@ -304,12 +304,12 @@ end
 
 --合欢道随从承受伤害
 function DaoHeng.HeHuan.FollowerProtect(Defender, Attacker, DamageType, DamageAmount)
-    local Causee = Defender
-    local count = PersistentVars['[HEHUAN_COUNT]'..Causee] or 0
+    local Leader = Defender
+    local count = PersistentVars['[HEHUAN_COUNT]'..Leader] or 0
     for i = 1, count, 1 do
-        if PersistentVars['[HEHUAN_FOLLOWER]'..Causee..'_'..i] ~= nil then
-            _P('[伤害转移至][NO.'..i..']:'..PersistentVars['[HEHUAN_FOLLOWER]'..Causee..'_'..i]) --debug
-            Osi.ApplyDamage(PersistentVars['[HEHUAN_FOLLOWER]'..Causee..'_'..i], DamageAmount, DamageType, Attacker)
+        if PersistentVars['[HEHUAN_FOLLOWER]'..Leader..'_'..i] ~= nil then
+            _P('[伤害转移至][NO.'..i..']:'..PersistentVars['[HEHUAN_FOLLOWER]'..Leader..'_'..i]) --debug
+            Osi.ApplyDamage(PersistentVars['[HEHUAN_FOLLOWER]'..Leader..'_'..i], DamageAmount, DamageType, Attacker)
             Osi.SetHitpoints(Defender, Osi.GetHitpoints(Defender)+DamageAmount)
             break
         end

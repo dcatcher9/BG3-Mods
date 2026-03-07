@@ -2,9 +2,7 @@ local Variables = {}
 
 -- 常量
 Variables.Constants = {
-    Hostile = {
-        Concentration_SpellFlags = {}
-    },
+    Hostile = {},
     Filter = {
         Status = {
             IsSpecialID = {
@@ -190,16 +188,6 @@ Variables.Constants = {
             "MAG_POISON_POISON_LETHALITY"
         }
     },
-    YiLingGen= {
-        ['BANXIAN_LG_BING'] = '冰灵根',
-        ['BANXIAN_LG_FENG'] = '风灵根',
-        ['BANXIAN_LG_LEI'] = '雷灵根',
-        ['BANXIAN_LG_XUE'] = '血灵根',
-        ['BANXIAN_LG_GUANG'] = '光灵根',
-        ['BANXIAN_LG_AN'] = '暗灵根',
-        ['BANXIAN_LG_DU'] = '毒灵根',
-        ['BANXIAN_LG_HUNDUN'] = '混沌灵根'
-    },
     DaDao = {
     ['BanXian_DH_Tian'] = '天道',
     ['BanXian_DH_XiuLuo'] = '修罗道',
@@ -223,26 +211,6 @@ Variables.Constants = {
     ['BanXian_DH_Li'] = 'BANXIAN_DH_MARK_LI',
     ['BanXian_DH_HeHuan'] = 'BANXIAN_DH_MARK_HEHUAN',
     ['BanXian_DH_Yi'] = 'BANXIAN_DH_MARK_YI'
-    },
-    DaoHenNum = {
-        ['BANXIAN_DH_MARK_TIAN'] = 0,
-        ['BANXIAN_DH_MARK_XIULUO'] = 0,
-        ['BANXIAN_DH_MARK_RENJIAN'] = 0,
-        ['BANXIAN_DH_MARK_CHUSHENG'] = 0,
-        ['BANXIAN_DH_MARK_EGUI'] = 0,
-        ['BANXIAN_DH_MARK_DIYU'] = 0,
-        ['BANXIAN_DH_MARK_JIAN'] = 0,
-        ['BANXIAN_DH_MARK_LI'] = 0,
-        ['BANXIAN_DH_MARK_HEHUAN'] = 0,
-        ['BANXIAN_DH_MARK_YI'] = 0
-    },
-    XiuWei = {
-        ["BANXIAN_DH_YEAR"] = "年",
-        ["BANXIAN_DH_DAY"] = "天",
-        Num = {
-            "BANXIAN_DH_YEAR",
-            "BANXIAN_DH_DAY"
-        }
     },
     ZhenFa = {
         LuoPan = {
@@ -275,16 +243,6 @@ Variables.Constants = {
             ['ZhenFa_Flags_Gen'] = '艮',
             ['ZhenFa_Flags_Dui'] = '兑'
         },
-        FlagsParams = {
-            ['FlagsPosition'] = {
-                ['X'] = {},
-                ['Z'] = {}
-            },
-            ['FlagsTowards'] = {
-            },
-            ['FlagsRadius'] = {
-            }
-        }
     },
     GongFa = {
         BaiMai = {
@@ -419,13 +377,6 @@ Variables.Constants = {
 
         }
     },
-    SpellModifierList_Change = {
-        "PrepareEffect",
-        "CastEffect",
-        "Trajectories",
-        "Icon",
-        "SpellAnimation"
-    }
 }
 
 -- 持久化数据

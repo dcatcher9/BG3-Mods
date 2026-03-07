@@ -49,7 +49,7 @@ function ZhenFa.Core.Check(CoreRadius,Offset)
         if PersistentVars[FLAG] ~= nil then
             local Flag = PersistentVars[FLAG]
             local ToWards = Variables.Constants.ZhenFa.Core.JuLing.ToWards[FLAG]
-            local X,Y,TW,Radius = Utils.ZhenFa.GetFlagsParams(Flag,Core)
+            local _,_,TW,Radius = Utils.ZhenFa.GetFlagsParams(Flag,Core)
             if TW ~= ToWards then
                 return '未激活]原因：'..NAME..'旗方位不是'..ToWards
             end
@@ -93,8 +93,8 @@ function ZhenFa.Flags.Check(Object,Core)
     if Core ~= nil then
         for FLAG, NAME in pairs(Variables.Constants.ZhenFa.Flags) do
             if PersistentVars[FLAG] == Object then
-                local X,Y,TW,Radius = Utils.ZhenFa.GetFlagsParams(Object,Core)
-                _P('[安置阵旗参数]'..NAME..": "..'相对坐标('..X..','..Y..')'..' 方位：'..TW.." 距离："..Radius)
+                local X,Z,TW,Radius = Utils.ZhenFa.GetFlagsParams(Object,Core)
+                _P('[安置阵旗参数]'..NAME..": "..'相对坐标('..X..','..Z..')'..' 方位：'..TW.." 距离："..Radius)
             end
         end
         local STATU = ZhenFa.Core.Functors(6,6.8)

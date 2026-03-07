@@ -470,7 +470,7 @@ function Utils.FaBao_LianQiSaveAllStats(prefix)
     for _, ID in ipairs(Ext.Stats.GetStats("Weapon")) do
         local stat = Ext.Stats.Get(ID)
 
-        for TYPE, VALUE in pairs(Variables.Constants.FaBao.Weapon) do
+        for TYPE, _ in pairs(Variables.Constants.FaBao.Weapon) do
             PersistentVars[prefix..ID.."_"..TYPE] = stat[TYPE]
         end
         PersistentVars[prefix..ID.."_Rarity"] = stat.Rarity
@@ -479,7 +479,7 @@ function Utils.FaBao_LianQiSaveAllStats(prefix)
     for _, ID in ipairs(Ext.Stats.GetStats("Armor")) do
         local stat = Ext.Stats.Get(ID)
 
-        for TYPE, VALUE in pairs(Variables.Constants.FaBao.Base) do
+        for TYPE, _ in pairs(Variables.Constants.FaBao.Base) do
             PersistentVars[prefix..ID.."_"..TYPE] = stat[TYPE]
         end
         PersistentVars[prefix..ID.."_Rarity"] = stat.Rarity
@@ -499,7 +499,7 @@ function Utils.FaBao_LianQiSaveStats(FABAO)
         TYPE_TABLE = Variables.Constants.FaBao.Weapon
     end
 
-    for TYPE, VALUE in pairs(TYPE_TABLE) do
+    for TYPE, _ in pairs(TYPE_TABLE) do
         PersistentVars["[SaveStatsLianQi]"..FABAO.."_"..TYPE] = stat[TYPE]
     end
     PersistentVars["[SaveStatsLianQi]"..FABAO.."_Rarity"] = stat.Rarity
@@ -516,8 +516,8 @@ end
 function Utils.FaBao_LianQiLoadOriginalStats(ID,Statstable,Rarity)
     local stat = Ext.Stats.Get(ID)
 
-    for TYPE, VALUE in pairs(Statstable) do
-        stat[TYPE] = VALUE
+    for TYPE, value in pairs(Statstable) do
+        stat[TYPE] = value
     end
     stat.Rarity = Rarity
     stat:Sync()
@@ -539,7 +539,7 @@ function Utils.FaBao_LianQiLoadStats(FABAO)
         TYPE_TABLE = Variables.Constants.FaBao.Weapon
     end
 
-    for TYPE, VALUE in pairs(TYPE_TABLE) do
+    for TYPE, _ in pairs(TYPE_TABLE) do
         stat[TYPE] = PersistentVars["[SaveStatsLianQi]"..FABAO.."_"..TYPE]
     end
     stat.Rarity = PersistentVars["[SaveStatsLianQi]"..FABAO.."_Rarity"]
@@ -579,11 +579,11 @@ end
 --计算阵旗参数
 function Utils.ZhenFa.GetFlagsParams(Flag,Core)
 
-    local X,Y = Utils.ZhenFa.GetInPosition(Flag,Core)
+    local X,Z = Utils.ZhenFa.GetInPosition(Flag,Core)
     local TW = Utils.ZhenFa.GetFlagsTowards(Flag,Core)
     local Radius = Utils.ZhenFa.GetCoreDistance(Flag,Core)
-    
-    return X,Y,TW,Radius
+
+    return X,Z,TW,Radius
 end
 
 
@@ -593,7 +593,7 @@ end
 --                                                                                             --
 -------------------------------------------------------------------------------------------------
 --随机灵根
-function Utils.LingGen.Random(k)
+function Utils.LingGen.Random(_)
     local r, TZ = 100,1
     local z = math.random(1, 1000000)
     if z <= 5000 then         -- 0.5% 先天道体（T0）
@@ -806,7 +806,7 @@ end
 
 --状态过滤器·特殊状态
 function Utils.Filter.Status.IsSpecial(ID)
-    local EAT_STATUS_EGUI_FILTER_consistant = Variables.Constants.Filter.Status.IsSpecialID
+    local specialStatusPrefixes = Variables.Constants.Filter.Status.IsSpecialID
     local status = nil
     local flags = nil
     _P(ID) --DEBUG
@@ -826,7 +826,7 @@ function Utils.Filter.Status.IsSpecial(ID)
             end
         end
     end
-    for _,key in pairs(EAT_STATUS_EGUI_FILTER_consistant) do
+    for _,key in pairs(specialStatusPrefixes) do
         if string.find(ID, key) then
             _P(ID.."饿鬼道检查:特定状态")
             return true
@@ -837,17 +837,17 @@ end
 
 --状态过滤器·DEBUFF
 function Utils.Filter.Status.IsDebuff(ID)
-    local STEAL_STATUS_EGUI_FILTER_consistant = Variables.Constants.Filter.Status.EGuiDebuff
-    local STEAL_STATUS_EGUI_FILTER_consistant_SDEBUFF = Variables.Constants.Filter.Status.EGuiDebuff_Special
+    local debuffGroups = Variables.Constants.Filter.Status.EGuiDebuff
+    local specialDebuffPrefixes = Variables.Constants.Filter.Status.EGuiDebuff_Special
     local status = Ext.Stats.Get(ID)
     _P(ID) --DEBUG
-    for _,key in pairs(STEAL_STATUS_EGUI_FILTER_consistant) do
+    for _,key in pairs(debuffGroups) do
         if Osi.IsStatusFromGroup(ID, key) == 1 then
             _P(ID.."饿鬼道过滤:负面状态[GROUP]: "..key)
             return true
         end
     end
-    for _,key in pairs(STEAL_STATUS_EGUI_FILTER_consistant_SDEBUFF) do
+    for _,key in pairs(specialDebuffPrefixes) do
         if string.find(ID, key) then
             _P(ID.."饿鬼道过滤:负面状态[SPECIAL]: "..key)
             return true
@@ -960,12 +960,10 @@ end
 function Utils.Difficulty.YesNoChoice()
 
     --勾选难度选项
-    local Message_Difficulty = Variables.Constants.Difficulty.MessageBox.default
     local Message_Difficulty_AGE = Variables.Constants.Difficulty.MessageBox.Age
     local Message_Difficulty_A1 = Variables.Constants.Difficulty.MessageBox.Age_1
     local Message_Difficulty_A2 = Variables.Constants.Difficulty.MessageBox.Age_2
     if PersistentVars['Difficulty_Result'] ~= 1 then
-        --Osi.OpenMessageBoxYesNo(Osi.GetHostCharacter(), Message_Difficulty)
         Osi.OpenMessageBoxChoice(Osi.GetHostCharacter(), Message_Difficulty_AGE, Message_Difficulty_A1, Message_Difficulty_A2)
     end
 

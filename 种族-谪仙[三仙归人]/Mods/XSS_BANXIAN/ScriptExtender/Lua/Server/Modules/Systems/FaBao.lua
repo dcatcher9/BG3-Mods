@@ -221,16 +221,12 @@ function FaBao.LianHua.GetThreshold(Object)
     if Osi.GetStatString(Object) then
         local Material = Osi.GetStatString(Object)
         local stat = Ext.Stats.Get(Material)
-        for key, string in pairs(stat) do
-            if key == 'Rarity' then
-                local Rarity = stat['Rarity']
-                local Rarity_table = Variables.Constants.FaBao.GetThreshold
-                if stat['ModifierList'] == "Weapon" or stat['ModifierList'] == "Armor" then
-                    for R, value in pairs(Rarity_table) do
-                        if R == Rarity then
-                            return value
-                        end
-                    end
+        local Rarity = stat['Rarity']
+        local Rarity_table = Variables.Constants.FaBao.GetThreshold
+        if stat['ModifierList'] == "Weapon" or stat['ModifierList'] == "Armor" then
+            for R, value in pairs(Rarity_table) do
+                if R == Rarity then
+                    return value
                 end
             end
         end
@@ -277,7 +273,6 @@ function FaBao.LianHua.LianYao(Object,Causee)
     local DeathType = Osi.GetDeathType(Object) or "None"
     local Level = Osi.GetLevel(Object) or 1
     local Progression = Osi.GetStatusTurns(Object, 'BANXIAN_FABAO_FIREBREATH_BURNING')
-    local X,Y,Z = Osi.GetPosition(Object)
     local BaoCai_Probabilities = Variables.Constants.DanYao.DropProbabilities.BaoCai
 
     local DROP = false
@@ -702,16 +697,6 @@ end
 -- 事件·炼器相关装备后
 function FaBao.OnEquipped_after(Item, Character)
     local FABAO = Osi.GetStatString(Item)
-    local TYPE_TABLE = Variables.Constants.FaBao.Base
-    local stat = Ext.Stats.Get(FABAO)
-    --local entity = Ext.Entity.Get(Item)
-    --entity:Replicate("GameObjectVisual")
-    --entity:Replicate("AllComponents")
-    
-    if stat['ModifierList'] == 'Weapon' then
-        TYPE_TABLE = Variables.Constants.FaBao.Weapon
-    end
-
     FaBao.LianHua.RecoverStatsStart_OnEquipped(FABAO)
 end
 
