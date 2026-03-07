@@ -51,11 +51,11 @@ function DaoHeng.Check(Object)
 
     --没有道痕或道心坚定时，同步道痕
     if (DaoHen == nil or DaoHen == Variables.Constants.DaoHen[DaDAO]) and DaDAO ~= nil and DH_YEAR ~= nil then
-        local DaoHen = Variables.Constants.DaoHen[DaDAO]
+        local DaoHen_correct = Variables.Constants.DaoHen[DaDAO]
 
         if DaoHen_Year ~= nil and DH_YEAR ~= nil then
             if DaoHen_Year < DH_YEAR then
-                Osi.ApplyStatus(Object, DaoHen, DH_YEAR*6, 1, Object)
+                Osi.ApplyStatus(Object, DaoHen_correct, DH_YEAR*6, 1, Object)
                 _P('同步道痕') --DEBUG
             end
         end
@@ -262,10 +262,10 @@ function DaoHeng.HeHuan.TakeDH(Caster,Target)
         increase_day = increase_day + MaxHP
     end
     _P('[合欢道采补修为]'..increase_year..'年'..increase_day..'天')
-    increase_day = increase_day + Osi.GetStatusTurns(Caster, 'BANXIAN_DH_DAY')
-    increase_year = increase_year + Osi.GetStatusTurns(Caster, 'BANXIAN_DH_YEAR')
+    increase_day  = increase_day  + (Osi.GetStatusTurns(Caster, 'BANXIAN_DH_DAY')  or 0)
+    increase_year = increase_year + (Osi.GetStatusTurns(Caster, 'BANXIAN_DH_YEAR') or 0)
 
-    local caster_year = Osi.GetStatusTurns(Caster, 'BANXIAN_DH_YEAR')
+    local caster_year = Osi.GetStatusTurns(Caster, 'BANXIAN_DH_YEAR') or 0
     if TAREGET_DH_YEAR > caster_year then
         --目标道行更深：施法者损失一半年道行，但仍获得天数进度
         increase_year = caster_year / 2
@@ -287,8 +287,8 @@ function DaoHeng.HeHuan.AddFollower(Object,Causee)
     _P('**************************************') --DEBUG
     _P('[合欢道]开始添加随从：') --DEBUG
     local level = Osi.GetLevel(Object)
-    local DH_YEAR = Osi.GetStatusTurns(Causee, 'BANXIAN_DH_YEAR')
-    local TARGET_DH_YEAR = Osi.GetStatusTurns(Object, 'BANXIAN_DH_YEAR')
+    local DH_YEAR = Osi.GetStatusTurns(Causee, 'BANXIAN_DH_YEAR') or 0
+    local TARGET_DH_YEAR = Osi.GetStatusTurns(Object, 'BANXIAN_DH_YEAR') or 0
     Osi.ApplyStatus(Causee,'BANXIAN_DH_YEAR', (DH_YEAR-level)*6, 1)
     Osi.ApplyStatus(Object,'BANXIAN_DH_YEAR', (TARGET_DH_YEAR+level)*6, 1)
     Osi.SetFaction(Object, Osi.GetFaction(Causee))
@@ -520,6 +520,7 @@ end
 function DaoHeng.OnStatusApplied_after(Object, Status, Causee)
 
     if Status == 'BANXIAN_DH_DAY' or Status == 'BANXIAN_DH_YEAR' or Status == 'SIGNAL_DAOXINCHECK' then
+        Utils.DaDao.ConvertDayToYear(Object)
         DaoHeng.Check(Object)
         Utils.DaDao.Hehuan(Object)
         Utils.DaDao.Li(Object)
@@ -531,7 +532,7 @@ function DaoHeng.OnStatusApplied_after(Object, Status, Causee)
     elseif Status == 'DOMINATE_HEHUAN' then
         DaoHeng.HeHuan.AddFollower(Object,Causee)
     elseif Status == 'SIGNAL_BanXian_HEHUAN_REMOVEPARTYFOLLOWER' then
-        DaoHeng.HeHuan.RemoveFollower(Object, Causee)
+        DaoHeng.HeHuan.RemoveFollower(Object)
         Osi.ClearIndividualRelation(Causee, Osi.GetFaction(Object))
         _P('[合欢道]强制移除') --DEBUG
     elseif Status == 'SIGNAL_DH_EGui' and Object ~= Causee then --饿鬼道偷取状态

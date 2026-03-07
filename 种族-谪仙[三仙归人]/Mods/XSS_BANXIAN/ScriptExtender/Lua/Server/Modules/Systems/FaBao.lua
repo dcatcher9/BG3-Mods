@@ -257,7 +257,6 @@ function FaBao.LianHua.GetBoosts(Object)
 
     local stat = Ext.Stats.Get(Material)
     local IsBaoCai = FaBao.LianHua.IsBaoCaiCheck(Material)
-    _D(stat)
 
     --储存材料增益
     Variables.Constants.FaBao.ActiveMaterial = Material
@@ -628,9 +627,9 @@ end
 
 function FaBao.GameLoded_LianQi()
     --备份原始数据
-    if PersistentVars['LainQi_OriginalStats_Saved'] ~= 1 then
+    if PersistentVars['LianQi_OriginalStats_Saved'] ~= 1 then
         Utils.FaBao_LianQiSaveAllStats("[SaveStatsLianQi]")
-        PersistentVars['LainQi_OriginalStats_Saved'] = 1
+        PersistentVars['LianQi_OriginalStats_Saved'] = 1
     end
     
 
@@ -714,29 +713,6 @@ function FaBao.OnEquipped_after(Item, Character)
     
     if stat['ModifierList'] == 'Weapon' then
         TYPE_TABLE = Variables.Constants.FaBao.Weapon
-    end
-
-    _P('[////////////是否是法宝]：') --DEBUG
-    _P(PersistentVars[FABAO.."_IsFABAO"]) --DEBUG
-
-    _P('[////////////炼器数据]：') --DEBUG
-    for TYPE, VALUE in pairs(TYPE_TABLE) do
-        if PersistentVars["[SaveStatsLianQi]"..FABAO.."_"..TYPE] ~= nil then
-            _P("["..TYPE.."]"..PersistentVars["[SaveStatsLianQi]"..FABAO.."_"..TYPE]) --DEBUG
-        end
-    end
-    if PersistentVars["[SaveStatsLianQi]"..FABAO.."_Rarity"] then
-        _P("[Rarity]"..PersistentVars["[SaveStatsLianQi]"..FABAO.."_Rarity"])
-    end
-
-    _P('////////////[原始数据]:') --DEBUG
-    for TYPE, VALUE in pairs(Variables.Constants.FaBao.Weapon) do
-        if PersistentVars["[OriginalStatsLianQi]"..FABAO.."_"..TYPE] ~= nil then
-            _P("["..TYPE.."]"..PersistentVars["[OriginalStatsLianQi]"..FABAO.."_"..TYPE]) --DEBUG
-        end
-    end
-    if PersistentVars["[OriginalStatsLianQi]"..FABAO.."_Rarity"] ~= nil then
-        _P("[Rarity]"..PersistentVars["[OriginalStatsLianQi]"..FABAO.."_Rarity"])
     end
 
     FaBao.LianHua.RecoverStatsStart_OnEquipped(FABAO)

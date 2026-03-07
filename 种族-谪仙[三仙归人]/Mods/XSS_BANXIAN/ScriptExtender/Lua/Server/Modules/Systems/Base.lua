@@ -254,10 +254,10 @@ end
 -- 事件·基础施法后
 function Base.OnUsingSpell_after(Caster, Spell, SpellType, SpellElement, StoryActionID)
 
-    if string.find(Spell,'Projectile_Fly') and Osi.HasActiveStatus(Caster, 'BIANXIAN_DAOXIN') == 1 and Osi.HasActiveStatus(Caster, 'BANXIAN_ANIMATION_FLY') == 0 then
+    if string.find(Spell,'Projectile_Fly') and Osi.HasActiveStatus(Caster, 'BANXIAN_DAOXIN') == 1 and Osi.HasActiveStatus(Caster, 'BANXIAN_ANIMATION_FLY') == 0 then
         --Osi.ApplyStatus(Caster, 'BANXIAN_ANIMATION_FLY', -1, 1)
         --_P('谪仙姿态：飞行')
-    elseif string.find(Spell,'Projectile_Jump') and Osi.HasActiveStatus(Caster, 'BIANXIAN_DAOXIN') == 1 then
+    elseif string.find(Spell,'Projectile_Jump') and Osi.HasActiveStatus(Caster, 'BANXIAN_DAOXIN') == 1 then
         --Osi.RemoveStatus(Caster, 'BANXIAN_ANIMATION_FLY')
         --_P('谪仙姿态：行走')
     --elseif Osi.HasActiveStatus(Caster, 'BANXIAN_YUANYING_CONCENTRATION') == 1 and Spell ~= 'BANXIAN_YYNoMoreConcentration' then

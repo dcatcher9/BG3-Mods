@@ -85,7 +85,7 @@ function Difficulty.HardCore.Start(Object)
     if #DaDao_table > 0 then
         _D(DaDao_table)
         local key = math.random(1,maxrandom)
-        for i, Name in pairs(DaDao_table) do
+        for i, Name in ipairs(DaDao_table) do
             if i == key then
                 local DaDao = Utils.Get.DaDaoPassive(Name)
                 Utils.AddPassive_Safe(Object,DaDao) --添加大道

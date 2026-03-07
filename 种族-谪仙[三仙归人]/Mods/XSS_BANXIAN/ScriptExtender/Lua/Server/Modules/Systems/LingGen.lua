@@ -36,10 +36,10 @@ function LingGen.ApplyTierLingGen_Check(Object, TLG, tian_c, xian_c, sheng_c)
 end
 
 --异灵根检测（N=凡阈值10；TIAN=天阈值50；XIAN=仙阈值150；SHENG=圣阈值500）
-function LingGen.ApplyYiLingGen_Check(Object)
+function LingGen.ApplyYiLingGen_Check(Object, a, b, c, d, e)
 
     _P('异灵根检测')
-    local a,b,c,d,e = Utils.Get.LingGen(Object)
+    if not a then a,b,c,d,e = Utils.Get.LingGen(Object) end
     local N     = 10   -- 凡
     local TIAN  = 50   -- 天
     local XIAN  = 150  -- 仙
@@ -161,15 +161,16 @@ end
 
 --合并检测（异灵根+主灵根，所有调用点均需同时触发两者）
 function LingGen.ApplyAllChecks(Object)
-    LingGen.ApplyYiLingGen_Check(Object)
-    LingGen.ApplyTopLingGen_Check(Object)
+    local a,b,c,d,e = Utils.Get.LingGen(Object)
+    LingGen.ApplyYiLingGen_Check(Object, a, b, c, d, e)
+    LingGen.ApplyTopLingGen_Check(Object, a, b, c, d, e)
 end
 
 --主灵根检测（凡10/天50/仙150/圣500）
-function LingGen.ApplyTopLingGen_Check(Object)
+function LingGen.ApplyTopLingGen_Check(Object, a, b, c, d, e)
 
     _P('主灵根检测')
-    local a,b,c,d,e = Utils.Get.LingGen(Object)
+    if not a then a,b,c,d,e = Utils.Get.LingGen(Object) end
     local NORMAL = 10
     local TIAN   = 50
     local XIAN   = 150
@@ -452,7 +453,13 @@ end
 
 -- 事件·灵根状态
 function LingGen.OnStatusApplied_after(Object, Status, Causee)
-    if Osi.HasPassive(Object, 'BanXian_LingGen') == 0 and Osi.HasPassive(Object, 'BanXian_LingGen_Blank') == 0 then --没有觉醒过灵根
+    local hasAwakened = Osi.HasPassive(Object, 'BanXian_LingGen')    == 1
+                     or Osi.HasPassive(Object, 'BanXian_LingGen_Blank') == 1
+                     or Osi.HasPassive(Object, 'BanXian_LingGen_T0')   == 1
+                     or Osi.HasPassive(Object, 'BanXian_LingGen_T1')   == 1
+                     or Osi.HasPassive(Object, 'BanXian_LingGen_T2')   == 1
+                     or Osi.HasPassive(Object, 'BanXian_LingGen_T3')   == 1
+    if not hasAwakened then --没有觉醒过灵根
         if Status == "BIANXIAN_DAOXIN" then  --创建角色：谪仙
             _P("[EventHandlers] 事件·觉醒灵根: ") 
             PersistentVars['BXAddLingGen_Waiting'] = Object

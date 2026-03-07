@@ -285,7 +285,7 @@ function Utils.Get.LingGen(Character)
     return LG_H,LG_T,LG_J,LG_S,LG_M,RESULT
 end
 
---  获取大道信息
+--  获取大道信息（纯读取，不修改任何状态）
 function Utils.Get.Dao(Character)
     local DaDAO, DaDao_Name, DaoHen, DaoHen_Name, DaoHen_Year
     local RESULT = '[未领悟大道]'
@@ -300,29 +300,17 @@ function Utils.Get.Dao(Character)
         end
     end
 
-    --获取修为
-    local DH_YEAR,DH_DAY = Osi.GetStatusTurns(Character, 'BANXIAN_DH_YEAR'),Osi.GetStatusTurns(Character, 'BANXIAN_DH_DAY')
+    --获取修为（仅读取，年/天转换由 Utils.DaDao.ConvertDayToYear 负责）
+    local DH_YEAR = Osi.GetStatusTurns(Character, 'BANXIAN_DH_YEAR') or 0
+    local DH_DAY  = Osi.GetStatusTurns(Character, 'BANXIAN_DH_DAY')  or 0
 
-    if DH_DAY and DH_DAY >= 365 then
-        local increase_year = math.floor(DH_DAY/365)
-        DH_DAY = DH_DAY-increase_year*365
-        DH_YEAR = DH_YEAR+increase_year
-        Osi.ApplyStatus(Character,'BANXIAN_DH_DAY', DH_DAY*6)
-        Osi.ApplyStatus(Character,'BANXIAN_DH_YEAR', DH_YEAR*6)
-        _P('修为精进1年')
+    if DH_YEAR ~= 0 then
+        RESULT = RESULT.."  修为："..DH_YEAR.."年  "
     end
-
-    --_P(DH_YEAR)
-    if DH_YEAR ~= nil then
+    if DH_DAY ~= 0 then
         if DH_YEAR ~= 0 then
-            RESULT = RESULT.."  修为："..DH_YEAR.."年  "
-        end
-    end
-    --_P(DH_DAY)
-    if DH_DAY ~= nil then
-        if DH_YEAR and DH_YEAR ~= 0 then
             RESULT = RESULT..DH_DAY.."日  "
-        elseif not DH_YEAR or DH_YEAR == 0 then
+        else
             RESULT = RESULT.."  修为："..DH_DAY.."日  "
         end
     end
@@ -655,6 +643,21 @@ end
 --                                         DaDao                                             --
 --                                                                                             --
 -------------------------------------------------------------------------------------------------
+--将天数道行转化为年数（每365天进1年）
+--在修为发生变化的路径中调用（如 StatusApplied BANXIAN_DH_DAY），不要在纯读取路径中调用。
+function Utils.DaDao.ConvertDayToYear(Character)
+    local DH_YEAR = Osi.GetStatusTurns(Character, 'BANXIAN_DH_YEAR') or 0
+    local DH_DAY  = Osi.GetStatusTurns(Character, 'BANXIAN_DH_DAY')  or 0
+    if DH_DAY >= 365 then
+        local increase_year = math.floor(DH_DAY / 365)
+        DH_DAY  = DH_DAY  - increase_year * 365
+        DH_YEAR = DH_YEAR + increase_year
+        Osi.ApplyStatus(Character, 'BANXIAN_DH_DAY',  DH_DAY  * 6)
+        Osi.ApplyStatus(Character, 'BANXIAN_DH_YEAR', DH_YEAR * 6)
+        _P('修为精进'..increase_year..'年')
+    end
+end
+
 --刷新大道增益：力道
 function Utils.DaDao.Li(Object)
     local DH_YEAR = Osi.GetStatusTurns(Object, 'BANXIAN_DH_YEAR')
