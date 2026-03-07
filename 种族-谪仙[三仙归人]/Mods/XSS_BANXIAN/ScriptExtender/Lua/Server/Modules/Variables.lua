@@ -136,6 +136,7 @@ Variables.Constants = {
                 { id = 4,  tag = {'b4ecfb1d-d8e6-4f2d-a003-0ed1f62b495b','9c79bbd4-c01c-4894-a2cf-51e1aae09a90'}, factor = {1, 2}, minlevel = 5, droplevel = 13},  -- 金色眼眸 眼魔
                 { id = 7,  tag = {'95748ad1-cda2-4c0c-a9b2-875899327693'}, factor = {10, 1}, minlevel = 12}, -- 龙珠 龙
                 { id = 8,  tag = {'22e5209c-eaeb-40dc-b6ef-a371794110c2'}, factor = {2}, minlevel = 5, droplevel = 13},  -- 铁中血 构装生物
+                { id = 9,  tag = {'890b5a2a-e773-48df-b191-c887d87bec16'}, factor = {3}, minlevel = 5, droplevel = 9},   -- 玉锤牙 野兽
                 { id = 10, tag = {'33c625aa-6982-4c27-904f-e47029a9b140'}, factor = {2}, minlevel = 9, droplevel = 13}   -- 震雷骨 不死生物
             }
         }
@@ -322,56 +323,46 @@ Variables.Constants = {
             "WEAPON_BOND"
         },
         Materials_BaoCai = {
-            ["ActiveBaoCai"] = "",
             BC_DaLiTieJiao = {
-                ["ID"] = "BC_DaLiTieJiao",
                 Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_DaLiTieJiao_Weapon"},
                 Armor = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_DaLiTieJiao_Armor"},
                 Ring = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_DaLiTieJiao_Ring"}
             },
             BC_YaoShengJiao = {
-                ["ID"] = "BC_YaoShengJiao",
                 Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_YaoShengJiao_Weapon"},
                 Armor = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_YaoShengJiao_Armor"},
                 Ring = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_YaoShengJiao_Ring"}
             },
             BC_HeiSeYanMou = {
-                ["ID"] = "BC_HeiSeYanMou",
                 Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_HeiSeYanMou_Weapon"},
-                Armor = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_HeiSeYanMou_Armor",["StatusOnEquip"] = "HEISEYANMOU_BOOST_ARMOR_TECHNICAL"},
-                Ring = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_HeiSeYanMou_Ring",["StatusOnEquip"] = "HEISEYANMOU_BOOST_RING_TECHNICAL"}
+                Armor = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_HeiSeYanMou_Armor", ["StatusOnEquip"] = "HEISEYANMOU_BOOST_ARMOR_TECHNICAL"},
+                Ring = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_HeiSeYanMou_Ring",   ["StatusOnEquip"] = "HEISEYANMOU_BOOST_RING_TECHNICAL"}
             },
             BC_JinSeYanMou = {
-                ["ID"] = "BC_JinSeYanMou",
                 Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_JinSeYanMou_Weapon"},
                 Armor = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_JinSeYanMou_Armor"},
                 Ring = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_JinSeYanMou_Ring"}
             },
             BC_LongZhu = {
-                ["ID"] = "BC_LongZhu",
                 Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_LongZhu_Weapon"},
                 Armor = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_LongZhu_Armor"},
                 Ring = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_LongZhu_Ring"}
             },
             BC_TieZhongXue = {
-                ["ID"] = "BC_TieZhongXue",
                 Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_TieZhongXue_Weapon"},
-                Armor = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_TieZhongXue_Armor",["StatusOnEquip"] = "TIEZHONGXUE_BOOST_ARMOR_TECHNICAL"},
+                Armor = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_TieZhongXue_Armor", ["StatusOnEquip"] = "TIEZHONGXUE_BOOST_ARMOR_TECHNICAL"},
                 Ring = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_TieZhongXue_Ring"}
             },
             BC_YuChuiYa = {
-                ["ID"] = "BC_YuChuiYa",
                 Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_YuChuiYa_Weapon"},
                 Armor = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_YuChuiYa_Armor"},
                 Ring = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_YuChuiYa_Ring"}
             },
             BC_ZhenLeiGu = {
-                ["ID"] = "BC_ZhenLeiGu",
                 Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_ZhenLeiGu_Weapon"},
                 Armor = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_ZhenLeiGu_Armor"},
                 Ring = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_ZhenLeiGu_Ring"}
             }
-
         }
     },
 }

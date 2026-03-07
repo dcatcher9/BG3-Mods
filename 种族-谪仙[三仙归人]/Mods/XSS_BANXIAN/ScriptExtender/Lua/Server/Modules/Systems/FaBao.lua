@@ -35,6 +35,8 @@ function FaBao.Init()
     -- 事件·炼器相关选择后
     Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", FaBao.OnSavegameLoaded)
 
+    -- 事件·铁中血器纹伤害回溯
+    Ext.Osiris.RegisterListener("AttackedBy", 7, "after", FaBao.OnAttackedBy_after)
 
     _P("[FaBao] 法宝系统初始化完成！")
 
@@ -236,13 +238,7 @@ end
 
 --宝材判定
 function FaBao.LianHua.IsBaoCaiCheck(BaoCai)
-    local List = Variables.Constants.FaBao.Materials_BaoCai
-    for ID, _ in pairs(List) do
-        if ID == BaoCai then
-            return true
-        end
-    end
-    return false
+    return Variables.Constants.FaBao.Materials_BaoCai[BaoCai] ~= nil
 end
 
 --炼化材料
@@ -387,7 +383,7 @@ function FaBao.LianHua.AddBoosts(Caster,Object,Turns)
                     if TYPE == "PassivesOnEquip" or TYPE == "PassivesOffHand" or TYPE == "PassivesMainHand" then
                         --字符串处理
                         local Passives = Utils.Seprate_Strings(boostValue)
-                        for index, Passive in ipairs(Passives) do
+                        for _, Passive in ipairs(Passives) do
 
                             --查重过滤
                             if FaBao.HiddenPassives_Check(Passive) then
@@ -731,6 +727,13 @@ end
 --读档监听
 function FaBao.OnSavegameLoaded()
     FaBao.GameLoded_LianQi()
+end
+
+-- 事件·炼器相关受击后
+function FaBao.OnAttackedBy_after(Defender, AttackerOwner, Attacker, DamageType, DamageAmount, DamageCause, StoryActionID)
+    if DamageAmount >= 1 and Osi.HasPassive(Defender, 'BanXian_Fabao_Material_BC_TieZhongXue_Armor') == 1 then
+        FaBao.Passives.Armor.TieZhongXue_RecoverHP(Defender, DamageAmount)
+    end
 end
 
 
