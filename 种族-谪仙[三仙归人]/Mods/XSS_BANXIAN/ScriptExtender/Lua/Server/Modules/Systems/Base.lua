@@ -76,13 +76,6 @@ end
 
 --双持攻击·千机
 function Base.TianXian.DualAttack_Before(Caster)
-    --local spell = Ext.Stats.Get('Target_MainHandAttack')
-    --_D(spell.DualWieldingUseCosts)
-    --spell.DualWieldingUseCosts = ""
-    --spell:Sync()
-    --_P('更改双持攻击') --DEBUG
-    --Osi.TimerLaunch('TianXian_DualAttackRecover', 500)
-
     local entity = Ext.Entity.Get(Caster)
     local BP = math.floor(entity.ActionResources.Resources['420c8df5-45c2-4253-93c2-7ec44e127930'][1].Amount)
 
@@ -249,18 +242,20 @@ function Base.OnUsingSpell_before(Caster, Spell, SpellType, SpellElement, StoryA
         --Osi.TimerLaunch('Yuanying_ConcentrationRecover', 1000)
     end
 
+    -- 千机·双持攻击：副手攻击前补充资源
+    if (Spell == 'Target_OffhandAttack' or Spell == 'Projectile_OffhandAttack') and Osi.HasPassive(Caster, 'FABAO_BAIMAI_3') == 1 then
+        Base.TianXian.DualAttack_Before(Caster)
+    end
+
 end
 
 -- 事件·基础施法后
 function Base.OnUsingSpell_after(Caster, Spell, SpellType, SpellElement, StoryActionID)
 
     if string.find(Spell,'Projectile_Fly') and Osi.HasActiveStatus(Caster, 'BANXIAN_DAOXIN') == 1 and Osi.HasActiveStatus(Caster, 'BANXIAN_ANIMATION_FLY') == 0 then
-        --Osi.ApplyStatus(Caster, 'BANXIAN_ANIMATION_FLY', -1, 1)
-        --_P('谪仙姿态：飞行')
+        Osi.ApplyStatus(Caster, 'BANXIAN_ANIMATION_FLY', -1, 1)
     elseif string.find(Spell,'Projectile_Jump') and Osi.HasActiveStatus(Caster, 'BANXIAN_DAOXIN') == 1 then
-        --Osi.RemoveStatus(Caster, 'BANXIAN_ANIMATION_FLY')
-        --_P('谪仙姿态：行走')
-    --elseif Osi.HasActiveStatus(Caster, 'BANXIAN_YUANYING_CONCENTRATION') == 1 and Spell ~= 'BANXIAN_YYNoMoreConcentration' then
+        Osi.RemoveStatus(Caster, 'BANXIAN_ANIMATION_FLY')
     end
 
     if Osi.HasActiveStatus(Caster, 'BANXIAN_YUANYING_CONCENTRATION') == 1 and Spell ~= 'BANXIAN_YYNoMoreConcentration' then

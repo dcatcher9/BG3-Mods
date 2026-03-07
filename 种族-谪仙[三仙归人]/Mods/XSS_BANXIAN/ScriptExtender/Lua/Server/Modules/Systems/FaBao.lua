@@ -90,7 +90,6 @@ function FaBao.OpenChoiceBox_A(Character, BOOST)
     local stat = Ext.Stats.Get(BOOST)
     --_D(FABAOstat)
 
-    --local FABAOName = Ext.Loca.GetTranslatedString(FABAOstat.DisplayName)
     local FABAOName = "XXX"
     local DisplayName = Ext.Loca.GetTranslatedString(stat.DisplayName)
     local Description = Ext.Loca.GetTranslatedString(stat.Description)
@@ -526,7 +525,7 @@ end
 
 
 
-function FaBao.RestoreStatsForSave_new()
+function FaBao.RestoreStatsForSave()
     _P("恢复炼器数据") --DEBUG
     for _, ID in ipairs(Ext.Stats.GetStats("Weapon")) do
         if PersistentVars[ID.."_IsFABAO"] == true then
@@ -633,7 +632,7 @@ function FaBao.GameLoded_LianQi()
     end
     
 
-    FaBao.RestoreStatsForSave_new()
+    FaBao.RestoreStatsForSave()
 end
 
 
@@ -644,11 +643,7 @@ end
 local function BANXIAN_GOLDIFIED_ToGold(Object,Causee)
     local Weight = Utils.GetEntityWeight(Object)
 
-    --Osi.TemplateAddTo("1c3c9c74-34a1-4685-989e-410dc080be6f", Causee, Weight*0.1,0)
     Osi.AddGold(Causee, Weight*0.1)
-
-    --PersistentVars['BANXIAN_GOLDIFIED_ToGold_IsActive'] = true
-    --PersistentVars['BANXIAN_GOLDIFIED_ToGold_ActiveObject'] = Object
 
     Osi.TeleportToPosition(Object, 0, 0, 0, '', 0, 0, 0, 1, 0)
     Osi.RequestDelete(Object)

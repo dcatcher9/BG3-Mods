@@ -263,8 +263,6 @@ end
 -- 事件·难度状态监听
 function Difficulty.OnTutorialBoxClosed_after(Character, Message)
     _P('[Difficulty]OnTutorialBoxClosed_after')
-    --Utils.FaBao_LianQiSaveAllStats("[OriginalStatsLianQi]")
-
 end
 
 

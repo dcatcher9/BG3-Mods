@@ -135,8 +135,8 @@ function EventHandlers.SavegameLoaded()
     Osi.TimerLaunch('BanXianList_RecoverStats', 3000)
 
     --恢复炼器数据倒计时
-    --_P("恢复炼器数据倒计时")
-    --Osi.TimerLaunch('FaBaoList_RecoverStats', 5000)
+    _P("恢复炼器数据倒计时")
+    Osi.TimerLaunch('FaBaoList_RecoverStats', 5000)
 end
 
 -- 处理状态应用事件
@@ -172,7 +172,7 @@ function EventHandlers.OnTimerFinished_after(Timer)
     if Timer == "BanXianList_RecoverStats" then
         Utils.BanXianList_RecoverStatsStart()
     elseif Timer == "FaBaoList_RecoverStats" then
-        --Systems.FaBao.RestoreStatsForSave()
+        Systems.FaBao.RestoreStatsForSave()
     elseif Timer == "BanXian_AddLingGen" then
         local Object = PersistentVars['BXAddLingGen_Waiting']
         Systems.LingGen.Add_First(Object)
@@ -192,10 +192,6 @@ function EventHandlers.OnTimerFinished_after(Timer)
         Systems.DaoHeng.Jian.Animation_After(PersistentVars['Jiandao_Projectile'])
         PersistentVars['Jiandao_Projectile'] = nil
         _P('[PersistentVars]QC数据[Jiandao_Projectile] ') --DEBUG
-    elseif Timer == "Jiandao_Projectile_Replace" then
-        Systems.DaoHeng.Jian.Projectile_Replace_After(PersistentVars['Jiandao_Projectile'])
-        PersistentVars['Jiandao_Projectile'] = nil
-        _P('[PersistentVars]QC数据[Jiandao_Projectile] ') --DEBUG
     elseif Timer == "Banxian_Difficulty_Choice" then
         Utils.Difficulty.YesNoChoice()
     elseif Timer == "FaBao_Ring_YaoShengJiao_UsingSpellSlot" then
@@ -204,11 +200,6 @@ function EventHandlers.OnTimerFinished_after(Timer)
         Variables.Constants.Hostile['UsingSpellSlot_Caster'] = nil
         Variables.Constants.Hostile['UsingSpellSlot_Status'] = nil
         Osi.ApplyStatus(Caster,Status,-1,1,Caster)
-    elseif Timer == "SHIJIANDADAO_Record" then
-        local BanXian = PersistentVars['ShiJianDao_BANXIAN']
-        if BanXian ~= nil then
-            Systems.DaoHeng.ShiJian.Record(BanXian)
-        end
     end
 
 

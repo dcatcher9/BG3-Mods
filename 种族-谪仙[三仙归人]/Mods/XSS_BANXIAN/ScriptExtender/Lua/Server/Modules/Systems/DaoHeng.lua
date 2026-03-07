@@ -4,16 +4,13 @@ local DaoHeng = {
     EGUI = {},
     HeHuan ={},
     DiYu = {},
-    ShiJian = {},
     Jian = {},
     Tian = {}
 }
 local Variables = require("Server.Modules.Variables")
 local Utils = require("Server.Modules.Utils")
 
-local ShiJian_Record = {}
 local Jiandao_Projectile = nil
-local Jiandao_Projectile_Stats = {}
 
 -- 初始化道行系统
 function DaoHeng.Init()
@@ -27,9 +24,6 @@ function DaoHeng.Init()
 
     -- 注册事件监听大道相关状态
     Ext.Osiris.RegisterListener("StatusRemoved", 4, "before", DaoHeng.OnStatusRemoved_before)
-
-    -- 注册事件监听大道相关施法
-    Ext.Osiris.RegisterListener("UsingSpell", 5, "before", DaoHeng.OnUsingSpell_before)
 
     -- 注册事件监听大道相关施法
     Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "after", DaoHeng.OnUsingSpellOnTarget_after)
@@ -341,7 +335,8 @@ end
 --合欢道随从承受伤害
 function DaoHeng.HeHuan.FollowerProtect(Defender, Attacker, DamageType, DamageAmount)
     local Causee = Defender
-    for i = 1, 100, 1 do
+    local count = PersistentVars['[HEHUAN_COUNT]'..Causee] or 0
+    for i = 1, count, 1 do
         if PersistentVars['[HEHUAN_FOLLOWER]'..Causee..'_'..i] ~= nil then
             _P('[伤害转移至][NO.'..i..']:'..PersistentVars['[HEHUAN_FOLLOWER]'..Causee..'_'..i]) --debug
             Osi.ApplyDamage(PersistentVars['[HEHUAN_FOLLOWER]'..Causee..'_'..i], DamageAmount, DamageType, Attacker)
@@ -362,49 +357,6 @@ function DaoHeng.DiYu.AddDH(Object,Causee)
     Osi.RemoveStatus(Object, 'BURNING_YEHUO')
     Osi.ApplyStatus(Causee, 'BANXIAN_DH_DAY', DH_Day_new*6, 1)
 end
-
---时间大道：记录时刻状态
-function DaoHeng.ShiJian.Record(BanXian)
-    local Second = Osi.GetStatusTurns(BanXian, 'BANXIAN_DH_YEAR')
-    local entity = Ext.Entity.Get(BanXian)
-    ShiJian_Record = {
-        ActionResources = Ext.Types.Clone(entity.ActionResources),
-        AddedSpells     = Ext.Types.Clone(entity.AddedSpells),
-        BaseHp          = Ext.Types.Clone(entity.BaseHp),
-        Level           = Ext.Types.Clone(entity.Level),
-        LevelUp         = Ext.Types.Clone(entity.LevelUp),
-        Loot            = Ext.Types.Clone(entity.Loot),
-        Movement        = Ext.Types.Clone(entity.Movement),
-        ObjectSize      = Ext.Types.Clone(entity.ObjectSize),
-        Stats           = Ext.Types.Clone(entity.Stats),
-        StatusContainer = Ext.Types.Clone(entity.StatusContainer),
-        ServerBoostBase = Ext.Types.Clone(entity.ServerBoostBase),
-        BoostsContainer = Ext.Types.Clone(entity.BoostsContainer),
-    }
-    _P("记录时间:时间间隔："..Second.."秒") --debug
-    if Second >= 1 then
-        --PersistentVars['ShiJianDao_BANXIAN'] = BanXian
-        --Osi.TimerLaunch('SHIJIANDADAO_Record', Second*1000)
-    end
-end
-
---时间大道：回溯时刻状态
-function DaoHeng.ShiJian.Reload(BanXian)
-    Ext.Entity.Get(BanXian).ActionResources = ShiJian_Record.ActionResources
-    Ext.Entity.Get(BanXian).AddedSpells = ShiJian_Record.AddedSpells
-    Ext.Entity.Get(BanXian).BaseHp = ShiJian_Record.BaseHp
-    Ext.Entity.Get(BanXian).Level = ShiJian_Record.Level
-    Ext.Entity.Get(BanXian).LevelUp = ShiJian_Record.LevelUp
-    Ext.Entity.Get(BanXian).Loot = ShiJian_Record.Loot
-    Ext.Entity.Get(BanXian).Movement = ShiJian_Record.Movement
-    Ext.Entity.Get(BanXian).ObjectSize = ShiJian_Record.ObjectSize
-    Ext.Entity.Get(BanXian).Stats = ShiJian_Record.Stats
-    Ext.Entity.Get(BanXian).StatusContainer = ShiJian_Record.StatusContainer
-    Ext.Entity.Get(BanXian).ServerBoostBase = ShiJian_Record.ServerBoostBase
-    Ext.Entity.Get(BanXian).BoostsContainer = ShiJian_Record.BoostsContainer
-    _P("回溯时间") --debug
-end
-
 
 
 --剑道：更改施法动作·施法前
@@ -429,76 +381,6 @@ function DaoHeng.Jian.Animation_After(ID)
     PersistentVars['Jiandao_Projectile_AimationBackup'] = nil
 end
 
---剑道：更改施法·施法前
-function DaoHeng.Jian.Projectile_Replace_Before(ID,Animation)
-    local spell = Ext.Stats.Get('Projectile_Deflect_Missiles_JianDao')
-    local spell_record = Ext.Stats.Get(ID)
-
-    Jiandao_Projectile_Stats = Ext.Stats.Get('Projectile_Deflect_Missiles_JianDao')
-    _D(Jiandao_Projectile_Stats) --DEBUG
-
-    for j, _ in pairs(spell) do
-        local OVERRIDE = false
-        
-        for _, type in pairs(Variables.Constants.SpellModifierList_Change) do
-            if j == type then
-                OVERRIDE = true
-                break
-            end
-        end
-
-        if OVERRIDE == true then
-            if spell_record[j] ~= nil then
-                spell[j] = spell_record[j]
-            elseif j == 'SpellAnimation' then
-                PersistentVars['Jiandao_Projectile_AimationBackup'] = spell.SpellAnimation
-                spell.SpellAnimation = Animation
-            end
-        end
-    end
-
-    spell:Sync()
-
-    _P('修改法术：'..ID)
-end
-
---剑道：更改施法·施法后
-function DaoHeng.Jian.Projectile_Replace_After(ID)
-    local spell = Ext.Stats.Get('Projectile_Deflect_Missiles_JianDao')
-    local spell_record = Jiandao_Projectile_Stats
-    _D(spell) --DEBUG
-
-    for j, _ in pairs(spell) do
-        local OVERRIDE = false
-        
-        for _, type in pairs(Variables.Constants.SpellModifierList_Change) do
-            if j == type then
-                OVERRIDE = true
-                break
-            end
-        end
-
-        if OVERRIDE == true then
-            if spell_record[j] ~= nil then
-                spell[j] = spell_record[j]
-            end
-        end
-    end
-    spell:Sync()
-
-    _P('复原法术：'..ID)
-    Jiandao_Projectile_Stats = {}
-end
-
---剑道：更改反应（不行）
-function DaoHeng.Jian.Interrupt_ProjectileReplace(ID)
-    local Interrupt = Ext.Stats.Get('Interrupt_JianDao_Ranged_Return_Parry')
-    _D(Interrupt) --DEBUG
-    Interrupt.Properties = "UseSpell(SWAP,"..ID..",true,true,true,c4598bdb-fc07-40dd-a62c-90cc138bd76f);UseActionResource(OBSERVER_OBSERVER,DeflectMissiles_Charge,1,0)"
-    Interrupt:Sync()
-
-    _P('修改反应：'..Interrupt)
-end
 
 
 
@@ -544,7 +426,7 @@ function DaoHeng.OnStatusApplied_after(Object, Status, Causee)
         Osi.ClearIndividualRelation(Causee, Osi.GetFaction(Object))
         _P('[合欢道]强制移除') --DEBUG
     elseif Status == 'SIGNAL_DH_EGui' and Object ~= Causee then --饿鬼道偷取状态
-        --DaoHeng.EGUI.Functors_Steal(Object, Causee)
+        DaoHeng.EGUI.Functors_Steal(Object, Causee)
     end
 
     if Status == 'JIANDAO_PROJECTILE_RETURN' then
@@ -599,7 +481,6 @@ function DaoHeng.OnUsingSpellOnTarget_after(Caster, Target, Name)
     --记录弹反投掷物
     if Osi.HasActiveStatus(Target, 'JIANDAO_DODGE_MODE') == 1 or Osi.HasActiveStatus(Target, 'JIANDAO_PARRY_MODE') == 1 then
         Jiandao_Projectile = Name
-        --DaoHeng.Jian.Interrupt_ProjectileReplace(Name)
     end
 end
 
@@ -614,10 +495,10 @@ function DaoHeng.OnUsingSpellOnTarget_before(Caster, Target, Name)
             _P('监听弹反 施法前修改弹反动作') --DEBUG
             if Osi.HasActiveStatus(Caster, 'JIANDAO_DODGE_MODE') == 1 then
                 Animation = "8b8bb757-21ce-4e02-a2f3-97d55cf2f90b,,;,,;c3340bf4-833e-4c4d-b679-8ccdb26c30e7,,;6c5e8729-472f-4aab-acc4-a51d6657a50d,,;7bb52cd4-0b1c-4926-9165-fa92b75876a3,,;,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,,"
-                --Osi.RemoveStatus(Caster, 'JIANDAO_DODGE_MODE')
+                Osi.RemoveStatus(Caster, 'JIANDAO_DODGE_MODE')
             elseif Osi.HasActiveStatus(Caster, 'JIANDAO_PARRY_MODE') == 1 then
                 Animation = "3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;39daf365-ec06-49a8-81f3-9032640699d7,,;5c400e93-0266-499c-a2e1-75d53358460f,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,,"
-                --Osi.RemoveStatus(Caster, 'JIANDAO_PARRY_MODE')
+                Osi.RemoveStatus(Caster, 'JIANDAO_PARRY_MODE')
             end
 
             if Animation ~= "None" then
@@ -631,27 +512,6 @@ function DaoHeng.OnUsingSpellOnTarget_before(Caster, Target, Name)
     end
 end
 
--- 事件·大道相关施法前
-function DaoHeng.OnUsingSpell_before(Caster, Spell)
-
-    --更改弹反法术（方案2）
-    if Spell == 'Projectile_Deflect_Missiles_JianDao' and Jiandao_Projectile ~= nil then
-        local Animation = "None"
-        if Osi.HasActiveStatus(Caster, 'JIANDAO_DODGE_MODE') == 1 then
-            Animation = "8b8bb757-21ce-4e02-a2f3-97d55cf2f90b,,;,,;c3340bf4-833e-4c4d-b679-8ccdb26c30e7,,;6c5e8729-472f-4aab-acc4-a51d6657a50d,,;7bb52cd4-0b1c-4926-9165-fa92b75876a3,,;,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,,"
-        elseif Osi.HasActiveStatus(Caster, 'JIANDAO_PARRY_MODE') == 1 then
-            Animation = "71369b20-18f1-4d33-89ad-a99b10f0444c,,;c12054bc-4d96-47c5-8483-989afde03bd4,,;20aaabc2-067d-4355-86a0-40901d3938d8,,;2a3d2709-24d3-4c6d-ae25-546d1fd4ccb2,,;3b9da8d4-3eff-43bd-9eaa-1c13fba0045e,,;4c38bf59-cfbd-4389-954f-81290ca30476,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,,"
-        end
-        
-        if Animation ~= "None" then
-            DaoHeng.Jian.Projectile_Replace_Before(Jiandao_Projectile,Animation)
-            PersistentVars['Jiandao_Projectile'] = Jiandao_Projectile
-            Osi.TimerLaunch('Jiandao_Projectile_Replace', 2000)
-            Jiandao_Projectile = nil
-        end
-
-    end
-end
 -- 事件·大道相关攻击后
 function DaoHeng.OnAttackedBy_after(Defender, AttackerOwner, Attacker, DamageType, DamageAmount, DamageCause, StoryActionID)
 

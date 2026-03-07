@@ -955,15 +955,6 @@ function Utils.BanXianList_RecoverStatsStart()
         end
     end
 
-    --for k = 1, 1000, 1 do
-        --local Object = PersistentVars['BANXIANLIST_NO.'..k]
-        --if Object then
-            --_P('恢复谪仙数据[NO.'..k..']: '..Object)
-            --Utils.DaDao.Hehuan(Object)
-            --Utils.DaDao.Hehuan(Object)
-            --Utils.ShenShi.Check(Object)
-        --end
-    --end
 end
 
 --勾选难度选择
