@@ -219,7 +219,6 @@ Variables.Constants = {
             Z = nil
         },
         Core = {
-            Name = {"聚灵阵"},
             JuLing = {
                 ToWards = {
                     ['ZhenFa_Flags_Qian'] = '西北',
@@ -257,8 +256,6 @@ Variables.Constants = {
             Age = "请选择谪仙时代背景",
             Age_1 = "末法时代",
             Age_2 = "洪荒时代",
-            Start = "欢迎回来！既然您之前已经玩过了博德之门3，教学弹窗会被关闭。如果您想再次看见它，请选择重置教学。",
-            Start_english = "Welcome back! As this is not your first adventure, tutorials you have already seen will not appear again. If you would like to see them again, you can Reset Tutorials."
         },
         Race_DaDao = {
             { tag = '890b5a2a-e773-48df-b191-c887d87bec16',  DaDao_table = {'畜生道','力道'}},  -- 野兽

@@ -3,10 +3,7 @@ local Utils = {
     CharacterChange = {},
     CharacterChangeCancel = {},
     Filter = {
-        Status = {
-        },
-        Passives = {},
-        Spells = {}
+        Status = {}
     },
     DaDao = {},
     ShenShi = {},
@@ -19,11 +16,6 @@ local Utils = {
     BanXian = {}
 }
 local Variables = require("Server.Modules.Variables")
-
--- 工具函数示例
-function Utils.GetRandomElement(tbl)
-    return tbl[math.random(1, #tbl)]
-end
 
 _P("[Utils] Utils 模块加载完成！")
 
@@ -839,7 +831,6 @@ end
 function Utils.Filter.Status.IsDebuff(ID)
     local debuffGroups = Variables.Constants.Filter.Status.EGuiDebuff
     local specialDebuffPrefixes = Variables.Constants.Filter.Status.EGuiDebuff_Special
-    local status = Ext.Stats.Get(ID)
     _P(ID) --DEBUG
     for _,key in pairs(debuffGroups) do
         if Osi.IsStatusFromGroup(ID, key) == 1 then

@@ -230,8 +230,6 @@ function Difficulty.OnMessageBoxChoiceClosed_after(Character, Message, ResultCho
     local Message_Difficulty_AGE = Variables.Constants.Difficulty.MessageBox.Age
     local Message_Difficulty_A1 = Variables.Constants.Difficulty.MessageBox.Age_1
     local Message_Difficulty_A2 = Variables.Constants.Difficulty.MessageBox.Age_2
-    local Start = Variables.Constants.Difficulty.MessageBox.Start
-    local Start_english = Variables.Constants.Difficulty.MessageBox.Start_english
     if Message == Message_Difficulty_AGE then
         _P(ResultChoice)
         if ResultChoice == Message_Difficulty_A1 then

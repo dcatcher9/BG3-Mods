@@ -237,7 +237,7 @@ end
 --宝材判定
 function FaBao.LianHua.IsBaoCaiCheck(BaoCai)
     local List = Variables.Constants.FaBao.Materials_BaoCai
-    for ID, TYPE in pairs(List) do
+    for ID, _ in pairs(List) do
         if ID == BaoCai then
             return true
         end
@@ -352,7 +352,7 @@ function FaBao.LianHua.AddBoosts(Caster,Object,Turns)
         if IsBaoCai ~= true then  --非宝材
             _P('[炼器]一般炼制') --DEBUG
 
-            for TYPE, STRING in pairs(TYPE_TABLE) do
+            for TYPE, _ in pairs(TYPE_TABLE) do
                 Variables.Constants.FaBao.All[TYPE] = ""
                 if stat[TYPE] ~= nil then
                     Variables.Constants.FaBao.All[TYPE] = Materialstat[TYPE]
@@ -380,8 +380,8 @@ function FaBao.LianHua.AddBoosts(Caster,Object,Turns)
         --添加增益
         local Amount = 0
         
-        for TYPE, STRING in pairs(TYPE_TABLE) do
-            if TYPE ~= 'WeaponFunctors' then 
+        for TYPE, _ in pairs(TYPE_TABLE) do
+            if TYPE ~= 'WeaponFunctors' then
                 local boostValue = ACTIVEBOOSTS[TYPE]
                 if boostValue and boostValue ~= "" then
                     if TYPE == "PassivesOnEquip" or TYPE == "PassivesOffHand" or TYPE == "PassivesMainHand" then
@@ -446,7 +446,7 @@ function FaBao.LianHua.AddBoosts(Caster,Object,Turns)
     end
     
     --重置数据
-    for TYPE, STRING in pairs(Variables.Constants.FaBao.All) do
+    for TYPE, _ in pairs(Variables.Constants.FaBao.All) do
         Variables.Constants.FaBao.All[TYPE] = ""
     end
     Variables.Constants.FaBao.ActiveMaterial = nil
@@ -468,7 +468,7 @@ function FaBao.LianHua.RecoverStatsStart_OnEquipped(FABAO)
         local RECOVER = false
 
         --检查储存数据与现数是否一致
-        for TYPE, STRING in pairs(TYPE_TABLE) do
+        for TYPE, _ in pairs(TYPE_TABLE) do
             if stat[TYPE] ~= PersistentVars['FABAO_Stats_'..TYPE..'_'..FABAO] then
 
                 --不一致时，恢复数据
@@ -480,7 +480,7 @@ function FaBao.LianHua.RecoverStatsStart_OnEquipped(FABAO)
         --没有恢复过数据时，恢复数据
         if RECOVER then
             --覆盖数据
-            for TYPE, STRING in pairs(TYPE_TABLE) do
+            for TYPE, _ in pairs(TYPE_TABLE) do
                 if TYPE ~=  'WeaponFunctors' then
                     if PersistentVars['FABAO_Stats_'..TYPE..'_'..FABAO] ~= nil and PersistentVars['FABAO_Stats_'..TYPE..'_'..FABAO] ~= ""  then
                         stat[TYPE] = PersistentVars['FABAO_Stats_'..TYPE..'_'..FABAO]
