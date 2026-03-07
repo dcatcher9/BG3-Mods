@@ -67,7 +67,7 @@ local function SafeConcatStrings(original, new, separator)
     -- 参数安全检查
     original = (original and tostring(original)) or ""
     new = (new and tostring(new)) or ""
-    separator = separator or ";  " -- 默认分隔符
+    separator = separator or ";"
 
     -- 规范化原字符串：移除末尾所有可能的分号变体
     -- 匹配模式包括：分号前后可能有0-N个空格
@@ -77,9 +77,7 @@ local function SafeConcatStrings(original, new, separator)
     if original == "" or new == "" then
         return original .. new -- 无需分隔符的情况
     else
-        -- 移除分隔符自身可能存在的首尾空格
-        separator = separator:gsub("^%s+", ""):gsub("%s+$", "")
-        return original .. " " .. separator .. " " .. new
+        return original .. separator .. new
     end
 end
 
@@ -110,24 +108,21 @@ function FaBao.LianQi_StartChoose(Caster,FABAO)
     local Amount = PersistentVars['LianQi_Choice_Amount']
     local Rest = PersistentVars['LianQi_Choice_AmountRest']
 
-    if Amount >= 1 then
-        for key, BOOST in pairs(PersistentVars) do
-            if string.find(key, "LianQi_Choice_ActiveBOOST_"..Amount) and Rest >= 1 then
-                _P("**************") --DEBUG
-                _P(key) --debug
-                _P(BOOST) --debug
+    if Amount >= 1 and Rest >= 1 then
+        local BOOST = PersistentVars['LianQi_Choice_ActiveBOOST_'..Amount]
+        if BOOST ~= nil then
+            _P("**************") --DEBUG
+            _P(BOOST) --debug
 
-                --记录当前ACTIVEBOOST
-                local TYPE = PersistentVars['LianQi_Choice_ActiveBOOSTTYPE_'..Amount]
-                PersistentVars['LianQi_Choice_FABAO'],PersistentVars['LianQi_Choice_TYPE'],PersistentVars['LianQi_Choice_BOOST'] = FABAO,TYPE,BOOST
-    
-                FaBao.OpenChoiceBox_A(Caster, BOOST)
-                PersistentVars['LianQi_Choice_Amount'] = Amount - 1
-    
-                --清除已使用数据
-                PersistentVars['LianQi_Choice_ActiveBOOSTTYPE_'..Amount],PersistentVars['LianQi_Choice_ActiveBOOST_'..Amount] = nil,nil
-                break
-            end
+            --记录当前ACTIVEBOOST
+            local TYPE = PersistentVars['LianQi_Choice_ActiveBOOSTTYPE_'..Amount]
+            PersistentVars['LianQi_Choice_FABAO'],PersistentVars['LianQi_Choice_TYPE'],PersistentVars['LianQi_Choice_BOOST'] = FABAO,TYPE,BOOST
+
+            FaBao.OpenChoiceBox_A(Caster, BOOST)
+            PersistentVars['LianQi_Choice_Amount'] = Amount - 1
+
+            --清除已使用数据
+            PersistentVars['LianQi_Choice_ActiveBOOSTTYPE_'..Amount],PersistentVars['LianQi_Choice_ActiveBOOST_'..Amount] = nil,nil
         end
     end
 end
@@ -136,7 +131,7 @@ end
 function FaBao.Boosts_Filter(TYPE,ActiveBOOST,FABAO)
     local stat = Ext.Stats.Get(FABAO)
     local Filter = Variables.Constants.Filter.BOOST.Boosts
-    local OBT = stat[TYPE]
+    local OBT = Utils.GetStatField(stat, TYPE, FABAO)
 
     if TYPE == "DefaultBoosts" or TYPE == "BoostsOnEquipMainHand" or TYPE == "BoostsOnEquipOffHand" then
         for _, value in ipairs(Filter) do
@@ -196,10 +191,11 @@ end
 function FaBao.AddBoosts_AfterChoice(FABAO,TYPE,BOOST)
     local stat = Ext.Stats.Get(FABAO)
 
-    stat[TYPE] = SafeConcatStrings(stat[TYPE], BOOST)
+    local newValue = SafeConcatStrings(Utils.GetStatField(stat, TYPE, FABAO), BOOST)
+    Utils.SetStatField(stat, TYPE, newValue)
 
-    PersistentVars['FABAO_Stats_'..TYPE..'_'..FABAO] = stat[TYPE]
-    _P('[FaBao.LianHua.ADDEDBoosts]boosts：'..stat[TYPE]) --DEBUG
+    PersistentVars['FABAO_Stats_'..TYPE..'_'..FABAO] = newValue
+    _P('[FaBao.LianHua.ADDEDBoosts]boosts：'..newValue) --DEBUG
     stat:Sync()
     --_D(stat) --DEBUG
 
@@ -349,10 +345,8 @@ function FaBao.LianHua.AddBoosts(Caster,Object,Turns)
             _P('[炼器]一般炼制') --DEBUG
 
             for TYPE, _ in pairs(TYPE_TABLE) do
-                Variables.Constants.FaBao.All[TYPE] = ""
-                if stat[TYPE] ~= nil then
-                    Variables.Constants.FaBao.All[TYPE] = Materialstat[TYPE]
-                end
+                local materialValue = Utils.GetStatField(Materialstat, TYPE)
+                Variables.Constants.FaBao.All[TYPE] = materialValue or ""
             end
             ACTIVEBOOSTS = Variables.Constants.FaBao.All
 
@@ -377,10 +371,9 @@ function FaBao.LianHua.AddBoosts(Caster,Object,Turns)
         local Amount = 0
         
         for TYPE, _ in pairs(TYPE_TABLE) do
-            if TYPE ~= 'WeaponFunctors' then
-                local boostValue = ACTIVEBOOSTS[TYPE]
-                if boostValue and boostValue ~= "" then
-                    if TYPE == "PassivesOnEquip" or TYPE == "PassivesOffHand" or TYPE == "PassivesMainHand" then
+            local boostValue = ACTIVEBOOSTS[TYPE]
+            if boostValue and boostValue ~= "" then
+                if TYPE == "PassivesOnEquip" or TYPE == "PassivesOffHand" or TYPE == "PassivesMainHand" then
                         --字符串处理
                         local Passives = Utils.Seprate_Strings(boostValue)
                         for _, Passive in ipairs(Passives) do
@@ -415,7 +408,6 @@ function FaBao.LianHua.AddBoosts(Caster,Object,Turns)
                         end
                     end
                 end
-            end
         end
 
         --更改品质
@@ -465,7 +457,7 @@ function FaBao.LianHua.RecoverStatsStart_OnEquipped(FABAO)
 
         --检查储存数据与现数是否一致
         for TYPE, _ in pairs(TYPE_TABLE) do
-            if stat[TYPE] ~= PersistentVars['FABAO_Stats_'..TYPE..'_'..FABAO] then
+            if Utils.GetStatField(stat, TYPE) ~= PersistentVars['FABAO_Stats_'..TYPE..'_'..FABAO] then
 
                 --不一致时，恢复数据
                 RECOVER = true
@@ -477,28 +469,8 @@ function FaBao.LianHua.RecoverStatsStart_OnEquipped(FABAO)
         if RECOVER then
             --覆盖数据
             for TYPE, _ in pairs(TYPE_TABLE) do
-                if TYPE ~=  'WeaponFunctors' then
-                    if PersistentVars['FABAO_Stats_'..TYPE..'_'..FABAO] ~= nil and PersistentVars['FABAO_Stats_'..TYPE..'_'..FABAO] ~= ""  then
-                        stat[TYPE] = PersistentVars['FABAO_Stats_'..TYPE..'_'..FABAO]
-                    end
-                elseif TYPE ==  'WeaponFunctors' then 
-                    for k = 1, 3, 1 do
-                        if PersistentVars['FABAO_Stats_WeaponFunctors_'..FABAO..'_'..k] ~= nil then
-                            local Material = PersistentVars['FABAO_Stats_WeaponFunctors_'..FABAO..'_'..k]
-                            local WeaponFunctors = Ext.Stats.Get(Material).WeaponFunctors
-                            if WeaponFunctors ~= nil then
-                                if stat['WeaponFunctors'] == nil then
-                                    stat['WeaponFunctors'] = WeaponFunctors
-                                else
-                                    for _, value in pairs(WeaponFunctors) do
-                                        table.insert(stat['WeaponFunctors'],value)
-                                    end
-                                end
-                                --_P('[WeaponFunctors]RECOVERED SUCCESSED') --DBUG
-                                --_D(stat['WeaponFunctors']) --DEBUG
-                            end
-                        end
-                    end
+                if PersistentVars['FABAO_Stats_'..TYPE..'_'..FABAO] ~= nil and PersistentVars['FABAO_Stats_'..TYPE..'_'..FABAO] ~= "" then
+                    Utils.SetStatField(stat, TYPE, PersistentVars['FABAO_Stats_'..TYPE..'_'..FABAO])
                 end
             end
             if PersistentVars['FABAO_Stats_Rarity_'..FABAO] ~= nil then

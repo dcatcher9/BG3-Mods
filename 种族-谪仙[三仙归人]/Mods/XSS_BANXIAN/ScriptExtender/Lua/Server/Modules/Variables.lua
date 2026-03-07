@@ -289,30 +289,30 @@ Variables.Constants = {
         Base = {
         ["Boosts"] = "",
         ["DefaultBoosts"] = "",
-        --["StatusOnEquip"] = "",
+        ["StatusOnEquip"] = "",
         ["PassivesOnEquip"] = ""
         },
         Weapon = {
             ["Boosts"] = "" ,
             ["DefaultBoosts"] = "",
-            --["StatusOnEquip"] = "",
+            ["StatusOnEquip"] = "",
             ["PassivesOnEquip"] = "",
             ["BoostsOnEquipMainHand"] = "",
             ["BoostsOnEquipOffHand"] = "",
             ["PassivesMainHand"] = "",
-            ["PassivesOffHand"] = ""
-            --["WeaponFunctors"] = {}
+            ["PassivesOffHand"] = "",
+            ["WeaponFunctors"] = ""
         },
         All = {
             ["Boosts"] = "" ,
             ["DefaultBoosts"] = "",
-            --["StatusOnEquip"] = "",
+            ["StatusOnEquip"] = "",
             ["PassivesOnEquip"] = "",
             ["BoostsOnEquipMainHand"] = "",
             ["BoostsOnEquipOffHand"] = "",
             ["PassivesMainHand"] = "",
-            ["PassivesOffHand"] = ""
-            --["WeaponFunctors"] = ""
+            ["PassivesOffHand"] = "",
+            ["WeaponFunctors"] = ""
         },
         BladPactStatus = {
             "PACT_BLADE",

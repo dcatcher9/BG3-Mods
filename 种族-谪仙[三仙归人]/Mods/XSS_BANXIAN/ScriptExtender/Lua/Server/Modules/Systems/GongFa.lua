@@ -12,6 +12,8 @@ function GongFa.Init()
     -- 注册事件监听功法相关状态
     Ext.Osiris.RegisterListener("StatusApplied", 4, "after", GongFa.OnStatusApplied_after)
 
+    -- 注册短休事件：周天淬体诀小周天/大周天恢复
+    Ext.Osiris.RegisterListener("ShortRested", 1, "after", GongFa.OnShortRested_after)
 
     _P("[GongFa] 功法系统初始化完成！")
 end
@@ -151,6 +153,15 @@ function GongFa.Tianxian.BaiMaiDuanBao.Eating(Object)
     
 end
 
+
+
+-- 事件·短休
+function GongFa.OnShortRested_after(Object)
+    if Osi.HasPassive(Object, 'CuiTi_ZhouTian_ShortBreak') == 1 or Osi.HasPassive(Object, 'CuiTi_ZhouTian_LongBreak') == 1 then
+        GongFa.Tianxian.ZhouTianCuiTi.ShortRest(Object)
+        _P("[GongFa] 周天淬体诀短休恢复: "..Object)
+    end
+end
 
 
 -- 事件·功法状态监听

@@ -457,13 +457,33 @@ end
 --                                         Save                                              --
 --                                                                                             --
 -------------------------------------------------------------------------------------------------
---备份/保存所有炼器数据（prefix：存储键前缀，如"[OriginalStatsLianQi]"或"[SaveStatsLianQi]"）
+-- WeaponFunctors无法从stat对象读回字符串（bg3se不提供GetRawAttribute）
+-- 需传入FABAO名称以从PersistentVars读取已保存的值；未提供时返回""
+function Utils.GetStatField(stat, TYPE, FABAO)
+    if TYPE == "WeaponFunctors" then
+        if FABAO then
+            return PersistentVars['FABAO_Stats_WeaponFunctors_'..FABAO] or ""
+        end
+        return ""
+    end
+    return stat[TYPE]
+end
+
+function Utils.SetStatField(stat, TYPE, value)
+    if TYPE == "WeaponFunctors" then
+        stat:SetRawAttribute("WeaponFunctors", value)
+    else
+        stat[TYPE] = value
+    end
+end
+
+--备份/保存所有炼器数据
 function Utils.FaBao_LianQiSaveAllStats(prefix)
     for _, ID in ipairs(Ext.Stats.GetStats("Weapon")) do
         local stat = Ext.Stats.Get(ID)
 
         for TYPE, _ in pairs(Variables.Constants.FaBao.Weapon) do
-            PersistentVars[prefix..ID.."_"..TYPE] = stat[TYPE]
+            PersistentVars[prefix..ID.."_"..TYPE] = Utils.GetStatField(stat, TYPE)
         end
         PersistentVars[prefix..ID.."_Rarity"] = stat.Rarity
     end
@@ -472,7 +492,7 @@ function Utils.FaBao_LianQiSaveAllStats(prefix)
         local stat = Ext.Stats.Get(ID)
 
         for TYPE, _ in pairs(Variables.Constants.FaBao.Base) do
-            PersistentVars[prefix..ID.."_"..TYPE] = stat[TYPE]
+            PersistentVars[prefix..ID.."_"..TYPE] = Utils.GetStatField(stat, TYPE)
         end
         PersistentVars[prefix..ID.."_Rarity"] = stat.Rarity
     end
@@ -486,13 +506,13 @@ function Utils.FaBao_LianQiSaveStats(FABAO)
     _P("炼器完成") --DEBUG
     _P(FABAO.."_IsFABAO") --DEBUG
     _P(PersistentVars[FABAO.."_IsFABAO"]) --DEBUG
-    
+
     if stat['ModifierList'] == 'Weapon' then
         TYPE_TABLE = Variables.Constants.FaBao.Weapon
     end
 
     for TYPE, _ in pairs(TYPE_TABLE) do
-        PersistentVars["[SaveStatsLianQi]"..FABAO.."_"..TYPE] = stat[TYPE]
+        PersistentVars["[SaveStatsLianQi]"..FABAO.."_"..TYPE] = Utils.GetStatField(stat, TYPE, FABAO)
     end
     PersistentVars["[SaveStatsLianQi]"..FABAO.."_Rarity"] = stat.Rarity
 end
@@ -504,35 +524,20 @@ end
 --                                                                                             --
 -------------------------------------------------------------------------------------------------
 
---恢复原始数据
-function Utils.FaBao_LianQiLoadOriginalStats(ID,Statstable,Rarity)
-    local stat = Ext.Stats.Get(ID)
-
-    for TYPE, value in pairs(Statstable) do
-        stat[TYPE] = value
-    end
-    stat.Rarity = Rarity
-    stat:Sync()
-    
-    if PersistentVars[ID.."_IsFABAO"] == true then
-        _P("***********************"..'已恢复原装备数据'..ID) --DEBUG
-    else
-        _P('已恢复装备数据'..ID) --DEBUG
-    end
-
-end
-
 --读取炼器数据
 function Utils.FaBao_LianQiLoadStats(FABAO)
     local stat = Ext.Stats.Get(FABAO)
     local TYPE_TABLE = Variables.Constants.FaBao.Base
-    
+
     if stat['ModifierList'] == 'Weapon' then
         TYPE_TABLE = Variables.Constants.FaBao.Weapon
     end
 
     for TYPE, _ in pairs(TYPE_TABLE) do
-        stat[TYPE] = PersistentVars["[SaveStatsLianQi]"..FABAO.."_"..TYPE]
+        local value = PersistentVars["[SaveStatsLianQi]"..FABAO.."_"..TYPE]
+        if value ~= nil then
+            Utils.SetStatField(stat, TYPE, value)
+        end
     end
     stat.Rarity = PersistentVars["[SaveStatsLianQi]"..FABAO.."_Rarity"]
     stat:Sync()

@@ -202,10 +202,14 @@ function EventHandlers.OnLongRestFinished_after()
     Systems.Difficulty.IncreaseDH.LongRest()
     _P('[EventHandlers]结束一天:总天数 '..PersistentVars['GAME_DAYS'])
 
-    -- 长休后刷新境界增益
+    -- 长休后刷新境界增益 + 周天淬体诀大周天恢复
     for key, Object in pairs(PersistentVars) do
         if string.find(key, 'BANXIANLIST_NO_') and Object ~= nil then
             Utils.BanXian.JingjieBoost(Object)
+            if Osi.HasPassive(Object, 'CuiTi_ZhouTian_LongBreak') == 1 then
+                Systems.GongFa.Tianxian.ZhouTianCuiTi.LongRest(Object)
+                _P('[GongFa] 周天淬体诀长休恢复: '..Object)
+            end
         end
     end
 
