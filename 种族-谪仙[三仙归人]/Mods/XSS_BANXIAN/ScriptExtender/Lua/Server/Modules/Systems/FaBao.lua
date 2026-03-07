@@ -105,8 +105,8 @@ end
 
 --遍历抉择器
 function FaBao.LianQi_StartChoose(Caster,FABAO)
-    local Amount = PersistentVars['LianQi_Choice_Amout']
-    local Rest = PersistentVars['LianQi_Choice_AmoutRest']
+    local Amount = PersistentVars['LianQi_Choice_Amount']
+    local Rest = PersistentVars['LianQi_Choice_AmountRest']
 
     if Amount >= 1 then
         for key, BOOST in pairs(PersistentVars) do
@@ -120,7 +120,7 @@ function FaBao.LianQi_StartChoose(Caster,FABAO)
                 PersistentVars['LianQi_Choice_FABAO'],PersistentVars['LianQi_Choice_TYPE'],PersistentVars['LianQi_Choice_BOOST'] = FABAO,TYPE,BOOST
     
                 FaBao.OpenChoiceBox_A(Caster, BOOST)
-                PersistentVars['LianQi_Choice_Amout'] = Amount - 1
+                PersistentVars['LianQi_Choice_Amount'] = Amount - 1
     
                 --清除已使用数据
                 PersistentVars['LianQi_Choice_ActiveBOOSTTYPE_'..Amount],PersistentVars['LianQi_Choice_ActiveBOOST_'..Amount] = nil,nil
@@ -204,8 +204,8 @@ function FaBao.AddBoosts_AfterChoice(FABAO,TYPE,BOOST)
     _P('完成炼器！开始储存数据。') --DEBUG
     Utils.FaBao_LianQiSaveStats(FABAO)
 
-    if PersistentVars['LianQi_Choice_AmoutRest'] ~= nil then
-        if PersistentVars['LianQi_Choice_AmoutRest'] <= 1 then
+    if PersistentVars['LianQi_Choice_AmountRest'] ~= nil then
+        if PersistentVars['LianQi_Choice_AmountRest'] <= 1 then
             PersistentVars['LianQi_Choice_FABAO'] = nil
             PersistentVars['LianQi_Choice_TYPE'] = nil
             PersistentVars['LianQi_Choice_BOOST'] = nil
@@ -281,12 +281,12 @@ function FaBao.LianHua.LianYao(Object,Causee)
     local BaoCai_Probabilities = Variables.Constants.DanYao.DropProbabilities.BaoCai
 
     local DROP = false
-    local DROPED = false
+    local DROPPED = false
     if Progression >= 49*Level and DeathType ~= "Explode" then
         _P("[炼妖]检测死亡类型："..DeathType) --DEBUG
 
         for _, item in ipairs(BaoCai_Probabilities) do
-            if DROPED == false then
+            if DROPPED == false then
 
                 local Amount = 1
                 local id = item.id
@@ -315,7 +315,7 @@ function FaBao.LianHua.LianYao(Object,Causee)
                     local templateID = id < 10 and '987e1e7e-9656-4fdf-a0d2-e745bca00a0'..id or '987e1e7e-9656-4fdf-a0d2-e745bca00a'..id
                     Osi.TemplateAddTo(templateID, Causee, Amount, 1)
                     _P("[DanYao.Drop.YaoCai] 炼妖成功：ID=", id, ", 数量=", Amount)  --DEBUG
-                    DROPED = true
+                    DROPPED = true
                     break
                 else
                     --_P("[DanYao.Drop.YaoCai] 炼妖失败")  --DEBUG
@@ -399,7 +399,7 @@ function FaBao.LianHua.AddBoosts(Caster,Object,Turns)
                                 if FaBao.SamePassives_Check(TYPE,Passive,FABAO) then
                                     --词条计数器
                                     Amount = Amount + 1
-                                    PersistentVars['LianQi_Choice_Amout'] = Amount or 0
+                                    PersistentVars['LianQi_Choice_Amount'] = Amount or 0
                                     --词条记录器
                                     PersistentVars['LianQi_Choice_ActiveBOOSTTYPE_'..Amount],PersistentVars['LianQi_Choice_ActiveBOOST_'..Amount] = TYPE,Passive
                                 end
@@ -444,8 +444,8 @@ function FaBao.LianHua.AddBoosts(Caster,Object,Turns)
         stat:Sync()
 
         --启动抉择模块, 当前剩余炼器就绪层数即为可提取词条数
-        PersistentVars['LianQi_Choice_AmoutRest'] = Turns
-        _P('剩余可提取词条'..PersistentVars['LianQi_Choice_AmoutRest']) --DEBUG
+        PersistentVars['LianQi_Choice_AmountRest'] = Turns
+        _P('剩余可提取词条'..PersistentVars['LianQi_Choice_AmountRest']) --DEBUG
         FaBao.LianQi_StartChoose(Caster,FABAO)
     
     end
@@ -664,7 +664,9 @@ function FaBao.OnStatusApplied_after(Object, Status, Causee)
 
         if Osi.GetStatusTurns(Object,'BANXIAN_FABAO_FIREBREATH_BURNING') >= FaBao.LianHua.GetThreshold(Object) and Osi.HasActiveStatus(Object,'BANXIAN_FABAO_ACTIVEBOOSTS') == 0 then
             FaBao.LianHua.GetBoosts(Object)
-            local Turn = Utils.GetBanxianJingjie(Causee) + 1 --获取境界值
+            local JJ = Utils.GetBanxianJingjie(Causee)
+            if not JJ then return end
+            local Turn = JJ + 1 --获取境界值
             Osi.ApplyStatus(Causee,'BANXIAN_FABAO_ACTIVEBOOSTS',Turn*6,1,Causee)  --炼器状态
         end
 
@@ -729,13 +731,13 @@ function FaBao.OnMessageBoxYesNoClosed(Character, Message, Result)
         if Result == 1 then
             --_P('炼器申请!')
             FaBao.AddBoosts_AfterChoice(PersistentVars['LianQi_Choice_FABAO'],PersistentVars['LianQi_Choice_TYPE'],PersistentVars['LianQi_Choice_BOOST'])
-            PersistentVars['LianQi_Choice_AmoutRest'] = PersistentVars['LianQi_Choice_AmoutRest'] - 1
+            PersistentVars['LianQi_Choice_AmountRest'] = PersistentVars['LianQi_Choice_AmountRest'] - 1
         else
             _P('拒绝炼器申请!')
         end
         
-        _P('剩余可提取词条'..PersistentVars['LianQi_Choice_AmoutRest']) --DEBUG
-        if PersistentVars['LianQi_Choice_AmoutRest'] >= 1 then
+        _P('剩余可提取词条'..PersistentVars['LianQi_Choice_AmountRest']) --DEBUG
+        if PersistentVars['LianQi_Choice_AmountRest'] >= 1 then
             FaBao.LianQi_StartChoose(Character,PersistentVars['LianQi_Choice_FABAO']) 
         end
     end

@@ -128,7 +128,7 @@ end
 
 --五蕴丹
 function DanYao.Function.WuYunDan(Object)
-    local LG_TZ = Osi.GetStatusTurns(Object, 'BANXIAN_LG_TZ')
+    local LG_TZ = Osi.GetStatusTurns(Object, 'BANXIAN_LG_TZ') or 0
     _P('[五蕴丹]重塑资质：原资质'..LG_TZ)
     local r = 20
 

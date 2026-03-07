@@ -53,14 +53,6 @@ function DaoHeng.Check(Object)
                 _P('同步道痕') --DEBUG
             end
         end
-        if Osi.HasActiveStatus(Object,'BANXIAN_DH_HEART_UNSTABLE') == 1 then
-            Osi.RemoveStatus(Object, 'BANXIAN_DH_HEART_UNSTABLE')
-            _P('移除道心动摇') --DEBUG
-        end
-
-    --道心不稳时
-    elseif DaoHen ~= Variables.Constants.DaoHen[DaDAO] and DaoHen ~= nil and Osi.HasActiveStatus(Object, 'BANXIAN_DH_HEART_UNSTABLE') == 0 then
-        Osi.ApplyStatus(Object, 'BANXIAN_DH_HEART_UNSTABLE', -1, 1, Object)
     end
 
     --亚种判定
@@ -80,34 +72,11 @@ function DaoHeng.Daohen.Functors(Object)
     local DaDAO,DaDao_Name,DH_YEAR,DH_DAY,DaoHen,DaoHen_Name,DaoHen_Year,RESULT_DD = Utils.Get.Dao(Object)
     if DaoHen_Year ~= nil then
 
-        --先判断是否道心不稳
-        if DaoHen ~= Variables.Constants.DaoHen[DaDAO] then --道心不稳
-
-            if Osi.HasPassive(Object,'BanXianDHHeartUnstable') == 1 then --道心动摇，减道痕
-                if DaoHen_Year == 1 then
-                    Osi.RemoveStatus(Object,DaoHen)
-                    Osi.RemoveStatus(Object,'BANXIAN_DH_HEART_UNSTABLE')
-                    _P('道心动摇已移除') --DEBUG
-                elseif DaoHen_Year > 1 then
-                    Osi.RemoveStatus(Object,DaoHen)
-                    Osi.ApplyStatus(Object, DaoHen, (DaoHen_Year-1)*6, 1, Object)
-                    _P(DaoHen..'道心动摇'..DaoHen_Year) --DEBUG
-                end
+        if DaoHen == Variables.Constants.DaoHen[DaDAO] then --道心坚定,加道行
+            if DaoHen_Year-DH_YEAR >= 1 then
+                Osi.ApplyStatus(Object, 'BANXIAN_DH_YEAR', (DH_YEAR+1)*6, 1, Object)
+                _P('道心坚定,YEAR+1'..DaoHen..DaoHen_Year)
             end
-
-        elseif DaoHen == Variables.Constants.DaoHen[DaDAO] then
-            
-            if Osi.HasPassive(Object,'BanXianDHHeartUnstable') == 1 then
-                Osi.RemoveStatus(Object,'BANXIAN_DH_HEART_UNSTABLE')
-                _P('道心动摇已移除') --DEBUG
-            end
-            if Osi.HasPassive(Object,'BanXianDHHeartUnstable') == 0 then --道心坚定,加道行
-                if DaoHen_Year-DH_YEAR >= 1 then
-                    Osi.ApplyStatus(Object, 'BANXIAN_DH_YEAR', (DH_YEAR+1)*6, 1, Object)
-                    _P('道心坚定,YEAR+1'..DaoHen..DaoHen_Year)
-                end
-            end
-
         end
         
     end
@@ -311,6 +280,7 @@ function DaoHeng.HeHuan.RemoveFollower(Object)
     _P('**************************************') --DEBUG
     _P('[合欢道]开始移除随从：')
     local Causee = PersistentVars['[HEHUAN_LEADER]'..Object]
+    if not Causee then return end
     _P('随从主人'..Causee) --DEBUG
     local count = PersistentVars['[HEHUAN_COUNT]'..Causee] or 0
     for i = 1, count, 1 do
@@ -327,7 +297,7 @@ function DaoHeng.HeHuan.RemoveFollower(Object)
     PersistentVars['[HEHUAN_FOLLOWER]'..Object] = nil
     _P('[PersistentVars]QC数据[HEHUAN_FOLLOWER]:'..Object) --DEBUG
     _P('已清除序号') --DEBUG
-    Utils.CharacterChangeCancle.Equipable(Object)
+    Utils.CharacterChangeCancel.Equipable(Object)
     _P('已还原装备模式') --DEBUG
     _P('**************************************') --DEBUG
 end
@@ -465,7 +435,7 @@ end
 function DaoHeng.OnUsingSpellOnTarget_after(Caster, Target, Name)
 
     if (Name == 'Succubus_TakingHeart' or Name == 'Succubus_SpiderKiss' or Name == 'Succubus_SpiderKiss_Extra' or Name == 'Target_DrainingKiss_HEHUAN') and Osi.HasActiveStatus(Target, 'BanXian_DH_HEHUAN_ALREADYTAKE') == 0 then
-        if Osi.HasActiveStatus(Caster, 'BANXIAN_DH_HEART_UNSTABLE') == 0 and Osi.HasPassive(Caster, 'BanXian_DH_HeHuan') == 1 then
+        if Osi.HasPassive(Caster, 'BanXian_DH_HeHuan') == 1 then
             _P('阴阳调和')
             DaoHeng.HeHuan.TakeDH(Caster,Target)
             local HP = Osi.GetHitpoints(Caster)

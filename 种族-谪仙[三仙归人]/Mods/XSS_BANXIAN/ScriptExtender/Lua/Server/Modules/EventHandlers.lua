@@ -220,7 +220,7 @@ function EventHandlers.OnLongRestFinished_after()
 
     -- 长休后刷新境界增益
     for key, Object in pairs(PersistentVars) do
-        if string.find(key, 'BANXIANLIST_NO.') and Object ~= nil then
+        if string.find(key, 'BANXIANLIST_NO_') and Object ~= nil then
             Utils.BanXian.JingjieBoost(Object)
         end
     end

@@ -18,8 +18,6 @@
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,2,0)" />
           <attribute id="Level" type="uint8" value="4" />
           <attribute id="Name" type="LSString" value="TianXian" />
-          <attribute id="PassivesAdded" type="LSString" value="" />
-          <attribute id="Selectors" type="LSString" value="" />
           <attribute id="ProgressionType" type="uint8" value="2" />
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab004" />
@@ -39,8 +37,6 @@
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,4,0)" />
           <attribute id="Level" type="uint8" value="8" />
           <attribute id="Name" type="LSString" value="TianXian" />
-          <attribute id="PassivesAdded" type="LSString" value="" />
-          <attribute id="PassivesRemoved" type="LSString" value="" />
           <attribute id="Selectors" type="LSString" value="SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84002,1,BANXIANFABAOBAIMAI)" />
           <attribute id="ProgressionType" type="uint8" value="2" />
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
@@ -61,8 +57,6 @@
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,8,0)" />
           <attribute id="Level" type="uint8" value="12" />
           <attribute id="Name" type="LSString" value="TianXian" />
-          <attribute id="PassivesAdded" type="LSString" value="" />
-          <attribute id="PassivesRemoved" type="LSString" value="" />
           <attribute id="Selectors" type="LSString" value="SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84002,1,BANXIANFABAOBAIMAI)" />
           <attribute id="ProgressionType" type="uint8" value="2" />
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
@@ -83,8 +77,6 @@
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,16,0)" />
           <attribute id="Level" type="uint8" value="19" />
           <attribute id="Name" type="LSString" value="TianXian" />
-          <attribute id="PassivesAdded" type="LSString" value="" />
-          <attribute id="PassivesRemoved" type="LSString" value="" />
           <attribute id="Selectors" type="LSString" value="SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84002,1,BANXIANFABAOBAIMAI)" />
           <attribute id="ProgressionType" type="uint8" value="2" />
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />

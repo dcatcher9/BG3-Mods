@@ -1,7 +1,7 @@
 local Utils = {
     Get = {},
     CharacterChange = {},
-    CharacterChangeCancle = {},
+    CharacterChangeCancel = {},
     Filter = {
         Status = {
         },
@@ -234,7 +234,7 @@ function Utils.CharacterChange.Equipable(Object)
 end
 
 --取消角色更改·装备
-function Utils.CharacterChangeCancle.Equipable(Object)
+function Utils.CharacterChangeCancel.Equipable(Object)
     if Ext.Entity.Get(Object) ~= nil then
         Ext.Entity.Get(Object).ServerCharacter.Template.DisableEquipping = PersistentVars['HEHUAN_FOLLOWER_DisableEquipping_'..Object]
         Ext.Entity.Get(Object).ServerCharacter.Template.IsEquipmentLootable = PersistentVars['HEHUAN_FOLLOWER_IsEquipmentLootable_'..Object]
@@ -917,14 +917,14 @@ end
 function Utils.BanXianList_AddtoList(Object)
 
     local k = 1
-    while PersistentVars['BANXIANLIST_NO.'..k] ~= nil do
-        if PersistentVars['BANXIANLIST_NO.'..k] == Object then
+    while PersistentVars['BANXIANLIST_NO_'..k] ~= nil do
+        if PersistentVars['BANXIANLIST_NO_'..k] == Object then
             _P('已存在谪仙记录[NO.'..k..']: '..Object)
             return
         end
         k = k + 1
     end
-    PersistentVars['BANXIANLIST_NO.'..k] = Object
+    PersistentVars['BANXIANLIST_NO_'..k] = Object
     _P('记录谪仙[NO.'..k..']: '..Object)
 
 end
@@ -934,7 +934,7 @@ function Utils.BanXianList_RecoverStatsStart()
 
     for key, Object in pairs(PersistentVars) do
         --_P(key)
-        if string.find(key,'BANXIANLIST_NO.') then
+        if string.find(key,'BANXIANLIST_NO_') then
             if Object ~= nil then
                 _P('恢复谪仙数据: '..key)
                 Utils.DaDao.Hehuan(Object)

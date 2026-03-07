@@ -126,23 +126,6 @@ data "StatsFunctorContext" "OnLongRest"
 data "Conditions" "DaoXinStable()"
 data "StatsFunctors" "IF(HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY,100,Target.BANXIAN_DH_DAY.Duration+Target.Level+12*(1+(Target.Level)/4)*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('CuiTi_ZhouTian_ShortBreak',context.Source) and not HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY,100,Target.BANXIAN_DH_DAY.Duration+Target.Level+7*(1+(Target.Level)/4)*Target.BANXIAN_LG_TZ.Duration);IF(not HasPassive('CuiTi_ZhouTian_ShortBreak',context.Source) and not HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY,100,Target.BANXIAN_DH_DAY.Duration+Target.Level*Target.BANXIAN_LG_TZ.Duration)"
 
-//道心动摇
-new entry "BANXIAN_DH_HEART_UNSTABLE"
-type "StatusData"
-data "StatusType" "BOOST"
-data "StackId" "BANXIAN_DH_HEART_UNSTABLE"
-data "StackType" "Overwrite"
-data "Icon" "GenericIcon_Intent_Control"
-data "Passives" "BanXianDHHeartUnstable"
-data "DisplayName" "stringsofmodmadebyxss20240930dv001c08;1"
-data "Description" "stringsofmodmadebyxss20240930dv001d08;1"
-data "StatusPropertyFlags" "IgnoreResting;ApplyToDead"
-
-new entry "BanXianDHHeartUnstable"
-type "PassiveData"
-data "Properties" "IsHidden"
-data "DisplayName" "stringsofmodmadebyxss20240930dv001c08;1"
-
 /////////////////////////////
 /
 /         大道 道痕     

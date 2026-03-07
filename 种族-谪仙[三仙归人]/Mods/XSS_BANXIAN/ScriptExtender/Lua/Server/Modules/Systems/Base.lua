@@ -7,8 +7,6 @@ local Base = {
 }
 local Utils = require("Server.Modules.Utils")
 local Variables = require("Server.Modules.Variables")
-local Concentration_SpellFlags = false
-
 -- 初始化基础系统
 function Base.Init()
 
@@ -39,19 +37,21 @@ end
 function Base.YuanYing.Concentration_Before(ID,Caster)
     local spell = Ext.Stats.Get(ID)
     local flags = spell.SpellFlags
+    local removeIdx = nil
     for j, _ in pairs(flags) do
         if flags[j] == "IsConcentration" then
-            Concentration_SpellFlags = true
-            Osi.ApplyStatus(Caster,'BANXIAN_YUANYING_SHENSHIDECREASED',6,1,Caster)
-            table.remove(flags, j)
-            _P('移除专注需求：') --DEBUG
-            _D(flags) --DEBUG
+            removeIdx = j
+            break
         end
+    end
+    if removeIdx then
+        table.remove(flags, removeIdx)
+        Osi.ApplyStatus(Caster,'BANXIAN_YUANYING_SHENSHIDECREASED',6,1,Caster)
+        _P('移除专注需求：') --DEBUG
+        _D(flags) --DEBUG
     end
     spell.SpellFlags = flags
     spell:Sync()
-    _P('读取数据SPELLFLAGS_BACKUP：') --DEBUG
-    _D(Concentration_SpellFlags) --DEBUG
 end
 
 --元婴术·更改专注·施法后
@@ -59,7 +59,11 @@ function Base.YuanYing.Concentration_After(ID)
     local spell = Ext.Stats.Get(ID)
     local flags = spell.SpellFlags
     if flags ~= nil then
-        if Concentration_SpellFlags == true then
+        local hasConcentration = false
+        for _, f in ipairs(flags) do
+            if f == "IsConcentration" then hasConcentration = true; break end
+        end
+        if not hasConcentration then
             table.insert(flags, "IsConcentration")
         end
         spell.SpellFlags = flags
@@ -67,7 +71,6 @@ function Base.YuanYing.Concentration_After(ID)
     end
     _P('复原专注需求：'..ID)
     _D(flags) --DEBUG
-    Concentration_SpellFlags = false
 end
 
 
@@ -98,7 +101,7 @@ function Base.ShenTong.TianXian.Transform_Apply(Caster, Target, rule)
 end
 
 --变身术取消
-function Base.ShenTong.TianXian.Transform_Cancle(Caster, Status)
+function Base.ShenTong.TianXian.Transform_Cancel(Caster, Status)
 
     Osi.RemoveTransforms(Caster)
     Osi.SetFaction(Caster, PersistentVars['BanXian_Faction'])
@@ -224,7 +227,7 @@ end
 function Base.OnStatusApplied_after(Object, Status, Causee)
 
     if Status == 'Polymorph_BANXIAN_72_REMOVED' or Status == 'Polymorph_BANXIAN_36_REMOVED' then
-        Base.ShenTong.TianXian.Transform_Cancle(Object, Status)
+        Base.ShenTong.TianXian.Transform_Cancel(Object, Status)
     elseif Status == 'BANXIAN_CREATUREBAG' then  --袖里乾坤
         Osi.ToInventory(Object, Causee, 1, 1, 1)
     end
