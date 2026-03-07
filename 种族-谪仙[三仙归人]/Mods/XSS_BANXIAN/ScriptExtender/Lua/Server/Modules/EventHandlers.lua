@@ -1,22 +1,12 @@
 local EventHandlers = {}
 local Variables = require("Server.Modules.Variables")
 local Utils = require("Server.Modules.Utils")
-local Systems = {
-    DaoHeng = require("Server.Modules.Systems.DaoHeng"),
-    DanYao = require("Server.Modules.Systems.DanYao"),
-    LingGen = require("Server.Modules.Systems.LingGen"),
-    ShenShi = require("Server.Modules.Systems.ShenShi"),
-    GongFa = require("Server.Modules.Systems.GongFa"),
-    ZhenFa = require("Server.Modules.Systems.ZhenFa"),
-    Difficulty = require("Server.Modules.Systems.Difficulty"),
-    XiuLian = require("Server.Modules.Systems.XiuLian"),
-    FaBao = require("Server.Modules.Systems.FaBao"),
-    Base = require("Server.Modules.Systems.Base")
-}
+local Systems
 PersistentVars.AppearancePresets = PersistentVars.AppearancePresets or {}
 
 -- 初始化事件处理器
-function EventHandlers.Init()
+function EventHandlers.Init(systems)
+    Systems = systems
     _P("[EventHandlers] 初始化事件处理器...")
 
     -- 注册加载游戏数据事件

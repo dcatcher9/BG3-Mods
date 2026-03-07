@@ -34,7 +34,7 @@ function BanXian.Init()
 
     -- 初始化事件处理器
     local EventHandlers = require("Server.Modules.EventHandlers")
-    EventHandlers.Init()
+    EventHandlers.Init(BanXian.Modules.Systems)
 
     _P("[BanXian] BanXian 模块初始化完成！")
     

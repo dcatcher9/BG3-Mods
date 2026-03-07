@@ -303,17 +303,12 @@ function DaoHeng.HeHuan.AddFollower(Object,Causee)
 
     --记录
     PersistentVars['[HEHUAN_LEADER]'..Object] = Causee  --记录主人
-    for i = 1, 100, 1 do
-        if PersistentVars['[HEHUAN_FOLLOWER]'..Causee..'_'..i] == nil then
-            PersistentVars['[HEHUAN_FOLLOWER]'..Causee..'_'..i] = Object --记录随从
-            _P('[PersistentVars]记录数据[HEHUAN_FOLLOWER]:'..Object) --DEBUG
-            _P('记录随从：'..Object) --DEBUG
-            _P('记录主人:'..Causee) --DEBUG
-            _P('序号:'..i) --DEBUG
-            _P('**************************************') --DEBUG
-            break
-        end
-    end
+    local count = (PersistentVars['[HEHUAN_COUNT]'..Causee] or 0) + 1
+    PersistentVars['[HEHUAN_FOLLOWER]'..Causee..'_'..count] = Object --记录随从
+    PersistentVars['[HEHUAN_COUNT]'..Causee] = count
+    _P('[PersistentVars]记录数据[HEHUAN_FOLLOWER]:'..Object) --DEBUG
+    _P('记录随从：'..Object..' 记录主人:'..Causee..' 序号:'..count) --DEBUG
+    _P('**************************************') --DEBUG
     
 end
 
@@ -323,11 +318,11 @@ function DaoHeng.HeHuan.RemoveFollower(Object)
     _P('[合欢道]开始移除随从：')
     local Causee = PersistentVars['[HEHUAN_LEADER]'..Object]
     _P('随从主人'..Causee) --DEBUG
-    for i = 1, 100, 1 do
+    local count = PersistentVars['[HEHUAN_COUNT]'..Causee] or 0
+    for i = 1, count, 1 do
         if PersistentVars['[HEHUAN_FOLLOWER]'..Causee..'_'..i] == Object then
             PersistentVars['[HEHUAN_FOLLOWER]'..Causee..'_'..i] = nil
-            _P('[PersistentVars]QC数据[HEHUAN_FOLLOWER]:') --DEBUG
-            _P('随从序号'..i) --DEBUG
+            _P('[PersistentVars]QC数据[HEHUAN_FOLLOWER]: 随从序号'..i) --DEBUG
             break
         end
     end
@@ -371,9 +366,22 @@ end
 --时间大道：记录时刻状态
 function DaoHeng.ShiJian.Record(BanXian)
     local Second = Osi.GetStatusTurns(BanXian, 'BANXIAN_DH_YEAR')
-    ShiJian_Record = Ext.Entity.Get(BanXian)
+    local entity = Ext.Entity.Get(BanXian)
+    ShiJian_Record = {
+        ActionResources = Ext.Types.Clone(entity.ActionResources),
+        AddedSpells     = Ext.Types.Clone(entity.AddedSpells),
+        BaseHp          = Ext.Types.Clone(entity.BaseHp),
+        Level           = Ext.Types.Clone(entity.Level),
+        LevelUp         = Ext.Types.Clone(entity.LevelUp),
+        Loot            = Ext.Types.Clone(entity.Loot),
+        Movement        = Ext.Types.Clone(entity.Movement),
+        ObjectSize      = Ext.Types.Clone(entity.ObjectSize),
+        Stats           = Ext.Types.Clone(entity.Stats),
+        StatusContainer = Ext.Types.Clone(entity.StatusContainer),
+        ServerBoostBase = Ext.Types.Clone(entity.ServerBoostBase),
+        BoostsContainer = Ext.Types.Clone(entity.BoostsContainer),
+    }
     _P("记录时间:时间间隔："..Second.."秒") --debug
-    --_D(Ext.Entity.Get(BanXian):GetAllComponents()) --DEBUG
     if Second >= 1 then
         --PersistentVars['ShiJianDao_BANXIAN'] = BanXian
         --Osi.TimerLaunch('SHIJIANDADAO_Record', Second*1000)
