@@ -14,7 +14,6 @@ local Jiandao_Projectile = nil
 
 -- 初始化道行系统
 function DaoHeng.Init()
-    _P("[DaoHeng] 初始化道行系统...")
 
     -- 注册事件监听大道相关状态前
     Ext.Osiris.RegisterListener("StatusApplied", 4, "before", DaoHeng.OnStatusApplied_before)
@@ -34,7 +33,6 @@ function DaoHeng.Init()
     -- 注册事件监听大道相关攻击
     Ext.Osiris.RegisterListener("AttackedBy", 7, "after", DaoHeng.OnAttackedBy_after)
 
-    _P("[DaoHeng] 道行系统初始化完成！")
 end
 
 
@@ -50,7 +48,6 @@ function DaoHeng.Check(Object)
         if DaoHen_Year ~= nil and DH_YEAR ~= nil then
             if DaoHen_Year < DH_YEAR then
                 Osi.ApplyStatus(Object, DaoHen_correct, DH_YEAR*6, 1, Object)
-                _P('同步道痕') --DEBUG
             end
         end
     end
@@ -66,7 +63,6 @@ end
 
 --道痕发力
 function DaoHeng.Daohen.Functors(Object)
-    _P('触发道痕功能') --DEBUG
 
     --获取当前道行
     local DaDAO,_,DH_YEAR,_,DaoHen,_,DaoHen_Year,_ = Utils.Get.Dao(Object)
@@ -75,7 +71,6 @@ function DaoHeng.Daohen.Functors(Object)
         if DaoHen == Variables.Constants.DaoHen[DaDAO] then --道心坚定,加道行
             if DaoHen_Year-DH_YEAR >= 1 then
                 Osi.ApplyStatus(Object, 'BANXIAN_DH_YEAR', (DH_YEAR+1)*6, 1, Object)
-                _P('道心坚定,YEAR+1'..DaoHen..DaoHen_Year)
             end
         end
         
@@ -134,7 +129,6 @@ function DaoHeng.EGUI.Functors_Steal(Object, BanXian)
         for _,entry in pairs(Ext.Entity.Get(Object).StatusContainer.Statuses) do
             local status = Ext.Stats.Get(entry.StatusID.ID, 0)
             if (not Utils.Filter.Status.IsSpecial(entry.StatusID.ID)) and (not Utils.Filter.Status.IsDebuff(entry.StatusID.ID))  then
-              _P("饿鬼道发现"..entry.StatusID.ID)
               if ( status.StatusType == "BOOST" ) or ( status.StatusType == "INVISIBLE" ) then
                 local Duration = Osi.GetStatusTurns(Object, entry.StatusID.ID)
                 if Duration == -1 then
@@ -164,7 +158,6 @@ function DaoHeng.EGUI.Functors_Eat(EGui,Target)
               Filter = Utils.Filter.Status.IsSpecial(entry.StatusID.ID) or (not Utils.Filter.Status.IsDebuff(entry.StatusID.ID))
             end
             if Filter == false then
-                  _P("饿鬼道发现"..entry.StatusID.ID)
                   local Duration = (Osi.GetStatusTurns(Food, entry.StatusID.ID) or 0) + (Osi.GetStatusTurns(EGui, 'BANXIAN_DH_DAY') or 0)
                   Osi.ApplyStatus(EGui, 'BANXIAN_DH_DAY', Duration*6)
                   Osi.RemoveStatus(Food, entry.StatusID.ID)
@@ -202,7 +195,6 @@ function DaoHeng.HeHuan.TakeDH(Caster,Target)
     else
         increase_day = increase_day + MaxHP
     end
-    _P('[合欢道采补修为]'..increase_year..'年'..increase_day..'天')
     increase_day  = increase_day  + (Osi.GetStatusTurns(Caster, 'BANXIAN_DH_DAY')  or 0)
     increase_year = increase_year + (Osi.GetStatusTurns(Caster, 'BANXIAN_DH_YEAR') or 0)
 
@@ -225,59 +217,41 @@ end
 --合欢道征服随从
 function DaoHeng.HeHuan.AddFollower(Object,Causee)
 
-    _P('**************************************') --DEBUG
-    _P('[合欢道]开始添加随从：') --DEBUG
     local level = Osi.GetLevel(Object)
     local DH_YEAR = Osi.GetStatusTurns(Causee, 'BANXIAN_DH_YEAR') or 0
     local TARGET_DH_YEAR = Osi.GetStatusTurns(Object, 'BANXIAN_DH_YEAR') or 0
-    Osi.ApplyStatus(Causee,'BANXIAN_DH_YEAR', (DH_YEAR-level)*6, 1)
+    Osi.ApplyStatus(Causee,'BANXIAN_DH_YEAR', math.max(0, DH_YEAR-level)*6, 1)
     Osi.ApplyStatus(Object,'BANXIAN_DH_YEAR', (TARGET_DH_YEAR+level)*6, 1)
     Osi.SetFaction(Object, Osi.GetFaction(Causee))
-    _P('已更改阵营') --DEBUG
     Osi.AddPartyFollower(Object, Causee)
-    _P('已加入队伍') --DEBUG
     --SetIndividualRelation(Causee, GetFaction(Object), 100)
     Osi.AddAttitudeTowardsPlayer(Object, Causee, 100)
-    _P('更改好感度') --DEBUG
     Utils.CharacterChange.Equipable(Object)
-    _P('更改装备状态') --DEBUG
 
     --记录
     PersistentVars['[HEHUAN_LEADER]'..Object] = Causee  --记录主人
     local count = (PersistentVars['[HEHUAN_COUNT]'..Causee] or 0) + 1
     PersistentVars['[HEHUAN_FOLLOWER]'..Causee..'_'..count] = Object --记录随从
     PersistentVars['[HEHUAN_COUNT]'..Causee] = count
-    _P('[PersistentVars]记录数据[HEHUAN_FOLLOWER]:'..Object) --DEBUG
-    _P('记录随从：'..Object..' 记录主人:'..Causee..' 序号:'..count) --DEBUG
-    _P('**************************************') --DEBUG
     
 end
 
 --合欢道移除征服随从
 function DaoHeng.HeHuan.RemoveFollower(Object)
-    _P('**************************************') --DEBUG
-    _P('[合欢道]开始移除随从：')
     local Causee = PersistentVars['[HEHUAN_LEADER]'..Object]
     if not Causee then return end
-    _P('随从主人'..Causee) --DEBUG
     local count = PersistentVars['[HEHUAN_COUNT]'..Causee] or 0
     for i = 1, count, 1 do
         if PersistentVars['[HEHUAN_FOLLOWER]'..Causee..'_'..i] == Object then
             PersistentVars['[HEHUAN_FOLLOWER]'..Causee..'_'..i] = nil
-            _P('[PersistentVars]QC数据[HEHUAN_FOLLOWER]: 随从序号'..i) --DEBUG
             break
         end
     end
     --ClearIndividualRelation(Causee, GetFaction(Object))
     --_P('已清除关系') --DEBUG
     Osi.RemovePartyFollower(Object, Causee)
-    _P('已移出队伍') --DEBUG
-    PersistentVars['[HEHUAN_FOLLOWER]'..Object] = nil
-    _P('[PersistentVars]QC数据[HEHUAN_FOLLOWER]:'..Object) --DEBUG
-    _P('已清除序号') --DEBUG
+    PersistentVars['[HEHUAN_LEADER]'..Object] = nil
     Utils.CharacterChangeCancel.Equipable(Object)
-    _P('已还原装备模式') --DEBUG
-    _P('**************************************') --DEBUG
 end
 
 --合欢道随从承受伤害
@@ -286,7 +260,6 @@ function DaoHeng.HeHuan.FollowerProtect(Defender, Attacker, DamageType, DamageAm
     local count = PersistentVars['[HEHUAN_COUNT]'..Leader] or 0
     for i = 1, count, 1 do
         if PersistentVars['[HEHUAN_FOLLOWER]'..Leader..'_'..i] ~= nil then
-            _P('[伤害转移至][NO.'..i..']:'..PersistentVars['[HEHUAN_FOLLOWER]'..Leader..'_'..i]) --debug
             Osi.ApplyDamage(PersistentVars['[HEHUAN_FOLLOWER]'..Leader..'_'..i], DamageAmount, DamageType, Attacker)
             Osi.SetHitpoints(Defender, Osi.GetHitpoints(Defender)+DamageAmount)
             break
@@ -315,7 +288,6 @@ function DaoHeng.Jian.Animation_Before(ID,Animation)
     spell.SpellAnimation = Animation
     spell:Sync()
 
-    _P('修改法术动作：'..ID)
 end
 
 --剑道：更改施法动作·施法后
@@ -325,7 +297,6 @@ function DaoHeng.Jian.Animation_After(ID)
     spell.SpellAnimation = PersistentVars['Jiandao_Projectile_AimationBackup']
     spell:Sync()
 
-    _P('复原法术动作：'..ID)
     PersistentVars['Jiandao_Projectile_AimationBackup'] = nil
 end
 
@@ -337,8 +308,6 @@ end
 function DaoHeng.OnStatusApplied_before(Object, Status, Causee)
 
     if Status == 'DYING' and  Osi.HasActiveStatus(Object, 'BURNING_YEHUO') == 1 then
-        _P('[携带业火死亡]： '..Object) --debug
-        _P('[击杀者]： '..Causee) --debug
         local FireSource = Utils.Get.YeHuoSource(Object)
         DaoHeng.DiYu.AddDH(Object, FireSource)
     end
@@ -372,7 +341,6 @@ function DaoHeng.OnStatusApplied_after(Object, Status, Causee)
     elseif Status == 'SIGNAL_BanXian_HEHUAN_REMOVEPARTYFOLLOWER' then
         DaoHeng.HeHuan.RemoveFollower(Object)
         Osi.ClearIndividualRelation(Causee, Osi.GetFaction(Object))
-        _P('[合欢道]强制移除') --DEBUG
     elseif Status == 'SIGNAL_DH_EGui' and Object ~= Causee then --饿鬼道偷取状态
         DaoHeng.EGUI.Functors_Steal(Object, Causee)
     end
@@ -381,7 +349,6 @@ function DaoHeng.OnStatusApplied_after(Object, Status, Causee)
         if Jiandao_Projectile ~= nil then
             Osi.UseSpell(Causee, Jiandao_Projectile, Object)
         else
-            _P('Jiandao_Projectile is nil') --DEBUG
         end
     end
 
@@ -396,9 +363,7 @@ function DaoHeng.OnStatusApplied_after(Object, Status, Causee)
     end
     if Status == "SIGNAL_TIANLEI_EXTRADAMAGE" then
         local TIMES = Osi.GetStatusTurns(Causee, 'BANXIAN_DH_YEAR')
-        _P('[天道：天罚降临，祓除异端]'..TIMES)
         if TIMES >= 1 then
-            _P('[天道：天罚降临，祓除异端]')
             for i = 1, TIMES, 1 do
                 Osi.ApplyStatus(Object,'TIANDAO_TIANLEI_KILLTHEDEMON_3D10',0,1,Causee)
             end
@@ -411,7 +376,6 @@ function DaoHeng.OnUsingSpellOnTarget_after(Caster, Target, Name)
 
     if (Name == 'Succubus_TakingHeart' or Name == 'Succubus_SpiderKiss' or Name == 'Succubus_SpiderKiss_Extra' or Name == 'Target_DrainingKiss_HEHUAN') and Osi.HasActiveStatus(Target, 'BanXian_DH_HEHUAN_ALREADYTAKE') == 0 then
         if Osi.HasPassive(Caster, 'BanXian_DH_HeHuan') == 1 then
-            _P('阴阳调和')
             DaoHeng.HeHuan.TakeDH(Caster,Target)
             local HP = Osi.GetHitpoints(Caster)
             Osi.ApplyStatus(Target, 'BanXian_DH_HEHUAN_EXHOUSTED', HP*6, 1, Caster)
@@ -437,7 +401,6 @@ function DaoHeng.OnUsingSpellOnTarget_before(Caster, Target, Name)
         local Animation = "None"
 
         if Osi.HasActiveStatus(Target, 'JIANDAO_PROJECTILE_RETURN') == 1 and Name == Jiandao_Projectile then
-            _P('监听弹反 施法前修改弹反动作') --DEBUG
             if Osi.HasActiveStatus(Caster, 'JIANDAO_DODGE_MODE') == 1 then
                 Animation = "8b8bb757-21ce-4e02-a2f3-97d55cf2f90b,,;,,;c3340bf4-833e-4c4d-b679-8ccdb26c30e7,,;6c5e8729-472f-4aab-acc4-a51d6657a50d,,;7bb52cd4-0b1c-4926-9165-fa92b75876a3,,;,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,,"
                 Osi.RemoveStatus(Caster, 'JIANDAO_DODGE_MODE')

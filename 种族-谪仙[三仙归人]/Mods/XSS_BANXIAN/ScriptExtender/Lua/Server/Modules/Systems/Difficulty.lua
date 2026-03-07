@@ -30,7 +30,6 @@ function Difficulty.Init()
     Ext.Osiris.RegisterListener("TutorialBoxClosed", 2, "after", Difficulty.OnTutorialBoxClosed_after)
 
 
-    _P("[Difficulty] 难度系统初始化完成！")
 end
 
 
@@ -44,12 +43,10 @@ function Difficulty.HardCore.Caculate_DaoHeng(k,Level,IsBoss,Days)
     if IsBoss == 1 then
         min = 1  --BOSS保底
         DH_YEAR = max + Days
-        _P('[Caculate_DaoHeng]'..DH_YEAR)
     elseif IsBoss ~= 1 then
         if math.random(1,4) < Level then
             local Days_increase = math.random(1,Days)  --游戏天数加成
             DH_YEAR = math.random(min,max) + Days_increase  --25%概率获得min~max年道行
-            _P('[Caculate_DaoHeng]'..DH_YEAR)
         end
     end
 
@@ -80,18 +77,15 @@ function Difficulty.HardCore.Start(Object)
 
     --开始分配大道
     if #DaDao_table > 0 then
-        _D(DaDao_table)
         local key = math.random(1,maxrandom)
         for i, Name in ipairs(DaDao_table) do
             if i == key then
                 local DaDao = Utils.Get.DaDaoPassive(Name)
                 Utils.AddPassive_Safe(Object,DaDao) --添加大道
-                _P("大道偏向:"..Name)
                 break
             end
         end
     else
-        _P("没有大道偏向")
     end
 
     --添加道行
@@ -156,18 +150,15 @@ function Difficulty.IncreaseDH.LongRest()
                 DH_DAY = DH_DAY + IncreaseDays
 
                 Osi.ApplyStatus(Object, 'BANXIAN_DH_DAY', DH_DAY*6, 1, Object)
-                _P('敌人修为增加: '..DH_DAY)
                 Utils.DaDao.Hehuan(Object)
                 Utils.ShenShi.Check(Object)
 
                 --神火判定
-                _P('[神火判定]') --DEBUG
                 local DisplayName = Osi.GetDisplayName(Object)
                 --_P(DisplayName) --DEBUG
                 for _, entry in pairs(Variables.Constants.Difficulty.YiHuo) do
                     if DisplayName == entry.DisplayName then
                         Utils.AddPassive_Safe(Object, entry.Fire)
-                        _P('[成功添加神火]:'..entry.Fire) --DEBUG
                     end
                 end
 
@@ -204,7 +195,6 @@ function Difficulty.OnStatusApplied_after(Object, Status)
         for _, entry in pairs(Variables.Constants.Difficulty.YiHuo) do
             if DisplayName == entry.DisplayName then
                 Utils.AddPassive_Safe(Object, entry.Fire)
-                _P('[成功添加神火]:'..entry.Fire) --DEBUG
             end
         end
 
@@ -214,11 +204,8 @@ end
 
 -- 处理难度选择1
 function Difficulty.OnMessageBoxYesNoClosed_after(Character, Message, Result)
-    _P('[MessageBoxYesNoClosed]: '..Message)
     local Message_Difficulty = Variables.Constants.Difficulty.MessageBox.default
     if Message == Message_Difficulty then
-        _P("[EventHandlers]Message_Difficulty_Result:")
-        _P(Result)
         PersistentVars['Difficulty_Result'] = Result
         --_P('[PersistentVars]记录数据[Difficulty_Result]:'..Result) --DEBUG
     end
@@ -226,30 +213,24 @@ end
 
 -- 处理难度选择2
 function Difficulty.OnMessageBoxChoiceClosed_after(Character, Message, ResultChoice)
-    _P('[MessageBoxChoiceClosed]: '..Message)
     local Message_Difficulty_AGE = Variables.Constants.Difficulty.MessageBox.Age
     local Message_Difficulty_A1 = Variables.Constants.Difficulty.MessageBox.Age_1
     local Message_Difficulty_A2 = Variables.Constants.Difficulty.MessageBox.Age_2
     if Message == Message_Difficulty_AGE then
-        _P(ResultChoice)
         if ResultChoice == Message_Difficulty_A1 then
             PersistentVars['Difficulty_Result'] = 0
-            _P('[PersistentVars]记录数据[Difficulty_Result]') --DEBUG
         elseif ResultChoice == Message_Difficulty_A2 then
             PersistentVars['Difficulty_Result'] = 1
-            _P('[PersistentVars]记录数据[Difficulty_Result]') --DEBUG
         end
     end
 end
 
 -- 处理难度选择3
 function Difficulty.OnMessageBoxClosed_after(Character, Message)
-    _P('[MessageBoxClosed]: '..Message)
 end
 
 -- 事件·难度状态监听
 function Difficulty.OnCharacterCreationStarted_after()
-    _P('[Difficulty]OnCharacterCreationStarted_after')
     --难度选择倒计时
     Osi.TimerLaunch('Banxian_Difficulty_Choice', 6000)
 
@@ -257,7 +238,6 @@ end
 
 -- 事件·难度状态监听
 function Difficulty.OnTutorialBoxClosed_after(Character, Message)
-    _P('[Difficulty]OnTutorialBoxClosed_after')
 end
 
 

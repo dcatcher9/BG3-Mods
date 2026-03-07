@@ -7,7 +7,6 @@ PersistentVars.AppearancePresets = PersistentVars.AppearancePresets or {}
 -- 初始化事件处理器
 function EventHandlers.Init(systems)
     Systems = systems
-    _P("[EventHandlers] 初始化事件处理器...")
 
     -- 注册加载游戏数据事件
     Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", EventHandlers.SavegameLoaded)
@@ -24,7 +23,6 @@ function EventHandlers.Init(systems)
     -- 注册LeveledUp（升级时刷新境界增益，确保新选穴位的能力值加成立即生效）
     Ext.Osiris.RegisterListener("LeveledUp", 1, "after", EventHandlers.OnLeveledUp_after)
 
-    _P("[EventHandlers] 事件处理器初始化完成！")
 end
 
 
@@ -115,11 +113,9 @@ end
 function EventHandlers.SavegameLoaded()
 
     --恢复谪仙数据倒计时
-    _P("恢复谪仙数据倒计时")
     Osi.TimerLaunch('BanXianList_RecoverStats', 3000)
 
     --恢复炼器数据倒计时
-    _P("恢复炼器数据倒计时")
     Osi.TimerLaunch('FaBaoList_RecoverStats', 5000)
 end
 
@@ -129,16 +125,13 @@ function EventHandlers.OnStatusApplied_after(Object, Status, Causee, StoryAction
     --_P('[谪仙StatusApplied]'..Status) --DEBUG
     if Status == 'DEBUG_GETENTITY' then
         local entity = Ext.Entity.Get(Object)
-        _D(entity:GetAllComponents()) --DEBUG
     end
     if Status == 'DEBUG_APPEARANCE_RECORD' then
         SaveAppearance(Object, 'Slot1')
-        _P('SaveAppearance!') --DEBUG
         
     end
     if Status == 'DEBUG_APPEARANCE_RELOAD' then
         LoadAppearance(Object, 'Slot1')
-        _P('LoadAppearance!') --DEBUG
         
     end
 
@@ -171,11 +164,9 @@ function EventHandlers.OnTimerFinished_after(Timer)
     elseif Timer == "Yuanying_ConcentrationRecover" then
         Systems.Base.YuanYing.Concentration_After(PersistentVars['YYSpellRecover_Waiting'])
         PersistentVars['YYSpellRecover_Waiting'] = nil
-        _P('[PersistentVars]QC数据[YYSpellRecover_Waiting] ') --DEBUG
     elseif Timer == "Jiandao_Projectile_Animation_Change" then
         Systems.DaoHeng.Jian.Animation_After(PersistentVars['Jiandao_Projectile'])
         PersistentVars['Jiandao_Projectile'] = nil
-        _P('[PersistentVars]QC数据[Jiandao_Projectile] ') --DEBUG
     elseif Timer == "Banxian_Difficulty_Choice" then
         Utils.Difficulty.YesNoChoice()
     elseif Timer == "FaBao_Ring_YaoShengJiao_UsingSpellSlot" then
@@ -194,13 +185,10 @@ function EventHandlers.OnLongRestFinished_after()
 
     if PersistentVars['GAME_DAYS'] == nil then
         PersistentVars['GAME_DAYS'] = 1
-        _P('[PersistentVars]JL数据[GAME_DAYS]: '..1) --DEBUG
     else
         PersistentVars['GAME_DAYS'] = PersistentVars['GAME_DAYS'] + 1
-        _P('[PersistentVars]JL数据[GAME_DAYS]: '..PersistentVars['GAME_DAYS']) --DEBUG
     end
     Systems.Difficulty.IncreaseDH.LongRest()
-    _P('[EventHandlers]结束一天:总天数 '..PersistentVars['GAME_DAYS'])
 
     -- 长休后刷新境界增益 + 周天淬体诀大周天恢复
     for key, Object in pairs(PersistentVars) do
@@ -208,7 +196,6 @@ function EventHandlers.OnLongRestFinished_after()
             Utils.BanXian.JingjieBoost(Object)
             if Osi.HasPassive(Object, 'CuiTi_ZhouTian_LongBreak') == 1 then
                 Systems.GongFa.Tianxian.ZhouTianCuiTi.LongRest(Object)
-                _P('[GongFa] 周天淬体诀长休恢复: '..Object)
             end
         end
     end
@@ -221,7 +208,6 @@ end
 function EventHandlers.OnLeveledUp_after(Object)
     if Osi.HasPassive(Object, 'BanXian_DH_DaoXin') == 1 then
         Utils.BanXian.JingjieBoost(Object)
-        _P('[EventHandlers] 升级刷新境界增益: '..Object)
     end
 end
 

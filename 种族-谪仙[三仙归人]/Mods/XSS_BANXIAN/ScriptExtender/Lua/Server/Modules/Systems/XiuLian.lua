@@ -12,7 +12,6 @@ function XiuLian.Init()
     -- 注册事件监听大道相关施法
     Ext.Osiris.RegisterListener("UsingSpell", 5, "after", XiuLian.OnUsingSpell_after)
 
-    _P("[XiuLian] 修炼系统初始化完成！")
 
 end
 

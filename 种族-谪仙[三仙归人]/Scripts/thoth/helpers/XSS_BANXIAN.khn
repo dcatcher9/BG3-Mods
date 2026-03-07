@@ -1,14 +1,5 @@
 local __util = require 'larian.util'
 
-function IsAbandoned(entity)
-    local entity = entity or context.Target
-    return ~IsLocalBorn(entity)
-end
-
-function IsLocalBorn(entity)
-    return ConditionResult(false)
-end
-
 function Shenshi_SourceSpellDC(fallbackDC, entity, ability)
     local entity = entity or context.Source
 	local spellDC = fallbackDC or 10 -- Global default so that we don't return 0
@@ -30,12 +21,15 @@ end
 
 function SpellDC_ShenshiControl(entity)
     local entity = entity or context.Source
+    if not context.Target or not context.Target.IsValid then
+        return 99
+    end
 	local spellDC = GetModifier(context.Source.Wisdom) - GetModifier(context.Target.Wisdom)
 
     if Tagged('NOSOUL',entity) == 1 or Tagged('CONSTRUCT',entity) or Tagged('UNDEAD',entity) then
         spellDC = 99
     end
-    
+
 
     return spellDC
 end
@@ -164,7 +158,7 @@ end
 
 
 
-local _ALL_DH_MARKS = {'BANXIAN_DH_MARK_TIAN','BANXIAN_DH_MARK_XIULUO','BANXIAN_DH_MARK_RENJIAN','BANXIAN_DH_MARK_CHUSHENG','BANXIAN_DH_MARK_EGUI','BANXIAN_DH_MARK_DIYU','BANXIAN_DH_MARK_JIAN','BANXIAN_DH_MARK_LI'}
+local _ALL_DH_MARKS = {'BANXIAN_DH_MARK_TIAN','BANXIAN_DH_MARK_XIULUO','BANXIAN_DH_MARK_RENJIAN','BANXIAN_DH_MARK_CHUSHENG','BANXIAN_DH_MARK_EGUI','BANXIAN_DH_MARK_DIYU','BANXIAN_DH_MARK_JIAN','BANXIAN_DH_MARK_LI','BANXIAN_DH_MARK_HEHUAN','BANXIAN_DH_MARK_YI'}
 
 local function _marksExcluding(own)
     local t = {}
@@ -188,10 +182,12 @@ function MARKBLOCKED_EGui(entity)    return _MARKBLOCKED('BanXian_DH_EGui',    '
 function MARKBLOCKED_DiYu(entity)    return _MARKBLOCKED('BanXian_DH_DiYu',    'BANXIAN_DH_MARK_DIYU',    entity) end
 function MARKBLOCKED_Jian(entity)    return _MARKBLOCKED('BanXian_DH_Jian',    'BANXIAN_DH_MARK_JIAN',    entity) end
 function MARKBLOCKED_Li(entity)      return _MARKBLOCKED('BanXian_DH_Li',      'BANXIAN_DH_MARK_LI',      entity) end
+function MARKBLOCKED_HeHuan(entity)  return _MARKBLOCKED('BanXian_DH_HeHuan',  'BANXIAN_DH_MARK_HEHUAN',  entity) end
+function MARKBLOCKED_Yi(entity)      return _MARKBLOCKED('BanXian_DH_Yi',      'BANXIAN_DH_MARK_YI',      entity) end
 
 function ISDHMARKBLOCKED(entity)
     local entity = entity or context.Source
-    return MARKBLOCKED_Tian(entity) | MARKBLOCKED_XiuLuo(entity) | MARKBLOCKED_RenJian(entity) | MARKBLOCKED_ChuSheng(entity) | MARKBLOCKED_EGui(entity) | MARKBLOCKED_DiYu(entity) | MARKBLOCKED_Jian(entity) | MARKBLOCKED_Li(entity)
+    return MARKBLOCKED_Tian(entity) | MARKBLOCKED_XiuLuo(entity) | MARKBLOCKED_RenJian(entity) | MARKBLOCKED_ChuSheng(entity) | MARKBLOCKED_EGui(entity) | MARKBLOCKED_DiYu(entity) | MARKBLOCKED_Jian(entity) | MARKBLOCKED_Li(entity) | MARKBLOCKED_HeHuan(entity) | MARKBLOCKED_Yi(entity)
 end
 
 
@@ -725,7 +721,7 @@ end
 function BanxianXiulianKiFlashCheck(entity)
     entity = entity or context.Source
 
-    return (BanxianXiulianKiFlashCheck_H() & ~BanxianXiulianKiFlashCheck_HN()) | (BanxianXiulianKiFlashCheck_T() & ~BanxianXiulianKiFlashCheck_TN()) | (BanxianXiulianKiFlashCheck_J() & ~BanxianXiulianKiFlashCheck_JN())  | (BanxianXiulianKiFlashCheck_S() & ~BanxianXiulianKiFlashCheck_SN())  | (BanxianXiulianKiFlashCheck_M() & ~BanxianXiulianKiFlashCheck_MN())  | (BanxianXiulianKiFlashCheck_ALL() & BanxianXiulianKiFlashCheck_ALLN()) 
+    return (BanxianXiulianKiFlashCheck_H(entity) & ~BanxianXiulianKiFlashCheck_HN(entity)) | (BanxianXiulianKiFlashCheck_T(entity) & ~BanxianXiulianKiFlashCheck_TN(entity)) | (BanxianXiulianKiFlashCheck_J(entity) & ~BanxianXiulianKiFlashCheck_JN(entity))  | (BanxianXiulianKiFlashCheck_S(entity) & ~BanxianXiulianKiFlashCheck_SN(entity))  | (BanxianXiulianKiFlashCheck_M(entity) & ~BanxianXiulianKiFlashCheck_MN(entity))  | (BanxianXiulianKiFlashCheck_ALL(entity) & BanxianXiulianKiFlashCheck_ALLN(entity))
 end
 
 function Ki_FlashCheck(entity)

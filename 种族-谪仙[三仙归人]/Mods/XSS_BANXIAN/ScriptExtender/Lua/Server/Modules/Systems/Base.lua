@@ -25,7 +25,6 @@ function Base.Init()
     -- 注册事件监听基础相关施法·前
     Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", Base.OnUsingSpellOnTarget_before)
 
-    _P("[Base] 基础系统初始化完成！")
 
 
 end
@@ -47,8 +46,6 @@ function Base.YuanYing.Concentration_Before(ID,Caster)
     if removeIdx then
         table.remove(flags, removeIdx)
         Osi.ApplyStatus(Caster,'BANXIAN_YUANYING_SHENSHIDECREASED',6,1,Caster)
-        _P('移除专注需求：') --DEBUG
-        _D(flags) --DEBUG
     end
     spell.SpellFlags = flags
     spell:Sync()
@@ -69,8 +66,6 @@ function Base.YuanYing.Concentration_After(ID)
         spell.SpellFlags = flags
         spell:Sync()
     end
-    _P('复原专注需求：'..ID)
-    _D(flags) --DEBUG
 end
 
 
@@ -109,11 +104,9 @@ function Base.ShenTong.TianXian.Transform_Cancel(Caster, Status)
 
         --遍历变身被动组，消除被动
         local k = PersistentVars['BanXian_36_CopyPassives_Constant_'..Caster.."Number"] or 0
-        _P(k) --DEBUG
         if k >= 1 then
             for i = 1, k, 1 do
                 local PassiveID = PersistentVars['BanXian_36_CopyPassives_Constant_'..Caster.."_"..i]
-                _P(PassiveID)
                 if PassiveID ~= nil then
                     Osi.RemovePassive(Caster, PassiveID)
                     PersistentVars['BanXian_36_CopyPassives_Constant_'..Caster.."_"..i] = nil  --清空变身被动组
@@ -125,11 +118,9 @@ function Base.ShenTong.TianXian.Transform_Cancel(Caster, Status)
 
         --遍历变身状态组
         local l = PersistentVars['BanXian_36_CopyStatus_Constant_'..Caster.."Number"] or 0
-        _P(l) --DEBUG
         if l >= 1 then
             for j = 1, l, 1 do
                 local StatusID = PersistentVars['BanXian_36_CopyStatus_Constant_'..Caster.."_"..j]
-                _P(StatusID)
                 if StatusID ~= nil then
                     if Osi.HasActiveStatus(Caster,StatusID) == 1 then
                         Osi.RemoveStatus(Caster, StatusID)
@@ -148,15 +139,11 @@ end
 function Base.ShenTong.TianXian.Transform(Caster, Target, Name)
     if Osi.GetIndividualRelation(Caster, Osi.GetFaction(Target)) ~= nil and Osi.GetRelation(Osi.GetFaction(Caster),Osi.GetFaction(Target))  ~= nil then
 
-        _P("[神通·变身]: 个体关系："..Osi.GetIndividualRelation(Caster, Osi.GetFaction(Target)))
-        _P("[神通·变身]: 阵营关系："..Osi.GetRelation(Osi.GetFaction(Caster),Osi.GetFaction(Target)))
         
     end
         
     PersistentVars['BanXian_Faction'] = Osi.GetFaction(Caster)
-    _P('[PersistentVars]记录数据BanXian_Faction') --DEBUG
     PersistentVars['BanXian_Target_Faction'] = Osi.GetFaction(Target)
-    _P('[PersistentVars]记录数据BanXian_Target_Faction') --DEBUG
 
     if Name == 'BANXIAN_Polymorph_72' then
         Base.ShenTong.TianXian.Transform_Apply(Caster, Target, '34ad98e7-b7e4-4563-9772-e23f75c7c85f')
@@ -169,7 +156,6 @@ function Base.ShenTong.TianXian.Transform(Caster, Target, Name)
     if Osi.IsInCombat(Caster) == 0 then
         Osi.SetFaction(Caster, Osi.GetFaction(Target))
         Osi.SetIndividualRelation(Caster, Osi.GetFaction(Target), 100)
-        _P("[神通·变身·战斗外]: 复制阵营")
     end
 
     --复制被动
@@ -179,7 +165,6 @@ function Base.ShenTong.TianXian.Transform(Caster, Target, Name)
       local k = 1
       for _,entry in pairs(Ext.Entity.Get(Target).PassiveContainer.Passives) do
         local ID = entry.Passive.PassiveId
-        _P("发现"..ID)
 
         --判断是否重复,否则添加并记录在组
         if Osi.HasPassive(Caster,ID) == 0 then
@@ -188,7 +173,6 @@ function Base.ShenTong.TianXian.Transform(Caster, Target, Name)
             PersistentVars['BanXian_36_CopyPassives_Constant_'..Caster.."Number"] = k
             --_P('[PersistentVars]记录数据BanXian_36_CopyPassives_Constant：'..k..": "..ID) --DEBUG
             k = k + 1
-            _P("[神通·天罡·三十六变]: 复制被动"..ID)
         end
 
       end
@@ -201,7 +185,6 @@ function Base.ShenTong.TianXian.Transform(Caster, Target, Name)
         local k = 1
       for _,entry in pairs(Ext.Entity.Get(Target).StatusContainer.Statuses) do
         local ID = entry.StatusID.ID
-        _P("发现"..ID)
 
         --判断是否重复,否则添加并记录在组
         if Osi.HasActiveStatus(Caster,ID) == 0 then
@@ -211,7 +194,6 @@ function Base.ShenTong.TianXian.Transform(Caster, Target, Name)
             PersistentVars['BanXian_36_CopyStatus_Constant_'..Caster.."Number"] = k
             --_P('[PersistentVars]记录数据BanXian_36_CopyStatus_Constant_'..k..": "..ID) --DEBUG
             k = k + 1
-            _P("[神通·天罡·三十六变]: 复制状态"..ID)
         end
       end
     
@@ -238,10 +220,8 @@ end
 function Base.OnUsingSpell_before(Caster, Spell, SpellType, SpellElement, StoryActionID)
 
     if Osi.HasActiveStatus(Caster, 'BANXIAN_YUANYING_CONCENTRATION') == 1 and Spell ~= 'BANXIAN_YYNoMoreConcentration'  and not string.find(Spell,'_YaoXian') then
-        _P('施法前监听') --DEBUG
         Base.YuanYing.Concentration_Before(Spell,Caster)
         PersistentVars['YYSpellRecover_Waiting'] = Spell
-        _P('[PersistentVars]记录数据YYSpellRecover_Waiting：'..Spell) --DEBUG
         --Osi.TimerLaunch('Yuanying_ConcentrationRecover', 1000)
     end
 
@@ -262,7 +242,6 @@ function Base.OnUsingSpell_after(Caster, Spell, SpellType, SpellElement, StoryAc
     end
 
     if Osi.HasActiveStatus(Caster, 'BANXIAN_YUANYING_CONCENTRATION') == 1 and Spell ~= 'BANXIAN_YYNoMoreConcentration' then
-        _P('施法后监听') --DEBUG
         if PersistentVars['YYSpellRecover_Waiting'] ~= nil then
             if PersistentVars['YYSpellRecover_Waiting'] == Spell then
                 Osi.TimerLaunch('Yuanying_ConcentrationRecover', 1500)

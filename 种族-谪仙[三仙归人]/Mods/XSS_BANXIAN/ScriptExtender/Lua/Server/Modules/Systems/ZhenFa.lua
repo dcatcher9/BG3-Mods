@@ -8,7 +8,6 @@ local Utils = require("Server.Modules.Utils")
 
 -- 初始化阵法系统
 function ZhenFa.Init()
-    _P("[ZhenFa] 初始化阵法系统...")
 
     -- 注册事件监听阵法相关状态
     Ext.Osiris.RegisterListener("StatusApplied", 4, "after", ZhenFa.OnStatusApplied_after)
@@ -20,7 +19,6 @@ function ZhenFa.Init()
     Ext.Osiris.RegisterListener("UsingSpellAtPosition", 8, "after", ZhenFa.OnUsingSpellAtPosition_after)
 
 
-    _P("[ZhenFa] 阵法系统初始化完成！")
 end
 
 
@@ -31,10 +29,7 @@ function ZhenFa.Core.Register(Object,Status)
     for i = 1, 9, 1 do
         if Status == 'BANXIAN_ZHENFA_CORE_JULING_AURA_'..i then
             PersistentVars['ZhenFa_Core_JuLing'] = Object
-            _P('[PersistentVars]记录数据[ZhenFa_Core_JuLing]:'..Object) --DEBUG
             PersistentVars['ZhenFa_Core_JuLing_LEVEL'] = i
-            _P('[PersistentVars]记录数据[ZhenFa_Core_JuLing_LEVEL]:'..i) --DEBUG
-            _P('[已安置'..i..'级阵眼]'..PersistentVars['ZhenFa_Core_JuLing'])
         end
     end
     
@@ -43,7 +38,6 @@ end
 --聚灵阵激活判定
 function ZhenFa.Core.Check(CoreRadius,Offset)
     local Core = PersistentVars['ZhenFa_Core_JuLing']
-    _P('阵法检查：聚灵阵*******') --DEBUG
 
     for FLAG, NAME in pairs(Variables.Constants.ZhenFa.Flags) do
         if PersistentVars[FLAG] ~= nil then
@@ -56,7 +50,6 @@ function ZhenFa.Core.Check(CoreRadius,Offset)
             if Radius > Offset or Radius < CoreRadius then
                 return '未激活]原因：'..NAME..'旗距离错误'
             end
-            _P('[阵旗激活]：'..NAME)
         else
             return '未激活]原因：'..NAME..'旗缺失'
         end
@@ -81,7 +74,6 @@ function ZhenFa.Core.Functors(CoreRadius,Offset)
         end
 
     else
-        _P('缺少阵眼')
         return 
     end
 end
@@ -94,15 +86,12 @@ function ZhenFa.Flags.Check(Object,Core)
         for FLAG, NAME in pairs(Variables.Constants.ZhenFa.Flags) do
             if PersistentVars[FLAG] == Object then
                 local X,Z,TW,Radius = Utils.ZhenFa.GetFlagsParams(Object,Core)
-                _P('[安置阵旗参数]'..NAME..": "..'相对坐标('..X..','..Z..')'..' 方位：'..TW.." 距离："..Radius)
             end
         end
         local STATU = ZhenFa.Core.Functors(6,6.8)
         
         if STATU == true then
-            _P('聚灵阵激活')
         elseif STATU == false then
-            _P('聚灵阵关闭')
         end
     end
 end
@@ -143,36 +132,20 @@ function ZhenFa.OnStatusApplied_after(Object, Status, Causee)
         ZhenFa.Flags.Check(Object,Core)
     elseif Status == 'BANXIAN_ZHENFA_FALGS_JULING_AURA_QIAN'  then
         PersistentVars['ZhenFa_Flags_Qian'] = Object
-        _P('[PersistentVars]记录数据[ZhenFa_Flags_Qian]:'..Object) --DEBUG
-        _P('[安置阵旗：乾]'..PersistentVars['ZhenFa_Flags_Qian'])
     elseif Status == 'BANXIAN_ZHENFA_FALGS_JULING_AURA_KUN'  then
         PersistentVars['ZhenFa_Flags_Kun'] = Object
-        _P('[PersistentVars]记录数据[ZhenFa_Flags_Kun]:'..Object) --DEBUG
-        _P('[安置阵旗：坤]'..PersistentVars['ZhenFa_Flags_Kun'])
     elseif Status == 'BANXIAN_ZHENFA_FALGS_JULING_AURA_XUN'  then
         PersistentVars['ZhenFa_Flags_Xun'] = Object
-        _P('[PersistentVars]记录数据[ZhenFa_Flags_Xun]:'..Object) --DEBUG
-        _P('[安置阵旗：巽]'..PersistentVars['ZhenFa_Flags_Xun'])
     elseif Status == 'BANXIAN_ZHENFA_FALGS_JULING_AURA_ZHEN'  then
         PersistentVars['ZhenFa_Flags_Zhen'] = Object
-        _P('[PersistentVars]记录数据[ZhenFa_Flags_Zhen]:'..Object) --DEBUG
-        _P('[安置阵旗：震]'..PersistentVars['ZhenFa_Flags_Zhen'])
     elseif Status == 'BANXIAN_ZHENFA_FALGS_JULING_AURA_KAN'  then
         PersistentVars['ZhenFa_Flags_Kan'] = Object
-        _P('[PersistentVars]记录数据[ZhenFa_Flags_Kan]:'..Object) --DEBUG
-        _P('[安置阵旗：坎]'..PersistentVars['ZhenFa_Flags_Kan'])
     elseif Status == 'BANXIAN_ZHENFA_FALGS_JULING_AURA_LI'  then
         PersistentVars['ZhenFa_Flags_Li'] = Object
-        _P('[PersistentVars]记录数据[ZhenFa_Flags_Li]:'..Object) --DEBUG
-        _P('[安置阵旗：离]'..PersistentVars['ZhenFa_Flags_Li'])
     elseif Status == 'BANXIAN_ZHENFA_FALGS_JULING_AURA_GEN'  then
         PersistentVars['ZhenFa_Flags_Gen'] = Object
-        _P('[PersistentVars]记录数据[ZhenFa_Flags_Gen]:'..Object) --DEBUG
-        _P('[安置阵旗：艮]'..PersistentVars['ZhenFa_Flags_Gen'])
     elseif Status == 'BANXIAN_ZHENFA_FALGS_JULING_AURA_DUI'  then
         PersistentVars['ZhenFa_Flags_Dui'] = Object
-        _P('[PersistentVars]记录数据[ZhenFa_Flags_Dui]:'..Object) --DEBUG
-        _P('[安置阵旗：兑]'..PersistentVars['ZhenFa_Flags_Dui'])
     end
 
 end

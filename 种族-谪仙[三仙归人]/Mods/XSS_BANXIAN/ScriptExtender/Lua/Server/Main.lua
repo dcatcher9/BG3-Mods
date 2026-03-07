@@ -5,7 +5,6 @@ local BanXian = {
 }
 
 function BanXian.Init()
-    _P("[BanXian] 初始化 BanXian 模块...")
 
     -- 加载并初始化各个子系统
     BanXian.Modules.Systems = {
@@ -36,7 +35,6 @@ function BanXian.Init()
     local EventHandlers = require("Server.Modules.EventHandlers")
     EventHandlers.Init(BanXian.Modules.Systems)
 
-    _P("[BanXian] BanXian 模块初始化完成！")
     
 end
 

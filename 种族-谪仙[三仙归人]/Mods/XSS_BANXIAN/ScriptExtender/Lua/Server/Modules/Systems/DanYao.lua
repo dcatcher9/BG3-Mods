@@ -6,11 +6,9 @@ local Variables = require("Server.Modules.Variables")
 
 -- 初始化物品系统
 function DanYao.Init()
-    _P("[DanYao] 初始化物品系统...")
 
     -- 注册事件监听丹药相关状态
     Ext.Osiris.RegisterListener("StatusApplied", 4, "after", DanYao.OnStatusApplied_after)
-    _P("[DanYao] 物品系统初始化完成！")
 end
 
 
@@ -97,17 +95,14 @@ function DanYao.Drop.BaoCai(Object)
 
     if Osi.HasActiveStatus(Object, 'BANXIAN_DH_YEAR') == 1 then
         local DH_YEAR = Osi.GetStatusTurns(Object, 'BANXIAN_DH_YEAR')
-        _P("[DanYao.Drop.BaoCai] 当前对象道行：", DH_YEAR)  --DEBUG
 
         if Osi.IsTagged(Object, '7fbed0d4-cabc-4a9d-804e-12ca6088a0a8') == 1 then  -- 类人生物
             if math.random(1, (DH_YEAR + 9) * (DH_YEAR + 9) * 10) <= DH_YEAR then
                 Osi.TemplateAddTo('987e1e7e-9656-4fdf-a0d2-e745bca00a05', Object, 1, 1)
-                _P("[DanYao.Drop.BaoCai] 类人生物掉落宝材：ID=5")  --DEBUG
             end
         else  -- 非类人生物
             if math.random(1, (DH_YEAR + 9) * (DH_YEAR + 9) * 2) <= DH_YEAR then
                 Osi.TemplateAddTo('987e1e7e-9656-4fdf-a0d2-e745bca00a06', Object, 1, 1)
-                _P("[DanYao.Drop.BaoCai] 非类人生物掉落宝材：ID=6")  --DEBUG
             end
         end
     else  -- 无道行状态
@@ -129,7 +124,6 @@ end
 --五蕴丹
 function DanYao.Function.WuYunDan(Object)
     local LG_TZ = Osi.GetStatusTurns(Object, 'BANXIAN_LG_TZ') or 0
-    _P('[五蕴丹]重塑资质：原资质'..LG_TZ)
     local r = 20
 
     --确定提升系数,移除资质被动
@@ -146,7 +140,6 @@ function DanYao.Function.WuYunDan(Object)
         LG_TZ = math.max(math.min(LG_TZ+1,10),math.random(6,10))
         r = 10
     end
-    _P('[五蕴丹]重塑资质：现资质'..LG_TZ)
 
     Osi.ApplyStatus(Object,'BANXIAN_LG_TZ', LG_TZ * 6)
     
@@ -166,15 +159,7 @@ function DanYao.OnStatusApplied_after(Object, Status, Causee)
         if Osi.HasPassive(Object, 'BanXian_LingGen_T0') == 0 then
             DanYao.Function.WuYunDan(Object)
         else
-            _P('先天道体 无需提升')
         end
-    end
-
-    if Status == 'BANXIAN_FABAO_FIREBREATH_BURNING' then
-        local DisplayName = Osi.GetDisplayName(Object)
-        local Empty = Osi.IsInventoryEmpty(Object)
-        _P(DisplayName) --DEBUG
-        _P(Empty) --DEBUG
     end
 
 end

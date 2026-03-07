@@ -38,7 +38,6 @@ function FaBao.Init()
     -- 事件·铁中血器纹伤害回溯
     Ext.Osiris.RegisterListener("AttackedBy", 7, "after", FaBao.OnAttackedBy_after)
 
-    _P("[FaBao] 法宝系统初始化完成！")
 
 end
 
@@ -111,8 +110,6 @@ function FaBao.LianQi_StartChoose(Caster,FABAO)
     if Amount >= 1 and Rest >= 1 then
         local BOOST = PersistentVars['LianQi_Choice_ActiveBOOST_'..Amount]
         if BOOST ~= nil then
-            _P("**************") --DEBUG
-            _P(BOOST) --debug
 
             --记录当前ACTIVEBOOST
             local TYPE = PersistentVars['LianQi_Choice_ActiveBOOSTTYPE_'..Amount]
@@ -168,17 +165,13 @@ end
 
 --隐藏被动检查
 function FaBao.HiddenPassives_Check(Passive)
-    _P('检查隐藏被动') --DEBUG
     local stat = Ext.Stats.Get(Passive)
     --_D(stat) --DEBUG
 
     if stat.Properties then
-        _P('检查隐藏被动Properties') --DEBUG
         --_D(stat.Properties) --DEBUG
         for _, Properties in ipairs(stat.Properties) do
-            _P(Properties)
             if Properties == "IsHidden" then
-                _P("已发现隐藏被动: "..Passive) --DEBUG
                 return false
             end
         end
@@ -195,11 +188,9 @@ function FaBao.AddBoosts_AfterChoice(FABAO,TYPE,BOOST)
     Utils.SetStatField(stat, TYPE, newValue)
 
     PersistentVars['FABAO_Stats_'..TYPE..'_'..FABAO] = newValue
-    _P('[FaBao.LianHua.ADDEDBoosts]boosts：'..newValue) --DEBUG
     stat:Sync()
     --_D(stat) --DEBUG
 
-    _P('完成炼器！开始储存数据。') --DEBUG
     Utils.FaBao_LianQiSaveStats(FABAO)
 
     if PersistentVars['LianQi_Choice_AmountRest'] ~= nil then
@@ -240,7 +231,6 @@ end
 --炼化材料
 function FaBao.LianHua.GetBoosts(Object)
     local Material = Osi.GetStatString(Object)
-    _P('[炼器]炼化宝材：'..Material) --DEBUG
 
     local stat = Ext.Stats.Get(Material)
     local IsBaoCai = FaBao.LianHua.IsBaoCaiCheck(Material)
@@ -270,7 +260,6 @@ function FaBao.LianHua.LianYao(Object,Causee)
     local DROP = false
     local DROPPED = false
     if Progression >= 49*Level and DeathType ~= "Explode" then
-        _P("[炼妖]检测死亡类型："..DeathType) --DEBUG
 
         for _, item in ipairs(BaoCai_Probabilities) do
             if DROPPED == false then
@@ -284,14 +273,12 @@ function FaBao.LianHua.LianYao(Object,Causee)
                     if type(tag) == 'table' then --特殊生物材料
                         for _, t in ipairs(tag) do
                             if Osi.IsTagged(Object, t) == 1 then
-                                _P("[炼妖] 特殊生物："..t)  --DEBUG
                                 DROP = true
                                 break
                             end
                         end
                     else
                         if Osi.IsTagged(Object, tag) == 1 then
-                            _P("[炼妖] 一般生物："..tag)  --DEBUG
                             DROP = true
                         end
                     end
@@ -301,7 +288,6 @@ function FaBao.LianHua.LianYao(Object,Causee)
                 if DROP == true and Level >= minlevel then
                     local templateID = id < 10 and '987e1e7e-9656-4fdf-a0d2-e745bca00a0'..id or '987e1e7e-9656-4fdf-a0d2-e745bca00a'..id
                     Osi.TemplateAddTo(templateID, Causee, Amount, 1)
-                    _P("[DanYao.Drop.YaoCai] 炼妖成功：ID=", id, ", 数量=", Amount)  --DEBUG
                     DROPPED = true
                     break
                 else
@@ -324,7 +310,6 @@ function FaBao.LianHua.AddBoosts(Caster,Object,Turns)
     local stat = Ext.Stats.Get(FABAO)
     local Materialstat = {}
 
-    _P('[炼器]炼制素材：'..Material) --DEBUG
     local IsBaoCai = FaBao.LianHua.IsBaoCaiCheck(Material)
     if Material ~= nil then
         Materialstat = Ext.Stats.Get(Material)
@@ -342,7 +327,6 @@ function FaBao.LianHua.AddBoosts(Caster,Object,Turns)
 
         --获取增益表
         if IsBaoCai ~= true then  --非宝材
-            _P('[炼器]一般炼制') --DEBUG
 
             for TYPE, _ in pairs(TYPE_TABLE) do
                 local materialValue = Utils.GetStatField(Materialstat, TYPE)
@@ -351,7 +335,6 @@ function FaBao.LianHua.AddBoosts(Caster,Object,Turns)
             ACTIVEBOOSTS = Variables.Constants.FaBao.All
 
         else  --宝材
-            _P('[炼器]宝材炼制') --DEBUG
             if stat['ModifierList'] == 'Weapon' then
                 TYPE_TABLE = Variables.Constants.FaBao.Materials_BaoCai[Material].Weapon
                 ACTIVEBOOSTS = Variables.Constants.FaBao.Materials_BaoCai[Material].Weapon
@@ -389,7 +372,6 @@ function FaBao.LianHua.AddBoosts(Caster,Object,Turns)
                                 end
                             else
                                 FaBao.AddBoosts_AfterChoice(FABAO,TYPE,Passive)
-                                _P('已添加隐藏被动：'..Passive) --DEBUG
                             end
                             
                         end
@@ -398,7 +380,6 @@ function FaBao.LianHua.AddBoosts(Caster,Object,Turns)
                         for _, Boost in ipairs(Boosts) do
                             if FaBao.Boosts_Filter(TYPE,Boost,FABAO) then
                                 FaBao.AddBoosts_AfterChoice(FABAO,TYPE,Boost)
-                                _P('已添加Boost：'..Boost) --DEBUG
                             end
                         end
 
@@ -428,7 +409,6 @@ function FaBao.LianHua.AddBoosts(Caster,Object,Turns)
 
         --启动抉择模块, 当前剩余炼器就绪层数即为可提取词条数
         PersistentVars['LianQi_Choice_AmountRest'] = Turns
-        _P('剩余可提取词条'..PersistentVars['LianQi_Choice_AmountRest']) --DEBUG
         FaBao.LianQi_StartChoose(Caster,FABAO)
     
     end
@@ -477,9 +457,7 @@ function FaBao.LianHua.RecoverStatsStart_OnEquipped(FABAO)
                 stat['Rarity'] = PersistentVars['FABAO_Stats_Rarity_'..FABAO]
             end
             stat:Sync()
-            _P('[炼器]恢复数据'..FABAO) --DEBUG
         else
-            _P('[炼器]已恢复过数据'..FABAO) --DEBUG
         end
         
     end
@@ -489,7 +467,6 @@ end
 
 
 function FaBao.RestoreStatsForSave()
-    _P("恢复炼器数据") --DEBUG
     for _, ID in ipairs(Ext.Stats.GetStats("Weapon")) do
         if PersistentVars[ID.."_IsFABAO"] == true then
             Utils.FaBao_LianQiLoadStats(ID)
@@ -686,10 +663,8 @@ function FaBao.OnMessageBoxYesNoClosed(Character, Message, Result)
             FaBao.AddBoosts_AfterChoice(PersistentVars['LianQi_Choice_FABAO'],PersistentVars['LianQi_Choice_TYPE'],PersistentVars['LianQi_Choice_BOOST'])
             PersistentVars['LianQi_Choice_AmountRest'] = PersistentVars['LianQi_Choice_AmountRest'] - 1
         else
-            _P('拒绝炼器申请!')
         end
         
-        _P('剩余可提取词条'..PersistentVars['LianQi_Choice_AmountRest']) --DEBUG
         if PersistentVars['LianQi_Choice_AmountRest'] >= 1 then
             FaBao.LianQi_StartChoose(Character,PersistentVars['LianQi_Choice_FABAO']) 
         end

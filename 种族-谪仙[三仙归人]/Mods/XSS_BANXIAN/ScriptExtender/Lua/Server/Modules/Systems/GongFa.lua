@@ -15,7 +15,6 @@ function GongFa.Init()
     -- 注册短休事件：周天淬体诀小周天/大周天恢复
     Ext.Osiris.RegisterListener("ShortRested", 1, "after", GongFa.OnShortRested_after)
 
-    _P("[GongFa] 功法系统初始化完成！")
 end
 
 
@@ -38,18 +37,14 @@ function GongFa.Tianxian.ZhouTianCuiTi.Check(Object)
 
     if CuiTi_ZhouTian_Short == true  and Osi.HasPassive(Object, 'CuiTi_ZhouTian_ShortBreak') == 0 then   --检查是否已激活小周天，防止重复获得被动
         Osi.AddPassive(Object, 'CuiTi_ZhouTian_ShortBreak')
-        _P("激活：小周天")
     elseif CuiTi_ZhouTian_Short == false  and Osi.HasPassive(Object, 'CuiTi_ZhouTian_ShortBreak') == 1 then
         Osi.RemovePassive(Object, 'CuiTi_ZhouTian_ShortBreak')
-        _P("移除：小周天")
     end
 
     if CuiTi_ZhouTian_Long == true  and Osi.HasPassive(Object, 'CuiTi_ZhouTian_LongBreak') == 0 then
         Osi.AddPassive(Object, 'CuiTi_ZhouTian_LongBreak')
-        _P("激活：大周天")
     elseif CuiTi_ZhouTian_Long == false  and Osi.HasPassive(Object, 'CuiTi_ZhouTian_LongBreak') == 1 then
         Osi.RemovePassive(Object, 'CuiTi_ZhouTian_LongBreak')
-        _P("移除：大周天")
     end
     
 end
@@ -118,24 +113,19 @@ function GongFa.Tianxian.BaiMaiDuanBao.Check(Object)
 
     if FABAO_BAIMAI_A1 == true and Osi.HasPassive(Object, 'FABAO_BAIMAI_A1') == 0 then
         Osi.AddPassive(Object, 'FABAO_BAIMAI_A1')
-        _P("激活：千手")
     elseif FABAO_BAIMAI_A1 == false  and Osi.HasPassive(Object, 'FABAO_BAIMAI_A1') == 1 then
         Osi.RemovePassive(Object, 'FABAO_BAIMAI_A1')
-        _P("移除：千手")
     end
 
     if FABAO_BAIMAI_A2 == true and Osi.HasPassive(Object, 'FABAO_BAIMAI_A2') == 0 then
         Osi.AddPassive(Object, 'FABAO_BAIMAI_A2')
-        _P("激活：齐天")
     elseif FABAO_BAIMAI_A2 == false  and Osi.HasPassive(Object, 'FABAO_BAIMAI_A2') == 1 then
         Osi.RemovePassive(Object, 'FABAO_BAIMAI_A2')
-        _P("移除：齐天")
     end
 
     if FABAO_BAIMAI_S == true and Osi.HasPassive(Object, 'FABAO_BAIMAI_S') == 0 then
         if Osi.HasActiveStatus(Object, 'FABAO_BAIMAI_EAT_STATUS') == 0 then
            Osi.ApplyStatus(Object, 'FABAO_BAIMAI_EAT_STATUS', -1, 1)
-           _P("解锁：百脉锻宝诀·大成")
         end
     end
     
@@ -146,7 +136,6 @@ function GongFa.Tianxian.BaiMaiDuanBao.Eating(Object)
 
     if Osi.HasPassive(Object, 'FABAO_BAIMAI_S') == 0 then
         Osi.AddPassive(Object, 'FABAO_BAIMAI_S')
-        _P("百脉锻宝诀·大成")
     end
     Utils.GongFa.BaiMai.CopyPassives(Object)
     Utils.GongFa.BaiMai.CopyStatus(Object)
@@ -159,7 +148,6 @@ end
 function GongFa.OnShortRested_after(Object)
     if Osi.HasPassive(Object, 'CuiTi_ZhouTian_ShortBreak') == 1 or Osi.HasPassive(Object, 'CuiTi_ZhouTian_LongBreak') == 1 then
         GongFa.Tianxian.ZhouTianCuiTi.ShortRest(Object)
-        _P("[GongFa] 周天淬体诀短休恢复: "..Object)
     end
 end
 

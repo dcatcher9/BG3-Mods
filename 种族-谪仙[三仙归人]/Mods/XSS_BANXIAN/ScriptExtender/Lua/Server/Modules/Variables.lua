@@ -375,5 +375,4 @@ Variables.Persistent = {
 
 
 
-_P("[Variables] Variables 模块加载完成！")  
 return Variables

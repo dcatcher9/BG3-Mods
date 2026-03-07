@@ -17,7 +17,6 @@ local Utils = {
 }
 local Variables = require("Server.Modules.Variables")
 
-_P("[Utils] Utils 模块加载完成！")
 
 
 
@@ -214,11 +213,8 @@ end
 function Utils.CharacterChange.Equipable(Object)
     if Ext.Entity.Get(Object) ~= nil then
         PersistentVars['HEHUAN_FOLLOWER_DisableEquipping_'..Object] = Ext.Entity.Get(Object).ServerCharacter.Template.DisableEquipping
-        _P('[PersistentVars]记录数据[HEHUAN_FOLLOWER_DisableEquipping_]') --DEBUG
         PersistentVars['HEHUAN_FOLLOWER_IsEquipmentLootable_'..Object] = Ext.Entity.Get(Object).ServerCharacter.Template.IsEquipmentLootable
-        _P('[PersistentVars]记录数据[HEHUAN_FOLLOWER_IsEquipmentLootable_]') --DEBUG
         PersistentVars['HEHUAN_FOLLOWER_IsLootable_'..Object] = Ext.Entity.Get(Object).ServerCharacter.Template.IsLootable
-        _P('[PersistentVars]记录数据[HEHUAN_FOLLOWER_IsLootable_]') --DEBUG
         Ext.Entity.Get(Object).ServerCharacter.Template.DisableEquipping = false
         Ext.Entity.Get(Object).ServerCharacter.Template.IsEquipmentLootable = true
         Ext.Entity.Get(Object).ServerCharacter.Template.IsLootable = true
@@ -503,9 +499,6 @@ function Utils.FaBao_LianQiSaveStats(FABAO)
     local stat = Ext.Stats.Get(FABAO)
     local TYPE_TABLE = Variables.Constants.FaBao.Base
     PersistentVars[FABAO.."_IsFABAO"] = true
-    _P("炼器完成") --DEBUG
-    _P(FABAO.."_IsFABAO") --DEBUG
-    _P(PersistentVars[FABAO.."_IsFABAO"]) --DEBUG
 
     if stat['ModifierList'] == 'Weapon' then
         TYPE_TABLE = Variables.Constants.FaBao.Weapon
@@ -541,7 +534,6 @@ function Utils.FaBao_LianQiLoadStats(FABAO)
     end
     stat.Rarity = PersistentVars["[SaveStatsLianQi]"..FABAO.."_Rarity"]
     stat:Sync()
-    _P('已恢复炼器数据'..FABAO) --DEBUG
 
 end
 
@@ -627,7 +619,6 @@ function Utils.ShenShi.Check(Object)
             end
             Stats:Sync()
             Osi.ApplyStatus(Object, 'BanXian_SS_BOOST_'..k, -1, 1, Object)
-            _P('刷新谪仙数据: 神识') --DEBUG
         end
     end
 
@@ -650,7 +641,6 @@ function Utils.DaDao.ConvertDayToYear(Character)
         DH_YEAR = DH_YEAR + increase_year
         Osi.ApplyStatus(Character, 'BANXIAN_DH_DAY',  DH_DAY  * 6)
         Osi.ApplyStatus(Character, 'BANXIAN_DH_YEAR', DH_YEAR * 6)
-        _P('修为精进'..increase_year..'年')
     end
 end
 
@@ -668,7 +658,6 @@ function Utils.DaDao.Li(Object)
                 Stats.Boosts = "Ability(Strength,"..k..")"
                 Stats:Sync()
                 Osi.ApplyStatus(Object, 'BanXian_DH_STR_'..k, -1, 1, Object)
-                _P('刷新谪仙数据: 力道') --DEBUG
             end
         end
     end
@@ -688,7 +677,6 @@ function Utils.DaDao.Hehuan(Object)
                 Stats.Boosts = "Ability(Charisma,"..k..")"
                 Stats:Sync()
                 Osi.ApplyStatus(Object, 'BanXian_DH_CHA_'..k, -1, 1, Object)
-                _P('刷新谪仙数据: 合欢道') --DEBUG
             end
         end
     end
@@ -711,7 +699,6 @@ function Utils.GongFa.BaiMai.CopyPassives(Object)
       for _,entry in pairs(Ext.Entity.Get(Object).PassiveContainer.Passives) do
         local ID = entry.Passive.PassiveId
         Variables.Constants.GongFa.BaiMai.CopyPassives_Constant[k] = ID
-        _P("发现"..Variables.Constants.GongFa.BaiMai.CopyPassives_Constant[k])
         k = k + 1
       end
 
@@ -735,7 +722,6 @@ function Utils.GongFa.BaiMai.CopyPassives_2(Object)
     for _,entry in pairs(Ext.Entity.Get(Object).PassiveContainer.Passives) do
       local ID = entry.Passive.PassiveId
       Variables.Constants.GongFa.BaiMai.CopyPassives_Constant_UN[m] = ID
-      _P("发现"..Variables.Constants.GongFa.BaiMai.CopyPassives_Constant_UN[m])
       m = m + 1
     end
 
@@ -743,7 +729,6 @@ function Utils.GongFa.BaiMai.CopyPassives_2(Object)
     for _, entry in ipairs(Variables.Constants.GongFa.BaiMai.CopyPassives_Constant) do
       local Passive_To_Copy = entry
       local IsWNP = true
-      _P("判断"..entry)
 
       for _,Compare in ipairs(Variables.Constants.GongFa.BaiMai.CopyPassives_Constant_UN) do
           --_P("    比较"..Compare)
@@ -756,7 +741,6 @@ function Utils.GongFa.BaiMai.CopyPassives_2(Object)
       --没有找到相同，则是武器被动，添加
       if IsWNP == true then
         Osi.AddPassive(Object,Passive_To_Copy)
-          _P("触发：百脉锻宝诀·吞宝·被动："..Passive_To_Copy)
       end
 
     end
@@ -806,7 +790,6 @@ function Utils.Filter.Status.IsSpecial(ID)
     local specialStatusPrefixes = Variables.Constants.Filter.Status.IsSpecialID
     local status = nil
     local flags = nil
-    _P(ID) --DEBUG
     if Ext.Stats.Get(ID) ~= nil then
         status = Ext.Stats.Get(ID)
     end
@@ -817,7 +800,6 @@ function Utils.Filter.Status.IsSpecial(ID)
         for j, _ in pairs(flags) do
             --print(j, flags[j])
             if flags[j] == "DisablePortraitIndicator" then
-                _P(ID.."饿鬼道检查：隐藏状态[FLAGS]: ")
                 --_D(flags)
                 return true
             end
@@ -825,7 +807,6 @@ function Utils.Filter.Status.IsSpecial(ID)
     end
     for _,key in pairs(specialStatusPrefixes) do
         if string.find(ID, key) then
-            _P(ID.."饿鬼道检查:特定状态")
             return true
         end
     end
@@ -836,16 +817,13 @@ end
 function Utils.Filter.Status.IsDebuff(ID)
     local debuffGroups = Variables.Constants.Filter.Status.EGuiDebuff
     local specialDebuffPrefixes = Variables.Constants.Filter.Status.EGuiDebuff_Special
-    _P(ID) --DEBUG
     for _,key in pairs(debuffGroups) do
         if Osi.IsStatusFromGroup(ID, key) == 1 then
-            _P(ID.."饿鬼道过滤:负面状态[GROUP]: "..key)
             return true
         end
     end
     for _,key in pairs(specialDebuffPrefixes) do
         if string.find(ID, key) then
-            _P(ID.."饿鬼道过滤:负面状态[SPECIAL]: "..key)
             return true
         end
     end
@@ -881,7 +859,6 @@ function Utils.BanXian.JingjieBoost(Object)
                 Stats:Sync()
             end
             Osi.ApplyStatus(Object, statusName, -1, 1, Object)
-            _P('[JingjieBoost] '..entry.id..' 境界'..JJ..' 加值+'..bonus)
         end
     end
 
@@ -892,7 +869,6 @@ function Utils.BanXian.JingjieBoost(Object)
         TierStats:Sync()
     end
     Osi.ApplyStatus(Object, tierStatusName, -1, 1, Object)
-    _P('[JingjieBoost] 境界标记 TIER_'..JJ)
 
     -- 应用累积到达标记（用于灵根技能解锁）
     for i = 1, 6 do
@@ -914,13 +890,11 @@ function Utils.BanXianList_AddtoList(Object)
     local k = 1
     while PersistentVars['BANXIANLIST_NO_'..k] ~= nil do
         if PersistentVars['BANXIANLIST_NO_'..k] == Object then
-            _P('已存在谪仙记录[NO.'..k..']: '..Object)
             return
         end
         k = k + 1
     end
     PersistentVars['BANXIANLIST_NO_'..k] = Object
-    _P('记录谪仙[NO.'..k..']: '..Object)
 
 end
 
@@ -931,7 +905,6 @@ function Utils.BanXianList_RecoverStatsStart()
         --_P(key)
         if string.find(key,'BANXIANLIST_NO_') then
             if Object ~= nil then
-                _P('恢复谪仙数据: '..key)
                 Utils.DaDao.Hehuan(Object)
                 Utils.DaDao.Li(Object)
                 Utils.ShenShi.Check(Object)

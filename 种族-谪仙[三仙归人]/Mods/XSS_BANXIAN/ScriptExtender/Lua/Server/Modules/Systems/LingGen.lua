@@ -4,7 +4,6 @@ local Utils = require("Server.Modules.Utils")
 
 -- 初始化灵根系统
 function LingGen.Init()
-    _P("[LingGen] 初始化灵根系统...")
 
     -- 注册事件监听灵根相关状态
     Ext.Osiris.RegisterListener("StatusApplied", 4, "after", LingGen.OnStatusApplied_after)
@@ -12,7 +11,6 @@ function LingGen.Init()
     -- 注册事件监听灵根相关洗点
     Ext.Osiris.RegisterListener("RespecCompleted", 1, "after", LingGen.OnRespecCompleted_after)
 
-    _P("[LingGen] 灵根系统初始化完成！")
 end
 
 
@@ -38,7 +36,6 @@ end
 --异灵根检测（N=凡阈值10；TIAN=天阈值50；XIAN=仙阈值150；SHENG=圣阈值500）
 function LingGen.ApplyYiLingGen_Check(Object, a, b, c, d, e)
 
-    _P('异灵根检测')
     if not a then a,b,c,d,e = Utils.Get.LingGen(Object) end
     local N     = 10   -- 凡
     local TIAN  = 50   -- 天
@@ -169,7 +166,6 @@ end
 --主灵根检测（凡10/天50/仙150/圣500）
 function LingGen.ApplyTopLingGen_Check(Object, a, b, c, d, e)
 
-    _P('主灵根检测')
     if not a then a,b,c,d,e = Utils.Get.LingGen(Object) end
     local NORMAL = 10
     local TIAN   = 50
@@ -236,32 +232,23 @@ function LingGen.Add_First(Object)
     -- 五行灵根对应表（金->c,木->e,水->d,火->a,土->b）
     local lg = { a = 0, b = 0, c = 0, d = 0, e = 0 }
 
-    _P('[Add_First] 开始觉醒灵根: '..tostring(Object))
     if Object == nil then _P('[Add_First] ERROR: Object为nil，跳过') return end
-    _P('[Add_First] T0='..Osi.HasPassive(Object,'BanXian_LingGen_T0')..' T1='..Osi.HasPassive(Object,'BanXian_LingGen_T1')..' T2='..Osi.HasPassive(Object,'BanXian_LingGen_T2')..' T3='..Osi.HasPassive(Object,'BanXian_LingGen_T3')..' Blank='..Osi.HasPassive(Object,'BanXian_LingGen_Blank'))
 
     -- 获取随机灵根资质
     local r,TZ = Utils.LingGen.Random(1)
-    _P('[Add_First] 随机初始值: r='..tostring(r)..' TZ='..tostring(TZ))
 
     -- 先天资质覆盖
     if Osi.HasPassive(Object, 'BanXian_LingGen_T0') == 1 then
         r,TZ = 100,math.random(6,10)
-        _P('[Add_First] 先天道体覆盖: r='..r..' TZ='..TZ)
     elseif Osi.HasPassive(Object, 'BanXian_LingGen_T1') == 1 then
         r,TZ = 50,math.random(3,5)
-        _P('[Add_First] 大帝之资覆盖: r='..r..' TZ='..TZ)
     elseif Osi.HasPassive(Object, 'BanXian_LingGen_T2') == 1 then
         r,TZ = 20,2
-        _P('[Add_First] 先天慧根覆盖: r='..r..' TZ='..TZ)
     elseif Osi.HasPassive(Object, 'BanXian_LingGen_T3') == 1 then
         r,TZ = 10,1
-        _P('[Add_First] 平平无奇覆盖: r='..r..' TZ='..TZ)
     elseif Osi.HasPassive(Object, 'BanXian_LingGen_Blank') == 1 then
         r,TZ = 0,0
-        _P('[Add_First] 灵根破碎覆盖: r='..r..' TZ='..TZ)
     else
-        _P('[Add_First] 随机灵根资质: r='..r..' TZ='..TZ)
     end
 
     -- 灵根分配策略优化
@@ -330,7 +317,6 @@ function LingGen.Add_First(Object)
 
     -- 保留后续处理逻辑不变
     lg.a,lg.b,lg.c,lg.d,lg.e,r,TZ = LingGen.GetCharacterParams(Object,lg.a,lg.b,lg.c,lg.d,lg.e,r,TZ)
-    _P('[Add_First] GetCharacterParams后: r='..tostring(r)..' TZ='..tostring(TZ))
 
     --觉醒灵根
     if r == 100 then
@@ -356,7 +342,6 @@ function LingGen.Add_First(Object)
     end
 
     --资质点分配
-    _P('[Add_First] 最终ApplyStatus BANXIAN_LG_TZ='..tostring(TZ))
     Osi.ApplyStatus(Object,'BANXIAN_LG_TZ', TZ * 6)
 
     if lg.a > 0 then
@@ -461,9 +446,7 @@ function LingGen.OnStatusApplied_after(Object, Status, Causee)
                      or Osi.HasPassive(Object, 'BanXian_LingGen_T3')   == 1
     if not hasAwakened then --没有觉醒过灵根
         if Status == "BANXIAN_DAOXIN" then  --创建角色：谪仙
-            _P("[EventHandlers] 事件·觉醒灵根: ") 
             PersistentVars['BXAddLingGen_Waiting'] = Object
-            _P('[PersistentVars]记录数据[BXAddLingGen_Waiting]:'..Object) --DEBUG
             Osi.TimerLaunch('BanXian_AddLingGen', 10000)
         elseif Status == "POTION_OF_VITALITY" then  --活力药水觉醒
             LingGen.Add_First(Object)

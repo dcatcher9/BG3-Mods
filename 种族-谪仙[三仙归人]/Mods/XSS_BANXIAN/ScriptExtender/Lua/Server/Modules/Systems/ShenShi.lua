@@ -7,7 +7,6 @@ local Utils = require("Server.Modules.Utils")
 function ShenShi.Init()
     Ext.Osiris.RegisterListener("StatusApplied", 4, "after", ShenShi.OnStatusApplied_after)
 
-    _P("[ShenShi] 神识系统初始化完成！")
 end
 
 --事件·分身术内观
