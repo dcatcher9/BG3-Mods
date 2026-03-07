@@ -20,7 +20,7 @@
 						<node id="StatusList">
 							<children>
 								<node id="Status">
-									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+									<attribute id="Object" type="FixedString" value="BANXIAN_DAOXIN" />
 								</node>
 							</children>
 						</node>
@@ -42,7 +42,7 @@
 						<node id="StatusList">
 							<children>
 								<node id="Status">
-									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+									<attribute id="Object" type="FixedString" value="BANXIAN_DAOXIN" />
 								</node>
 							</children>
 						</node>
@@ -63,7 +63,7 @@
 						<node id="StatusList">
 							<children>
 								<node id="Status">
-									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+									<attribute id="Object" type="FixedString" value="BANXIAN_DAOXIN" />
 								</node>
 							</children>
 						</node>
@@ -85,7 +85,7 @@
 						<node id="StatusList">
 							<children>
 								<node id="Status">
-									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+									<attribute id="Object" type="FixedString" value="BANXIAN_DAOXIN" />
 								</node>
 							</children>
 						</node>
@@ -108,7 +108,7 @@
 									<attribute id="Object" type="FixedString" value="CUITI_ZHOUTIAN_OWNER" />
 								</node>
 								<node id="Status">
-									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+									<attribute id="Object" type="FixedString" value="BANXIAN_DAOXIN" />
 								</node>
 							</children>
 						</node>
@@ -131,7 +131,7 @@
 									<attribute id="Object" type="FixedString" value="CUITI_ZHOUTIAN_OWNER" />
 								</node>
 								<node id="Status">
-									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+									<attribute id="Object" type="FixedString" value="BANXIAN_DAOXIN" />
 								</node>
 							</children>
 						</node>
@@ -154,7 +154,7 @@
 									<attribute id="Object" type="FixedString" value="CUITI_ZHOUTIAN_OWNER" />
 								</node>
 								<node id="Status">
-									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+									<attribute id="Object" type="FixedString" value="BANXIAN_DAOXIN" />
 								</node>
 							</children>
 						</node>
@@ -177,7 +177,7 @@
 									<attribute id="Object" type="FixedString" value="CUITI_ZHOUTIAN_OWNER" />
 								</node>
 								<node id="Status">
-									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+									<attribute id="Object" type="FixedString" value="BANXIAN_DAOXIN" />
 								</node>
 							</children>
 						</node>
@@ -197,7 +197,7 @@
 									<attribute id="Object" type="FixedString" value="RENXIAN_STATUS" />
 								</node>
 								<node id="Status">
-									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+									<attribute id="Object" type="FixedString" value="BANXIAN_DAOXIN" />
 								</node>
 							</children>
 						</node>
@@ -217,7 +217,7 @@
 									<attribute id="Object" type="FixedString" value="RENXIAN_STATUS" />
 								</node>
 								<node id="Status">
-									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+									<attribute id="Object" type="FixedString" value="BANXIAN_DAOXIN" />
 								</node>
 							</children>
 						</node>
@@ -237,7 +237,7 @@
 									<attribute id="Object" type="FixedString" value="RENXIAN_STATUS" />
 								</node>
 								<node id="Status">
-									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+									<attribute id="Object" type="FixedString" value="BANXIAN_DAOXIN" />
 								</node>
 							</children>
 						</node>
@@ -257,7 +257,7 @@
 									<attribute id="Object" type="FixedString" value="RENXIAN_STATUS" />
 								</node>
 								<node id="Status">
-									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+									<attribute id="Object" type="FixedString" value="BANXIAN_DAOXIN" />
 								</node>
 							</children>
 						</node>
@@ -277,7 +277,7 @@
 									<attribute id="Object" type="FixedString" value="YAOXIAN_STATUS" />
 								</node>
 								<node id="Status">
-									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+									<attribute id="Object" type="FixedString" value="BANXIAN_DAOXIN" />
 								</node>
 							</children>
 						</node>
@@ -297,7 +297,7 @@
 									<attribute id="Object" type="FixedString" value="YAOXIAN_STATUS" />
 								</node>
 								<node id="Status">
-									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+									<attribute id="Object" type="FixedString" value="BANXIAN_DAOXIN" />
 								</node>
 							</children>
 						</node>
@@ -317,7 +317,7 @@
 									<attribute id="Object" type="FixedString" value="YAOXIAN_STATUS" />
 								</node>
 								<node id="Status">
-									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+									<attribute id="Object" type="FixedString" value="BANXIAN_DAOXIN" />
 								</node>
 							</children>
 						</node>
@@ -337,7 +337,7 @@
 									<attribute id="Object" type="FixedString" value="YAOXIAN_STATUS" />
 								</node>
 								<node id="Status">
-									<attribute id="Object" type="FixedString" value="BIANXIAN_DAOXIN" />
+									<attribute id="Object" type="FixedString" value="BANXIAN_DAOXIN" />
 								</node>
 							</children>
 						</node>

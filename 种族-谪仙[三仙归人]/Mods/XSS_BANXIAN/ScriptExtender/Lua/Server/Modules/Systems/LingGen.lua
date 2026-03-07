@@ -460,7 +460,7 @@ function LingGen.OnStatusApplied_after(Object, Status, Causee)
                      or Osi.HasPassive(Object, 'BanXian_LingGen_T2')   == 1
                      or Osi.HasPassive(Object, 'BanXian_LingGen_T3')   == 1
     if not hasAwakened then --没有觉醒过灵根
-        if Status == "BIANXIAN_DAOXIN" then  --创建角色：谪仙
+        if Status == "BANXIAN_DAOXIN" then  --创建角色：谪仙
             _P("[EventHandlers] 事件·觉醒灵根: ") 
             PersistentVars['BXAddLingGen_Waiting'] = Object
             _P('[PersistentVars]记录数据[BXAddLingGen_Waiting]:'..Object) --DEBUG

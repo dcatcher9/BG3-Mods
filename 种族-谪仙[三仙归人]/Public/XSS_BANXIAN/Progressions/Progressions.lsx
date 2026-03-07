@@ -205,11 +205,11 @@
         <node id="Progression">练气巅峰
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,2,0)" />
           <attribute id="Level" type="uint8" value="4" />
-          <attribute id="Name" type="LSString" value="TianXian" />
+          <attribute id="Name" type="LSString" value="RenXian" />
           <attribute id="PassivesAdded" type="LSString" value="" />
           <attribute id="Selectors" type="LSString" value="" />
           <attribute id="ProgressionType" type="uint8" value="2" />
-          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
+          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
           <attribute id="UUID" type="guid" value="0bac66ae-9325-4e4d-953f-d3aae77ab004" />
         </node>
         <node id="Progression">
@@ -226,12 +226,12 @@
         <node id="Progression">筑基巅峰
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,4,0)" />
           <attribute id="Level" type="uint8" value="8" />
-          <attribute id="Name" type="LSString" value="TianXian" />
+          <attribute id="Name" type="LSString" value="RenXian" />
           <attribute id="PassivesAdded" type="LSString" value="" />
           <attribute id="PassivesRemoved" type="LSString" value="" />
           <attribute id="Selectors" type="LSString" value="SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84002,1,BANXIANFABAOBAIMAI)" />
           <attribute id="ProgressionType" type="uint8" value="2" />
-          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
+          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
           <attribute id="UUID" type="guid" value="0bac66ae-9325-4e4d-953f-d3aae77ab008" />
         </node>
         <node id="Progression">
@@ -248,12 +248,12 @@
         <node id="Progression">结丹巅峰
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,8,0)" />
           <attribute id="Level" type="uint8" value="12" />
-          <attribute id="Name" type="LSString" value="TianXian" />
+          <attribute id="Name" type="LSString" value="RenXian" />
           <attribute id="PassivesAdded" type="LSString" value="" />
           <attribute id="PassivesRemoved" type="LSString" value="" />
           <attribute id="Selectors" type="LSString" value="SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84002,1,BANXIANFABAOBAIMAI)" />
           <attribute id="ProgressionType" type="uint8" value="2" />
-          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
+          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
           <attribute id="UUID" type="guid" value="0bac66ae-9325-4e4d-953f-d3aae77ab012" />
         </node>
         <node id="Progression">
@@ -270,12 +270,12 @@
         <node id="Progression">元婴巅峰
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,16,0)" />
           <attribute id="Level" type="uint8" value="19" />
-          <attribute id="Name" type="LSString" value="TianXian" />
+          <attribute id="Name" type="LSString" value="RenXian" />
           <attribute id="PassivesAdded" type="LSString" value="" />
           <attribute id="PassivesRemoved" type="LSString" value="" />
           <attribute id="Selectors" type="LSString" value="SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84002,1,BANXIANFABAOBAIMAI)" />
           <attribute id="ProgressionType" type="uint8" value="2" />
-          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
+          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
           <attribute id="UUID" type="guid" value="0bac66ae-9325-4e4d-953f-d3aae77ab019" />
         </node>
         <node id="Progression">
@@ -292,12 +292,12 @@
         <node id="Progression">化神巅峰
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,32,0)" />
           <attribute id="Level" type="uint8" value="36" />
-          <attribute id="Name" type="LSString" value="TianXian" />
+          <attribute id="Name" type="LSString" value="RenXian" />
           <attribute id="PassivesAdded" type="LSString" value="" />
           <attribute id="PassivesRemoved" type="LSString" value="" />
           <attribute id="Selectors" type="LSString" value="" />
           <attribute id="ProgressionType" type="uint8" value="2" />
-          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
+          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
           <attribute id="UUID" type="guid" value="0bac66ae-9325-4e4d-953f-d3aae77ab036" />
         </node>
         <node id="Progression">炼虚前期
@@ -314,12 +314,12 @@
         <node id="Progression">炼虚巅峰
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,64,0)" />
           <attribute id="Level" type="uint8" value="56" />
-          <attribute id="Name" type="LSString" value="TianXian" />
+          <attribute id="Name" type="LSString" value="RenXian" />
           <attribute id="PassivesAdded" type="LSString" value="" />
           <attribute id="PassivesRemoved" type="LSString" value="" />
           <attribute id="Selectors" type="LSString" value="" />
           <attribute id="ProgressionType" type="uint8" value="2" />
-          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
+          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
           <attribute id="UUID" type="guid" value="0bac66ae-9325-4e4d-953f-d3aae77ab056" />
         </node>
         <node id="Progression">合体前期
@@ -336,12 +336,12 @@
         <node id="Progression">合体巅峰
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,128,0)" />
           <attribute id="Level" type="uint8" value="76" />
-          <attribute id="Name" type="LSString" value="TianXian" />
+          <attribute id="Name" type="LSString" value="RenXian" />
           <attribute id="PassivesAdded" type="LSString" value="" />
           <attribute id="PassivesRemoved" type="LSString" value="" />
           <attribute id="Selectors" type="LSString" value="" />
           <attribute id="ProgressionType" type="uint8" value="2" />
-          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
+          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
           <attribute id="UUID" type="guid" value="0bac66ae-9325-4e4d-953f-d3aae77ab076" />
         </node>
         <node id="Progression">大乘前期
@@ -358,12 +358,12 @@
         <node id="Progression">大乘巅峰
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,256,0)" />
           <attribute id="Level" type="uint8" value="86" />
-          <attribute id="Name" type="LSString" value="TianXian" />
+          <attribute id="Name" type="LSString" value="RenXian" />
           <attribute id="PassivesAdded" type="LSString" value="" />
           <attribute id="PassivesRemoved" type="LSString" value="" />
           <attribute id="Selectors" type="LSString" value="" />
           <attribute id="ProgressionType" type="uint8" value="2" />
-          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
+          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
           <attribute id="UUID" type="guid" value="0bac66ae-9325-4e4d-953f-d3aae77ab086" />
         </node>
         <node id="Progression">渡劫
@@ -401,11 +401,11 @@
         <node id="Progression">练气巅峰
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,2,0)" />
           <attribute id="Level" type="uint8" value="4" />
-          <attribute id="Name" type="LSString" value="TianXian" />
+          <attribute id="Name" type="LSString" value="YaoXian" />
           <attribute id="PassivesAdded" type="LSString" value="" />
           <attribute id="Selectors" type="LSString" value="" />
           <attribute id="ProgressionType" type="uint8" value="2" />
-          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
+          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab004" />
         </node>
         <node id="Progression">妖仙
@@ -422,12 +422,12 @@
         <node id="Progression">筑基巅峰
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,4,0)" />
           <attribute id="Level" type="uint8" value="8" />
-          <attribute id="Name" type="LSString" value="TianXian" />
+          <attribute id="Name" type="LSString" value="YaoXian" />
           <attribute id="PassivesAdded" type="LSString" value="" />
           <attribute id="PassivesRemoved" type="LSString" value="" />
           <attribute id="Selectors" type="LSString" value="SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84002,1,BANXIANFABAOBAIMAI)" />
           <attribute id="ProgressionType" type="uint8" value="2" />
-          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
+          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab008" />
         </node>
         <node id="Progression">妖仙
@@ -444,12 +444,12 @@
         <node id="Progression">结丹巅峰
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,8,0)" />
           <attribute id="Level" type="uint8" value="12" />
-          <attribute id="Name" type="LSString" value="TianXian" />
+          <attribute id="Name" type="LSString" value="YaoXian" />
           <attribute id="PassivesAdded" type="LSString" value="" />
           <attribute id="PassivesRemoved" type="LSString" value="" />
           <attribute id="Selectors" type="LSString" value="SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84002,1,BANXIANFABAOBAIMAI)" />
           <attribute id="ProgressionType" type="uint8" value="2" />
-          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
+          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab012" />
         </node>
         <node id="Progression">妖仙
@@ -466,12 +466,12 @@
         <node id="Progression">元婴巅峰
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,16,0)" />
           <attribute id="Level" type="uint8" value="19" />
-          <attribute id="Name" type="LSString" value="TianXian" />
+          <attribute id="Name" type="LSString" value="YaoXian" />
           <attribute id="PassivesAdded" type="LSString" value="" />
           <attribute id="PassivesRemoved" type="LSString" value="" />
           <attribute id="Selectors" type="LSString" value="SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84002,1,BANXIANFABAOBAIMAI)" />
           <attribute id="ProgressionType" type="uint8" value="2" />
-          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
+          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab019" />
         </node>
         <node id="Progression">妖仙
@@ -488,12 +488,12 @@
         <node id="Progression">化神巅峰
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,32,0)" />
           <attribute id="Level" type="uint8" value="36" />
-          <attribute id="Name" type="LSString" value="TianXian" />
+          <attribute id="Name" type="LSString" value="YaoXian" />
           <attribute id="PassivesAdded" type="LSString" value="" />
           <attribute id="PassivesRemoved" type="LSString" value="" />
           <attribute id="Selectors" type="LSString" value="" />
           <attribute id="ProgressionType" type="uint8" value="2" />
-          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
+          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab036" />
         </node>
         <node id="Progression">妖仙
@@ -510,12 +510,12 @@
         <node id="Progression">炼虚巅峰
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,64,0)" />
           <attribute id="Level" type="uint8" value="56" />
-          <attribute id="Name" type="LSString" value="TianXian" />
+          <attribute id="Name" type="LSString" value="YaoXian" />
           <attribute id="PassivesAdded" type="LSString" value="" />
           <attribute id="PassivesRemoved" type="LSString" value="" />
           <attribute id="Selectors" type="LSString" value="" />
           <attribute id="ProgressionType" type="uint8" value="2" />
-          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
+          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab056" />
         </node>
         <node id="Progression">妖仙
@@ -532,12 +532,12 @@
         <node id="Progression">合体巅峰
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,128,0)" />
           <attribute id="Level" type="uint8" value="76" />
-          <attribute id="Name" type="LSString" value="TianXian" />
+          <attribute id="Name" type="LSString" value="YaoXian" />
           <attribute id="PassivesAdded" type="LSString" value="" />
           <attribute id="PassivesRemoved" type="LSString" value="" />
           <attribute id="Selectors" type="LSString" value="" />
           <attribute id="ProgressionType" type="uint8" value="2" />
-          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
+          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab076" />
         </node>
         <node id="Progression">妖仙
@@ -554,12 +554,12 @@
         <node id="Progression">大乘巅峰
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,256,0)" />
           <attribute id="Level" type="uint8" value="86" />
-          <attribute id="Name" type="LSString" value="TianXian" />
+          <attribute id="Name" type="LSString" value="YaoXian" />
           <attribute id="PassivesAdded" type="LSString" value="" />
           <attribute id="PassivesRemoved" type="LSString" value="" />
           <attribute id="Selectors" type="LSString" value="" />
           <attribute id="ProgressionType" type="uint8" value="2" />
-          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
+          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab086" />
         </node>
         <node id="Progression">妖仙
@@ -572,6 +572,17 @@
           <attribute id="ProgressionType" type="uint8" value="2" />
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab096" />
+        </node>
+        <node id="Progression">真仙
+          <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,1024,0);ActionResource(ShenshiPoint,256,0)" />
+          <attribute id="Level" type="uint8" value="100" />
+          <attribute id="Name" type="LSString" value="YaoXian" />
+          <attribute id="PassivesAdded" type="LSString" value="ExtraAttack_9_BanXian" />
+          <attribute id="PassivesRemoved" type="LSString" value="ExtraAttack_8_BanXian" />
+          <attribute id="Selectors" type="LSString" value="" />
+          <attribute id="ProgressionType" type="uint8" value="2" />
+          <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
+          <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab100" />
         </node>
       </children>
     </node>

@@ -114,22 +114,6 @@ end
 -- 处理事件：加载游戏数据
 function EventHandlers.SavegameLoaded()
 
-    -- 打印 PersistentVars 内容
-    local function printTable(tbl, indent)
-        indent = indent or 0
-        for k, v in pairs(tbl) do
-            if type(v) == "table" then
-                _P(string.rep(" ", indent) .. k .. ":")
-                printTable(v, indent + 4)
-            else
-                _P(string.rep(" ", indent) .. k .. ": ", v, " (Type: ", type(v), ")")
-            end
-        end
-    end
-
-    --_P("PersistentVars 内容:")
-    --printTable(PersistentVars)
-
     --恢复谪仙数据倒计时
     _P("恢复谪仙数据倒计时")
     Osi.TimerLaunch('BanXianList_RecoverStats', 3000)

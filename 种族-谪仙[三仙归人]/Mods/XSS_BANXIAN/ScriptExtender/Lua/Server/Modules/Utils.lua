@@ -400,7 +400,6 @@ function Utils.Get.MaxSpellSlotPower(Object)
             MaxPower = SPELLSLOT['Level']
         end
     end
-    _P('[最高环位]：'..MaxPower) --DEBUG
     return MaxPower
 end
 

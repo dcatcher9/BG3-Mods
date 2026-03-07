@@ -4,10 +4,10 @@
 /
 /////////////////////////////  
 //道心
-new entry "BIANXIAN_DAOXIN"
+new entry "BANXIAN_DAOXIN"
 type "StatusData"
 data "StatusType" "BOOST"
-data "StackId" "BIANXIAN_DAOXIN"
+data "StackId" "BANXIAN_DAOXIN"
 data "StackType" "Overwrite"
 data "Passives" "BanXian_DH_DaoXin;BanXian_DH_Base;BanXian_DH_Base_S;BanXian_DH_Base_L"
 data "TickType" "EndTurn"
