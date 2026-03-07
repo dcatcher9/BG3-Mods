@@ -314,7 +314,7 @@ end
 
 function IsXianRenMode(entity)
     local entity = entity or context.Source
-    return HasStatus('MODE_BANXIAN_DH_TIAN_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_XIULUO_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_RENJIAN_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_EGUI_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_DIYU_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_JIAN_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_LI_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_HEHUAN_TECHNICAL',entity)
+    return HasStatus('MODE_BANXIAN_DH_TIAN_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_XIULUO_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_RENJIAN_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_CHUSHENG_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_EGUI_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_DIYU_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_JIAN_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_LI_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_HEHUAN_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_YI_TECHNICAL',entity)
 end
 
 
@@ -822,9 +822,3 @@ function OffHandAttackSpell()
 end
 
 
-function TianDao_XinJiTooHigh(entity)
-    local entity = entity or context.Source
-    local result = GetStatusDuration('BANXIAN_STATUS_TIANDAO_XINJI', entity) > GetStatusDuration('BANXIAN_DH_YEAR', entity)
-
-    return ConditionResult(result)
-end

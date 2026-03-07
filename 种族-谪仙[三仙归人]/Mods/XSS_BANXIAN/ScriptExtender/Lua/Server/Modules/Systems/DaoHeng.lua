@@ -123,28 +123,6 @@ function DaoHeng.Tian.AddDH(Target, BanXian)
 
 end
 
---减少天道道行
-function DaoHeng.Tian.ReduceDH(Target, BanXian)
-    local level = Osi.GetLevel(Target)
-    local DH_Day = Osi.GetStatusTurns(BanXian, 'BANXIAN_DH_DAY') or 0
-    local DH_Year = Osi.GetStatusTurns(BanXian, 'BANXIAN_DH_YEAR') or 0
-    Ext.Utils.Print("[天道惩罚][滥杀生灵减少道行]："..level.."天")--debug
-
-    local DH_Day_new = DH_Day - level
-    if DH_Day_new < 0 then
-        DH_Year = DH_Year - 1
-        DH_Day_new = DH_Day_new + 365
-        if DH_Year >= 0 then
-            Osi.ApplyStatus(BanXian, 'BANXIAN_DH_YEAR', DH_Year*6, 1)
-        end
-        Osi.ApplyStatus(BanXian, 'BANXIAN_DH_DAY', DH_Day_new*6, 1)
-        Osi.ApplyStatus(BanXian, 'BANXIAN_STATUS_TIANDAO_XINJI', 6, 1)
-    else
-        Osi.ApplyStatus(BanXian, 'BANXIAN_DH_DAY', DH_Day_new*6, 1)
-        Osi.ApplyStatus(BanXian, 'BANXIAN_STATUS_TIANDAO_XINJI', 6, 1)
-    end
-
-end
 
 
 
@@ -408,9 +386,6 @@ function DaoHeng.OnStatusApplied_after(Object, Status, Causee)
     end
 
     --天道
-    if Status == "SIGNAL_BANXIAN_TIANKAO_KILLED_LOCALBORN" then
-        DaoHeng.Tian.ReduceDH(Object, Causee)
-    end
     if Status == "SIGNAL_BANXIAN_TIANKAO_KILLED_ABANDON" then
         DaoHeng.Tian.AddDH(Object, Causee)
     end
