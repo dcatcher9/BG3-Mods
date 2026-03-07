@@ -21,7 +21,7 @@ data "PreviewIcon" "DT_BiOJinDan"
 
 
 //DT_BiOXiaoHuanDan
-new ItemCombination "QUEST_LianDan_DT_BiOJinDan"
+new ItemCombination "QUEST_LianDan_DT_BiOXiaoHuanDan"
 data "Type 1" "Object"
 data "Object 1" "DL_DanLuBase"
 data "Transform 1" "None"

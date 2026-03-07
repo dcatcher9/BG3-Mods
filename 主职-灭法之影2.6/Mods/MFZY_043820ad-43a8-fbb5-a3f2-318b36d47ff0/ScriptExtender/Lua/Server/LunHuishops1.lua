@@ -36,7 +36,7 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status
         if Roll <= QH1_5_YES then
             QaingHua_ID = WQ_QiangHua_1_5_YES[Ext.Utils.Random(#WQ_QiangHua_1_5_YES)]
         --失败
-        elseif Roll <= QH1_5_NO then
+        elseif Roll <= 80 then
             QaingHua_ID = WQ_QiangHua_1_5_NO[Ext.Utils.Random(#WQ_QiangHua_1_5_NO)]
         else
             QaingHua_ID = WQ_QiangHua_1_5_PING[Ext.Utils.Random(#WQ_QiangHua_1_5_PING)]

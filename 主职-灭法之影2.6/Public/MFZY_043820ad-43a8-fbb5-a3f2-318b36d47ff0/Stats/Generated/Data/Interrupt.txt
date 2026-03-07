@@ -105,9 +105,6 @@ data "EnableCondition" "not HasStatus('SG_Polymorph') or Tagged('MINDFLAYER') or
 data "EnableContext" "OnStatusApplied;OnStatusRemoved"
 data "TooltipStatusApply" "ApplyStatus(Soul_Wound,100,3)"
 
-new entry "New_Stat_1"
-type "InterruptData"
-
 new entry "ZhuRuDuSu"
 type "InterruptData"
 data "DisplayName" "hdaa41691ga1bcg7218gaf8fg16a905e480e4;1"

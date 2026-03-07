@@ -186,7 +186,7 @@ data "Description" "stringsofmodmadebyxss20250303zfa0bb02;1"
 
 new entry "BANXIAN_FaBao_FireBreath_YAO_Ray"
 type "SpellData"
-data "SpellType" "Zone"
+data "SpellType" "Projectile"
 using "BANXIAN_FaBao_FireBreath_Ray"
 data "SpellContainerID" "BANXIAN_FaBao_FireBreath_YAO"
 data "DisplayName" "stringsofmodmadebyxss20250303zfa0ba03;1"

@@ -25,17 +25,9 @@
                     <attribute id="UUID" type="guid" value="1adc9e4b-0573-4a1f-a678-65d25a43e54d" />
                 </node>
         <node id="SpellList">
-                    <attribute id="Name" type="FixedString" value="5" />
-                    <attribute id="UUID" type="guid" value="c0687c38-f490-477f-bd92-2773ce541e02" />
-                </node>
-        <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="6" />
                     <attribute id="Spells" type="LSString" value="Rush_Blade_Knife_Jueying" />
                     <attribute id="UUID" type="guid" value="bcf84f90-7075-4062-95c0-4e384e6bc423" />
-                </node>
-        <node id="SpellList">
-                    <attribute id="Name" type="FixedString" value="7" />
-                    <attribute id="UUID" type="guid" value="71a42bbe-e841-42e5-b477-9069feb56690" />
                 </node>
         <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="8" />
@@ -51,14 +43,6 @@
                     <attribute id="Name" type="FixedString" value="9" />
                     <attribute id="Spells" type="LSString" value="Target_Soul_Silk;Shout_Blade_Knife_Exceed_Ringbreakage;" />
                     <attribute id="UUID" type="guid" value="beb0da9f-0e48-4746-a37b-49301fe3b809" />
-                </node>
-        <node id="SpellList">
-                    <attribute id="Name" type="FixedString" value="10" />
-                    <attribute id="UUID" type="guid" value="bcb786c3-51d6-440b-a0c6-8d085e061832" />
-                </node>
-        <node id="SpellList">
-                    <attribute id="Name" type="FixedString" value="11" />
-                    <attribute id="UUID" type="guid" value="09fdda9c-77ce-4675-89ea-38a8cbec3490" />
                 </node>
         <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="12" />

@@ -157,12 +157,12 @@
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab076" />
         </node>
         <node id="Progression">大乘前期
-          <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,256,0);ActionResource(ShenshiPoint,64,0);SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84001,2,BANXIANCUITI)" />
+          <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,256,0);ActionResource(ShenshiPoint,64,0)" />
           <attribute id="Level" type="uint8" value="81" />
           <attribute id="Name" type="LSString" value="TianXian" />
           <attribute id="PassivesAdded" type="LSString" value="ExtraAttack_7_BanXian" />
           <attribute id="PassivesRemoved" type="LSString" value="ExtraAttack_6_BanXian" />
-          <attribute id="Selectors" type="LSString" value="" />
+          <attribute id="Selectors" type="LSString" value="SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84001,2,BANXIANCUITI)" />
           <attribute id="ProgressionType" type="uint8" value="2" />
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab081" />
@@ -179,23 +179,23 @@
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab086" />
         </node>
         <node id="Progression">渡劫
-          <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,512,0);ActionResource(ShenshiPoint,128,0);SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84001,2,BANXIANCUITI)" />
+          <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,512,0);ActionResource(ShenshiPoint,128,0)" />
           <attribute id="Level" type="uint8" value="96" />
           <attribute id="Name" type="LSString" value="TianXian" />
           <attribute id="PassivesAdded" type="LSString" value="ExtraAttack_8_BanXian" />
           <attribute id="PassivesRemoved" type="LSString" value="ExtraAttack_7_BanXian" />
-          <attribute id="Selectors" type="LSString" value="" />
+          <attribute id="Selectors" type="LSString" value="SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84001,2,BANXIANCUITI)" />
           <attribute id="ProgressionType" type="uint8" value="2" />
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab096" />
         </node>
         <node id="Progression">真仙
-          <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,1024,0);ActionResource(ShenshiPoint,256,0);SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84001,1,BANXIANCUITI)" />
+          <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,1024,0);ActionResource(ShenshiPoint,256,0)" />
           <attribute id="Level" type="uint8" value="100" />
           <attribute id="Name" type="LSString" value="TianXian" />
           <attribute id="PassivesAdded" type="LSString" value="ExtraAttack_9_BanXian" />
           <attribute id="PassivesRemoved" type="LSString" value="ExtraAttack_8_BanXian" />
-          <attribute id="Selectors" type="LSString" value="" />
+          <attribute id="Selectors" type="LSString" value="SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84001,1,BANXIANCUITI)" />
           <attribute id="ProgressionType" type="uint8" value="2" />
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab100" />

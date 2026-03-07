@@ -369,7 +369,6 @@ data "Proficiency Group" "Shields"
 
 new entry "新手法师袍（服装）"
 type "Armor"
-data "Shield" "Yes"
 
 new entry "XinShouFaShiPao"
 type "Armor"

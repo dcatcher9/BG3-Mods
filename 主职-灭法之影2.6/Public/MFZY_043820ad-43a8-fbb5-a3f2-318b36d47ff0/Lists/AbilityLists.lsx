@@ -11,7 +11,7 @@
                 </node>
         <node id="AbilityList">
                     <attribute id="Abilities" type="LSString" value="Strength, Dexterity, Constitution, Intelligence, Wisdom,Charisma" />
-                    <attribute id="Name" type="FixedString" value="所有属性 " />
+                    <attribute id="Name" type="FixedString" value="所有属性" />
                     <attribute id="UUID" type="guid" value="142c81ef-984e-4a7c-bc0b-e1223e84100e" />
                 </node>
       </children>

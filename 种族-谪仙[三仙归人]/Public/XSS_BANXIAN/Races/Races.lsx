@@ -1777,7 +1777,7 @@
                     <attribute id="ParentGuid" type="guid" value="0eb594cb-8820-4be6-a58d-8be7a1a98fba" />
                     <attribute id="RaceEquipment" type="FixedString" value="EQP_BANXIAN" />
                     <attribute id="RaceSoundSwitch" type="FixedString" value="Human" />
-                    <attribute id="ProgressionTableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />3119b88f-f3d6-4ca1-bb46-ca545f50d88e
+                    <attribute id="ProgressionTableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
                     <attribute id="UUID" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e01" />
                     <children>
                         <node id="ExcludedGods">
@@ -3542,7 +3542,7 @@
                     <attribute id="ParentGuid" type="guid" value="0eb594cb-8820-4be6-a58d-8be7a1a98fba" />
                     <attribute id="RaceEquipment" type="FixedString" value="EQP_BANXIAN" />
                     <attribute id="RaceSoundSwitch" type="FixedString" value="Human" />
-                    <attribute id="ProgressionTableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />3119b88f-f3d6-4ca1-bb46-ca545f50d88e
+                    <attribute id="ProgressionTableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
                     <attribute id="UUID" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e02" />
                     <children>
                         <node id="ExcludedGods">
@@ -5307,7 +5307,7 @@
                     <attribute id="ParentGuid" type="guid" value="0eb594cb-8820-4be6-a58d-8be7a1a98fba" />
                     <attribute id="RaceEquipment" type="FixedString" value="EQP_BANXIAN" />
                     <attribute id="RaceSoundSwitch" type="FixedString" value="Human" />
-                    <attribute id="ProgressionTableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />3119b88f-f3d6-4ca1-bb46-ca545f50d88e
+                    <attribute id="ProgressionTableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
                     <attribute id="UUID" type="guid" value="c134b9c4-400e-4999-8af5-6c91880c9e03" />
                     <children>
                         <node id="ExcludedGods">

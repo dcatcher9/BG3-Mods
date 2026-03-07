@@ -3,7 +3,7 @@
 	<version major="4" minor="0" revision="0" build="58" lslib_meta="v1,bswap_guids" />
 	<region id="Tags">
 		<node id="Tags">
-			<attribute id="Description" type="LSString" value="|Banxian RenXian|" />
+			<attribute id="Description" type="LSString" value="|Banxian NOSOUL|" />
 			<attribute id="DisplayDescription" type="TranslatedString" handle="stringsofmodmadebyxss20240930tag01a01" version="1" />
 			<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930tag01b01" version="1" />
 			<attribute id="Icon" type="FixedString" value="" />

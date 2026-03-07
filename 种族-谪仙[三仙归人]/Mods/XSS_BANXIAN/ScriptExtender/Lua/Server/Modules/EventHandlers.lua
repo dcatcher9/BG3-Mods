@@ -25,9 +25,6 @@ function EventHandlers.Init()
     -- 注册状态应用事件
     Ext.Osiris.RegisterListener("StatusApplied", 4, "after", EventHandlers.OnStatusApplied_after)
 
-    -- 注册状态移除事件
-    Ext.Osiris.RegisterListener("StatusRemoved", 4, "before", EventHandlers.OnStatusRemoved_before)
-
     -- 注册Timer
     Ext.Osiris.RegisterListener("TimerFinished", 1, "after", EventHandlers.OnTimerFinished_after)
 
@@ -176,11 +173,6 @@ function EventHandlers.OnStatusApplied_after(Object, Status, Causee, StoryAction
     end
     --_P(Object) --DEBUG
     --_P(Status) --DEBUG
-
-end
-
--- 处理状态移除事件
-function EventHandlers.OnStatusRemoved_before(object, status)
 
 end
 

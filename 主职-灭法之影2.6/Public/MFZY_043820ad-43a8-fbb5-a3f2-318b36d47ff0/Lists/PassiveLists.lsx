@@ -5,10 +5,6 @@
     <node id="root">
       <children>
         <node id="PassiveList">
-                    <attribute id="Name" type="FixedString" value="1" />
-                    <attribute id="UUID" type="guid" value="cff594ff-9d57-40b5-9716-0d0bce47dfb7" />
-                </node>
-        <node id="PassiveList">
                     <attribute id="Name" type="FixedString" value="2" />
                     <attribute id="Passives" type="LSString" value="Lingying_Constitution,Extinction_Magic_Constitution" />
                     <attribute id="UUID" type="guid" value="c3f4cded-644a-49b8-be87-68065a9a67a0" />
@@ -19,25 +15,9 @@
                     <attribute id="UUID" type="guid" value="456ebf0b-1d59-48b8-b4bf-6a723a8fa1d0" />
                 </node>
         <node id="PassiveList">
-                    <attribute id="Name" type="FixedString" value="3" />
-                    <attribute id="UUID" type="guid" value="21da002e-e7bb-481c-a755-b86faa4392e3" />
-                </node>
-        <node id="PassiveList">
-                    <attribute id="Name" type="FixedString" value="4" />
-                    <attribute id="UUID" type="guid" value="891200c3-4869-41b8-a7cb-134563bcdd54" />
-                </node>
-        <node id="PassiveList">
                     <attribute id="Name" type="FixedString" value="4.1" />
                     <attribute id="Passives" type="LSString" value="Master_swordsmanshipLV2,Master_MeleeCombatLV2,Proficiency_Gun_LV2" />
                     <attribute id="UUID" type="guid" value="d8e588ec-2715-4399-bfac-7cac51de5755" />
-                </node>
-        <node id="PassiveList">
-                    <attribute id="Name" type="FixedString" value="5" />
-                    <attribute id="UUID" type="guid" value="de878053-f146-45a3-a5c3-5ccd6b3d47e2" />
-                </node>
-        <node id="PassiveList">
-                    <attribute id="Name" type="FixedString" value="6" />
-                    <attribute id="UUID" type="guid" value="9ed2daf3-a96c-40fb-9867-1806d4c07f8d" />
                 </node>
         <node id="PassiveList">
                     <attribute id="Name" type="FixedString" value="6.1" />
@@ -45,38 +25,14 @@
                     <attribute id="UUID" type="guid" value="6dd715d3-3a1e-46d1-9ca8-8e86631d0903" />
                 </node>
         <node id="PassiveList">
-                    <attribute id="Name" type="FixedString" value="7" />
-                    <attribute id="UUID" type="guid" value="f1051abe-f50e-4927-8bea-c55b92ed760a" />
-                </node>
-        <node id="PassiveList">
-                    <attribute id="Name" type="FixedString" value="8" />
-                    <attribute id="UUID" type="guid" value="af5aa358-7481-4321-b755-3a29fbe5bd2b" />
-                </node>
-        <node id="PassiveList">
                     <attribute id="Name" type="FixedString" value="8.1" />
                     <attribute id="Passives" type="LSString" value="Master_swordsmanshipLV4,Master_MeleeCombatLV4,XueQiangNingJu,Ruthless_QIANGREN_A" />
                     <attribute id="UUID" type="guid" value="b1fd0cb9-c0e3-4763-b4e6-62a5b4f2119c" />
                 </node>
         <node id="PassiveList">
-                    <attribute id="Name" type="FixedString" value="9" />
-                    <attribute id="UUID" type="guid" value="4a2e603d-62a2-401d-a15b-8b26c21b9b31" />
-                </node>
-        <node id="PassiveList">
-                    <attribute id="Name" type="FixedString" value="10" />
-                    <attribute id="UUID" type="guid" value="7cb0c8b6-b0dd-4cfc-8485-eff294298149" />
-                </node>
-        <node id="PassiveList">
                     <attribute id="Name" type="FixedString" value="10.1" />
                     <attribute id="Passives" type="LSString" value="Master_swordsmanshipLV5,Master_MeleeCombatLV5,Blood_gun_coagulation,Born_after_death" />
                     <attribute id="UUID" type="guid" value="1b6d9b72-ad57-445c-bb2b-f11a6c17936f" />
-                </node>
-        <node id="PassiveList">
-                    <attribute id="Name" type="FixedString" value="11" />
-                    <attribute id="UUID" type="guid" value="06b76ec4-9269-4456-b001-a63e39d7b680" />
-                </node>
-        <node id="PassiveList">
-                    <attribute id="Name" type="FixedString" value="12" />
-                    <attribute id="UUID" type="guid" value="40b95b7e-28b5-476f-b53d-8364a0e77f0f" />
                 </node>
         <node id="PassiveList">
                     <attribute id="Name" type="FixedString" value="12.1" />
@@ -87,42 +43,6 @@
                     <attribute id="Name" type="FixedString" value="青影王4被动" />
                     <attribute id="Passives" type="LSString" value="War_Soul_Shadow,Devouring_Shadow,Illness_Shadow,Hunting_Shadow" />
                     <attribute id="UUID" type="guid" value="6050f7a9-ea08-43a7-bb49-b0b6c75c1e24" />
-                </node>
-        <node id="PassiveList">
-                    <attribute id="Name" type="FixedString" value="13" />
-                    <attribute id="UUID" type="guid" value="c3874efb-9adb-41fd-aa48-22aca2884ea7" />
-                </node>
-        <node id="PassiveList">
-                    <attribute id="Name" type="FixedString" value="14" />
-                    <attribute id="UUID" type="guid" value="bd4ac83b-2219-49e4-a7e3-e65d6c5b7595" />
-                </node>
-        <node id="PassiveList">
-                    <attribute id="Name" type="FixedString" value="15" />
-                    <attribute id="UUID" type="guid" value="46620d6f-90d1-42c3-876f-0170d9b674ba" />
-                </node>
-        <node id="PassiveList">
-                    <attribute id="Name" type="FixedString" value="16" />
-                    <attribute id="UUID" type="guid" value="8a88d691-1306-4c3d-85b9-b8b06f7421df" />
-                </node>
-        <node id="PassiveList">
-                    <attribute id="Name" type="FixedString" value="17" />
-                    <attribute id="UUID" type="guid" value="edf9156c-3255-4e08-b092-1726f385593c" />
-                </node>
-        <node id="PassiveList">
-                    <attribute id="Name" type="FixedString" value="18" />
-                    <attribute id="UUID" type="guid" value="a33952f4-9732-41c8-8387-9040d87dca07" />
-                </node>
-        <node id="PassiveList">
-                    <attribute id="Name" type="FixedString" value="19" />
-                    <attribute id="UUID" type="guid" value="d9ae8e64-605b-453b-ac60-2f9ef107f149" />
-                </node>
-        <node id="PassiveList">
-                    <attribute id="Name" type="FixedString" value="20" />
-                    <attribute id="UUID" type="guid" value="ac3f7495-a5c8-4cb2-8a92-26dde4540634" />
-                </node>
-        <node id="PassiveList">
-                    <attribute id="Name" type="FixedString" value="专长被动↓" />
-                    <attribute id="UUID" type="guid" value="28600029-b338-4dcb-94d9-79adfe6e4f9b" />
                 </node>
         <node id="PassiveList">
                     <attribute id="Name" type="FixedString" value="21" />

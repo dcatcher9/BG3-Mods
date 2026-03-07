@@ -13,27 +13,6 @@ data "Description" "stringsofmodmadebyxss20240930dv004d01;1"
 data "Properties" "IsToggled;ToggledDefaultAddToHotbar;Highlighted"
 data "Boosts" "UnlockSpellVariant(BanXianSpellLevel(1),ModifyIconGlow(),ModifyTooltipDescription(),ModifyUseCosts(Replace,SpellSlot,0,-1,SpellSlot),ModifyUseCosts(Replace,WarlockSpellSlot,0,-1,WarlockSpellSlot),ModifyUseCosts(Replace,SpellSlotsGroup,0,-1,SpellSlotsGroup),ModifyUseCosts(Add,KiPoint,2,0));UnlockSpellVariant(BanXianSpellLevel(2),ModifyIconGlow(),ModifyTooltipDescription(),ModifyUseCosts(Replace,SpellSlot,0,-1,SpellSlot),ModifyUseCosts(Replace,WarlockSpellSlot,0,-1,WarlockSpellSlot),ModifyUseCosts(Replace,SpellSlotsGroup,0,-1,SpellSlotsGroup),ModifyUseCosts(Add,KiPoint,3,0));UnlockSpellVariant(BanXianSpellLevel(3),ModifyIconGlow(),ModifyTooltipDescription(),ModifyUseCosts(Replace,SpellSlot,0,-1,SpellSlot),ModifyUseCosts(Replace,WarlockSpellSlot,0,-1,WarlockSpellSlot),ModifyUseCosts(Replace,SpellSlotsGroup,0,-1,SpellSlotsGroup),ModifyUseCosts(Add,KiPoint,4,0));UnlockSpellVariant(BanXianSpellLevel(4),ModifyIconGlow(),ModifyTooltipDescription(),ModifyUseCosts(Replace,SpellSlot,0,-1,SpellSlot),ModifyUseCosts(Replace,WarlockSpellSlot,0,-1,WarlockSpellSlot),ModifyUseCosts(Replace,SpellSlotsGroup,0,-1,SpellSlotsGroup),ModifyUseCosts(Add,KiPoint,5,0));UnlockSpellVariant(BanXianSpellLevel(5),ModifyIconGlow(),ModifyTooltipDescription(),ModifyUseCosts(Replace,SpellSlot,0,-1,SpellSlot),ModifyUseCosts(Replace,WarlockSpellSlot,0,-1,WarlockSpellSlot),ModifyUseCosts(Replace,SpellSlotsGroup,0,-1,SpellSlotsGroup),ModifyUseCosts(Add,KiPoint,6,0));UnlockSpellVariant(BanXianSpellLevel(6),ModifyIconGlow(),ModifyTooltipDescription(),ModifyUseCosts(Replace,SpellSlot,0,-1,SpellSlot),ModifyUseCosts(Replace,WarlockSpellSlot,0,-1,WarlockSpellSlot),ModifyUseCosts(Replace,SpellSlotsGroup,0,-1,SpellSlotsGroup),ModifyUseCosts(Add,KiPoint,7,0))"
 
-//用气加强法术攻击掷骰???
-new entry "BANXIAN_GONGFA_ENHANCESPELL_1"
-type "PassiveData"
-data "Icon" "PassiveFeature_BlessingsOfKnowledge"
-data "DisplayName" "stringsofmodmadebyxss20240930dv004a01;1"
-data "Description" "stringsofmodmadebyxss20240930dv004d01;1"
-
-//用气加强法术伤害掷骰???
-new entry "BANXIAN_GONGFA_ENHANCESPELL_2"
-type "PassiveData"
-data "Icon" "PassiveFeature_BlessingsOfKnowledge"
-data "DisplayName" "stringsofmodmadebyxss20240930dv004a01;1"
-data "Description" "stringsofmodmadebyxss20240930dv004d01;1"
-
-//用气加强法术豁免难度???
-new entry "BANXIAN_GONGFA_ENHANCESPELL_3"
-type "PassiveData"
-data "Icon" "PassiveFeature_BlessingsOfKnowledge"
-data "DisplayName" "stringsofmodmadebyxss20240930dv004a01;1"
-data "Description" "stringsofmodmadebyxss20240930dv004d01;1"
-
 //炼气化精
 new entry "BANXIAN_TIAN_DiceToDamage"
 type "PassiveData"

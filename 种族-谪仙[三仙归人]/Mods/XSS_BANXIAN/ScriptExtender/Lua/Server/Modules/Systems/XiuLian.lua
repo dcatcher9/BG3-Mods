@@ -6,7 +6,7 @@ local Utils = require("Server.Modules.Utils")
 
 
 
--- 初始化难度系统
+-- 初始化修炼系统
 function XiuLian.Init()
 
     -- 注册事件监听大道相关施法
@@ -62,6 +62,8 @@ function XiuLian.Ki_Take(Object)
                 Osi.ApplyStatus(Object,'BANXIAN_XIULIAN_LINGQI_M',6,1,Object)
             elseif key == 100  then
                 Osi.ApplyStatus(Object,'BANXIAN_XIULIAN_LINGQI_JINGLIAN',6,1,Object) --1%概率吸收到精纯灵气
+            else
+                -- key falls in a gap caused by a zero-weight element; no action
             end
         end
     end

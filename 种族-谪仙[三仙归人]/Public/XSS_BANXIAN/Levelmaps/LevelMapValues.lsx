@@ -92,7 +92,7 @@
                     <attribute id="Level96" type="LSString" value="256"/>渡劫
                     <attribute id="Level100" type="LSString" value="512"/>真仙
                     <attribute id="Name" type="FixedString" value="BanXianAbilityBonus"/>
-                    <attribute id="UUID" type="guid" value="27416287-e94a-4362-a817-0005e38a0a02"/>
+                    <attribute id="UUID" type="guid" value="27416287-e94a-4362-a817-0005e38a0a03"/>
                 </node>
                 <node id="LevelMapSeries">境界骰最大值
                     <attribute id="Level1" type="LSString" value="4"/>练气
@@ -123,7 +123,7 @@
                     <attribute id="Level96" type="LSString" value="200000"/>渡劫
                     <attribute id="Level100" type="LSString" value="1000000"/>真仙
                     <attribute id="Name" type="FixedString" value="BanXiangHP"/>
-                    <attribute id="UUID" type="guid" value="27416287-e94a-4362-a817-0005e38a0a02"/>
+                    <attribute id="UUID" type="guid" value="27416287-e94a-4362-a817-0005e38a0a04"/>
                 </node>
             </children>
         </node>

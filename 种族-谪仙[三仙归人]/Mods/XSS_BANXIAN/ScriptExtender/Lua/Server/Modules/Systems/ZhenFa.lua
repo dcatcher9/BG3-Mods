@@ -122,11 +122,7 @@ function ZhenFa.Tool.LuoPanFunctors(Caster,X,Z)
         local level = PersistentVars['ZhenFa_Core_JuLing_LEVEL']
         local STATUS = 'BANXIAN_ZHENFA_CORE_JULING_TOGGLEON_'..level
         
-        if RESULT == '已激活]' and Osi.HasActiveStatus(Core, STATUS) == 0 then
-            Osi.ApplyStatus(Core, STATUS, -1, 1, Core)
-        elseif RESULT ~= '已激活]' and Osi.HasActiveStatus(Core, STATUS) == 1 then
-            Osi.RemoveStatus(Core, STATUS)
-        end
+        ZhenFa.Core.Functors(6, 6.8)
 
         local MESSAGE_ADD = "\n[阵法测算·聚灵阵] 方位："..TW.."   平面距离："..Radius.."   \n[测算结果："..RESULT
         MESSAGE = MESSAGE..MESSAGE_ADD

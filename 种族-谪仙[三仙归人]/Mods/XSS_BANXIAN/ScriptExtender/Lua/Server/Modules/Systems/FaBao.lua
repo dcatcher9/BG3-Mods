@@ -33,14 +33,8 @@ function FaBao.Init()
     Ext.Osiris.RegisterListener("MessageBoxYesNoClosed", 3, "after", FaBao.OnMessageBoxYesNoClosed)
 
     -- 事件·炼器相关选择后
-    Ext.Osiris.RegisterListener("ModuleLoadedinSavegame", 5, "after", FaBao.OnModuleLoadedinSavegame)
-
-    -- 事件·炼器相关选择后
     Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", FaBao.OnSavegameLoaded)
 
-    -- 事件·相关添加后
-    Ext.Osiris.RegisterListener("TemplateAddedTo", 4, "after", FaBao.OnTemplateAddedTo)
-    
 
     _P("[FaBao] 法宝系统初始化完成！")
 
@@ -111,7 +105,7 @@ end
 
 
 --遍历抉择器
-function FaBao.LainQi_StartChoose(Caster,FABAO)
+function FaBao.LianQi_StartChoose(Caster,FABAO)
     local Amount = PersistentVars['LianQi_Choice_Amout']
     local Rest = PersistentVars['LianQi_Choice_AmoutRest']
 
@@ -454,7 +448,7 @@ function FaBao.LianHua.AddBoosts(Caster,Object,Turns)
         --启动抉择模块, 当前剩余炼器就绪层数即为可提取词条数
         PersistentVars['LianQi_Choice_AmoutRest'] = Turns
         _P('剩余可提取词条'..PersistentVars['LianQi_Choice_AmoutRest']) --DEBUG
-        FaBao.LainQi_StartChoose(Caster,FABAO)
+        FaBao.LianQi_StartChoose(Caster,FABAO)
     
     end
     
@@ -744,6 +738,8 @@ function FaBao.OnEquipped_after(Item, Character)
     if PersistentVars["[OriginalStatsLianQi]"..FABAO.."_Rarity"] ~= nil then
         _P("[Rarity]"..PersistentVars["[OriginalStatsLianQi]"..FABAO.."_Rarity"])
     end
+
+    FaBao.LianHua.RecoverStatsStart_OnEquipped(FABAO)
 end
 
 -- 事件·炼器相关施法后
@@ -769,22 +765,9 @@ function FaBao.OnMessageBoxYesNoClosed(Character, Message, Result)
         
         _P('剩余可提取词条'..PersistentVars['LianQi_Choice_AmoutRest']) --DEBUG
         if PersistentVars['LianQi_Choice_AmoutRest'] >= 1 then
-            FaBao.LainQi_StartChoose(Character,PersistentVars['LianQi_Choice_FABAO']) 
+            FaBao.LianQi_StartChoose(Character,PersistentVars['LianQi_Choice_FABAO']) 
         end
     end
-end
-
--- 事件·炼器相关选择后
-function FaBao.OnModuleLoadedinSavegame(Name, Major, Minor, Revision, Build)
-    --_P(Name) --DEBUG
-    --_P(Major) --DEBUG
-    --_P(Minor) --DEBUG
-    --_P(Revision) --DEBUG
-    --_P(Build) --DEBUG
-end
-
--- 事件·相关添加后
-function FaBao.OnTemplateAddedTo(Template, Object, InventoryHolder, AddType)
 end
 
 --读档监听

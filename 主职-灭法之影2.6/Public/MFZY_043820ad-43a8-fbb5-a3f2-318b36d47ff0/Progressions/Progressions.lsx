@@ -12,7 +12,7 @@
                     <attribute id="ProgressionType" type="uint8" value="0" />
                     <attribute id="Selectors" type="LSString" value="AddSpells(ba379f61-ca23-4c71-939e-d55650cd5731);SelectEquipment(d84eb227-d0d0-4b3e-b6ca-547be769da7c,1,MFZR);SelectSkills(c150bff8-7fa3-462c-8910-ae2833d1c479,2);SelectEquipment(1c7fc7c9-eea5-4616-bc6a-efd66a6f93a4,1);" />
                     <attribute id="TableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
-                    <attribute id="UUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
+                    <attribute id="UUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a044000" />
                     <children>
                         <node id="SubClasses">
                             <children>
@@ -69,7 +69,7 @@
                     <attribute id="Name" type="LSString" value="Exinction_Magic" />
                     <attribute id="PassivesAdded" type="LSString" value="Keen_Eye_LV2;Alchemy_Biology_LV1;Alcoholic_Pharmaceutics_LV1;QingYingWang_Passive;" />
                     <attribute id="ProgressionType" type="uint8" value="0" />
-                    <attribute id="Selectors" type="LSString" value=";AddSpells(bcf84f90-7075-4062-95c0-4e384e6bc423);SelectSpells(f1ff9bdf-10ec-4940-9a51-c4eb82495ccc,1,0,POXIAO)" />
+                    <attribute id="Selectors" type="LSString" value="AddSpells(bcf84f90-7075-4062-95c0-4e384e6bc423);SelectSpells(f1ff9bdf-10ec-4940-9a51-c4eb82495ccc,1,0,POXIAO)" />
                     <attribute id="TableUUID" type="guid" value="4704c779-7d8a-4f09-b2f1-02ae4a043aef" />
                     <attribute id="UUID" type="guid" value="f4b5c0b5-8734-4900-9055-d1fd8bc3154b" />
                 </node>

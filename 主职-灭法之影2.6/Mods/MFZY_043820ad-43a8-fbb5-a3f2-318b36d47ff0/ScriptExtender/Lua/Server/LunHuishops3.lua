@@ -1,6 +1,8 @@
 local Single_Wolf_Caster = nil
 local Single_Wolf_Target = nil
 local Target_Current_Hp = nil
+local Dianjin_Caster = nil
+local Dianjin_Target = nil
 
 
 
@@ -87,20 +89,14 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status
 	if status == "Boost_wuli_Target"  then
 		if  Osi.HasActiveStatus(Feat_HuiYin_Target,"Boost_wuli_Target") == 1 then
 
-            for i = 0, 0 do
                 Osi.UseSpell(Feat_HuiYin_Caster, CopySpellwuli, Feat_HuiYin_Target)
-                
-            end
     
             Osi.RemoveStatus(Feat_HuiYin_Target,"Boost_wuli_Target",Feat_HuiYin_Caster)
             Osi.RemoveStatus(Feat_HuiYin_Caster,"Boost_wuli_Self",Feat_HuiYin_Target)
         end
     elseif status == "Boost_fashu_Target" then
         if  Osi.HasActiveStatus(Feat_XueJin_Target,"Boost_fashu_Target") == 1  then
-            for j = 0, 0 do
                 Osi.UseSpell(Feat_XueJin_Caster, CopySpellfashu, Feat_XueJin_Target)
-                
-            end
             Osi.RemoveStatus(Feat_XueJin_Target,"Boost_fashu_Target",causee)
             
             Osi.RemoveStatus(causee,"Boost_fashu_Self",Feat_XueJin_Target)

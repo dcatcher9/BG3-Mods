@@ -108,8 +108,10 @@ data "DisplayName" "stringsofmodmadebyxss20250218bca00a09;1"
 data "Description" "stringsofmodmadebyxss20250218bca00b09;1"  
 data "ExtraDescription" "stringsofmodmadebyxss20250218bca00c09;1"
 data "Boosts" "IF(not WearingArmor(context.Source)):ACOverrideFormula(21,true,Dexterity);  Initiative(12);  ReduceCriticalAttackThreshold(9);  ActionResource(Movement,27,0);ActionResource(ReactionActionPoint,6,0);  Ability(All,10);  Resistance(Physical,Immune);  DamageReduction(All,Flat,81);  DamageReduction(All,Threshold,MaxHP)"
-data "TickType" "StartTurn"
-data "TickFunctors" "RemoveStatus(SG_Blinded);RemoveStatus(SG_Disease);RemoveStatus(SG_Exhausted);RemoveStatus(SG_Poisoned);RemoveStatus(SG_Frightened);RemoveStatus(SG_Charmed);RemoveStatus(SG_Cursed);RemoveStatus(SG_Possessed);RemoveStatus(SG_Madness);IF(HasHPPercentageLessThan(100)):RegainHitPoints(MaxHP)"
+// TickType and TickFunctors are StatusData-only fields; they are ignored on PassiveData.
+// TODO: Implement this logic via a StatusData-based approach or OnTurn StatsFunctors.
+// data "TickType" "StartTurn"
+// data "TickFunctors" "RemoveStatus(SG_Blinded);RemoveStatus(SG_Disease);RemoveStatus(SG_Exhausted);RemoveStatus(SG_Poisoned);RemoveStatus(SG_Frightened);RemoveStatus(SG_Charmed);RemoveStatus(SG_Cursed);RemoveStatus(SG_Possessed);RemoveStatus(SG_Madness);IF(HasHPPercentageLessThan(100)):RegainHitPoints(MaxHP)"
 
 
 
