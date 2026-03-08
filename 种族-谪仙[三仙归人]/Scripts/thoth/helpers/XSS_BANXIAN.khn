@@ -158,37 +158,6 @@ end
 
 
 
-local _ALL_DH_MARKS = {'BANXIAN_DH_MARK_TIAN','BANXIAN_DH_MARK_XIULUO','BANXIAN_DH_MARK_RENJIAN','BANXIAN_DH_MARK_CHUSHENG','BANXIAN_DH_MARK_EGUI','BANXIAN_DH_MARK_DIYU','BANXIAN_DH_MARK_JIAN','BANXIAN_DH_MARK_LI','BANXIAN_DH_MARK_HEHUAN','BANXIAN_DH_MARK_YI'}
-
-local function _marksExcluding(own)
-    local t = {}
-    for _, v in ipairs(_ALL_DH_MARKS) do
-        if v ~= own then t[#t+1] = v end
-    end
-    return t
-end
-
-local function _MARKBLOCKED(passive, ownMark, entity)
-    entity = entity or context.Source
-    local Blocked = HasAnyStatus(_marksExcluding(ownMark), {}, {}, entity, context.Source, false).Result
-    return HasPassive(passive, entity) & Blocked
-end
-
-function MARKBLOCKED_Tian(entity)    return _MARKBLOCKED('BanXian_DH_Tian',    'BANXIAN_DH_MARK_TIAN',    entity) end
-function MARKBLOCKED_XiuLuo(entity)  return _MARKBLOCKED('BanXian_DH_XiuLuo',  'BANXIAN_DH_MARK_XIULUO',  entity) end
-function MARKBLOCKED_RenJian(entity) return _MARKBLOCKED('BanXian_DH_RenJian', 'BANXIAN_DH_MARK_RENJIAN', entity) end
-function MARKBLOCKED_ChuSheng(entity)return _MARKBLOCKED('BanXian_DH_ChuSheng','BANXIAN_DH_MARK_CHUSHENG',entity) end
-function MARKBLOCKED_EGui(entity)    return _MARKBLOCKED('BanXian_DH_EGui',    'BANXIAN_DH_MARK_EGUI',    entity) end
-function MARKBLOCKED_DiYu(entity)    return _MARKBLOCKED('BanXian_DH_DiYu',    'BANXIAN_DH_MARK_DIYU',    entity) end
-function MARKBLOCKED_Jian(entity)    return _MARKBLOCKED('BanXian_DH_Jian',    'BANXIAN_DH_MARK_JIAN',    entity) end
-function MARKBLOCKED_Li(entity)      return _MARKBLOCKED('BanXian_DH_Li',      'BANXIAN_DH_MARK_LI',      entity) end
-function MARKBLOCKED_HeHuan(entity)  return _MARKBLOCKED('BanXian_DH_HeHuan',  'BANXIAN_DH_MARK_HEHUAN',  entity) end
-function MARKBLOCKED_Yi(entity)      return _MARKBLOCKED('BanXian_DH_Yi',      'BANXIAN_DH_MARK_YI',      entity) end
-
-function ISDHMARKBLOCKED(entity)
-    local entity = entity or context.Source
-    return MARKBLOCKED_Tian(entity) | MARKBLOCKED_XiuLuo(entity) | MARKBLOCKED_RenJian(entity) | MARKBLOCKED_ChuSheng(entity) | MARKBLOCKED_EGui(entity) | MARKBLOCKED_DiYu(entity) | MARKBLOCKED_Jian(entity) | MARKBLOCKED_Li(entity) | MARKBLOCKED_HeHuan(entity) | MARKBLOCKED_Yi(entity)
-end
 
 
 

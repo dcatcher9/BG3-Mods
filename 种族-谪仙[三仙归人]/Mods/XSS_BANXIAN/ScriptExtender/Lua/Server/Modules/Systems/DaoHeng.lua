@@ -83,37 +83,33 @@ function DaoHeng.XiuLuo.AddDH(Target, BanXian)
     local level = Osi.GetLevel(Target)
     local MaxHP = Osi.GetMaxHitpoints(Target)
     local k = math.max(1, Osi.GetStatusTurns(BanXian, 'BANXIAN_LG_TZ') or 0)
-    local DH_Day = Osi.GetStatusTurns(BanXian, 'BANXIAN_DH_DAY') or 0
-    local DH_Year = Osi.GetStatusTurns(BanXian, 'BANXIAN_DH_YEAR') or 0
-    Ext.Utils.Print("[修罗道/天道][level]="..level.."[k]="..k.."[DH_Day]="..DH_Day.."[DH_Year]="..DH_Year.."[MaxHP]="..MaxHP)--debug
+    local DH_Day = Osi.GetStatusTurns(BanXian, 'BANXIAN_DH_DAY_XIULUO') or 0
+    local DH_Year = Osi.GetStatusTurns(BanXian, 'BANXIAN_DH_YEAR_XIULUO') or 0
 
     local DH_Day_new = DH_Day + level*k
     while DH_Day_new >= 365 do
         DH_Year = DH_Year + 1
         DH_Day_new = DH_Day_new - 365
     end
-    Osi.ApplyStatus(BanXian, 'BANXIAN_DH_YEAR', DH_Year*6, 1)
-    Osi.ApplyStatus(BanXian, 'BANXIAN_DH_DAY', DH_Day_new*6, 1)
-
-    Ext.Utils.Print("[修罗道/天道 现有道行][DH_Day]="..DH_Day_new.."[DH_Year]="..DH_Year)--debug
+    Osi.ApplyStatus(BanXian, 'BANXIAN_DH_YEAR_XIULUO', DH_Year*6, 1)
+    Osi.ApplyStatus(BanXian, 'BANXIAN_DH_DAY_XIULUO', DH_Day_new*6, 1)
 end
 
 
 --添加天道道行
 function DaoHeng.Tian.AddDH(Target, BanXian)
     local level = Osi.GetLevel(Target)
-    local DH_Day = Osi.GetStatusTurns(BanXian, 'BANXIAN_DH_DAY') or 0
-    local DH_Year = Osi.GetStatusTurns(BanXian, 'BANXIAN_DH_YEAR') or 0
-    Ext.Utils.Print("[天道奖励][击杀域外天魔奖励道行]："..level.."天")--debug
+    local DH_Day = Osi.GetStatusTurns(BanXian, 'BANXIAN_DH_DAY_TIAN') or 0
+    local DH_Year = Osi.GetStatusTurns(BanXian, 'BANXIAN_DH_YEAR_TIAN') or 0
 
     local DH_Day_new = DH_Day + level
     if DH_Day_new >= 365 then
         DH_Year = DH_Year + 1
         DH_Day_new = DH_Day_new - 365
-        Osi.ApplyStatus(BanXian, 'BANXIAN_DH_YEAR', DH_Year*6, 1)
-        Osi.ApplyStatus(BanXian, 'BANXIAN_DH_DAY', DH_Day_new*6, 1)
+        Osi.ApplyStatus(BanXian, 'BANXIAN_DH_YEAR_TIAN', DH_Year*6, 1)
+        Osi.ApplyStatus(BanXian, 'BANXIAN_DH_DAY_TIAN', DH_Day_new*6, 1)
     else
-        Osi.ApplyStatus(BanXian, 'BANXIAN_DH_DAY', DH_Day_new*6, 1)
+        Osi.ApplyStatus(BanXian, 'BANXIAN_DH_DAY_TIAN', DH_Day_new*6, 1)
     end
 
 end
@@ -158,8 +154,8 @@ function DaoHeng.EGUI.Functors_Eat(EGui,Target)
               Filter = Utils.Filter.Status.IsSpecial(entry.StatusID.ID) or (not Utils.Filter.Status.IsDebuff(entry.StatusID.ID))
             end
             if Filter == false then
-                  local Duration = (Osi.GetStatusTurns(Food, entry.StatusID.ID) or 0) + (Osi.GetStatusTurns(EGui, 'BANXIAN_DH_DAY') or 0)
-                  Osi.ApplyStatus(EGui, 'BANXIAN_DH_DAY', Duration*6)
+                  local Duration = (Osi.GetStatusTurns(Food, entry.StatusID.ID) or 0) + (Osi.GetStatusTurns(EGui, 'BANXIAN_DH_DAY_EGUI') or 0)
+                  Osi.ApplyStatus(EGui, 'BANXIAN_DH_DAY_EGUI', Duration*6)
                   Osi.RemoveStatus(Food, entry.StatusID.ID)
                   Osi.SetHitpoints(EGui, Osi.GetHitpoints(EGui)+Duration*6)  --恢复生命值
                   Ext.Utils.Print(("触发：饿鬼道·吞食·状态: %s".."道行增加"..Duration):format(entry.StatusID.ID))
@@ -195,22 +191,22 @@ function DaoHeng.HeHuan.TakeDH(Caster,Target)
     else
         increase_day = increase_day + MaxHP
     end
-    increase_day  = increase_day  + (Osi.GetStatusTurns(Caster, 'BANXIAN_DH_DAY')  or 0)
-    increase_year = increase_year + (Osi.GetStatusTurns(Caster, 'BANXIAN_DH_YEAR') or 0)
+    increase_day  = increase_day  + (Osi.GetStatusTurns(Caster, 'BANXIAN_DH_DAY_HEHUAN')  or 0)
+    increase_year = increase_year + (Osi.GetStatusTurns(Caster, 'BANXIAN_DH_YEAR_HEHUAN') or 0)
 
-    local caster_year = Osi.GetStatusTurns(Caster, 'BANXIAN_DH_YEAR') or 0
+    local caster_year = Osi.GetStatusTurns(Caster, 'BANXIAN_DH_YEAR_HEHUAN') or 0
     if TARGET_DH_YEAR > caster_year then
         --目标道行更深：施法者损失一半年道行，但仍获得天数进度
         increase_year = caster_year / 2
-        Osi.ApplyStatus(Caster, 'BANXIAN_DH_YEAR', increase_year*6, 1)
-        Osi.ApplyStatus(Caster, 'BANXIAN_DH_DAY', increase_day*6, 1)
+        Osi.ApplyStatus(Caster, 'BANXIAN_DH_YEAR_HEHUAN', increase_year*6, 1)
+        Osi.ApplyStatus(Caster, 'BANXIAN_DH_DAY_HEHUAN', increase_day*6, 1)
         Osi.ApplyStatus(Target, 'BANXIAN_DH_YEAR', (TARGET_DH_YEAR + increase_year)*6, 1)
     else
         --目标道行较浅：施法者夺取目标全部修为
         Osi.RemoveStatus(Target, 'BANXIAN_DH_YEAR')
         Osi.RemoveStatus(Target, 'BANXIAN_DH_DAY')
-        Osi.ApplyStatus(Caster, 'BANXIAN_DH_YEAR', increase_year*6, 1)
-        Osi.ApplyStatus(Caster, 'BANXIAN_DH_DAY', increase_day*6, 1)
+        Osi.ApplyStatus(Caster, 'BANXIAN_DH_YEAR_HEHUAN', increase_year*6, 1)
+        Osi.ApplyStatus(Caster, 'BANXIAN_DH_DAY_HEHUAN', increase_day*6, 1)
     end
 end
 
@@ -218,9 +214,9 @@ end
 function DaoHeng.HeHuan.AddFollower(Object,Causee)
 
     local level = Osi.GetLevel(Object)
-    local DH_YEAR = Osi.GetStatusTurns(Causee, 'BANXIAN_DH_YEAR') or 0
+    local DH_YEAR = Osi.GetStatusTurns(Causee, 'BANXIAN_DH_YEAR_HEHUAN') or 0
     local TARGET_DH_YEAR = Osi.GetStatusTurns(Object, 'BANXIAN_DH_YEAR') or 0
-    Osi.ApplyStatus(Causee,'BANXIAN_DH_YEAR', math.max(0, DH_YEAR-level)*6, 1)
+    Osi.ApplyStatus(Causee,'BANXIAN_DH_YEAR_HEHUAN', math.max(0, DH_YEAR-level)*6, 1)
     Osi.ApplyStatus(Object,'BANXIAN_DH_YEAR', (TARGET_DH_YEAR+level)*6, 1)
     Osi.SetFaction(Object, Osi.GetFaction(Causee))
     Osi.AddPartyFollower(Object, Causee)
@@ -269,14 +265,13 @@ end
 
 --地狱道获取道行
 function DaoHeng.DiYu.AddDH(Object,Causee)
-    local DH_Day = Osi.GetStatusTurns(Causee, 'BANXIAN_DH_DAY')
-    local DH_Year = Osi.GetStatusTurns(Causee, 'BANXIAN_DH_YEAR')
+    local DH_Day = Osi.GetStatusTurns(Causee, 'BANXIAN_DH_DAY_DIYU') or 0
 
-    local increase_day = Osi.GetStatusTurns(Object, 'BURNING_YEHUO')
+    local increase_day = Osi.GetStatusTurns(Object, 'BURNING_YEHUO') or 0
     local DH_Day_new = DH_Day + increase_day
 
     Osi.RemoveStatus(Object, 'BURNING_YEHUO')
-    Osi.ApplyStatus(Causee, 'BANXIAN_DH_DAY', DH_Day_new*6, 1)
+    Osi.ApplyStatus(Causee, 'BANXIAN_DH_DAY_DIYU', DH_Day_new*6, 1)
 end
 
 
@@ -326,6 +321,36 @@ end
 -- 事件·大道相关状态后
 function DaoHeng.OnStatusApplied_after(Object, Status, Causee)
 
+    local PATH_DAY_STATUSES = {
+        BANXIAN_DH_DAY_XIULUO = 'XIULUO', BANXIAN_DH_DAY_TIAN = 'TIAN',
+        BANXIAN_DH_DAY_RENJIAN = 'RENJIAN', BANXIAN_DH_DAY_CHUSHENG = 'CHUSHENG',
+        BANXIAN_DH_DAY_EGUI = 'EGUI', BANXIAN_DH_DAY_DIYU = 'DIYU',
+        BANXIAN_DH_DAY_JIAN = 'JIAN', BANXIAN_DH_DAY_LI = 'LI',
+        BANXIAN_DH_DAY_HEHUAN = 'HEHUAN', BANXIAN_DH_DAY_YI = 'YI',
+    }
+    local PATH_YEAR_STATUSES = {
+        BANXIAN_DH_YEAR_XIULUO=true, BANXIAN_DH_YEAR_TIAN=true,
+        BANXIAN_DH_YEAR_RENJIAN=true, BANXIAN_DH_YEAR_CHUSHENG=true,
+        BANXIAN_DH_YEAR_EGUI=true, BANXIAN_DH_YEAR_DIYU=true,
+        BANXIAN_DH_YEAR_JIAN=true, BANXIAN_DH_YEAR_LI=true,
+        BANXIAN_DH_YEAR_HEHUAN=true, BANXIAN_DH_YEAR_YI=true,
+    }
+
+    if PATH_DAY_STATUSES[Status] then
+        Utils.DaDao.ConvertPathDayToYear(Object, PATH_DAY_STATUSES[Status])
+        Utils.DaDao.UpdateSharedYear(Object)
+        DaoHeng.Check(Object)
+        Utils.DaDao.Hehuan(Object)
+        Utils.DaDao.Li(Object)
+        Utils.ShenShi.Check(Object)
+    elseif PATH_YEAR_STATUSES[Status] then
+        Utils.DaDao.UpdateSharedYear(Object)
+        DaoHeng.Check(Object)
+        Utils.DaDao.Hehuan(Object)
+        Utils.DaDao.Li(Object)
+        Utils.ShenShi.Check(Object)
+    end
+
     if Status == 'BANXIAN_DH_DAY' or Status == 'BANXIAN_DH_YEAR' or Status == 'SIGNAL_DAOXINCHECK' then
         Utils.DaDao.ConvertDayToYear(Object)
         DaoHeng.Check(Object)
@@ -362,7 +387,7 @@ function DaoHeng.OnStatusApplied_after(Object, Status, Causee)
         end
     end
     if Status == "SIGNAL_TIANLEI_EXTRADAMAGE" then
-        local TIMES = Osi.GetStatusTurns(Causee, 'BANXIAN_DH_YEAR')
+        local TIMES = Osi.GetStatusTurns(Causee, 'BANXIAN_DH_YEAR_TIAN')
         if TIMES >= 1 then
             for i = 1, TIMES, 1 do
                 Osi.ApplyStatus(Object,'TIANDAO_TIANLEI_KILLTHEDEMON_3D10',0,1,Causee)

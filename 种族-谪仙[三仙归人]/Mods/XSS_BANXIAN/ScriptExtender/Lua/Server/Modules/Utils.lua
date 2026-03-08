@@ -644,9 +644,38 @@ function Utils.DaDao.ConvertDayToYear(Character)
     end
 end
 
+--将指定大道的天数转化为年数
+function Utils.DaDao.ConvertPathDayToYear(Character, suffix)
+    local year_status = 'BANXIAN_DH_YEAR_' .. suffix
+    local day_status  = 'BANXIAN_DH_DAY_'  .. suffix
+    local DH_YEAR = Osi.GetStatusTurns(Character, year_status) or 0
+    local DH_DAY  = Osi.GetStatusTurns(Character, day_status)  or 0
+    if DH_DAY >= 365 then
+        local increase_year = math.floor(DH_DAY / 365)
+        DH_DAY  = DH_DAY  - increase_year * 365
+        DH_YEAR = DH_YEAR + increase_year
+        Osi.ApplyStatus(Character, day_status,  DH_DAY  * 6)
+        Osi.ApplyStatus(Character, year_status, DH_YEAR * 6)
+    end
+end
+
+--将共享BANXIAN_DH_YEAR同步为所有大道YEAR的最大值（供HP加成和兼容旧逻辑使用）
+function Utils.DaDao.UpdateSharedYear(Character)
+    local SUFFIXES = {'XIULUO','TIAN','RENJIAN','CHUSHENG','EGUI','DIYU','JIAN','LI','HEHUAN','YI'}
+    local max_year = 0
+    for _, suffix in ipairs(SUFFIXES) do
+        local y = Osi.GetStatusTurns(Character, 'BANXIAN_DH_YEAR_' .. suffix) or 0
+        if y > max_year then max_year = y end
+    end
+    local shared = Osi.GetStatusTurns(Character, 'BANXIAN_DH_YEAR') or 0
+    if max_year ~= shared then
+        Osi.ApplyStatus(Character, 'BANXIAN_DH_YEAR', max_year * 6)
+    end
+end
+
 --刷新大道增益：力道
 function Utils.DaDao.Li(Object)
-    local DH_YEAR = Osi.GetStatusTurns(Object, 'BANXIAN_DH_YEAR')
+    local DH_YEAR = Osi.GetStatusTurns(Object, 'BANXIAN_DH_YEAR_LI')
     if DH_YEAR ~= nil then
         if DH_YEAR >= 1 and Osi.HasPassive(Object,'BanXian_DH_Li') == 1 and Osi.HasActiveStatus(Object, 'BanXian_DH_STR_'..math.floor(DH_YEAR)) == 0 then
             --local k = math.floor(math.sqrt(DH_YEAR))
@@ -665,7 +694,7 @@ end
 
 --刷新大道增益：合欢道
 function Utils.DaDao.Hehuan(Object)
-    local DH_YEAR = Osi.GetStatusTurns(Object, 'BANXIAN_DH_YEAR')
+    local DH_YEAR = Osi.GetStatusTurns(Object, 'BANXIAN_DH_YEAR_HEHUAN')
     if DH_YEAR ~= nil then
         if DH_YEAR >= 1 and Osi.HasPassive(Object,'BanXian_DH_HeHuan') == 1 and Osi.HasActiveStatus(Object, 'BanXian_DH_CHA_'..math.floor(DH_YEAR)) == 0 then
             --local k = math.floor(math.sqrt(DH_YEAR))
