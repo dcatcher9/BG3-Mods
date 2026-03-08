@@ -266,7 +266,7 @@ end
 
 --  获取大道信息（纯读取，不修改任何状态）
 function Utils.Get.Dao(Character)
-    local DaDAO, DaDao_Name, DaoHen, DaoHen_Name, DaoHen_Year
+    local DaDAO, DaDao_Name
     local RESULT = '[未领悟大道]'
 
     --获取大道
@@ -294,28 +294,7 @@ function Utils.Get.Dao(Character)
         end
     end
 
-    --获取道痕
-    for DD, DH in pairs (Variables.Constants.DaoHen) do
-        if Osi.HasActiveStatus(Character,DH) == 1 then
-            DaoHen,DaoHen_Name = DH,Variables.Constants.DaDao[DD]
-            if DaoHen ~= nil then
-                DaoHen_Year = Osi.GetStatusTurns(Character, DaoHen)
-            else
-                DaoHen_Year = 0
-            end
-            break
-        end
-    end
-    --偏离大道时，给予道痕提示
-    if DaoHen_Year ~= nil then
-        if DaoHen_Name ~= DaDao_Name then
-            RESULT = RESULT.."[残留道痕]："..DaoHen_Name..": "..DaoHen_Year.."年"
-        elseif DaoHen_Name == DaDao_Name then
-            RESULT = RESULT.."[道心坚定]"
-        end
-    end
-    
-    return DaDAO,DaDao_Name,DH_YEAR,DH_DAY,DaoHen,DaoHen_Name,DaoHen_Year,RESULT
+    return DaDAO,DaDao_Name,DH_YEAR,DH_DAY,RESULT
 end
 
 --获取资源点
@@ -891,7 +870,7 @@ function Utils.BanXian.JingjieBoost(Object)
     Osi.ApplyStatus(Object, tierStatusName, -1, 1, Object)
 
     -- 应用累积到达标记（用于灵根技能解锁）
-    for i = 1, 6 do
+    for i = 1, 10 do
         if JJ >= i then
             local arriveStatusName = 'BANXIAN_JJ_ARRIVE_'..i
             if Ext.Stats.Get(arriveStatusName) == nil then

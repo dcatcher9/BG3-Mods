@@ -9,7 +9,7 @@ type "StatusData"
 data "StatusType" "BOOST"
 data "StackId" "BANXIAN_DAOXIN"
 data "StackType" "Overwrite"
-data "Passives" "BanXian_DH_DaoXin;BanXian_DH_Base;BanXian_DH_Base_S;BanXian_DH_Base_L"
+data "Passives" "BanXian_DH_DaoXin_S_L"
 data "TickType" "EndTurn"
 data "TickFunctors" "IF(not Combat()):RestoreResource(ShenshiPoint,1,0)"
 data "StatusPropertyFlags" "IgnoreResting;ApplyToDead;DisableOverhead;DisablePortraitIndicator;DisableCombatlog"
@@ -193,14 +193,6 @@ data "StackId" "SIGNAL_DAOXINCHECK"
 data "StackType" "Overwrite"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
 
-//道行基础  每次长休时增加道行
-new entry "BanXian_DH_Base"
-type "PassiveData"
-data "Icon" "PassiveFeature_FeyAncestry"
-data "Properties" "IsHidden"
-data "StatsFunctorContext" "OnShortRest;OnLongRest"
-data "StatsFunctors" "ApplyStatus(SELF,SIGNAL_DHMARK_FUNCTORS,100,0)"
-
 new entry "BanXian_DH_Base_S"
 type "PassiveData"
 data "Icon" "PassiveFeature_FeyAncestry"
@@ -216,193 +208,6 @@ data "Properties" "IsHidden"
 data "StatsFunctorContext" "OnLongRest"
 data "Conditions" "DaoXinStable()"
 data "StatsFunctors" "IF(HasPassive('BanXian_DH_XiuLuo',context.Source) and HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_XIULUO,100,Target.BANXIAN_DH_DAY_XIULUO.Duration+Target.Level+12*(1+(Target.Level)/4)*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_XiuLuo',context.Source) and HasPassive('CuiTi_ZhouTian_ShortBreak',context.Source) and not HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_XIULUO,100,Target.BANXIAN_DH_DAY_XIULUO.Duration+Target.Level+7*(1+(Target.Level)/4)*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_XiuLuo',context.Source) and not HasPassive('CuiTi_ZhouTian_ShortBreak',context.Source) and not HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_XIULUO,100,Target.BANXIAN_DH_DAY_XIULUO.Duration+Target.Level*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_Tian',context.Source) and HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_TIAN,100,Target.BANXIAN_DH_DAY_TIAN.Duration+Target.Level+12*(1+(Target.Level)/4)*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_Tian',context.Source) and HasPassive('CuiTi_ZhouTian_ShortBreak',context.Source) and not HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_TIAN,100,Target.BANXIAN_DH_DAY_TIAN.Duration+Target.Level+7*(1+(Target.Level)/4)*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_Tian',context.Source) and not HasPassive('CuiTi_ZhouTian_ShortBreak',context.Source) and not HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_TIAN,100,Target.BANXIAN_DH_DAY_TIAN.Duration+Target.Level*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_RenJian',context.Source) and HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_RENJIAN,100,Target.BANXIAN_DH_DAY_RENJIAN.Duration+Target.Level+12*(1+(Target.Level)/4)*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_RenJian',context.Source) and HasPassive('CuiTi_ZhouTian_ShortBreak',context.Source) and not HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_RENJIAN,100,Target.BANXIAN_DH_DAY_RENJIAN.Duration+Target.Level+7*(1+(Target.Level)/4)*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_RenJian',context.Source) and not HasPassive('CuiTi_ZhouTian_ShortBreak',context.Source) and not HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_RENJIAN,100,Target.BANXIAN_DH_DAY_RENJIAN.Duration+Target.Level*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_ChuSheng',context.Source) and HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_CHUSHENG,100,Target.BANXIAN_DH_DAY_CHUSHENG.Duration+Target.Level+12*(1+(Target.Level)/4)*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_ChuSheng',context.Source) and HasPassive('CuiTi_ZhouTian_ShortBreak',context.Source) and not HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_CHUSHENG,100,Target.BANXIAN_DH_DAY_CHUSHENG.Duration+Target.Level+7*(1+(Target.Level)/4)*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_ChuSheng',context.Source) and not HasPassive('CuiTi_ZhouTian_ShortBreak',context.Source) and not HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_CHUSHENG,100,Target.BANXIAN_DH_DAY_CHUSHENG.Duration+Target.Level*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_EGui',context.Source) and HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_EGUI,100,Target.BANXIAN_DH_DAY_EGUI.Duration+Target.Level+12*(1+(Target.Level)/4)*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_EGui',context.Source) and HasPassive('CuiTi_ZhouTian_ShortBreak',context.Source) and not HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_EGUI,100,Target.BANXIAN_DH_DAY_EGUI.Duration+Target.Level+7*(1+(Target.Level)/4)*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_EGui',context.Source) and not HasPassive('CuiTi_ZhouTian_ShortBreak',context.Source) and not HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_EGUI,100,Target.BANXIAN_DH_DAY_EGUI.Duration+Target.Level*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_DiYu',context.Source) and HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_DIYU,100,Target.BANXIAN_DH_DAY_DIYU.Duration+Target.Level+12*(1+(Target.Level)/4)*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_DiYu',context.Source) and HasPassive('CuiTi_ZhouTian_ShortBreak',context.Source) and not HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_DIYU,100,Target.BANXIAN_DH_DAY_DIYU.Duration+Target.Level+7*(1+(Target.Level)/4)*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_DiYu',context.Source) and not HasPassive('CuiTi_ZhouTian_ShortBreak',context.Source) and not HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_DIYU,100,Target.BANXIAN_DH_DAY_DIYU.Duration+Target.Level*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_Jian',context.Source) and HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_JIAN,100,Target.BANXIAN_DH_DAY_JIAN.Duration+Target.Level+12*(1+(Target.Level)/4)*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_Jian',context.Source) and HasPassive('CuiTi_ZhouTian_ShortBreak',context.Source) and not HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_JIAN,100,Target.BANXIAN_DH_DAY_JIAN.Duration+Target.Level+7*(1+(Target.Level)/4)*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_Jian',context.Source) and not HasPassive('CuiTi_ZhouTian_ShortBreak',context.Source) and not HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_JIAN,100,Target.BANXIAN_DH_DAY_JIAN.Duration+Target.Level*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_Li',context.Source) and HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_LI,100,Target.BANXIAN_DH_DAY_LI.Duration+Target.Level+12*(1+(Target.Level)/4)*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_Li',context.Source) and HasPassive('CuiTi_ZhouTian_ShortBreak',context.Source) and not HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_LI,100,Target.BANXIAN_DH_DAY_LI.Duration+Target.Level+7*(1+(Target.Level)/4)*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_Li',context.Source) and not HasPassive('CuiTi_ZhouTian_ShortBreak',context.Source) and not HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_LI,100,Target.BANXIAN_DH_DAY_LI.Duration+Target.Level*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_HeHuan',context.Source) and HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_HEHUAN,100,Target.BANXIAN_DH_DAY_HEHUAN.Duration+Target.Level+12*(1+(Target.Level)/4)*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_HeHuan',context.Source) and HasPassive('CuiTi_ZhouTian_ShortBreak',context.Source) and not HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_HEHUAN,100,Target.BANXIAN_DH_DAY_HEHUAN.Duration+Target.Level+7*(1+(Target.Level)/4)*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_HeHuan',context.Source) and not HasPassive('CuiTi_ZhouTian_ShortBreak',context.Source) and not HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_HEHUAN,100,Target.BANXIAN_DH_DAY_HEHUAN.Duration+Target.Level*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_Yi',context.Source) and HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_YI,100,Target.BANXIAN_DH_DAY_YI.Duration+Target.Level+12*(1+(Target.Level)/4)*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_Yi',context.Source) and HasPassive('CuiTi_ZhouTian_ShortBreak',context.Source) and not HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_YI,100,Target.BANXIAN_DH_DAY_YI.Duration+Target.Level+7*(1+(Target.Level)/4)*Target.BANXIAN_LG_TZ.Duration);IF(HasPassive('BanXian_DH_Yi',context.Source) and not HasPassive('CuiTi_ZhouTian_ShortBreak',context.Source) and not HasPassive('CuiTi_ZhouTian_LongBreak',context.Source)):ApplyStatus(SELF,BANXIAN_DH_DAY_YI,100,Target.BANXIAN_DH_DAY_YI.Duration+Target.Level*Target.BANXIAN_LG_TZ.Duration)"
-
-/////////////////////////////
-/
-/         大道 道痕     
-/
-/////////////////////////////  
-//道痕起作用
-new entry "SIGNAL_DHMARK_APPLY_B"
-type "StatusData"
-data "StatusType" "BOOST"
-data "StackId" "SIGNAL_DHMARK_APPLY_B"
-data "StackType" "Overwrite"
-data "OnApplyFunctors" "IF(HasPassive('BanXian_DH_Jian',context.Source)):ApplyStatus(SELF,BANXIAN_DH_MARK_JIAN,100,Target.BANXIAN_DH_YEAR.Duration);IF(HasPassive('BanXian_DH_Li',context.Source)):ApplyStatus(SELF,BANXIAN_DH_MARK_LI,100,Target.BANXIAN_DH_YEAR.Duration);IF(HasPassive('BanXian_DH_HeHuan',context.Source)):ApplyStatus(SELF,BANXIAN_DH_MARK_HEHUAN,100,Target.BANXIAN_DH_YEAR.Duration)"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
-
-new entry "SIGNAL_DHMARK_FUNCTORS"
-type "StatusData"
-data "StatusType" "BOOST"
-data "StackId" "SIGNAL_DHMARK_FUNCTORS"
-data "StackType" "Overwrite"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
-
-
-//天道
-new entry "BANXIAN_DH_MARK_TIAN"
-type "StatusData"
-data "StatusType" "BOOST"
-data "DisplayName" "stringsofmodmadebyxss20240930dv001a08;1"
-data "Description" "stringsofmodmadebyxss20240930dv001b08;1"
-data "Icon" "Spell_Abjuration_PlanarBinding"
-data "StackId" "BANXIAN_DH_MARK"
-data "StackType" "Overwrite"
-data "Boosts" "UnlockSpellVariant(SpellId('Shout_BanXian_XianRen_Mode'), ModifyTooltipDescription())"
-//data "Passives" "BanXian_DH_Mark_Haste_Tian"
-data "StatusPropertyFlags" "IgnoreResting;ApplyToDead;FreezeDuration;DisableCombatlog;DisableOverhead;DisablePortraitIndicator"
-//data "StatusPropertyFlags" "IgnoreResting;ApplyToDead;FreezeDuration"
-
-new entry "BanXian_DH_Mark_Haste_Tian"
-type "PassiveData"
-data "Properties" "IsHidden"
-data "StatsFunctorContext" "OnLongRest;OnShortRest"
-data "Conditions" "DHMARKMoreThanYEAR('BANXIAN_DH_MARK_TIAN') and HasPassive('BanXian_DH_Tian',context.Source)"
-data "StatsFunctors" "ApplyStatus(SELF,BANXIAN_DH_YEAR,100,Target.BANXIAN_DH_YEAR.Duration+1)"
-
-
-
-//修罗道
-new entry "BANXIAN_DH_MARK_XIULUO"
-type "StatusData"
-data "StatusType" "BOOST"
-using "BANXIAN_DH_MARK_TIAN"
-data "Icon" "PassiveFeature_Generic_Blood"
-data "StackId" "BANXIAN_DH_MARK"
-//data "Passives" "BanXian_DH_Mark_Haste_XiuLuo"
-
-new entry "BanXian_DH_Mark_Haste_XiuLuo"
-type "PassiveData"
-using "BanXian_DH_Mark_Haste_Tian"
-data "Properties" "IsHidden"
-data "Conditions" "DHMARKMoreThanYEAR('BANXIAN_DH_MARK_XIULUO') and HasPassive('BanXian_DH_XiuLuo',context.Source)"
-
-//人间道
-new entry "BANXIAN_DH_MARK_RENJIAN"
-type "StatusData"
-data "StatusType" "BOOST"
-using "BANXIAN_DH_MARK_TIAN"
-data "Icon" "PassiveFeature_Generic_Magical"
-data "StackId" "BANXIAN_DH_MARK"
-//data "Passives" "BanXian_DH_Mark_Haste_RenJian"
-
-new entry "BanXian_DH_Mark_Haste_RenJian"
-type "PassiveData"
-using "BanXian_DH_Mark_Haste_Tian"
-data "Properties" "IsHidden"
-data "Conditions" "DHMARKMoreThanYEAR('BANXIAN_DH_MARK_RENJIAN') and HasPassive('BanXian_DH_RenJian',context.Source)"
-
-//畜生道
-new entry "BANXIAN_DH_MARK_CHUSHENG"
-type "StatusData"
-data "StatusType" "BOOST"
-using "BANXIAN_DH_MARK_TIAN"
-data "Icon" "Skill_Druid_WildShape"
-data "StackId" "BANXIAN_DH_MARK"
-//data "Passives" "BanXian_DH_Mark_Haste_ChuSheng"
-
-new entry "BanXian_DH_Mark_Haste_ChuSheng"
-type "PassiveData"
-using "BanXian_DH_Mark_Haste_Tian"
-data "Properties" "IsHidden"
-data "Conditions" "DHMARKMoreThanYEAR('BANXIAN_DH_MARK_CHUSHENG') and HasPassive('BanXian_DH_ChuSheng',context.Source)"
-
-//饿鬼道
-new entry "BANXIAN_DH_MARK_EGUI"
-type "StatusData"
-data "StatusType" "BOOST"
-using "BANXIAN_DH_MARK_TIAN"
-data "Icon" "Action_Monster_Bulette_Bite"
-data "StackId" "BANXIAN_DH_MARK"
-//data "Passives" "BanXian_DH_Mark_Haste_EGui"
-
-new entry "BanXian_DH_Mark_Haste_EGui"
-type "PassiveData"
-using "BanXian_DH_Mark_Haste_Tian"
-data "Properties" "IsHidden"
-data "Conditions" "DHMARKMoreThanYEAR('BANXIAN_DH_MARK_EGUI') and HasPassive('BanXian_DH_EGui',context.Source)"
-
-
-//地狱道
-new entry "BANXIAN_DH_MARK_DIYU"
-type "StatusData"
-data "StatusType" "BOOST"
-using "BANXIAN_DH_MARK_TIAN"
-data "Icon" "Action_Mag_HellfireCleave"
-data "StackId" "BANXIAN_DH_MARK"
-//data "Passives" "BanXian_DH_Mark_Haste_DiYu"
-
-new entry "BanXian_DH_Mark_Haste_DiYu"
-type "PassiveData"
-using "BanXian_DH_Mark_Haste_Tian"
-data "Properties" "IsHidden"
-data "Conditions" "DHMARKMoreThanYEAR('BANXIAN_DH_MARK_DIYU') and HasPassive('BanXian_DH_DiYu',context.Source)"
-
-
-//剑道
-new entry "BANXIAN_DH_MARK_JIAN"
-type "StatusData"
-data "StatusType" "BOOST"
-using "BANXIAN_DH_MARK_TIAN"
-data "Icon" "Spell_Evocation_SpiritualWeapon_Greatsword"
-data "StackId" "BANXIAN_DH_MARK"
-//data "Passives" "BanXian_DH_Mark_Haste_Jian"
-
-new entry "BanXian_DH_Mark_Haste_Jian"
-type "PassiveData"
-using "BanXian_DH_Mark_Haste_Tian"
-data "Properties" "IsHidden"
-data "Conditions" "DHMARKMoreThanYEAR('BANXIAN_DH_MARK_JIAN') and HasPassive('BanXian_DH_Jian',context.Source)"
-
-
-//力道
-new entry "BANXIAN_DH_MARK_LI"
-type "StatusData"
-data "StatusType" "BOOST"
-using "BANXIAN_DH_MARK_TIAN"
-data "Icon" "Action_KiResonation_Punch"
-data "StackId" "BANXIAN_DH_MARK"
-//data "Passives" "BanXian_DH_Mark_Haste_Li"
-
-new entry "BanXian_DH_Mark_Haste_Li"
-type "PassiveData"
-using "BanXian_DH_Mark_Haste_Jian"
-data "Properties" "IsHidden"
-data "Conditions" "DHMARKMoreThanYEAR('BANXIAN_DH_MARK_LI') and HasPassive('BanXian_DH_Li',context.Source)"
-
-
-//合欢道
-new entry "BANXIAN_DH_MARK_HEHUAN"
-type "StatusData"
-data "StatusType" "BOOST"
-using "BANXIAN_DH_MARK_TIAN"
-data "Icon" "Action_KiResonation_Punch"
-data "StackId" "BANXIAN_DH_MARK"
-//data "Passives" "BanXian_DH_Mark_Haste_HeHuan"
-
-new entry "BanXian_DH_Mark_Haste_HeHuan"
-type "PassiveData"
-using "BanXian_DH_Mark_Haste_Jian"
-data "Properties" "IsHidden"
-data "Conditions" "DHMARKMoreThanYEAR('BANXIAN_DH_MARK_HEHUAN') and HasPassive('BanXian_DH_HeHuan',context.Source)"
-
-
-//羿道
-new entry "BANXIAN_DH_MARK_YI"
-type "StatusData"
-data "StatusType" "BOOST"
-using "BANXIAN_DH_MARK_TIAN"
-data "Icon" "Action_KiResonation_Punch"
-data "StackId" "BANXIAN_DH_MARK"
-//data "Passives" "BanXian_DH_Mark_Haste_Yi"
-
-new entry "BanXian_DH_Mark_Haste_Yi"
-type "PassiveData"
-using "BanXian_DH_Mark_Haste_Jian"
-data "Properties" "IsHidden"
-data "Conditions" "DHMARKMoreThanYEAR('BANXIAN_DH_MARK_YI') and HasPassive('BanXian_DH_Yi',context.Source)"
-
-
 
 /////////////////////////////
 /
@@ -449,9 +254,6 @@ new entry "MODE_BANXIAN_DH_XIULUO_TECHNICAL_Passive"
 type "PassiveData"
 data "Properties" "IsHidden"
 data "DisplayName" "stringsofmodmadebyxss20240930dva01a01;1"
-data "StatsFunctorContext" "OnAttack"
-data "Conditions" "(IsMeleeAttack() or IsRangedAttack())  and (IsDamageTypeSlashing() or IsDamageTypePiercing())"
-data "StatsFunctors" ""
 
 
 new entry "BLEEDING_BANXIAN_TECHNICAL"
@@ -519,7 +321,7 @@ data "Description" "stringsofmodmadebyxss20240930dva01b03;1"
 data "ExtraDescription" "stringsofmodmadebyxss20240930dv001g05;1"
 data "ExtraDescriptionParams" "RegainHitPoints((BANXIAN_DH_YEAR.Duration)d1)"
 data "Properties" "IsToggled;ToggledDefaultAddToHotbar;Highlighted"
-data "Boosts" "IF(not (Tagged('BEAST',context.Target) or Tagged('MONSTROSITY',context.Target) or Tagged('UNDEAD_BEAST',context.Target) or Tagged('MONSTER',context.Target))):UnlockSpell(BanXian_DH_EGui_EATSTATUS);IF(Tagged('BEAST',context.Target) or Tagged('MONSTROSITY',context.Target) or Tagged('UNDEAD_BEAST',context.Target) or Tagged('MONSTER',context.Target)):(BanXian_DH_EGui_EATSTATUS_YAO)"
+data "Boosts" "IF(not (Tagged('BEAST',context.Target) or Tagged('MONSTROSITY',context.Target) or Tagged('UNDEAD_BEAST',context.Target) or Tagged('MONSTER',context.Target))):UnlockSpell(BanXian_DH_EGui_EATSTATUS);IF(Tagged('BEAST',context.Target) or Tagged('MONSTROSITY',context.Target) or Tagged('UNDEAD_BEAST',context.Target) or Tagged('MONSTER',context.Target)):UnlockSpell(BanXian_DH_EGui_EATSTATUS_YAO)"
 //data "StatsFunctorContext" "OnAttack"
 //data "Conditions" "IsMeleeAttack() and not HasPassive('BanXian_DH_EGui',context.Target) and not IsMiss() and DaoXinStable()"
 //data "StatsFunctors" "ApplyStatus(SIGNAL_DH_EGui, 100, 0)"

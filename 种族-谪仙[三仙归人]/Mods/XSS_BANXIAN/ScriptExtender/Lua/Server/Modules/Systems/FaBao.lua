@@ -208,16 +208,13 @@ end
 --获取炼化难度
 function FaBao.LianHua.GetThreshold(Object)
     if Osi.GetStatString(Object) then
-        local Material = Osi.GetStatString(Object)
-        local stat = Ext.Stats.Get(Material)
-        local Rarity = stat['Rarity']
-        local Rarity_table = Variables.Constants.FaBao.GetThreshold
+        local FABAO = Osi.GetStatString(Object)
+        local stat = Ext.Stats.Get(FABAO)
         if stat['ModifierList'] == "Weapon" or stat['ModifierList'] == "Armor" then
-            for R, value in pairs(Rarity_table) do
-                if R == Rarity then
-                    return value
-                end
-            end
+            local threshold_table = Variables.Constants.FaBao.GetThreshold
+            local count = PersistentVars['FABAO_RefineCount_'..FABAO] or 0
+            local idx = math.min(count + 1, #threshold_table)
+            return threshold_table[idx]
         end
         return 365
     end
@@ -309,6 +306,10 @@ function FaBao.LianHua.AddBoosts(Caster,Object,Turns)
     local FABAO,Material = Osi.GetStatString(Object),Variables.Constants.FaBao.ActiveMaterial
     local stat = Ext.Stats.Get(FABAO)
     local Materialstat = {}
+
+    local refineCount = PersistentVars['FABAO_RefineCount_'..FABAO] or 0
+    local maxRefine = #Variables.Constants.FaBao.GetThreshold
+    if refineCount >= maxRefine then return end
 
     local IsBaoCai = FaBao.LianHua.IsBaoCaiCheck(Material)
     if Material ~= nil then
@@ -404,6 +405,8 @@ function FaBao.LianHua.AddBoosts(Caster,Object,Turns)
                 stat['Rarity'] = 'Legendary'
             end
         end
+
+        PersistentVars['FABAO_RefineCount_'..FABAO] = refineCount + 1
 
         stat:Sync()
 

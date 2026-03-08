@@ -1,5 +1,4 @@
 local DaoHeng = {
-    Daohen = {},
     XiuLuo = {},
     EGUI = {},
     HeHuan ={},
@@ -39,19 +38,6 @@ end
 
 --刷新大道情况
 function DaoHeng.Check(Object)
-    local DaDAO,_,DH_YEAR,_,DaoHen,_,DaoHen_Year,_ = Utils.Get.Dao(Object)
-
-    --没有道痕或道心坚定时，同步道痕
-    if (DaoHen == nil or DaoHen == Variables.Constants.DaoHen[DaDAO]) and DaDAO ~= nil and DH_YEAR ~= nil then
-        local DaoHen_correct = Variables.Constants.DaoHen[DaDAO]
-
-        if DaoHen_Year ~= nil and DH_YEAR ~= nil then
-            if DaoHen_Year < DH_YEAR then
-                Osi.ApplyStatus(Object, DaoHen_correct, DH_YEAR*6, 1, Object)
-            end
-        end
-    end
-
     --亚种判定
     if Osi.IsTagged(Object, '409e244f-5b8a-48f0-a51f-398b4efb6a01') == 1 and Osi.HasActiveStatus(Object, 'BANXIAN_TAG_TIANXIAN') == 0 then
         Osi.ApplyStatus(Object, 'BANXIAN_TAG_TIANXIAN', -1, 1, Object)
@@ -59,22 +45,6 @@ function DaoHeng.Check(Object)
         Osi.ApplyStatus(Object, 'BANXIAN_TAG_RENXIAN', -1, 1, Object)
     end
 
-end
-
---道痕发力
-function DaoHeng.Daohen.Functors(Object)
-
-    --获取当前道行
-    local DaDAO,_,DH_YEAR,_,DaoHen,_,DaoHen_Year,_ = Utils.Get.Dao(Object)
-    if DaoHen_Year ~= nil then
-
-        if DaoHen == Variables.Constants.DaoHen[DaDAO] then --道心坚定,加道行
-            if DaoHen_Year-DH_YEAR >= 1 then
-                Osi.ApplyStatus(Object, 'BANXIAN_DH_YEAR', (DH_YEAR+1)*6, 1, Object)
-            end
-        end
-        
-    end
 end
 
 
@@ -357,8 +327,6 @@ function DaoHeng.OnStatusApplied_after(Object, Status, Causee)
         Utils.DaDao.Hehuan(Object)
         Utils.DaDao.Li(Object)
         Utils.ShenShi.Check(Object)
-    elseif Status == 'SIGNAL_DHMARK_FUNCTORS' then
-        DaoHeng.Daohen.Functors(Object)
     elseif Status == 'SIGNAL_DH_XIULUO' then --修罗道、天道获取道行
         DaoHeng.XiuLuo.AddDH(Object, Causee)
     elseif Status == 'DOMINATE_HEHUAN' then
@@ -382,9 +350,7 @@ function DaoHeng.OnStatusApplied_after(Object, Status, Causee)
         DaoHeng.Tian.AddDH(Object, Causee)
     end
     if Status == "TIANDAO_EYES" then
-        if Osi.HasActiveStatus(Object,'BANXIAN_DH_MARK_TIAN') == 0 then
-            Osi.ApplyStatus(Object,'SIGNAL_TIANDAO_EYES_APPLY',0,1,Object)
-        end
+        Osi.ApplyStatus(Object,'SIGNAL_TIANDAO_EYES_APPLY',0,1,Object)
     end
     if Status == "SIGNAL_TIANLEI_EXTRADAMAGE" then
         local TIMES = Osi.GetStatusTurns(Causee, 'BANXIAN_DH_YEAR_TIAN')

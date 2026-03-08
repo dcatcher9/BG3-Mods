@@ -12,21 +12,21 @@
                     <attribute id="UUID" type="guid" value="3f49eccb-c1e8-47f7-8fdb-0e997e87da00"/>
                 </node>
                 <node id="FeatDescription">
-                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250430dv001b01" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv004b06" version="1"/>
                     <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250430dv001a01" version="1"/>
                     <attribute id="ExactMatch" type="FixedString" value="BanXian_ExtraGongFa_RageBloode"/>
                     <attribute id="FeatId" type="guid" value="535d0680-299e-4260-acbf-537a5dd21a01"/>
                     <attribute id="UUID" type="guid" value="3f49eccb-c1e8-47f7-8fdb-0e997e87da01"/>
                 </node>
                 <node id="FeatDescription">
-                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250430dv001b02" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv004b07" version="1"/>
                     <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250430dv001a02" version="1"/>
                     <attribute id="ExactMatch" type="FixedString" value="BanXian_ExtraGongFa_DarkEyes"/>
                     <attribute id="FeatId" type="guid" value="535d0680-299e-4260-acbf-537a5dd21a02"/>
                     <attribute id="UUID" type="guid" value="3f49eccb-c1e8-47f7-8fdb-0e997e87da02"/>
                 </node>
                 <node id="FeatDescription">
-                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20250430dv001b03" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv009b00" version="1"/>
                     <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250430dv001a03" version="1"/>
                     <attribute id="ExactMatch" type="FixedString" value="BanXian_ExtraGongFa_FenJue"/>
                     <attribute id="FeatId" type="guid" value="535d0680-299e-4260-acbf-537a5dd21a03"/>

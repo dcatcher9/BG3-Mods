@@ -83,9 +83,8 @@ end
 --阵旗检测
 function ZhenFa.Flags.Check(Object,Core)
     if Core ~= nil then
-        for FLAG, NAME in pairs(Variables.Constants.ZhenFa.Flags) do
+        for FLAG, _ in pairs(Variables.Constants.ZhenFa.Flags) do
             if PersistentVars[FLAG] == Object then
-                local X,Z,TW,Radius = Utils.ZhenFa.GetFlagsParams(Object,Core)
             end
         end
         local STATU = ZhenFa.Core.Functors(6,6.8)

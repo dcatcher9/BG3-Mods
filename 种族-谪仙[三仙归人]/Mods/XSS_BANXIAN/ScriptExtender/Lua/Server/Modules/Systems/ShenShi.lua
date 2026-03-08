@@ -20,7 +20,7 @@ function ShenShi.OpenMessage(Object, Causee)
     local ZZ,RESULT_ZZ = Utils.Get.ZiZhi(Object)
     local _,_,_,_,_,RESULT_LG = Utils.Get.LingGen(Object)
     DaoHeng.Check(Object)
-    local _,_,_,_,_,_,_,RESULT_DD = Utils.Get.Dao(Object)
+    local _,_,_,_,RESULT_DD = Utils.Get.Dao(Object)
 
     local Message = RESULT_ZZ.."\n"..RESULT_LG.."\n"..RESULT_DD
 

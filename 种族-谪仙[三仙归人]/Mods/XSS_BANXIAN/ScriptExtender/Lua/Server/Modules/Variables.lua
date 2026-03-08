@@ -201,18 +201,6 @@ Variables.Constants = {
     ['BanXian_DH_HeHuan'] = '合欢道',
     ['BanXian_DH_Yi'] = '羿道'
     },
-    DaoHen = {
-    ['BanXian_DH_Tian'] = 'BANXIAN_DH_MARK_TIAN',
-    ['BanXian_DH_XiuLuo'] = 'BANXIAN_DH_MARK_XIULUO',
-    ['BanXian_DH_RenJian'] = 'BANXIAN_DH_MARK_RENJIAN',
-    ['BanXian_DH_ChuSheng'] = 'BANXIAN_DH_MARK_CHUSHENG',
-    ['BanXian_DH_EGui'] = 'BANXIAN_DH_MARK_EGUI',
-    ['BanXian_DH_DiYu'] = 'BANXIAN_DH_MARK_DIYU',
-    ['BanXian_DH_Jian'] = 'BANXIAN_DH_MARK_JIAN',
-    ['BanXian_DH_Li'] = 'BANXIAN_DH_MARK_LI',
-    ['BanXian_DH_HeHuan'] = 'BANXIAN_DH_MARK_HEHUAN',
-    ['BanXian_DH_Yi'] = 'BANXIAN_DH_MARK_YI'
-    },
     ZhenFa = {
         LuoPan = {
             Caster = nil,
@@ -279,13 +267,7 @@ Variables.Constants = {
     },
     FaBao = {
         ['ActiveMaterial'] = nil,
-        GetThreshold = {
-            ["Common"] = 12,
-            ["Uncommon"] = 48,
-            ["Rare"] = 108,
-            ["VeryRare"] = 192,
-            ["Legendary"] = 300
-        },
+        GetThreshold = {6, 24, 54, 96, 150, 216, 294, 384, 486, 600},
         Base = {
         ["Boosts"] = "",
         ["DefaultBoosts"] = "",
@@ -324,42 +306,42 @@ Variables.Constants = {
         },
         Materials_BaoCai = {
             BC_DaLiTieJiao = {
-                Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_DaLiTieJiao_Weapon"},
+                Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_DaLiTieJiao_Weapon", ["WeaponFunctors"] = "DealDamage(1d4,Bludgeoning,Magical)"},
                 Armor = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_DaLiTieJiao_Armor"},
                 Ring = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_DaLiTieJiao_Ring"}
             },
             BC_YaoShengJiao = {
-                Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_YaoShengJiao_Weapon"},
+                Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_YaoShengJiao_Weapon", ["WeaponFunctors"] = "DealDamage(1d4,Psychic,Magical)"},
                 Armor = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_YaoShengJiao_Armor"},
                 Ring = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_YaoShengJiao_Ring"}
             },
             BC_HeiSeYanMou = {
-                Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_HeiSeYanMou_Weapon"},
+                Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_HeiSeYanMou_Weapon", ["WeaponFunctors"] = "DealDamage(1d4,Necrotic,Magical)"},
                 Armor = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_HeiSeYanMou_Armor", ["StatusOnEquip"] = "HEISEYANMOU_BOOST_ARMOR_TECHNICAL"},
                 Ring = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_HeiSeYanMou_Ring",   ["StatusOnEquip"] = "HEISEYANMOU_BOOST_RING_TECHNICAL"}
             },
             BC_JinSeYanMou = {
-                Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_JinSeYanMou_Weapon"},
+                Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_JinSeYanMou_Weapon", ["WeaponFunctors"] = "DealDamage(1d4,Radiant,Magical)"},
                 Armor = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_JinSeYanMou_Armor"},
                 Ring = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_JinSeYanMou_Ring"}
             },
             BC_LongZhu = {
-                Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_LongZhu_Weapon"},
+                Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_LongZhu_Weapon", ["WeaponFunctors"] = "DealDamage(1d6,Fire,Magical)"},
                 Armor = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_LongZhu_Armor"},
                 Ring = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_LongZhu_Ring"}
             },
             BC_TieZhongXue = {
-                Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_TieZhongXue_Weapon"},
+                Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_TieZhongXue_Weapon", ["WeaponFunctors"] = "DealDamage(1d4,Slashing,Magical)"},
                 Armor = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_TieZhongXue_Armor", ["StatusOnEquip"] = "TIEZHONGXUE_BOOST_ARMOR_TECHNICAL"},
                 Ring = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_TieZhongXue_Ring"}
             },
             BC_YuChuiYa = {
-                Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_YuChuiYa_Weapon"},
+                Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_YuChuiYa_Weapon", ["WeaponFunctors"] = "DealDamage(1d4,Piercing,Magical)"},
                 Armor = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_YuChuiYa_Armor"},
                 Ring = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_YuChuiYa_Ring"}
             },
             BC_ZhenLeiGu = {
-                Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_ZhenLeiGu_Weapon"},
+                Weapon = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_ZhenLeiGu_Weapon", ["WeaponFunctors"] = "DealDamage(1d6,Lightning,Magical)"},
                 Armor = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_ZhenLeiGu_Armor"},
                 Ring = {["PassivesOnEquip"] = "BanXian_Fabao_Material_BC_ZhenLeiGu_Ring"}
             }

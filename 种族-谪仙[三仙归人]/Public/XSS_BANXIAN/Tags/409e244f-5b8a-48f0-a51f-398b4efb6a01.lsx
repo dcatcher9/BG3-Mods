@@ -4,7 +4,7 @@
 	<region id="Tags">
 		<node id="Tags">
 			<attribute id="Description" type="LSString" value="|Banxian TianXian|" />
-			<attribute id="DisplayDescription" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv001001" version="1" />
+			<attribute id="DisplayDescription" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv001a01" version="1" />
 			<attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv001a01" version="1" />
 			<attribute id="Icon" type="FixedString" value="" />
 			<attribute id="Name" type="FixedString" value="TIANXIAN" />

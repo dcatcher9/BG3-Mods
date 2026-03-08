@@ -124,7 +124,7 @@ function EventHandlers.OnStatusApplied_after(Object, Status, Causee, StoryAction
     --_P('***********DEBUG**************') --DEBUG
     --_P('[谪仙StatusApplied]'..Status) --DEBUG
     if Status == 'DEBUG_GETENTITY' then
-        local entity = Ext.Entity.Get(Object)
+        _D(Ext.Entity.Get(Object):GetAllComponents())
     end
     if Status == 'DEBUG_APPEARANCE_RECORD' then
         SaveAppearance(Object, 'Slot1')
