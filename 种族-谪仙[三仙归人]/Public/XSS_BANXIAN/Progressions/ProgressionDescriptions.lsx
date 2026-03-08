@@ -142,7 +142,7 @@
         <node id="ProgressionDescription">
           <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv004b04" version="1" />
           <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv004a04" version="1" />
-          <attribute id="SelectorId" type="FixedString" value="BANXIANSHENTONGTIANXIAN" />
+          <attribute id="SelectorId" type="FixedString" value="BANXIANSHENTONG" />
           <attribute id="UUID" type="guid" value="b2efe8cb-6ab5-4054-a226-949c36ac6a01" />
         </node>
         <node id="ProgressionDescription">

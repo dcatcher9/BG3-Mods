@@ -257,13 +257,13 @@ function FABAOBAIMAI3FREEBOOSTCHECK_BONUSACTIONPOINT()
 end
 
 
-function IsEquipedSword(entity)
+function IsEquippedSword(entity)
     local entity = entity or context.Source
     local weapon = GetActiveWeapon(entity)
     return IsWeaponOfProficiencyGroup('Daggers', weapon) | IsWeaponOfProficiencyGroup('Shortswords', weapon) | IsWeaponOfProficiencyGroup('Longswords', weapon) | IsWeaponOfProficiencyGroup('Greatswords', weapon) | IsWeaponOfProficiencyGroup('Rapiers', weapon) | IsWeaponOfProficiencyGroup('Scimitars', weapon) | IsWeaponOfProficiencyGroup('Handaxes', weapon) | IsWeaponOfProficiencyGroup('Battleaxes', weapon) | IsWeaponOfProficiencyGroup('Greataxes', weapon) | IsWeaponOfProficiencyGroup('Clubs', weapon) | IsWeaponOfProficiencyGroup('Greatclubs', weapon) | IsWeaponOfProficiencyGroup('Maces', weapon) | IsWeaponOfProficiencyGroup('Warhammers', weapon) | IsWeaponOfProficiencyGroup('Mauls', weapon) | IsWeaponOfProficiencyGroup('Flails', weapon) | IsWeaponOfProficiencyGroup('Quarterstaffs', weapon) | IsWeaponOfProficiencyGroup('Spears', weapon) | IsWeaponOfProficiencyGroup('Glaives', weapon) | IsWeaponOfProficiencyGroup('Halberds', weapon) | IsWeaponOfProficiencyGroup('Pikes', weapon) | IsWeaponOfProficiencyGroup('Tridents', weapon) | IsWeaponOfProficiencyGroup('WarPicks', weapon) | IsWeaponOfProficiencyGroup('Whips', weapon) | IsWeaponOfProficiencyGroup('Lances', weapon) | IsWeaponOfProficiencyGroup('Sickles', weapon) | IsWeaponOfProficiencyGroup('LightHammers', weapon) | IsWeaponOfProficiencyGroup('Javelins', weapon)
 end
 
-function IsEquipedBow(entity)
+function IsEquippedBow(entity)
     local entity = entity or context.Source
     local weapon = GetActiveWeapon(entity)
     return IsWeaponOfProficiencyGroup('Longbows', weapon) | IsWeaponOfProficiencyGroup('Shortbows', weapon) | IsWeaponOfProficiencyGroup('LightCrossbows', weapon) | IsWeaponOfProficiencyGroup('HeavyCrossbows', weapon) | IsWeaponOfProficiencyGroup('HandCrossbows', weapon) | IsWeaponOfProficiencyGroup('Darts', weapon) | IsWeaponOfProficiencyGroup('Slings', weapon)
@@ -593,7 +593,7 @@ end
 
 function IsZhenfaFlags(entity)
     entity = entity or context.Target
-    return HasStatus('BANXIAN_ZHENFA_FALGS_JULING_AURA_QIAN',entity) | HasStatus('BANXIAN_ZHENFA_FALGS_JULING_AURA_KUN',entity) | HasStatus('BANXIAN_ZHENFA_FALGS_JULING_AURA_XUN',entity) | HasStatus('BANXIAN_ZHENFA_FALGS_JULING_AURA_ZHEN',entity) | HasStatus('BANXIAN_ZHENFA_FALGS_JULING_AURA_KAN',entity) | HasStatus('BANXIAN_ZHENFA_FALGS_JULING_AURA_LI',entity) | HasStatus('BANXIAN_ZHENFA_FALGS_JULING_AURA_GEN',entity) | HasStatus('BANXIAN_ZHENFA_FALGS_JULING_AURA_DUI',entity)
+    return HasStatus('BANXIAN_ZHENFA_FLAGS_JULING_AURA_QIAN',entity) | HasStatus('BANXIAN_ZHENFA_FLAGS_JULING_AURA_KUN',entity) | HasStatus('BANXIAN_ZHENFA_FLAGS_JULING_AURA_XUN',entity) | HasStatus('BANXIAN_ZHENFA_FLAGS_JULING_AURA_ZHEN',entity) | HasStatus('BANXIAN_ZHENFA_FLAGS_JULING_AURA_KAN',entity) | HasStatus('BANXIAN_ZHENFA_FLAGS_JULING_AURA_LI',entity) | HasStatus('BANXIAN_ZHENFA_FLAGS_JULING_AURA_GEN',entity) | HasStatus('BANXIAN_ZHENFA_FLAGS_JULING_AURA_DUI',entity)
 end
 
 

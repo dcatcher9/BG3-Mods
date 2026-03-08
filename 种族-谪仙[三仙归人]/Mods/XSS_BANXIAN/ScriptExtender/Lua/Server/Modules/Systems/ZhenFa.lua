@@ -129,21 +129,21 @@ function ZhenFa.OnStatusApplied_after(Object, Status, Causee)
     elseif Status == 'BANXIAN_ZHENFA_CORE_JULING' then
         local Core = PersistentVars['ZhenFa_Core_JuLing']
         ZhenFa.Flags.Check(Object,Core)
-    elseif Status == 'BANXIAN_ZHENFA_FALGS_JULING_AURA_QIAN'  then
+    elseif Status == 'BANXIAN_ZHENFA_FLAGS_JULING_AURA_QIAN'  then
         PersistentVars['ZhenFa_Flags_Qian'] = Object
-    elseif Status == 'BANXIAN_ZHENFA_FALGS_JULING_AURA_KUN'  then
+    elseif Status == 'BANXIAN_ZHENFA_FLAGS_JULING_AURA_KUN'  then
         PersistentVars['ZhenFa_Flags_Kun'] = Object
-    elseif Status == 'BANXIAN_ZHENFA_FALGS_JULING_AURA_XUN'  then
+    elseif Status == 'BANXIAN_ZHENFA_FLAGS_JULING_AURA_XUN'  then
         PersistentVars['ZhenFa_Flags_Xun'] = Object
-    elseif Status == 'BANXIAN_ZHENFA_FALGS_JULING_AURA_ZHEN'  then
+    elseif Status == 'BANXIAN_ZHENFA_FLAGS_JULING_AURA_ZHEN'  then
         PersistentVars['ZhenFa_Flags_Zhen'] = Object
-    elseif Status == 'BANXIAN_ZHENFA_FALGS_JULING_AURA_KAN'  then
+    elseif Status == 'BANXIAN_ZHENFA_FLAGS_JULING_AURA_KAN'  then
         PersistentVars['ZhenFa_Flags_Kan'] = Object
-    elseif Status == 'BANXIAN_ZHENFA_FALGS_JULING_AURA_LI'  then
+    elseif Status == 'BANXIAN_ZHENFA_FLAGS_JULING_AURA_LI'  then
         PersistentVars['ZhenFa_Flags_Li'] = Object
-    elseif Status == 'BANXIAN_ZHENFA_FALGS_JULING_AURA_GEN'  then
+    elseif Status == 'BANXIAN_ZHENFA_FLAGS_JULING_AURA_GEN'  then
         PersistentVars['ZhenFa_Flags_Gen'] = Object
-    elseif Status == 'BANXIAN_ZHENFA_FALGS_JULING_AURA_DUI'  then
+    elseif Status == 'BANXIAN_ZHENFA_FLAGS_JULING_AURA_DUI'  then
         PersistentVars['ZhenFa_Flags_Dui'] = Object
     end
 

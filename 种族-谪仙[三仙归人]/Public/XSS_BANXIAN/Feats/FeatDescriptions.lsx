@@ -14,7 +14,7 @@
                 <node id="FeatDescription">
                     <attribute id="Description" type="TranslatedString" handle="stringsofmodmadebyxss20240930dv004b06" version="1"/>
                     <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250430dv001a01" version="1"/>
-                    <attribute id="ExactMatch" type="FixedString" value="BanXian_ExtraGongFa_RageBloode"/>
+                    <attribute id="ExactMatch" type="FixedString" value="BanXian_ExtraGongFa_RageBlood"/>
                     <attribute id="FeatId" type="guid" value="535d0680-299e-4260-acbf-537a5dd21a01"/>
                     <attribute id="UUID" type="guid" value="3f49eccb-c1e8-47f7-8fdb-0e997e87da01"/>
                 </node>

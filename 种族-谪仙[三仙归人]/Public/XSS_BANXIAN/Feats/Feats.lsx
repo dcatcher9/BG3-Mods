@@ -11,8 +11,8 @@
                     <attribute id="UUID" type="guid" value="535d0680-299e-4260-acbf-537a5dd21a00"/>
                 </node>
                 <node id="Feat">
-                    <attribute id="Name" type="FixedString" value="BanXian_ExtraGongFa_RageBloode"/>
-                    <attribute id="PassivesAdded" type="LSString" value="BANXIAN_GONGFA_RageBloode"/>
+                    <attribute id="Name" type="FixedString" value="BanXian_ExtraGongFa_RageBlood"/>
+                    <attribute id="PassivesAdded" type="LSString" value="BANXIAN_GONGFA_RageBlood"/>
                     <attribute id="UUID" type="guid" value="535d0680-299e-4260-acbf-537a5dd21a01"/>
                 </node>
                 <node id="Feat">

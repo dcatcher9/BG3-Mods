@@ -255,7 +255,7 @@ data "StatusEffect" "2156dd48-f83b-4060-9a4e-cab994da8857"
 /         怒血诀         //选修功法  
 /
 /////////////////////////////  
-new entry "BANXIAN_GONGFA_RageBloode"
+new entry "BANXIAN_GONGFA_RageBlood"
 type "PassiveData"
 data "Icon" "PassiveFeature_BrutalCritical"
 data "DisplayName" "stringsofmodmadebyxss20240930dv004a06;1"

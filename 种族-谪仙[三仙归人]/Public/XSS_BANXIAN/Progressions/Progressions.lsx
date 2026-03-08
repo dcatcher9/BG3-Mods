@@ -4,7 +4,7 @@
   <region id="Progressions">
     <node id="root">
       <children>
-        <node id="Progression">天仙
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,2,0);ActionResource(ShenshiPoint,1,0)" />
           <attribute id="Level" type="uint8" value="1" />
           <attribute id="Name" type="LSString" value="TianXian" />
@@ -14,7 +14,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab001" />
         </node>
-        <node id="Progression">练气巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,2,0)" />
           <attribute id="Level" type="uint8" value="4" />
           <attribute id="Name" type="LSString" value="TianXian" />
@@ -22,7 +22,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab004" />
         </node>
-        <node id="Progression">筑基前期
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,4,0);ActionResource(ShenshiPoint,1,0)" />
           <attribute id="Level" type="uint8" value="5" />
           <attribute id="Name" type="LSString" value="TianXian" />
@@ -33,7 +33,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab005" />
         </node>
-        <node id="Progression">筑基巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,4,0)" />
           <attribute id="Level" type="uint8" value="8" />
           <attribute id="Name" type="LSString" value="TianXian" />
@@ -42,7 +42,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab008" />
         </node>
-        <node id="Progression">结丹前期
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,8,0);ActionResource(ShenshiPoint,2,0)" />
           <attribute id="Level" type="uint8" value="9" />
           <attribute id="Name" type="LSString" value="TianXian" />
@@ -53,7 +53,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab009" />
         </node>
-        <node id="Progression">结丹巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,8,0)" />
           <attribute id="Level" type="uint8" value="12" />
           <attribute id="Name" type="LSString" value="TianXian" />
@@ -62,18 +62,18 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab012" />
         </node>
-        <node id="Progression">元婴前期
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,16,0);ActionResource(ShenshiPoint,4,0)" />
           <attribute id="Level" type="uint8" value="13" />
           <attribute id="Name" type="LSString" value="TianXian" />
           <attribute id="PassivesAdded" type="LSString" value="ExtraAttack_3_BanXian;BANXIAN_YuanYing;BANXIAN_YuanYingBoosts" />
           <attribute id="PassivesRemoved" type="LSString" value="ExtraAttack_2_BanXian;BANXIAN_JinDan" />
-          <attribute id="Selectors" type="LSString" value="AddSpells(e88ae5a1-576c-4d80-b1a5-ef3f6dd8e003);SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84001,1,BANXIANCUITI);SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84002,1,BANXIANFABAOBAIMAI);SelectPassives(3da265a0-317d-49bc-b58a-8db851e72a01,1,BANXIANSHENTONGTIANXIAN)" />
+          <attribute id="Selectors" type="LSString" value="AddSpells(e88ae5a1-576c-4d80-b1a5-ef3f6dd8e003);SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84001,1,BANXIANCUITI);SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84002,1,BANXIANFABAOBAIMAI);SelectPassives(3da265a0-317d-49bc-b58a-8db851e72a01,1,BANXIANSHENTONG)" />
           <attribute id="ProgressionType" type="uint8" value="2" />
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab013" />
         </node>
-        <node id="Progression">元婴巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,16,0)" />
           <attribute id="Level" type="uint8" value="19" />
           <attribute id="Name" type="LSString" value="TianXian" />
@@ -82,18 +82,18 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab019" />
         </node>
-        <node id="Progression">化神前期
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,32,0);ActionResource(ShenshiPoint,8,0)" />
           <attribute id="Level" type="uint8" value="21" />
           <attribute id="Name" type="LSString" value="TianXian" />
           <attribute id="PassivesAdded" type="LSString" value="ExtraAttack_4_BanXian" />
           <attribute id="PassivesRemoved" type="LSString" value="ExtraAttack_3_BanXian" />
-          <attribute id="Selectors" type="LSString" value="SelectPassives(3da265a0-317d-49bc-b58a-8db851e72a01,1,BANXIANSHENTONGTIANXIAN);SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84001,1,BANXIANCUITI)" />
+          <attribute id="Selectors" type="LSString" value="SelectPassives(3da265a0-317d-49bc-b58a-8db851e72a01,1,BANXIANSHENTONG);SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84001,1,BANXIANCUITI)" />
           <attribute id="ProgressionType" type="uint8" value="2" />
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab021" />
         </node>
-        <node id="Progression">化神巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,32,0)" />
           <attribute id="Level" type="uint8" value="36" />
           <attribute id="Name" type="LSString" value="TianXian" />
@@ -104,7 +104,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab036" />
         </node>
-        <node id="Progression">炼虚前期
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,64,0);ActionResource(ShenshiPoint,16,0)" />
           <attribute id="Level" type="uint8" value="41" />
           <attribute id="Name" type="LSString" value="TianXian" />
@@ -115,7 +115,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab041" />
         </node>
-        <node id="Progression">炼虚巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,64,0)" />
           <attribute id="Level" type="uint8" value="56" />
           <attribute id="Name" type="LSString" value="TianXian" />
@@ -126,7 +126,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab056" />
         </node>
-        <node id="Progression">合体前期
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,128,0);ActionResource(ShenshiPoint,32,0)" />
           <attribute id="Level" type="uint8" value="61" />
           <attribute id="Name" type="LSString" value="TianXian" />
@@ -137,7 +137,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab061" />
         </node>
-        <node id="Progression">合体巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,128,0)" />
           <attribute id="Level" type="uint8" value="76" />
           <attribute id="Name" type="LSString" value="TianXian" />
@@ -148,7 +148,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab076" />
         </node>
-        <node id="Progression">大乘前期
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,256,0);ActionResource(ShenshiPoint,64,0)" />
           <attribute id="Level" type="uint8" value="81" />
           <attribute id="Name" type="LSString" value="TianXian" />
@@ -159,7 +159,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab081" />
         </node>
-        <node id="Progression">大乘巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,256,0)" />
           <attribute id="Level" type="uint8" value="86" />
           <attribute id="Name" type="LSString" value="TianXian" />
@@ -170,7 +170,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab086" />
         </node>
-        <node id="Progression">渡劫
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,512,0);ActionResource(ShenshiPoint,128,0)" />
           <attribute id="Level" type="uint8" value="96" />
           <attribute id="Name" type="LSString" value="TianXian" />
@@ -181,7 +181,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab096" />
         </node>
-        <node id="Progression">真仙
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,1024,0);ActionResource(ShenshiPoint,256,0)" />
           <attribute id="Level" type="uint8" value="100" />
           <attribute id="Name" type="LSString" value="TianXian" />
@@ -192,7 +192,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab100" />
         </node>
-        <node id="Progression">人仙
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,2,0);ActionResource(ShenshiPoint,1,0)" />
           <attribute id="Level" type="uint8" value="1" />
           <attribute id="Name" type="LSString" value="RenXian" />
@@ -202,7 +202,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
           <attribute id="UUID" type="guid" value="0bac66ae-9325-4e4d-953f-d3aae77ab001" />
         </node>
-        <node id="Progression">练气巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,2,0)" />
           <attribute id="Level" type="uint8" value="4" />
           <attribute id="Name" type="LSString" value="RenXian" />
@@ -223,7 +223,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
           <attribute id="UUID" type="guid" value="0bac66ae-9325-4e4d-953f-d3aae77ab005" />
         </node>
-        <node id="Progression">筑基巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,4,0)" />
           <attribute id="Level" type="uint8" value="8" />
           <attribute id="Name" type="LSString" value="RenXian" />
@@ -245,7 +245,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
           <attribute id="UUID" type="guid" value="0bac66ae-9325-4e4d-953f-d3aae77ab009" />
         </node>
-        <node id="Progression">结丹巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,8,0)" />
           <attribute id="Level" type="uint8" value="12" />
           <attribute id="Name" type="LSString" value="RenXian" />
@@ -267,7 +267,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
           <attribute id="UUID" type="guid" value="0bac66ae-9325-4e4d-953f-d3aae77ab013" />
         </node>
-        <node id="Progression">元婴巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,16,0)" />
           <attribute id="Level" type="uint8" value="19" />
           <attribute id="Name" type="LSString" value="RenXian" />
@@ -284,12 +284,12 @@
           <attribute id="Name" type="LSString" value="RenXian" />
           <attribute id="PassivesAdded" type="LSString" value="ExtraAttack_4_BanXian" />
           <attribute id="PassivesRemoved" type="LSString" value="ExtraAttack_3_BanXian" />
-          <attribute id="Selectors" type="LSString" value="SelectPassives(3da265a0-317d-49bc-b58a-8db851e72a01,1,BANXIANSHENTONGTIANXIAN);SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84b01,1,BANXIANWZCYG)" />
+          <attribute id="Selectors" type="LSString" value="SelectPassives(3da265a0-317d-49bc-b58a-8db851e72a01,1,BANXIANSHENTONG);SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84b01,1,BANXIANWZCYG)" />
           <attribute id="ProgressionType" type="uint8" value="2" />
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
           <attribute id="UUID" type="guid" value="0bac66ae-9325-4e4d-953f-d3aae77ab021" />
         </node>
-        <node id="Progression">化神巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,32,0)" />
           <attribute id="Level" type="uint8" value="36" />
           <attribute id="Name" type="LSString" value="RenXian" />
@@ -300,7 +300,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
           <attribute id="UUID" type="guid" value="0bac66ae-9325-4e4d-953f-d3aae77ab036" />
         </node>
-        <node id="Progression">炼虚前期
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,64,0);ActionResource(ShenshiPoint,16,0)" />
           <attribute id="Level" type="uint8" value="41" />
           <attribute id="Name" type="LSString" value="RenXian" />
@@ -311,7 +311,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
           <attribute id="UUID" type="guid" value="0bac66ae-9325-4e4d-953f-d3aae77ab041" />
         </node>
-        <node id="Progression">炼虚巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,64,0)" />
           <attribute id="Level" type="uint8" value="56" />
           <attribute id="Name" type="LSString" value="RenXian" />
@@ -322,7 +322,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
           <attribute id="UUID" type="guid" value="0bac66ae-9325-4e4d-953f-d3aae77ab056" />
         </node>
-        <node id="Progression">合体前期
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,128,0);ActionResource(ShenshiPoint,32,0)" />
           <attribute id="Level" type="uint8" value="61" />
           <attribute id="Name" type="LSString" value="RenXian" />
@@ -333,7 +333,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
           <attribute id="UUID" type="guid" value="0bac66ae-9325-4e4d-953f-d3aae77ab061" />
         </node>
-        <node id="Progression">合体巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,128,0)" />
           <attribute id="Level" type="uint8" value="76" />
           <attribute id="Name" type="LSString" value="RenXian" />
@@ -344,7 +344,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
           <attribute id="UUID" type="guid" value="0bac66ae-9325-4e4d-953f-d3aae77ab076" />
         </node>
-        <node id="Progression">大乘前期
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,256,0);ActionResource(ShenshiPoint,64,0)" />
           <attribute id="Level" type="uint8" value="81" />
           <attribute id="Name" type="LSString" value="RenXian" />
@@ -355,7 +355,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
           <attribute id="UUID" type="guid" value="0bac66ae-9325-4e4d-953f-d3aae77ab081" />
         </node>
-        <node id="Progression">大乘巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,256,0)" />
           <attribute id="Level" type="uint8" value="86" />
           <attribute id="Name" type="LSString" value="RenXian" />
@@ -366,7 +366,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
           <attribute id="UUID" type="guid" value="0bac66ae-9325-4e4d-953f-d3aae77ab086" />
         </node>
-        <node id="Progression">渡劫
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,512,0);ActionResource(ShenshiPoint,128,0)" />
           <attribute id="Level" type="uint8" value="96" />
           <attribute id="Name" type="LSString" value="RenXian" />
@@ -377,7 +377,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
           <attribute id="UUID" type="guid" value="0bac66ae-9325-4e4d-953f-d3aae77ab096" />
         </node>
-        <node id="Progression">真仙
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,1024,0);ActionResource(ShenshiPoint,256,0)" />
           <attribute id="Level" type="uint8" value="100" />
           <attribute id="Name" type="LSString" value="RenXian" />
@@ -388,7 +388,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
           <attribute id="UUID" type="guid" value="0bac66ae-9325-4e4d-953f-d3aae77ab100" />
         </node>
-        <node id="Progression">妖仙
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,2,0);ActionResource(ShenshiPoint,1,0)" />
           <attribute id="Level" type="uint8" value="1" />
           <attribute id="Name" type="LSString" value="YaoXian" />
@@ -398,7 +398,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab001" />
         </node>
-        <node id="Progression">练气巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,2,0)" />
           <attribute id="Level" type="uint8" value="4" />
           <attribute id="Name" type="LSString" value="YaoXian" />
@@ -408,7 +408,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab004" />
         </node>
-        <node id="Progression">妖仙
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,4,0);ActionResource(ShenshiPoint,1,0)" />
           <attribute id="Level" type="uint8" value="5" />
           <attribute id="Name" type="LSString" value="YaoXian" />
@@ -419,7 +419,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab005" />
         </node>
-        <node id="Progression">筑基巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,4,0)" />
           <attribute id="Level" type="uint8" value="8" />
           <attribute id="Name" type="LSString" value="YaoXian" />
@@ -430,7 +430,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab008" />
         </node>
-        <node id="Progression">妖仙
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,8,0);ActionResource(ShenshiPoint,2,0)" />
           <attribute id="Level" type="uint8" value="9" />
           <attribute id="Name" type="LSString" value="YaoXian" />
@@ -441,7 +441,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab009" />
         </node>
-        <node id="Progression">结丹巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,8,0)" />
           <attribute id="Level" type="uint8" value="12" />
           <attribute id="Name" type="LSString" value="YaoXian" />
@@ -452,7 +452,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab012" />
         </node>
-        <node id="Progression">妖仙
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,16,0);ActionResource(ShenshiPoint,4,0)" />
           <attribute id="Level" type="uint8" value="13" />
           <attribute id="Name" type="LSString" value="YaoXian" />
@@ -463,7 +463,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab013" />
         </node>
-        <node id="Progression">元婴巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,16,0)" />
           <attribute id="Level" type="uint8" value="19" />
           <attribute id="Name" type="LSString" value="YaoXian" />
@@ -474,7 +474,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab019" />
         </node>
-        <node id="Progression">妖仙
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,32,0);ActionResource(ShenshiPoint,8,0)" />
           <attribute id="Level" type="uint8" value="21" />
           <attribute id="Name" type="LSString" value="YaoXian" />
@@ -485,7 +485,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab021" />
         </node>
-        <node id="Progression">化神巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,32,0)" />
           <attribute id="Level" type="uint8" value="36" />
           <attribute id="Name" type="LSString" value="YaoXian" />
@@ -496,7 +496,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab036" />
         </node>
-        <node id="Progression">妖仙
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,64,0);ActionResource(ShenshiPoint,16,0)" />
           <attribute id="Level" type="uint8" value="41" />
           <attribute id="Name" type="LSString" value="YaoXian" />
@@ -507,7 +507,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab041" />
         </node>
-        <node id="Progression">炼虚巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,64,0)" />
           <attribute id="Level" type="uint8" value="56" />
           <attribute id="Name" type="LSString" value="YaoXian" />
@@ -518,7 +518,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab056" />
         </node>
-        <node id="Progression">妖仙
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,128,0);ActionResource(ShenshiPoint,32,0)" />
           <attribute id="Level" type="uint8" value="61" />
           <attribute id="Name" type="LSString" value="YaoXian" />
@@ -529,7 +529,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab061" />
         </node>
-        <node id="Progression">合体巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,128,0)" />
           <attribute id="Level" type="uint8" value="76" />
           <attribute id="Name" type="LSString" value="YaoXian" />
@@ -540,7 +540,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab076" />
         </node>
-        <node id="Progression">妖仙
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,256,0);ActionResource(ShenshiPoint,64,0)" />
           <attribute id="Level" type="uint8" value="81" />
           <attribute id="Name" type="LSString" value="YaoXian" />
@@ -551,7 +551,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab081" />
         </node>
-        <node id="Progression">大乘巅峰
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,256,0)" />
           <attribute id="Level" type="uint8" value="86" />
           <attribute id="Name" type="LSString" value="YaoXian" />
@@ -562,7 +562,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab086" />
         </node>
-        <node id="Progression">妖仙
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,512,0);ActionResource(ShenshiPoint,128,0)" />
           <attribute id="Level" type="uint8" value="96" />
           <attribute id="Name" type="LSString" value="YaoXian" />
@@ -573,7 +573,7 @@
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab096" />
         </node>
-        <node id="Progression">真仙
+        <node id="Progression">
           <attribute id="Boosts" type="LSString" value="ActionResource(KiPoint,1024,0);ActionResource(ShenshiPoint,256,0)" />
           <attribute id="Level" type="uint8" value="100" />
           <attribute id="Name" type="LSString" value="YaoXian" />
