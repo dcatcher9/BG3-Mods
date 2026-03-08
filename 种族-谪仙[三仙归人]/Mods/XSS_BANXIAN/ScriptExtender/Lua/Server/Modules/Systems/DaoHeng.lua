@@ -73,14 +73,12 @@ function DaoHeng.Tian.AddDH(Target, BanXian)
     local DH_Year = Osi.GetStatusTurns(BanXian, 'BANXIAN_DH_YEAR_TIAN') or 0
 
     local DH_Day_new = DH_Day + level
-    if DH_Day_new >= 365 then
+    while DH_Day_new >= 365 do
         DH_Year = DH_Year + 1
         DH_Day_new = DH_Day_new - 365
-        Osi.ApplyStatus(BanXian, 'BANXIAN_DH_YEAR_TIAN', DH_Year*6, 1)
-        Osi.ApplyStatus(BanXian, 'BANXIAN_DH_DAY_TIAN', DH_Day_new*6, 1)
-    else
-        Osi.ApplyStatus(BanXian, 'BANXIAN_DH_DAY_TIAN', DH_Day_new*6, 1)
     end
+    Osi.ApplyStatus(BanXian, 'BANXIAN_DH_YEAR_TIAN', DH_Year*6, 1)
+    Osi.ApplyStatus(BanXian, 'BANXIAN_DH_DAY_TIAN', DH_Day_new*6, 1)
 
 end
 
@@ -170,11 +168,11 @@ function DaoHeng.HeHuan.TakeDH(Caster,Target)
         increase_year = caster_year / 2
         Osi.ApplyStatus(Caster, 'BANXIAN_DH_YEAR_HEHUAN', increase_year*6, 1)
         Osi.ApplyStatus(Caster, 'BANXIAN_DH_DAY_HEHUAN', increase_day*6, 1)
-        Osi.ApplyStatus(Target, 'BANXIAN_DH_YEAR', (TARGET_DH_YEAR + increase_year)*6, 1)
+        Osi.ApplyStatus(Target, 'BANXIAN_DH_YEAR_HEHUAN', (TARGET_DH_YEAR + increase_year)*6, 1)
     else
         --目标道行较浅：施法者夺取目标全部修为
-        Osi.RemoveStatus(Target, 'BANXIAN_DH_YEAR')
-        Osi.RemoveStatus(Target, 'BANXIAN_DH_DAY')
+        Osi.RemoveStatus(Target, 'BANXIAN_DH_YEAR_HEHUAN')
+        Osi.RemoveStatus(Target, 'BANXIAN_DH_DAY_HEHUAN')
         Osi.ApplyStatus(Caster, 'BANXIAN_DH_YEAR_HEHUAN', increase_year*6, 1)
         Osi.ApplyStatus(Caster, 'BANXIAN_DH_DAY_HEHUAN', increase_day*6, 1)
     end
@@ -341,7 +339,6 @@ function DaoHeng.OnStatusApplied_after(Object, Status, Causee)
     if Status == 'JIANDAO_PROJECTILE_RETURN' then
         if Jiandao_Projectile ~= nil then
             Osi.UseSpell(Causee, Jiandao_Projectile, Object)
-        else
         end
     end
 
@@ -350,7 +347,7 @@ function DaoHeng.OnStatusApplied_after(Object, Status, Causee)
         DaoHeng.Tian.AddDH(Object, Causee)
     end
     if Status == "TIANDAO_EYES" then
-        Osi.ApplyStatus(Object,'SIGNAL_TIANDAO_EYES_APPLY',0,1,Object)
+        Osi.ApplyStatus(Object,'SIGNAL_TIANDAO_EYES_APPLY',-1,1,Object)
     end
     if Status == "SIGNAL_TIANLEI_EXTRADAMAGE" then
         local TIMES = Osi.GetStatusTurns(Causee, 'BANXIAN_DH_YEAR_TIAN')

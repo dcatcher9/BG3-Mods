@@ -27,7 +27,7 @@ type "Weapon"
 using "WPN_Longsword_1"
 data "RootTemplate" "7050c02e-f0e1-46b8-9400-2514805ecd2e"
 data "BoostsOnEquipMainHand" "UnlockSpell(Target_OpeningAttack);UnlockSpell(Target_Slash_New);UnlockSpell(Rush_SpringAttack);"
-data "Weapon Properties" "Versatile;Melee;Dippable"
+data "WeaponProperties" "Versatile;Melee;Dippable"
 data "Unique" "1"
 
 

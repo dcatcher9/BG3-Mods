@@ -26,7 +26,7 @@ function SpellDC_ShenshiControl(entity)
     end
 	local spellDC = GetModifier(context.Source.Wisdom) - GetModifier(context.Target.Wisdom)
 
-    if Tagged('NOSOUL',entity) == 1 or Tagged('CONSTRUCT',entity) or Tagged('UNDEAD',entity) then
+    if Tagged('NOSOUL',entity) == 1 or Tagged('CONSTRUCT',entity) == 1 or Tagged('UNDEAD',entity) == 1 then
         spellDC = 99
     end
 
@@ -349,10 +349,8 @@ function LG_GUANG_BOOSTCHECK(entity)
 end
 
 function LG_AN_CRITICALHITCheck()
-    local notCrit = context.InterruptedRoll.NaturalRoll < 20 and context.InterruptedRoll.NaturalRoll > 1
-    local isHit = context.InterruptedRoll.Total >= context.InterruptedRoll.Difficulty
-
-    return ConditionResult(notCrit and isHit)
+    local isCrit = context.InterruptedRoll.NaturalRoll >= 20
+    return ConditionResult(isCrit)
 end
 
 

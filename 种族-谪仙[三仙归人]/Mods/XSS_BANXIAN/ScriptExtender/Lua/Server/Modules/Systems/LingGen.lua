@@ -438,7 +438,8 @@ end
 
 -- 事件·灵根状态
 function LingGen.OnStatusApplied_after(Object, Status, Causee)
-    local hasAwakened = Osi.HasPassive(Object, 'BanXian_LingGen')    == 1
+    local hasAwakened = Osi.HasPassive(Object, 'BanXian_LingGen')      == 1
+                     or Osi.HasPassive(Object, 'BanXian_LingGen_NIL')  == 1
                      or Osi.HasPassive(Object, 'BanXian_LingGen_Blank') == 1
                      or Osi.HasPassive(Object, 'BanXian_LingGen_T0')   == 1
                      or Osi.HasPassive(Object, 'BanXian_LingGen_T1')   == 1

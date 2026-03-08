@@ -35,9 +35,9 @@ function GongFa.Tianxian.ZhouTianCuiTi.Check(Object)
         CuiTi_ZhouTian_Short = true
     end
 
-    if CuiTi_ZhouTian_Short == true  and Osi.HasPassive(Object, 'CuiTi_ZhouTian_ShortBreak') == 0 then   --检查是否已激活小周天，防止重复获得被动
+    if CuiTi_ZhouTian_Short == true and CuiTi_ZhouTian_Long == false and Osi.HasPassive(Object, 'CuiTi_ZhouTian_ShortBreak') == 0 then   --检查是否已激活小周天，防止重复获得被动
         Osi.AddPassive(Object, 'CuiTi_ZhouTian_ShortBreak')
-    elseif CuiTi_ZhouTian_Short == false  and Osi.HasPassive(Object, 'CuiTi_ZhouTian_ShortBreak') == 1 then
+    elseif (CuiTi_ZhouTian_Short == false or CuiTi_ZhouTian_Long == true) and Osi.HasPassive(Object, 'CuiTi_ZhouTian_ShortBreak') == 1 then
         Osi.RemovePassive(Object, 'CuiTi_ZhouTian_ShortBreak')
     end
 

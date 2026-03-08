@@ -229,7 +229,7 @@ type "PassiveData"
 using "CuiTi_ZhouTian_ShortBreak"
 data "DisplayName" "stringsofmodmadebyxss20240930dv002009;1"
 data "Description" "stringsofmodmadebyxss20240930dv002010;1"
-data "Boosts" "ActionResource(KiPoint,LevelMapValue(BanXiangHP),0);DamageReduction(All, Flat,IncreaseMaxHP(LevelMapValue(BanXiangHP)*4))"
+data "Boosts" "ActionResource(KiPoint,LevelMapValue(BanXiangHP),0);DamageReduction(All, Flat,LevelMapValue(BanXiangHP))"
 
 
 

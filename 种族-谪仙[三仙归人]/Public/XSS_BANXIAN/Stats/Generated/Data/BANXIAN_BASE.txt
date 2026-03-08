@@ -468,7 +468,7 @@ data "StackId" "BANXIAN_YUANYING_TECHNICAL"
 data "StackType" "Overwrite"
 data "Passives" ""
 data "TickType" "EndTurn"
-data "TickFunctors" "IF(not HasStatus('BANXIAN_YUANYING_TECHNICAL', context.Source) and HasHPPercentageLessThan(100,context.Source)):RegainHitPoints(SELF,ConstitutionModifier+MaxHP/100);IF(HasStatus('BANXIAN_YUANYING_TECHNICAL', context.Source)):RestoreResource(KiPoint,1,0)"
+data "TickFunctors" "IF(HasHPPercentageLessThan(100,context.Source)):RegainHitPoints(SELF,ConstitutionModifier+MaxHP/100);RestoreResource(KiPoint,1,0)"
 data "StatusPropertyFlags" "IgnoreResting;ApplyToDead;DisableOverhead;DisablePortraitIndicator"
 
 //元婴术
