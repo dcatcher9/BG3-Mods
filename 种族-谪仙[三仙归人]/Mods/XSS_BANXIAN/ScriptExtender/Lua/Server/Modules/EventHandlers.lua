@@ -138,6 +138,13 @@ function EventHandlers.OnStatusApplied_after(Object, Status, Causee, StoryAction
     if Status == 'CUITI_ZHOUTIAN_OWNER' then
         Utils.BanXian.JingjieBoost(Object)
     end
+
+    -- 道行年数更新时刷新境界（UpdateSharedYear 写入此状态）
+    if Status == 'BANXIAN_DH_YEAR' then
+        if Osi.HasPassive(Object, 'BanXian_DH_DaoXin') == 1 then
+            Utils.BanXian.JingjieBoost(Object)
+        end
+    end
     --_P(Object) --DEBUG
     --_P(Status) --DEBUG
 

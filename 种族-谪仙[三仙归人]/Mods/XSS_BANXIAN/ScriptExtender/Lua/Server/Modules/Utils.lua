@@ -148,30 +148,21 @@ function Utils.XZGetTowards(x,z)
 end
 
 
---获取境界值
+--获取境界值（基于道行年数，取各大道最大值 BANXIAN_DH_YEAR）
+-- 阈值参考：修罗道 level10 TZ=1 约36杀/年，完整流程约27~55年
 function Utils.GetBanxianJingjie(Character)
-    local Level = Osi.GetLevel(Character)
+    local year = Osi.GetStatusTurns(Character, 'BANXIAN_DH_YEAR') or 0
 
-    if Level >= 1 and Level < 5 then
-        return 1
-    elseif Level >= 5 and Level < 9 then
-        return 2
-    elseif Level >= 9 and Level < 13 then
-        return 3
-    elseif Level >= 13 and Level < 21 then
-        return 4
-    elseif Level >= 21 and Level < 41 then
-        return 5
-    elseif Level >= 41 and Level < 61 then
-        return 6
-    elseif Level >= 61 and Level < 81 then
-        return 7
-    elseif Level >= 81 and Level < 96 then
-        return 8
-    elseif Level >= 96 and Level < 100 then
-        return 9
-    elseif Level >= 100 then
-        return 10
+    if     year < 5    then return 1  -- 练气
+    elseif year < 20   then return 2  -- 筑基
+    elseif year < 60   then return 3  -- 结丹
+    elseif year < 150  then return 4  -- 元婴
+    elseif year < 400  then return 5  -- 化神
+    elseif year < 1000 then return 6  -- 炼虚
+    elseif year < 3000 then return 7  -- 合体
+    elseif year < 8000 then return 8  -- 大乘
+    elseif year < 20000 then return 9 -- 渡劫
+    else                return 10     -- 真仙
     end
 end
 
