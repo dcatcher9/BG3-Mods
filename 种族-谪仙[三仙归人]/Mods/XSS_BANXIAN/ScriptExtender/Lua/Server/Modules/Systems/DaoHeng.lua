@@ -69,10 +69,10 @@ end
 
 --饿鬼道偷取状态
 function DaoHeng.EGUI.Functors_Steal(Object, BanXian)
-  
-    if ( Ext.Entity.Get(Object):GetComponent("StatusContainer") ~= nil ) then
-	
-        for _,entry in pairs(Ext.Entity.Get(Object).StatusContainer.Statuses) do
+    local objectEntity = Ext.Entity.Get(Object)
+    if ( objectEntity:GetComponent("StatusContainer") ~= nil ) then
+
+        for _,entry in pairs(objectEntity.StatusContainer.Statuses) do
             local status = Ext.Stats.Get(entry.StatusID.ID, 0)
             if (not Utils.Filter.Status.IsSpecial(entry.StatusID.ID)) and (not Utils.Filter.Status.IsDebuff(entry.StatusID.ID))  then
               if ( status.StatusType == "BOOST" ) or ( status.StatusType == "INVISIBLE" ) then
@@ -94,10 +94,11 @@ end
 --饿鬼道吞食状态
 function DaoHeng.EGUI.Functors_Eat(EGui,Target)
     local Food = Target
-    if ( Ext.Entity.Get(Food):GetComponent("StatusContainer") ~= nil ) then
+    local foodEntity = Ext.Entity.Get(Food)
+    if ( foodEntity:GetComponent("StatusContainer") ~= nil ) then
         -- 快照当前道行天数，避免循环内累加造成指数增长
         local egui_days = Osi.GetStatusTurns(EGui, 'BANXIAN_DH_DAY_EGUI') or 0
-        for _,entry in pairs(Ext.Entity.Get(Food).StatusContainer.Statuses) do
+        for _,entry in pairs(foodEntity.StatusContainer.Statuses) do
           -- 排除持续至长休的状态
           if ( Osi.GetStatusTurns(Food, entry.StatusID.ID) ~= -1 ) then
             local Filter = Utils.Filter.Status.IsSpecial(entry.StatusID.ID) or Utils.Filter.Status.IsDebuff(entry.StatusID.ID)
@@ -220,6 +221,7 @@ end
 --剑道：更改施法动作·施法前
 function DaoHeng.Jian.Animation_Before(ID,Animation)
     local spell = Ext.Stats.Get(ID)
+    if not spell then return end
     --_D(spell) --DEBUG
     PersistentVars['Jiandao_Projectile_AimationBackup'] = spell.SpellAnimation
     spell.SpellAnimation = Animation
@@ -230,6 +232,7 @@ end
 --剑道：更改施法动作·施法后
 function DaoHeng.Jian.Animation_After(ID)
     local spell = Ext.Stats.Get(ID)
+    if not spell then return end
     --_D(spell) --DEBUG
     spell.SpellAnimation = PersistentVars['Jiandao_Projectile_AimationBackup']
     spell:Sync()

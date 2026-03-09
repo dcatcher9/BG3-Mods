@@ -35,6 +35,7 @@ end
 --元婴术·更改专注·施法前
 function Base.YuanYing.Concentration_Before(ID,Caster)
     local spell = Ext.Stats.Get(ID)
+    if not spell then return end
     local flags = spell.SpellFlags
     local removeIdx = nil
     for j, _ in pairs(flags) do
@@ -54,6 +55,7 @@ end
 --元婴术·更改专注·施法后
 function Base.YuanYing.Concentration_After(ID)
     local spell = Ext.Stats.Get(ID)
+    if not spell then return end
     local flags = spell.SpellFlags
     if flags ~= nil then
         local hasConcentration = false
