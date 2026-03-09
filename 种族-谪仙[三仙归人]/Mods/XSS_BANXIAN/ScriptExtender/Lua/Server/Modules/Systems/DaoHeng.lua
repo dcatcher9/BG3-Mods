@@ -51,18 +51,9 @@ end
 --添加修罗道道行
 function DaoHeng.XiuLuo.AddDH(Target, BanXian)
     local level = Osi.GetLevel(Target)
-    local MaxHP = Osi.GetMaxHitpoints(Target)
     local k = math.max(1, Osi.GetStatusTurns(BanXian, 'BANXIAN_LG_TZ') or 0)
     local DH_Day = Osi.GetStatusTurns(BanXian, 'BANXIAN_DH_DAY_XIULUO') or 0
-    local DH_Year = Osi.GetStatusTurns(BanXian, 'BANXIAN_DH_YEAR_XIULUO') or 0
-
-    local DH_Day_new = DH_Day + level*k
-    while DH_Day_new >= 365 do
-        DH_Year = DH_Year + 1
-        DH_Day_new = DH_Day_new - 365
-    end
-    Osi.ApplyStatus(BanXian, 'BANXIAN_DH_YEAR_XIULUO', DH_Year*6, 1)
-    Osi.ApplyStatus(BanXian, 'BANXIAN_DH_DAY_XIULUO', DH_Day_new*6, 1)
+    Osi.ApplyStatus(BanXian, 'BANXIAN_DH_DAY_XIULUO', (DH_Day + level * k) * 6, 1)
 end
 
 
@@ -70,16 +61,7 @@ end
 function DaoHeng.Tian.AddDH(Target, BanXian)
     local level = Osi.GetLevel(Target)
     local DH_Day = Osi.GetStatusTurns(BanXian, 'BANXIAN_DH_DAY_TIAN') or 0
-    local DH_Year = Osi.GetStatusTurns(BanXian, 'BANXIAN_DH_YEAR_TIAN') or 0
-
-    local DH_Day_new = DH_Day + level
-    while DH_Day_new >= 365 do
-        DH_Year = DH_Year + 1
-        DH_Day_new = DH_Day_new - 365
-    end
-    Osi.ApplyStatus(BanXian, 'BANXIAN_DH_YEAR_TIAN', DH_Year*6, 1)
-    Osi.ApplyStatus(BanXian, 'BANXIAN_DH_DAY_TIAN', DH_Day_new*6, 1)
-
+    Osi.ApplyStatus(BanXian, 'BANXIAN_DH_DAY_TIAN', (DH_Day + level) * 6, 1)
 end
 
 
@@ -123,7 +105,7 @@ function DaoHeng.EGUI.Functors_Eat(EGui,Target)
             end
             if Filter == false then
                   local Duration = (Osi.GetStatusTurns(Food, entry.StatusID.ID) or 0) + (Osi.GetStatusTurns(EGui, 'BANXIAN_DH_DAY_EGUI') or 0)
-                  Osi.ApplyStatus(EGui, 'BANXIAN_DH_DAY_EGUI', Duration*6)
+                  Osi.ApplyStatus(EGui, 'BANXIAN_DH_DAY_EGUI', Duration*6, 1)
                   Osi.RemoveStatus(Food, entry.StatusID.ID)
                   Osi.SetHitpoints(EGui, Osi.GetHitpoints(EGui)+Duration*6)  --恢复生命值
                   Ext.Utils.Print(("触发：饿鬼道·吞食·状态: %s".."道行增加"..Duration):format(entry.StatusID.ID))
@@ -137,57 +119,45 @@ end
 
 --合欢道阴阳调和
 function DaoHeng.HeHuan.TakeDH(Caster, Target)
-    local level          = Osi.GetLevel(Target)
-    local MaxHP          = Osi.GetMaxHitpoints(Target)
-    local CASTER_LG_TZ   = Osi.GetStatusTurns(Caster, 'BANXIAN_LG_TZ') or 0
-    local TARGET_LG_TZ   = Osi.GetStatusTurns(Target,  'BANXIAN_LG_TZ') or 0
-    local TARGET_DH_YEAR = Osi.GetStatusTurns(Target,  'BANXIAN_DH_YEAR') or 0
+    local level        = Osi.GetLevel(Target)
+    local MaxHP        = Osi.GetMaxHitpoints(Target)
+    local CASTER_LG_TZ = Osi.GetStatusTurns(Caster, 'BANXIAN_LG_TZ') or 0
+    local TARGET_LG_TZ = Osi.GetStatusTurns(Target,  'BANXIAN_LG_TZ') or 0
+    local TARGET_DH_DAY = Osi.GetStatusTurns(Target, 'BANXIAN_DH_DAY') or 0
+    local TARGET_DH_YEAR = math.floor(TARGET_DH_DAY / 365)
 
     -- 天数：目标等级×亲和加成 + 目标生命值（越强给越多）
-    local increase_day  = level * (1 + TARGET_LG_TZ) + MaxHP
+    local increase_day = level * (1 + TARGET_LG_TZ) + MaxHP
 
     -- 年数：修士按道行×比例，凡人按生命值位数估算
     local increase_year = 0
     if TARGET_DH_YEAR == 0 then
         -- 凡人：按生命值位数换算年数（三位数=1年，四位数=2年，以此类推）
-        if MaxHP >= 100 then
-            local hp = MaxHP
-            for i = 1, 10 do
-                hp = hp / 10
-                if math.floor(hp) < 1 then
-                    increase_year = math.max(0, i - 2)
-                    break
-                end
-            end
-        else
-            -- 弱小凡人：每50点生命换1年
-            increase_year = math.floor(MaxHP / 50)
-        end
+        local digits = math.floor(math.log10(math.max(1, MaxHP))) + 1
+        increase_year = math.max(0, digits - 2)
     else
         -- 修士：道行越深，夺取越多
         local P = math.max(0.05, (TARGET_LG_TZ - CASTER_LG_TZ + 1) / 20)
         increase_year = TARGET_DH_YEAR * P
     end
 
-    -- 加上合欢道被动加成
-    increase_year = increase_year + (Osi.GetStatusTurns(Caster, 'BANXIAN_DH_YEAR_HEHUAN') or 0)
-    increase_day  = increase_day  + (Osi.GetStatusTurns(Caster, 'BANXIAN_DH_DAY_HEHUAN')  or 0)
+    -- 合并为总天数，加上合欢道被动积累
+    local caster_days = Osi.GetStatusTurns(Caster, 'BANXIAN_DH_DAY_HEHUAN') or 0
+    local total_days  = increase_year * 365 + increase_day + caster_days
 
     -- 清除目标修为，施法者获得全部收益（无惩罚）
-    Osi.RemoveStatus(Target, 'BANXIAN_DH_YEAR_HEHUAN')
     Osi.RemoveStatus(Target, 'BANXIAN_DH_DAY_HEHUAN')
-    Osi.ApplyStatus(Caster, 'BANXIAN_DH_YEAR_HEHUAN', increase_year * 6, 1)
-    Osi.ApplyStatus(Caster, 'BANXIAN_DH_DAY_HEHUAN',  increase_day  * 6, 1)
+    Osi.ApplyStatus(Caster, 'BANXIAN_DH_DAY_HEHUAN', math.floor(total_days) * 6, 1)
 end
 
 --合欢道征服随从
 function DaoHeng.HeHuan.AddFollower(Object,Causee)
 
     local level = Osi.GetLevel(Object)
-    local DH_YEAR = Osi.GetStatusTurns(Causee, 'BANXIAN_DH_YEAR_HEHUAN') or 0
-    local TARGET_DH_YEAR = Osi.GetStatusTurns(Object, 'BANXIAN_DH_YEAR') or 0
-    Osi.ApplyStatus(Causee,'BANXIAN_DH_YEAR_HEHUAN', math.max(0, DH_YEAR-level)*6, 1)
-    Osi.ApplyStatus(Object,'BANXIAN_DH_YEAR', (TARGET_DH_YEAR+level)*6, 1)
+    local DH_DAY_HEHUAN = Osi.GetStatusTurns(Causee, 'BANXIAN_DH_DAY_HEHUAN') or 0
+    local TARGET_DH_DAY = Osi.GetStatusTurns(Object, 'BANXIAN_DH_DAY') or 0
+    Osi.ApplyStatus(Causee, 'BANXIAN_DH_DAY_HEHUAN', math.max(0, DH_DAY_HEHUAN - level * 365) * 6, 1)
+    Osi.ApplyStatus(Object, 'BANXIAN_DH_DAY', (TARGET_DH_DAY + level * 365) * 6, 1)
     Osi.SetFaction(Object, Osi.GetFaction(Causee))
     Osi.AddPartyFollower(Object, Causee)
     --SetIndividualRelation(Causee, GetFaction(Object), 100)
@@ -292,37 +262,22 @@ end
 function DaoHeng.OnStatusApplied_after(Object, Status, Causee)
 
     local PATH_DAY_STATUSES = {
-        BANXIAN_DH_DAY_XIULUO = 'XIULUO', BANXIAN_DH_DAY_TIAN = 'TIAN',
-        BANXIAN_DH_DAY_RENJIAN = 'RENJIAN', BANXIAN_DH_DAY_CHUSHENG = 'CHUSHENG',
-        BANXIAN_DH_DAY_EGUI = 'EGUI', BANXIAN_DH_DAY_DIYU = 'DIYU',
-        BANXIAN_DH_DAY_JIAN = 'JIAN', BANXIAN_DH_DAY_LI = 'LI',
-        BANXIAN_DH_DAY_HEHUAN = 'HEHUAN', BANXIAN_DH_DAY_YI = 'YI',
-    }
-    local PATH_YEAR_STATUSES = {
-        BANXIAN_DH_YEAR_XIULUO=true, BANXIAN_DH_YEAR_TIAN=true,
-        BANXIAN_DH_YEAR_RENJIAN=true, BANXIAN_DH_YEAR_CHUSHENG=true,
-        BANXIAN_DH_YEAR_EGUI=true, BANXIAN_DH_YEAR_DIYU=true,
-        BANXIAN_DH_YEAR_JIAN=true, BANXIAN_DH_YEAR_LI=true,
-        BANXIAN_DH_YEAR_HEHUAN=true, BANXIAN_DH_YEAR_YI=true,
+        BANXIAN_DH_DAY_XIULUO=true, BANXIAN_DH_DAY_TIAN=true,
+        BANXIAN_DH_DAY_RENJIAN=true, BANXIAN_DH_DAY_CHUSHENG=true,
+        BANXIAN_DH_DAY_EGUI=true, BANXIAN_DH_DAY_DIYU=true,
+        BANXIAN_DH_DAY_JIAN=true, BANXIAN_DH_DAY_LI=true,
+        BANXIAN_DH_DAY_HEHUAN=true, BANXIAN_DH_DAY_YI=true,
     }
 
     if PATH_DAY_STATUSES[Status] then
-        Utils.DaDao.ConvertPathDayToYear(Object, PATH_DAY_STATUSES[Status])
-        Utils.DaDao.UpdateSharedYear(Object)
-        DaoHeng.Check(Object)
-        Utils.DaDao.Hehuan(Object)
-        Utils.DaDao.Li(Object)
-        Utils.ShenShi.Check(Object)
-    elseif PATH_YEAR_STATUSES[Status] then
-        Utils.DaDao.UpdateSharedYear(Object)
+        Utils.DaDao.UpdateSharedDay(Object)
         DaoHeng.Check(Object)
         Utils.DaDao.Hehuan(Object)
         Utils.DaDao.Li(Object)
         Utils.ShenShi.Check(Object)
     end
 
-    if Status == 'BANXIAN_DH_DAY' or Status == 'BANXIAN_DH_YEAR' or Status == 'SIGNAL_DAOXINCHECK' then
-        Utils.DaDao.ConvertDayToYear(Object)
+    if Status == 'BANXIAN_DH_DAY' or Status == 'SIGNAL_DAOXINCHECK' then
         DaoHeng.Check(Object)
         Utils.DaDao.Hehuan(Object)
         Utils.DaDao.Li(Object)
@@ -352,7 +307,7 @@ function DaoHeng.OnStatusApplied_after(Object, Status, Causee)
         Osi.ApplyStatus(Object,'SIGNAL_TIANDAO_EYES_APPLY',-1,1,Object)
     end
     if Status == "SIGNAL_TIANLEI_EXTRADAMAGE" then
-        local TIMES = Osi.GetStatusTurns(Causee, 'BANXIAN_DH_YEAR_TIAN')
+        local TIMES = math.floor((Osi.GetStatusTurns(Causee, 'BANXIAN_DH_DAY_TIAN') or 0) / 365)
         if TIMES >= 1 then
             TIMES = math.min(TIMES, 10)
             for i = 1, TIMES, 1 do

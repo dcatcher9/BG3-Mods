@@ -33,25 +33,18 @@ function Difficulty.Init()
 end
 
 
---全员修仙·道行计算器
+--全员修仙·道行计算器（返回总天数）
 function Difficulty.HardCore.Caculate_DaoHeng(k,Level,IsBoss,Days)
-    local DH_YEAR = 0
-    local DH_DAY = math.random(1,364)
-
-    local min = 0
+    local years = 0
+    local extra_day = math.random(1,364)
     local max = Level*k
     if IsBoss == 1 then
-        min = 1  --BOSS保底
-        DH_YEAR = max + Days
-    elseif IsBoss ~= 1 then
-        if math.random(1,4) < Level then
-            local Days_increase = math.random(1,Days)  --游戏天数加成
-            DH_YEAR = math.random(min,max) + Days_increase  --25%概率获得min~max年道行
-        end
+        years = max + Days
+    elseif math.random(1,4) < Level then
+        local Days_increase = math.random(1,Days)  --游戏天数加成
+        years = math.random(0,max) + Days_increase  --25%概率获得min~max年道行
     end
-
-    return DH_YEAR,DH_DAY
-    
+    return years * 365 + extra_day
 end
 
 --启动敌人修仙
@@ -92,8 +85,7 @@ function Difficulty.HardCore.Start(Object)
     local Level = Osi.GetLevel(Object) or 1
     local IsBoss = Osi.IsBoss(Object)
     local Days = PersistentVars['GAME_DAYS'] or 1
-    local DH_YEAR,DH_DAY = Difficulty.HardCore.Caculate_DaoHeng(k,Level,IsBoss,Days)
-    Osi.ApplyStatus(Object, 'BANXIAN_DH_YEAR', DH_YEAR*6, 1, Object)
+    local DH_DAY = Difficulty.HardCore.Caculate_DaoHeng(k,Level,IsBoss,Days)
     Osi.ApplyStatus(Object, 'BANXIAN_DH_DAY', DH_DAY*6, 1, Object)
 
     --刷新大道增益

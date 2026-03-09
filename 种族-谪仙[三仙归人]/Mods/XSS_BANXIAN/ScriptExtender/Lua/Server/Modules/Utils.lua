@@ -153,10 +153,10 @@ function Utils.XZGetTowards(x,z)
 end
 
 
---获取境界值（基于道行年数，取各大道最大值 BANXIAN_DH_YEAR）
+--获取境界值（基于道行总天数，取共享 BANXIAN_DH_DAY 换算年数）
 -- 阈值参考：修罗道 level10 TZ=1 约36杀/年，完整流程约27~55年
 function Utils.GetBanxianJingjie(Character)
-    local year = Osi.GetStatusTurns(Character, 'BANXIAN_DH_YEAR') or 0
+    local year = math.floor((Osi.GetStatusTurns(Character, 'BANXIAN_DH_DAY') or 0) / 365)
 
     if     year < 5    then return 1  -- 练气
     elseif year < 20   then return 2  -- 筑基
@@ -291,9 +291,10 @@ function Utils.Get.Dao(Character)
         end
     end
 
-    --获取修为（仅读取，年/天转换由 Utils.DaDao.ConvertDayToYear 负责）
-    local DH_YEAR = Osi.GetStatusTurns(Character, 'BANXIAN_DH_YEAR') or 0
-    local DH_DAY  = Osi.GetStatusTurns(Character, 'BANXIAN_DH_DAY')  or 0
+    --获取修为（总天数转换为年+天显示）
+    local DH_TOTAL = Osi.GetStatusTurns(Character, 'BANXIAN_DH_DAY') or 0
+    local DH_YEAR  = math.floor(DH_TOTAL / 365)
+    local DH_DAY   = DH_TOTAL - DH_YEAR * 365
 
     if DH_YEAR ~= 0 then
         RESULT = RESULT.."  修为："..DH_YEAR.."年  "
@@ -623,63 +624,46 @@ end
 --                                         DaDao                                             --
 --                                                                                             --
 -------------------------------------------------------------------------------------------------
---将天数道行转化为年数（每365天进1年）
---在修为发生变化的路径中调用（如 StatusApplied BANXIAN_DH_DAY），不要在纯读取路径中调用。
-function Utils.DaDao.ConvertDayToYear(Character)
-    local DH_YEAR = Osi.GetStatusTurns(Character, 'BANXIAN_DH_YEAR') or 0
-    local DH_DAY  = Osi.GetStatusTurns(Character, 'BANXIAN_DH_DAY')  or 0
-    if DH_DAY >= 365 then
-        local increase_year = math.floor(DH_DAY / 365)
-        DH_DAY  = DH_DAY  - increase_year * 365
-        DH_YEAR = DH_YEAR + increase_year
-        Osi.ApplyStatus(Character, 'BANXIAN_DH_DAY',  DH_DAY  * 6)
-        Osi.ApplyStatus(Character, 'BANXIAN_DH_YEAR', DH_YEAR * 6)
-    end
-end
-
---将指定大道的天数转化为年数
-function Utils.DaDao.ConvertPathDayToYear(Character, suffix)
-    local year_status = 'BANXIAN_DH_YEAR_' .. suffix
-    local day_status  = 'BANXIAN_DH_DAY_'  .. suffix
-    local DH_YEAR = Osi.GetStatusTurns(Character, year_status) or 0
-    local DH_DAY  = Osi.GetStatusTurns(Character, day_status)  or 0
-    if DH_DAY >= 365 then
-        local increase_year = math.floor(DH_DAY / 365)
-        DH_DAY  = DH_DAY  - increase_year * 365
-        DH_YEAR = DH_YEAR + increase_year
-        Osi.ApplyStatus(Character, day_status,  DH_DAY  * 6)
-        Osi.ApplyStatus(Character, year_status, DH_YEAR * 6)
-    end
-end
-
---将共享BANXIAN_DH_YEAR同步为所有大道YEAR的最大值（供HP加成和兼容旧逻辑使用）
-function Utils.DaDao.UpdateSharedYear(Character)
+--将共享DAY/YEAR同步为所有大道的最大值，并派生各大道YEAR供统计引擎使用
+function Utils.DaDao.UpdateSharedDay(Character)
     local SUFFIXES = {'XIULUO','TIAN','RENJIAN','CHUSHENG','EGUI','DIYU','JIAN','LI','HEHUAN','YI'}
+    local max_day  = 0
     local max_year = 0
     for _, suffix in ipairs(SUFFIXES) do
-        local y = Osi.GetStatusTurns(Character, 'BANXIAN_DH_YEAR_' .. suffix) or 0
+        local d = Osi.GetStatusTurns(Character, 'BANXIAN_DH_DAY_'  .. suffix) or 0
+        local y = math.floor(d / 365)
+        -- 保持各大道YEAR状态同步（统计引擎 .Duration 引用需要）
+        local cur_y = Osi.GetStatusTurns(Character, 'BANXIAN_DH_YEAR_' .. suffix) or 0
+        if y ~= cur_y then
+            Osi.ApplyStatus(Character, 'BANXIAN_DH_YEAR_' .. suffix, y * 6, 1)
+        end
+        if d > max_day  then max_day  = d end
         if y > max_year then max_year = y end
     end
-    local shared = Osi.GetStatusTurns(Character, 'BANXIAN_DH_YEAR') or 0
-    if max_year ~= shared then
-        Osi.ApplyStatus(Character, 'BANXIAN_DH_YEAR', max_year * 6)
+    local shared_day = Osi.GetStatusTurns(Character, 'BANXIAN_DH_DAY') or 0
+    if max_day ~= shared_day then
+        Osi.ApplyStatus(Character, 'BANXIAN_DH_DAY', max_day * 6, 1)
+    end
+    -- 保持共享YEAR同步（统计引擎HP加成、伤害加成、条件检测需要）
+    local shared_year = Osi.GetStatusTurns(Character, 'BANXIAN_DH_YEAR') or 0
+    if max_year ~= shared_year then
+        Osi.ApplyStatus(Character, 'BANXIAN_DH_YEAR', max_year * 6, 1)
     end
 end
 
 --刷新大道增益：力道
 function Utils.DaDao.Li(Object)
-    local DH_YEAR = Osi.GetStatusTurns(Object, 'BANXIAN_DH_YEAR_LI')
-    if DH_YEAR ~= nil then
-        if DH_YEAR >= 1 and Osi.HasPassive(Object,'BanXian_DH_Li') == 1 and Osi.HasActiveStatus(Object, 'BanXian_DH_STR_'..math.floor(DH_YEAR)) == 0 then
-            --local k = math.floor(math.sqrt(DH_YEAR))
-            local k = math.floor(DH_YEAR)
-            if Ext.Stats.Get('BanXian_DH_STR_'..k) ~= nil then
-                Osi.ApplyStatus(Object, 'BanXian_DH_STR_'..k, -1, 1, Object)
+    local DH_DAY = Osi.GetStatusTurns(Object, 'BANXIAN_DH_DAY_LI')
+    if DH_DAY ~= nil then
+        local DH_YEAR = math.floor(DH_DAY / 365)
+        if DH_YEAR >= 1 and Osi.HasPassive(Object,'BanXian_DH_Li') == 1 and Osi.HasActiveStatus(Object, 'BanXian_DH_STR_'..DH_YEAR) == 0 then
+            if Ext.Stats.Get('BanXian_DH_STR_'..DH_YEAR) ~= nil then
+                Osi.ApplyStatus(Object, 'BanXian_DH_STR_'..DH_YEAR, -1, 1, Object)
             else
-                local Stats = Ext.Stats.Create('BanXian_DH_STR_'..k, 'StatusData', 'BanXian_DH_STR')
-                Stats.Boosts = "Ability(Strength,"..k..")"
+                local Stats = Ext.Stats.Create('BanXian_DH_STR_'..DH_YEAR, 'StatusData', 'BanXian_DH_STR')
+                Stats.Boosts = "Ability(Strength,"..DH_YEAR..")"
                 Stats:Sync()
-                Osi.ApplyStatus(Object, 'BanXian_DH_STR_'..k, -1, 1, Object)
+                Osi.ApplyStatus(Object, 'BanXian_DH_STR_'..DH_YEAR, -1, 1, Object)
             end
         end
     end
@@ -687,18 +671,17 @@ end
 
 --刷新大道增益：合欢道
 function Utils.DaDao.Hehuan(Object)
-    local DH_YEAR = Osi.GetStatusTurns(Object, 'BANXIAN_DH_YEAR_HEHUAN')
-    if DH_YEAR ~= nil then
-        if DH_YEAR >= 1 and Osi.HasPassive(Object,'BanXian_DH_HeHuan') == 1 and Osi.HasActiveStatus(Object, 'BanXian_DH_CHA_'..math.floor(DH_YEAR)) == 0 then
-            --local k = math.floor(math.sqrt(DH_YEAR))
-            local k = math.floor(DH_YEAR)
-            if Ext.Stats.Get('BanXian_DH_CHA_'..k) ~= nil then
-                Osi.ApplyStatus(Object, 'BanXian_DH_CHA_'..k, -1, 1, Object)
+    local DH_DAY = Osi.GetStatusTurns(Object, 'BANXIAN_DH_DAY_HEHUAN')
+    if DH_DAY ~= nil then
+        local DH_YEAR = math.floor(DH_DAY / 365)
+        if DH_YEAR >= 1 and Osi.HasPassive(Object,'BanXian_DH_HeHuan') == 1 and Osi.HasActiveStatus(Object, 'BanXian_DH_CHA_'..DH_YEAR) == 0 then
+            if Ext.Stats.Get('BanXian_DH_CHA_'..DH_YEAR) ~= nil then
+                Osi.ApplyStatus(Object, 'BanXian_DH_CHA_'..DH_YEAR, -1, 1, Object)
             else
-                local Stats = Ext.Stats.Create('BanXian_DH_CHA_'..k, 'StatusData', 'BanXian_DH_CHA')
-                Stats.Boosts = "Ability(Charisma,"..k..")"
+                local Stats = Ext.Stats.Create('BanXian_DH_CHA_'..DH_YEAR, 'StatusData', 'BanXian_DH_CHA')
+                Stats.Boosts = "Ability(Charisma,"..DH_YEAR..")"
                 Stats:Sync()
-                Osi.ApplyStatus(Object, 'BanXian_DH_CHA_'..k, -1, 1, Object)
+                Osi.ApplyStatus(Object, 'BanXian_DH_CHA_'..DH_YEAR, -1, 1, Object)
             end
         end
     end
@@ -927,6 +910,7 @@ function Utils.BanXianList_RecoverStatsStart()
         --_P(key)
         if string.find(key,'BANXIANLIST_NO_') then
             if Object ~= nil then
+                Utils.DaDao.UpdateSharedDay(Object)
                 Utils.DaDao.Hehuan(Object)
                 Utils.DaDao.Li(Object)
                 Utils.ShenShi.Check(Object)
