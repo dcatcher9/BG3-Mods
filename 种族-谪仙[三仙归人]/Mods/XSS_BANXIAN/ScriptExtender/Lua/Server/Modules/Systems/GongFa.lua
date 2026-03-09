@@ -54,16 +54,12 @@ end
 function GongFa.Tianxian.ZhouTianCuiTi.ShortRest(Object)
     local entity = Ext.Entity.Get(Object)
     --_D(entity.ActionResources) --DEBUG
-    
+
     for _, ResourceList in pairs(entity.ActionResources.Resources) do
         for _, Resource in ipairs(ResourceList) do -- ResourceList是GUID对应的资源列表
-            -- 处理逻辑
-        local ReplenishType = Resource.ReplenishType
-        for _, type in ipairs(ReplenishType) do
-            if type == "ShortRest" then
+            if Resource.ReplenishType == "ShortRest" then
                 Resource.Amount = Resource.MaxAmount
             end
-        end
         end
     end
     entity:Replicate("ActionResources")
@@ -77,13 +73,9 @@ function GongFa.Tianxian.ZhouTianCuiTi.LongRest(Object)
 
     for _, ResourceList in pairs(entity.ActionResources.Resources) do
         for _, Resource in ipairs(ResourceList) do -- ResourceList是GUID对应的资源列表
-            -- 处理逻辑
-        local ReplenishType = Resource.ReplenishType
-        for _, type in ipairs(ReplenishType) do
-            if type == "Rest" then
+            if Resource.ReplenishType == "Rest" then
                 Resource.Amount = Resource.MaxAmount
             end
-        end
         end
     end
     entity:Replicate("ActionResources")

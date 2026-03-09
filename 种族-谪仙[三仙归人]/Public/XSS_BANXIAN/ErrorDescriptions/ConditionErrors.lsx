@@ -38,7 +38,7 @@
                     <attribute id="DisplayName" type="TranslatedString" handle="stringsofmodmadebyxss20250218jj002h03" version="1"/>
                     <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
                     <attribute id="Identifier" type="FixedString" value="CanResist"/>
-                    <attribute id="UUID" type="guid" value="bd74a0ba-0db0-4f8c-a5ae-373bfc0d73c3"/>
+                    <attribute id="UUID" type="guid" value="bd74a0ba-0db0-4f8c-a5ae-373bfc0d73c4"/>
                 </node>
             </children>
         </node>

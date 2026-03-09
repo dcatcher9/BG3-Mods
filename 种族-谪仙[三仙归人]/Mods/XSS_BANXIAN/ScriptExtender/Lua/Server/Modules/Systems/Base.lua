@@ -137,11 +137,6 @@ end
 
 --变身术
 function Base.ShenTong.TianXian.Transform(Caster, Target, Name)
-    if Osi.GetIndividualRelation(Caster, Osi.GetFaction(Target)) ~= nil and Osi.GetRelation(Osi.GetFaction(Caster),Osi.GetFaction(Target))  ~= nil then
-
-        
-    end
-        
     PersistentVars['BanXian_Faction'] = Osi.GetFaction(Caster)
     PersistentVars['BanXian_Target_Faction'] = Osi.GetFaction(Target)
 

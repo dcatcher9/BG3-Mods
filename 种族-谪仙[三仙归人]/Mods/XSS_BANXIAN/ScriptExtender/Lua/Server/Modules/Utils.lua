@@ -312,6 +312,7 @@ end
 --获取资源点
 function Utils.Get.ActionResource(Object,ResourceID)
     local entity = Ext.Entity.Get(Object)
+    if not entity then return 0 end
     --_D(entity:GetAllComponents()) --DEBUG
     --_D(entity.ActionResources) --DEBUG
     if entity.ActionResources.Resources[ResourceID] then
@@ -324,6 +325,7 @@ end
 --获取最大资源点
 function Utils.Get.ActionResourceMax(Object,ResourceID)
     local entity = Ext.Entity.Get(Object)
+    if not entity then return 0 end
     --_D(entity:GetAllComponents()) --DEBUG
     --_D(entity.ActionResources) --DEBUG
     if entity.ActionResources.Resources[ResourceID] then
@@ -336,6 +338,7 @@ end
 --获取资源类型
 function Utils.Get.ActionResourceCooldown(Object,ResourceID)
     local entity = Ext.Entity.Get(Object)
+    if not entity then return nil end
     --_D(entity:GetAllComponents()) --DEBUG
     if entity.ActionResources.Resources[ResourceID] then
         return math.floor(entity.ActionResources.Resources[ResourceID][1].ReplenishType)
@@ -347,6 +350,7 @@ end
 --获取最大临时生命值
 function Utils.Get.MaxTemporaryHp(Object)
     local entity = Ext.Entity.Get(Object)
+    if not entity then return 0 end
     --_D(entity:GetAllComponents())
     return math.floor(entity.Health.MaxTemporaryHp)
 end
@@ -354,6 +358,7 @@ end
 --获取临时生命值
 function Utils.Get.TemporaryHp(Object)
     local entity = Ext.Entity.Get(Object)
+    if not entity then return 0 end
     --_D(entity:GetAllComponents())
     return math.floor(entity.Health.TemporaryHp)
 end
@@ -361,7 +366,9 @@ end
 --获取最高法术位
 function Utils.Get.MaxSpellSlotPower(Object)
     local entity = Ext.Entity.Get(Object)
+    if not entity then return 0 end
     local SpellSlots = entity.ActionResources.Resources['d136c5d9-0ff0-43da-acce-a74a07f8d6bf']
+    if not SpellSlots then return 0 end
     local MaxPower = 0
     --_D(SpellSlots) --DEBUG
     for _, SPELLSLOT in pairs(SpellSlots) do
@@ -376,7 +383,9 @@ end
 --获取法术位信息
 function Utils.Get.SpellSlotsTable(Object)
     local entity = Ext.Entity.Get(Object)
+    if not entity then return {}, 0 end
     local SpellSlots = entity.ActionResources.Resources['d136c5d9-0ff0-43da-acce-a74a07f8d6bf']
+    if not SpellSlots then return {}, 0 end
     local SpellSlotsTable = {}
     local MaxPower = 0
     --_D(SpellSlots) --DEBUG
@@ -411,7 +420,9 @@ end
 
 --获取业火来源
 function Utils.Get.YeHuoSource(Object)
-    local Statuses = Ext.Entity.Get(Object).ServerCharacter.StatusManager.Statuses
+    local entity = Ext.Entity.Get(Object)
+    if not entity then return nil end
+    local Statuses = entity.ServerCharacter.StatusManager.Statuses
     --_D(Statuses) --DEBUG
     for _, Status in pairs(Statuses) do
         if Status.StatusId == "BURNING_YEHUO" then
@@ -777,7 +788,7 @@ function Utils.GongFa.BaiMai.CopyStatus(Object)
             local stat = Ext.Stats.Get(entry.StatusID.ID, 0)
             if string.find(entry.StatusID.ID, 'TECHNICAL') then
               if ( stat.StatusType == "BOOST" ) then
-                if ( string.find(stat.Boosts, "Invulnerable()") == nil ) then
+                if ( string.find(stat.Boosts, "Invulnerable%(%)") == nil ) then
                     Osi.ApplyStatus(Object, entry.StatusID.ID, -1)
                     Ext.Utils.Print(("触发：百脉锻宝诀·吞宝·状态: %s"):format(entry.StatusID.ID))
                 end

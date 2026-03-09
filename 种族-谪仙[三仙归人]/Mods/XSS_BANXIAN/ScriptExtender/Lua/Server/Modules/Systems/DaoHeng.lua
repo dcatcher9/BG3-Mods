@@ -136,46 +136,48 @@ function DaoHeng.EGUI.Functors_Eat(EGui,Target)
 end
 
 --合欢道阴阳调和
-function DaoHeng.HeHuan.TakeDH(Caster,Target)
-    local level = Osi.GetLevel(Target)
-    local MaxHP = Osi.GetMaxHitpoints(Target)
-    local CASTER_LG_TZ = Osi.GetStatusTurns(Caster, 'BANXIAN_LG_TZ') or 0
-    local TARGET_LG_TZ = Osi.GetStatusTurns(Target, 'BANXIAN_LG_TZ') or 0
-    local TARGET_DH_YEAR = Osi.GetStatusTurns(Target, 'BANXIAN_DH_YEAR') or 0
+function DaoHeng.HeHuan.TakeDH(Caster, Target)
+    local level          = Osi.GetLevel(Target)
+    local MaxHP          = Osi.GetMaxHitpoints(Target)
+    local CASTER_LG_TZ   = Osi.GetStatusTurns(Caster, 'BANXIAN_LG_TZ') or 0
+    local TARGET_LG_TZ   = Osi.GetStatusTurns(Target,  'BANXIAN_LG_TZ') or 0
+    local TARGET_DH_YEAR = Osi.GetStatusTurns(Target,  'BANXIAN_DH_YEAR') or 0
 
-    local increase_day = level*(1+TARGET_LG_TZ)
+    -- 天数：目标等级×亲和加成 + 目标生命值（越强给越多）
+    local increase_day  = level * (1 + TARGET_LG_TZ) + MaxHP
 
-    local P = math.max(0.05,(TARGET_LG_TZ - CASTER_LG_TZ + 1)/20)
-    local increase_year = TARGET_DH_YEAR*P
-    if MaxHP >= 100 and TARGET_DH_YEAR == 0 then
-        for i = 1, 10, 1 do
-            MaxHP = MaxHP/10
-            if math.floor(MaxHP) >= 1 then
-            else
-                increase_year = increase_year + i-2
-                break
+    -- 年数：修士按道行×比例，凡人按生命值位数估算
+    local increase_year = 0
+    if TARGET_DH_YEAR == 0 then
+        -- 凡人：按生命值位数换算年数（三位数=1年，四位数=2年，以此类推）
+        if MaxHP >= 100 then
+            local hp = MaxHP
+            for i = 1, 10 do
+                hp = hp / 10
+                if math.floor(hp) < 1 then
+                    increase_year = math.max(0, i - 2)
+                    break
+                end
             end
+        else
+            -- 弱小凡人：每50点生命换1年
+            increase_year = math.floor(MaxHP / 50)
         end
     else
-        increase_day = increase_day + MaxHP
+        -- 修士：道行越深，夺取越多
+        local P = math.max(0.05, (TARGET_LG_TZ - CASTER_LG_TZ + 1) / 20)
+        increase_year = TARGET_DH_YEAR * P
     end
-    increase_day  = increase_day  + (Osi.GetStatusTurns(Caster, 'BANXIAN_DH_DAY_HEHUAN')  or 0)
-    increase_year = increase_year + (Osi.GetStatusTurns(Caster, 'BANXIAN_DH_YEAR_HEHUAN') or 0)
 
-    local caster_year = Osi.GetStatusTurns(Caster, 'BANXIAN_DH_YEAR_HEHUAN') or 0
-    if TARGET_DH_YEAR > caster_year then
-        --目标道行更深：施法者损失一半年道行，但仍获得天数进度
-        increase_year = caster_year / 2
-        Osi.ApplyStatus(Caster, 'BANXIAN_DH_YEAR_HEHUAN', increase_year*6, 1)
-        Osi.ApplyStatus(Caster, 'BANXIAN_DH_DAY_HEHUAN', increase_day*6, 1)
-        Osi.ApplyStatus(Target, 'BANXIAN_DH_YEAR_HEHUAN', (TARGET_DH_YEAR + increase_year)*6, 1)
-    else
-        --目标道行较浅：施法者夺取目标全部修为
-        Osi.RemoveStatus(Target, 'BANXIAN_DH_YEAR_HEHUAN')
-        Osi.RemoveStatus(Target, 'BANXIAN_DH_DAY_HEHUAN')
-        Osi.ApplyStatus(Caster, 'BANXIAN_DH_YEAR_HEHUAN', increase_year*6, 1)
-        Osi.ApplyStatus(Caster, 'BANXIAN_DH_DAY_HEHUAN', increase_day*6, 1)
-    end
+    -- 加上合欢道被动加成
+    increase_year = increase_year + (Osi.GetStatusTurns(Caster, 'BANXIAN_DH_YEAR_HEHUAN') or 0)
+    increase_day  = increase_day  + (Osi.GetStatusTurns(Caster, 'BANXIAN_DH_DAY_HEHUAN')  or 0)
+
+    -- 清除目标修为，施法者获得全部收益（无惩罚）
+    Osi.RemoveStatus(Target, 'BANXIAN_DH_YEAR_HEHUAN')
+    Osi.RemoveStatus(Target, 'BANXIAN_DH_DAY_HEHUAN')
+    Osi.ApplyStatus(Caster, 'BANXIAN_DH_YEAR_HEHUAN', increase_year * 6, 1)
+    Osi.ApplyStatus(Caster, 'BANXIAN_DH_DAY_HEHUAN',  increase_day  * 6, 1)
 end
 
 --合欢道征服随从
@@ -352,6 +354,7 @@ function DaoHeng.OnStatusApplied_after(Object, Status, Causee)
     if Status == "SIGNAL_TIANLEI_EXTRADAMAGE" then
         local TIMES = Osi.GetStatusTurns(Causee, 'BANXIAN_DH_YEAR_TIAN')
         if TIMES >= 1 then
+            TIMES = math.min(TIMES, 10)
             for i = 1, TIMES, 1 do
                 Osi.ApplyStatus(Object,'TIANDAO_TIANLEI_KILLTHEDEMON_3D10',0,1,Causee)
             end

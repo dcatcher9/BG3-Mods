@@ -150,7 +150,7 @@ function ZhenFa.OnStatusApplied_after(Object, Status, Causee)
 end
 
 -- 事件·阵法施法监听1
-function ZhenFa.OnUsingSpellOnTarget_after(caster, target, name, _, _, _, _)
+function ZhenFa.OnUsingSpellOnTarget_after(caster, target, name, _, _, _)
 
     if name == 'ZhenFa_Tool_LuoPan_Measure' then
         Variables.Constants.ZhenFa.LuoPan.Caster = caster

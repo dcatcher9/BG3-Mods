@@ -135,7 +135,7 @@ function Difficulty.IncreaseDH.LongRest()
                 local Level = Osi.GetLevel(Object)
                 local IsBoss = Osi.IsBoss(Object)
                 local Days = PersistentVars['GAME_DAYS'] or 1 --获取当前天数
-                local DH_DAY = Osi.GetStatusTurns(Object,'BANXIAN_DH_DAY')
+                local DH_DAY = Osi.GetStatusTurns(Object,'BANXIAN_DH_DAY') or 0
                 local ZZ = math.max(1, Osi.GetStatusTurns(Object, 'BANXIAN_LG_TZ') or 1)
 
                 local IncreaseDays = 1

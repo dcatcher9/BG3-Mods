@@ -12,24 +12,25 @@ end
 
 
 function SpellDC_HEHUAN()
+    if not context.Source or not context.Source.IsValid then return 8 end
     return 8 + context.Source.ProficiencyBonus + GetModifier(context.Source.Constitution)
 end
 
 function DuLGSaveDC()
+    if not context.Source or not context.Source.IsValid then return 8 end
     return 8 + context.Source.Level
 end
 
-function SpellDC_ShenshiControl(entity)
-    local entity = entity or context.Source
+function SpellDC_ShenshiControl()
+    if not context.Source or not context.Source.IsValid then return 8 end
     if not context.Target or not context.Target.IsValid then
         return 99
     end
-	local spellDC = GetModifier(context.Source.Wisdom) - GetModifier(context.Target.Wisdom)
+    local spellDC = GetModifier(context.Source.Wisdom) - GetModifier(context.Target.Wisdom)
 
-    if Tagged('NOSOUL',entity) == 1 or Tagged('CONSTRUCT',entity) == 1 or Tagged('UNDEAD',entity) == 1 then
+    if Tagged('NOSOUL',context.Source) == 1 or Tagged('CONSTRUCT',context.Source) == 1 or Tagged('UNDEAD',context.Source) == 1 then
         spellDC = 99
     end
-
 
     return spellDC
 end

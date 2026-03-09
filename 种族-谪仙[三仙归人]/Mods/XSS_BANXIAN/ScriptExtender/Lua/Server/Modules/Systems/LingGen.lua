@@ -199,27 +199,28 @@ end
 
 --获取角色参数
 function LingGen.GetCharacterParams(Object,a,b,c,d,e,r,TZ)
-    if string.find(Object, 'Astarion') then
+    local displayName = Osi.GetDisplayName(Object) or ""
+    if string.find(displayName, 'Astarion') then
         a,b,c,d,e,r,TZ = 10,5,15,5,15,50,2
-    elseif string.find(Object, 'Laezel') then
+    elseif string.find(displayName, 'Lae') and string.find(displayName, 'zel') then
         a,b,c,d,e,r,TZ = 10,10,60,10,10,100,1
-    elseif string.find(Object, 'Gale') then
+    elseif string.find(displayName, 'Gale') then
         a,b,c,d,e,r,TZ = 4,4,4,4,4,20,5
-    elseif string.find(Object, 'Shadowheart') then
+    elseif string.find(displayName, 'Shadowheart') then
         a,b,c,d,e,r,TZ = 20,20,25,25,10,100,1
-    elseif string.find(Object, 'Wyll') then
+    elseif string.find(displayName, 'Wyll') then
         a,b,c,d,e,r,TZ = 0,20,30,0,0,50,2
-    elseif string.find(Object, 'Jaheira') then
+    elseif string.find(displayName, 'Jaheira') then
         a,b,c,d,e,r,TZ = 0,20,0,30,50,100,1
-    elseif string.find(Object, 'Minthara') then
+    elseif string.find(displayName, 'Minthara') then
         a,b,c,d,e,r,TZ = 30,0,5,15,0,50,2
-    elseif string.find(Object, 'Minsc') then
+    elseif string.find(displayName, 'Minsc') then
         a,b,c,d,e,r,TZ = 10,80,10,0,0,100,1
-    elseif string.find(Object, 'Halsin') then
+    elseif string.find(displayName, 'Halsin') then
         a,b,c,d,e,r,TZ = 0,0,0,0,50,50,2
-    elseif string.find(Object, 'Alfira') then
+    elseif string.find(displayName, 'Alfira') then
         a,b,c,d,e,r,TZ = 2,3,2,3,12,20,3
-    elseif string.find(Object, 'Losiir') then
+    elseif string.find(displayName, 'Losiir') then
         a,b,c,d,e,r,TZ = 5,15,50,20,10,100,1
     elseif Osi.IsTagged(Object, 'fe825e69-1569-471f-9b3f-28fd3b929683') == 1 then
         a,b,c,d,e,r,TZ = 8,0,0,1,11,r,TZ
@@ -412,11 +413,8 @@ function LingGen.HunDun_ShortRest(Object)
     for _, ResourceList in pairs(entity.ActionResources.Resources) do
         for _, Resource in ipairs(ResourceList) do -- ResourceList是GUID对应的资源列表
         --_D(Resource) --DEBUG
-        local ReplenishType = Resource.ReplenishType
-        for _, type in ipairs(ReplenishType) do
-            if type == "Rest" then
-                Resource.Amount = Resource.MaxAmount
-            end
+        if Resource.ReplenishType == "ShortRest" then
+            Resource.Amount = Resource.MaxAmount
         end
         end
     end

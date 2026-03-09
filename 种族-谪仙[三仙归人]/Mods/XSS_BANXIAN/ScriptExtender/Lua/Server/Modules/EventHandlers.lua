@@ -2,7 +2,6 @@ local EventHandlers = {}
 local Variables = require("Server.Modules.Variables")
 local Utils = require("Server.Modules.Utils")
 local Systems
-PersistentVars.AppearancePresets = PersistentVars.AppearancePresets or {}
 
 -- 初始化事件处理器
 function EventHandlers.Init(systems)
@@ -26,87 +25,6 @@ function EventHandlers.Init(systems)
 end
 
 
---
-local function SaveAppearance(player, slot)
-    local entity = Ext.Entity.Get(player)
-    
-    -- 正确获取组件
-    local creationComp = entity:GetComponent("CharacterCreationAppearance")
-    if not creationComp then
-        Ext.Utils.PrintError("[Preset] 角色缺少Creation组件")
-        return
-    end
-
-    -- 正确保存核心字段
-    PersistentVars.AppearancePresets = PersistentVars.AppearancePresets or {}
-    PersistentVars.AppearancePresets[slot] = {
-        -- 使用正确的字段路径
-        BodyType = creationComp.BodyType,
-        Race = creationComp.Race,
-        SkinColor = Ext.Types.Clone(creationComp.SkinColor),
-        -- 其他字段改为小写驼峰 (如Hair -> hair)
-        Head = creationComp.Head,
-        HairColor = Ext.Types.Clone(creationComp.HairColor)
-    }
-
-    -- 处理覆盖组件 (修正名称)
-    local overrideComp = entity:GetComponent("AppearanceOverride")
-    if overrideComp then
-        PersistentVars.AppearancePresets[slot].Override = {
-            BodyType = overrideComp.Visual.BodyType,
-            Head = overrideComp.Visual.Head,
-            Colors = Ext.Types.Clone(overrideComp.Visual.Colors)
-        }
-    end
-    
-    Ext.Utils.Print("[Preset] 保存成功")
-end
-
-
-local function LoadAppearance(player, slot)
-    local preset = PersistentVars.AppearancePresets[slot]
-    if not preset then return end
-
-    local entity = Ext.Entity.Get(player)
-    
-    -- 确保创建组件存在
-    local creationComp = entity:GetComponent("CharacterCreationAppearance")
-    if not creationComp then
-        entity:CreateComponent("CharacterCreationAppearance")
-        creationComp = entity:GetComponent("CharacterCreationAppearance")
-    end
-
-    -- 写回基础属性
-    creationComp.BodyType = preset.BodyType
-    creationComp.Head = preset.Head
-    creationComp.HairColor = Ext.Types.Clone(preset.HairColor)
-
-    -- 强制引擎同步组件
-    entity:ReplicateComponent("CharacterCreationAppearance")
-
-    -- 处理覆盖组件加载
-    if preset.Override then
-        local overrideComp = entity:GetComponent("AppearanceOverride")
-        if not overrideComp then
-            entity:CreateComponent("AppearanceOverride")
-            overrideComp = entity:GetComponent("AppearanceOverride")
-            overrideComp.Version = 0
-            overrideComp.Visual = {}  -- 初始化Visual表
-        end
-
-        overrideComp.Visual.BodyType = preset.Override.BodyType
-        overrideComp.Visual.Colors = Ext.Types.Clone(preset.Override.Colors)
-        overrideComp.Version = (overrideComp.Version or 0) + 1  -- 版本递增
-
-        entity:ReplicateComponent("AppearanceOverride")
-    end
-
-    -- 终极模型刷新
-    entity.GameObjectVisual.Type = 2
-    entity:Replicate("GameObjectVisual")
-end
-
-
 
 
 -- 处理事件：加载游戏数据
@@ -126,12 +44,6 @@ function EventHandlers.OnStatusApplied_after(Object, Status, Causee, StoryAction
     if Variables.DEBUG_MODE then
         if Status == 'DEBUG_GETENTITY' then
             _D(Ext.Entity.Get(Object):GetAllComponents())
-        end
-        if Status == 'DEBUG_APPEARANCE_RECORD' then
-            SaveAppearance(Object, 'Slot1')
-        end
-        if Status == 'DEBUG_APPEARANCE_RELOAD' then
-            LoadAppearance(Object, 'Slot1')
         end
     end
 

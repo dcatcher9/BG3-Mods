@@ -418,7 +418,7 @@ function FaBao.LianHua.RecoverStatsStart_OnEquipped(FABAO)
     end
 
     --判断是否为炼制过的法宝
-    if PersistentVars['FABAO_Stats_ID_'..FABAO] ~= nil then
+    if PersistentVars[FABAO.."_IsFABAO"] ~= nil then
         local RECOVER = false
 
         --检查储存数据与现数是否一致
