@@ -1,5 +1,15 @@
-///////////////////////////// 
+/////////////////////////////
 /
 /     硬核难度·全员修仙      /
 /
-/////////////////////////////  
+/////////////////////////////
+
+// 洪荒时代·触发状态：施加给敌方NPC以启动全员修仙
+// Applied to non-player characters when they enter combat while Difficulty_Result == 1.
+// Caught by Difficulty.OnStatusApplied_after → Difficulty.HardCore.Start(Object).
+new entry "BANXIAN_HARDCORE"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackId" "BANXIAN_HARDCORE"
+data "StackType" "Overwrite"
+data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator;ApplyToDead;IgnoreResting"

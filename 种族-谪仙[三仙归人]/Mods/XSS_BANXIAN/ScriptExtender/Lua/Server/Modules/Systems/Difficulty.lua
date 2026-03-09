@@ -29,6 +29,8 @@ function Difficulty.Init()
     -- 注册MessageBoxYesNoClosed
     Ext.Osiris.RegisterListener("TutorialBoxClosed", 2, "after", Difficulty.OnTutorialBoxClosed_after)
 
+    -- 注册进入战斗：洪荒时代模式下为敌方NPC施加BANXIAN_HARDCORE触发全员修仙
+    Ext.Osiris.RegisterListener("EnteredCombat", 2, "after", Difficulty.OnEnteredCombat_after)
 
 end
 
@@ -232,5 +234,19 @@ end
 function Difficulty.OnTutorialBoxClosed_after(Character, Message)
 end
 
+-- 事件·进入战斗（洪荒时代：为敌方NPC触发全员修仙）
+function Difficulty.OnEnteredCombat_after(Object, CombatGuid)
+    if PersistentVars['Difficulty_Result'] ~= 1 then return end
+    if Osi.IsPlayer(Object) == 1 then return end
+    if Osi.IsDead(Object) == 1 then return end
+
+    local ADD = Variables.Persistent.Difficulty[Object] or false
+    if Osi.HasPassive(Object, 'BanXian_LingGen') == 0
+    and Osi.HasPassive(Object, 'BanXian_LingGen_Blank') == 0
+    and ADD ~= true then
+        Osi.ApplyStatus(Object, 'BANXIAN_HARDCORE', 100, -1, Object)
+        Utils.BanXianList_AddtoList(Object)
+    end
+end
 
 return Difficulty

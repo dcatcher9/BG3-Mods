@@ -63,8 +63,8 @@ function IsTargetWeaker()
     if not context.Target or not context.Target.IsValid then
         return ConditionResult(false)
     end
-    local result = (GetStatusDuration('BANXIAN_DH_YEAR', context.Source) >= GetStatusDuration('BANXIAN_DH_YEAR', context.Target) and GetStatusDuration('BANXIAN_DH_YEAR', context.Source) >= context.Target.Level) or HasStatus('DOMINATE_HEHUAN',context.Target)
-    return ConditionResult(result)
+    local cond = GetStatusDuration('BANXIAN_DH_YEAR', context.Source) >= GetStatusDuration('BANXIAN_DH_YEAR', context.Target) and GetStatusDuration('BANXIAN_DH_YEAR', context.Source) >= context.Target.Level
+    return ConditionResult(cond) | HasStatus('DOMINATE_HEHUAN', context.Target)
 end
 
 function CharacterLevelGreaterThanTarget()
