@@ -423,7 +423,7 @@ end
 
 --血灵根
 function LingGen.Xue_ApplyBloodCurse(Object,Causee)
-    local Key = math.random(1,23)
+    local Key = math.random(1, #Variables.Constants.LingGenXue.BloodCurse)
     local Curse = Variables.Constants.LingGenXue.BloodCurse[Key]
 
     Osi.ApplyStatus(Object, Curse, 18, 1, Causee)
@@ -474,7 +474,7 @@ end
 function LingGen.OnRespecCompleted_after(Character)
 
     if Osi.HasPassive(Character,'BanXian_DH_DaoXin') == 1 then
-        LingGen.ApplyYiLingGen_Check(Character)
+        LingGen.ApplyAllChecks(Character)
         Osi.ApplyStatus(Character, 'SIGNAL_DAOXINCHECK', 0, 1, Character)
     end
 

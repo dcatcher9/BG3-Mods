@@ -81,8 +81,11 @@ function EventHandlers.OnTimerFinished_after(Timer)
         local Caster,X,Z = Variables.Constants.ZhenFa.LuoPan.Caster,Variables.Constants.ZhenFa.LuoPan.X,Variables.Constants.ZhenFa.LuoPan.Z
         Systems.ZhenFa.Tool.LuoPanFunctors(Caster,X,Z)
     elseif Timer == "Yuanying_ConcentrationRecover" then
-        Systems.Base.YuanYing.Concentration_After(PersistentVars['YYSpellRecover_Waiting'])
+        local spell = PersistentVars['YYSpellRecover_Waiting']
         PersistentVars['YYSpellRecover_Waiting'] = nil
+        if spell ~= nil then
+            Systems.Base.YuanYing.Concentration_After(spell)
+        end
     elseif Timer == "Jiandao_Projectile_Animation_Change" then
         Systems.DaoHeng.Jian.Animation_After(PersistentVars['Jiandao_Projectile'])
         PersistentVars['Jiandao_Projectile'] = nil

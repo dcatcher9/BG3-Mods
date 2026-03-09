@@ -2,6 +2,7 @@ local Variables = {}
 
 -- 常量
 Variables.Constants = {
+    BonusActionPoint_UUID = '420c8df5-45c2-4253-93c2-7ec44e127930',
     Hostile = {},
     Filter = {
         Status = {

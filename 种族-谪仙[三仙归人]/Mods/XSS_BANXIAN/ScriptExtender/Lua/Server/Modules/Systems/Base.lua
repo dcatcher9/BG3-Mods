@@ -75,10 +75,10 @@ end
 --双持攻击·千机
 function Base.TianXian.DualAttack_Before(Caster)
     local entity = Ext.Entity.Get(Caster)
-    local BP = math.floor(entity.ActionResources.Resources['420c8df5-45c2-4253-93c2-7ec44e127930'][1].Amount)
+    local BP = math.floor(entity.ActionResources.Resources[Variables.Constants.BonusActionPoint_UUID][1].Amount)
 
     if BP == 0 then
-        entity.ActionResources.Resources['420c8df5-45c2-4253-93c2-7ec44e127930'][1].Amount = 1
+        entity.ActionResources.Resources[Variables.Constants.BonusActionPoint_UUID][1].Amount = 1
         entity:Replicate("ActionResources")
     end
 end
@@ -99,8 +99,12 @@ end
 function Base.ShenTong.TianXian.Transform_Cancel(Caster, Status)
 
     Osi.RemoveTransforms(Caster)
-    Osi.SetFaction(Caster, PersistentVars['BanXian_Faction'])
-    Osi.ClearIndividualRelation(Caster, PersistentVars['BanXian_Target_Faction'])
+    if PersistentVars['BanXian_Faction'] ~= nil then
+        Osi.SetFaction(Caster, PersistentVars['BanXian_Faction'])
+    end
+    if PersistentVars['BanXian_Target_Faction'] ~= nil then
+        Osi.ClearIndividualRelation(Caster, PersistentVars['BanXian_Target_Faction'])
+    end
 
         --遍历变身被动组，消除被动
         local k = PersistentVars['BanXian_36_CopyPassives_Constant_'..Caster.."Number"] or 0
@@ -217,7 +221,7 @@ function Base.OnUsingSpell_before(Caster, Spell, SpellType, SpellElement, StoryA
     if Osi.HasActiveStatus(Caster, 'BANXIAN_YUANYING_CONCENTRATION') == 1 and Spell ~= 'BANXIAN_YYNoMoreConcentration'  and not string.find(Spell,'_YaoXian') then
         Base.YuanYing.Concentration_Before(Spell,Caster)
         PersistentVars['YYSpellRecover_Waiting'] = Spell
-        --Osi.TimerLaunch('Yuanying_ConcentrationRecover', 1000)
+        Osi.TimerLaunch('Yuanying_ConcentrationRecover', 5000) -- fallback if OnUsingSpell_after never fires
     end
 
     -- 千机·双持攻击：副手攻击前补充资源
@@ -261,13 +265,13 @@ function Base.OnUsingSpellOnTarget_before(Caster, Target, Name)
     
     if Name == "Target_MainHandAttack" and Osi.HasPassive(Caster,"FABAO_BAIMAI_3") == 1 then
         --检查副手装备 是否留有附赠动作
-        if Osi.GetEquippedItem(Caster, "Melee Offhand Weapon") ~= nil and Utils.Get.ActionResource(Caster,"420c8df5-45c2-4253-93c2-7ec44e127930") < 1 then
+        if Osi.GetEquippedItem(Caster, "Melee Offhand Weapon") ~= nil and Utils.Get.ActionResource(Caster, Variables.Constants.BonusActionPoint_UUID) < 1 then
             Osi.UseSpell(Caster, "Target_OffhandAttack", Target)
         end
     end
 
     if Name == "Projectile_MainHandAttack" and Osi.HasPassive(Caster,"FABAO_BAIMAI_3") == 1 then
-        if Osi.GetEquippedItem(Caster, "Ranged Offhand Weapon") ~= nil and Utils.Get.ActionResource(Caster,"420c8df5-45c2-4253-93c2-7ec44e127930") < 1 then
+        if Osi.GetEquippedItem(Caster, "Ranged Offhand Weapon") ~= nil and Utils.Get.ActionResource(Caster, Variables.Constants.BonusActionPoint_UUID) < 1 then
             Osi.UseSpell(Caster, "Projectile_OffhandAttack", Target)
         end
     end
