@@ -26,9 +26,11 @@ function SpellDC_ShenshiControl()
     if not context.Target or not context.Target.IsValid then
         return 99
     end
-    local spellDC = GetModifier(context.Source.Wisdom) - GetModifier(context.Target.Wisdom)
+    -- 标准神识法术DC：8 + 熟练加值 + 感知修正
+    local spellDC = 8 + context.Source.ProficiencyBonus + GetModifier(context.Source.Wisdom)
 
-    if Tagged('NOSOUL',context.Source) == 1 or Tagged('CONSTRUCT',context.Source) == 1 or Tagged('UNDEAD',context.Source) == 1 then
+    -- 无魂/构造体/不死生物无法抵抗神识，自动失败
+    if Tagged('NOSOUL', context.Target) == 1 or Tagged('CONSTRUCT', context.Target) == 1 or Tagged('UNDEAD', context.Target) == 1 then
         spellDC = 99
     end
 
