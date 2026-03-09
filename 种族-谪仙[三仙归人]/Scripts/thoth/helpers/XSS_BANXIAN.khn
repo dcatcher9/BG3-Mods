@@ -1,9 +1,9 @@
 local __util = require 'larian.util'
 
 function Shenshi_SourceSpellDC(fallbackDC, entity, ability)
-    local entity = entity or context.Source
+    entity = entity or context.Source
 	local spellDC = fallbackDC or 10 -- Global default so that we don't return 0
-    local ability = ability or context.PreferredCastingAbility
+    ability = ability or context.PreferredCastingAbility
 	if entity.IsValid then
 		spellDC = CalculateSpellDC(ability, entity)
 	end
@@ -107,7 +107,7 @@ function NotZhouTianShortBreak()
 end
 
 function NotZhouTianXunHuan()
-    return HasStatus('CUITI_ZHOUTIAN_1') | HasStatus('CUITI_ZHOUTIAN_1_NX') | HasStatus('CUITI_ZHOUTIAN_2') | HasStatus('CUITI_ZHOUTIAN_2_NX') | HasStatus('CUITI_ZHOUTIAN_3') | HasStatus('CUITI_ZHOUTIAN_3_NX') | HasStatus('CUITI_ZHOUTIAN_4') | HasStatus('CUITI_ZHOUTIAN_4_NX') | HasStatus('CUITI_ZHOUTIAN_5') | HasStatus('CUITI_ZHOUTIAN_5_NX') | HasStatus('CUITI_ZHOUTIAN_6') | HasStatus('CUITI_ZHOUTIAN_6_NX') | HasStatus('CUITI_ZHOUTIAN_7') | HasStatus('CUITI_ZHOUTIAN_7_NX') | HasStatus('CUITI_ZHOUTIAN_8') | HasStatus('CUITI_ZHOUTIAN_8_NX') | HasStatus('CUITI_ZHOUTIAN_9') | HasStatus('CUITI_ZHOUTIAN_9_NX') | HasStatus('CUITI_ZHOUTIAN_10') | HasStatus('CUITI_ZHOUTIAN_10_NX') | HasStatus('CUITI_ZHOUTIAN_11') | HasStatus('CUITI_ZHOUTIAN_11_NX') | HasStatus('CUITI_ZHOUTIAN_12') | HasStatus('CUITI_ZHOUTIAN_12_NX')
+    return ~(HasStatus('CUITI_ZHOUTIAN_1') | HasStatus('CUITI_ZHOUTIAN_1_NX') | HasStatus('CUITI_ZHOUTIAN_2') | HasStatus('CUITI_ZHOUTIAN_2_NX') | HasStatus('CUITI_ZHOUTIAN_3') | HasStatus('CUITI_ZHOUTIAN_3_NX') | HasStatus('CUITI_ZHOUTIAN_4') | HasStatus('CUITI_ZHOUTIAN_4_NX') | HasStatus('CUITI_ZHOUTIAN_5') | HasStatus('CUITI_ZHOUTIAN_5_NX') | HasStatus('CUITI_ZHOUTIAN_6') | HasStatus('CUITI_ZHOUTIAN_6_NX') | HasStatus('CUITI_ZHOUTIAN_7') | HasStatus('CUITI_ZHOUTIAN_7_NX') | HasStatus('CUITI_ZHOUTIAN_8') | HasStatus('CUITI_ZHOUTIAN_8_NX') | HasStatus('CUITI_ZHOUTIAN_9') | HasStatus('CUITI_ZHOUTIAN_9_NX') | HasStatus('CUITI_ZHOUTIAN_10') | HasStatus('CUITI_ZHOUTIAN_10_NX') | HasStatus('CUITI_ZHOUTIAN_11') | HasStatus('CUITI_ZHOUTIAN_11_NX') | HasStatus('CUITI_ZHOUTIAN_12') | HasStatus('CUITI_ZHOUTIAN_12_NX'))
 end
 
 function KiPointNum1()
@@ -673,7 +673,7 @@ end
 function BanxianXiulianKiFlashCheck_ALL(entity)
     entity = entity or context.Source
 
-    return ConditionResult(GetStatusDuration('BANXIAN_XIULIAN_LINGQI_H', entity) >= 2)
+    return ConditionResult(GetStatusDuration('BANXIAN_XIULIAN_LINGQI_H', entity) >= 2 and GetStatusDuration('BANXIAN_XIULIAN_LINGQI_T', entity) >= 2 and GetStatusDuration('BANXIAN_XIULIAN_LINGQI_J', entity) >= 2 and GetStatusDuration('BANXIAN_XIULIAN_LINGQI_S', entity) >= 2 and GetStatusDuration('BANXIAN_XIULIAN_LINGQI_M', entity) >= 2)
 end
 
 function BanxianXiulianKiFlashCheck_ALLN(entity)

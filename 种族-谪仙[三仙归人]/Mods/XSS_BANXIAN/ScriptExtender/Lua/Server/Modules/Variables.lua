@@ -155,13 +155,6 @@ Variables.Constants = {
         ['BANXIAN_LG_S'] = '水',
         ['BANXIAN_LG_M'] = '木'
     },
-    LingGenNum = {
-        ["BANXIAN_LG_H"] = 0,
-        ["BANXIAN_LG_T"] = 0,
-        ["BANXIAN_LG_J"] = 0,
-        ["BANXIAN_LG_S"] = 0,
-        ["BANXIAN_LG_M"] = 0
-    },
     LingGenXue = {
         BloodCurse = {
             "HAG_WELL_WORSE",
@@ -233,11 +226,7 @@ Variables.Constants = {
         },
     },
     GongFa = {
-        BaiMai = {
-            CopyPassives_Constant = {},
-            CopyPassives_Constant_UN = {},
-            BaiMAI_WNP_Constant = {}
-        }
+        BaiMai = {}
     },
     Difficulty = {
         MessageBox = {

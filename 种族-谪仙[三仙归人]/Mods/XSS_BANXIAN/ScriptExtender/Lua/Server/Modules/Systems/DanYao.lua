@@ -28,7 +28,7 @@ function DanYao.Drop.YaoCai(Object)
         local id = item.id
         local factor = item.factor
         local Level_Ex = math.random(1, (Level + 4) * 20)
-        Level_Ex = Level_Ex * math.random(factor[1], factor[2])
+        Level_Ex = Level_Ex * math.random(factor[1], factor[2] or factor[1])
 
         -- 如果是植物类怪物，概率翻倍，数量随机
         if Osi.IsTagged(Object, '125b3d94-3997-4fc4-8211-1768b67dbe4a') == 1 then

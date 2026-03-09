@@ -43,23 +43,6 @@ end
 
 
 
--- 在修改前验证状态有效性
-function FaBao.ValidateStat(stat)
-    if not stat then return false end
-    
-    -- 检查必要属性是否存在
-    local requiredProps = {"Name", "ModifierList", "Rarity"}
-    for _, prop in ipairs(requiredProps) do
-        if stat[prop] == nil then
-            Ext.Utils.PrintWarning(
-                "[FaBao] 状态验证失败: 缺少属性 "..prop
-            )
-            return false
-        end
-    end
-    return true
-end
-
 
 --炼器·合并字符串
 local function SafeConcatStrings(original, new, separator)

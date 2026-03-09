@@ -123,16 +123,16 @@ end
 function EventHandlers.OnStatusApplied_after(Object, Status, Causee, StoryActionID)
     --_P('***********DEBUG**************') --DEBUG
     --_P('[谪仙StatusApplied]'..Status) --DEBUG
-    if Status == 'DEBUG_GETENTITY' then
-        _D(Ext.Entity.Get(Object):GetAllComponents())
-    end
-    if Status == 'DEBUG_APPEARANCE_RECORD' then
-        SaveAppearance(Object, 'Slot1')
-        
-    end
-    if Status == 'DEBUG_APPEARANCE_RELOAD' then
-        LoadAppearance(Object, 'Slot1')
-        
+    if Variables.DEBUG_MODE then
+        if Status == 'DEBUG_GETENTITY' then
+            _D(Ext.Entity.Get(Object):GetAllComponents())
+        end
+        if Status == 'DEBUG_APPEARANCE_RECORD' then
+            SaveAppearance(Object, 'Slot1')
+        end
+        if Status == 'DEBUG_APPEARANCE_RELOAD' then
+            LoadAppearance(Object, 'Slot1')
+        end
     end
 
     if Status == 'CUITI_ZHOUTIAN_OWNER' then

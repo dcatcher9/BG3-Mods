@@ -1,3 +1,8 @@
+-- Private scratch tables for GongFa.BaiMai (shared between CopyPassives and CopyPassives_2)
+local _BaiMai_CopyPassives_Constant = {}
+local _BaiMai_CopyPassives_Constant_UN = {}
+local _BaiMai_WNP_Constant = {}
+
 local Utils = {
     Get = {},
     CharacterChange = {},
@@ -246,12 +251,19 @@ end
 --  获取灵根信息
 function Utils.Get.LingGen(Character)
     local RESULT = "[灵根配比]（满10点觉醒效果，满50点觉醒天灵根）: \n"
+    local LingGenNum = {
+        ["BANXIAN_LG_H"] = 0,
+        ["BANXIAN_LG_T"] = 0,
+        ["BANXIAN_LG_J"] = 0,
+        ["BANXIAN_LG_S"] = 0,
+        ["BANXIAN_LG_M"] = 0
+    }
 
     --获取灵根
     for LG, NAME in pairs (Variables.Constants.LingGen) do
-        Variables.Constants.LingGenNum[LG] = Osi.GetStatusTurns(Character, LG) or 0
-        if Variables.Constants.LingGenNum[LG] >= 1 then
-            RESULT = RESULT..NAME..": "..Variables.Constants.LingGenNum[LG].."点  "
+        LingGenNum[LG] = Osi.GetStatusTurns(Character, LG) or 0
+        if LingGenNum[LG] >= 1 then
+            RESULT = RESULT..NAME..": "..LingGenNum[LG].."点  "
         end
     end
 
@@ -259,8 +271,8 @@ function Utils.Get.LingGen(Character)
     if RESULT == "[灵根配比]（满10点觉醒效果，满50点觉醒天灵根）: \n" then
         RESULT = "[缺失灵根]"
     end
-    local LG_H,LG_T,LG_J,LG_S,LG_M = Variables.Constants.LingGenNum['BANXIAN_LG_H'],Variables.Constants.LingGenNum['BANXIAN_LG_T'],Variables.Constants.LingGenNum['BANXIAN_LG_J'],Variables.Constants.LingGenNum['BANXIAN_LG_S'],Variables.Constants.LingGenNum['BANXIAN_LG_M']
-    
+    local LG_H,LG_T,LG_J,LG_S,LG_M = LingGenNum['BANXIAN_LG_H'],LingGenNum['BANXIAN_LG_T'],LingGenNum['BANXIAN_LG_J'],LingGenNum['BANXIAN_LG_S'],LingGenNum['BANXIAN_LG_M']
+
     return LG_H,LG_T,LG_J,LG_S,LG_M,RESULT
 end
 
@@ -692,12 +704,12 @@ function Utils.GongFa.BaiMai.CopyPassives(Object)
     local Itemslot = Variables.Constants.Base.Itemslot
 
     if ( Ext.Entity.Get(Object).PassiveContainer.Passives ~= nil ) then
-  
+
       --第1次检测被动
         local k = 1
       for _,entry in pairs(Ext.Entity.Get(Object).PassiveContainer.Passives) do
         local ID = entry.Passive.PassiveId
-        Variables.Constants.GongFa.BaiMai.CopyPassives_Constant[k] = ID
+        _BaiMai_CopyPassives_Constant[k] = ID
         k = k + 1
       end
 
@@ -705,14 +717,14 @@ function Utils.GongFa.BaiMai.CopyPassives(Object)
       local n = 1
       for _, slot in ipairs(Itemslot) do
         if Osi.GetEquippedItem(Object, slot) ~= nil then
-            Variables.Constants.GongFa.BaiMai.BaiMAI_WNP_Constant[n] = Osi.GetEquippedItem(Object, slot)
+            _BaiMai_WNP_Constant[n] = Osi.GetEquippedItem(Object, slot)
             Osi.Unequip(Object, Osi.GetEquippedItem(Object, slot))
         else
         end
       end
-    
+
     end
-    
+
 end
 
 --复制装备被动2
@@ -720,16 +732,16 @@ function Utils.GongFa.BaiMai.CopyPassives_2(Object)
     local m = 1
     for _,entry in pairs(Ext.Entity.Get(Object).PassiveContainer.Passives) do
       local ID = entry.Passive.PassiveId
-      Variables.Constants.GongFa.BaiMai.CopyPassives_Constant_UN[m] = ID
+      _BaiMai_CopyPassives_Constant_UN[m] = ID
       m = m + 1
     end
 
-    --寻找差异 
-    for _, entry in ipairs(Variables.Constants.GongFa.BaiMai.CopyPassives_Constant) do
+    --寻找差异
+    for _, entry in ipairs(_BaiMai_CopyPassives_Constant) do
       local Passive_To_Copy = entry
       local IsWNP = true
 
-      for _,Compare in ipairs(Variables.Constants.GongFa.BaiMai.CopyPassives_Constant_UN) do
+      for _,Compare in ipairs(_BaiMai_CopyPassives_Constant_UN) do
           --_P("    比较"..Compare)
           --如果相同，则不是武器被动
           if Passive_To_Copy == Compare then
@@ -745,15 +757,15 @@ function Utils.GongFa.BaiMai.CopyPassives_2(Object)
     end
 
     --穿上装备
-    for _, slot in ipairs(Variables.Constants.GongFa.BaiMai.BaiMAI_WNP_Constant) do
+    for _, slot in ipairs(_BaiMai_WNP_Constant) do
       Osi.Equip(Object, slot, 1, 1)
     end
 
     --清空临时储存表
-    Variables.Constants.GongFa.BaiMai.BaiMAI_WNP_Constant = {}
-    Variables.Constants.GongFa.BaiMai.CopyPassives_Constant_UN = {}
-    Variables.Constants.GongFa.BaiMai.CopyPassives_Constant = {}
-    
+    _BaiMai_WNP_Constant = {}
+    _BaiMai_CopyPassives_Constant_UN = {}
+    _BaiMai_CopyPassives_Constant = {}
+
 end
 
 --复制装备状态

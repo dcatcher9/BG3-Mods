@@ -89,9 +89,6 @@ type "StatusData"
 data "StatusType" "BOOST"
 data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator"
 
-//BANXIAN_LG_DU_HUNDUN removed (was a dead stub, never referenced)
-
-
 //火灵根
 new entry "BANXIAN_LG_HUO"
 type "StatusData"
@@ -503,7 +500,7 @@ data "Boosts" "Ability(Charisma, 3); IF(HasStatus('WET',context.Target)):ActionR
 data "Passives" "TianLingGen_S"
 data "DisplayName" "stringsofmodmadebyxss20240930dv0b1d14;1"
 data "Description" "stringsofmodmadebyxss20240930dv0b1e14;1"
-data "ExtraDescription" "stringsofmodmadebyxss20240930dv0b1e14;1"
+data "ExtraDescription" ""
 data "RemoveEvents" "OnStatusRemoved;OnStatusApplied"
 data "RemoveConditions" "not IsTianActiveLingGen('BANXIAN_LG_S',context.Target)"
 data "StatusPropertyFlags" "IgnoreResting;FreezeDuration;ApplyToDead;DisableCombatlog"
