@@ -433,6 +433,68 @@ function Utils.Get.YeHuoSource(Object)
     return nil
 end
 
+--获取异火信息
+function Utils.Get.YiHuo(Character)
+    local FireNames = {
+        ['BANXIAN_Fire_of_Gold']     = '黄金火',
+        ['BANXIAN_Fire_of_Ghost']    = '鬼魂火',
+        ['BANXIAN_Fire_of_ThreeMei'] = '三昧真火',
+        ['BANXIAN_Fire_of_Purple']   = '紫色火',
+        ['BANXIAN_Fire_of_SixDing']  = '六丁神火',
+    }
+    for _, entry in pairs(Variables.Constants.Difficulty.YiHuo) do
+        if Osi.HasActiveStatus(Character, entry.Fire) == 1 then
+            return entry.Fire, "[携带异火]: "..(FireNames[entry.Fire] or entry.Fire)
+        end
+    end
+    return nil, nil
+end
+
+--获取掉落预报
+function Utils.Get.DropHint(Character)
+    local BaoCai_Names = {
+        [1]  = '大力铁角',
+        [2]  = '妖生角',
+        [3]  = '黑色眼眸',
+        [4]  = '金色眼眸',
+        [7]  = '龙珠',
+        [8]  = '铁中血',
+        [9]  = '玉锤牙',
+        [10] = '震雷骨',
+    }
+    local drops = {}
+    local Level = Osi.GetLevel(Character)
+
+    -- 宝材（按 tag 判断）
+    for _, item in ipairs(Variables.Constants.DanYao.DropProbabilities.BaoCai) do
+        local name = BaoCai_Names[item.id]
+        if name and item.tag and (not item.minlevel or Level >= item.minlevel) then
+            local tagged = false
+            for _, t in ipairs(item.tag) do
+                if Osi.IsTagged(Character, t) == 1 then
+                    tagged = true
+                    break
+                end
+            end
+            if tagged then
+                drops[#drops+1] = name
+            end
+        end
+    end
+
+    -- 修士精元（有道行才可能掉）
+    if Osi.HasActiveStatus(Character, 'BANXIAN_DH_YEAR') == 1 then
+        if Osi.IsTagged(Character, '7fbed0d4-cabc-4a9d-804e-12ca6088a0a8') == 1 then
+            drops[#drops+1] = '修士精元（类人）'
+        else
+            drops[#drops+1] = '修士精元（非类人）'
+        end
+    end
+
+    if #drops == 0 then return nil end
+    return "[可能掉落]: "..table.concat(drops, '、')
+end
+
 --获取重量
 function Utils.GetEntityWeight(Object)
     local entity = Ext.Entity.Get(Object)
