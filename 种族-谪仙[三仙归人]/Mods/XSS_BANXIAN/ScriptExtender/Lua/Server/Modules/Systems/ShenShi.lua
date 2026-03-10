@@ -17,12 +17,20 @@ function ShenShi.OpenMessage(Object, Causee)
     end
     Utils.ShenShi.Check(Object)
 
+    local JingJieNames = {'练气','筑基','结丹','元婴','化神','炼虚','合体','大乘','渡劫','真仙'}
+    local JJ = Utils.GetBanxianJingjie(Object)
+    local RESULT_JJ = "[境界]: "..(JingJieNames[JJ] or '未知')
+
     local ZZ,RESULT_ZZ = Utils.Get.ZiZhi(Object)
     local _,_,_,_,_,RESULT_LG = Utils.Get.LingGen(Object)
     DaoHeng.Check(Object)
     local _,_,_,_,RESULT_DD = Utils.Get.Dao(Object)
 
-    local Message = RESULT_ZZ.."\n"..RESULT_LG.."\n"..RESULT_DD
+    local _, RESULT_YH = Utils.Get.YiHuo(Object)
+    local Message = RESULT_JJ.."\n"..RESULT_ZZ.."\n"..RESULT_LG.."\n"..RESULT_DD
+    if RESULT_YH then
+        Message = Message.."\n"..RESULT_YH
+    end
 
     Osi.OpenMessageBox(Causee, Message)
     LingGen.ApplyAllChecks(Object)
@@ -34,42 +42,36 @@ end
 
 --事件·洞观扫描目标
 function ShenShi.ScanTarget(Object, Causee)
+    local JingJieNames = {'练气','筑基','结丹','元婴','化神','炼虚','合体','大乘','渡劫','真仙'}
     local name = Osi.GetDisplayName(Object)
     local level = Osi.GetLevel(Object)
     local lines = { "【"..name.."】  Lv."..level }
 
-    -- 境界标签
-    if Osi.HasActiveStatus(Object, 'BANXIAN_TAG_TIANXIAN') == 1 then
-        lines[#lines+1] = "[境界]: 天仙"
-    elseif Osi.HasActiveStatus(Object, 'BANXIAN_TAG_RENXIAN') == 1 then
-        lines[#lines+1] = "[境界]: 人仙"
-    end
+    -- 境界
+    local JJ = Utils.GetBanxianJingjie(Object)
+    lines[#lines+1] = "[境界]: "..(JingJieNames[JJ] or '未知')
 
     -- 灵根资质
-    local ZZ = Osi.GetStatusTurns(Object, 'BANXIAN_LG_TZ')
-    if ZZ and ZZ > 0 then
-        local _, RESULT_ZZ = Utils.Get.ZiZhi(Object)
-        local _, _, _, _, _, RESULT_LG = Utils.Get.LingGen(Object)
-        lines[#lines+1] = RESULT_ZZ
-        lines[#lines+1] = RESULT_LG
-    end
+    local _, RESULT_ZZ = Utils.Get.ZiZhi(Object)
+    local _, _, _, _, _, RESULT_LG = Utils.Get.LingGen(Object)
+    lines[#lines+1] = RESULT_ZZ
+    lines[#lines+1] = RESULT_LG
 
     -- 大道与修为
-    local _, _, DH_YEAR, DH_DAY, RESULT_DD = Utils.Get.Dao(Object)
-    if DH_YEAR ~= 0 or DH_DAY ~= 0 then
-        lines[#lines+1] = RESULT_DD
-    end
+    local _, _, _, _, RESULT_DD = Utils.Get.Dao(Object)
+    lines[#lines+1] = RESULT_DD
 
-    -- 异火
-    local _, RESULT_YH = Utils.Get.YiHuo(Object)
-    if RESULT_YH then
-        lines[#lines+1] = RESULT_YH
-    end
+    -- 异火和掉落预报仅对非队友显示
+    if Osi.IsAlly(Object, Causee) == 0 then
+        local _, RESULT_YH = Utils.Get.YiHuo(Object)
+        if RESULT_YH then
+            lines[#lines+1] = RESULT_YH
+        end
 
-    -- 掉落预报
-    local RESULT_DROP = Utils.Get.DropHint(Object)
-    if RESULT_DROP then
-        lines[#lines+1] = RESULT_DROP
+        local RESULT_DROP = Utils.Get.DropHint(Object)
+        if RESULT_DROP then
+            lines[#lines+1] = RESULT_DROP
+        end
     end
 
     if #lines == 1 then

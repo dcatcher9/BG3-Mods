@@ -279,16 +279,46 @@ end
 --  获取大道信息（纯读取，不修改任何状态）
 function Utils.Get.Dao(Character)
     local DaDAO, DaDao_Name
+    local DaoList = {}
     local RESULT = '[未领悟大道]'
 
-    --获取大道
+    local DaoDaySuffix = {
+        ['BanXian_DH_Tian']     = 'TIAN',
+        ['BanXian_DH_XiuLuo']   = 'XIULUO',
+        ['BanXian_DH_RenJian']  = 'RENJIAN',
+        ['BanXian_DH_ChuSheng'] = 'CHUSHENG',
+        ['BanXian_DH_EGui']     = 'EGUI',
+        ['BanXian_DH_DiYu']     = 'DIYU',
+        ['BanXian_DH_Jian']     = 'JIAN',
+        ['BanXian_DH_Li']       = 'LI',
+        ['BanXian_DH_HeHuan']   = 'HEHUAN',
+        ['BanXian_DH_Yi']       = 'YI',
+    }
+
+    --获取大道（遍历全部，不提前退出）
     for ID, NAME in pairs (Variables.Constants.DaDao) do
         if Osi.HasPassive(Character,ID) == 1 then
             DaDAO,DaDao_Name = ID,NAME
-            RESULT = "[大道]: "..DaDao_Name
-            break
-        else
+            local entry = NAME
+            local suffix = DaoDaySuffix[ID]
+            if suffix then
+                local days  = Osi.GetStatusTurns(Character, 'BANXIAN_DH_DAY_'..suffix) or 0
+                local years = math.floor(days / 365)
+                local rem   = days - years * 365
+                if years > 0 and rem > 0 then
+                    entry = NAME.."("..years.."年"..rem.."日)"
+                elseif years > 0 then
+                    entry = NAME.."("..years.."年)"
+                elseif rem > 0 then
+                    entry = NAME.."("..rem.."日)"
+                end
+            end
+            table.insert(DaoList, entry)
         end
+    end
+
+    if #DaoList > 0 then
+        RESULT = "[大道]: "..table.concat(DaoList, "、")
     end
 
     --获取修为（总天数转换为年+天显示）
@@ -433,7 +463,7 @@ function Utils.Get.YeHuoSource(Object)
     return nil
 end
 
---获取异火信息
+--获取异火信息（支持多个）
 function Utils.Get.YiHuo(Character)
     local FireNames = {
         ['BANXIAN_Fire_of_Gold']     = '黄金火',
@@ -442,12 +472,14 @@ function Utils.Get.YiHuo(Character)
         ['BANXIAN_Fire_of_Purple']   = '紫色火',
         ['BANXIAN_Fire_of_SixDing']  = '六丁神火',
     }
+    local found = {}
     for _, entry in pairs(Variables.Constants.Difficulty.YiHuo) do
         if Osi.HasActiveStatus(Character, entry.Fire) == 1 then
-            return entry.Fire, "[携带异火]: "..(FireNames[entry.Fire] or entry.Fire)
+            table.insert(found, FireNames[entry.Fire] or entry.Fire)
         end
     end
-    return nil, nil
+    if #found == 0 then return nil, nil end
+    return found, "[携带异火]: "..table.concat(found, "、")
 end
 
 --获取掉落预报
@@ -936,6 +968,9 @@ function Utils.BanXian.JingjieBoost(Object)
         TierStats:Sync()
     end
     Osi.ApplyStatus(Object, tierStatusName, -1, 1, Object)
+
+    -- 应用可见境界显示状态（UI图标）
+    Osi.ApplyStatus(Object, 'BANXIAN_JJ_DISPLAY_'..JJ, -1, 1, Object)
 
     -- 应用累积到达标记（用于灵根技能解锁）
     for i = 1, 10 do
