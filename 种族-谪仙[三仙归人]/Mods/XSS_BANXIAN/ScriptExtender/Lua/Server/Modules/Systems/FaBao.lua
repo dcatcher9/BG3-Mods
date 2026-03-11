@@ -123,7 +123,7 @@ function FaBao.Boosts_Filter(TYPE,ActiveBOOST,FABAO)
 
     --检查词条是否重复
     if OBT ~= nil then
-        if string.find(OBT, ActiveBOOST) then
+        if string.find(OBT, ActiveBOOST, 1, true) then
             return false
         end
     end
@@ -138,7 +138,7 @@ function FaBao.SamePassives_Check(TYPE,Passive,FABAO)
 
     --检查词条是否重复
     if OBT ~= nil then
-        if string.find(OBT, Passive) then
+        if string.find(OBT, Passive, 1, true) then
             return false
         end
     end
@@ -423,7 +423,7 @@ function FaBao.LianHua.RecoverStatsStart_OnEquipped(FABAO)
 
         --检查储存数据与现数是否一致
         for TYPE, _ in pairs(TYPE_TABLE) do
-            if Utils.GetStatField(stat, TYPE) ~= PersistentVars['FABAO_Stats_'..TYPE..'_'..FABAO] then
+            if Utils.GetStatField(stat, TYPE, FABAO) ~= PersistentVars['FABAO_Stats_'..TYPE..'_'..FABAO] then
 
                 --不一致时，恢复数据
                 RECOVER = true
@@ -501,9 +501,10 @@ function FaBao.Passives.Ring.YaoShengJiao_Check(Caster)
     end
     if MaxPower >= 1 and Osi.HasActiveStatus(Caster,'TIENIU_BOOSTS_EXTRASPELLSLOT_'..MaxPower) == 0 then
         Osi.ApplyStatus(Caster,'TIENIU_BOOSTS_EXTRASPELLSLOT_'..MaxPower,-1,1,Caster)
-        Variables.Constants.Hostile['UsingSpellSlot_Caster'] = Caster
-        Variables.Constants.Hostile['UsingSpellSlot_Status'] = "TIENIU_BOOSTS_EXTRASPELLSLOT_USE_"..MaxPower
-        Osi.TimerLaunch('FaBao_Ring_YaoShengJiao_UsingSpellSlot', 500)
+        local TimerKey = 'FaBao_Ring_YaoShengJiao_UsingSpellSlot_'..Caster
+        PersistentVars[TimerKey..'_Caster'] = Caster
+        PersistentVars[TimerKey..'_Status'] = "TIENIU_BOOSTS_EXTRASPELLSLOT_USE_"..MaxPower
+        Osi.TimerLaunch(TimerKey, 500)
     end
 end
 

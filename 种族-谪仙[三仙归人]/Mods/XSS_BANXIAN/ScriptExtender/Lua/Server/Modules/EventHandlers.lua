@@ -86,17 +86,22 @@ function EventHandlers.OnTimerFinished_after(Timer)
         if spell ~= nil then
             Systems.Base.YuanYing.Concentration_After(spell)
         end
-    elseif Timer == "Jiandao_Projectile_Animation_Change" then
-        Systems.DaoHeng.Jian.Animation_After(PersistentVars['Jiandao_Projectile'])
-        PersistentVars['Jiandao_Projectile'] = nil
+    elseif string.find(Timer, 'Jiandao_Projectile_Animation_Change_', 1, true) then
+        local SpellName = PersistentVars[Timer]
+        PersistentVars[Timer] = nil
+        if SpellName ~= nil then
+            Systems.DaoHeng.Jian.Animation_After(SpellName)
+        end
     elseif Timer == "Banxian_Difficulty_Choice" then
         Utils.Difficulty.YesNoChoice()
-    elseif Timer == "FaBao_Ring_YaoShengJiao_UsingSpellSlot" then
-        local Caster = Variables.Constants.Hostile['UsingSpellSlot_Caster']
-        local Status = Variables.Constants.Hostile['UsingSpellSlot_Status']
-        Variables.Constants.Hostile['UsingSpellSlot_Caster'] = nil
-        Variables.Constants.Hostile['UsingSpellSlot_Status'] = nil
-        Osi.ApplyStatus(Caster,Status,-1,1,Caster)
+    elseif string.find(Timer, 'FaBao_Ring_YaoShengJiao_UsingSpellSlot_', 1, true) then
+        local Caster = PersistentVars[Timer..'_Caster']
+        local Status = PersistentVars[Timer..'_Status']
+        PersistentVars[Timer..'_Caster'] = nil
+        PersistentVars[Timer..'_Status'] = nil
+        if Caster ~= nil and Status ~= nil then
+            Osi.ApplyStatus(Caster,Status,-1,1,Caster)
+        end
     end
 
 

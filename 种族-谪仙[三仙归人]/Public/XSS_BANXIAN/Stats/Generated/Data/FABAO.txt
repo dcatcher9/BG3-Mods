@@ -550,7 +550,7 @@ data "StillAnimationPriority" "Weakened"
 data "SoundVocalStart" "GASP"
 data "StackId" "HEISEYANMOU_BOOST_WEAPON_UNDEAD"
 data "StackType" "Ignore"
-data "Boosts" "Tag(UNDEAD);BlockTravel();FactionOverride(Source)；IncreaseMaxHP(-MaxHP/2)"
+data "Boosts" "Tag(UNDEAD);BlockTravel();FactionOverride(Source);IncreaseMaxHP(-MaxHP/2)"
 data "StatusPropertyFlags" "ApplyToDead;IgnoreResting"
 data "StatusEffect" "a9cf5cbf-4247-4b9a-b81b-e3af4982ff62"
 

@@ -363,9 +363,11 @@ function DaoHeng.OnUsingSpellOnTarget_before(Caster, Target, Name)
             end
 
             if Animation ~= "None" then
-                DaoHeng.Jian.Animation_Before(PersistentVars['Jiandao_Projectile_Pending'],Animation)
-                PersistentVars['Jiandao_Projectile'] = PersistentVars['Jiandao_Projectile_Pending']
-                Osi.TimerLaunch('Jiandao_Projectile_Animation_Change', 2000)
+                local SpellName = PersistentVars['Jiandao_Projectile_Pending']
+                DaoHeng.Jian.Animation_Before(SpellName,Animation)
+                local TimerKey = 'Jiandao_Projectile_Animation_Change_'..Caster
+                PersistentVars[TimerKey] = SpellName
+                Osi.TimerLaunch(TimerKey, 2000)
                 Osi.RemoveStatus(Target, 'JIANDAO_PROJECTILE_RETURN')
                 PersistentVars['Jiandao_Projectile_Pending'] = nil
             end

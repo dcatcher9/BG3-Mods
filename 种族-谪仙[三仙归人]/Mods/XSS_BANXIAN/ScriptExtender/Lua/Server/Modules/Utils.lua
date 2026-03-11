@@ -1,7 +1,3 @@
--- Private scratch tables for GongFa.BaiMai (shared between CopyPassives and CopyPassives_2)
-local _BaiMai_CopyPassives_Constant = {}
-local _BaiMai_CopyPassives_Constant_UN = {}
-local _BaiMai_WNP_Constant = {}
 
 local Utils = {
     Get = {},
@@ -268,7 +264,7 @@ function Utils.Get.LingGen(Character)
     end
 
     --如果为0，更改输出结果
-    if RESULT == "[灵根配比]（满10点觉醒效果，满50点觉醒天灵根）: \n" then
+    if RESULT == "[灵根配比]（满25点觉醒效果，满100点觉醒天灵根）: \n" then
         RESULT = "[缺失灵根]"
     end
     local LG_H,LG_T,LG_J,LG_S,LG_M = LingGenNum['BANXIAN_LG_H'],LingGenNum['BANXIAN_LG_T'],LingGenNum['BANXIAN_LG_J'],LingGenNum['BANXIAN_LG_S'],LingGenNum['BANXIAN_LG_M']
@@ -789,23 +785,27 @@ function Utils.GongFa.BaiMai.CopyPassives(Object)
 
     if ( Ext.Entity.Get(Object).PassiveContainer.Passives ~= nil ) then
 
-      --第1次检测被动
+      --第1次检测被动（按对象UUID存储，避免多人同时触发时互相覆盖）
+        local passives = {}
         local k = 1
       for _,entry in pairs(Ext.Entity.Get(Object).PassiveContainer.Passives) do
         local ID = entry.Passive.PassiveId
-        _BaiMai_CopyPassives_Constant[k] = ID
+        passives[k] = ID
         k = k + 1
       end
+      PersistentVars['BaiMai_Passives_'..Object] = passives
 
       --脱掉装备
+      local items = {}
       local n = 1
       for _, slot in ipairs(Itemslot) do
         if Osi.GetEquippedItem(Object, slot) ~= nil then
-            _BaiMai_WNP_Constant[n] = Osi.GetEquippedItem(Object, slot)
+            items[n] = Osi.GetEquippedItem(Object, slot)
             Osi.Unequip(Object, Osi.GetEquippedItem(Object, slot))
-        else
+            n = n + 1
         end
       end
+      PersistentVars['BaiMai_WNP_'..Object] = items
 
     end
 
@@ -813,19 +813,23 @@ end
 
 --复制装备被动2
 function Utils.GongFa.BaiMai.CopyPassives_2(Object)
+    local passivesBefore = PersistentVars['BaiMai_Passives_'..Object] or {}
+    local items = PersistentVars['BaiMai_WNP_'..Object] or {}
+
+    local passivesAfter = {}
     local m = 1
     for _,entry in pairs(Ext.Entity.Get(Object).PassiveContainer.Passives) do
       local ID = entry.Passive.PassiveId
-      _BaiMai_CopyPassives_Constant_UN[m] = ID
+      passivesAfter[m] = ID
       m = m + 1
     end
 
     --寻找差异
-    for _, entry in ipairs(_BaiMai_CopyPassives_Constant) do
+    for _, entry in ipairs(passivesBefore) do
       local Passive_To_Copy = entry
       local IsWNP = true
 
-      for _,Compare in ipairs(_BaiMai_CopyPassives_Constant_UN) do
+      for _,Compare in ipairs(passivesAfter) do
           --_P("    比较"..Compare)
           --如果相同，则不是武器被动
           if Passive_To_Copy == Compare then
@@ -841,14 +845,13 @@ function Utils.GongFa.BaiMai.CopyPassives_2(Object)
     end
 
     --穿上装备
-    for _, item_guid in ipairs(_BaiMai_WNP_Constant) do
+    for _, item_guid in ipairs(items) do
       Osi.Equip(Object, item_guid, 1, 1)
     end
 
     --清空临时储存表
-    _BaiMai_WNP_Constant = {}
-    _BaiMai_CopyPassives_Constant_UN = {}
-    _BaiMai_CopyPassives_Constant = {}
+    PersistentVars['BaiMai_Passives_'..Object] = nil
+    PersistentVars['BaiMai_WNP_'..Object] = nil
 
 end
 

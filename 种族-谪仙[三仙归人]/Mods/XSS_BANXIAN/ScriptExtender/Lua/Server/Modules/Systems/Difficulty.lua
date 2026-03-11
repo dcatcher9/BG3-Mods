@@ -158,7 +158,7 @@ end
 -- 事件·难度状态监听
 function Difficulty.OnStatusApplied_after(Object, Status)
 
-    if string.find(Status,'HARDCORE') then  --硬核难度检测
+    if Status == 'BANXIAN_HARDCORE' then  --硬核难度检测
 
         if PersistentVars['Difficulty_Result'] == 1 then
             if Osi.HasPassive(Object, 'BanXian_LingGen') == 0
