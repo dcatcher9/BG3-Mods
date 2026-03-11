@@ -270,7 +270,7 @@ function FABAOBAIMAI3FREEBOOSTCHECK_BONUSACTIONPOINT()
 end
 
 
-function IsEquippedSword(entity)
+function IsEquippedMeleeWeapon(entity)
     local entity = entity or context.Source
     local weapon = GetActiveWeapon(entity)
     return IsWeaponOfProficiencyGroup('Daggers', weapon) | IsWeaponOfProficiencyGroup('Shortswords', weapon) | IsWeaponOfProficiencyGroup('Longswords', weapon) | IsWeaponOfProficiencyGroup('Greatswords', weapon) | IsWeaponOfProficiencyGroup('Rapiers', weapon) | IsWeaponOfProficiencyGroup('Scimitars', weapon) | IsWeaponOfProficiencyGroup('Handaxes', weapon) | IsWeaponOfProficiencyGroup('Battleaxes', weapon) | IsWeaponOfProficiencyGroup('Greataxes', weapon) | IsWeaponOfProficiencyGroup('Clubs', weapon) | IsWeaponOfProficiencyGroup('Greatclubs', weapon) | IsWeaponOfProficiencyGroup('Maces', weapon) | IsWeaponOfProficiencyGroup('Warhammers', weapon) | IsWeaponOfProficiencyGroup('Mauls', weapon) | IsWeaponOfProficiencyGroup('Flails', weapon) | IsWeaponOfProficiencyGroup('Quarterstaffs', weapon) | IsWeaponOfProficiencyGroup('Spears', weapon) | IsWeaponOfProficiencyGroup('Glaives', weapon) | IsWeaponOfProficiencyGroup('Halberds', weapon) | IsWeaponOfProficiencyGroup('Pikes', weapon) | IsWeaponOfProficiencyGroup('Tridents', weapon) | IsWeaponOfProficiencyGroup('WarPicks', weapon) | IsWeaponOfProficiencyGroup('Whips', weapon) | IsWeaponOfProficiencyGroup('Lances', weapon) | IsWeaponOfProficiencyGroup('Sickles', weapon) | IsWeaponOfProficiencyGroup('LightHammers', weapon) | IsWeaponOfProficiencyGroup('Javelins', weapon)
@@ -372,8 +372,7 @@ function LG_GUANG_BOOSTCHECK(entity)
 end
 
 function LG_AN_CRITICALHITCheck()
-    local isCrit = context.InterruptedRoll.NaturalRoll >= 20
-    return ConditionResult(isCrit)
+    return ConditionResult(context.InterruptedRoll.RollCritical == RollCritical.Success)
 end
 
 

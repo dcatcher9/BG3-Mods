@@ -96,7 +96,8 @@ function DaoHeng.EGUI.Functors_Eat(EGui,Target)
     local foodEntity = Ext.Entity.Get(Food)
     if ( foodEntity:GetComponent("StatusContainer") ~= nil ) then
         -- 快照当前道行天数，避免循环内累加造成指数增长
-        local egui_days = Osi.GetStatusTurns(EGui, 'BANXIAN_DH_DAY_EGUI') or 0
+        local base_days = Osi.GetStatusTurns(EGui, 'BANXIAN_DH_DAY_EGUI') or 0
+        local gained = 0
         for _,entry in pairs(foodEntity.StatusContainer.Statuses) do
           -- 排除持续至长休的状态
           if ( Osi.GetStatusTurns(Food, entry.StatusID.ID) ~= -1 ) then
@@ -105,15 +106,16 @@ function DaoHeng.EGUI.Functors_Eat(EGui,Target)
               Filter = Utils.Filter.Status.IsSpecial(entry.StatusID.ID) or (not Utils.Filter.Status.IsDebuff(entry.StatusID.ID))
             end
             if Filter == false then
-                  local Duration = (Osi.GetStatusTurns(Food, entry.StatusID.ID) or 0) + egui_days
-                  egui_days = Duration  -- 追踪更新后的值供下次循环使用
-                  Osi.ApplyStatus(EGui, 'BANXIAN_DH_DAY_EGUI', Duration*6, 1)
+                  local raw_turns = Osi.GetStatusTurns(Food, entry.StatusID.ID) or 0
+                  gained = gained + raw_turns
                   Osi.RemoveStatus(Food, entry.StatusID.ID)
-                  Osi.SetHitpoints(EGui, Osi.GetHitpoints(EGui)+Duration*6)  --恢复生命值
-                  --Ext.Utils.Print(("触发：饿鬼道·吞食·状态: %s".."道行增加"..Duration):format(entry.StatusID.ID))
-                  --break
+                  Osi.SetHitpoints(EGui, Osi.GetHitpoints(EGui) + raw_turns*6)  --恢复生命值
             end
           end
+        end
+        -- 循环结束后统一更新道行状态，避免每次循环重复触发
+        if gained > 0 then
+            Osi.ApplyStatus(EGui, 'BANXIAN_DH_DAY_EGUI', (base_days + gained)*6, 1)
         end
     end
 
@@ -223,7 +225,7 @@ function DaoHeng.Jian.Animation_Before(ID,Animation)
     local spell = Ext.Stats.Get(ID)
     if not spell then return end
     --_D(spell) --DEBUG
-    PersistentVars['Jiandao_Projectile_AimationBackup'] = spell.SpellAnimation
+    PersistentVars['Jiandao_Projectile_AnimationBackup'] = spell.SpellAnimation
     spell.SpellAnimation = Animation
     spell:Sync()
 
@@ -234,10 +236,10 @@ function DaoHeng.Jian.Animation_After(ID)
     local spell = Ext.Stats.Get(ID)
     if not spell then return end
     --_D(spell) --DEBUG
-    spell.SpellAnimation = PersistentVars['Jiandao_Projectile_AimationBackup']
+    spell.SpellAnimation = PersistentVars['Jiandao_Projectile_AnimationBackup']
     spell:Sync()
 
-    PersistentVars['Jiandao_Projectile_AimationBackup'] = nil
+    PersistentVars['Jiandao_Projectile_AnimationBackup'] = nil
 end
 
 

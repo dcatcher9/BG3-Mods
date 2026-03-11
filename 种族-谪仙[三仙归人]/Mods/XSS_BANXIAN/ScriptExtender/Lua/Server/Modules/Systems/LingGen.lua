@@ -125,31 +125,35 @@ end
 
 --获取角色参数
 function LingGen.GetCharacterParams(Object,a,b,c,d,e,r,TZ)
-    local displayName = Osi.GetDisplayName(Object) or ""
-    if string.find(displayName, 'Astarion') then
+    local origin = Osi.GetOrigin(Object) or ""
+    if origin == 'ORIGIN_ASTARION' then
         a,b,c,d,e,r,TZ = 20,10,30,10,30,100,2
-    elseif string.find(displayName, 'Lae') and string.find(displayName, 'zel') then
+    elseif origin == 'ORIGIN_LAEZEL' then
         a,b,c,d,e,r,TZ = 20,20,120,20,20,200,1
-    elseif string.find(displayName, 'Gale') then
+    elseif origin == 'ORIGIN_GALE' then
         a,b,c,d,e,r,TZ = 8,8,8,8,8,40,5
-    elseif string.find(displayName, 'Shadowheart') then
+    elseif origin == 'ORIGIN_SHADOWHEART' then
         a,b,c,d,e,r,TZ = 40,40,50,50,20,200,1
-    elseif string.find(displayName, 'Wyll') then
+    elseif origin == 'ORIGIN_WYLL' then
         a,b,c,d,e,r,TZ = 0,40,60,0,0,100,2
-    elseif string.find(displayName, 'Jaheira') then
+    elseif origin == 'ORIGIN_JAHEIRA' then
         a,b,c,d,e,r,TZ = 0,40,0,60,100,200,1
-    elseif string.find(displayName, 'Minthara') then
+    elseif origin == 'ORIGIN_MINTHARA' then
         a,b,c,d,e,r,TZ = 60,0,10,30,0,100,2
-    elseif string.find(displayName, 'Minsc') then
+    elseif origin == 'ORIGIN_MINSC' then
         a,b,c,d,e,r,TZ = 20,160,20,0,0,200,1
-    elseif string.find(displayName, 'Halsin') then
+    elseif origin == 'ORIGIN_HALSIN' then
         a,b,c,d,e,r,TZ = 0,0,0,0,100,100,2
-    elseif string.find(displayName, 'Alfira') then
-        a,b,c,d,e,r,TZ = 4,6,4,6,24,40,3
-    elseif string.find(displayName, 'Losiir') then
-        a,b,c,d,e,r,TZ = 10,30,100,40,20,200,1
-    elseif Osi.IsTagged(Object, 'fe825e69-1569-471f-9b3f-28fd3b929683') == 1 then
-        a,b,c,d,e,r,TZ = 16,0,0,2,22,r,TZ
+    else
+        -- Alfira/Losiir没有Origin，回退到名称匹配；谪仙玩家角色检查种族标签
+        local displayName = Osi.GetDisplayName(Object) or ""
+        if string.find(displayName, 'Alfira') then
+            a,b,c,d,e,r,TZ = 4,6,4,6,24,40,3
+        elseif string.find(displayName, 'Losiir') then
+            a,b,c,d,e,r,TZ = 10,30,100,40,20,200,1
+        elseif Osi.IsTagged(Object, 'fe825e69-1569-471f-9b3f-28fd3b929683') == 1 then
+            a,b,c,d,e,r,TZ = 16,0,0,2,22,r,TZ
+        end
     end
     return a,b,c,d,e,r,TZ
 end

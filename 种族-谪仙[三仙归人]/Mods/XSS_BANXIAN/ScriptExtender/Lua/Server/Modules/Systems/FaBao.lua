@@ -551,12 +551,16 @@ end
 
 
 function FaBao.GameLoded_LianQi()
-    --备份原始数据
+    -- 首次加载时无需全量备份；炼器时已逐件保存（FaBao_LianQiSaveStats）
+    -- 仅补存列表中尚未保存过的条目（向前兼容旧存档中的FABAOLIST）
     if PersistentVars['LianQi_OriginalStats_Saved'] ~= 1 then
-        Utils.FaBao_LianQiSaveAllStats("[SaveStatsLianQi]")
+        local k = 1
+        while PersistentVars['FABAOLIST_NO_'..k] ~= nil do
+            Utils.FaBao_LianQiSaveStats(PersistentVars['FABAOLIST_NO_'..k])
+            k = k + 1
+        end
         PersistentVars['LianQi_OriginalStats_Saved'] = 1
     end
-    
 
     FaBao.RestoreStatsForSave()
 end

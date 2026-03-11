@@ -30,11 +30,6 @@
           <attribute id="UUID" type="guid" value="e88ae5a1-576c-4d80-b1a5-ef3f6da00002" />
         </node>
         <node id="SpellList">
-          <attribute id="Comment" type="LSString" value="JD" />
-          <attribute id="Spells" type="LSString" value="BANXIAN_JDChangeResource" />
-          <attribute id="UUID" type="guid" value="e88ae5a1-576c-4d80-b1a5-ef3f6daaa002" />
-        </node>
-        <node id="SpellList">
           <attribute id="Comment" type="LSString" value="JD_Warlock" />
           <attribute id="Spells" type="LSString" value="BANXIAN_JDChangeResource_WarlockSpellSlot" />
           <attribute id="UUID" type="guid" value="e88ae5a1-576c-4d80-b1a5-ef3f6daab002" />

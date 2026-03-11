@@ -30,11 +30,6 @@
           <attribute id="UUID" type="guid" value="fe243d3c-5eed-4a8c-b411-80aff5aaa000" />
           </node>
         <node id="PassiveList">
-          <attribute id="Name" type="FixedString" value="BANXIAN FABAO dadao" />
-          <attribute id="Passives" type="LSString" value="BanXian_DH_Tian,BanXian_DH_XiuLuo,BanXian_DH_RenJian,BanXian_DH_ChuSheng,BanXian_DH_EGui,BanXian_DH_DiYu,BanXian_DH_Jian,BanXian_DH_Li,BanXian_DH_HeHuan,BanXian_DH_Yi" />
-          <attribute id="UUID" type="guid" value="fc2bb64c-817b-4375-860c-758a6bb84003" />
-          </node>
-        <node id="PassiveList">
           <attribute id="Name" type="FixedString" value="BANXIAN DADAO TIAN" />
           <attribute id="Passives" type="LSString" value="BanXian_DH_Tian,BanXian_DH_XiuLuo,BanXian_DH_Jian,BanXian_DH_Li,BanXian_DH_HeHuan,BanXian_DH_Yi" />
           <attribute id="UUID" type="guid" value="fc2bb64c-817b-4375-860c-758a6bb84a03" />

@@ -38,7 +38,7 @@ function EventHandlers.SavegameLoaded()
 end
 
 -- 处理状态应用事件
-function EventHandlers.OnStatusApplied_after(Object, Status, Causee, StoryActionID)
+function EventHandlers.OnStatusApplied_after(Object, Status, Causee)
     --_P('***********DEBUG**************') --DEBUG
     --_P('[谪仙StatusApplied]'..Status) --DEBUG
     if Variables.DEBUG_MODE then
@@ -113,13 +113,14 @@ function EventHandlers.OnLongRestFinished_after()
     Systems.Difficulty.IncreaseDH.LongRest()
 
     -- 长休后刷新境界增益 + 周天淬体诀大周天恢复
-    for key, Object in pairs(PersistentVars) do
-        if string.find(key, 'BANXIANLIST_NO_') and Object ~= nil then
-            Utils.BanXian.JingjieBoost(Object)
-            if Osi.HasPassive(Object, 'CuiTi_ZhouTian_LongBreak') == 1 then
-                Systems.GongFa.Tianxian.ZhouTianCuiTi.LongRest(Object)
-            end
+    local k = 1
+    while PersistentVars['BANXIANLIST_NO_'..k] ~= nil do
+        local Object = PersistentVars['BANXIANLIST_NO_'..k]
+        Utils.BanXian.JingjieBoost(Object)
+        if Osi.HasPassive(Object, 'CuiTi_ZhouTian_LongBreak') == 1 then
+            Systems.GongFa.Tianxian.ZhouTianCuiTi.LongRest(Object)
         end
+        k = k + 1
     end
 
 end

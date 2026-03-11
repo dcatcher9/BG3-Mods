@@ -250,7 +250,7 @@ end
 
 --  获取灵根信息
 function Utils.Get.LingGen(Character)
-    local RESULT = "[灵根配比]（满10点觉醒效果，满50点觉醒天灵根）: \n"
+    local RESULT = "[灵根配比]（满25点觉醒效果，满100点觉醒天灵根）: \n"
     local LingGenNum = {
         ["BANXIAN_LG_H"] = 0,
         ["BANXIAN_LG_T"] = 0,
@@ -586,6 +586,12 @@ end
 function Utils.FaBao_LianQiSaveStats(FABAO)
     local stat = Ext.Stats.Get(FABAO)
     local TYPE_TABLE = Variables.Constants.FaBao.Base
+    -- 维护炼器列表索引，用于游戏加载时精准恢复（避免全量扫描所有武器/防具）
+    if not PersistentVars[FABAO.."_IsFABAO"] then
+        local k = 1
+        while PersistentVars['FABAOLIST_NO_'..k] ~= nil do k = k + 1 end
+        PersistentVars['FABAOLIST_NO_'..k] = FABAO
+    end
     PersistentVars[FABAO.."_IsFABAO"] = true
 
     if stat['ModifierList'] == 'Weapon' then
@@ -993,27 +999,25 @@ end
 --恢复谪仙数据
 function Utils.BanXianList_RecoverStatsStart()
 
-    for key, Object in pairs(PersistentVars) do
-        --_P(key)
-        if string.find(key,'BANXIANLIST_NO_') then
-            if Object ~= nil then
-                Utils.DaDao.UpdateSharedDay(Object)
-                Utils.DaDao.Hehuan(Object)
-                Utils.DaDao.Li(Object)
-                Utils.ShenShi.Check(Object)
-                Utils.BanXian.JingjieBoost(Object)
-                Osi.ApplyStatus(Object, 'SIGNAL_YLG_CHECK', 100, 0)
-                --修正资质点（修复旧存档因NIL判断错误导致TZ=1的bug）
-                local TZ = Osi.GetStatusTurns(Object, 'BANXIAN_LG_TZ') or 0
-                if Osi.HasPassive(Object, 'BanXian_LingGen_T0') == 1 and TZ < 6 then
-                    Osi.ApplyStatus(Object, 'BANXIAN_LG_TZ', math.random(6,10) * 6)
-                elseif Osi.HasPassive(Object, 'BanXian_LingGen_T1') == 1 and TZ < 3 then
-                    Osi.ApplyStatus(Object, 'BANXIAN_LG_TZ', math.random(3,5) * 6)
-                elseif Osi.HasPassive(Object, 'BanXian_LingGen_T2') == 1 and TZ ~= 2 then
-                    Osi.ApplyStatus(Object, 'BANXIAN_LG_TZ', 12)
-                end
-            end
+    local k = 1
+    while PersistentVars['BANXIANLIST_NO_'..k] ~= nil do
+        local Object = PersistentVars['BANXIANLIST_NO_'..k]
+        Utils.DaDao.UpdateSharedDay(Object)
+        Utils.DaDao.Hehuan(Object)
+        Utils.DaDao.Li(Object)
+        Utils.ShenShi.Check(Object)
+        Utils.BanXian.JingjieBoost(Object)
+        Osi.ApplyStatus(Object, 'SIGNAL_YLG_CHECK', 100, 0)
+        --修正资质点（修复旧存档因NIL判断错误导致TZ=1的bug）
+        local TZ = Osi.GetStatusTurns(Object, 'BANXIAN_LG_TZ') or 0
+        if Osi.HasPassive(Object, 'BanXian_LingGen_T0') == 1 and TZ < 6 then
+            Osi.ApplyStatus(Object, 'BANXIAN_LG_TZ', math.random(6,10) * 6)
+        elseif Osi.HasPassive(Object, 'BanXian_LingGen_T1') == 1 and TZ < 3 then
+            Osi.ApplyStatus(Object, 'BANXIAN_LG_TZ', math.random(3,5) * 6)
+        elseif Osi.HasPassive(Object, 'BanXian_LingGen_T2') == 1 and TZ ~= 2 then
+            Osi.ApplyStatus(Object, 'BANXIAN_LG_TZ', 12)
         end
+        k = k + 1
     end
 
 end
