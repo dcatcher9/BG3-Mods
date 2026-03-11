@@ -128,7 +128,10 @@ function DanYao.Function.WuYunDan(Object)
     local r = 20
 
     --确定提升系数,移除资质被动
-    if LG_TZ == 1 then
+    if LG_TZ == 0 then
+        LG_TZ = 1
+        r = 100  -- 初次服用，必然成功
+    elseif LG_TZ == 1 then
         LG_TZ = 2
         r = 50
     elseif LG_TZ == 2 then
@@ -142,8 +145,10 @@ function DanYao.Function.WuYunDan(Object)
         r = 10
     end
 
-    Osi.ApplyStatus(Object,'BANXIAN_LG_TZ', LG_TZ * 6)
-    
+    if math.random(1, 100) <= r then
+        Osi.ApplyStatus(Object,'BANXIAN_LG_TZ', LG_TZ * 6)
+    end
+
 end
 
 

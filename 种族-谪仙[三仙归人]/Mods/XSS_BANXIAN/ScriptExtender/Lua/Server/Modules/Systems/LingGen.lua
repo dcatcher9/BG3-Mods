@@ -151,7 +151,7 @@ function LingGen.GetCharacterParams(Object,a,b,c,d,e,r,TZ)
             a,b,c,d,e,r,TZ = 4,6,4,6,24,40,3
         elseif string.find(displayName, 'Losiir') then
             a,b,c,d,e,r,TZ = 10,30,100,40,20,200,1
-        elseif Osi.IsTagged(Object, 'fe825e69-1569-471f-9b3f-28fd3b929683') == 1 then
+        elseif Osi.IsTagged(Object, 'fe825e69-1569-471f-9b3f-28fd3b929683') == 1 then  -- 谪仙种族标签 UUID（见 Public/XSS_BANXIAN/Tags/）
             a,b,c,d,e,r,TZ = 16,0,0,2,22,r,TZ
         end
     end

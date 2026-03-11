@@ -77,10 +77,12 @@ end
 --双持攻击·千机
 function Base.TianXian.DualAttack_Before(Caster)
     local entity = Ext.Entity.Get(Caster)
-    local BP = math.floor(entity.ActionResources.Resources[Variables.Constants.BonusActionPoint_UUID][1].Amount)
+    local res = entity.ActionResources.Resources[Variables.Constants.BonusActionPoint_UUID]
+    if not res or not res[1] then return end
+    local BP = math.floor(res[1].Amount)
 
     if BP == 0 then
-        entity.ActionResources.Resources[Variables.Constants.BonusActionPoint_UUID][1].Amount = 1
+        res[1].Amount = 1
         entity:Replicate("ActionResources")
     end
 end
