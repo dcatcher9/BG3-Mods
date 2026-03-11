@@ -173,7 +173,7 @@ type "PassiveData"
 using "CuiTi_ZhouTian_1"
 data "DisplayName" "stringsofmodmadebyxss20240930dv002a06;1"
 data "Description" "stringsofmodmadebyxss20240930dv002b06;1"
-data "Boosts" "DamageReduction(Slashing, Flat, BanXianDice);DamageReduction(Piercing, Flat, BanXianDice);DamageReduction(Bludgeoning, Flat, BanXianDice)"
+data "Boosts" "DamageReduction(Slashing, Flat, LevelMapValue(BanXianDice));DamageReduction(Piercing, Flat, LevelMapValue(BanXianDice));DamageReduction(Bludgeoning, Flat, LevelMapValue(BanXianDice))"
 
 new entry "CuiTi_ZhouTian_7"
 type "PassiveData"

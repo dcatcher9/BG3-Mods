@@ -108,10 +108,8 @@ data "DisplayName" "stringsofmodmadebyxss20250218bca00a09;1"
 data "Description" "stringsofmodmadebyxss20250218bca00b09;1"  
 data "ExtraDescription" "stringsofmodmadebyxss20250218bca00c09;1"
 data "Boosts" "IF(not WearingArmor(context.Source)):ACOverrideFormula(21,true,Dexterity);  Initiative(12);  ReduceCriticalAttackThreshold(9);  ActionResource(Movement,27,0);ActionResource(ReactionActionPoint,6,0);  Ability(All,10);  Resistance(Physical,Immune);  DamageReduction(All,Flat,81);  DamageReduction(All,Threshold,MaxHP)"
-// TickType and TickFunctors are StatusData-only fields; they are ignored on PassiveData.
-// TODO: Implement this logic via a StatusData-based approach or OnTurn StatsFunctors.
-// data "TickType" "StartTurn"
-// data "TickFunctors" "RemoveStatus(SG_Blinded);RemoveStatus(SG_Disease);RemoveStatus(SG_Exhausted);RemoveStatus(SG_Poisoned);RemoveStatus(SG_Frightened);RemoveStatus(SG_Charmed);RemoveStatus(SG_Cursed);RemoveStatus(SG_Possessed);RemoveStatus(SG_Madness);IF(HasHPPercentageLessThan(100)):RegainHitPoints(MaxHP)"
+data "StatsFunctorContext" "OnTurn"
+data "StatsFunctors" "RemoveStatus(SG_Blinded);RemoveStatus(SG_Disease);RemoveStatus(SG_Exhausted);RemoveStatus(SG_Poisoned);RemoveStatus(SG_Frightened);RemoveStatus(SG_Charmed);RemoveStatus(SG_Cursed);RemoveStatus(SG_Possessed);RemoveStatus(SG_Madness);IF(HasHPPercentageLessThan(100)):RegainHitPoints(MaxHP)"
 
 
 
@@ -351,7 +349,7 @@ new entry "BANXIAN_DEVILFORMS_9"
 type "StatusData"
 data "StatusType" "BOOST"
 using "BANXIAN_DEVILFORMS_1"
-data "Boosts" "UnlockSpellVariant(HasSpellFlag(SpellFlags.Melee),ModifyTargetRadius(Multiplicative,13.02));Advantage(Ability, Strength);Advantage(SavingThrow, Strength);CharacterWeaponDamage(9d20);ObjectSize(+9);ScaleMultiplier(13.02);CharacterUnarmedDamage(9d20);CarryCapacityMultiplier(7.93);   RollBonus(Attack, StrengthModifier+9);ActionResourceMultiplier(Movement,900,0);IncreaseMaxHP(LevelMapValue(BanXiangHP)*8);  ActionResource(ActionPoint,4,0);ActionResource(BonusActionPoint,4,0);  Advantage(SavingThrow,All);RollBonus(SavingThrow,9);  IgnoreResistance(Physical,Immune);  IF(IsMeleeAttack()):DamageBonus((MaxHP-context.Source.HP)*5)"
+data "Boosts" "UnlockSpellVariant(HasSpellFlag(SpellFlags.Melee),ModifyTargetRadius(Multiplicative,13.02));Advantage(Ability, Strength);Advantage(SavingThrow, Strength);CharacterWeaponDamage(9d20);ObjectSize(+6);ScaleMultiplier(13.02);CharacterUnarmedDamage(9d20);CarryCapacityMultiplier(7.93);   RollBonus(Attack, StrengthModifier+9);ActionResourceMultiplier(Movement,900,0);IncreaseMaxHP(LevelMapValue(BanXiangHP)*8);  ActionResource(ActionPoint,4,0);ActionResource(BonusActionPoint,4,0);  Advantage(SavingThrow,All);RollBonus(SavingThrow,9);  IgnoreResistance(Physical,Immune);  IF(IsMeleeAttack()):DamageBonus((MaxHP-context.Source.HP)*5)"
 
 
 
@@ -754,7 +752,7 @@ data "StatusEffect" "d56b562b-f434-4521-b11e-b4e5083af370"
 
 
 
-//天赋神通·对流血目标发动的近战攻击获得劣势，但必定为重击
+//天赋神通·解锁赤龙本相，并使火焰咒语消耗降低
 new entry "BANXIAN_Yao_RedDragon"
 type "PassiveData"
 data "Properties" "IsToggled;ToggledDefaultOn;ToggledDefaultAddToHotbar;Highlighted"

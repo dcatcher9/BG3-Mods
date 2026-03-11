@@ -222,7 +222,7 @@ function LingGen.Add_First(Object)
             -- 主属性分配（占60%-80%权重）
             local max_ratio = (r <= 15) and 0.8 or 0.6
             local min_ratio = (r <= 15) and 0.6 or 0.4
-            local ratio = math.random(min_ratio * 100, max_ratio * 100) / 100
+            local ratio = math.random(math.floor(min_ratio * 100), math.ceil(max_ratio * 100)) / 100
             local value = math.floor(remaining * ratio / #Pf)
             
             -- 分配灵根权重

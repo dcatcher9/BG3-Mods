@@ -59,7 +59,7 @@ end
 
 function BLEEDINGPercentageMoreThan(value,entity)
     local entity = entity or context.Source
-    local result = GetStatusDuration('BLEEDING', entity) > (entity.MaxHP * value)/100
+    local result = GetStatusDuration('BLEEDING', entity) > value
     return ConditionResult(result)
 end
 
