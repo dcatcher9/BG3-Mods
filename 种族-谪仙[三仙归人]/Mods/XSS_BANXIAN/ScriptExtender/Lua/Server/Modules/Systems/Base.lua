@@ -116,7 +116,7 @@ function Base.ShenTong.TianXian.Transform_Cancel(Caster, Status)
                 if PassiveID ~= nil then
                     Osi.RemovePassive(Caster, PassiveID)
                     PersistentVars['BanXian_36_CopyPassives_Constant_'..Caster.."_"..i] = nil  --清空变身被动组
-                    Ext.Utils.Print("[神通·天罡·三十六变·解除变身]: 移除被动："..PassiveID)  --debug
+                    --Ext.Utils.Print("[神通·天罡·三十六变·解除变身]: 移除被动："..PassiveID)  --debug
                 end
     
             end
@@ -131,13 +131,13 @@ function Base.ShenTong.TianXian.Transform_Cancel(Caster, Status)
                     if Osi.HasActiveStatus(Caster,StatusID) == 1 then
                         Osi.RemoveStatus(Caster, StatusID)
                         PersistentVars['BanXian_36_CopyStatus_Constant_'..Caster.."_"..j] = nil  --清空变身被动组
-                        Ext.Utils.Print("[神通·天罡·三十六变·解除变身]: 移除状态："..StatusID)  --debug
+                        --Ext.Utils.Print("[神通·天罡·三十六变·解除变身]: 移除状态："..StatusID)  --debug
                     end
                 end
     
             end
         end
-    Ext.Utils.Print("变身：变回原形")--debug
+    --Ext.Utils.Print("变身：变回原形")--debug
     
 end
 
@@ -148,10 +148,10 @@ function Base.ShenTong.TianXian.Transform(Caster, Target, Name)
 
     if Name == 'BANXIAN_Polymorph_72' then
         Base.ShenTong.TianXian.Transform_Apply(Caster, Target, '34ad98e7-b7e4-4563-9772-e23f75c7c85f')
-        Ext.Utils.Print("神通·地煞·七十二变：变身"..Target)--debug
+        --Ext.Utils.Print("神通·地煞·七十二变：变身"..Target)--debug
     elseif Name == 'BANXIAN_Polymorph_36' then
         Base.ShenTong.TianXian.Transform_Apply(Caster, Target, 'b5b23794-f4d1-42e5-97ba-0a0906b00e69')
-        Ext.Utils.Print("神通·天罡·三十六变：变身"..Target)--debug
+        --Ext.Utils.Print("神通·天罡·三十六变：变身"..Target)--debug
     end
     
     if Osi.IsInCombat(Caster) == 0 then

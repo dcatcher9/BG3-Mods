@@ -51,7 +51,7 @@
           </node>
         <node id="PassiveList">
           <attribute id="Name" type="FixedString" value="BANXIAN BENXIANG YAO" />
-          <attribute id="Passives" type="LSString" value="BANXIAN_Yao_Bear,BANXIAN_Yao_Raven,BANXIAN_Yao_Crab,BANXIAN_Yao_Frog,BANXIAN_Yao_Panther,BANXIAN_Yao_Rat,BANXIAN_Yao_SaberTooth,BANXIAN_Yao_Spider,BANXIAN_Yao_Wolf" />
+          <attribute id="Passives" type="LSString" value="BANXIAN_Yao_Bear,BANXIAN_Yao_Raven,BANXIAN_Yao_Crab,BANXIAN_Yao_Frog,BANXIAN_Yao_Panther,BANXIAN_Yao_Rat,BANXIAN_Yao_SaberTooth,BANXIAN_Yao_Spider,BANXIAN_Yao_Wolf,BANXIAN_Yao_RedDragon" />
           <attribute id="UUID" type="guid" value="a4d51edf-392e-4825-83be-1ee66e4a4258" />
           </node>
         <node id="PassiveList">

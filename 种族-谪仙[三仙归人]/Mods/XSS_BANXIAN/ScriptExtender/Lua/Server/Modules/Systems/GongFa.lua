@@ -50,36 +50,27 @@ function GongFa.Tianxian.ZhouTianCuiTi.Check(Object)
 end
 
 
---周天淬体诀:SHORTREST
-function GongFa.Tianxian.ZhouTianCuiTi.ShortRest(Object)
+--周天淬体诀：恢复指定补给类型的所有资源
+local function ZhouTianRestoreResources(Object, replenishType)
     local entity = Ext.Entity.Get(Object)
-    --_D(entity.ActionResources) --DEBUG
-
     for _, ResourceList in pairs(entity.ActionResources.Resources) do
-        for _, Resource in ipairs(ResourceList) do -- ResourceList是GUID对应的资源列表
-            if Resource.ReplenishType == "ShortRest" then
+        for _, Resource in ipairs(ResourceList) do
+            if Resource.ReplenishType == replenishType then
                 Resource.Amount = Resource.MaxAmount
             end
         end
     end
     entity:Replicate("ActionResources")
+end
 
+--周天淬体诀:SHORTREST
+function GongFa.Tianxian.ZhouTianCuiTi.ShortRest(Object)
+    ZhouTianRestoreResources(Object, "ShortRest")
 end
 
 --周天淬体诀:LONGREST
 function GongFa.Tianxian.ZhouTianCuiTi.LongRest(Object)
-    local entity = Ext.Entity.Get(Object)
-    --_D(entity.ActionResources) --DEBUG
-
-    for _, ResourceList in pairs(entity.ActionResources.Resources) do
-        for _, Resource in ipairs(ResourceList) do -- ResourceList是GUID对应的资源列表
-            if Resource.ReplenishType == "Rest" then
-                Resource.Amount = Resource.MaxAmount
-            end
-        end
-    end
-    entity:Replicate("ActionResources")
-
+    ZhouTianRestoreResources(Object, "Rest")
 end
 
 --百脉锻宝诀

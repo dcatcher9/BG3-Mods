@@ -81,7 +81,7 @@ function DaoHeng.EGUI.Functors_Steal(Object, BanXian)
                 end
                     Osi.ApplyStatus(BanXian, entry.StatusID.ID, Duration*6)
                     Osi.RemoveStatus(Object, entry.StatusID.ID)
-                    Ext.Utils.Print(("触发：饿鬼道·偷取·状态: %s"):format(entry.StatusID.ID))
+                    --Ext.Utils.Print(("触发：饿鬼道·偷取·状态: %s"):format(entry.StatusID.ID))
                     --break
               end
             end
@@ -110,7 +110,7 @@ function DaoHeng.EGUI.Functors_Eat(EGui,Target)
                   Osi.ApplyStatus(EGui, 'BANXIAN_DH_DAY_EGUI', Duration*6, 1)
                   Osi.RemoveStatus(Food, entry.StatusID.ID)
                   Osi.SetHitpoints(EGui, Osi.GetHitpoints(EGui)+Duration*6)  --恢复生命值
-                  Ext.Utils.Print(("触发：饿鬼道·吞食·状态: %s".."道行增加"..Duration):format(entry.StatusID.ID))
+                  --Ext.Utils.Print(("触发：饿鬼道·吞食·状态: %s".."道行增加"..Duration):format(entry.StatusID.ID))
                   --break
             end
           end

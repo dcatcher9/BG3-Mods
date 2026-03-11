@@ -51,6 +51,7 @@ function DanYao.Drop.YaoCai(Object)
         local id = item.id
         local tag = item.tag
         local factor = item.factor
+        local minlevel = item.minlevel
         local droplevel = item.droplevel
         local Level_Ex = math.random(1, (Level + 4) * 40)
 
@@ -78,7 +79,7 @@ function DanYao.Drop.YaoCai(Object)
         end
 
         -- 判断是否掉落
-        if Level_Ex <= Level and (not droplevel or Level >= droplevel) then
+        if Level_Ex <= Level and (not minlevel or Level >= minlevel) and (not droplevel or Level >= droplevel) then
             local templateID = id < 10 and '987e1e7e-9656-4fdf-a0d2-e745bca00a0'..id or '987e1e7e-9656-4fdf-a0d2-e745bca00a'..id
             Osi.TemplateAddTo(templateID, Object, Amount, 1)
             --_P("[DanYao.Drop.YaoCai] 掉落宝材：ID=", id, ", 数量=", Amount)  --DEBUG

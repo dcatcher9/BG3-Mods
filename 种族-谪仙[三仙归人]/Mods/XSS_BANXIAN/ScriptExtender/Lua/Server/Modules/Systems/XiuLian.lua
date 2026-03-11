@@ -21,7 +21,7 @@ function XiuLian.Ki_Take(Object)
     local Level = Osi.GetLevel(Object)
     local ConstitutionModifier = math.max(0,((Osi.GetAbility(Object, 'Constitution') - 10)/2))
     local WisdomModifier = math.max(0,((Osi.GetAbility(Object, 'Wisdom') - 10)/2))
-    local TZ = Osi.GetStatusTurns(Object, 'BANXIAN_LG_TZ')
+    local TZ = Osi.GetStatusTurns(Object, 'BANXIAN_LG_TZ') or 0
 
     --获取灵根
     local LG_H,LG_T,LG_J,LG_S,LG_M,_ = Utils.Get.LingGen(Object)

@@ -745,40 +745,30 @@ function Utils.DaDao.UpdateSharedDay(Character)
     end
 end
 
+--刷新大道增益（通用）：按年数动态创建并应用一个 Ability 加值状态
+local function ApplyDaoDaoAbilityBoost(Object, daySuffix, passiveId, statusPrefix, abilityName)
+    local DH_DAY = Osi.GetStatusTurns(Object, 'BANXIAN_DH_DAY_'..daySuffix)
+    if DH_DAY == nil then return end
+    local DH_YEAR = math.floor(DH_DAY / 365)
+    if DH_YEAR >= 1 and Osi.HasPassive(Object, passiveId) == 1 and Osi.HasActiveStatus(Object, statusPrefix..'_'..DH_YEAR) == 0 then
+        local statusName = statusPrefix..'_'..DH_YEAR
+        if Ext.Stats.Get(statusName) == nil then
+            local Stats = Ext.Stats.Create(statusName, 'StatusData', statusPrefix)
+            Stats.Boosts = "Ability("..abilityName..","..DH_YEAR..")"
+            Stats:Sync()
+        end
+        Osi.ApplyStatus(Object, statusName, -1, 1, Object)
+    end
+end
+
 --刷新大道增益：力道
 function Utils.DaDao.Li(Object)
-    local DH_DAY = Osi.GetStatusTurns(Object, 'BANXIAN_DH_DAY_LI')
-    if DH_DAY ~= nil then
-        local DH_YEAR = math.floor(DH_DAY / 365)
-        if DH_YEAR >= 1 and Osi.HasPassive(Object,'BanXian_DH_Li') == 1 and Osi.HasActiveStatus(Object, 'BanXian_DH_STR_'..DH_YEAR) == 0 then
-            if Ext.Stats.Get('BanXian_DH_STR_'..DH_YEAR) ~= nil then
-                Osi.ApplyStatus(Object, 'BanXian_DH_STR_'..DH_YEAR, -1, 1, Object)
-            else
-                local Stats = Ext.Stats.Create('BanXian_DH_STR_'..DH_YEAR, 'StatusData', 'BanXian_DH_STR')
-                Stats.Boosts = "Ability(Strength,"..DH_YEAR..")"
-                Stats:Sync()
-                Osi.ApplyStatus(Object, 'BanXian_DH_STR_'..DH_YEAR, -1, 1, Object)
-            end
-        end
-    end
+    ApplyDaoDaoAbilityBoost(Object, 'LI', 'BanXian_DH_Li', 'BanXian_DH_STR', 'Strength')
 end
 
 --刷新大道增益：合欢道
 function Utils.DaDao.Hehuan(Object)
-    local DH_DAY = Osi.GetStatusTurns(Object, 'BANXIAN_DH_DAY_HEHUAN')
-    if DH_DAY ~= nil then
-        local DH_YEAR = math.floor(DH_DAY / 365)
-        if DH_YEAR >= 1 and Osi.HasPassive(Object,'BanXian_DH_HeHuan') == 1 and Osi.HasActiveStatus(Object, 'BanXian_DH_CHA_'..DH_YEAR) == 0 then
-            if Ext.Stats.Get('BanXian_DH_CHA_'..DH_YEAR) ~= nil then
-                Osi.ApplyStatus(Object, 'BanXian_DH_CHA_'..DH_YEAR, -1, 1, Object)
-            else
-                local Stats = Ext.Stats.Create('BanXian_DH_CHA_'..DH_YEAR, 'StatusData', 'BanXian_DH_CHA')
-                Stats.Boosts = "Ability(Charisma,"..DH_YEAR..")"
-                Stats:Sync()
-                Osi.ApplyStatus(Object, 'BanXian_DH_CHA_'..DH_YEAR, -1, 1, Object)
-            end
-        end
-    end
+    ApplyDaoDaoAbilityBoost(Object, 'HEHUAN', 'BanXian_DH_HeHuan', 'BanXian_DH_CHA', 'Charisma')
 end
 
 
@@ -845,8 +835,8 @@ function Utils.GongFa.BaiMai.CopyPassives_2(Object)
     end
 
     --穿上装备
-    for _, slot in ipairs(_BaiMai_WNP_Constant) do
-      Osi.Equip(Object, slot, 1, 1)
+    for _, item_guid in ipairs(_BaiMai_WNP_Constant) do
+      Osi.Equip(Object, item_guid, 1, 1)
     end
 
     --清空临时储存表

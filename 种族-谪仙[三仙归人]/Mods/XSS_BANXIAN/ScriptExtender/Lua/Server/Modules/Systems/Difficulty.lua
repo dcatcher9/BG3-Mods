@@ -20,7 +20,7 @@ function Difficulty.Init()
     -- 注册MessageBoxYesNoClosed
     Ext.Osiris.RegisterListener("MessageBoxYesNoClosed", 3, "after", Difficulty.OnMessageBoxYesNoClosed_after)
 
-    -- 注册MessageBoxYesNoClosed
+    -- 注册MessageBoxChoiceClosed
     Ext.Osiris.RegisterListener("MessageBoxChoiceClosed", 3, "after", Difficulty.OnMessageBoxChoiceClosed_after)
 
     -- 注册进入战斗：洪荒时代模式下为敌方NPC施加BANXIAN_HARDCORE触发全员修仙
@@ -64,14 +64,9 @@ function Difficulty.HardCore.Start(Object)
 
     --开始分配大道
     if #DaDao_table > 0 then
-        local key = math.random(1,#DaDao_table)
-        for i, Name in ipairs(DaDao_table) do
-            if i == key then
-                local DaDao = Utils.Get.DaDaoPassive(Name)
-                Utils.AddPassive_Safe(Object,DaDao) --添加大道
-                break
-            end
-        end
+        local Name = DaDao_table[math.random(#DaDao_table)]
+        local DaDao = Utils.Get.DaDaoPassive(Name)
+        Utils.AddPassive_Safe(Object, DaDao) --添加大道
     end
 
     --添加道行
@@ -116,7 +111,9 @@ end
 function Difficulty.IncreaseDH.LongRest()
     for key, Object in pairs(PersistentVars) do
         if string.find(key,'BANXIANLIST_NO_') and Osi.IsPlayer(Object) == 0 then
-            if Object ~= nil and Osi.IsDead(Object) == 0 then
+            if Object ~= nil and Osi.IsDead(Object) == 1 then
+                PersistentVars[key] = nil  -- 清除已死亡的NPC记录，防止列表无限增长
+            elseif Object ~= nil and Osi.IsDead(Object) == 0 then
                 local Level = Osi.GetLevel(Object)
                 local IsBoss = Osi.IsBoss(Object)
                 local Days = PersistentVars['GAME_DAYS'] or 1 --获取当前天数
