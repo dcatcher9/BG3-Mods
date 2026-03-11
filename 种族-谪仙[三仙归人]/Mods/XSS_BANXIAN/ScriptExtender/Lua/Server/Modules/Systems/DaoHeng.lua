@@ -88,7 +88,7 @@ function DaoHeng.EGUI.Functors_Steal(Object, BanXian)
             end
         end
     end
-    
+
 end
 
 --饿鬼道吞食状态
@@ -200,7 +200,8 @@ function DaoHeng.HeHuan.FollowerProtect(Defender, Attacker, DamageType, DamageAm
     for i = 1, count, 1 do
         if PersistentVars['[HEHUAN_FOLLOWER]'..Leader..'_'..i] ~= nil then
             Osi.ApplyDamage(PersistentVars['[HEHUAN_FOLLOWER]'..Leader..'_'..i], DamageAmount, DamageType, Attacker)
-            Osi.SetHitpoints(Defender, Osi.GetHitpoints(Defender)+DamageAmount)
+            local newHP = math.min(Osi.GetHitpoints(Defender) + DamageAmount, Osi.GetMaxHitpoints(Defender))
+            Osi.SetHitpoints(Defender, newHP)
             break
         end
     end

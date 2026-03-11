@@ -674,15 +674,15 @@ function Utils.LingGen.Random(_)
     local r, TZ = 100,1
     local z = math.random(1, 1000000)
     if z <= 5000 then         -- 0.5% 先天道体（T0）
-        r, TZ = 100, math.random(6,10)
+        r, TZ = 200, math.random(6,10)
     elseif z <= 30000 then    -- 2.5% 大帝之资（T1）
-        r, TZ = 50, math.random(3,5)
+        r, TZ = 100, math.random(3,5)
     elseif z <= 100000 then   -- 7% 先天慧根（T2）
-        r, TZ = 20, 2
+        r, TZ = 40, 2
     elseif z <= 300000 then   -- 20% 平平无奇（T3）
-        r, TZ = 10, 1
+        r, TZ = 20, 1
     else                      -- 70% 灵根破碎（NIL）
-        r, TZ = 5, 1
+        r, TZ = 10, 1
     end
     return r, TZ
 end

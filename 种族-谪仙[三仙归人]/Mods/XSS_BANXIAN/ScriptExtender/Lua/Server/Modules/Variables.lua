@@ -1,5 +1,7 @@
 local Variables = {}
 
+Variables.DEBUG_MODE = false
+
 -- 常量
 Variables.Constants = {
     BonusActionPoint_UUID = '420c8df5-45c2-4253-93c2-7ec44e127930',

@@ -33,125 +33,51 @@ function LingGen.ApplyTierLingGen_Check(Object, TLG, tian_c, xian_c, sheng_c)
     end
 end
 
---异灵根检测（N=凡阈值10；TIAN=天阈值50；XIAN=仙阈值150；SHENG=圣阈值500）
+-- 异灵根定义表（YI=50；TIAN=200；XIAN=600；SHENG=2000）
+-- 参数映射: a=火(H), b=土(T), c=金(J), d=水(S), e=木(M)
+local YI_LING_GEN_DEFS = {
+    { status = 'BANXIAN_LG_BING',   components = {'d', 'b'} },                          -- 冰: 水+土
+    { status = 'BANXIAN_LG_XUE',    components = {'e', 'a'} },                          -- 血: 木+火
+    { status = 'BANXIAN_LG_LEI',    components = {'c', 'd'} },                          -- 雷: 金+水
+    { status = 'BANXIAN_LG_FENG',   components = {'b', 'e'} },                          -- 风: 土+木
+    { status = 'BANXIAN_LG_GUANG',  components = {'a', 'e', 'b'} },                     -- 光: 火+木+土
+    { status = 'BANXIAN_LG_AN',     components = {'d', 'c', 'e'} },                     -- 暗: 水+金+木
+    { status = 'BANXIAN_LG_DU',     components = {'e', 'a', 'd'} },                     -- 毒: 木+火+水
+    { status = 'BANXIAN_LG_HUNDUN', components = {'a', 'b', 'c', 'd', 'e'} },           -- 混沌: 五行皆备
+}
+
+--异灵根检测（YI=50；TIAN=200；XIAN=600；SHENG=2000）
 function LingGen.ApplyYiLingGen_Check(Object, a, b, c, d, e)
 
     if not a then a,b,c,d,e = Utils.Get.LingGen(Object) end
-    local N     = 10   -- 凡
-    local TIAN  = 50   -- 天
-    local XIAN  = 150  -- 仙
-    local SHENG = 500  -- 圣
+    local YI    = 50   -- 异
+    local TIAN  = 200  -- 天异 (× 2)
+    local XIAN  = 600  -- 仙异 (× 2)
+    local SHENG = 2000 -- 圣异 (× 2)
 
-    -- 冰灵根: 水+土
-    if d >= N and b >= N then
-        Osi.ApplyStatus(Object, 'BANXIAN_LG_BING', -1)
-        LingGen.ApplyTierLingGen_Check(Object, 'BANXIAN_LG_BING',
-            d >= TIAN  and b >= TIAN,
-            d >= XIAN  and b >= XIAN,
-            d >= SHENG and b >= SHENG)
-    else
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_BING')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_BING_TIAN')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_BING_XIAN')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_BING_SHENG')
-    end
+    local vals = { a = a, b = b, c = c, d = d, e = e }
 
-    -- 血灵根: 木+火
-    if e >= N and a >= N then
-        Osi.ApplyStatus(Object, 'BANXIAN_LG_XUE', -1)
-        LingGen.ApplyTierLingGen_Check(Object, 'BANXIAN_LG_XUE',
-            e >= TIAN  and a >= TIAN,
-            e >= XIAN  and a >= XIAN,
-            e >= SHENG and a >= SHENG)
-    else
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_XUE')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_XUE_TIAN')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_XUE_XIAN')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_XUE_SHENG')
-    end
-
-    -- 雷灵根: 金+水
-    if c >= N and d >= N then
-        Osi.ApplyStatus(Object, 'BANXIAN_LG_LEI', -1)
-        LingGen.ApplyTierLingGen_Check(Object, 'BANXIAN_LG_LEI',
-            c >= TIAN  and d >= TIAN,
-            c >= XIAN  and d >= XIAN,
-            c >= SHENG and d >= SHENG)
-    else
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_LEI')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_LEI_TIAN')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_LEI_XIAN')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_LEI_SHENG')
-    end
-
-    -- 风灵根: 土+木
-    if b >= N and e >= N then
-        Osi.ApplyStatus(Object, 'BANXIAN_LG_FENG', -1)
-        LingGen.ApplyTierLingGen_Check(Object, 'BANXIAN_LG_FENG',
-            b >= TIAN  and e >= TIAN,
-            b >= XIAN  and e >= XIAN,
-            b >= SHENG and e >= SHENG)
-    else
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_FENG')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_FENG_TIAN')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_FENG_XIAN')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_FENG_SHENG')
-    end
-
-    -- 光灵根: 火+木+土
-    if a >= N and e >= N and b >= N then
-        Osi.ApplyStatus(Object, 'BANXIAN_LG_GUANG', -1)
-        LingGen.ApplyTierLingGen_Check(Object, 'BANXIAN_LG_GUANG',
-            a >= TIAN  and e >= TIAN  and b >= TIAN,
-            a >= XIAN  and e >= XIAN  and b >= XIAN,
-            a >= SHENG and e >= SHENG and b >= SHENG)
-    else
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_GUANG')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_GUANG_TIAN')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_GUANG_XIAN')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_GUANG_SHENG')
-    end
-
-    -- 暗灵根: 水+金+木
-    if d >= N and c >= N and e >= N then
-        Osi.ApplyStatus(Object, 'BANXIAN_LG_AN', -1)
-        LingGen.ApplyTierLingGen_Check(Object, 'BANXIAN_LG_AN',
-            d >= TIAN  and c >= TIAN  and e >= TIAN,
-            d >= XIAN  and c >= XIAN  and e >= XIAN,
-            d >= SHENG and c >= SHENG and e >= SHENG)
-    else
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_AN')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_AN_TIAN')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_AN_XIAN')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_AN_SHENG')
-    end
-
-    -- 毒灵根: 木+火+水
-    if e >= N and a >= N and d >= N then
-        Osi.ApplyStatus(Object, 'BANXIAN_LG_DU', -1)
-        LingGen.ApplyTierLingGen_Check(Object, 'BANXIAN_LG_DU',
-            e >= TIAN  and a >= TIAN  and d >= TIAN,
-            e >= XIAN  and a >= XIAN  and d >= XIAN,
-            e >= SHENG and a >= SHENG and d >= SHENG)
-    else
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_DU')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_DU_TIAN')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_DU_XIAN')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_DU_SHENG')
-    end
-
-    -- 混沌灵根: 五行皆备
-    if a >= N and b >= N and c >= N and d >= N and e >= N then
-        Osi.ApplyStatus(Object, 'BANXIAN_LG_HUNDUN', -1)
-        LingGen.ApplyTierLingGen_Check(Object, 'BANXIAN_LG_HUNDUN',
-            a >= TIAN  and b >= TIAN  and c >= TIAN  and d >= TIAN  and e >= TIAN,
-            a >= XIAN  and b >= XIAN  and c >= XIAN  and d >= XIAN  and e >= XIAN,
-            a >= SHENG and b >= SHENG and c >= SHENG and d >= SHENG and e >= SHENG)
-    else
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_HUNDUN')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_HUNDUN_TIAN')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_HUNDUN_XIAN')
-        Osi.RemoveStatus(Object, 'BANXIAN_LG_HUNDUN_SHENG')
+    for _, def in ipairs(YI_LING_GEN_DEFS) do
+        local ok = true
+        for _, comp in ipairs(def.components) do
+            if (vals[comp] or 0) < YI then ok = false; break end
+        end
+        if ok then
+            Osi.ApplyStatus(Object, def.status, -1)
+            local tian_c, xian_c, sheng_c = true, true, true
+            for _, comp in ipairs(def.components) do
+                local v = vals[comp] or 0
+                if v < TIAN  then tian_c  = false end
+                if v < XIAN  then xian_c  = false end
+                if v < SHENG then sheng_c = false end
+            end
+            LingGen.ApplyTierLingGen_Check(Object, def.status, tian_c, xian_c, sheng_c)
+        else
+            Osi.RemoveStatus(Object, def.status)
+            Osi.RemoveStatus(Object, def.status .. '_TIAN')
+            Osi.RemoveStatus(Object, def.status .. '_XIAN')
+            Osi.RemoveStatus(Object, def.status .. '_SHENG')
+        end
     end
 
 end
@@ -163,14 +89,14 @@ function LingGen.ApplyAllChecks(Object)
     LingGen.ApplyTopLingGen_Check(Object, a, b, c, d, e)
 end
 
---主灵根检测（凡10/天50/仙150/圣500）
+--主灵根检测（凡25/天100/仙300/圣1000）
 function LingGen.ApplyTopLingGen_Check(Object, a, b, c, d, e)
 
     if not a then a,b,c,d,e = Utils.Get.LingGen(Object) end
-    local NORMAL = 10
-    local TIAN   = 50
-    local XIAN   = 150
-    local SHENG  = 500
+    local NORMAL = 25
+    local TIAN   = 100
+    local XIAN   = 300
+    local SHENG  = 1000
 
     local map = {
         {val=a, base='BANXIAN_LG_HUO'},
@@ -201,29 +127,29 @@ end
 function LingGen.GetCharacterParams(Object,a,b,c,d,e,r,TZ)
     local displayName = Osi.GetDisplayName(Object) or ""
     if string.find(displayName, 'Astarion') then
-        a,b,c,d,e,r,TZ = 10,5,15,5,15,50,2
+        a,b,c,d,e,r,TZ = 20,10,30,10,30,100,2
     elseif string.find(displayName, 'Lae') and string.find(displayName, 'zel') then
-        a,b,c,d,e,r,TZ = 10,10,60,10,10,100,1
+        a,b,c,d,e,r,TZ = 20,20,120,20,20,200,1
     elseif string.find(displayName, 'Gale') then
-        a,b,c,d,e,r,TZ = 4,4,4,4,4,20,5
+        a,b,c,d,e,r,TZ = 8,8,8,8,8,40,5
     elseif string.find(displayName, 'Shadowheart') then
-        a,b,c,d,e,r,TZ = 20,20,25,25,10,100,1
+        a,b,c,d,e,r,TZ = 40,40,50,50,20,200,1
     elseif string.find(displayName, 'Wyll') then
-        a,b,c,d,e,r,TZ = 0,20,30,0,0,50,2
+        a,b,c,d,e,r,TZ = 0,40,60,0,0,100,2
     elseif string.find(displayName, 'Jaheira') then
-        a,b,c,d,e,r,TZ = 0,20,0,30,50,100,1
+        a,b,c,d,e,r,TZ = 0,40,0,60,100,200,1
     elseif string.find(displayName, 'Minthara') then
-        a,b,c,d,e,r,TZ = 30,0,5,15,0,50,2
+        a,b,c,d,e,r,TZ = 60,0,10,30,0,100,2
     elseif string.find(displayName, 'Minsc') then
-        a,b,c,d,e,r,TZ = 10,80,10,0,0,100,1
+        a,b,c,d,e,r,TZ = 20,160,20,0,0,200,1
     elseif string.find(displayName, 'Halsin') then
-        a,b,c,d,e,r,TZ = 0,0,0,0,50,50,2
+        a,b,c,d,e,r,TZ = 0,0,0,0,100,100,2
     elseif string.find(displayName, 'Alfira') then
-        a,b,c,d,e,r,TZ = 2,3,2,3,12,20,3
+        a,b,c,d,e,r,TZ = 4,6,4,6,24,40,3
     elseif string.find(displayName, 'Losiir') then
-        a,b,c,d,e,r,TZ = 5,15,50,20,10,100,1
+        a,b,c,d,e,r,TZ = 10,30,100,40,20,200,1
     elseif Osi.IsTagged(Object, 'fe825e69-1569-471f-9b3f-28fd3b929683') == 1 then
-        a,b,c,d,e,r,TZ = 8,0,0,1,11,r,TZ
+        a,b,c,d,e,r,TZ = 16,0,0,2,22,r,TZ
     end
     return a,b,c,d,e,r,TZ
 end
@@ -240,13 +166,13 @@ function LingGen.Add_First(Object)
 
     -- 先天资质覆盖
     if Osi.HasPassive(Object, 'BanXian_LingGen_T0') == 1 then
-        r,TZ = 100,math.random(6,10)
+        r,TZ = 200,math.random(6,10)
     elseif Osi.HasPassive(Object, 'BanXian_LingGen_T1') == 1 then
-        r,TZ = 50,math.random(3,5)
+        r,TZ = 100,math.random(3,5)
     elseif Osi.HasPassive(Object, 'BanXian_LingGen_T2') == 1 then
-        r,TZ = 20,2
+        r,TZ = 40,2
     elseif Osi.HasPassive(Object, 'BanXian_LingGen_T3') == 1 then
-        r,TZ = 10,1
+        r,TZ = 20,1
     elseif Osi.HasPassive(Object, 'BanXian_LingGen_Blank') == 1 then
         r,TZ = 0,0
     else
@@ -257,21 +183,21 @@ function LingGen.Add_First(Object)
         -- 根据灵根类型生成偏向
         local Pf = {}
         local Pf_num
-        if r <= 20 then -- 平平无奇/先天慧根（1-2个主属性）
+        if r <= 40 then -- 平平无奇/先天慧根（1-2个主属性）
             Pf_num = math.random(1,2)
             for k = 1, Pf_num do
                 repeat -- 确保不重复属性
                     Pf[k] = math.random(1,5)
                 until not Utils.contains(Pf, Pf[k], 1, k-1)
             end
-        elseif r <= 30 then -- （2个主属性）
+        elseif r <= 60 then -- （2个主属性）
             Pf_num = 2
             for k = 1, 2 do
                 repeat
                     Pf[k] = math.random(1,5)
                 until not Utils.contains(Pf, Pf[k], 1, k-1)
             end
-        elseif r <= 50 then -- 大帝之资（3个主属性）
+        elseif r <= 100 then -- 大帝之资（3个主属性）
             Pf_num = 3
             for k = 1, 3 do
                 repeat
@@ -320,22 +246,22 @@ function LingGen.Add_First(Object)
     lg.a,lg.b,lg.c,lg.d,lg.e,r,TZ = LingGen.GetCharacterParams(Object,lg.a,lg.b,lg.c,lg.d,lg.e,r,TZ)
 
     --觉醒灵根
-    if r == 100 then
+    if r == 200 then
         if Osi.HasPassive(Object,'BanXian_LingGen_T0') == 0 then
             Osi.AddPassive(Object, 'BanXian_LingGen_T0')
             Ext.Utils.Print('觉醒灵根资质[先天道体]:'..TZ..'资质点')
         end
-    elseif r == 50 then
+    elseif r == 100 then
         if Osi.HasPassive(Object,'BanXian_LingGen_T1') == 0 then
             Osi.AddPassive(Object, 'BanXian_LingGen_T1')
             Ext.Utils.Print('觉醒灵根资质[大帝之资]:'..TZ..'资质点')
         end
-    elseif r == 20 then
+    elseif r == 40 then
         if Osi.HasPassive(Object,'BanXian_LingGen_T2') == 0 then
             Osi.AddPassive(Object, 'BanXian_LingGen_T2')
             Ext.Utils.Print('觉醒灵根资质[先天慧根]:'..TZ..'资质点')
         end
-    elseif r == 10 then
+    elseif r == 20 then
         if Osi.HasPassive(Object,'BanXian_LingGen_T3') == 0 then
             Osi.AddPassive(Object, 'BanXian_LingGen_T3')
             Ext.Utils.Print('觉醒灵根资质[平平无奇]:'..TZ..'资质点')
@@ -374,31 +300,38 @@ end
 function LingGen.Take_Devastatingly(caster, target)
     if Osi.IsDead(target) == 1 then return end
 
-    --夺取灵根配比（累加到施法者现有灵根）
-    Osi.AddPassive(target, 'BanXian_LingGen_NIL')
-    local result_parts = {}
+    -- 找目标最大灵根
+    local maxVal, maxLG, maxName = 0, nil, nil
     for LG, NAME in pairs(Variables.Constants.LingGen) do
-
-        if Osi.HasActiveStatus(target, LG) == 1 then
-            local target_turn = Osi.GetStatusTurns(target, LG)
-            local caster_turn = Osi.GetStatusTurns(caster, LG)
-            Osi.RemoveStatus(target, LG)
-            Osi.RemoveStatus(caster, LG)
-            Osi.ApplyStatus(caster, LG, (target_turn + caster_turn) * 6, 1, caster)
-            table.insert(result_parts, NAME .. '灵根+' .. target_turn)
+        local val = Osi.GetStatusTurns(target, LG) or 0
+        if val > maxVal then
+            maxVal, maxLG, maxName = val, LG, NAME
         end
-
     end
 
-    --输出夺灵结果
-    if #result_parts > 0 then
-        Osi.ShowNotification(caster, '夺灵成功：' .. table.concat(result_parts, '  '))
+    if not maxLG or maxVal <= 0 then return end
+
+    -- 夺取最大灵根的一半
+    local steal = math.floor(maxVal / 2)
+    local remain = maxVal - steal
+    local casterVal = Osi.GetStatusTurns(caster, maxLG) or 0
+
+    Osi.ApplyStatus(target, maxLG, remain * 6, 1, target)
+    Osi.ApplyStatus(caster, maxLG, (casterVal + steal) * 6, 1, caster)
+
+    -- 夺取资质的 1/3
+    local targetTZ = Osi.GetStatusTurns(target, 'BANXIAN_LG_TZ') or 0
+    local stealTZ = math.floor(targetTZ / 3)
+    if stealTZ > 0 then
+        local casterTZ = Osi.GetStatusTurns(caster, 'BANXIAN_LG_TZ') or 0
+        Osi.ApplyStatus(target, 'BANXIAN_LG_TZ', (targetTZ - stealTZ) * 6, 1, target)
+        Osi.ApplyStatus(caster, 'BANXIAN_LG_TZ', (casterTZ + stealTZ) * 6, 1, caster)
     end
 
-    --重新检测施法者灵根效果
+    Osi.ShowNotification(caster, '夺灵：' .. maxName .. '灵根 ×' .. steal .. '  资质 ×' .. stealTZ)
+
+    -- 重新检测双方灵根效果
     LingGen.ApplyAllChecks(caster)
-
-    --重新检测目标灵根效果（清除已失效的异灵根）
     LingGen.ApplyAllChecks(target)
 
 end

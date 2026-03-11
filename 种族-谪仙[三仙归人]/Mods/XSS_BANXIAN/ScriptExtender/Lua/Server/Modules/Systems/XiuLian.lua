@@ -35,7 +35,7 @@ function XiuLian.Ki_Take(Object)
     local CON_T = (LG_H + LG_T)*p
     local CON_J = (LG_H + LG_T + LG_J)*p
     local CON_S = (LG_H + LG_T + LG_J + LG_S)*p
-    local CON_M = LG_TOTAL*p
+    local CON_M = 100
 
     --获取灵气
     local LQ_H,LQ_T,LQ_J,LQ_S,LQ_M = Osi.GetStatusTurns(Object, 'BANXIAN_XIULIAN_LINGQI_H'),Osi.GetStatusTurns(Object, 'BANXIAN_XIULIAN_LINGQI_T'),Osi.GetStatusTurns(Object, 'BANXIAN_XIULIAN_LINGQI_J'),Osi.GetStatusTurns(Object, 'BANXIAN_XIULIAN_LINGQI_S'),Osi.GetStatusTurns(Object, 'BANXIAN_XIULIAN_LINGQI_M')

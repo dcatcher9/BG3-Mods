@@ -597,7 +597,7 @@ function FaBao.OnStatusApplied_after(Object, Status, Causee)
         end
 
         if Osi.HasActiveStatus(Causee,'BANXIAN_FABAO_ACTIVEBOOSTS') == 1 and (Osi.HasActiveStatus(Object,'UND_ADAMANTINEGOLEM_SUPERHEATED') == 1 or Osi.HasActiveStatus(Object,'BURNING_SUPERHEATED') == 1) then
-            local Turns = math.floor((Osi.GetStatusCurrentLifetime(Causee,'BANXIAN_FABAO_ACTIVEBOOSTS'))/6)
+            local Turns = math.floor((Osi.GetStatusTurns(Causee,'BANXIAN_FABAO_ACTIVEBOOSTS') or 0)/6)
             Osi.RemoveStatus(Causee,'BANXIAN_FABAO_ACTIVEBOOSTS',Causee)  --移除炼器状态
             FaBao.LianHua.AddBoosts(Causee,Object,Turns)
         end

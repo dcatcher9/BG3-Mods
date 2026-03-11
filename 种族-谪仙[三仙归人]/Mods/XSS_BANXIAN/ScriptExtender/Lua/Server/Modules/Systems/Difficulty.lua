@@ -23,12 +23,6 @@ function Difficulty.Init()
     -- 注册MessageBoxYesNoClosed
     Ext.Osiris.RegisterListener("MessageBoxChoiceClosed", 3, "after", Difficulty.OnMessageBoxChoiceClosed_after)
 
-    -- 注册MessageBoxYesNoClosed
-    Ext.Osiris.RegisterListener("MessageBoxClosed", 2, "after", Difficulty.OnMessageBoxClosed_after)
-
-    -- 注册MessageBoxYesNoClosed
-    Ext.Osiris.RegisterListener("TutorialBoxClosed", 2, "after", Difficulty.OnTutorialBoxClosed_after)
-
     -- 注册进入战斗：洪荒时代模式下为敌方NPC施加BANXIAN_HARDCORE触发全员修仙
     Ext.Osiris.RegisterListener("EnteredCombat", 2, "after", Difficulty.OnEnteredCombat_after)
 
@@ -58,21 +52,19 @@ function Difficulty.HardCore.Start(Object)
     LingGen.Add_First(Object)
 
     --根据种族偏向获取大道表
-    local maxrandom = 0
     local DaDao_table = {}
     for _, DDtable in ipairs(Race_DaDao) do
         local tag = DDtable.tag
         if Osi.IsTagged(Object, tag) == 1 then
             for i, entry in pairs(DDtable.DaDao_table) do
                 table.insert(DaDao_table,entry)
-                maxrandom = maxrandom + 1
             end
         end
     end
 
     --开始分配大道
     if #DaDao_table > 0 then
-        local key = math.random(1,maxrandom)
+        local key = math.random(1,#DaDao_table)
         for i, Name in ipairs(DaDao_table) do
             if i == key then
                 local DaDao = Utils.Get.DaDaoPassive(Name)
@@ -80,7 +72,6 @@ function Difficulty.HardCore.Start(Object)
                 break
             end
         end
-    else
     end
 
     --添加道行
@@ -173,10 +164,12 @@ function Difficulty.OnStatusApplied_after(Object, Status)
     if string.find(Status,'HARDCORE') then  --硬核难度检测
 
         if PersistentVars['Difficulty_Result'] == 1 then
-            local ADD = Variables.Persistent.Difficulty[Object] or false
-            if Osi.HasPassive(Object, 'BanXian_LingGen') == 0 and Osi.HasPassive(Object, 'BanXian_LingGen_Blank') == 0 and ADD ~= true then
+            if Osi.HasPassive(Object, 'BanXian_LingGen') == 0
+            and Osi.HasPassive(Object, 'BanXian_LingGen_Blank') == 0
+            and Osi.HasPassive(Object, 'BanXian_LingGen_NIL') == 0
+            and not PersistentVars['Difficulty_Awakened_' .. Object] then
                 --_P('[Difficulty]检测难度状态：'..Status..' 角色：'..Object)
-                Variables.Persistent.Difficulty[Object] = true
+                PersistentVars['Difficulty_Awakened_' .. Object] = true
                 Difficulty.HardCore.Start(Object)
             end
             
@@ -219,19 +212,11 @@ function Difficulty.OnMessageBoxChoiceClosed_after(Character, Message, ResultCho
     end
 end
 
--- 处理难度选择3
-function Difficulty.OnMessageBoxClosed_after(Character, Message)
-end
-
 -- 事件·难度状态监听
 function Difficulty.OnCharacterCreationStarted_after()
     --难度选择倒计时
     Osi.TimerLaunch('Banxian_Difficulty_Choice', 6000)
 
-end
-
--- 事件·难度状态监听
-function Difficulty.OnTutorialBoxClosed_after(Character, Message)
 end
 
 -- 事件·进入战斗（洪荒时代：为敌方NPC触发全员修仙）
@@ -240,10 +225,10 @@ function Difficulty.OnEnteredCombat_after(Object, CombatGuid)
     if Osi.IsPlayer(Object) == 1 then return end
     if Osi.IsDead(Object) == 1 then return end
 
-    local ADD = Variables.Persistent.Difficulty[Object] or false
     if Osi.HasPassive(Object, 'BanXian_LingGen') == 0
     and Osi.HasPassive(Object, 'BanXian_LingGen_Blank') == 0
-    and ADD ~= true then
+    and Osi.HasPassive(Object, 'BanXian_LingGen_NIL') == 0
+    and not PersistentVars['Difficulty_Awakened_' .. Object] then
         Osi.ApplyStatus(Object, 'BANXIAN_HARDCORE', 100, -1, Object)
         Utils.BanXianList_AddtoList(Object)
     end
