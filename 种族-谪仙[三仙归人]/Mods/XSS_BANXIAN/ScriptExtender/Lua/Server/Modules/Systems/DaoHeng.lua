@@ -9,7 +9,6 @@ local DaoHeng = {
 local Variables = require("Server.Modules.Variables")
 local Utils = require("Server.Modules.Utils")
 
-local Jiandao_Projectile = nil
 
 -- 初始化道行系统
 function DaoHeng.Init()
@@ -300,8 +299,8 @@ function DaoHeng.OnStatusApplied_after(Object, Status, Causee)
     end
 
     if Status == 'JIANDAO_PROJECTILE_RETURN' then
-        if Jiandao_Projectile ~= nil then
-            Osi.UseSpell(Causee, Jiandao_Projectile, Object)
+        if PersistentVars['Jiandao_Projectile_Pending'] ~= nil then
+            Osi.UseSpell(Causee, PersistentVars['Jiandao_Projectile_Pending'], Object)
         end
     end
 
@@ -341,7 +340,7 @@ function DaoHeng.OnUsingSpellOnTarget_after(Caster, Target, Name)
 
     --记录弹反投掷物
     if Osi.HasActiveStatus(Target, 'JIANDAO_DODGE_MODE') == 1 or Osi.HasActiveStatus(Target, 'JIANDAO_PARRY_MODE') == 1 then
-        Jiandao_Projectile = Name
+        PersistentVars['Jiandao_Projectile_Pending'] = Name
     end
 end
 
@@ -349,10 +348,10 @@ end
 function DaoHeng.OnUsingSpellOnTarget_before(Caster, Target, Name)
 
     --更改弹反施法动作
-    if Jiandao_Projectile ~= nil then
+    if PersistentVars['Jiandao_Projectile_Pending'] ~= nil then
         local Animation = "None"
 
-        if Osi.HasActiveStatus(Target, 'JIANDAO_PROJECTILE_RETURN') == 1 and Name == Jiandao_Projectile then
+        if Osi.HasActiveStatus(Target, 'JIANDAO_PROJECTILE_RETURN') == 1 and Name == PersistentVars['Jiandao_Projectile_Pending'] then
             if Osi.HasActiveStatus(Caster, 'JIANDAO_DODGE_MODE') == 1 then
                 Animation = "8b8bb757-21ce-4e02-a2f3-97d55cf2f90b,,;,,;c3340bf4-833e-4c4d-b679-8ccdb26c30e7,,;6c5e8729-472f-4aab-acc4-a51d6657a50d,,;7bb52cd4-0b1c-4926-9165-fa92b75876a3,,;,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,,"
                 Osi.RemoveStatus(Caster, 'JIANDAO_DODGE_MODE')
@@ -362,11 +361,11 @@ function DaoHeng.OnUsingSpellOnTarget_before(Caster, Target, Name)
             end
 
             if Animation ~= "None" then
-                DaoHeng.Jian.Animation_Before(Jiandao_Projectile,Animation)
-                PersistentVars['Jiandao_Projectile'] = Jiandao_Projectile
+                DaoHeng.Jian.Animation_Before(PersistentVars['Jiandao_Projectile_Pending'],Animation)
+                PersistentVars['Jiandao_Projectile'] = PersistentVars['Jiandao_Projectile_Pending']
                 Osi.TimerLaunch('Jiandao_Projectile_Animation_Change', 2000)
                 Osi.RemoveStatus(Target, 'JIANDAO_PROJECTILE_RETURN')
-                Jiandao_Projectile = nil
+                PersistentVars['Jiandao_Projectile_Pending'] = nil
             end
         end
     end

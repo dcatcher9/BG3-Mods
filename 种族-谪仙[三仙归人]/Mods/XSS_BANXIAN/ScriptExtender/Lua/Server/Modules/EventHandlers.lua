@@ -77,7 +77,7 @@ function EventHandlers.OnTimerFinished_after(Timer)
         local Object = PersistentVars['BXAddLingGen_Waiting']
         Systems.LingGen.ApplyAllChecks(Object)
         PersistentVars['BXAddLingGen_Waiting'] = nil
-    elseif Timer == 'Banxian_LuoPan_Caculate' then
+    elseif Timer == 'Banxian_LuoPan_Calculate' then
         local Caster,X,Z = Variables.Constants.ZhenFa.LuoPan.Caster,Variables.Constants.ZhenFa.LuoPan.X,Variables.Constants.ZhenFa.LuoPan.Z
         Systems.ZhenFa.Tool.LuoPanFunctors(Caster,X,Z)
     elseif Timer == "Yuanying_ConcentrationRecover" then

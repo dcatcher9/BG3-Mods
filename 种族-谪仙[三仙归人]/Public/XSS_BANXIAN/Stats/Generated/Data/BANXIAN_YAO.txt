@@ -548,7 +548,7 @@ type "SpellData"
 data "SpellType" "Shout"
 using "Shout_WildShape_Raven_YaoXian"
 data "Icon" "Action_WildShape_Panther"
-data "SpellProperties" "ApplyStatus(BANXIAN_YAO_BENXIANG_FROG,100,-1)"
+data "SpellProperties" "ApplyStatus(BANXIAN_YAO_BENXIANG_PANTHER,100,-1)"
 data "DisplayName" "stringsofmodmadebyxss20250228bca00a00;1"
 data "Description" "stringsofmodmadebyxss20250228bca00b00;1"
 
@@ -608,7 +608,7 @@ data "Properties" "Highlighted"
 data "Icon" "Spell_Conjuration_FindFamiliar_Rat"
 data "DisplayName" "stringsofmodmadebyxss20250228bca00a06;1"
 data "Description" "stringsofmodmadebyxss20250228bca00b06;1"
-data "Boosts" "UnlockSpell(Shout_WildShape_Rat_YaoXian);  Advantage(skill,Survival);Advantage(skill,Insight);Advantage(Stealth,Survival);Advantage(Stealth,SleightOfHand)"
+data "Boosts" "UnlockSpell(Shout_WildShape_Rat_YaoXian);  Advantage(skill,Survival);Advantage(skill,Insight);Advantage(skill,Stealth);Advantage(skill,SleightOfHand)"
 
 
 
@@ -727,7 +727,7 @@ data "Boosts" "UnlockSpell(Shout_WildShape_Wolf_YaoXian);  IF(IsMeleeAttack() an
 
 /////////////////////////////
 /
-/        妖仙本相：Wolf 狼         
+/        妖仙本相：RedDragon 赤龙
 /
 /////////////////////////////
 //现出本相

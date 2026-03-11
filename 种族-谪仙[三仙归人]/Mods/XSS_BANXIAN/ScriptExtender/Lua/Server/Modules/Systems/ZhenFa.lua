@@ -81,17 +81,9 @@ end
 
 
 --阵旗检测
-function ZhenFa.Flags.Check(Object,Core)
+function ZhenFa.Flags.Check(Core)
     if Core ~= nil then
-        for FLAG, _ in pairs(Variables.Constants.ZhenFa.Flags) do
-            if PersistentVars[FLAG] == Object then
-            end
-        end
-        local STATU = ZhenFa.Core.Functors(6,6.8)
-        
-        if STATU == true then
-        elseif STATU == false then
-        end
+        ZhenFa.Core.Functors(6,6.8)
     end
 end
 
@@ -128,7 +120,7 @@ function ZhenFa.OnStatusApplied_after(Object, Status, Causee)
         ZhenFa.Core.Register(Object,Status)
     elseif Status == 'BANXIAN_ZHENFA_CORE_JULING' then
         local Core = PersistentVars['ZhenFa_Core_JuLing']
-        ZhenFa.Flags.Check(Object,Core)
+        ZhenFa.Flags.Check(Core)
     elseif Status == 'BANXIAN_ZHENFA_FLAGS_JULING_AURA_QIAN'  then
         PersistentVars['ZhenFa_Flags_Qian'] = Object
     elseif Status == 'BANXIAN_ZHENFA_FLAGS_JULING_AURA_KUN'  then
@@ -155,7 +147,7 @@ function ZhenFa.OnUsingSpellOnTarget_after(caster, target, name, _, _, _)
     if name == 'ZhenFa_Tool_LuoPan_Measure' then
         Variables.Constants.ZhenFa.LuoPan.Caster = caster
         Variables.Constants.ZhenFa.LuoPan.X,Variables.Constants.ZhenFa.LuoPan.Z = Utils.GetXZ(target)
-        Osi.TimerLaunch('Banxian_LuoPan_Caculate', 1000)
+        Osi.TimerLaunch('Banxian_LuoPan_Calculate', 1000)
     end
 
 end
@@ -165,7 +157,7 @@ function ZhenFa.OnUsingSpellAtPosition_after(Caster, X, Y, Z, Spell, SpellType, 
 
     if Spell == 'ZhenFa_Tool_LuoPan_Measure' then
         Variables.Constants.ZhenFa.LuoPan.Caster,Variables.Constants.ZhenFa.LuoPan.X,Variables.Constants.ZhenFa.LuoPan.Z = Caster,X,Z
-        Osi.TimerLaunch('Banxian_LuoPan_Caculate', 1000)
+        Osi.TimerLaunch('Banxian_LuoPan_Calculate', 1000)
     end
 
 end

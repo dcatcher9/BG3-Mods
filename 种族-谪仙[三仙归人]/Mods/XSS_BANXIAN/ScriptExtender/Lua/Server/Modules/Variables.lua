@@ -341,12 +341,5 @@ Variables.Constants = {
     },
 }
 
--- 持久化数据
-Variables.Persistent = {
-    Difficulty = {}
-}
-
-
-
 
 return Variables
