@@ -9,7 +9,7 @@
           <attribute id="Level" type="uint8" value="1" />
           <attribute id="Name" type="LSString" value="TianXian" />
           <attribute id="PassivesAdded" type="LSString" value="BANXIAN_Shenshi_Passive;BANXIAN_GONGFA_BASE;BANXIAN_TIAN_DiceToDamage;CuiTi_ZhouTian_Change;BANXIAN_Xiulian" />
-          <attribute id="Selectors" type="LSString" value="SelectPassives(1d2d1f9a-5ff8-4547-be46-7d2a7569a001,1,BANXIANTIANZI);SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84a03,6,BANXIANDADAO);AddSpells(e88ae5a1-576c-4d80-b1a5-ef3f6dd8e001);SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84001,1,BANXIANCUITI)" />
+          <attribute id="Selectors" type="LSString" value="SelectPassives(1d2d1f9a-5ff8-4547-be46-7d2a7569a001,1,BANXIANTIANZI);SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84a03,3,BANXIANDADAO);AddSpells(e88ae5a1-576c-4d80-b1a5-ef3f6dd8e001);SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84001,1,BANXIANCUITI)" />
           <attribute id="ProgressionType" type="uint8" value="2" />
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27e" />
           <attribute id="UUID" type="guid" value="0aac66ae-9325-4e4d-953f-d3aae77ab001" />
@@ -197,7 +197,7 @@
           <attribute id="Level" type="uint8" value="1" />
           <attribute id="Name" type="LSString" value="RenXian" />
           <attribute id="PassivesAdded" type="LSString" value="BANXIAN_Shenshi_Passive;BANXIAN_Xiulian" />
-          <attribute id="Selectors" type="LSString" value="SelectPassives(1d2d1f9a-5ff8-4547-be46-7d2a7569a001,1,BANXIANTIANZI);SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84b03,7,BANXIANDADAO);AddSpells(e88ae5a1-576c-4d80-b1a5-ef3f6dd8eb01);SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84b01,1,BANXIANWZCYG)" />
+          <attribute id="Selectors" type="LSString" value="SelectPassives(1d2d1f9a-5ff8-4547-be46-7d2a7569a001,1,BANXIANTIANZI);SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84b03,3,BANXIANDADAO);AddSpells(e88ae5a1-576c-4d80-b1a5-ef3f6dd8eb01);SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84b01,1,BANXIANWZCYG)" />
           <attribute id="ProgressionType" type="uint8" value="2" />
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27f" />
           <attribute id="UUID" type="guid" value="0bac66ae-9325-4e4d-953f-d3aae77ab001" />
@@ -393,7 +393,7 @@
           <attribute id="Level" type="uint8" value="1" />
           <attribute id="Name" type="LSString" value="YaoXian" />
           <attribute id="PassivesAdded" type="LSString" value="BANXIAN_Shenshi_Passive;BANXIAN_FSZMG_Level1;BANXIAN_FSZMG_DevilForms;BANXIAN_Xiulian" />
-          <attribute id="Selectors" type="LSString" value="SelectPassives(1d2d1f9a-5ff8-4547-be46-7d2a7569a001,1,BANXIANTIANZI);SelectPassives(a4d51edf-392e-4825-83be-1ee66e4a4258,1,BANXIANBENXIANG);SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84c03,7,BANXIANDADAO);SelectPassives(fe243d3c-5eed-4a8c-b411-80aff5aaa000,1,BANXIANFSZMG_CHONGSHU_1);AddSpells(e88ae5a1-576c-4d80-b1a5-ef3f6dd8ec01)" />
+          <attribute id="Selectors" type="LSString" value="SelectPassives(1d2d1f9a-5ff8-4547-be46-7d2a7569a001,1,BANXIANTIANZI);SelectPassives(a4d51edf-392e-4825-83be-1ee66e4a4258,1,BANXIANBENXIANG);SelectPassives(fc2bb64c-817b-4375-860c-758a6bb84c03,3,BANXIANDADAO);SelectPassives(fe243d3c-5eed-4a8c-b411-80aff5aaa000,1,BANXIANFSZMG_CHONGSHU_1);AddSpells(e88ae5a1-576c-4d80-b1a5-ef3f6dd8ec01)" />
           <attribute id="ProgressionType" type="uint8" value="2" />
           <attribute id="TableUUID" type="guid" value="bbc39545-4341-4667-96a3-f35abe16d27a" />
           <attribute id="UUID" type="guid" value="77c13a4a-a14e-49b8-a3e8-d3aae77ab001" />

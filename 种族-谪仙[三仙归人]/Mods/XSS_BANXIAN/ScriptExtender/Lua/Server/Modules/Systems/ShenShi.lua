@@ -33,7 +33,6 @@ function ShenShi.OpenMessage(Object, Causee)
     end
 
     Osi.OpenMessageBox(Causee, Message)
-    LingGen.ApplyAllChecks(Object)
 
 end
 
@@ -43,8 +42,8 @@ end
 --事件·洞观扫描目标
 function ShenShi.ScanTarget(Object, Causee)
     local JingJieNames = {'练气','筑基','结丹','元婴','化神','炼虚','合体','大乘','渡劫','真仙'}
-    local name = Osi.GetDisplayName(Object)
-    local level = Osi.GetLevel(Object)
+    local name = Osi.GetDisplayName(Object) or "未知"
+    local level = Osi.GetLevel(Object) or "??"
     local lines = { "【"..name.."】  Lv."..level }
 
     -- 境界
