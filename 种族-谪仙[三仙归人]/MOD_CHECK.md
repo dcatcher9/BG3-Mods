@@ -3,9 +3,9 @@
 <!-- Last updated: 2026-03-12 -->
 
 ## Status
-- **Coverage:** ~75 of ~107 source files fully read, ~5 partially read (incl. RootTemplates promoted), ~26 not yet read (CC/VFX/asset LSX). All Lua/Stats/KHN/XML re-audited and cross-refs verified. Systematic nil-safety pattern search completed across all Lua files.
+- **Coverage:** ~75 of ~107 source files fully read, ~5 partially read, ~26 not yet read (CC/VFX/asset LSX). All Lua/Stats/KHN/XML re-audited after latest commits.
 - **Open issues:** 0
-- **Fixed issues:** 94
+- **Fixed issues:** 104
 
 ## Open Issues
 
@@ -25,6 +25,16 @@
 *(none)*
 
 ## Fixed / Resolved Issues
+- [x] **B-30** `DaoHeng.lua:252` `DiYu` — Added `if FireSource then` nil guard before `DaoHeng.DiYu.AddDH`. *(fixed 2026-03-12)*
+- [x] **B-31** `FaBao.lua:410` `RecoverStatsStart_OnEquipped` — Added `if not FABAO then return end` + `if not stat then return end` nil guards on `Ext.Stats.Get`. *(fixed 2026-03-12)*
+- [x] **B-32** `FaBao.lua:191` `GetThreshold` — Added `if not stat then return 365 end` nil guard on `Ext.Stats.Get`. *(fixed 2026-03-12)*
+- [x] **WB-28** `FaBao.lua:618` `OnEquipped_after` — Added `if not FABAO then return end` nil guard on `Osi.GetStatString`. *(fixed 2026-03-12)*
+- [x] **WB-29** `XSS_BANXIAN.khn:63` `IsTargetWeaker` — Added `context.Source` nil+validity guard. *(fixed 2026-03-12)*
+- [x] **WB-30** `XSS_BANXIAN.khn:71-76` `CharacterLevelGreaterThanTarget` — Removed unused function (dead code). *(fixed 2026-03-12)*
+- [x] **WB-31** `XSS_BANXIAN.khn:58` `BLEEDINGPercentageMoreThan` — Added `if not entity then return ConditionResult(false) end` nil guard. *(fixed 2026-03-12)*
+- [x] **R-08** `XSS_BANXIAN.khn:71-76` `CharacterLevelGreaterThanTarget` — Removed dead code (never referenced). *(fixed 2026-03-12)*
+- [x] **T-14** `XSS_BANXIAN.xml:917` — 炼制炼制→炼制. *(fixed 2026-03-12)*
+- [x] **T-15** `XSS_BANXIAN.xml:507` — Removed stray leading "并" in 逆行·神道. *(fixed 2026-03-12)*
 - [x] **B-17** `DaoHeng.lua:63` `Functors_Steal` — Added `if not objectEntity then return end` nil guard on `Ext.Entity.Get`. *(fixed 2026-03-12)*
 - [x] **B-18** `DaoHeng.lua:73` `Functors_Steal` — Added `if status and` guard before accessing `.StatusType` on `Ext.Stats.Get` result. *(fixed 2026-03-12)*
 - [x] **B-19** `DaoHeng.lua:75` `Functors_Steal` — Added `or 1` fallback on `GetStatusTurns` for stolen status Duration. *(fixed 2026-03-12)*

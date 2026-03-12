@@ -504,7 +504,7 @@
   <content contentuid="stringsofmodmadebyxss20240930dv003a08" version="1">逆行·风府</content>
   <content contentuid="stringsofmodmadebyxss20240930dv003b08" version="1">受到1次&lt;LSTag Type="Status" Tooltip="BANXIAN_FANSHI"&gt;反噬&lt;/LSTag&gt;,恢复所有&lt;LSTag Tooltip="MovementSpeed"&gt;移动速度&lt;/LSTag&gt;，本回合&lt;LSTag Tooltip="MovementSpeed"&gt;移动速度&lt;/LSTag&gt;翻倍。</content>
   <content contentuid="stringsofmodmadebyxss20240930dv003a09" version="1">逆行·神道</content>
-  <content contentuid="stringsofmodmadebyxss20240930dv003b09" version="1">并受到1次&lt;LSTag Type="Status" Tooltip="BANXIAN_FANSHI"&gt;反噬&lt;/LSTag&gt;，本回合魅力&lt;LSTag Tooltip="SavingThrow"&gt;豁免检定&lt;/LSTag&gt;获得&lt;LSTag Tooltip="Disadvantage"&gt;劣势&lt;/LSTag&gt;。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003b09" version="1">受到1次&lt;LSTag Type="Status" Tooltip="BANXIAN_FANSHI"&gt;反噬&lt;/LSTag&gt;，本回合魅力&lt;LSTag Tooltip="SavingThrow"&gt;豁免检定&lt;/LSTag&gt;获得&lt;LSTag Tooltip="Disadvantage"&gt;劣势&lt;/LSTag&gt;。</content>
   <content contentuid="stringsofmodmadebyxss20240930dv003a10" version="1">逆行·灵台</content>
   <content contentuid="stringsofmodmadebyxss20240930dv003b10" version="1">受到1次&lt;LSTag Type="Status" Tooltip="BANXIAN_FANSHI"&gt;反噬&lt;/LSTag&gt;，本回合感知&lt;LSTag Tooltip="SavingThrow"&gt;豁免检定&lt;/LSTag&gt;获得&lt;LSTag Tooltip="Disadvantage"&gt;劣势&lt;/LSTag&gt;。</content>
   <content contentuid="stringsofmodmadebyxss20240930dv003a11" version="1">逆行·中枢</content>
@@ -914,7 +914,7 @@
   <content contentuid="stringsofmodmadebyxss20250115yca00c14" version="1">又名皱面还丹，有价无市，买卖需仔细。可用于炼制加味参势丸，九转还魂丹。</content>
   <content contentuid="stringsofmodmadebyxss20250115yca00b14" version="1"></content>
   <content contentuid="stringsofmodmadebyxss20250115yca00a16" version="1">树珍珠</content>
-  <content contentuid="stringsofmodmadebyxss20250115yca00c16" version="1">生于珠树，有大品之相。可用于炼制炼制加味参势丸、度瘴散。</content>
+  <content contentuid="stringsofmodmadebyxss20250115yca00c16" version="1">生于珠树，有大品之相。可用于炼制加味参势丸、度瘴散。</content>
   <content contentuid="stringsofmodmadebyxss20250115yca00b16" version="1"></content>
   <content contentuid="stringsofmodmadebyxss20250115yca00a15" version="1">漱玉花</content>
   <content contentuid="stringsofmodmadebyxss20250115yca00c15" version="1">有异香，嗅之即觉清凉舒爽。可用于炼制延寿膏、清凉散。</content>

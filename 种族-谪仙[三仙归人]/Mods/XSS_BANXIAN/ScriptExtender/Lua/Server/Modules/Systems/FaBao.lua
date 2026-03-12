@@ -189,6 +189,7 @@ function FaBao.LianHua.GetThreshold(Object)
     if Osi.GetStatString(Object) then
         local FABAO = Osi.GetStatString(Object)
         local stat = Ext.Stats.Get(FABAO)
+        if not stat then return 365 end
         if stat['ModifierList'] == "Weapon" or stat['ModifierList'] == "Armor" then
             local threshold_table = Variables.Constants.FaBao.GetThreshold
             local count = PersistentVars['FABAO_RefineCount_'..FABAO] or 0
@@ -407,7 +408,9 @@ end
 
 --恢复炼器数据_装备时
 function FaBao.LianHua.RecoverStatsStart_OnEquipped(FABAO)
+    if not FABAO then return end
     local stat = Ext.Stats.Get(FABAO)
+    if not stat then return end
     local TYPE_TABLE = {}
     if stat['ModifierList'] == "Weapon" then
         TYPE_TABLE = Variables.Constants.FaBao.Weapon
@@ -616,6 +619,7 @@ end
 -- 事件·炼器相关装备后
 function FaBao.OnEquipped_after(Item, Character)
     local FABAO = Osi.GetStatString(Item)
+    if not FABAO then return end
     FaBao.LianHua.RecoverStatsStart_OnEquipped(FABAO)
 end
 

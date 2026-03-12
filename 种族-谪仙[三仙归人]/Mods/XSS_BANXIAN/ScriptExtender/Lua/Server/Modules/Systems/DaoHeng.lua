@@ -250,7 +250,9 @@ function DaoHeng.OnStatusApplied_before(Object, Status, Causee)
 
     if Status == 'DYING' and  Osi.HasActiveStatus(Object, 'BURNING_YEHUO') == 1 then
         local FireSource = Utils.Get.YeHuoSource(Object)
-        DaoHeng.DiYu.AddDH(Object, FireSource)
+        if FireSource then
+            DaoHeng.DiYu.AddDH(Object, FireSource)
+        end
     end
 
 end

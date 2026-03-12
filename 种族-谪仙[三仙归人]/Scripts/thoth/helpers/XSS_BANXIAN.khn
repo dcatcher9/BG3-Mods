@@ -56,11 +56,15 @@ end
 
 function BLEEDINGPercentageMoreThan(value,entity)
     local entity = entity or context.Source
+    if not entity then return ConditionResult(false) end
     local result = GetStatusDuration('BLEEDING', entity) > value
     return ConditionResult(result)
 end
 
 function IsTargetWeaker()
+    if not context.Source or not context.Source.IsValid then
+        return ConditionResult(false)
+    end
     if not context.Target or not context.Target.IsValid then
         return ConditionResult(false)
     end
@@ -68,12 +72,6 @@ function IsTargetWeaker()
     return ConditionResult(cond) | CantResist()
 end
 
-function CharacterLevelGreaterThanTarget()
-    if not context.Target or not context.Target.IsValid then
-        return ConditionResult(false, {ConditionError("IsNotCharacterLevelGreaterThan")})
-    end
-    return ConditionResult(context.Source.Level >= context.Target.Level, {ConditionError("IsNotCharacterLevelGreaterThan")})
-end
 
 function HeHuanTarget(entity)
     local entity = entity or context.Target
