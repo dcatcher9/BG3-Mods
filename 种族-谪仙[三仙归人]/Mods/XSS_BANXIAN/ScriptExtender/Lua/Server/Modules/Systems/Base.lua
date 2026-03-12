@@ -68,6 +68,7 @@ end
 --双持攻击·千机
 function Base.TianXian.DualAttack_Before(Caster)
     local entity = Ext.Entity.Get(Caster)
+    if not entity then return end
     local res = entity.ActionResources.Resources[Variables.Constants.BonusActionPoint_UUID]
     if not res or not res[1] then return end
     local BP = math.floor(res[1].Amount)
@@ -181,7 +182,7 @@ function Base.ShenTong.TianXian.Transform(Caster, Target, Name)
 
         --判断是否重复,否则添加并记录在组
         if Osi.HasActiveStatus(Caster,ID) == 0 then
-            local Duration = Osi.GetStatusTurns(Target, ID)
+            local Duration = Osi.GetStatusTurns(Target, ID) or -1
             Osi.ApplyStatus(Caster, ID, Duration, 1, Caster)
             PersistentVars['BanXian_36_CopyStatus_Constant_'..Caster.."_"..k] = ID
             PersistentVars['BanXian_36_CopyStatus_Constant_'..Caster.."Number"] = k

@@ -206,9 +206,9 @@ end
 --取消角色更改·装备
 function Utils.CharacterChangeCancel.Equipable(Object)
     if Ext.Entity.Get(Object) ~= nil then
-        Ext.Entity.Get(Object).ServerCharacter.Template.DisableEquipping = PersistentVars['HEHUAN_FOLLOWER_DisableEquipping_'..Object]
-        Ext.Entity.Get(Object).ServerCharacter.Template.IsEquipmentLootable = PersistentVars['HEHUAN_FOLLOWER_IsEquipmentLootable_'..Object]
-        Ext.Entity.Get(Object).ServerCharacter.Template.IsLootable = PersistentVars['HEHUAN_FOLLOWER_IsLootable_'..Object]
+        Ext.Entity.Get(Object).ServerCharacter.Template.DisableEquipping = PersistentVars['HEHUAN_FOLLOWER_DisableEquipping_'..Object] or false
+        Ext.Entity.Get(Object).ServerCharacter.Template.IsEquipmentLootable = PersistentVars['HEHUAN_FOLLOWER_IsEquipmentLootable_'..Object] or false
+        Ext.Entity.Get(Object).ServerCharacter.Template.IsLootable = PersistentVars['HEHUAN_FOLLOWER_IsLootable_'..Object] or false
     end
 end
 
@@ -611,7 +611,10 @@ function Utils.FaBao_LianQiLoadStats(FABAO)
             Utils.SetStatField(stat, TYPE, value)
         end
     end
-    stat.Rarity = PersistentVars["[SaveStatsLianQi]"..FABAO.."_Rarity"]
+    local rarity = PersistentVars["[SaveStatsLianQi]"..FABAO.."_Rarity"]
+    if rarity ~= nil then
+        stat.Rarity = rarity
+    end
     stat:Sync()
 
 end
@@ -800,9 +803,12 @@ function Utils.GongFa.BaiMai.CopyPassives_2(Object)
     local passivesBefore = PersistentVars['BaiMai_Passives_'..Object] or {}
     local items = PersistentVars['BaiMai_WNP_'..Object] or {}
 
+    local entity = Ext.Entity.Get(Object)
+    if not entity or not entity.PassiveContainer then return end
+
     local passivesAfter = {}
     local m = 1
-    for _,entry in pairs(Ext.Entity.Get(Object).PassiveContainer.Passives) do
+    for _,entry in pairs(entity.PassiveContainer.Passives) do
       local ID = entry.Passive.PassiveId
       passivesAfter[m] = ID
       m = m + 1
@@ -846,7 +852,7 @@ function Utils.GongFa.BaiMai.CopyStatus(Object)
 
         for _,entry in pairs(Ext.Entity.Get(Object).StatusContainer.Statuses) do
             local stat = Ext.Stats.Get(entry.StatusID.ID, 0)
-            if string.find(entry.StatusID.ID, 'TECHNICAL') then
+            if string.find(entry.StatusID.ID, 'TECHNICAL') and stat then
               if ( stat.StatusType == "BOOST" ) then
                 if ( string.find(stat.Boosts, "Invulnerable%(%)") == nil ) then
                     Osi.ApplyStatus(Object, entry.StatusID.ID, -1)

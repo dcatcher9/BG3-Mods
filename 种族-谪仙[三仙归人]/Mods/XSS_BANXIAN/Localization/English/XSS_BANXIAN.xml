@@ -276,7 +276,7 @@
   <content contentuid="stringsofmodmadebyxss20240930dva01a03" version="1">饿鬼道</content>
   <content contentuid="stringsofmodmadebyxss20240930dva01b03" version="1">你饥不择食，可以吞食自身的状态。</content>
   <content contentuid="stringsofmodmadebyxss20240930dva01c03" version="1">吞食目标状态，并恢复等同于状态总层数的生命值。</content>
-  <content contentuid="stringsofmodmadebyxss20240930dva01d03" version="1">吞食状态，获得该等该状态层数的&lt;LSTag Type="Status" Tooltip="BANXIAN_DH_YEAR"&gt;道行&lt;/LSTag&gt;天数和生命值回复。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01d03" version="1">吞食状态，获得等同该状态层数的&lt;LSTag Type="Status" Tooltip="BANXIAN_DH_YEAR"&gt;道行&lt;/LSTag&gt;天数和生命值回复。</content>
   <content contentuid="stringsofmodmadebyxss20240930dva01a04" version="1">仙人模式·饿鬼道</content>
   <content contentuid="stringsofmodmadebyxss20240930dva01b04" version="1">每回合开始时偷取附近生物的状态。(暂未开发！)</content>
 
@@ -828,7 +828,7 @@
   <content contentuid="stringsofmodmadebyxss20250115dya00c28" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;服用后，触发重击所需掷骰-1，重击骰+1，攻击掷骰+1，伤害+1。</content>
   <content contentuid="stringsofmodmadebyxss20250115dya00b28" version="1">
 光，即龙身上的光。喻指不同寻常的光辉。[1]
-所谓“龙光倍力丸”应该是指增加药物成分后,药效更强,并且散发出非常光芒的的倍力丸。
+所谓“龙光倍力丸”应该是指增加药物成分后,药效更强,并且散发出非常光芒的倍力丸。
 “龙光倍力丸”的描述，摘自《老子·道经·第三十三章》：
 知人者智，自知者明。胜人者有力，自胜者强。知足者富。强行者有志。不失其所者久。死而不亡者寿。</content>
   <content contentuid="stringsofmodmadebyxss20250115dya00a29" version="1">七返火丹</content>
@@ -1056,7 +1056,7 @@
   <content contentuid="stringsofmodmadebyxss20250218bcb00a04" version="1">魔窍：归墟府</content>
   <content contentuid="stringsofmodmadebyxss20250218bcb00b04" version="1">每击杀一个生物获得1层&lt;LSTag Type="Status" Tooltip="FSZMG_MQ_SHIDAN"&gt;噬丹&lt;/LSTag&gt;。</content>
   <content contentuid="stringsofmodmadebyxss20250218bcb00c04" version="1">噬丹</content>
-  <content contentuid="stringsofmodmadebyxss20250218bcb00d04" version="1">三维属性获得获得提升，回合开始时，每有1层噬丹，回复1点气点。</content>
+  <content contentuid="stringsofmodmadebyxss20250218bcb00d04" version="1">三维属性获得提升，回合开始时，每有1层噬丹，回复1点气点。</content>
   <content contentuid="stringsofmodmadebyxss20250218bca00a05" version="1">梵圣真魔功：第五重</content>
   <content contentuid="stringsofmodmadebyxss20250218bca00b05" version="1">&lt;LSTag Type="Passive" Tooltip="BANXIAN_FSZMG_Level4"&gt;第四重&lt;/LSTag&gt;效果获得升级：全属性获得提升。</content>
   <content contentuid="stringsofmodmadebyxss20250218bca00c05" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;真魔形态下：获得全属性豁免检定优势和加值！</content>

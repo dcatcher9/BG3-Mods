@@ -91,7 +91,7 @@ function DanYao.Drop.BaoCai(Object)
     --_P("[DanYao.Drop.BaoCai] 对象最大生命值：", MaxHP)  --DEBUG
 
     if Osi.HasActiveStatus(Object, 'BANXIAN_DH_YEAR') == 1 then
-        local DH_YEAR = Osi.GetStatusTurns(Object, 'BANXIAN_DH_YEAR')
+        local DH_YEAR = Osi.GetStatusTurns(Object, 'BANXIAN_DH_YEAR') or 0
 
         if Osi.IsTagged(Object, '7fbed0d4-cabc-4a9d-804e-12ca6088a0a8') == 1 then  -- 类人生物
             if math.random(1, (DH_YEAR + 9) * (DH_YEAR + 9) * 10) <= DH_YEAR then

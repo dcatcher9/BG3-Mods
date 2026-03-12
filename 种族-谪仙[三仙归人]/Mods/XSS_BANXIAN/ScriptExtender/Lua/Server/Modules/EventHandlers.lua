@@ -68,12 +68,18 @@ function EventHandlers.OnTimerFinished_after(Timer)
         Systems.FaBao.RestoreStatsForSave()
     elseif Timer == "BanXian_AddLingGen" then
         local Object = PersistentVars['BXAddLingGen_Waiting']
-        Systems.LingGen.Add_First(Object)
-        Osi.TimerLaunch('BanXian_AddLingGen_2', 2000)
-    elseif Timer == "BanXian_AddLingGen_2" then
-        local Object = PersistentVars['BXAddLingGen_Waiting']
-        Systems.LingGen.ApplyAllChecks(Object)
+        if Object then
+            Systems.LingGen.Add_First(Object)
+            PersistentVars['BXAddLingGen_Waiting_2_'..Object] = Object
+            Osi.TimerLaunch('BanXian_AddLingGen_2_'..Object, 2000)
+        end
         PersistentVars['BXAddLingGen_Waiting'] = nil
+    elseif string.find(Timer, 'BanXian_AddLingGen_2_', 1, true) then
+        local Object = PersistentVars[Timer:gsub('BanXian_AddLingGen_2_', 'BXAddLingGen_Waiting_2_')]
+        if Object then
+            Systems.LingGen.ApplyAllChecks(Object)
+        end
+        PersistentVars[Timer:gsub('BanXian_AddLingGen_2_', 'BXAddLingGen_Waiting_2_')] = nil
     elseif Timer == 'Banxian_LuoPan_Calculate' then
         local Caster,X,Z = Variables.Constants.ZhenFa.LuoPan.Caster,Variables.Constants.ZhenFa.LuoPan.X,Variables.Constants.ZhenFa.LuoPan.Z
         Systems.ZhenFa.Tool.LuoPanFunctors(Caster,X,Z)

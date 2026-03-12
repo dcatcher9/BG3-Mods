@@ -3,9 +3,9 @@
 <!-- Last updated: 2026-03-12 -->
 
 ## Status
-- **Coverage:** ~75 of ~107 source files fully read (all re-audited this run), ~5 partially read, ~27 not yet read (mostly CC/VFX/asset LSX)
+- **Coverage:** ~75 of ~107 source files fully read, ~5 partially read (incl. RootTemplates promoted), ~26 not yet read (CC/VFX/asset LSX). All Lua/Stats/KHN/XML re-audited and cross-refs verified.
 - **Open issues:** 0
-- **Fixed issues:** 65
+- **Fixed issues:** 76
 
 ## Open Issues
 
@@ -25,6 +25,17 @@
 *(none)*
 
 ## Fixed / Resolved Issues
+- [x] **B-15** `Utils.lua:848` `CopyStatus()` — Added `and stat` nil guard on `Ext.Stats.Get` result before accessing `.StatusType`. *(fixed 2026-03-12)*
+- [x] **B-16** `Base.lua:184` `Transform` — Added `or -1` fallback to `GetStatusTurns` for status copy Duration. *(fixed 2026-03-12)*
+- [x] **WB-19** `Utils.lua:614` — Wrapped `stat.Rarity` assignment in nil guard. *(fixed 2026-03-12)*
+- [x] **WB-20** `Utils.lua:209–211` — Added `or false` defaults to PersistentVars boolean assignments in `CharacterChangeCancel.Equipable`. *(fixed 2026-03-12)*
+- [x] **WB-21** `Base.lua:70` — Added `if not entity then return end` guard in `DualAttack_Before`. *(fixed 2026-03-12)*
+- [x] **WB-22** `Utils.lua:805` — Added entity + PassiveContainer nil guard in `CopyPassives_2`. *(fixed 2026-03-12)*
+- [x] **L-18** `EventHandlers.lua:69–76` — Refactored LingGen two-phase timer to use per-character keyed PersistentVars and per-character timer names, eliminating race condition. *(fixed 2026-03-12)*
+- [x] **L-19** `DanYao.lua:94` — Added `or 0` fallback to `GetStatusTurns` for `BANXIAN_DH_YEAR`. *(fixed 2026-03-12)*
+- [x] **T-11** `XSS_BANXIAN.xml:1059` — 获得获得→获得. *(fixed 2026-03-12)*
+- [x] **T-12** `XSS_BANXIAN.xml:279` — 该等该→等同该. *(fixed 2026-03-12)*
+- [x] **T-13** `XSS_BANXIAN.xml:831` — 的的→的. *(fixed 2026-03-12)*
 - [x] **B-13** `FaBao.lua:228` — Added `or 0` fallback to `GetStatusTurns` for `BANXIAN_FABAO_FIREBREATH_BURNING`. *(fixed 2026-03-12)*
 - [x] **B-14** `XSS_BANXIAN.khn:36` — Changed `Tagged(...) == 1` to `Tagged(...).Result` so soulless/construct/undead auto-fail DC=99 now fires. *(fixed 2026-03-12)*
 - [x] **WB-16** `XSS_BANXIAN.khn:47,55` — Added `context.Source` nil+validity guard to `IsTargetHPLess()` and `TargetHPLessThanYourStrength()`. *(fixed 2026-03-12)*
@@ -190,14 +201,14 @@
 - `Public/XSS_BANXIAN/Stats/Generated/ItemCombos.txt`
 
 ### Partially read
-- `Public/XSS_BANXIAN/Races/Races.lsx` (7069 lines; first 100 + UUID cross-refs verified)
+- `Public/XSS_BANXIAN/Races/Races.lsx` (7069 lines; structure + UUID cross-refs verified, no duplicate race UUIDs, cosmetic UUID sharing is correct)
 - `Public/XSS_BANXIAN/CharacterCreation/RENXIAN.lsx` (19934 lines; UUID cross-refs verified)
 - `Public/XSS_BANXIAN/CharacterCreation/TIANXIAN.lsx` (19934 lines; UUID cross-refs verified)
 - `Public/XSS_BANXIAN/CharacterCreation/YAOXIAN.lsx` (19934 lines; UUID cross-refs verified)
+- `Public/XSS_BANXIAN/RootTemplates/_merged.lsf.lsx` (2372 lines; 96 GameObjects, no duplicate MapKeys, race UUID refs verified)
 
 ### Not yet read
 - `Public/XSS_BANXIAN/CharacterCreation/CharacterCreationAppearanceVisuals.lsx` (59784 lines — visual presets; low priority)
-- `Public/XSS_BANXIAN/RootTemplates/_merged.lsf.lsx` / `_merged.lsx` (root template data)
 - `Public/XSS_BANXIAN/Content/` — asset/visual LSX files (6 files; low priority)
 - `Public/XSS_BANXIAN/MultiEffectInfos/` — remaining VFX info files (~20 files; no logic)
 - `Public/XSS_BANXIAN/Assets/Effects/` — effect bank LSX files (~12 files; visual/particle data)
