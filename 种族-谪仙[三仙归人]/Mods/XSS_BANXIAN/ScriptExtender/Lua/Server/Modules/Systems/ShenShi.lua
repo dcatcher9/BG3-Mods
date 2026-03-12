@@ -36,9 +36,6 @@ function ShenShi.OpenMessage(Object, Causee)
 
 end
 
-
-
-
 --事件·洞观扫描目标
 function ShenShi.ScanTarget(Object, Causee)
     local JingJieNames = {'练气','筑基','结丹','元婴','化神','炼虚','合体','大乘','渡劫','真仙'}
@@ -96,7 +93,5 @@ function ShenShi.OnStatusApplied_after(Object, Status, Causee)
     end
 
 end
-
-
 
 return ShenShi

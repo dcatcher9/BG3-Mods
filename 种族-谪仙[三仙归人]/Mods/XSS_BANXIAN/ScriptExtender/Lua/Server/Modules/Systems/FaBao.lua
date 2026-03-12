@@ -10,7 +10,6 @@ local FaBao = {
 local Variables = require("Server.Modules.Variables")
 local Utils = require("Server.Modules.Utils")
 
-
 -- 初始化炼器系统
 function FaBao.Init()
 
@@ -38,11 +37,7 @@ function FaBao.Init()
     -- 事件·铁中血器纹伤害回溯
     Ext.Osiris.RegisterListener("AttackedBy", 7, "after", FaBao.OnAttackedBy_after)
 
-
 end
-
-
-
 
 --炼器·合并字符串
 local function SafeConcatStrings(original, new, separator)
@@ -54,7 +49,7 @@ local function SafeConcatStrings(original, new, separator)
     -- 规范化原字符串：移除末尾所有可能的分号变体
     -- 匹配模式包括：分号前后可能有0-N个空格
     original = original:gsub("%s*;%s*$", ""):gsub("%s+$", "")
-    
+
     -- 判断是否需要添加分隔符
     if original == "" or new == "" then
         return original .. new -- 无需分隔符的情况
@@ -62,8 +57,6 @@ local function SafeConcatStrings(original, new, separator)
         return original .. separator .. new
     end
 end
-
-
 
 --炼器词条选择器A: YES OR NO
 function FaBao.OpenChoiceBox_A(Character, BOOST)
@@ -83,7 +76,6 @@ function FaBao.OpenChoiceBox_A(Character, BOOST)
 
     Osi.OpenMessageBoxYesNo(Character, Message)
 end
-
 
 --遍历抉择器
 function FaBao.LianQi_StartChoose(Caster,FABAO)
@@ -184,9 +176,8 @@ function FaBao.AddBoosts_AfterChoice(FABAO,TYPE,BOOST)
         end
     end
     PersistentVars['LianQi_Choice_Message'] = nil
-    
-end
 
+end
 
 --获取炼化难度
 function FaBao.LianHua.GetThreshold(Object)
@@ -227,7 +218,7 @@ function FaBao.LianHua.GetBoosts(Object)
     end
     Osi.TeleportToPosition(Object, 0, 0, 0, '', 0, 0, 0, 1, 0)
     Osi.RequestDelete(Object)
-    
+
 end
 
 --炼妖
@@ -248,7 +239,7 @@ function FaBao.LianHua.LianYao(Object,Causee)
                 local id = item.id
                 local tag = item.tag
                 local minlevel = item.minlevel
-        
+
                 if tag then
                     if type(tag) == 'table' then --特殊生物材料
                         for _, t in ipairs(tag) do
@@ -263,7 +254,7 @@ function FaBao.LianHua.LianYao(Object,Causee)
                         end
                     end
                 end
-        
+
                 -- 判断是否掉落
                 if DROP == true and Level >= minlevel then
                     local templateID = id < 10 and '987e1e7e-9656-4fdf-a0d2-e745bca00a0'..id or '987e1e7e-9656-4fdf-a0d2-e745bca00a'..id
@@ -273,10 +264,10 @@ function FaBao.LianHua.LianYao(Object,Causee)
                 else
                     --_P("[DanYao.Drop.YaoCai] 炼妖失败")  --DEBUG
                 end
-                
+
             end
         end
-        
+
         if Osi.IsDead(Object) == 1 then
             Osi.ApplyStatus(Object, 'CORPSE_SWITCH_EXPLODE', 6, 1)
         end
@@ -333,10 +324,10 @@ function FaBao.LianHua.AddBoosts(Caster,Object,Turns)
                 end
             end
         end
-    
+
         --添加增益
         local Amount = 0
-        
+
         for TYPE, _ in pairs(TYPE_TABLE) do
             local boostValue = ACTIVEBOOSTS[TYPE]
             if boostValue and boostValue ~= "" then
@@ -357,7 +348,7 @@ function FaBao.LianHua.AddBoosts(Caster,Object,Turns)
                             else
                                 FaBao.AddBoosts_AfterChoice(FABAO,TYPE,Passive)
                             end
-                            
+
                         end
                     elseif TYPE == "DefaultBoosts" or TYPE == "Boosts" or TYPE == "BoostsOnEquipMainHand" or TYPE == "BoostsOnEquipOffHand" then
                         local Boosts = Utils.Seprate_Strings(boostValue)
@@ -396,9 +387,9 @@ function FaBao.LianHua.AddBoosts(Caster,Object,Turns)
         --启动抉择模块, 当前剩余炼器就绪层数即为可提取词条数
         PersistentVars['LianQi_Choice_AmountRest'] = Turns
         FaBao.LianQi_StartChoose(Caster,FABAO)
-    
+
     end
-    
+
     --重置数据
     for TYPE, _ in pairs(Variables.Constants.FaBao.All) do
         Variables.Constants.FaBao.All[TYPE] = ""
@@ -445,12 +436,10 @@ function FaBao.LianHua.RecoverStatsStart_OnEquipped(FABAO)
             stat:Sync()
         else
         end
-        
+
     end
 
 end
-
-
 
 function FaBao.RestoreStatsForSave()
     for _, ID in ipairs(Ext.Stats.GetStats("Weapon")) do
@@ -466,8 +455,6 @@ function FaBao.RestoreStatsForSave()
     end
 
 end
-
-
 
 ---------------------------------------------------------
 --器纹·铁角
@@ -492,7 +479,6 @@ function FaBao.Passives.Armor.TieNiu_Check(Object, Status)
     end
 end
 
-
 --器纹·妖生角
 function FaBao.Passives.Ring.YaoShengJiao_Check(Caster)
     local MaxPower = Utils.Get.MaxSpellSlotPower(Caster)
@@ -508,14 +494,11 @@ function FaBao.Passives.Ring.YaoShengJiao_Check(Caster)
     end
 end
 
-
 --器纹·铁中血
 function FaBao.Passives.Armor.TieZhongXue_RecoverHP(Defender,DamageAmount)
     Osi.SetHitpoints(Defender, Osi.GetHitpoints(Defender)+DamageAmount)
     --_P('[FaBao.Passives.Armor.TieZhongXue_RecoverHP]回溯伤害') --DEBUG
 end
-
-
 
 ---------------------------------------------------------
 --异火·取火
@@ -548,9 +531,6 @@ function FaBao.YiHuo.TackeFireSeed(Object,Causee)
     end
 end
 
-
-
-
 function FaBao.GameLoded_LianQi()
     -- 首次加载时无需全量备份；炼器时已逐件保存（FaBao_LianQiSaveStats）
     -- 仅补存列表中尚未保存过的条目（向前兼容旧存档中的FABAOLIST）
@@ -566,9 +546,6 @@ function FaBao.GameLoded_LianQi()
     FaBao.RestoreStatsForSave()
 end
 
-
-
-
 ---------------------------------------------------------
 --点金术-融化金币
 local function BANXIAN_GOLDIFIED_ToGold(Object,Causee)
@@ -580,7 +557,6 @@ local function BANXIAN_GOLDIFIED_ToGold(Object,Causee)
     Osi.RequestDelete(Object)
 
 end
-
 
 -- 事件·炼器相关状态后
 function FaBao.OnStatusApplied_after(Object, Status, Causee)
@@ -616,7 +592,6 @@ function FaBao.OnStatusApplied_after(Object, Status, Causee)
             BANXIAN_GOLDIFIED_ToGold(Object,Causee)
         end
     end
-
 
     if Osi.HasPassive(Object, "BanXian_Fabao_Material_BC_DaLiTieJiao_Weapon") == 1 then
         FaBao.Passives.Weapon.TieNiu_Check(Object, Status)
@@ -655,9 +630,9 @@ function FaBao.OnMessageBoxYesNoClosed(Character, Message, Result)
             PersistentVars['LianQi_Choice_AmountRest'] = PersistentVars['LianQi_Choice_AmountRest'] - 1
         else
         end
-        
+
         if PersistentVars['LianQi_Choice_AmountRest'] >= 1 then
-            FaBao.LianQi_StartChoose(Character,PersistentVars['LianQi_Choice_FABAO']) 
+            FaBao.LianQi_StartChoose(Character,PersistentVars['LianQi_Choice_FABAO'])
         end
     end
 end
@@ -673,9 +648,5 @@ function FaBao.OnAttackedBy_after(Defender, AttackerOwner, Attacker, DamageType,
         FaBao.Passives.Armor.TieZhongXue_RecoverHP(Defender, DamageAmount)
     end
 end
-
-
-
-
 
 return FaBao

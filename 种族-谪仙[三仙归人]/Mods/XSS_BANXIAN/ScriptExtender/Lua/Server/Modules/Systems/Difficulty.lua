@@ -6,8 +6,6 @@ local LingGen = require("Server.Modules.Systems.LingGen")
 local Variables = require("Server.Modules.Variables")
 local Utils = require("Server.Modules.Utils")
 
-
-
 -- 初始化难度系统
 function Difficulty.Init()
 
@@ -27,7 +25,6 @@ function Difficulty.Init()
     Ext.Osiris.RegisterListener("EnteredCombat", 2, "after", Difficulty.OnEnteredCombat_after)
 
 end
-
 
 --全员修仙·道行计算器（返回总天数）
 function Difficulty.HardCore.Calculate_DaoHeng(k,Level,IsBoss,Days)
@@ -149,12 +146,6 @@ function Difficulty.IncreaseDH.LongRest()
     end
 end
 
-
-
-
-
-
-
 -- 事件·难度状态监听
 function Difficulty.OnStatusApplied_after(Object, Status)
 
@@ -169,7 +160,7 @@ function Difficulty.OnStatusApplied_after(Object, Status)
                 PersistentVars['Difficulty_Awakened_' .. Object] = true
                 Difficulty.HardCore.Start(Object)
             end
-            
+
         end
 
         --神火判定

@@ -2,14 +2,13 @@ local __util = require 'larian.util'
 
 function Shenshi_SourceSpellDC(fallbackDC, entity, ability)
     entity = entity or context.Source
-	local spellDC = fallbackDC or 10 -- Global default so that we don't return 0
+    local spellDC = fallbackDC or 10 -- Global default so that we don't return 0
     ability = ability or context.PreferredCastingAbility
-	if entity.IsValid then
-		spellDC = CalculateSpellDC(ability, entity)
-	end
-	return spellDC
+    if entity.IsValid then
+        spellDC = CalculateSpellDC(ability, entity)
+    end
+    return spellDC
 end
-
 
 function SpellDC_HEHUAN()
     if not context.Source or not context.Source.IsValid then return 8 end
@@ -127,11 +126,6 @@ function KiPointNum1()
     return HasActionResource('KiPoint', 1, 0, false, true, context.Source)
 end
 
-
-
-
-
-
 function BanXianSpellLevel(value)
     return ((IsSpellLevel(value)) & (HasUseCosts('SpellSlot') | HasUseCosts('WarlockSpellSlot')) & HasSpellFlag(SpellFlags.Spell))
 end
@@ -148,33 +142,14 @@ function ColdSpellCheck()
     return (HasUseCosts('SpellSlot') | HasUseCosts('WarlockSpellSlot')) & HasSpellFlag(SpellFlags.Spell) & SpellDamageTypeIs(DamageType.Cold)
 end
 
-
-
-
-
-
-
-
 function BanXianWildShapeSpellCheck()
     return HasUseCosts('WildShape')
 end
-
-
-
 
 function DHMARKMoreThanYEAR(stringStatusName,entity)
     local entity = entity or context.Source
     return ConditionResult(GetStatusDuration(stringStatusName, entity) > GetStatusDuration('BANXIAN_DH_YEAR', entity))
 end
-
-
-
-
-
-
-
-
-
 
 function DaoXinStable(entity)
     local entity = entity or context.Source
@@ -188,15 +163,6 @@ function DaoXinUnStable(entity)
     return HasStatus('BANXIAN_DH_HEART_UNSTABLE',entity)
 end
 
-
-
-
-
-
-
-
-
-
 function BanXianExtraAttackSpellCheck()
     return IsSpell() | HasStringInSpellRoll('WeaponAttack') | HasStringInSpellRoll('UnarmedAttack') | HasStringInSpellRoll('ThrowAttack') | SpellId('Target_CommandersStrike') | SpellId('Target_Bufotoxin_Frog_Summon') | SpellId('Projectile_ArrowOfSmokepowder')
 end
@@ -207,13 +173,13 @@ end
 
 function BanXianHasAnyExtraAttack(entity)
     local entity = entity or context.Target
-	local result = HasAnyStatus({'EXTRA_ATTACK_BANXIAN','EXTRA_ATTACK_2_BANXIAN','EXTRA_ATTACK_3_BANXIAN','EXTRA_ATTACK_4_BANXIAN','EXTRA_ATTACK_5_BANXIAN','EXTRA_ATTACK_6_BANXIAN','EXTRA_ATTACK_7_BANXIAN','EXTRA_ATTACK_8_BANXIAN','EXTRA_ATTACK_9_BANXIAN','EXTRA_ATTACK_WAR_MAGIC','EXTRA_ATTACK_WAR_PRIEST','MAG_MARTIAL_EXERTION','WILDSTRIKE_EXTRA_ATTACK','WILDSTRIKE_2_EXTRA_ATTACK','STALKERS_FLURRY','EXTRA_ATTACK_THIRSTING_BLADE','COMMANDERS_STRIKE_D10','COMMANDERS_STRIKE_D8'},{},{}, entity, context.Source, false).Result
+    local result = HasAnyStatus({'EXTRA_ATTACK_BANXIAN','EXTRA_ATTACK_2_BANXIAN','EXTRA_ATTACK_3_BANXIAN','EXTRA_ATTACK_4_BANXIAN','EXTRA_ATTACK_5_BANXIAN','EXTRA_ATTACK_6_BANXIAN','EXTRA_ATTACK_7_BANXIAN','EXTRA_ATTACK_8_BANXIAN','EXTRA_ATTACK_9_BANXIAN','EXTRA_ATTACK_WAR_MAGIC','EXTRA_ATTACK_WAR_PRIEST','MAG_MARTIAL_EXERTION','WILDSTRIKE_EXTRA_ATTACK','WILDSTRIKE_2_EXTRA_ATTACK','STALKERS_FLURRY','EXTRA_ATTACK_THIRSTING_BLADE','COMMANDERS_STRIKE_D10','COMMANDERS_STRIKE_D8'},{},{}, entity, context.Source, false).Result
     return ConditionResult(result)
 end
 
 function HasAnyExtraAttack_t(entity)
     local entity = entity or context.Target
-	local result = HasAnyStatus({'EXTRA_ATTACK','EXTRA_ATTACK_2','EXTRA_ATTACK_3','EXTRA_ATTACK_4','EXTRA_ATTACK_5','EXTRA_ATTACK_6','EXTRA_ATTACK_7','EXTRA_ATTACK_8','EXTRA_ATTACK_9','EXTRA_ATTACK_WAR_MAGIC','EXTRA_ATTACK_WAR_PRIEST','MAG_MARTIAL_EXERTION','WILDSTRIKE_EXTRA_ATTACK','WILDSTRIKE_2_EXTRA_ATTACK','STALKERS_FLURRY','EXTRA_ATTACK_THIRSTING_BLADE','COMMANDERS_STRIKE_D10','COMMANDERS_STRIKE_D8'},{},{}, entity, context.Source, false).Result
+    local result = HasAnyStatus({'EXTRA_ATTACK','EXTRA_ATTACK_2','EXTRA_ATTACK_3','EXTRA_ATTACK_4','EXTRA_ATTACK_5','EXTRA_ATTACK_6','EXTRA_ATTACK_7','EXTRA_ATTACK_8','EXTRA_ATTACK_9','EXTRA_ATTACK_WAR_MAGIC','EXTRA_ATTACK_WAR_PRIEST','MAG_MARTIAL_EXERTION','WILDSTRIKE_EXTRA_ATTACK','WILDSTRIKE_2_EXTRA_ATTACK','STALKERS_FLURRY','EXTRA_ATTACK_THIRSTING_BLADE','COMMANDERS_STRIKE_D10','COMMANDERS_STRIKE_D8'},{},{}, entity, context.Source, false).Result
     return ConditionResult(result)
 end
 
@@ -251,12 +217,6 @@ function HasHigherPriorityExtraAttackQueued_BanXian(status, entity)
     return _HasHigherPriorityQueued(status, entity, queue)
 end
 
-
-
-
-
-
-
 function FABAOBAIMAI3FREEBOOSTCHECK()
     return (HasUseCosts('BonusActionPoint',true) | HasUseCosts('ActionPoint',true) | (~HasActionResource('ActionPoint', 1, 0, false, true, context.Source) & ~HasActionResource('BonusActionPoint', 1, 0, false, true, context.Source))) & ~(SpellId('Shout_ActionToBonusAction') | SpellId('Shout_BonusActionToAction'))
 end
@@ -268,7 +228,6 @@ end
 function FABAOBAIMAI3FREEBOOSTCHECK_BONUSACTIONPOINT()
     return HasUseCosts('BonusActionPoint',true)
 end
-
 
 function IsEquippedMeleeWeapon(entity)
     local entity = entity or context.Source
@@ -295,14 +254,9 @@ function IsXianRenMode(entity)
     return HasStatus('MODE_BANXIAN_DH_TIAN_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_XIULUO_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_RENJIAN_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_CHUSHENG_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_EGUI_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_DIYU_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_JIAN_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_LI_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_HEHUAN_TECHNICAL',entity) | HasStatus('MODE_BANXIAN_DH_YI_TECHNICAL',entity)
 end
 
-
-
-
-
 function WZPLGLZSpellCheck()
     return SpellId('BANXIAN_WZPLG_H') | SpellId('BANXIAN_WZPLG_T') | SpellId('BANXIAN_WZPLG_J') | SpellId('BANXIAN_WZPLG_S') | SpellId('BANXIAN_WZPLG_M') | SpellId('BANXIAN_WZPLG_LEI') | SpellId('BANXIAN_WZPLG_FENG') | SpellId('BANXIAN_WZPLG_BING')
 end
-
 
 -- 灵根阈值常量
 local LG_THRESHOLD          = 25    -- 普通灵根
@@ -362,9 +316,6 @@ function YiLingGen_HunDun(entity)
     return ConditionResult(GetStatusDuration('BANXIAN_LG_H', entity) >= LG_YI_THRESHOLD and GetStatusDuration('BANXIAN_LG_T', entity) >= LG_YI_THRESHOLD and GetStatusDuration('BANXIAN_LG_J', entity) >= LG_YI_THRESHOLD and GetStatusDuration('BANXIAN_LG_S', entity) >= LG_YI_THRESHOLD and GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_THRESHOLD)
 end
 
-
-
-
 function LG_GUANG_BOOSTCHECK(entity)
     local entity = entity or context.Source
 
@@ -375,16 +326,12 @@ function LG_AN_CRITICALHITCheck()
     return ConditionResult(context.InterruptedRoll.RollCritical == RollCritical.Success)
 end
 
-
-
-
 function HasLingGen(entity)
     local entity = entity or context.Target
     local result = HasStatus('BANXIAN_LG_H',entity) | HasStatus('BANXIAN_LG_T',entity) | HasStatus('BANXIAN_LG_J',entity) | HasStatus('BANXIAN_LG_S',entity) | HasStatus('BANXIAN_LG_M',entity)
 
     return ConditionResult(result.Result, {ConditionError("notHasLingGen")})
 end
-
 
 -- 阈值灵根检测：灵根值达到阈值（>=10点）即激活效果
 function IsActiveLingGen(Name,entity)
@@ -557,9 +504,6 @@ function IsShengLingGenHunDun(entity)
     return ConditionResult(GetStatusDuration('BANXIAN_LG_H', entity) >= LG_YI_SHENG_THRESHOLD and GetStatusDuration('BANXIAN_LG_T', entity) >= LG_YI_SHENG_THRESHOLD and GetStatusDuration('BANXIAN_LG_J', entity) >= LG_YI_SHENG_THRESHOLD and GetStatusDuration('BANXIAN_LG_S', entity) >= LG_YI_SHENG_THRESHOLD and GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_SHENG_THRESHOLD)
 end
 
-
-
-
 function ColdDamageTypeSpellCheck()
     return IsSpell() & (HasUseCosts('SpellSlot') | HasUseCosts('WarlockSpellSlot')) & SpellDamageTypeIs(DamageType.Cold)
 end
@@ -568,16 +512,12 @@ function LightningDamageTypeSpellCheck()
     return IsSpell() & (HasUseCosts('SpellSlot') | HasUseCosts('WarlockSpellSlot')) & SpellDamageTypeIs(DamageType.Lightning)
 end
 
-
-
 function LightningChargeACCheck(entity)
     entity = entity or context.Source
 
     local result = GetStatusDuration('MAG_CHARGED_LIGHTNING', entity) ~= GetStatusDuration('MAG_CHARGED_LIGHTNING_LGLEI_AC', entity)
     return ConditionResult(result)
 end
-
-
 
 function WZPLGLZDuration(value,entity)
     value = value or 0
@@ -586,12 +526,6 @@ function WZPLGLZDuration(value,entity)
     local result = GetStatusDuration('BANXIAN_WZPLG_LZ', entity) == value
     return ConditionResult(result)
 end
-
-
-
-
-
-
 
 function BanXianShenshiControlCheck(entity)
     entity = entity or context.Target
@@ -612,25 +546,14 @@ function CanShenshiCheck()
     return ConditionResult(GetModifier(context.Source.Wisdom) >= GetModifier(context.Target.Wisdom), {ConditionError("CannotCheckTarget")})
 end
 
-
 function IsZhenfaFlags(entity)
     entity = entity or context.Target
     return HasStatus('BANXIAN_ZHENFA_FLAGS_JULING_AURA_QIAN',entity) | HasStatus('BANXIAN_ZHENFA_FLAGS_JULING_AURA_KUN',entity) | HasStatus('BANXIAN_ZHENFA_FLAGS_JULING_AURA_XUN',entity) | HasStatus('BANXIAN_ZHENFA_FLAGS_JULING_AURA_ZHEN',entity) | HasStatus('BANXIAN_ZHENFA_FLAGS_JULING_AURA_KAN',entity) | HasStatus('BANXIAN_ZHENFA_FLAGS_JULING_AURA_LI',entity) | HasStatus('BANXIAN_ZHENFA_FLAGS_JULING_AURA_GEN',entity) | HasStatus('BANXIAN_ZHENFA_FLAGS_JULING_AURA_DUI',entity)
 end
 
-
 function CuiHuoSpellCheck()
     return SpellId('BANXIAN_FaBao_FireBreath') | SpellId('BANXIAN_FaBao_FireBreath_Cone') | SpellId('BANXIAN_FaBao_FireBreath_Line') | SpellId('BANXIAN_FaBao_FireBreath_YAO') | SpellId('BANXIAN_FaBao_FireBreath_YAO_Cone') | SpellId('BANXIAN_FaBao_FireBreath_YAO_Line')
 end
-
-
-
-
-
-
-
-
-
 
 function BanxianXiulianKiFlashCheck_H(entity)
     entity = entity or context.Source
@@ -704,9 +627,6 @@ function BanxianXiulianKiFlashCheck_ALLN(entity)
     return ConditionResult(GetStatusDuration('BANXIAN_XIULIAN_LINGQI_H', entity) == GetStatusDuration('BANXIAN_XIULIAN_LINGQI_T', entity) and GetStatusDuration('BANXIAN_XIULIAN_LINGQI_J', entity) == GetStatusDuration('BANXIAN_XIULIAN_LINGQI_S', entity) and GetStatusDuration('BANXIAN_XIULIAN_LINGQI_H', entity) == GetStatusDuration('BANXIAN_XIULIAN_LINGQI_M', entity) and GetStatusDuration('BANXIAN_XIULIAN_LINGQI_H', entity) == GetStatusDuration('BANXIAN_XIULIAN_LINGQI_J', entity))
 end
 
-
-
-
 function BanxianXiulianKiFlashCheck(entity)
     entity = entity or context.Source
 
@@ -719,14 +639,11 @@ function Ki_FlashCheck(entity)
     return ConditionResult(GetStatusDuration('BANXIAN_XIULIAN_LINGQI_JINGLIAN', entity) >= (GetStatusDuration('BANXIAN_LG_H', entity) + GetStatusDuration('BANXIAN_LG_T', entity) + GetStatusDuration('BANXIAN_LG_J', entity) + GetStatusDuration('BANXIAN_LG_S', entity) + GetStatusDuration('BANXIAN_LG_M', entity))/5)
 end
 
-
-
 function HasYiHuo(entity)
     entity = entity or context.Source
 
     return HasPassive('BANXIAN_Fire_of_Gold',entity) | HasPassive('BANXIAN_Fire_of_Ghost',entity) | HasPassive('BANXIAN_Fire_of_ThreeMei',entity) | HasPassive('BANXIAN_Fire_of_Purple',entity) | HasPassive('BANXIAN_Fire_of_SixDing',entity)
 end
-
 
 function Shenshi_TelekinesisCheck()
     local result = Dead() | Item() | Ally()
@@ -737,7 +654,6 @@ function Shenshi_TelekinesisCheck()
 
     return result
 end
-
 
 function IsPerfectParry()
     return ConditionResult(context.HitDescription.TotalDamageDone <= 0)
@@ -756,10 +672,6 @@ function IsFlatValueInterruptInteresting_Enemy(max, entity)
     return ConditionResult(result)
 end
 
-
-
-
-
 function ZhengLeiGu_TwinnedProjectileSpellCheck()
     return ~AreaRadiusGreaterThan(0) & (HasSpellFlag(SpellFlags.Spell) | NonSpellMetamagicAbilities()) & SpellTypeIs(SpellType.Projectile) & ~MetamagicExclusionSpells() & ~SpellId('Projectile_WitchBolt')
 end
@@ -771,10 +683,6 @@ end
 function ZhengLeiGu_TwinnedTargetTouchSpellCheck()
     return TargetRadiusGreaterThan(0) & ~TargetRadiusGreaterThan(1.5) & ~AreaRadiusGreaterThan(0) & (HasSpellFlag(SpellFlags.Spell) | NonSpellMetamagicAbilities()) & SpellTypeIs(SpellType.Target) & ~HasFunctor(StatsFunctorType.Summon) & ~MetamagicExclusionSpells()
 end
-
-
-
-
 
 function BanXian_LingQiBianYi_Lei(entity)
     local entity = entity or context.Source
@@ -800,10 +708,7 @@ function BanXian_LingQiBianYi_None(entity)
     return ~(HasStatus('BANXIAN_LG_BING',entity) | HasStatus('BANXIAN_LG_BING_TIAN',entity) | HasStatus('BANXIAN_LG_LEI',entity) | HasStatus('BANXIAN_LG_LEI_TIAN',entity) | HasStatus('BANXIAN_LG_DU',entity) | HasStatus('BANXIAN_LG_DU_TIAN',entity))
 end
 
-
-
 function OffHandAttackSpell()
     return HasStringInSpellRoll('WeaponAttack') & HasUseCosts('BonusActionPoint',false)
 end
-
 

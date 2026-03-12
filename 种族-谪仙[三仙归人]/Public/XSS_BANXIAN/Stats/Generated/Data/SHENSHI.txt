@@ -41,7 +41,6 @@ data "DisplayName" "stringsofmodmadebyxss20250218jj001a00;1"
 data "StackType" "Overwrite"
 data "StatusPropertyFlags" "DisableCombatlog;DisablePortraitIndicator;ApplyToDead;IgnoreResting"
 
-
 /////////////////////////////
 /
 /          分神术
@@ -104,7 +103,6 @@ data "DisplayName" "stringsofmodmadebyxss20240930dvb06a01;1"
 data "StackType" "Additive"
 data "OnApplyFunctors" "ApplyStatus(SIGNAL_SS_CHECK,100,0)"
 data "StatusPropertyFlags" "IgnoreResting;ApplyToDead;DisableOverhead;DisablePortraitIndicator;DisableCombatlog;MultiplyEffectsByDuration;FreezeDuration"
-
 
 //分神术：担山
 new entry "BANXIAN_Shenshi_Throw"
@@ -170,7 +168,7 @@ data "CastTextEvent" "Cast"
 data "UseCosts" "BonusActionPoint:1"
 data "SpellAnimation" "554a18f7-952e-494a-b301-7702a85d4bc9,,;,,;3e441d3f-11f9-432d-877c-c0ba4d92c74a,,;8b7ae969-2a04-4720-9685-3bde54c18ffe,,;22dfbbf4-f417-4c84-b39e-2039315961e6,,;,,;5bfbe9f9-4fc3-4f26-b112-43d404db6a89,,;,,;,,"
 data "SpellFlags" "IsSpell;IsHarmful;IgnorePreviouslyPickedEntities;IsConcentration"
-data "MemoryCost" "" 
+data "MemoryCost" ""
 data "PrepareEffect" "17f11731-a1c7-4653-a15b-6c7f871574b3"
 data "CastEffect" "28a8039d-9df1-4210-8137-f396dd23614e"
 data "TargetEffect" "6b316222-955e-4539-87eb-a098db22c98b"
@@ -224,7 +222,7 @@ data "Requirements" ""
 data "PrepareEffect" "49dd385f-fd25-4372-8628-30b775af7c79"
 data "CastEffect" "2550e2bb-c9f9-4440-9cd4-146a03f2e9bc"
 data "SpellFlags" "ImmediateCast"
-data "Sheathing" "DontChange" 
+data "Sheathing" "DontChange"
 
 //分神术：洞观
 new entry "BANXIAN_Shenshi_DetectSense"
@@ -250,5 +248,4 @@ data "HitAnimationType" "None"
 data "PrepareEffect" "7121a488-7c9a-4ba1-a585-f79aaa77e97c"
 data "CastEffect" "605c97c8-939b-4c81-b3f8-ace0334ca0f3"
 data "TargetEffect" "3660074d-d0ca-44c6-aaa3-803d892c1757"
-
 

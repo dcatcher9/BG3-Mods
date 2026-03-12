@@ -11,10 +11,6 @@ function DanYao.Init()
     Ext.Osiris.RegisterListener("StatusApplied", 4, "after", DanYao.OnStatusApplied_after)
 end
 
-
-
-
-
 -- 掉落药材
 function DanYao.Drop.YaoCai(Object)
     local Level = Osi.GetLevel(Object)
@@ -121,7 +117,6 @@ function DanYao.Drop.BaoCai(Object)
     end
 end
 
-
 --五蕴丹
 function DanYao.Function.WuYunDan(Object)
     local LG_TZ = Osi.GetStatusTurns(Object, 'BANXIAN_LG_TZ') or 0
@@ -150,10 +145,6 @@ function DanYao.Function.WuYunDan(Object)
     end
 
 end
-
-
-
-
 
 -- 事件·生物死亡
 function DanYao.OnStatusApplied_after(Object, Status, Causee)

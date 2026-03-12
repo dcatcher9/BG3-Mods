@@ -1,8 +1,8 @@
-///////////////////////////// 
+/////////////////////////////
 /
 /           打坐状态       //
 /
-/////////////////////////////  
+/////////////////////////////
 new entry "BANXIAN_Xiulian"
 type "PassiveData"
 data "Icon" "Skill_Druid_NaturalRecovery"
@@ -11,7 +11,6 @@ data "Description" "stringsofmodmadebyxss20250304zfa00b00;1"
 data "Properties" "IsToggled;ToggledDefaultAddToHotbar"
 data "ToggleOnFunctors" "ApplyStatus(BANXIAN_XIULIAN_TECHNICAL,100,-1)"
 data "ToggleOffFunctors" "RemoveStatus(BANXIAN_XIULIAN_TECHNICAL)"
-
 
 new entry "BANXIAN_XIULIAN_TECHNICAL"
 type "StatusData"
@@ -121,16 +120,11 @@ data "DisplayName" "stringsofmodmadebyxss20250304zfa00a07;1"
 data "Description" "stringsofmodmadebyxss20250304zfa00b07;1"
 data "RequirementConditions" "HasStatus('BANXIAN_XIULIAN_LINGQI_M')"
 
-
-
-
-
-
-///////////////////////////// 
+/////////////////////////////
 /
 /            灵气          //
 /
-///////////////////////////// 
+/////////////////////////////
 //火属性灵气
 new entry "BANXIAN_XIULIAN_LINGQI_H"
 type "StatusData"

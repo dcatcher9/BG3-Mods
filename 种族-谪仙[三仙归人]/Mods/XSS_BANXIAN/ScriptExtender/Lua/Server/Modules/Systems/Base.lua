@@ -25,12 +25,7 @@ function Base.Init()
     -- 注册事件监听基础相关施法·前
     Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", Base.OnUsingSpellOnTarget_before)
 
-
-
 end
-
-
-
 
 --元婴术·更改专注·施法前
 function Base.YuanYing.Concentration_Before(ID,Caster)
@@ -70,10 +65,6 @@ function Base.YuanYing.Concentration_After(ID)
     end
 end
 
-
-
-
-
 --双持攻击·千机
 function Base.TianXian.DualAttack_Before(Caster)
     local entity = Ext.Entity.Get(Caster)
@@ -86,11 +77,6 @@ function Base.TianXian.DualAttack_Before(Caster)
         entity:Replicate("ActionResources")
     end
 end
-
-
-
-
-
 
 --变身术应用
 function Base.ShenTong.TianXian.Transform_Apply(Caster, Target, rule)
@@ -120,7 +106,7 @@ function Base.ShenTong.TianXian.Transform_Cancel(Caster, Status)
                     PersistentVars['BanXian_36_CopyPassives_Constant_'..Caster.."_"..i] = nil  --清空变身被动组
                     --Ext.Utils.Print("[神通·天罡·三十六变·解除变身]: 移除被动："..PassiveID)  --debug
                 end
-    
+
             end
         end
 
@@ -136,11 +122,11 @@ function Base.ShenTong.TianXian.Transform_Cancel(Caster, Status)
                         --Ext.Utils.Print("[神通·天罡·三十六变·解除变身]: 移除状态："..StatusID)  --debug
                     end
                 end
-    
+
             end
         end
     --Ext.Utils.Print("变身：变回原形")--debug
-    
+
 end
 
 --变身术
@@ -155,7 +141,7 @@ function Base.ShenTong.TianXian.Transform(Caster, Target, Name)
         Base.ShenTong.TianXian.Transform_Apply(Caster, Target, 'b5b23794-f4d1-42e5-97ba-0a0906b00e69')
         --Ext.Utils.Print("神通·天罡·三十六变：变身"..Target)--debug
     end
-    
+
     if Osi.IsInCombat(Caster) == 0 then
         Osi.SetFaction(Caster, Osi.GetFaction(Target))
         Osi.SetIndividualRelation(Caster, Osi.GetFaction(Target), 100)
@@ -163,7 +149,7 @@ function Base.ShenTong.TianXian.Transform(Caster, Target, Name)
 
     --复制被动
     if ( Ext.Entity.Get(Target).PassiveContainer.Passives ~= nil ) then
-  
+
       --遍历被动
       local k = 1
       for _,entry in pairs(Ext.Entity.Get(Target).PassiveContainer.Passives) do
@@ -179,7 +165,7 @@ function Base.ShenTong.TianXian.Transform(Caster, Target, Name)
         end
 
       end
-    
+
     end
 
     --复制STATUS
@@ -199,14 +185,10 @@ function Base.ShenTong.TianXian.Transform(Caster, Target, Name)
             k = k + 1
         end
       end
-    
+
     end
-    
+
 end
-
-
-
-
 
 -- 事件·灵根状态
 function Base.OnStatusApplied_after(Object, Status, Causee)
@@ -248,7 +230,7 @@ function Base.OnUsingSpell_after(Caster, Spell, SpellType, SpellElement, StoryAc
         if PersistentVars['YYSpellRecover_Waiting'] ~= nil then
             if PersistentVars['YYSpellRecover_Waiting'] == Spell then
                 Osi.TimerLaunch('Yuanying_ConcentrationRecover', 1500)
-                
+
             end
         end
     end
@@ -266,7 +248,7 @@ end
 
 -- 事件·基础目标施法前
 function Base.OnUsingSpellOnTarget_before(Caster, Target, Name)
-    
+
     if Name == "Target_MainHandAttack" and Osi.HasPassive(Caster,"FABAO_BAIMAI_3") == 1 then
         --检查副手装备 是否留有附赠动作
         if Osi.GetEquippedItem(Caster, "Melee Offhand Weapon") ~= nil and Utils.Get.ActionResource(Caster, Variables.Constants.BonusActionPoint_UUID) < 1 then

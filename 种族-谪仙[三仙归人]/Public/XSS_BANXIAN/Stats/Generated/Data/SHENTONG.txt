@@ -26,19 +26,17 @@ data "SpellFlags" "IsLinkedSpellContainer"
 data "PrepareEffect" "68441fef-df1c-4622-acba-e79f53edf7e7"
 data "CastEffect" "23f0ede1-066a-4377-8395-20a1d8500c75"
 
-
-///////////////////////////// 
+/////////////////////////////
 /
 /         七十二变       //
 /
-/////////////////////////////  
+/////////////////////////////
 new entry "BANXIAN_Polymorph_72_Passive"
 type "PassiveData"
 data "DisplayName" "stringsofmodmadebyxss20240930dv008a01;1"
 data "Description" "stringsofmodmadebyxss20240930dv008b01;1"
 data "Properties" "IsHidden"
 data "Boosts" "UnlockSpell(BANXIAN_Polymorph_72)"
-
 
 new entry "BANXIAN_Polymorph_72"
 type "SpellData"
@@ -101,26 +99,23 @@ data "StackId" "Polymorph_BANXIAN"
 data "Boosts" "UnlockSpell(BANXIAN_Polymorph_72_CANCEL)"
 data "OnRemoveFunctors" "ApplyStatus(SELF,Polymorph_BANXIAN_72_REMOVED,100,0)"
 
-
 new entry "Polymorph_BANXIAN_72_REMOVED"
 type "StatusData"
 data "StatusType" "BOOST"
 data "DisplayName" "stringsofmodmadebyxss20240930dv008c01;1"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
 
-
-///////////////////////////// 
+/////////////////////////////
 /
 /         36变       //
 /
-/////////////////////////////  
+/////////////////////////////
 new entry "BANXIAN_Polymorph_36_Passive"
 type "PassiveData"
 data "DisplayName" "stringsofmodmadebyxss20240930dv008a02;1"
 data "Description" "stringsofmodmadebyxss20240930dv008b02;1"
 data "Properties" "IsHidden"
 data "Boosts" "UnlockSpell(BANXIAN_Polymorph_36)"
-
 
 new entry "BANXIAN_Polymorph_36"
 type "SpellData"
@@ -147,19 +142,17 @@ data "DisplayName" "stringsofmodmadebyxss20240930dv008a02;1"
 data "Boosts" "UnlockSpell(BANXIAN_Polymorph_36_CANCEL)"
 data "OnRemoveFunctors" "ApplyStatus(SELF,Polymorph_BANXIAN_36_REMOVED,100,0)"
 
-
 new entry "Polymorph_BANXIAN_36_REMOVED"
 type "StatusData"
 data "StatusType" "BOOST"
 using "Polymorph_BANXIAN_72_REMOVED"
 data "DisplayName" "stringsofmodmadebyxss20240930dv008a02;1"
 
-
-///////////////////////////// 
+/////////////////////////////
 /
 /         袖里乾坤       //
 /
-/////////////////////////////  
+/////////////////////////////
 new entry "BANXIAN_CreatureBag"
 type "PassiveData"
 data "DisplayName" "stringsofmodmadebyxss20240930dv008a03;1"

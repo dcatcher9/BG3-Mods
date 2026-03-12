@@ -1,4 +1,4 @@
-///////////////////////////// 
+/////////////////////////////
 /
 /          点金             /
 /
@@ -51,14 +51,11 @@ data "StatusEffect" "d56b562b-f434-4521-b11e-b4e5083af370"
 data "StatusPropertyFlags" "ApplyToDead;IgnoreResting"
 data "StatusSoundState" "dd94cbd2-99a4-4a03-9fa7-caa7886552d1"
 
-
-
-
-///////////////////////////// 
+/////////////////////////////
 /
 /          吐火             /
 /
-/////////////////////////////  
+/////////////////////////////
 //真火
 new entry "BANXIAN_FaBao_FireBreath"
 type "SpellData"
@@ -79,7 +76,6 @@ data "SpellStyleGroup" "Class"
 data "SpellAnimationIntentType" "Aggressive"
 data "Sheathing" "DontChange"
 data "SpellFlags" "IsLinkedSpellContainer"
-
 
 new entry "BANXIAN_FaBao_FireBreath_Cone"
 type "SpellData"
@@ -155,9 +151,6 @@ data "PrepareEffect" "c88e9cfa-df92-477a-ae75-cbfb932350b4"
 data "CastEffect" "4481fb37-77c2-4b70-8675-01638932c01b"
 data "DamageType" "Fire"
 
-
-
-
 //妖火
 new entry "BANXIAN_FaBao_FireBreath_YAO"
 type "SpellData"
@@ -192,13 +185,11 @@ data "SpellContainerID" "BANXIAN_FaBao_FireBreath_YAO"
 data "DisplayName" "stringsofmodmadebyxss20250303zfa0ba03;1"
 data "Description" "stringsofmodmadebyxss20250303zfa0bb03;1"
 
-
-
-///////////////////////////// 
+/////////////////////////////
 /
 /          淬火             /
 /
-/////////////////////////////  
+/////////////////////////////
 //淬火
 new entry "BANXIAN_FABAO_FIREBREATH_BURNING"
 type "StatusData"
@@ -246,17 +237,11 @@ data "OnRemoveFunctors" ""
 data "RemoveEvents" "OnStatusRemoved"
 data "RemoveConditions" "StatusDurationLessThan(context.Target, 'BANXIAN_FABAO_FIREBREATH_BURNING', 10)"
 
-
-
-
-
-
-
-///////////////////////////// 
+/////////////////////////////
 /
 /          宝材             /
 /
-/////////////////////////////  
+/////////////////////////////
 //大力铁角
 new entry "BanXian_Fabao_Material_BC_DaLiTieJiao_Weapon"
 type "PassiveData"
@@ -278,7 +263,6 @@ data "Properties" "Highlighted"
 data "StatsFunctorContext" "OnStatusApplied"
 data "Conditions" "StatusId('ACTION_SURGE')"
 data "StatsFunctors" "ApplyStatus(TIENIU_WEAPON_APBONUS,100,-1)"
-
 
 new entry "TIENIU_BOOSTS_DAMAGEBONUS"
 type "StatusData"
@@ -339,8 +323,6 @@ data "DisplayName" "stringsofmodmadebyxss20250115bca00d02;1"
 data "Description" "stringsofmodmadebyxss20250115bca00g02;1"
 data "Properties" "Highlighted"
 data "Boosts" "UnlockSpell(Shout_YaoShengJiao_ExtraSpellSlot)"
-
-
 
 new entry "YAOSHENGJIAO_BOOSTS_CASTSPELL_1"
 type "StatusData"
@@ -510,7 +492,6 @@ data "StatusType" "BOOST"
 using "TIENIU_BOOSTS_EXTRASPELLSLOT_USE_1"
 data "OnApplyFunctors" "UseActionResource(SpellSlot,3,6)"
 
-
 //黑色眼眸
 new entry "BanXian_Fabao_Material_BC_HeiSeYanMou_Weapon"
 type "PassiveData"
@@ -554,7 +535,6 @@ data "Boosts" "Tag(UNDEAD);BlockTravel();FactionOverride(Source);IncreaseMaxHP(-
 data "StatusPropertyFlags" "ApplyToDead;IgnoreResting"
 data "StatusEffect" "a9cf5cbf-4247-4b9a-b81b-e3af4982ff62"
 
-
 new entry "BanXian_Fabao_Material_BC_HeiSeYanMou_Armor"
 type "PassiveData"
 data "DisplayName" "stringsofmodmadebyxss20250115bca00d03;1"
@@ -581,7 +561,6 @@ data "Boosts" "IncreaseMaxHP(Level)"
 data "RemoveConditions" "not Combat()"
 data "RemoveEvents" "OnCombatEnded"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;FreezeDuration;MultiplyEffectsByDuration"
-
 
 new entry "BanXian_Fabao_Material_BC_HeiSeYanMou_Ring"
 type "PassiveData"
@@ -615,7 +594,6 @@ data "StackId" "HEISEYANMOU_BOOST_RING_SUMMON"
 data "Boosts" "IncreaseMaxHP(Cause.Level*5);RollBonus(Attack,Cause.Level);DamageBonus(Cause.Level)"
 data "StatusEffect" "74d126ef-5d43-4ad4-9eb9-4eb241381685"
 
-
 //金色眼眸
 new entry "BanXian_Fabao_Material_BC_JinSeYanMou_Weapon"
 type "PassiveData"
@@ -640,8 +618,6 @@ data "Properties" "Highlighted"
 data "StatsFunctorContext" "OnHeal"
 data "Conditions" "Character()"
 data "StatsFunctors" "IF(HasPassive('BanXian_Fabao_Material_BC_JinSeYanMou_Armor',context.Target) and HasStatus('SANT_SHEILD',context.Target)):ApplyStatus(SANT_SHEILD_DAMAGEBONUS,100,1); ApplyStatus(SANT_SHEILD,100,-1)"
-
-
 
 new entry "SANT_SHEILD"
 type "StatusData"
@@ -673,8 +649,6 @@ data "RemoveEvents" "OnStatusRemoved"
 data "RemoveConditions" "not HasStatus('SANT_SHEILD',context.Source)"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;FreezeDuration;MultiplyEffectsByDuration"
 
-
-
 //龙珠
 new entry "BanXian_Fabao_Material_BC_LongZhu_Weapon"
 type "PassiveData"
@@ -685,7 +659,6 @@ data "Properties" "Highlighted"
 data "BoostContext" "OnStatusApplied"
 data "Boosts" "IF(HasStatus('LONGZHU_BOOSTS_MAXROLL_12',context.Source)):CharacterWeaponDamage(1d12,Radiant);IF(HasStatus('LONGZHU_BOOSTS_MAXROLL_10',context.Source)):CharacterWeaponDamage(1d10,Radiant);IF(HasStatus('LONGZHU_BOOSTS_MAXROLL_8',context.Source)):CharacterWeaponDamage(1d8,Radiant);IF(HasStatus('LONGZHU_BOOSTS_MAXROLL_6',context.Source)):CharacterWeaponDamage(1d6,Radiant);IF(not (HasStatus('LONGZHU_BOOSTS_MAXROLL_12',context.Source) or HasStatus('LONGZHU_BOOSTS_MAXROLL_10',context.Source) or HasStatus('LONGZHU_BOOSTS_MAXROLL_8',context.Source) or HasStatus('LONGZHU_BOOSTS_MAXROLL_6',context.Source))):CharacterWeaponDamage(1d4,Radiant)"
 
-
 new entry "BanXian_Fabao_Material_BC_LongZhu_Armor"
 type "PassiveData"
 data "DisplayName" "stringsofmodmadebyxss20250115bca00d07;1"
@@ -694,7 +667,6 @@ data "Properties" "Highlighted"
 data "StatsFunctorContext" "OnHealed"
 data "Conditions" "HasHPPercentageWithoutTemporaryHPEqualOrMoreThan(100,context.Target)"
 data "StatsFunctors" "IF(HasStatus('LONGZHU_BOOSTS_MAXROLL_10',context.Target)):ApplyStatus(LONGZHU_BOOSTS_MAXROLL_12,100,-1);IF(HasStatus('LONGZHU_BOOSTS_MAXROLL_8',context.Target)):ApplyStatus(LONGZHU_BOOSTS_MAXROLL_10,100,-1);IF(HasStatus('LONGZHU_BOOSTS_MAXROLL_6',context.Target)):ApplyStatus(LONGZHU_BOOSTS_MAXROLL_8,100,-1);IF(not (HasStatus('LONGZHU_BOOSTS_MAXROLL_12',context.Target) or HasStatus('LONGZHU_BOOSTS_MAXROLL_10',context.Target) or HasStatus('LONGZHU_BOOSTS_MAXROLL_8',context.Target) or HasStatus('LONGZHU_BOOSTS_MAXROLL_6',context.Target))):ApplyStatus(LONGZHU_BOOSTS_MAXROLL_6,100,-1)"
-
 
 new entry "BanXian_Fabao_Material_BC_LongZhu_Ring"
 type "PassiveData"
@@ -760,7 +732,6 @@ data "StatusType" "BOOST"
 using "LONGZHU_BOOSTS_MAXROLL_6"
 data "TickFunctors" "RemoveStatus(LONGZHU_BOOSTS_MAXROLL_12)"
 
-
 //铁中血
 new entry "BanXian_Fabao_Material_BC_TieZhongXue_Weapon"
 type "PassiveData"
@@ -772,7 +743,6 @@ data "Boosts" "IF(IsMeleeWeaponAttack()):CharacterWeaponDamage(10)"
 data "StatsFunctorContext" "OnAttack"
 data "Conditions" "IsMeleeWeaponAttack() and not IsMiss()"
 data "StatsFunctors" "DealDamage(SELF,10,,,,0,,true,true,,true)"
-
 
 new entry "BanXian_Fabao_Material_BC_TieZhongXue_Armor"
 type "PassiveData"
@@ -830,7 +800,6 @@ data "StatsFunctorContext" "OnCast"
 data "Conditions" "IsSpell() and not IsCantrip()"
 data "StatsFunctors" "IF(BanXianSpellLevel(1)):DealDamage(SELF,MaxHP/10,,,,0,,true,true,,true);IF(BanXianSpellLevel(2)):DealDamage(SELF,MaxHP/5,,,,0,,true,true,,true);IF(BanXianSpellLevel(3)):DealDamage(SELF,(MaxHP*3)/10,,,,0,,true,true,,true);IF(BanXianSpellLevel(4)):DealDamage(SELF,(MaxHP*2)/5,,,,0,,true,true,,true);IF(BanXianSpellLevel(5)):DealDamage(SELF,MaxHP/2,,,,0,,true,true,,true);IF(BanXianSpellLevel(6)):DealDamage(SELF,(MaxHP*3)/5,,,,0,,true,true,,true)"
 
-
 //玉垂牙
 new entry "BanXian_Fabao_Material_BC_YuChuiYa_Weapon"
 type "PassiveData"
@@ -858,7 +827,6 @@ data "Properties" "Highlighted;OncePerTurn"
 data "StatsFunctorContext" "OnDamage"
 data "Conditions" "AttackedWithPassiveSourceWeapon()"
 data "StatsFunctors" "IF(IsCritical()):RestoreResource(SELF, BonusActionPoint, 100%, 0)"
-
 
 //震雷骨
 new entry "BanXian_Fabao_Material_BC_ZhenLeiGu_Weapon"
@@ -891,7 +859,6 @@ data "StatsFunctorContext" "OnAttack"
 data "Conditions" "HasDamageEffectFlag(DamageFlags.Hit)"
 data "StatsFunctors" "ExecuteWeaponFunctors(MainHand);ExecuteWeaponFunctors(MainHand);  RemoveStatus(SELF,ZHENLEIGU_BOOST_WEAPON_TECHNICAL)"
 
-
 new entry "BanXian_Fabao_Material_BC_ZhenLeiGu_Armor"
 type "PassiveData"
 data "DisplayName" "stringsofmodmadebyxss20250115bca00d10;1"
@@ -919,9 +886,7 @@ data "StatsFunctorContext" "OnAttack"
 data "Conditions" "(IsMeleeAttack() or IsRangedAttack()) and HasDamageEffectFlag(DamageFlags.Hit)"
 data "StatsFunctors" "DealDamage(1d10,Lightning,,,0,,true,true,,true);RemoveStatus(SELF,ZHENLEIGU_BOOST_ARMOR_TECHNICAL)"
 
-
-
-new entry "BanXian_Fabao_Material_BC_ZhenLeiGu_Ring" 
+new entry "BanXian_Fabao_Material_BC_ZhenLeiGu_Ring"
 type "PassiveData"
 data "DisplayName" "stringsofmodmadebyxss20250115bca00d10;1"
 data "Description" "stringsofmodmadebyxss20250115bca00g10;1"
@@ -929,7 +894,6 @@ data "Properties" "Highlighted;OncePerTurn"
 data "StatsFunctorContext" "OnCast"
 data "Conditions" "IsSpell() and not IsCantrip()"
 data "StatsFunctors" "IF(not HasStatus('ZHENLEIGU_BOOST_RING_TECHNICAL',context.Source)):ApplyStatus(SELF,ZHENLEIGU_BOOST_RING_TECHNICAL,100,-1)"
-
 
 new entry "ZHENLEIGU_BOOST_RING_TECHNICAL"
 type "StatusData"

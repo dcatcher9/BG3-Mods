@@ -36,7 +36,6 @@ data "StatusType" "BOOST"
 using "BANXIAN_TAG_TIANXIAN"
 data "Boosts" "Tag(RENXIAN)"
 
-
 /////////////////////////////
 /
 /            动作
@@ -51,7 +50,6 @@ data "Description" "stringsofmodmadebyxss20240930dv001b07;1"
 data "Properties" "IsToggled;ToggledDefaultAddToHotbar;Highlighted"
 data "ToggleOnFunctors" "ApplyStatus(BANXIAN_ANIMATION_FLY, 100, -1)"
 data "ToggleOffFunctors" "RemoveStatus(BANXIAN_ANIMATION_FLY)"
-
 
 //行走 姿态
 new entry "BANXIAN_ANIMATION_FLY"
@@ -88,7 +86,6 @@ data "SpellFlags" "IsJump;HasHighGroundRangeExtension;IgnoreVisionBlock;RangeIgn
 data "SpellJumpType" "Flight"
 data "PrepareEffect" "e10fa2ab-984e-4ab7-b756-4982dfca4018"
 data "CastEffect" "8b2df096-373b-4323-b5bc-6cf2c3db8281"
-
 
 /////////////////////////////
 /
@@ -249,8 +246,6 @@ data "StackId" "JINDANON_WLS6"
 data "DisplayName" "stringsofmodmadebyxss20250218jj003a01;1"
 data "Description" "stringsofmodmadebyxss20250218jj003i04;1"
 data "Boosts" "UnlockSpellVariant(SpellId('BANXIAN_JDChangeResource_WarlockSpellSlot_6'),ModifyIconGlow(),ModifyTooltipDescription(),ModifyUseCosts(Replace,SpellSlot,0,-1,SpellSlot),ModifyUseCosts(Replace,WarlockSpellSlot,0,-1,WarlockSpellSlot),ModifyUseCosts(Replace,SpellSlotsGroup,0,-1,SpellSlotsGroup),ModifyUseCosts(Add,KiPoint,6,0))"
-
-
 
 //金丹术
 new entry "BANXIAN_JDChangeResource"
@@ -428,9 +423,6 @@ data "UseCosts" "Movement:3;SpellSlotsGroup:1:1:6"
 data "RootSpellID" "BANXIAN_JDChangeResource_WarlockSpellSlot"
 data "PowerLevel" "6"
 
-
-
-
 /////////////////////////////
 /
 /         境界-元婴
@@ -523,10 +515,6 @@ data "Boosts" "ActionResource(ShenshiPoint,-1,0)"
 data "OnApplyFunctors" "ApplyStatus(SIGNAL_SS_CHECK,100,0)"
 data "StatusPropertyFlags" "IgnoreResting;ApplyToDead;DisableOverhead;DisablePortraitIndicator;DisableCombatlog;MultiplyEffectsByDuration;FreezeDuration"
 
-
-
-
-
 /////////////////////////////
 /
 /        境界-多打
@@ -539,7 +527,6 @@ data "DisplayName" "stringsofmodmadebyxss20240930dv001a18;1"
 data "Description" "stringsofmodmadebyxss20240930dv001b18;1"
 data "Icon" "PassiveFeature_Generic_Magical"
 data "Properties" "Highlighted"
-
 
 //多打
 new entry "ExtraAttack_BanXian"

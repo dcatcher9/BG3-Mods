@@ -35,10 +35,7 @@ function BanXian.Init()
     local EventHandlers = require("Server.Modules.EventHandlers")
     EventHandlers.Init(BanXian.Modules.Systems)
 
-    
 end
-
-
 
 BanXian.Init()
 return BanXian

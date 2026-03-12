@@ -4,14 +4,11 @@ local LingGen = require("Server.Modules.Systems.LingGen")
 local Variables = require("Server.Modules.Variables")
 local Utils = require("Server.Modules.Utils")
 
-
-
 -- 初始化修炼系统
 function XiuLian.Init()
 
     -- 注册事件监听大道相关施法
     Ext.Osiris.RegisterListener("UsingSpell", 5, "after", XiuLian.OnUsingSpell_after)
-
 
 end
 
@@ -69,14 +66,6 @@ function XiuLian.Ki_Take(Object)
 
 end
 
-
-
-
-
-
-
-
-
 -- 事件·大道相关施法后
 function XiuLian.OnUsingSpell_after(Caster, Spell)
 
@@ -85,7 +74,5 @@ function XiuLian.OnUsingSpell_after(Caster, Spell)
     end
 
 end
-
-
 
 return XiuLian

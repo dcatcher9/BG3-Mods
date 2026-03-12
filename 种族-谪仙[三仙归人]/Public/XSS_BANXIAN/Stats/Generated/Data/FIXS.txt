@@ -30,7 +30,6 @@ data "BoostsOnEquipMainHand" "UnlockSpell(Target_OpeningAttack);UnlockSpell(Targ
 data "WeaponProperties" "Versatile;Melee;Dippable"
 data "Unique" "1"
 
-
 //米尔寇
 new entry "WPN_Apostle_Scythe"
 type "Weapon"
@@ -43,7 +42,6 @@ data "Boosts" "UnlockSpell(Zone_Cleave_Apostle)"
 data "BoostsOnEquipMainHand" ""
 data "BoostsOnEquipOffHand" ""
 data "Unique" "1"
-
 
 //流血-修罗道
 new entry "BLEEDING_XIULUO"
@@ -83,8 +81,6 @@ data "Passives" "MAG_ChargedLightning_LightningDamage_Passive;MAG_ChargedLightni
 data "TickFunctors" "IF(HasMaximumLightningCharge(context.Target) and not HasStatus('BANXIAN_LG_LEI',context.Target) and not HasStatus('BANXIAN_LG_LEI_TIAN',context.Target)):SetStatusDuration(MAG_CHARGED_LIGHTNING, 7, ForceSet) "
 data "ApplyEffect" "a9c27d75-ec3d-445f-b055-1b37832b17fc"
 data "StatusEffect" "f1f32058-58e9-4b39-98e4-eef5fa389a25"
-
-
 
 //多打
 //Passives
@@ -158,10 +154,6 @@ data "Properties" "Highlighted"
 data "Conditions" "(context.HasContextFlag(StatsFunctorContext.OnCast) and ExtraAttackSpellCheck() and HasUseCosts('ActionPoint', true) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and not HasStatus('SLAYER_PLAYER',context.Source) and not HasStatus('SLAYER_PLAYER_10',context.Source) and TurnBased(context.Source)) or (context.HasContextFlag(StatsFunctorContext.OnStatusRemoved) and StatusId('INITIAL_ATTACK_TECHNICAL') and TurnBased()) or (context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and StatusId('EXTRA_ATTACK_9_Q'))"
 data "StatsFunctors" "IF(context.HasContextFlag(StatsFunctorContext.OnCast)):ApplyStatus(SELF,EXTRA_ATTACK_9_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusRemoved)):ApplyStatus(EXTRA_ATTACK_9_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and not HasHigherPriorityExtraAttackQueued_t('EXTRA_ATTACK_9_Q') and not HasAnyExtraAttack_t()):ApplyStatus(EXTRA_ATTACK_9, 100, 1)"
 
-
-
-
-
 //4打 buff 让攻击免费
 new entry "EXTRA_ATTACK_3"
 type "StatusData"
@@ -186,7 +178,6 @@ data "RemoveConditions" "not RemoveCause(StatusRemoveCause.TimeOut) and not HasH
 data "RemoveEvents" "OnStatusRemoved"
 data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator;ApplyToDead"
 data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.Condition)):ApplyStatus(EXTRA_ATTACK_3, 100, 1)"
-
 
 //5打 buff 让攻击免费
 new entry "EXTRA_ATTACK_4"
@@ -213,7 +204,6 @@ data "RemoveEvents" "OnStatusRemoved"
 data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator;ApplyToDead"
 data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.Condition)):ApplyStatus(EXTRA_ATTACK_4, 100, 1)"
 
-
 //6打 buff 让攻击免费
 new entry "EXTRA_ATTACK_5"
 type "StatusData"
@@ -238,12 +228,6 @@ data "RemoveConditions" "not RemoveCause(StatusRemoveCause.TimeOut) and not HasH
 data "RemoveEvents" "OnStatusRemoved"
 data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator;ApplyToDead"
 data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.Condition)):ApplyStatus(EXTRA_ATTACK_5, 100, 1)"
-
-
-
-
-
-
 
 //7打 buff 让攻击免费
 new entry "EXTRA_ATTACK_6"
@@ -270,7 +254,6 @@ data "RemoveEvents" "OnStatusRemoved"
 data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator;ApplyToDead"
 data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.Condition)):ApplyStatus(EXTRA_ATTACK_6, 100, 1)"
 
-
 //8打 buff 让攻击免费
 new entry "EXTRA_ATTACK_7"
 type "StatusData"
@@ -295,7 +278,6 @@ data "RemoveConditions" "not RemoveCause(StatusRemoveCause.TimeOut) and not HasH
 data "RemoveEvents" "OnStatusRemoved"
 data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator;ApplyToDead"
 data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.Condition)):ApplyStatus(EXTRA_ATTACK_7, 100, 1)"
-
 
 //9打 buff 让攻击免费
 new entry "EXTRA_ATTACK_8"
@@ -322,7 +304,6 @@ data "RemoveEvents" "OnStatusRemoved"
 data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator;ApplyToDead"
 data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.Condition)):ApplyStatus(EXTRA_ATTACK_8, 100, 1)"
 
-
 //10打 buff 让攻击免费
 new entry "EXTRA_ATTACK_9"
 type "StatusData"
@@ -347,18 +328,4 @@ data "RemoveConditions" "not RemoveCause(StatusRemoveCause.TimeOut) and not HasH
 data "RemoveEvents" "OnStatusRemoved"
 data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator;ApplyToDead"
 data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.Condition)):ApplyStatus(EXTRA_ATTACK_9, 100, 1)"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

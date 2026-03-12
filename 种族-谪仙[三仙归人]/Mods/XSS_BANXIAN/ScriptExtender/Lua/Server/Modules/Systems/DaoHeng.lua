@@ -9,7 +9,6 @@ local DaoHeng = {
 local Variables = require("Server.Modules.Variables")
 local Utils = require("Server.Modules.Utils")
 
-
 -- 初始化道行系统
 function DaoHeng.Init()
 
@@ -33,8 +32,6 @@ function DaoHeng.Init()
 
 end
 
-
-
 --刷新大道情况
 function DaoHeng.Check(Object)
     --亚种判定
@@ -46,7 +43,6 @@ function DaoHeng.Check(Object)
 
 end
 
-
 --添加修罗道道行
 function DaoHeng.XiuLuo.AddDH(Target, BanXian)
     local level = Osi.GetLevel(Target)
@@ -55,16 +51,12 @@ function DaoHeng.XiuLuo.AddDH(Target, BanXian)
     Osi.ApplyStatus(BanXian, 'BANXIAN_DH_DAY_XIULUO', (DH_Day + level * k) * 6, 1)
 end
 
-
 --添加天道道行
 function DaoHeng.Tian.AddDH(Target, BanXian)
     local level = Osi.GetLevel(Target)
     local DH_Day = Osi.GetStatusTurns(BanXian, 'BANXIAN_DH_DAY_TIAN') or 0
     Osi.ApplyStatus(BanXian, 'BANXIAN_DH_DAY_TIAN', (DH_Day + level) * 6, 1)
 end
-
-
-
 
 --饿鬼道偷取状态
 function DaoHeng.EGUI.Functors_Steal(Object, BanXian)
@@ -173,7 +165,7 @@ function DaoHeng.HeHuan.AddFollower(Object,Causee)
     local count = (PersistentVars['[HEHUAN_COUNT]'..Causee] or 0) + 1
     PersistentVars['[HEHUAN_FOLLOWER]'..Causee..'_'..count] = Object --记录随从
     PersistentVars['[HEHUAN_COUNT]'..Causee] = count
-    
+
 end
 
 --合欢道移除征服随从
@@ -219,7 +211,6 @@ function DaoHeng.DiYu.AddDH(Object,Causee)
     Osi.ApplyStatus(Causee, 'BANXIAN_DH_DAY_DIYU', DH_Day_new*6, 1)
 end
 
-
 --剑道：更改施法动作·施法前
 function DaoHeng.Jian.Animation_Before(ID,Animation)
     local spell = Ext.Stats.Get(ID)
@@ -241,10 +232,6 @@ function DaoHeng.Jian.Animation_After(ID)
 
     PersistentVars['Jiandao_Projectile_AnimationBackup'] = nil
 end
-
-
-
-
 
 -- 事件·大道相关状态前
 function DaoHeng.OnStatusApplied_before(Object, Status, Causee)

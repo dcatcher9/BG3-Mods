@@ -1,9 +1,9 @@
 
 /////////////////////////////
 /
-/         弄焰诀         //选修功法  
+/         弄焰诀         //选修功法
 /
-/////////////////////////////  
+/////////////////////////////
 //大品天仙诀  可以用气来代替法术位消耗
 new entry "BANXIAN_GONGFA_FireMixer"
 type "PassiveData"
@@ -12,7 +12,6 @@ data "DisplayName" "stringsofmodmadebyxss20240930dv004a05;1"
 data "Description" "stringsofmodmadebyxss20240930dv004d05;1"
 data "Properties" "Highlighted"
 data "Boosts" "IF(MainDamageTypeIs(DamageType.Fire)):MinimumRollResult(Damage,2);IgnoreResistance(Fire,Resistant)"
-
 
 //洗业金火
 new entry "BANXIAN_Fire_of_Gold"
@@ -49,7 +48,6 @@ data "DisplayName" "stringsofmodmadebyxss20240930dv009a01;1"
 data "Icon" "PassiveFeature_DraconicAncestry_Gold"
 data "Properties" "IsHidden"
 data "Boosts" "StatusImmunity(BURNING_YEHUO);Resistance(Fire,Immune); UnlockSpellVariant(SpellDamageTypeIs(DamageType.Fire),ModifyIconGlow(),ModifyTooltipDescription())"
-
 
 new entry "BURNING_BANXIAN_FIRE_OF_GOLD"
 type "StatusData"
@@ -115,7 +113,6 @@ data "OnApplyFunctors" "IF(not Tagged('TORCH')):DealDamage((Target.BURNING_BANXI
 data "ApplyEffect" ""
 data "StatusEffect" "2156dd48-f83b-4060-9a4e-cab994da8857"
 
-
 //幽冥鬼火
 new entry "BANXIAN_Fire_of_Ghost"
 type "PassiveData"
@@ -160,7 +157,6 @@ data "OnApplyFunctors" "IF(not Tagged('TORCH')):DealDamage((Target.BURNING_BANXI
 data "ApplyEffect" ""
 data "StatusEffect" "2156dd48-f83b-4060-9a4e-cab994da8857"
 
-
 //六丁神火
 new entry "BANXIAN_Fire_of_SixDing"
 type "PassiveData"
@@ -204,7 +200,6 @@ data "TickFunctors" "IF(not Tagged('TORCH')):DealDamage(6,Fire,Magical)"
 data "OnApplyFunctors" "IF(not Tagged('TORCH')):DealDamage(6,Fire,Magical)"
 data "ApplyEffect" ""
 data "StatusEffect" "2156dd48-f83b-4060-9a4e-cab994da8857"
-
 
 //三昧真火
 new entry "BANXIAN_Fire_of_ThreeMei"
@@ -252,9 +247,9 @@ data "StatusEffect" "2156dd48-f83b-4060-9a4e-cab994da8857"
 
 /////////////////////////////
 /
-/         怒血诀         //选修功法  
+/         怒血诀         //选修功法
 /
-/////////////////////////////  
+/////////////////////////////
 new entry "BANXIAN_GONGFA_RageBlood"
 type "PassiveData"
 data "Icon" "PassiveFeature_BrutalCritical"
@@ -264,14 +259,11 @@ data "Properties" "Highlighted"
 data "BoostConditions" "CharacterLevelGreaterThan(4, context.Source) and HasPassive('BANXIAN_Shenshi', context.Source)"
 data "Boosts" "IF(HasHPPercentageWithoutTemporaryHPLessThan(50, context.Source)):CriticalHitExtraDice(1); IF(HasHPPercentageWithoutTemporaryHPLessThan(50, context.Source)):ReduceCriticalAttackThreshold(1)"
 
-
-
-
 /////////////////////////////
 /
-/         灵目诀         //选修功法  
+/         灵目诀         //选修功法
 /
-/////////////////////////////  
+/////////////////////////////
 new entry "BANXIAN_GONGFA_DarkEyes"
 type "PassiveData"
 data "DisplayName" "stringsofmodmadebyxss20240930dv004a07;1"
@@ -282,14 +274,11 @@ data "Properties" "Highlighted"
 data "BoostConditions" "CharacterLevelGreaterThan(4, context.Source) and HasPassive('BANXIAN_Shenshi', context.Source)"
 data "Boosts" "CriticalHitExtraDice(1); DarkvisionRangeMin(24);ActiveCharacterLight(c46e7ba8-e746-7020-5146-287474d7b9f7);StatusImmunity(BLINDED_DARKNESS);IgnoreSurfaceCover(SurfaceDarknessCloud)"
 
-
-
-
 /////////////////////////////
 /
-/         神·焚诀         //选修功法  
+/         神·焚诀         //选修功法
 /
-/////////////////////////////  
+/////////////////////////////
 new entry "BANXIAN_GONGFA_FenJue"
 type "PassiveData"
 data "DisplayName" "stringsofmodmadebyxss20240930dv009a00;1"
@@ -299,14 +288,11 @@ data "Icon" "PassiveFeature_DraconicAncestry_Gold"
 data "BoostConditions" "CharacterLevelGreaterThan(9, context.Source) and HasPassive('BANXIAN_Shenshi', context.Source)"
 data "Boosts" "UnlockSpellVariant(SpellDamageTypeIs(DamageType.Fire),ModifyIconGlow(),ModifyTooltipDescription())"
 
-
-
-
 /////////////////////////////
 /
-/         仙门奇术         //选修功法  
+/         仙门奇术         //选修功法
 /
-/////////////////////////////  
+/////////////////////////////
 new entry "BANXIAN_GONGFA_QiShu"
 type "PassiveData"
 data "DisplayName" "stringsofmodmadebyxss20250627fsa00a01;1"

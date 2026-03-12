@@ -1,9 +1,9 @@
 
 /////////////////////////////
 /
-/         大品天仙诀         //主修功法  
+/         大品天仙诀         //主修功法
 /
-/////////////////////////////   
+/////////////////////////////
 //大品天仙诀  可以用气来代替法术位消耗
 new entry "BANXIAN_GONGFA_BASE"
 type "PassiveData"
@@ -24,14 +24,11 @@ data "Properties" "IsToggled;Highlighted;ToggledDefaultAddToHotbar"
 data "Boosts" "IF((IsMeleeAttack() or IsRangedAttack())):CharacterWeaponDamage(max(1, LevelMapValue(BanXianDice)), Bludgeoning);IF((IsSpell() or IsCantrip())):DamageBonus(max(0, LevelMapValue(BanXianDice)));UnlockSpellVariant((IsSpell() or (IsMeleeAttack() or IsRangedAttack()) or IsCantrip()),ModifyIconGlow(),ModifyTooltipDescription(),ModifyUseCosts(Add,KiPoint,1,0))"
 data "ToggleGroup" "BANXIAN_Dice"
 
-
-
-
 /////////////////////////////
 /
-/         周天淬体诀          
+/         周天淬体诀
 /
-/////////////////////////////  
+/////////////////////////////
 //观察运气状态    可用于随时观察运气状态  使用后激活穴窍对应临时增益
 new entry "Shout_CuiTi_ZhouTian_NX"
 type "SpellData"
@@ -53,7 +50,7 @@ data "SpellFlags" "Temporary"
 
 new entry "Shout_CuiTi_ZhouTian_LONG"
 type "StatusData"
-data "StatusType" "BOOST" 
+data "StatusType" "BOOST"
 data "StackId" "Shout_CuiTi_ZhouTian"
 data "StackType" "Overwrite"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
@@ -65,14 +62,12 @@ data "StatusType" "BOOST"
 using "Shout_CuiTi_ZhouTian_LONG"
 data "OnApplyFunctors" "IF(HasStatus('CUITI_ZHOUTIAN_1') or HasStatus('CUITI_ZHOUTIAN_1_NX') or HasStatus('CUITI_ZHOUTIAN_2') or HasStatus('CUITI_ZHOUTIAN_2_NX') or HasStatus('CUITI_ZHOUTIAN_3') or HasStatus('CUITI_ZHOUTIAN_3_NX') or HasStatus('CUITI_ZHOUTIAN_4') or HasStatus('CUITI_ZHOUTIAN_4_NX')):ApplyStatus(CUITI_ZHOUTIAN_5,100,-1); IF(HasStatus('CUITI_ZHOUTIAN_5') or HasStatus('CUITI_ZHOUTIAN_5_NX') or HasStatus('CUITI_ZHOUTIAN_6') or HasStatus('CUITI_ZHOUTIAN_6_NX')):ApplyStatus(CUITI_ZHOUTIAN_7,100,-1); IF(HasStatus('CUITI_ZHOUTIAN_7') or HasStatus('CUITI_ZHOUTIAN_7_NX') or HasStatus('CUITI_ZHOUTIAN_8') or HasStatus('CUITI_ZHOUTIAN_8_NX') or HasStatus('CUITI_ZHOUTIAN_9') or HasStatus('CUITI_ZHOUTIAN_9_NX') or HasStatus('CUITI_ZHOUTIAN_10') or HasStatus('CUITI_ZHOUTIAN_10_NX') or HasStatus('CUITI_ZHOUTIAN_11') or HasStatus('CUITI_ZHOUTIAN_11_NX')):ApplyStatus(CUITI_ZHOUTIAN_12,100,-1); IF(HasStatus('CUITI_ZHOUTIAN_12') or HasStatus('CUITI_ZHOUTIAN_12_NX')):ApplyStatus(CUITI_ZHOUTIAN_1,100,-1); "
 
-
-
-//切换周天路线  在大周天和小周天路线之间切换  
+//切换周天路线  在大周天和小周天路线之间切换
 new entry "CuiTi_ZhouTian_Change"
 type "PassiveData"
 //data "Icon" "PassiveFeature_PurityOfBody"
 data "Icon" "Action_Monk_WholenessOfBody"
-data "DisplayName" "stringsofmodmadebyxss20240930dv002003;1" 
+data "DisplayName" "stringsofmodmadebyxss20240930dv002003;1"
 data "Description" "stringsofmodmadebyxss20240930dv002004;1"
 data "Properties" "IsToggled;ToggledDefaultAddToHotbar;Highlighted"
 data "Boosts" ""
@@ -123,15 +118,11 @@ type "StatusData"
 data "StatusType" "BOOST"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;ApplyToDead;IgnoreResting"
 
-
-
-
-
-///////////////////////////// 
+/////////////////////////////
 /
 /         周天--穴窍       /升级时12选一打通，获得永久基础加成  运气经过穴窍时获得临时加成    周天打通后安全地逆行经脉
 /
-/////////////////////////////  
+/////////////////////////////
 new entry "CuiTi_ZhouTian_1"
 type "PassiveData"
 data "DisplayName" "stringsofmodmadebyxss20240930dv002a01;1"
@@ -231,9 +222,7 @@ data "DisplayName" "stringsofmodmadebyxss20240930dv002009;1"
 data "Description" "stringsofmodmadebyxss20240930dv002010;1"
 data "Boosts" "ActionResource(KiPoint,LevelMapValue(BanXiangHP),0);DamageReduction(All, Flat,LevelMapValue(BanXiangHP))"
 
-
-
-//周天--运气  每运行完一周天，下一周天获得强化  狂暴时会逆行经脉，攻击增强，每回合损失血量，并进入疯狂状态  
+//周天--运气  每运行完一周天，下一周天获得强化  狂暴时会逆行经脉，攻击增强，每回合损失血量，并进入疯狂状态
 new entry "CUITI_ZHOUTIAN_1"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -328,7 +317,6 @@ data "RemoveConditions" "not Combat()"
 data "RemoveEvents" "OnCombatEnded"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
 
-
 new entry "CUITI_ZHOUTIAN_7"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -361,7 +349,7 @@ using "CUITI_ZHOUTIAN_1"
 data "DisplayName" "stringsofmodmadebyxss20240930dv002d09;1"
 data "Description" "stringsofmodmadebyxss20240930dv002e09;1"
 data "Boosts" "UnlockSpellVariant(SpellId('Shout_CuiTi_ZhouTian_NX'), ModifyIconGlow(), ModifyTooltipDescription()); Advantage(SavingThrow,Charisma)"
-data "OnApplyFunctors" "RemoveStatus(BURNING)" 
+data "OnApplyFunctors" "RemoveStatus(BURNING)"
 data "TickFunctors" "IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG') and HasPassive('CuiTi_ZhouTian_10')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_LONG,100,2);IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT') and HasPassive('CuiTi_ZhouTian_12')):ApplyStatus(CUITI_ZHOUTIAN_CIRCLE_SHORT,100,2); IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG') and HasPassive('CuiTi_ZhouTian_10')):ApplyStatus(CUITI_ZHOUTIAN_10,100,-1);IF(not ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT') and HasPassive('CuiTi_ZhouTian_12')):ApplyStatus(CUITI_ZHOUTIAN_12,100,-1); IF(ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_LONG')):ApplyStatus(CUITI_ZHOUTIAN_8_NX,100,-1);IF(ZhouTianNiXingCheck() and HasStatus('CUITI_ZHOUTIAN_SHORT')):ApplyStatus(CUITI_ZHOUTIAN_7_NX,100,-1)"
 
 new entry "CUITI_ZHOUTIAN_10"
@@ -409,7 +397,6 @@ data "StackType" "Additive"
 data "OnApplyFunctors" "IF(StatusDurationEqualOrMoreThan('CUITI_ZHOUTIAN_CIRCLE_SHORT',4)): ApplyStatus(CUITI_ZHOUTIAN_FUNCTORS_SHORT,100,1)"
 data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator"
 
-
 new entry "CUITI_ZHOUTIAN_FUNCTORS_LONG"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -418,7 +405,6 @@ data "StackType" "Overwrite"
 data "OnApplyFunctors" ""
 data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator"
 
-
 new entry "CUITI_ZHOUTIAN_FUNCTORS_SHORT"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -426,9 +412,6 @@ data "StackId" "CUITI_ZHOUTIAN_FUNCTORS"
 data "StackType" "Overwrite"
 data "OnApplyFunctors" ""
 data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator"
-
-
-
 
 //大周天--运气--逆行
 new entry "CUITI_ZHOUTIAN_1_NX"
@@ -536,21 +519,11 @@ data "StatsFunctorContext" "OnAttack"
 data "Conditions" "not (IsMiss() or IsCriticalMiss()) and not Self(context.Target,context.Source)"
 data "StatsFunctors" "DealDamage(LevelMapValue(BanXianDice), Psychic, Magical); ApplyStatus(SELF, BANXIAN_FANSHI, 100, 0)"
 
-
-
-
-
-
-
-
-
-
-
 /////////////////////////////
 /
 /         百脉锻宝诀       /
 /
-/////////////////////////////  
+/////////////////////////////
 // 头
 new entry "FABAO_BAIMAI_1"
 type "PassiveData"
@@ -630,9 +603,6 @@ data "Boosts" "UnlockSpellVariant(OffHandAttackSpell(),ModifyIconGlow(),ModifyTo
 data "RemoveConditions" "(OffHandAttackSpell() and HasUseCosts('BonusActionPoint',false,context.Target)) or IsOffHandAttack()"
 data "RemoveEvents" "OnSpellCast"
 
-
-
-
 //2E
 new entry "Shout_ActionToBonusAction"
 type "SpellData"
@@ -659,7 +629,6 @@ data "TooltipStatusApply" "ApplyStatus(BONUSACTION_TO_ACTION,100,1)"
 data "UseCosts" "BonusActionPoint:2"
 data "Requirements" "Combat"
 data "Icon" "Spell_2e_BonusActionToAction"
-
 
 // 左腿
 new entry "FABAO_BAIMAI_4"
@@ -750,14 +719,11 @@ data "Description" "stringsofmodmadebyxss20240930dv006b03;1"
 data "Properties" "Highlighted"
 data "Boosts" "Resistance(All,ImmuneToNonMagical); UnlockSpell(Target_EnlargeReduce)"
 
-
-
-
 /////////////////////////////
 /
 /         百脉锻宝诀·吞宝    /
 /
-/////////////////////////////  
+/////////////////////////////
 new entry "FABAO_BAIMAI_EAT_STATUS"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -781,7 +747,6 @@ type "StatusData"
 data "StatusType" "BOOST"
 data "StatusEffect" "dd02e9e1-8ab7-4da0-9097-26fd886c06d4"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;ApplyToDead"
-
 
 new entry "FABAO_BAIMAI_EAT"
 type "SpellData"

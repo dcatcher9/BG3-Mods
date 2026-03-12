@@ -24,9 +24,6 @@ function EventHandlers.Init(systems)
 
 end
 
-
-
-
 -- 处理事件：加载游戏数据
 function EventHandlers.SavegameLoaded()
 
@@ -104,7 +101,6 @@ function EventHandlers.OnTimerFinished_after(Timer)
         end
     end
 
-
 end
 
 -- 处理长休
@@ -129,8 +125,6 @@ function EventHandlers.OnLongRestFinished_after()
     end
 
 end
-
-
 
 -- 处理升级：刷新境界增益（确保新选穴位被动的能力值加成立即生效，不需等到长休）
 function EventHandlers.OnLeveledUp_after(Object)

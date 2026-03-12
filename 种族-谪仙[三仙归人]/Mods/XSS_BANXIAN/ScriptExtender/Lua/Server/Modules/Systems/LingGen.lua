@@ -13,7 +13,6 @@ function LingGen.Init()
 
 end
 
-
 --灵根层级检测（应用或移除TIAN/XIAN/SHENG三个高阶层级状态）
 function LingGen.ApplyTierLingGen_Check(Object, TLG, tian_c, xian_c, sheng_c)
     if sheng_c then
@@ -224,14 +223,14 @@ function LingGen.Add_First(Object)
             local min_ratio = (r <= 15) and 0.6 or 0.4
             local ratio = math.random(math.floor(min_ratio * 100), math.ceil(max_ratio * 100)) / 100
             local value = math.floor(remaining * ratio / #Pf)
-            
+
             -- 分配灵根权重
             if w == 1 then lg.a = lg.a + value
             elseif w == 2 then lg.b = lg.b + value
             elseif w == 3 then lg.c = lg.c + value
             elseif w == 4 then lg.d = lg.d + value
             elseif w == 5 then lg.e = lg.e + value end
-            
+
             remaining = remaining - value
         end
 
@@ -340,7 +339,6 @@ function LingGen.Take_Devastatingly(caster, target)
 
 end
 
-
 -----------------------------------------------------------
 --混沌灵根
 function LingGen.HunDun_ShortRest(Object)
@@ -365,11 +363,6 @@ function LingGen.Xue_ApplyBloodCurse(Object,Causee)
 
     Osi.ApplyStatus(Object, Curse, 18, 1, Causee)
 end
-
-
-
-
-
 
 -- 事件·灵根状态
 function LingGen.OnStatusApplied_after(Object, Status, Causee)
@@ -396,7 +389,7 @@ function LingGen.OnStatusApplied_after(Object, Status, Causee)
     end
 
     if Status == "SIGNAL_LG_HUNDUN_SHORTREST" then
-        LingGen.HunDun_ShortRest(Object) 
+        LingGen.HunDun_ShortRest(Object)
     end
 
     if Status == "BLEEDING" then

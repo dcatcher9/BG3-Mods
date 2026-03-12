@@ -1,8 +1,8 @@
 /////////////////////////////
 /
-/         梵圣真魔功         //主修功法  
+/         梵圣真魔功         //主修功法
 /
-/////////////////////////////  
+/////////////////////////////
 //妖仙
 new entry "YAOXIAN_STATUS"
 type "StatusData"
@@ -11,11 +11,9 @@ data "StackId" "YAOXIAN_STATUS"
 data "StackType" "Overwrite"
 data "StatusPropertyFlags" "IgnoreResting;ApplyToDead;DisableOverhead;DisablePortraitIndicator;DisableCombatlog"
 
-
-
 /////////////////////////////
 /
-/        梵圣真魔功         
+/        梵圣真魔功
 /
 /////////////////////////////
 //第一重
@@ -29,94 +27,83 @@ data "ExtraDescription" "stringsofmodmadebyxss20250218bca00c01;1"
 data "BoostContext" "OnEquip;OnCreate"
 data "Boosts" "IF(not WearingArmor(context.Source)):ACOverrideFormula(13,true,Dexterity)"
 
-
 //第二重
 new entry "BANXIAN_FSZMG_Level2"
 type "PassiveData"
 using "BANXIAN_FSZMG_Level1"
 data "DisplayName" "stringsofmodmadebyxss20250218bca00a02;1"
-data "Description" "stringsofmodmadebyxss20250218bca00b02;1"  
+data "Description" "stringsofmodmadebyxss20250218bca00b02;1"
 data "ExtraDescription" "stringsofmodmadebyxss20250218bca00c02;1"
 data "Boosts" "IF(not WearingArmor(context.Source)):ACOverrideFormula(14,true,Dexterity);  Initiative(5)"
-
 
 //第三重
 new entry "BANXIAN_FSZMG_Level3"
 type "PassiveData"
 using "BANXIAN_FSZMG_Level2"
 data "DisplayName" "stringsofmodmadebyxss20250218bca00a03;1"
-data "Description" "stringsofmodmadebyxss20250218bca00b03;1"  
+data "Description" "stringsofmodmadebyxss20250218bca00b03;1"
 data "ExtraDescription" "stringsofmodmadebyxss20250218bca00c03;1"
 data "Boosts" "IF(not WearingArmor(context.Source)):ACOverrideFormula(15,true,Dexterity);  Initiative(6);  ReduceCriticalAttackThreshold(3)"
-
 
 //第四重
 new entry "BANXIAN_FSZMG_Level4"
 type "PassiveData"
 using "BANXIAN_FSZMG_Level3"
 data "DisplayName" "stringsofmodmadebyxss20250218bca00a04;1"
-data "Description" "stringsofmodmadebyxss20250218bca00b04;1"  
+data "Description" "stringsofmodmadebyxss20250218bca00b04;1"
 data "ExtraDescription" "stringsofmodmadebyxss20250218bca00c04;1"
 data "Boosts" "IF(not WearingArmor(context.Source)):ACOverrideFormula(16,true,Dexterity);  Initiative(7);  ReduceCriticalAttackThreshold(4);  ActionResource(Movement,12,0);ActionResource(ReactionActionPoint,1,0)"
-
 
 //第五重
 new entry "BANXIAN_FSZMG_Level5"
 type "PassiveData"
 using "BANXIAN_FSZMG_Level4"
 data "DisplayName" "stringsofmodmadebyxss20250218bca00a05;1"
-data "Description" "stringsofmodmadebyxss20250218bca00b05;1"  
+data "Description" "stringsofmodmadebyxss20250218bca00b05;1"
 data "ExtraDescription" "stringsofmodmadebyxss20250218bca00c05;1"
 data "Boosts" "IF(not WearingArmor(context.Source)):ACOverrideFormula(17,true,Dexterity);  Initiative(8);  ReduceCriticalAttackThreshold(5);  ActionResource(Movement,15,0);ActionResource(ReactionActionPoint,2,0);  Ability(All,2)"
-
 
 //第六重
 new entry "BANXIAN_FSZMG_Level6"
 type "PassiveData"
 using "BANXIAN_FSZMG_Level5"
 data "DisplayName" "stringsofmodmadebyxss20250218bca00a06;1"
-data "Description" "stringsofmodmadebyxss20250218bca00b06;1"  
+data "Description" "stringsofmodmadebyxss20250218bca00b06;1"
 data "ExtraDescription" "stringsofmodmadebyxss20250218bca00c06;1"
 data "Boosts" "IF(not WearingArmor(context.Source)):ACOverrideFormula(18,true,Dexterity);  Initiative(9);  ReduceCriticalAttackThreshold(6);  ActionResource(Movement,18,0);ActionResource(ReactionActionPoint,3,0);  Ability(All,4);  Resistance(Physical,Immune)"
-
 
 //第七重
 new entry "BANXIAN_FSZMG_Level7"
 type "PassiveData"
 using "BANXIAN_FSZMG_Level6"
 data "DisplayName" "stringsofmodmadebyxss20250218bca00a07;1"
-data "Description" "stringsofmodmadebyxss20250218bca00b07;1"  
+data "Description" "stringsofmodmadebyxss20250218bca00b07;1"
 data "ExtraDescription" "stringsofmodmadebyxss20250218bca00c07;1"
 data "Boosts" "IF(not WearingArmor(context.Source)):ACOverrideFormula(19,true,Dexterity);  Initiative(10);  ReduceCriticalAttackThreshold(7);  ActionResource(Movement,21,0);ActionResource(ReactionActionPoint,4,0);  Ability(All,6);  Resistance(Physical,Immune);  DamageReduction(All,Flat,49)"
-
 
 //第八重
 new entry "BANXIAN_FSZMG_Level8"
 type "PassiveData"
 using "BANXIAN_FSZMG_Level7"
 data "DisplayName" "stringsofmodmadebyxss20250218bca00a08;1"
-data "Description" "stringsofmodmadebyxss20250218bca00b08;1"  
+data "Description" "stringsofmodmadebyxss20250218bca00b08;1"
 data "ExtraDescription" "stringsofmodmadebyxss20250218bca00c08;1"
 data "Boosts" "IF(not WearingArmor(context.Source)):ACOverrideFormula(20,true,Dexterity);  Initiative(11);  ReduceCriticalAttackThreshold(8);  ActionResource(Movement,24,0);ActionResource(ReactionActionPoint,5,0);  Ability(All,8);  Resistance(Physical,Immune);  DamageReduction(All,Flat,64);  DamageReduction(All,Threshold,MaxHP)"
-
 
 //第九重
 new entry "BANXIAN_FSZMG_Level9"
 type "PassiveData"
 using "BANXIAN_FSZMG_Level8"
 data "DisplayName" "stringsofmodmadebyxss20250218bca00a09;1"
-data "Description" "stringsofmodmadebyxss20250218bca00b09;1"  
+data "Description" "stringsofmodmadebyxss20250218bca00b09;1"
 data "ExtraDescription" "stringsofmodmadebyxss20250218bca00c09;1"
 data "Boosts" "IF(not WearingArmor(context.Source)):ACOverrideFormula(21,true,Dexterity);  Initiative(12);  ReduceCriticalAttackThreshold(9);  ActionResource(Movement,27,0);ActionResource(ReactionActionPoint,6,0);  Ability(All,10);  Resistance(Physical,Immune);  DamageReduction(All,Flat,81);  DamageReduction(All,Threshold,MaxHP)"
 data "StatsFunctorContext" "OnTurn"
 data "StatsFunctors" "RemoveStatus(SG_Blinded);RemoveStatus(SG_Disease);RemoveStatus(SG_Exhausted);RemoveStatus(SG_Poisoned);RemoveStatus(SG_Frightened);RemoveStatus(SG_Charmed);RemoveStatus(SG_Cursed);RemoveStatus(SG_Possessed);RemoveStatus(SG_Madness);IF(HasHPPercentageLessThan(100)):RegainHitPoints(MaxHP)"
 
-
-
-
 /////////////////////////////
 /
-/        梵圣真魔功：魔窍         
+/        梵圣真魔功：魔窍
 /
 /////////////////////////////
 //魔窍：玄冥枢
@@ -129,25 +116,22 @@ data "Description" "stringsofmodmadebyxss20250218bcb00b01;1"
 data "DescriptionParams" "DealDamage(LevelMapValue(BanXianDice), Fire)"
 data "Boosts" "IF(IsMeleeUnarmedAttack()):CharacterUnarmedDamage(LevelMapValue(BanXianDice), Fire)"
 
-
 //魔窍：绛渊府
 new entry "BANXIAN_FSZMG_MoQiao2"
 type "PassiveData"
 data "Properties" "Highlighted"
 data "Icon" "Action_Monk_WholenessOfBody"
 data "DisplayName" "stringsofmodmadebyxss20250218bcb00a02;1"
-data "Description" "stringsofmodmadebyxss20250218bcb00b02;1"  
+data "Description" "stringsofmodmadebyxss20250218bcb00b02;1"
 data "Boosts" "IF(HasStatus('BLEEDING',context.Target)):Advantage(AttackRoll)"
-
 
 //魔窍：太虚瞳
 new entry "BANXIAN_FSZMG_MoQiao3"
 type "PassiveData"
 data "Icon" "Action_Monk_WholenessOfBody"
 data "DisplayName" "stringsofmodmadebyxss20250218bcb00a03;1"
-data "Description" "stringsofmodmadebyxss20250218bcb00b03;1"  
+data "Description" "stringsofmodmadebyxss20250218bcb00b03;1"
 data "Boosts" "ReduceCriticalAttackThreshold(1)"
-
 
 //魔窍：归墟府
 new entry "BANXIAN_FSZMG_MoQiao4"
@@ -155,7 +139,7 @@ type "PassiveData"
 data "Properties" "Highlighted"
 data "Icon" "Action_Monk_WholenessOfBody"
 data "DisplayName" "stringsofmodmadebyxss20250218bcb00a04;1"
-data "Description" "stringsofmodmadebyxss20250218bcb00b04;1"  
+data "Description" "stringsofmodmadebyxss20250218bcb00b04;1"
 data "StatsFunctorContext" "OnDamage"
 data "Conditions" "IsKillingBlow() and not Item()"
 data "StatsFunctors" "ApplyStatus(SELF, FSZMG_MQ_SHIDAN, 100, 1)"
@@ -173,16 +157,14 @@ data "TickType" "StartTurn"
 data "TickFunctors" "RestoreResource(SELF,KiPoint,1,0)"
 data "StatusPropertyFlags" "MultiplyEffectsByDuration"
 
-
 //魔窍：劫雷龛
 new entry "BANXIAN_FSZMG_MoQiao5"
 type "PassiveData"
 data "Properties" "Highlighted"
 data "Icon" "Action_Monk_WholenessOfBody"
 data "DisplayName" "stringsofmodmadebyxss20250218bcb00a05;1"
-data "Description" "stringsofmodmadebyxss20250218bcb00b05;1"  
+data "Description" "stringsofmodmadebyxss20250218bcb00b05;1"
 data "Boosts" "Resistance(Thunder,Immune);StatusImmunity(SG_Stunned)"
-
 
 //魔窍：幻蜃楼
 new entry "BANXIAN_FSZMG_MoQiao6"
@@ -190,16 +172,15 @@ type "PassiveData"
 data "Properties" "Highlighted"
 data "Icon" "Action_Monk_WholenessOfBody"
 data "DisplayName" "stringsofmodmadebyxss20250218bcb00a06;1"
-data "Description" "stringsofmodmadebyxss20250218bcb00b06;1"  
+data "Description" "stringsofmodmadebyxss20250218bcb00b06;1"
 data "Boosts" "UnlockSpell(Shout_DisguiseSelf_MaskOfManyFaces,Singular);UnlockSpellVariant(DisguiseSelfSpellCheck(),ModifyUseCosts(Add,BonusActionPoint,1,0),ModifyUseCosts(Replace,ActionPoint,0,-1,ActionPoint),ModifyUseCosts(Replace,SpellSlot,0,-1,SpellSlot),ModifyUseCosts(Replace,WarlockSpellSlot,0,-1,WarlockSpellSlot),ModifyUseCosts(Replace,SpellSlotsGroup,0,-1,SpellSlotsGroup),ModifyIconGlow(),ModifyTooltipDescription())"
-
 
 //魔窍：业莲台
 new entry "BANXIAN_FSZMG_MoQiao7"
 type "PassiveData"
 data "Icon" "Action_Monk_WholenessOfBody"
 data "DisplayName" "stringsofmodmadebyxss20250218bcb00a07;1"
-data "Description" "stringsofmodmadebyxss20250218bcb00b07;1"  
+data "Description" "stringsofmodmadebyxss20250218bcb00b07;1"
 data "DescriptionParams" "DealDamage(LevelMapValue(BanXianCantrip)d8,Fire);Distance(3)"
 data "Properties" "IsToggled;ToggledDefaultOn;ToggledDefaultAddToHotbar;Highlighted;Temporary"
 data "ToggleOnFunctors" "ApplyStatus(FSZMG_MQ_FLAMING_AURA,100,-1)"
@@ -240,17 +221,14 @@ data "OnTickFail" "DealDamage((LevelMapValue(BanXianCantrip)d8)/2,Fire,Magical)"
 data "ApplyEffect" "c0873536-30d7-4bc5-83cb-d94a6acbc7b8"
 data "StatusEffect" "28433b2f-01e6-4871-ab0c-f6ce78cd1814"
 
-
-
 //魔窍：破劫脊
 new entry "BANXIAN_FSZMG_MoQiao8"
 type "PassiveData"
 data "Properties" "Highlighted"
 data "Icon" "Action_Monk_WholenessOfBody"
 data "DisplayName" "stringsofmodmadebyxss20250218bcb00a08;1"
-data "Description" "stringsofmodmadebyxss20250218bcb00b08;1"  
+data "Description" "stringsofmodmadebyxss20250218bcb00b08;1"
 data "Boosts" "CriticalHitExtraDice(1)"
-
 
 //魔窍：寂神台
 new entry "BANXIAN_FSZMG_MoQiao9"
@@ -258,16 +236,12 @@ type "PassiveData"
 data "Properties" "Highlighted"
 data "Icon" "Action_Monk_WholenessOfBody"
 data "DisplayName" "stringsofmodmadebyxss20250218bcb00a09;1"
-data "Description" "stringsofmodmadebyxss20250218bcb00b09;1"  
+data "Description" "stringsofmodmadebyxss20250218bcb00b09;1"
 data "Boosts" "RedirectDamage(2,Force,Psychic,true);DamageReduction(Psychic,Half)"
-
-
-
-
 
 /////////////////////////////
 /
-/        梵圣真魔功：魔化         
+/        梵圣真魔功：魔化
 /
 /////////////////////////////
 //魔化
@@ -276,7 +250,7 @@ type "PassiveData"
 data "Properties" "Highlighted;OncePerShortRest"
 data "Icon" "Spell_Raphael_FiendishAscension"
 data "DisplayName" "stringsofmodmadebyxss20250218bca00c00;1"
-data "Description" "stringsofmodmadebyxss20250218bca00d00;1"  
+data "Description" "stringsofmodmadebyxss20250218bca00d00;1"
 data "StatsFunctorContext" "OnStatusApplied"
 data "Conditions" "HasStatus('SG_Rage', context.Target) and HasPassive('BANXIAN_FSZMG_DevilForms',context.Target)"
 data "StatsFunctors" "IF(HasPassive('BANXIAN_FSZMG_Level9',context.Target)):ApplyStatus(BANXIAN_DEVILFORMS_9,100,-1); IF(HasPassive('BANXIAN_FSZMG_Level8',context.Target)):ApplyStatus(BANXIAN_DEVILFORMS_8,100,-1); IF(HasPassive('BANXIAN_FSZMG_Level7',context.Target)):ApplyStatus(BANXIAN_DEVILFORMS_7,100,-1); IF(HasPassive('BANXIAN_FSZMG_Level6',context.Target)):ApplyStatus(BANXIAN_DEVILFORMS_6,100,-1); IF(HasPassive('BANXIAN_FSZMG_Level5',context.Target)):ApplyStatus(BANXIAN_DEVILFORMS_5,100,-1); IF(HasPassive('BANXIAN_FSZMG_Level4',context.Target)):ApplyStatus(BANXIAN_DEVILFORMS_4,100,-1); IF(HasPassive('BANXIAN_FSZMG_Level3',context.Target)):ApplyStatus(BANXIAN_DEVILFORMS_3,100,-1); IF(HasPassive('BANXIAN_FSZMG_Level2',context.Target)):ApplyStatus(BANXIAN_DEVILFORMS_2,100,-1); IF(HasPassive('BANXIAN_FSZMG_Level1',context.Target)):ApplyStatus(BANXIAN_DEVILFORMS_1,100,-1)"
@@ -351,27 +325,9 @@ data "StatusType" "BOOST"
 using "BANXIAN_DEVILFORMS_1"
 data "Boosts" "UnlockSpellVariant(HasSpellFlag(SpellFlags.Melee),ModifyTargetRadius(Multiplicative,13.02));Advantage(Ability, Strength);Advantage(SavingThrow, Strength);CharacterWeaponDamage(9d20);ObjectSize(+6);ScaleMultiplier(13.02);CharacterUnarmedDamage(9d20);CarryCapacityMultiplier(7.93);   RollBonus(Attack, StrengthModifier+9);ActionResourceMultiplier(Movement,900,0);IncreaseMaxHP(LevelMapValue(BanXiangHP)*8);  ActionResource(ActionPoint,4,0);ActionResource(BonusActionPoint,4,0);  Advantage(SavingThrow,All);RollBonus(SavingThrow,9);  IgnoreResistance(Physical,Immune);  IF(IsMeleeAttack()):DamageBonus((MaxHP-context.Source.HP)*5)"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /////////////////////////////
 /
-/        妖仙本相：Bear 熊         
+/        妖仙本相：Bear 熊
 /
 /////////////////////////////
 //现出本相
@@ -398,8 +354,6 @@ data "DisplayName" "stringsofmodmadebyxss20250228bca00a01;1"
 data "Description" "stringsofmodmadebyxss20250228bca00b01;1"
 data "Rules" "37310474-2422-4334-b648-5fcc259bec1f"
 
-
-
 //天赋神通·额外将你的力量调整值计入到近战攻击的伤害掷骰上
 new entry "BANXIAN_Yao_Bear"
 type "PassiveData"
@@ -409,11 +363,9 @@ data "DisplayName" "stringsofmodmadebyxss20250228bca00a01;1"
 data "Description" "stringsofmodmadebyxss20250228bca00b01;1"
 data "Boosts" "UnlockSpell(Shout_WildShape_Bear_YaoXian);  IF(IsMeleeAttack()):DamageBonus(StrengthModifier)"
 
-
-
 /////////////////////////////
 /
-/        妖仙本相：Raven 恐鸦         
+/        妖仙本相：Raven 恐鸦
 /
 /////////////////////////////
 //现出本相
@@ -440,8 +392,6 @@ data "DisplayName" "stringsofmodmadebyxss20250228bca00a02;1"
 data "Description" "stringsofmodmadebyxss20250228bca00b02;1"
 data "Rules" "37310474-2422-4334-b648-5fcc259bec1f"
 
-
-
 //天赋神通·你能在黑暗中看清物体
 new entry "BANXIAN_Yao_Raven"
 type "PassiveData"
@@ -451,11 +401,9 @@ data "DisplayName" "stringsofmodmadebyxss20250228bca00a02;1"
 data "Description" "stringsofmodmadebyxss20250228bca00b02;1"
 data "Boosts" "UnlockSpell(Shout_WildShape_Raven_YaoXian);  DarkvisionRangeMin(24);ActiveCharacterLight(c46e7ba8-e746-7020-5146-287474d7b9f7);StatusImmunity(BLINDED_DARKNESS);IgnoreSurfaceCover(SurfaceDarknessCloud)"
 
-
-
 /////////////////////////////
 /
-/        妖仙本相：Crab 螃蟹         
+/        妖仙本相：Crab 螃蟹
 /
 /////////////////////////////
 //现出本相
@@ -479,9 +427,6 @@ data "Boosts" "VoicebarkBlock();BlockSpellCast();UnlockSpell(Shout_WildShape_Dis
 data "TemplateID" "48cda2b7-04bc-40c2-81f5-1dddabcd15ab"
 data "Rules" "37310474-2422-4334-b648-5fcc259bec1f"
 
-
-
-
 //天赋神通·你的徒手攻击命中时可能会对目标施加流血
 new entry "BANXIAN_Yao_Crab"
 type "PassiveData"
@@ -494,11 +439,9 @@ data "StatsFunctorContext" "OnAttack"
 data "Conditions" "IsMeleeUnarmedAttack() and not IsMiss()"
 data "StatsFunctors" "ApplyStatus(BLEEDING,100,2,,,,not SavingThrow(Ability.Constitution,ManeuverSaveDC()))"
 
-
-
 /////////////////////////////
 /
-/        妖仙本相：Frog 青蛙         
+/        妖仙本相：Frog 青蛙
 /
 /////////////////////////////
 //现出本相
@@ -522,8 +465,6 @@ data "Boosts" "VoicebarkBlock();BlockSpellCast();UnlockSpell(Shout_WildShape_Dis
 data "TemplateID" "4521a4d1-0940-41de-b4c2-0314b8c8f32d"
 data "Rules" "37310474-2422-4334-b648-5fcc259bec1f"
 
-
-
 //天赋神通·潮湿时，移动速度翻倍
 new entry "BANXIAN_Yao_Frog"
 type "PassiveData"
@@ -533,11 +474,9 @@ data "DisplayName" "stringsofmodmadebyxss20250228bca00a04;1"
 data "Description" "stringsofmodmadebyxss20250228bca00b04;1"
 data "Boosts" "UnlockSpell(Shout_WildShape_Frog_YaoXian);  IF(HasStatus('WET',context.Source) or HasStatus('TWN_DRENCHED',context.Source)):ActionResourceMultiplier(Movement,200,0)"
 
-
-
 /////////////////////////////
 /
-/        妖仙本相：Panther 黑豹         
+/        妖仙本相：Panther 黑豹
 /
 /////////////////////////////
 //现出本相
@@ -559,8 +498,6 @@ data "DisplayName" "stringsofmodmadebyxss20250228bca00a05;1"
 data "Description" "stringsofmodmadebyxss20250228bca00b05;1"
 data "Rules" "37310474-2422-4334-b648-5fcc259bec1f"
 
-
-
 //天赋神通·疾走状态下，近战攻击的伤害掷骰取两次结果中的最大值
 new entry "BANXIAN_Yao_Panther"
 type "PassiveData"
@@ -570,11 +507,9 @@ data "DisplayName" "stringsofmodmadebyxss20250228bca00a05;1"
 data "Description" "stringsofmodmadebyxss20250228bca00b05;1"
 data "Boosts" "UnlockSpell(Shout_WildShape_Panther_YaoXian);  IF(MobileShootingCasterCondition() and IsMeleeAttack()):Reroll(Damage,20,false)"
 
-
-
 /////////////////////////////
 /
-/        妖仙本相：Rat 鼠         
+/        妖仙本相：Rat 鼠
 /
 /////////////////////////////
 //现出本相
@@ -597,8 +532,6 @@ data "Description" "stringsofmodmadebyxss20250228bca00b06;1"
 data "TemplateID" "d779b7f9-2c7b-4f85-b914-f09e00c117f2"
 data "Rules" "37310474-2422-4334-b648-5fcc259bec1f"
 
-
-
 //天赋神通·求生、洞悉、隐匿和巧手检定中获得优势
 new entry "BANXIAN_Yao_Rat"
 type "PassiveData"
@@ -608,11 +541,9 @@ data "DisplayName" "stringsofmodmadebyxss20250228bca00a06;1"
 data "Description" "stringsofmodmadebyxss20250228bca00b06;1"
 data "Boosts" "UnlockSpell(Shout_WildShape_Rat_YaoXian);  Advantage(skill,Survival);Advantage(skill,Insight);Advantage(skill,Stealth);Advantage(skill,SleightOfHand)"
 
-
-
 /////////////////////////////
 /
-/        妖仙本相：SaberTooth 剑齿虎         
+/        妖仙本相：SaberTooth 剑齿虎
 /
 /////////////////////////////
 //现出本相
@@ -634,8 +565,6 @@ data "DisplayName" "stringsofmodmadebyxss20250228bca00a07;1"
 data "Description" "stringsofmodmadebyxss20250228bca00b07;1"
 data "Rules" "37310474-2422-4334-b648-5fcc259bec1f"
 
-
-
 //天赋神通·发动近战攻击并重击时，重击伤害骰+1，并对目标施加2层破甲撕裂
 new entry "BANXIAN_Yao_SaberTooth"
 type "PassiveData"
@@ -648,11 +577,9 @@ data "StatsFunctorContext" "OnAttack"
 data "Conditions" "IsMeleeAttack() and IsCritical() and not IsCriticalMiss()"
 data "StatsFunctors" "ApplyStatus(WEAKENED_ARMOR,100,2)"
 
-
-
 /////////////////////////////
 /
-/        妖仙本相：Spider 蜘蛛         
+/        妖仙本相：Spider 蜘蛛
 /
 /////////////////////////////
 //现出本相
@@ -674,8 +601,6 @@ data "DisplayName" "stringsofmodmadebyxss20250228bca00a08;1"
 data "Description" "stringsofmodmadebyxss20250228bca00b08;1"
 data "Rules" "37310474-2422-4334-b648-5fcc259bec1f"
 
-
-
 //天赋神通·你在蛛网上行动时，移动速度消耗减少75%
 new entry "BANXIAN_Yao_Spider"
 type "PassiveData"
@@ -686,10 +611,9 @@ data "Description" "stringsofmodmadebyxss20250228bca00b08;1"
 data "BoostContext" "OnPushed;OnMovedDistance"
 data "Boosts" "UnlockSpell(Shout_WildShape_Spider_YaoXian);  IF(InSurface('SurfaceWeb',context.Source)):ActionResourceConsumeMultiplier(Movement, 0, 0);IF(InSurface('SurfaceWeb',context.Source)):IgnoreLeaveAttackRange()"
 
-
 /////////////////////////////
 /
-/        妖仙本相：Wolf 狼         
+/        妖仙本相：Wolf 狼
 /
 /////////////////////////////
 //现出本相
@@ -711,8 +635,6 @@ data "DisplayName" "stringsofmodmadebyxss20250228bca00a09;1"
 data "Description" "stringsofmodmadebyxss20250228bca00b09;1"
 data "Rules" "37310474-2422-4334-b648-5fcc259bec1f"
 
-
-
 //天赋神通·对流血目标发动的近战攻击获得劣势，但必定为重击
 new entry "BANXIAN_Yao_Wolf"
 type "PassiveData"
@@ -721,7 +643,6 @@ data "Icon" "Skill_Druid_WildShape_DireWolf"
 data "DisplayName" "stringsofmodmadebyxss20250228bca00a09;1"
 data "Description" "stringsofmodmadebyxss20250228bca00b09;1"
 data "Boosts" "UnlockSpell(Shout_WildShape_Wolf_YaoXian);  IF(IsMeleeAttack() and HasStatus('BLEEDING',context.Target)):Disadvantage(AttackRoll); IF(IsMeleeAttack() and HasStatus('BLEEDING',context.Target)):CriticalDamageOnHit()"
-
 
 /////////////////////////////
 /
@@ -749,8 +670,6 @@ data "TemplateID" "5e9f9fbd-f2ec-4471-a5e5-1452f8a35e54"
 data "Rules" "37310474-2422-4334-b648-5fcc259bec1f"
 data "ApplyEffect" "26226027-853a-4b9a-86de-7ee4aed17454"
 data "StatusEffect" "d56b562b-f434-4521-b11e-b4e5083af370"
-
-
 
 //天赋神通·解锁赤龙本相，并使火焰咒语消耗降低
 new entry "BANXIAN_Yao_RedDragon"

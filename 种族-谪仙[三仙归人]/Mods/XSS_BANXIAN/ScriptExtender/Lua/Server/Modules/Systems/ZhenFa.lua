@@ -18,10 +18,7 @@ function ZhenFa.Init()
     -- 注册事件监听阵法相关施法2
     Ext.Osiris.RegisterListener("UsingSpellAtPosition", 8, "after", ZhenFa.OnUsingSpellAtPosition_after)
 
-
 end
-
-
 
 --聚灵阵阵眼注册
 function ZhenFa.Core.Register(Object,Status)
@@ -32,7 +29,7 @@ function ZhenFa.Core.Register(Object,Status)
             PersistentVars['ZhenFa_Core_JuLing_LEVEL'] = i
         end
     end
-    
+
 end
 
 --聚灵阵激活判定
@@ -74,11 +71,9 @@ function ZhenFa.Core.Functors(CoreRadius,Offset)
         end
 
     else
-        return 
+        return
     end
 end
-
-
 
 --阵旗检测
 function ZhenFa.Flags.Check(Core)
@@ -86,7 +81,6 @@ function ZhenFa.Flags.Check(Core)
         ZhenFa.Core.Functors(6,6.8)
     end
 end
-
 
 --罗盘测算
 function ZhenFa.Tool.LuoPanFunctors(Caster,X,Z)
@@ -101,7 +95,7 @@ function ZhenFa.Tool.LuoPanFunctors(Caster,X,Z)
         local RESULT = ZhenFa.Core.Check(6,6.8)
         local level = PersistentVars['ZhenFa_Core_JuLing_LEVEL']
         local STATUS = 'BANXIAN_ZHENFA_CORE_JULING_TOGGLEON_'..level
-        
+
         ZhenFa.Core.Functors(6, 6.8)
 
         local MESSAGE_ADD = "\n[阵法测算·聚灵阵] 方位："..TW.."   平面距离："..Radius.."   \n[测算结果："..RESULT
@@ -110,8 +104,6 @@ function ZhenFa.Tool.LuoPanFunctors(Caster,X,Z)
 
     Osi.OpenMessageBox(Caster, MESSAGE)
 end
-
-
 
 -- 事件·阵法状态监听
 function ZhenFa.OnStatusApplied_after(Object, Status, Causee)
@@ -161,6 +153,5 @@ function ZhenFa.OnUsingSpellAtPosition_after(Caster, X, Y, Z, Spell, SpellType, 
     end
 
 end
-
 
 return ZhenFa

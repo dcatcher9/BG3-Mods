@@ -17,8 +17,6 @@ function GongFa.Init()
 
 end
 
-
-
 --周天淬体诀
 function GongFa.Tianxian.ZhouTianCuiTi.Check(Object)
     local BanXian_CuiTi = 'CuiTi_ZhouTian_'
@@ -46,9 +44,8 @@ function GongFa.Tianxian.ZhouTianCuiTi.Check(Object)
     elseif CuiTi_ZhouTian_Long == false  and Osi.HasPassive(Object, 'CuiTi_ZhouTian_LongBreak') == 1 then
         Osi.RemovePassive(Object, 'CuiTi_ZhouTian_LongBreak')
     end
-    
-end
 
+end
 
 --周天淬体诀：恢复指定补给类型的所有资源
 local function ZhouTianRestoreResources(Object, replenishType)
@@ -111,7 +108,7 @@ function GongFa.Tianxian.BaiMaiDuanBao.Check(Object)
            Osi.ApplyStatus(Object, 'FABAO_BAIMAI_EAT_STATUS', -1, 1)
         end
     end
-    
+
 end
 
 --吞食法宝
@@ -122,10 +119,8 @@ function GongFa.Tianxian.BaiMaiDuanBao.Eating(Object)
     end
     Utils.GongFa.BaiMai.CopyPassives(Object)
     Utils.GongFa.BaiMai.CopyStatus(Object)
-    
+
 end
-
-
 
 -- 事件·短休
 function GongFa.OnShortRested_after(Object)
@@ -133,7 +128,6 @@ function GongFa.OnShortRested_after(Object)
         GongFa.Tianxian.ZhouTianCuiTi.ShortRest(Object)
     end
 end
-
 
 -- 事件·功法状态监听
 function GongFa.OnStatusApplied_after(Object, Status)
@@ -148,6 +142,5 @@ function GongFa.OnStatusApplied_after(Object, Status)
     end
 
 end
-
 
 return GongFa

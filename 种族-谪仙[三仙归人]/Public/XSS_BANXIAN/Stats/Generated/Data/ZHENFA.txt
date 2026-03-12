@@ -1,8 +1,8 @@
-///////////////////////////// 
+/////////////////////////////
 /
-/         阵法工具      
+/         阵法工具
 /
-/////////////////////////////  
+/////////////////////////////
 new entry "OBJ_ZhenfaTool_LuoPan"
 type "Object"
 using "OBJ_Plate_Ceramic"
@@ -34,11 +34,11 @@ data "Requirements" ""
 data "PrepareEffect" "af787096-8656-4495-a6ce-cbd376578069"
 data "CastEffect" "b7fb4cd6-971f-44c0-9447-378092d36b63"
 
-///////////////////////////// 
+/////////////////////////////
 /
-/         聚灵阵       
+/         聚灵阵
 /
-/////////////////////////////  
+/////////////////////////////
 //阵眼
 new entry "ZHENFA_Core_Juling"
 type "SpellData"
@@ -264,7 +264,6 @@ data "Boosts" "GameplayLight(9,false,0.1)"
 data "OnApplyFunctors" "GROUND:CreateSurface(6.8,10,Overgrowth)"
 data "StatusEffect" "dd02e9e1-8ab7-4da0-9097-26fd886c06d4"
 
-
 new entry "BANXIAN_ZHENFA_CORE_JULING_TOGGLEON_2"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -396,12 +395,11 @@ using "BANXIAN_ZHENFA_CORE_JULING_BUFF_1"
 data "DescriptionParams" "9"
 data "TickFunctors" "RestoreResource(KiPoint,9,0)"
 
-
-///////////////////////////// 
+/////////////////////////////
 /
-/           阵旗       
+/           阵旗
 /
-/////////////////////////////  
+/////////////////////////////
 new entry "BANXIAN_ZhenFa_Flags"
 type "Character"
 using "_Summons"
@@ -575,8 +573,6 @@ using "ZHENFA_Flags_Flags_Qian"
 data "SpellProperties" "GROUND:Summon(82434a0e-dd6c-4530-aeed-f3cf7b00b008, -1,,,ZhenqiFlagsFlags_Dui,BANXIAN_ZHENFA_FLAGS_JULING_AURA_DUI,UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK);  GROUND:CreateSurface(1.5,10,Grease)"
 data "DisplayName" "stringsofmodmadebyxss20250221zfb00a08;1"
 data "Description" "stringsofmodmadebyxss20250221zfb00b08;1"
-
-
 
 new entry "BANXIAN_ZHENFA_FLAGS_JULING_AURA_QIAN"
 type "StatusData"

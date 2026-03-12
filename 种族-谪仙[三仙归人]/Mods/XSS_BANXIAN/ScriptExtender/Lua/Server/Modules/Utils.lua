@@ -18,9 +18,6 @@ local Utils = {
 }
 local Variables = require("Server.Modules.Variables")
 
-
-
-
 --错误处理
 function Utils.SafeStatSync(stat)
     local success, err = pcall(function()
@@ -30,7 +27,7 @@ function Utils.SafeStatSync(stat)
             error("无效的stat对象或缺少Sync方法")
         end
     end)
-    
+
     if not success then
         -- 详细记录错误信息
         local statName = "未知"
@@ -52,7 +49,7 @@ function Utils.SafeSetStatProperty(stat, prop, value)
     local success, err = pcall(function()
         stat[prop] = value
     end)
-    
+
     if not success then
         Ext.Utils.PrintError(string.format(
             "[FaBao] 设置属性失败 [%s.%s]: %s",
@@ -64,7 +61,6 @@ function Utils.SafeSetStatProperty(stat, prop, value)
     end
     return true
 end
-
 
 -- 检查表中指定范围内是否存在某个值
 function Utils.contains(tbl, value, startIndex, endIndex)
@@ -145,9 +141,8 @@ function Utils.XZGetTowards(x,z)
     else
         return "东南"
     end
-    
-end
 
+end
 
 --获取境界值（基于道行总天数，取共享 BANXIAN_DH_DAY 换算年数）
 -- 阈值参考：修罗道 level10 TZ=1 约36杀/年，完整流程约27~55年
@@ -167,8 +162,6 @@ function Utils.GetBanxianJingjie(Character)
     end
 end
 
-
-
 --拆分字符
 function Utils.Seprate_Strings(PASSIVES)
     local Strings = {}
@@ -181,8 +174,6 @@ function Utils.Seprate_Strings(PASSIVES)
     return Strings
 end
 
-
-
 -------------------------------------------------------------------------------------------------
 --                                                                                             --
 --                                         Add                                             --
@@ -194,7 +185,6 @@ function Utils.AddPassive_Safe(Entity, PassiveID)
         Osi.AddPassive(Entity, PassiveID)
     end
 end
-
 
 -------------------------------------------------------------------------------------------------
 --                                                                                             --
@@ -222,7 +212,6 @@ function Utils.CharacterChangeCancel.Equipable(Object)
     end
 end
 
-
 -------------------------------------------------------------------------------------------------
 --                                                                                             --
 --                                         Get                                                 --
@@ -240,7 +229,7 @@ function Utils.Get.ZiZhi(Character)
     else
         RESULT = "[未开窍]"
     end
-    
+
     return ZZ,RESULT
 end
 
@@ -600,7 +589,6 @@ function Utils.FaBao_LianQiSaveStats(FABAO)
     PersistentVars["[SaveStatsLianQi]"..FABAO.."_Rarity"] = stat.Rarity
 end
 
-
 -------------------------------------------------------------------------------------------------
 --                                                                                             --
 --                                         Load                                              --
@@ -626,7 +614,6 @@ function Utils.FaBao_LianQiLoadStats(FABAO)
     stat:Sync()
 
 end
-
 
 -------------------------------------------------------------------------------------------------
 --                                                                                             --
@@ -665,7 +652,6 @@ function Utils.ZhenFa.GetFlagsParams(Flag,Core)
     return X,Z,TW,Radius
 end
 
-
 -------------------------------------------------------------------------------------------------
 --                                                                                             --
 --                                         LingGen                                             --
@@ -688,7 +674,6 @@ function Utils.LingGen.Random(_)
     end
     return r, TZ
 end
-
 
 -------------------------------------------------------------------------------------------------
 --                                                                                             --
@@ -713,7 +698,6 @@ function Utils.ShenShi.Check(Object)
     end
 
 end
-
 
 -------------------------------------------------------------------------------------------------
 --                                                                                             --
@@ -772,7 +756,6 @@ end
 function Utils.DaDao.Hehuan(Object)
     ApplyDaoDaoAbilityBoost(Object, 'HEHUAN', 'BanXian_DH_HeHuan', 'BanXian_DH_CHA', 'Charisma')
 end
-
 
 -------------------------------------------------------------------------------------------------
 --                                                                                             --
@@ -857,9 +840,9 @@ end
 
 --复制装备状态
 function Utils.GongFa.BaiMai.CopyStatus(Object)
-  
+
     if ( Ext.Entity.Get(Object):GetComponent("StatusContainer") ~= nil ) then
-	
+
         for _,entry in pairs(Ext.Entity.Get(Object).StatusContainer.Statuses) do
             local stat = Ext.Stats.Get(entry.StatusID.ID, 0)
             if string.find(entry.StatusID.ID, 'TECHNICAL') then
@@ -872,10 +855,8 @@ function Utils.GongFa.BaiMai.CopyStatus(Object)
             end
         end
     end
-    
+
 end
-
-
 
 -------------------------------------------------------------------------------------------------
 --                                                                                             --
@@ -927,7 +908,6 @@ function Utils.Filter.Status.IsDebuff(ID)
     end
     return false
 end
-
 
 --------------------------------------------------------------------------------------------------
 ---刷新境界增益：炼体周天（力量、体质、智力、敏捷、魅力、感知）
