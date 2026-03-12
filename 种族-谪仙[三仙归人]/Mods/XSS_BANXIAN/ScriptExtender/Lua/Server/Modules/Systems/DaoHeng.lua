@@ -298,6 +298,8 @@ function DaoHeng.OnStatusApplied_after(Object, Status, Causee)
         Osi.ClearIndividualRelation(Causee, Osi.GetFaction(Object))
     elseif Status == 'SIGNAL_DH_EGui' and Object ~= Causee then --饿鬼道偷取状态
         DaoHeng.EGUI.Functors_Steal(Object, Causee)
+    elseif Status == 'SIGNAL_DH_YI_SPLIT' and Object ~= Causee then --羿道·分箭
+        DaoHeng.Yi.SplitArrow(Object, Causee)
     end
 
     if Status == 'JIANDAO_PROJECTILE_RETURN' then
@@ -370,6 +372,37 @@ function DaoHeng.OnUsingSpellOnTarget_before(Caster, Target, Name)
                 Osi.TimerLaunch(TimerKey, 2000)
                 Osi.RemoveStatus(Target, 'JIANDAO_PROJECTILE_RETURN')
                 PersistentVars['Jiandao_Projectile_Pending'] = nil
+            end
+        end
+    end
+end
+
+--羿道·分箭：命中时向周围敌人发射额外箭矢，可连锁（概率递减）
+DaoHeng.Yi = {}
+function DaoHeng.Yi.SplitArrow(Target, Attacker)
+    local YEAR = Osi.GetStatusTurns(Attacker, 'BANXIAN_DH_YEAR') or 0
+    if YEAR < 1 then return end
+    local hitSet = { [tostring(Target)] = true }
+    DaoHeng.Yi.SplitArrow_Chain(Target, Attacker, YEAR, 100, hitSet, 5)
+end
+
+function DaoHeng.Yi.SplitArrow_Chain(Origin, Attacker, Damage, Chance, HitSet, Depth)
+    if Depth <= 0 then return end
+    local RADIUS = 6
+    for _, entity in pairs(Ext.Entity.GetAllEntitiesWithComponent("Health")) do
+        if entity.Uuid then
+            local guid = tostring(entity.Uuid.EntityUuid)
+            if not HitSet[guid] and Osi.IsDead(guid) == 0 and Osi.IsEnemy(guid, Attacker) == 1 then
+                local dist = Osi.GetDistanceTo(Origin, guid)
+                if dist and dist <= RADIUS then
+                    HitSet[guid] = true
+                    Osi.ApplyStatus(guid, 'YIDAO_SPLIT_HIT', Damage, 1, Attacker)
+                    local NextChance = math.floor(Chance / 2)
+                    local NextDamage = math.floor(Damage / 2)
+                    if NextDamage >= 1 and NextChance >= 10 and math.random(1, 100) <= NextChance then
+                        DaoHeng.Yi.SplitArrow_Chain(guid, Attacker, NextDamage, NextChance, HitSet, Depth - 1)
+                    end
+                end
             end
         end
     end

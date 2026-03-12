@@ -3,23 +3,22 @@
 <!-- Last updated: 2026-03-11 -->
 
 ## Status
-- **Coverage:** ~50 of ~107 files fully read, ~3 partially read, ~54 not yet read
-- **Open issues:** 2 (0 red, 1 orange, 0 yellow, 0 blue, 1 white)
-- **Fixed issues:** 24
+- **Coverage:** ~65 of ~107 files fully read, ~1 partially read, ~41 not yet read
+- **Open issues:** 1 (0 red, 0 orange, 0 yellow, 0 blue, 1 white)
+- **Fixed issues:** 30
 
 ## Open Issues
 
 ### 🔴 Bugs / Errors
 
-*(none remaining — all red bugs fixed)*
+*(none)*
 
 ### 🟠 Wrong Behavior
 
-- [ ] **WB-04** `Public/XSS_BANXIAN/Stats/Generated/Data/DANYAO.txt` `DR_QIFANHUO_DAN` — 七返火丹 has `data "Boosts" ""` and only applies `DT_BASE_LONGREST` on use. No fire-related bonus despite the thematic name. Possibly incomplete. *Fix: add intended fire boost once design is decided.*
+*(none)*
 
 ### 🟡 Logic / Consistency
 
-- [ ] **L-03** `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/LingGen.lua:154` — Hardcoded UUID `fe825e69-1569-471f-9b3f-28fd3b929683` for player race tag check. Added inline comment pointing to Tags/. *Remaining: optionally replace with a named constant in Variables.lua.*
 
 ### 🔵 Redundancy
 
@@ -54,6 +53,13 @@
 - [x] **L-08** `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/FaBao.lua:426` — Added missing `FABAO` third argument to `Utils.GetStatField(stat, TYPE, FABAO)`. *(fixed 2026-03-11)*
 - [x] **L-09** `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/FaBao.lua:126,141` — Added `plain=true` to `string.find` calls in `Boosts_Filter` and `SamePassives_Check`. *(fixed 2026-03-11)*
 - [x] **T-05** `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Utils.lua` `Utils.Get.LingGen` — Updated stale string comparison to match the actual RESULT initializer `"满25点觉醒效果，满100点觉醒天灵根"`; `[缺失灵根]` branch now reachable. *(fixed 2026-03-11)*
+- [x] **B-07** `Public/XSS_BANXIAN/Stats/Generated/Data/DADAO.txt:1694` `MODE_BANXIAN_DH_YI_TECHNICAL_Passive` — Implemented chaining split-arrow mechanic: passive applies `SIGNAL_DH_YI_SPLIT` on ranged bow hit → Lua handler (`DaoHeng.Yi.SplitArrow`) deals DaoHeng-year-scaled Force damage to nearby enemies via `YIDAO_SPLIT_HIT` status (stat-engine `DealDamage`, triggers secondary effects). Chains recursively with halving damage/probability, capped by depth=5, chance floor=10%, and hit-set dedup. *(fixed 2026-03-11)*
+- [x] **WB-04** `Public/XSS_BANXIAN/Stats/Generated/Data/DANYAO.txt` `DR_QIFANHUO_DAN` — Localization confirms pill resets skill cooldowns via `DT_BASE_LONGREST`; empty `Boosts ""` intentionally overrides inherited `DamageReduction(All,Half)`. *(resolved 2026-03-11 — by design)*
+- [x] **WB-07** `Public/XSS_BANXIAN/Stats/Generated/Data/DADAO.txt:640` `AURA_OF_YEHUO_TARGET` — `DealDamage(1)` → `DealDamage(1,Fire)`. *(fixed 2026-03-11)*
+- [x] **L-03** `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/LingGen.lua:154` — Hardcoded UUID with inline comment pointing to Tags/. Named constant optional. *(resolved 2026-03-11 — acceptable with comment)*
+- [x] **L-10** `Public/XSS_BANXIAN/Stats/Generated/Data/DADAO.txt:847` `Target_CallLightning_TianLei` — Removed duplicate `PositionEffect` line. *(fixed 2026-03-11)*
+- [x] **T-06** `Public/XSS_BANXIAN/Stats/Generated/Data/DADAO.txt:1061–1067` `JIANDAO_YI_Passies_ZhenKi` — Deleted dead code passive. *(fixed 2026-03-11)*
+- [x] **T-07** `Public/XSS_BANXIAN/Stats/Generated/Data/DADAO.txt:915,918,923` `BANXIAN_DH_JAIN_HEART` → `BANXIAN_DH_JIAN_HEART` (4 occurrences). *(fixed 2026-03-11)*
 - [x] **WB-02** `Public/XSS_BANXIAN/Stats/Generated/Data/BANXIAN_TIAN.txt` `CUITI_ZHOUTIAN_1` — Full KiPoint restore on every ZhouTian cycle application is intentional design. *(resolved 2026-03-11 — by design)*
 
 ## Feature Completeness
@@ -69,22 +75,27 @@
 | DaoXin/DaoHeng realm (大道境界) | Full | Passive/Aura | DH_YEAR/MONTH/DAY stack system + full DaoHeng.lua confirmed |
 | DaoHeng 合欢道/力道 | Full | Passive/Spell | HeHuan.TakeDH, AddFollower, RemoveFollower, FollowerProtect + Li ability boost all implemented |
 | DaoHeng 地狱道/天道 | Full | Passive/Signal | YEHUO burn → AddDH, TIANLEI extra-damage — implemented |
-| ZhenFa formation magic (阵法) | Full | Spell | 9-level core + 8 flag types + summon characters |
+| DaoHeng 剑道 (JianDao) | Full | Passive/Interrupt | JianYi/JianXin/JianZhen/Parry/Dodge stances + 6 interrupts; ZhenJian Blast interrupt fully implemented |
+| DaoHeng 羿道 (YiDao) | Full | Passive/Spell | Core, DuLing, ShuangFei, ZhuFeng spells + immortal-mode chaining split-arrow passive (signal→Lua→YIDAO_SPLIT_HIT) — all implemented |
+| ZhenFa formation magic (阵法) | Full | Spell | 9-level JuLing core + 8 flags (Qian/Kun/Xun/Zhen/Kan/Li/Gen/Dui) + BUFF_1–9 + ZhenFa.lua |
+| JinDan resource conversion (金丹术) | Full | Spell | 7 resource types + WarlockSpellSlot 1–6 tiers; MODESWITCH toggle present |
+| YuanYing immortal core (元婴) | Full | Passive/Spell | Toggle passive, TECHNICAL heal/KiPoint regen, CONCENTRATION spell support; ShenshiPoint cost intentionally commented out |
 | FSZMG YaoXian cultivation (梵圣真魔功) | Partial | Passive + Spell | Levels 1–9; Level9 capstone fixed; DevilForms ObjectSize capped |
 | XiuLian qi absorption (修炼) | Full | Spell | Spell, Lua, LINGQI statuses consistent |
 | BANXIANSHENTONG polymorphs (神通) | Full | Spell | 72/36-change passives; Rulebook rules confirmed; Base.lua transform logic present |
 | RenXian organ system (五脏六腑) | Full | Passive List | BANXIAN_REN.txt fully read (2319 lines); all LingGen tiers, WZPLG, WZCYG, Xian/Sheng layers confirmed |
-| FaBao artifact system (法宝) | Full | Feat + Progression | FABAO.txt fully read; 点金/吐火/淬火 + 8 BaoCai materials (大力铁角/妖生角/黑色眼眸/金色眼眸/龙珠/铁中血/玉垂牙/震雷骨) all implemented |
+| FaBao artifact system (法宝) | Full | Feat + Progression | FABAO.txt fully read; 点金/吐火/淬火 + 8 BaoCai materials all implemented |
 | FaBao 百脉锻宝诀 (BaiMai) | Full | Passive List | Slots 1–6 + A1/A2/S tier passives all defined; GongFa.lua confirms logic |
 | GongFa techniques (功法) | Full | Progression Selector | GONGFA_SELECTOR.txt + DADAO selectors confirmed; GongFa.lua fully read |
 | Beast forms BenXiang (本相) | Full | Passive List | 10 forms; WildShapeYaoXian Rulebook rule confirmed |
-| ExtraAttack chain | Full | Passive/Aura | ExtraAttack_3–9 + queue statuses; up to 10 attacks |
-| DanYao alchemy system (丹药) | Full | Item + Passive | 35 pills defined; drop/brew logic confirmed |
-| Hardcore mode (BANXIAN_HARDCORE) | Full | Script-only | `Difficulty.OnEnteredCombat_after` applies HARDCORE to NPCs; `Difficulty.HardCore.Start` runs full cultivation awakening — no Story/Goals needed |
+| ExtraAttack chain | Full | Passive/Aura | ExtraAttack_BanXian–9_BanXian + queue statuses; up to 10 attacks |
+| DanYao alchemy system (丹药) | Full | Item + Passive | 35 pills defined; 35 ItemCombos recipes confirmed; drop/brew logic consistent |
+| Hardcore mode (BANXIAN_HARDCORE) | Full | Script-only | `Difficulty.OnEnteredCombat_after` applies HARDCORE to NPCs; `Difficulty.HardCore.Start` runs full cultivation awakening |
 
 ### Feature gaps requiring follow-up
 
-**HTBG supplemental-linggen spells (WB-06):** `BANXIAN_HTBG_H/T/J/S/M` all have empty `SpellProperties` and no Lua handler. These fire/earth/metal/water/wood spell-container sub-spells do nothing when cast. Design intent unclear — possibly a placeholder for a future "replenish linggen" mechanic.
+**HTBG supplemental-linggen spells (WB-06):** `BANXIAN_HTBG_H/T/J/S/M` all have empty `SpellProperties` and no Lua handler. Design intent unclear — possibly a placeholder for a future "replenish linggen" mechanic.
+
 
 ## Coverage
 
@@ -101,9 +112,14 @@
 - `Public/XSS_BANXIAN/Hints/Hints.lsx`
 - `Public/XSS_BANXIAN/Levelmaps/LevelMapValues.lsx`
 - `Public/XSS_BANXIAN/Shapeshift/Rulebook.lsx`
+- `Public/XSS_BANXIAN/Tags/409e244f-5b8a-48f0-a51f-398b4efb6a01.lsx` (TIANXIAN tag)
+- `Public/XSS_BANXIAN/Tags/409e244f-5b8a-48f0-a51f-398b4efb6b01.lsx` (RENXIAN tag)
+- `Public/XSS_BANXIAN/Tags/b4241b97-8b51-4625-ae77-55dc09391bc0.lsx` (NOSOUL tag)
+- `Public/XSS_BANXIAN/Stats/Generated/Data/BANXIAN_BASE.txt` (802 lines)
 - `Public/XSS_BANXIAN/Stats/Generated/Data/BANXIAN_YAO.txt`
 - `Public/XSS_BANXIAN/Stats/Generated/Data/BANXIAN_TIAN.txt`
-- `Public/XSS_BANXIAN/Stats/Generated/Data/BANXIAN_REN.txt` (2319 lines — fully read this run)
+- `Public/XSS_BANXIAN/Stats/Generated/Data/BANXIAN_REN.txt` (2319 lines)
+- `Public/XSS_BANXIAN/Stats/Generated/Data/DADAO.txt` (1707 lines)
 - `Public/XSS_BANXIAN/Stats/Generated/Data/XIULIAN.txt`
 - `Public/XSS_BANXIAN/Stats/Generated/Data/SHENSHI.txt`
 - `Public/XSS_BANXIAN/Stats/Generated/Data/SHENTONG.txt`
@@ -111,30 +127,33 @@
 - `Public/XSS_BANXIAN/Stats/Generated/Data/DIFFICULTY.txt`
 - `Public/XSS_BANXIAN/Stats/Generated/Data/DANYAO.txt`
 - `Public/XSS_BANXIAN/Stats/Generated/Data/BOOK.txt`
-- `Public/XSS_BANXIAN/Stats/Generated/Data/FABAO.txt` (950 lines — fully read this run)
+- `Public/XSS_BANXIAN/Stats/Generated/Data/FABAO.txt` (950 lines)
+- `Public/XSS_BANXIAN/Stats/Generated/Data/ZHENFA.txt` (638 lines)
+- `Public/XSS_BANXIAN/Stats/Generated/SpellSet.txt` (12 lines)
+- `Public/XSS_BANXIAN/Stats/Generated/Equipment.txt` (12 lines)
+- `Public/XSS_BANXIAN/Stats/Generated/ItemCombos.txt` (979 lines)
+- `Public/XSS_BANXIAN/MultiEffectInfos/BANXIAN_ANIMATION_FLY.lsf.lsx`
 - `Mods/XSS_BANXIAN/ScriptExtender/Lua/BootstrapServer.lua`
 - `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Main.lua`
 - `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Variables.lua`
 - `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/EventHandlers.lua`
-- `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Utils.lua` (fully read this run)
+- `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Utils.lua`
 - `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/Base.lua`
 - `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/DanYao.lua`
 - `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/LingGen.lua`
 - `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/ShenShi.lua`
 - `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/XiuLian.lua`
-- `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/DaoHeng.lua` (fully read this run)
-- `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/GongFa.lua` (fully read this run)
-- `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/FaBao.lua` (fully read this run)
-- `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/Difficulty.lua` (fully read this run)
+- `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/DaoHeng.lua`
+- `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/GongFa.lua`
+- `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/FaBao.lua`
+- `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/Difficulty.lua`
+- `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/ZhenFa.lua` (167 lines)
 - `Scripts/thoth/helpers/XSS_BANXIAN.khn`
-- `Public/XSS_BANXIAN/MultiEffectInfos/BANXIAN_ANIMATION_FLY.lsf.lsx`
 
 ### Partially read
-- `Public/XSS_BANXIAN/Stats/Generated/Data/BANXIAN_BASE.txt` (key sections via Grep; not fully read)
-- `Public/XSS_BANXIAN/Stats/Generated/Data/DADAO.txt` (~100 lines read + targeted Grep; 1707 lines total)
 - `Public/XSS_BANXIAN/Stats/Generated/Data/FIXS.txt` (key entries via Grep)
 - `Public/XSS_BANXIAN/Stats/Generated/Data/OVERRIDES.txt` (key entries via Grep)
-- `Public/XSS_BANXIAN/Stats/Generated/Data/ZHENFA.txt` (partial)
+- `Mods/XSS_BANXIAN/Localization/English/XSS_BANXIAN.xml` (first 100 lines; structure and key strings confirmed well-formed)
 
 ### Not yet read
 - `Public/XSS_BANXIAN/CharacterCreation/RENXIAN.lsx` (1.6 MB — too large; use Grep)
@@ -144,13 +163,5 @@
 - `Public/XSS_BANXIAN/Progressions/ProgressionDescriptions.lsx`
 - `Public/XSS_BANXIAN/CharacterCreationPresets/CharacterCreationPresets.lsx`
 - `Public/XSS_BANXIAN/Lists/SkillLists.lsx`
-- `Public/XSS_BANXIAN/Stats/Generated/Data/BANXIAN_BASE.txt` (full read pending)
-- `Public/XSS_BANXIAN/Stats/Generated/Data/DADAO.txt` (bulk unread)
-- `Public/XSS_BANXIAN/Stats/Generated/Data/SpellSet.txt`
-- `Public/XSS_BANXIAN/Stats/Generated/Equipment.txt`
-- `Public/XSS_BANXIAN/Stats/Generated/ItemCombos.txt`
-- `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/ZhenFa.lua`
-- `Mods/XSS_BANXIAN/Localization/English/XSS_BANXIAN.xml`
 - `Public/XSS_BANXIAN/GUI/newAtlas.lsx`
-- `Public/XSS_BANXIAN/Tags/` (all .lsx files)
 - `Story/RawFiles/Goals/` (directory not found — confirmed not present; Hardcore mode is Lua-only)

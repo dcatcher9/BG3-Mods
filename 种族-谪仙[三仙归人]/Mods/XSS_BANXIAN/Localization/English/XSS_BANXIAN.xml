@@ -380,7 +380,7 @@
   <content contentuid="stringsofmodmadebyxss20240930dva01c24" version="1">目标必须处于被魅惑、被支配、昏迷、昏睡、醉酒状态之一。</content>
 
   <content contentuid="stringsofmodmadebyxss20240930dva01a25" version="1">羿    道</content>
-  <content contentuid="stringsofmodmadebyxss20240930dva01b25" version="1">你的射箭技艺随&lt;LSTag Type="Status" Tooltip="BANXIAN_DH_YEAR"&gt;道行&lt;/LSTag&gt;获得提升。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b25" version="1">使用弓发动远程武器攻击时，无视目标的抗性与免疫。命中后，箭矢分裂射向周围敌人，造成等同于&lt;LSTag Type="Status" Tooltip="BANXIAN_DH_YEAR"&gt;道行&lt;/LSTag&gt;年数的力场伤害。分裂箭矢可连锁触发，每次连锁伤害与概率减半。</content>
   <content contentuid="stringsofmodmadebyxss20240930dva01c25" version="1">渡灵</content>
   <content contentuid="stringsofmodmadebyxss20240930dva01d25" version="1">使用远程武器发动攻击时，射程提升50%，重击阈值-2，并额外造成等同于境界骰的伤害。</content>
   <content contentuid="stringsofmodmadebyxss20240930dva01e25" version="1">双飞</content>
