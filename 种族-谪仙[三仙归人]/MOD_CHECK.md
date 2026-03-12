@@ -4,8 +4,8 @@
 
 ## Status
 - **Coverage:** ~75 of ~107 source files fully read (all re-audited this run), ~5 partially read, ~27 not yet read (mostly CC/VFX/asset LSX)
-- **Open issues:** 2 (0 red, 0 orange, 1 yellow, 0 blue, 1 white)
-- **Fixed issues:** 51
+- **Open issues:** 0
+- **Fixed issues:** 53
 
 ## Open Issues
 
@@ -16,15 +16,17 @@
 *(none)*
 
 ### 🟡 Logic / Consistency
-- [ ] **L-15** `LingGen.lua:65,275–296` — `Osi.ApplyStatus()` called with only 3 arguments (missing stack count and source). Valid BG3SE API (defaults to stack=1, source=target) but inconsistent with rest of codebase which uses 4–5 args. *Cosmetic; no runtime impact.*
+*(none)*
 
 ### 🔵 Redundancy
 *(none)*
 
 ### ⚪ Minor / Typos
-- [ ] **T-01** `LingGen.lua` `LingGen.GetCharacterParams()` — Companion LingGen values are hardcoded in an if/elseif chain by companion name. A data table in `Variables.lua` would be easier to maintain. *Low priority; address if adding/rebalancing companions.*
+*(none)*
 
 ## Fixed / Resolved Issues
+- [x] **L-15** `LingGen.lua:65,275–296` — Added consistent 5-arg `Osi.ApplyStatus()` calls. *(fixed 2026-03-12)*
+- [x] **T-01** `LingGen.lua` + `Variables.lua` — Companion LingGen data extracted to `Variables.Constants.CompanionLingGen` table; if/elseif chain replaced with table lookup. *(fixed 2026-03-12)*
 - [x] **B-08** `BANXIAN_TIAN.txt` + `BANXIAN_YAO.txt` + `DANYAO.txt` — `BanXiangHP` → `BanXianHP` (13 occurrences). *(fixed 2026-03-12)*
 - [x] **B-09** `DADAO.txt:785` — `CritcalBanXianDice` → `CriticalBanXianDice`. *(fixed 2026-03-12)*
 - [x] **B-10** `FABAO.txt:265` — `TIENIU_WEAPON_APBONUS` → `TIENIU_BOOSTS_APBONUS`. *(fixed 2026-03-12)*

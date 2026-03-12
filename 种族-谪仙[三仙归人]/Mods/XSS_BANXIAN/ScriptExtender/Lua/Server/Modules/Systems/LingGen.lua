@@ -62,7 +62,7 @@ function LingGen.ApplyYiLingGen_Check(Object, a, b, c, d, e)
             if (vals[comp] or 0) < YI then ok = false; break end
         end
         if ok then
-            Osi.ApplyStatus(Object, def.status, -1)
+            Osi.ApplyStatus(Object, def.status, -1, 1, Object)
             local tian_c, xian_c, sheng_c = true, true, true
             for _, comp in ipairs(def.components) do
                 local v = vals[comp] or 0
@@ -125,32 +125,21 @@ end
 --获取角色参数
 function LingGen.GetCharacterParams(Object,a,b,c,d,e,r,TZ)
     local origin = Osi.GetOrigin(Object) or ""
-    if origin == 'ORIGIN_ASTARION' then
-        a,b,c,d,e,r,TZ = 20,10,30,10,30,100,2
-    elseif origin == 'ORIGIN_LAEZEL' then
-        a,b,c,d,e,r,TZ = 20,20,120,20,20,200,1
-    elseif origin == 'ORIGIN_GALE' then
-        a,b,c,d,e,r,TZ = 8,8,8,8,8,40,5
-    elseif origin == 'ORIGIN_SHADOWHEART' then
-        a,b,c,d,e,r,TZ = 40,40,50,50,20,200,1
-    elseif origin == 'ORIGIN_WYLL' then
-        a,b,c,d,e,r,TZ = 0,40,60,0,0,100,2
-    elseif origin == 'ORIGIN_JAHEIRA' then
-        a,b,c,d,e,r,TZ = 0,40,0,60,100,200,1
-    elseif origin == 'ORIGIN_MINTHARA' then
-        a,b,c,d,e,r,TZ = 60,0,10,30,0,100,2
-    elseif origin == 'ORIGIN_MINSC' then
-        a,b,c,d,e,r,TZ = 20,160,20,0,0,200,1
-    elseif origin == 'ORIGIN_HALSIN' then
-        a,b,c,d,e,r,TZ = 0,0,0,0,100,100,2
+    local params = Variables.Constants.CompanionLingGen[origin]
+    if params then
+        a,b,c,d,e,r,TZ = params[1],params[2],params[3],params[4],params[5],params[6],params[7]
     else
         -- Alfira/Losiir没有Origin，回退到名称匹配；谪仙玩家角色检查种族标签
         local displayName = Osi.GetDisplayName(Object) or ""
-        if string.find(displayName, 'Alfira') then
-            a,b,c,d,e,r,TZ = 4,6,4,6,24,40,3
-        elseif string.find(displayName, 'Losiir') then
-            a,b,c,d,e,r,TZ = 10,30,100,40,20,200,1
-        elseif Osi.IsTagged(Object, 'fe825e69-1569-471f-9b3f-28fd3b929683') == 1 then  -- 谪仙种族标签 UUID（见 Public/XSS_BANXIAN/Tags/）
+        local found = false
+        for name, p in pairs(Variables.Constants.CompanionLingGen_ByName) do
+            if string.find(displayName, name) then
+                a,b,c,d,e,r,TZ = p[1],p[2],p[3],p[4],p[5],p[6],p[7]
+                found = true
+                break
+            end
+        end
+        if not found and Osi.IsTagged(Object, 'fe825e69-1569-471f-9b3f-28fd3b929683') == 1 then  -- 谪仙种族标签 UUID（见 Public/XSS_BANXIAN/Tags/）
             a,b,c,d,e,r,TZ = 16,0,0,2,22,r,TZ
         end
     end
@@ -272,26 +261,26 @@ function LingGen.Add_First(Object)
     end
 
     --资质点分配
-    Osi.ApplyStatus(Object,'BANXIAN_LG_TZ', TZ * 6)
+    Osi.ApplyStatus(Object,'BANXIAN_LG_TZ', TZ * 6, 1, Object)
 
     if lg.a > 0 then
-        Osi.ApplyStatus(Object, 'BANXIAN_LG_H', lg.a * 6)
+        Osi.ApplyStatus(Object, 'BANXIAN_LG_H', lg.a * 6, 1, Object)
         Ext.Utils.Print('觉醒灵根[火]:'..lg.a..'/'..r)
     end
     if lg.b > 0 then
-        Osi.ApplyStatus(Object, 'BANXIAN_LG_T', lg.b * 6)
+        Osi.ApplyStatus(Object, 'BANXIAN_LG_T', lg.b * 6, 1, Object)
         Ext.Utils.Print('觉醒灵根[土]:'..lg.b..'/'..r)
     end
     if lg.c > 0 then
-        Osi.ApplyStatus(Object, 'BANXIAN_LG_J', lg.c * 6)
+        Osi.ApplyStatus(Object, 'BANXIAN_LG_J', lg.c * 6, 1, Object)
         Ext.Utils.Print('觉醒灵根[金]:'..lg.c..'/'..r)
     end
     if lg.d > 0 then
-        Osi.ApplyStatus(Object, 'BANXIAN_LG_S', lg.d * 6)
+        Osi.ApplyStatus(Object, 'BANXIAN_LG_S', lg.d * 6, 1, Object)
         Ext.Utils.Print('觉醒灵根[水]:'..lg.d..'/'..r)
     end
     if lg.e > 0 then
-        Osi.ApplyStatus(Object, 'BANXIAN_LG_M', lg.e * 6)
+        Osi.ApplyStatus(Object, 'BANXIAN_LG_M', lg.e * 6, 1, Object)
         Ext.Utils.Print('觉醒灵根[木]:'..lg.e..'/'..r)
     end
     LingGen.ApplyAllChecks(Object)
