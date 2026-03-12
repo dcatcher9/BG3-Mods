@@ -225,7 +225,7 @@ end
 function FaBao.LianHua.LianYao(Object,Causee)
     local DeathType = Osi.GetDeathType(Object) or "None"
     local Level = Osi.GetLevel(Object) or 1
-    local Progression = Osi.GetStatusTurns(Object, 'BANXIAN_FABAO_FIREBREATH_BURNING')
+    local Progression = Osi.GetStatusTurns(Object, 'BANXIAN_FABAO_FIREBREATH_BURNING') or 0
     local BaoCai_Probabilities = Variables.Constants.DanYao.DropProbabilities.BaoCai
 
     local DROP = false

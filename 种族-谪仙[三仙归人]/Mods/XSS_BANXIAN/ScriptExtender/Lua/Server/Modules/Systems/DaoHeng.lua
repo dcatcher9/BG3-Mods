@@ -222,8 +222,9 @@ function DaoHeng.Jian.Animation_Before(ID,Animation)
     local spell = Ext.Stats.Get(ID)
     if not spell then return end
     --_D(spell) --DEBUG
-    if PersistentVars['Jiandao_Projectile_AnimationBackup'] == nil then
-        PersistentVars['Jiandao_Projectile_AnimationBackup'] = spell.SpellAnimation
+    local backupKey = 'Jiandao_Projectile_AnimationBackup_'..ID
+    if PersistentVars[backupKey] == nil then
+        PersistentVars[backupKey] = spell.SpellAnimation
     end
     spell.SpellAnimation = Animation
     spell:Sync()
@@ -235,10 +236,11 @@ function DaoHeng.Jian.Animation_After(ID)
     local spell = Ext.Stats.Get(ID)
     if not spell then return end
     --_D(spell) --DEBUG
-    spell.SpellAnimation = PersistentVars['Jiandao_Projectile_AnimationBackup']
+    local backupKey = 'Jiandao_Projectile_AnimationBackup_'..ID
+    spell.SpellAnimation = PersistentVars[backupKey]
     spell:Sync()
 
-    PersistentVars['Jiandao_Projectile_AnimationBackup'] = nil
+    PersistentVars[backupKey] = nil
 end
 
 -- 事件·大道相关状态前

@@ -5,7 +5,7 @@
 ## Status
 - **Coverage:** ~75 of ~107 source files fully read (all re-audited this run), ~5 partially read, ~27 not yet read (mostly CC/VFX/asset LSX)
 - **Open issues:** 0
-- **Fixed issues:** 53
+- **Fixed issues:** 65
 
 ## Open Issues
 
@@ -25,6 +25,18 @@
 *(none)*
 
 ## Fixed / Resolved Issues
+- [x] **B-13** `FaBao.lua:228` — Added `or 0` fallback to `GetStatusTurns` for `BANXIAN_FABAO_FIREBREATH_BURNING`. *(fixed 2026-03-12)*
+- [x] **B-14** `XSS_BANXIAN.khn:36` — Changed `Tagged(...) == 1` to `Tagged(...).Result` so soulless/construct/undead auto-fail DC=99 now fires. *(fixed 2026-03-12)*
+- [x] **WB-16** `XSS_BANXIAN.khn:47,55` — Added `context.Source` nil+validity guard to `IsTargetHPLess()` and `TargetHPLessThanYourStrength()`. *(fixed 2026-03-12)*
+- [x] **WB-17** `XSS_BANXIAN.khn:542` — Added `context.Source` nil+validity guard to `CanShenshiCheck()`. *(fixed 2026-03-12)*
+- [x] **WB-18** `XSS_BANXIAN.xml:503` — Removed stray `</LSTag>`, added missing `、` separator between 恐惧 and 震慑. *(fixed 2026-03-12)*
+- [x] **L-17** `DaoHeng.lua:225–241` — Animation backup keyed per spell ID (`'Jiandao_Projectile_AnimationBackup_'..ID`) instead of single global key. *(fixed 2026-03-12)*
+- [x] **R-05** `DADAO.txt:984,989` — Renamed `JIANDAO_YI_Passies_Damaged` → `JIANDAO_YI_Passives_Damaged`. *(fixed 2026-03-12)*
+- [x] **R-06** `FABAO.txt:86,120` — Removed stray `; ;` double-semicolons in SpellProperties. *(fixed 2026-03-12)*
+- [x] **R-07** `LingGen.lua:171` — Removed empty `else` block. *(fixed 2026-03-12)*
+- [x] **T-08** `XSS_BANXIAN.xml:389` — 路劲→路径. *(fixed 2026-03-12)*
+- [x] **T-09** `XSS_BANXIAN.xml:596,643` — 领域→领悟, 获得获得→获得. *(fixed 2026-03-12)*
+- [x] **T-10** `XSS_BANXIAN.xml` guide text — Fixed 10 typos: 掷般→掷骰, 回湖→回溯, double comma, 恢真→恢复, 御后→服用后, 葛草→葛蕈, 益气育→益气膏, 千年人→千年人参, 恢眞→恢复, 提两点→提升2点. *(fixed 2026-03-12)*
 - [x] **L-15** `LingGen.lua:65,275–296` — Added consistent 5-arg `Osi.ApplyStatus()` calls. *(fixed 2026-03-12)*
 - [x] **T-01** `LingGen.lua` + `Variables.lua` — Companion LingGen data extracted to `Variables.Constants.CompanionLingGen` table; if/elseif chain replaced with table lookup. *(fixed 2026-03-12)*
 - [x] **B-08** `BANXIAN_TIAN.txt` + `BANXIAN_YAO.txt` + `DANYAO.txt` — `BanXiangHP` → `BanXianHP` (13 occurrences). *(fixed 2026-03-12)*

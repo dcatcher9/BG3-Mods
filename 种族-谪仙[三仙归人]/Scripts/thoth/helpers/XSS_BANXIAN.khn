@@ -33,7 +33,7 @@ function SpellDC_ShenshiControl()
     end
 
     -- 无魂/构造体/不死生物无法抵抗神识，自动失败
-    if Tagged('NOSOUL', context.Target) == 1 or Tagged('CONSTRUCT', context.Target) == 1 or Tagged('UNDEAD', context.Target) == 1 then
+    if Tagged('NOSOUL', context.Target).Result or Tagged('CONSTRUCT', context.Target).Result or Tagged('UNDEAD', context.Target).Result then
         spellDC = 99
     end
 
@@ -41,17 +41,15 @@ function SpellDC_ShenshiControl()
 end
 
 function IsTargetHPLess()
-    if not context.Target or not context.Target.IsValid then
-        return ConditionResult(false)
-    end
+    if not context.Source or not context.Source.IsValid then return ConditionResult(false) end
+    if not context.Target or not context.Target.IsValid then return ConditionResult(false) end
     local result = context.Source.HP > context.Target.HP
     return ConditionResult(result)
 end
 
 function TargetHPLessThanYourStrength()
-    if not context.Target or not context.Target.IsValid then
-        return ConditionResult(false)
-    end
+    if not context.Source or not context.Source.IsValid then return ConditionResult(false) end
+    if not context.Target or not context.Target.IsValid then return ConditionResult(false) end
     local result = context.Source.Strength >= context.Target.HP
     return ConditionResult(result)
 end
@@ -536,9 +534,8 @@ function ConcentrationSpellCheck()
 end
 
 function CanShenshiCheck()
-    if not context.Target or not context.Target.IsValid then
-        return ConditionResult(false, {ConditionError("CannotCheckTarget")})
-    end
+    if not context.Source or not context.Source.IsValid then return ConditionResult(false, {ConditionError("CannotCheckTarget")}) end
+    if not context.Target or not context.Target.IsValid then return ConditionResult(false, {ConditionError("CannotCheckTarget")}) end
     return ConditionResult(GetModifier(context.Source.Wisdom) >= GetModifier(context.Target.Wisdom), {ConditionError("CannotCheckTarget")})
 end
 

@@ -167,7 +167,6 @@ function LingGen.Add_First(Object)
         r,TZ = 20,1
     elseif Osi.HasPassive(Object, 'BanXian_LingGen_Blank') == 1 then
         r,TZ = 0,0
-    else
     end
 
     -- 灵根分配策略优化

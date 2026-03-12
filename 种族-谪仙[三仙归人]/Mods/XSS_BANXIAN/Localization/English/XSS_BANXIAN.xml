@@ -386,7 +386,7 @@
   <content contentuid="stringsofmodmadebyxss20240930dva01e25" version="1">双飞</content>
   <content contentuid="stringsofmodmadebyxss20240930dva01f25" version="1">使用远程武器发动攻击时，弹道数量额外+1。</content>
   <content contentuid="stringsofmodmadebyxss20240930dva01a26" version="1">追风</content>
-  <content contentuid="stringsofmodmadebyxss20240930dva01b26" version="1">对路劲上的敌人造成[1]。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dva01b26" version="1">对路径上的敌人造成[1]。</content>
 
 
   <content contentuid="stringsofmodmadebyxss20240930dv002001" version="1">冲窍</content>
@@ -500,7 +500,7 @@
   <content contentuid="stringsofmodmadebyxss20240930dv003a06" version="1">逆行·璇玑</content>
   <content contentuid="stringsofmodmadebyxss20240930dv003b06" version="1">受到1次&lt;LSTag Type="Status" Tooltip="BANXIAN_FANSHI"&gt;反噬&lt;/LSTag&gt;，拥有&lt;LSTag Type="ActionResource" Tooltip="KiPoint"&gt;气点&lt;/LSTag&gt;时，&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;不会降到0。</content>
   <content contentuid="stringsofmodmadebyxss20240930dv003a07" version="1">逆行·百会</content>
-  <content contentuid="stringsofmodmadebyxss20240930dv003b07" version="1">受到1次&lt;LSTag Type="Status" Tooltip="BANXIAN_FANSHI"&gt;反噬&lt;/LSTag&gt;,移除&lt;LSTag Type="Status" Tooltip="CHARMED"&gt;魅惑&lt;/LSTag&gt;、&lt;LSTag Type="Status" Tooltip="FRIGHTENED"&gt;恐慌&lt;/LSTag&gt;、&lt;LSTag Type="Status" Tooltip="FEARED"&gt;恐惧&lt;/LSTag&gt;&lt;LSTag Type="Status" Tooltip="STUNNED"&gt;震慑&lt;/LSTag&gt;、&lt;/LSTag&gt;，&lt;LSTag Type="Status" Tooltip="SLEEPING"&gt;沉睡&lt;/LSTag&gt;状态。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv003b07" version="1">受到1次&lt;LSTag Type="Status" Tooltip="BANXIAN_FANSHI"&gt;反噬&lt;/LSTag&gt;,移除&lt;LSTag Type="Status" Tooltip="CHARMED"&gt;魅惑&lt;/LSTag&gt;、&lt;LSTag Type="Status" Tooltip="FRIGHTENED"&gt;恐慌&lt;/LSTag&gt;、&lt;LSTag Type="Status" Tooltip="FEARED"&gt;恐惧&lt;/LSTag&gt;、&lt;LSTag Type="Status" Tooltip="STUNNED"&gt;震慑&lt;/LSTag&gt;，&lt;LSTag Type="Status" Tooltip="SLEEPING"&gt;沉睡&lt;/LSTag&gt;状态。</content>
   <content contentuid="stringsofmodmadebyxss20240930dv003a08" version="1">逆行·风府</content>
   <content contentuid="stringsofmodmadebyxss20240930dv003b08" version="1">受到1次&lt;LSTag Type="Status" Tooltip="BANXIAN_FANSHI"&gt;反噬&lt;/LSTag&gt;,恢复所有&lt;LSTag Tooltip="MovementSpeed"&gt;移动速度&lt;/LSTag&gt;，本回合&lt;LSTag Tooltip="MovementSpeed"&gt;移动速度&lt;/LSTag&gt;翻倍。</content>
   <content contentuid="stringsofmodmadebyxss20240930dv003a09" version="1">逆行·神道</content>
@@ -593,7 +593,7 @@
   <content contentuid="stringsofmodmadebyxss20240930dv004a03" version="1">大品天仙诀:练气化精</content>
   <content contentuid="stringsofmodmadebyxss20240930dv004b03" version="1">在你拥有&lt;LSTag Type="ActionResource" Tooltip="KiPoint"&gt;气点&lt;/LSTag&gt;时，可以将你的境界骰加值计入到你的徒手攻击伤害和法师伤害骰上。</content>
   <content contentuid="stringsofmodmadebyxss20240930dv004a04" version="1">大品天仙诀:神通</content>
-  <content contentuid="stringsofmodmadebyxss20240930dv004b04" version="1">经过刻苦的修炼，你领域了一个神通法术。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv004b04" version="1">经过刻苦的修炼，你领悟了一个神通法术。</content>
   <content contentuid="stringsofmodmadebyxss20240930dv004a05" version="1">弄焰诀</content>
   <content contentuid="stringsofmodmadebyxss20240930dv004b05" version="1">你施展的法术和攻击无视火焰&lt;LSTag Tooltip="Resistant"&gt;抗性&lt;/LSTag&gt;。此外，当你施展一道法术造成火焰伤害时，你无法掷出一个1。</content>
   <content contentuid="stringsofmodmadebyxss20240930dv004a06" version="1">怒血诀</content>
@@ -640,7 +640,7 @@
   <content contentuid="stringsofmodmadebyxss20240930dv005c06" version="1">百脉锻宝诀·小成·齐天：&lt;LSTag Tooltip="MovementSpeed"&gt;移动速度&lt;/LSTag&gt;+9。</content>
   <content contentuid="stringsofmodmadebyxss20240930dv005a07" version="1">百脉锻宝诀：鸿蒙</content>
   <content contentuid="stringsofmodmadebyxss20240930dv005b07" version="1">在不装备护甲时，基础&lt;LSTag Tooltip="ArmourClass"&gt;护甲等级&lt;/LSTag&gt;为[1]。</content>
-  <content contentuid="stringsofmodmadebyxss20240930dv005c07" version="1">百脉锻宝诀·大成：获得获得所有非魔法伤害&lt;LSTag Tooltip="Immune"&gt;免疫&lt;/LSTag&gt;，可随地大小变。</content>
+  <content contentuid="stringsofmodmadebyxss20240930dv005c07" version="1">百脉锻宝诀·大成：获得所有非魔法伤害&lt;LSTag Tooltip="Immune"&gt;免疫&lt;/LSTag&gt;，可随地大小变。</content>
   <content contentuid="stringsofmodmadebyxss20240930dv006a01" version="1">百脉锻宝诀·小成：千手</content>
   <content contentuid="stringsofmodmadebyxss20240930dv006b01" version="1">额外获得一个&lt;LSTag Type="ActionResource" Tooltip="ActionPoint"&gt;动作&lt;/LSTag&gt;和&lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;附赠动作&lt;/LSTag&gt;。</content>
   <content contentuid="stringsofmodmadebyxss20240930dv006c01" version="1">。</content>
@@ -1292,7 +1292,7 @@
 
 ——妖生角
 器纹-妖角-
--每回合一次，当你施展一个法术时，徒手攻击和近战武器的伤害掷般+1并获得1点临时生命值。效果随法术等级提升!
+-每回合一次，当你施展一个法术时，徒手攻击和近战武器的伤害掷骰+1并获得1点临时生命值。效果随法术等级提升!
 -每回合一次，当你进入荒野形态时，伤害+1受到的伤害-1。
 -法术位上限额外提升3点。
 攀上新高
@@ -1323,13 +1323,13 @@
 死亡轮盘
 锁定一个目标，使其五回合以后即死，期间自身无法攻击和移动。
 -发动武器攻击时损失自身10点生命值并提升等量伤害。
--当你在你的回合被攻击后,回湖该伤害,并获得+1伤害。
+-当你在你的回合被攻击后,回溯该伤害,并获得+1伤害。
 -施展一道法术时，你可以以消耗生命值为代价代替法术位消耗。每一环法术位消耗增加10%最大生命值。
 
 ——玉垂牙
 器纹.玉牙
 -每回合一次，武器攻击造成重击时,恢复偷袭骰。
--每回合一次，武器攻击造成重击时，，恢复移动速度。
+-每回合一次，武器攻击造成重击时，恢复移动速度。
 -每回合一次，武器攻击造成重击时，恢复附赠动作。
 
 ——震雷骨
@@ -1365,11 +1365,11 @@
 宝鳞丸--服用后一日内，受到的伤害减少。
 配方：龙胆-葛蕈-老山参
 
-保命丹--服用后一日内，生命值翻倍，恢真所有生命值。
+保命丹--服用后一日内，生命值翻倍，恢复所有生命值。
 配方：地涌金莲-火铃草-妖核
 
-倍力丸--御后一日内，触发重击所需掷骰。
-配方：葛草-老山参-妖核
+倍力丸--服用后一日内，触发重击所需掷骰。
+配方：葛蕈-老山参-妖核
 
 避凶药--服用后一日内，所有针对自己的攻击掷骰将得劣势。
 配方：碧藕-甘草-妖核
@@ -1407,7 +1407,7 @@
 延寿膏--服用后，少许提升生命值上限。
 配方：心脏-甘草-漱玉花
 
-益气育--服用后，提升1点气点上限。
+益气膏--服用后，提升1点气点上限。
 配方：交梨-甘草-妖核
 
 登仙散--服用后一日内，动作，附赠动作和反应＋1。
@@ -1420,12 +1420,12 @@
 配方：紫芝-猴头菌-妖核
 
 加味参势丸--服用后一日内，攻击掷骰获得优势。
-配方：甘草-千年人-树珍珠
+配方：甘草-千年人参-树珍珠
 
 龙光倍力丸--服用后，触发重击所需掷骰-1重击骰+1,攻击掷骰+1,伤害+1。
 配方：紫芝-老山参-猴头菌
 
-九转还魂丹--服用后，濒死时立即恢眞所有生命值，并移除负面状态。
+九转还魂丹--服用后，濒死时立即恢复所有生命值，并移除负面状态。
 配方：九叶灵芝草-千年人参-猴头菌
 
 乌金丹--服用后，提升毒素抗性，同时可提升金灵根。
@@ -1440,7 +1440,7 @@
 补阳丹--服用后，提升寒冷伤害抗性，同时可增强火灵根。
 配方：火枣-千年人参-玲珑内丹
 
-铁牛丹--服用后，提两点力量和挥砍，穿刺，钝击伤害抗性，且不会被迫移动同时可增强土灵根。
+铁牛丹--服用后，提升2点力量和挥砍，穿刺，钝击伤害抗性，且不会被迫移动同时可增强土灵根。
 配方：大力铁牛角-玲珑内丹-玲珑内丹（植物类敌人可提升药材掉落概率，特殊宝财/药材有特殊掉落方式）
 
 
