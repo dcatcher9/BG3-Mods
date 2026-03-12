@@ -437,11 +437,11 @@ end
 --获取业火来源
 function Utils.Get.YeHuoSource(Object)
     local entity = Ext.Entity.Get(Object)
-    if not entity then return nil end
+    if not entity or not entity.ServerCharacter or not entity.ServerCharacter.StatusManager then return nil end
     local Statuses = entity.ServerCharacter.StatusManager.Statuses
     --_D(Statuses) --DEBUG
     for _, Status in pairs(Statuses) do
-        if Status.StatusId == "BURNING_YEHUO" then
+        if Status.StatusId == "BURNING_YEHUO" and Status.Cause and Status.Cause.Uuid then
             return Status.Cause.Uuid.EntityUuid
         end
     end
@@ -770,12 +770,13 @@ end
 function Utils.GongFa.BaiMai.CopyPassives(Object)
     local Itemslot = Variables.Constants.Base.Itemslot
 
-    if ( Ext.Entity.Get(Object).PassiveContainer.Passives ~= nil ) then
+    local cpEntity = Ext.Entity.Get(Object)
+    if cpEntity and cpEntity.PassiveContainer and cpEntity.PassiveContainer.Passives ~= nil then
 
       --第1次检测被动（按对象UUID存储，避免多人同时触发时互相覆盖）
         local passives = {}
         local k = 1
-      for _,entry in pairs(Ext.Entity.Get(Object).PassiveContainer.Passives) do
+      for _,entry in pairs(cpEntity.PassiveContainer.Passives) do
         local ID = entry.Passive.PassiveId
         passives[k] = ID
         k = k + 1
@@ -848,9 +849,10 @@ end
 --复制装备状态
 function Utils.GongFa.BaiMai.CopyStatus(Object)
 
-    if ( Ext.Entity.Get(Object):GetComponent("StatusContainer") ~= nil ) then
+    local csEntity = Ext.Entity.Get(Object)
+    if csEntity and csEntity:GetComponent("StatusContainer") ~= nil then
 
-        for _,entry in pairs(Ext.Entity.Get(Object).StatusContainer.Statuses) do
+        for _,entry in pairs(csEntity.StatusContainer.Statuses) do
             local stat = Ext.Stats.Get(entry.StatusID.ID, 0)
             if string.find(entry.StatusID.ID, 'TECHNICAL') and stat then
               if ( stat.StatusType == "BOOST" ) then

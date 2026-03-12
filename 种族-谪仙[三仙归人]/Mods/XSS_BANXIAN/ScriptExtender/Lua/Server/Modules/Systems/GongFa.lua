@@ -50,6 +50,7 @@ end
 --周天淬体诀：恢复指定补给类型的所有资源
 local function ZhouTianRestoreResources(Object, replenishType)
     local entity = Ext.Entity.Get(Object)
+    if not entity then return end
     for _, ResourceList in pairs(entity.ActionResources.Resources) do
         for _, Resource in ipairs(ResourceList) do
             if Resource.ReplenishType == replenishType then

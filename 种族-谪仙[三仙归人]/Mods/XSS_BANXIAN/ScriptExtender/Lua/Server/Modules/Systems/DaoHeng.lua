@@ -61,6 +61,7 @@ end
 --饿鬼道偷取状态
 function DaoHeng.EGUI.Functors_Steal(Object, BanXian)
     local objectEntity = Ext.Entity.Get(Object)
+    if not objectEntity then return end
     if ( objectEntity:GetComponent("StatusContainer") ~= nil ) then
 
         local snapshot = {}
@@ -69,9 +70,9 @@ function DaoHeng.EGUI.Functors_Steal(Object, BanXian)
         end
         for _,statusId in ipairs(snapshot) do
             local status = Ext.Stats.Get(statusId, 0)
-            if (not Utils.Filter.Status.IsSpecial(statusId)) and (not Utils.Filter.Status.IsDebuff(statusId))  then
+            if status and (not Utils.Filter.Status.IsSpecial(statusId)) and (not Utils.Filter.Status.IsDebuff(statusId))  then
               if ( status.StatusType == "BOOST" ) or ( status.StatusType == "INVISIBLE" ) then
-                local Duration = Osi.GetStatusTurns(Object, statusId)
+                local Duration = Osi.GetStatusTurns(Object, statusId) or 1
                 if Duration == -1 then
                     Duration = 1
                 end
@@ -88,6 +89,7 @@ end
 function DaoHeng.EGUI.Functors_Eat(EGui,Target)
     local Food = Target
     local foodEntity = Ext.Entity.Get(Food)
+    if not foodEntity then return end
     if ( foodEntity:GetComponent("StatusContainer") ~= nil ) then
         -- 快照当前道行天数，避免循环内累加造成指数增长
         local base_days = Osi.GetStatusTurns(EGui, 'BANXIAN_DH_DAY_EGUI') or 0
@@ -292,7 +294,8 @@ function DaoHeng.OnStatusApplied_after(Object, Status, Causee)
         DaoHeng.HeHuan.AddFollower(Object,Causee)
     elseif Status == 'SIGNAL_BanXian_HEHUAN_REMOVEPARTYFOLLOWER' then
         DaoHeng.HeHuan.RemoveFollower(Object)
-        Osi.ClearIndividualRelation(Causee, Osi.GetFaction(Object))
+        local faction = Osi.GetFaction(Object)
+        if faction then Osi.ClearIndividualRelation(Causee, faction) end
     elseif Status == 'SIGNAL_DH_EGui' and Object ~= Causee then --饿鬼道偷取状态
         DaoHeng.EGUI.Functors_Steal(Object, Causee)
     elseif Status == 'SIGNAL_DH_YI_SPLIT' and Object ~= Causee then --羿道·分箭

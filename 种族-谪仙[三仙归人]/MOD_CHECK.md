@@ -3,9 +3,9 @@
 <!-- Last updated: 2026-03-12 -->
 
 ## Status
-- **Coverage:** ~75 of ~107 source files fully read, ~5 partially read (incl. RootTemplates promoted), ~26 not yet read (CC/VFX/asset LSX). All Lua/Stats/KHN/XML re-audited and cross-refs verified.
+- **Coverage:** ~75 of ~107 source files fully read, ~5 partially read (incl. RootTemplates promoted), ~26 not yet read (CC/VFX/asset LSX). All Lua/Stats/KHN/XML re-audited and cross-refs verified. Systematic nil-safety pattern search completed across all Lua files.
 - **Open issues:** 0
-- **Fixed issues:** 76
+- **Fixed issues:** 94
 
 ## Open Issues
 
@@ -25,6 +25,24 @@
 *(none)*
 
 ## Fixed / Resolved Issues
+- [x] **B-17** `DaoHeng.lua:63` `Functors_Steal` — Added `if not objectEntity then return end` nil guard on `Ext.Entity.Get`. *(fixed 2026-03-12)*
+- [x] **B-18** `DaoHeng.lua:73` `Functors_Steal` — Added `if status and` guard before accessing `.StatusType` on `Ext.Stats.Get` result. *(fixed 2026-03-12)*
+- [x] **B-19** `DaoHeng.lua:75` `Functors_Steal` — Added `or 1` fallback on `GetStatusTurns` for stolen status Duration. *(fixed 2026-03-12)*
+- [x] **B-20** `DaoHeng.lua:91` `Functors_Eat` — Added `if not foodEntity then return end` nil guard on `Ext.Entity.Get`. *(fixed 2026-03-12)*
+- [x] **B-21** `FaBao.lua:66` `OpenChoiceBox_A` — Added `if not stat then return end` nil guard on `Ext.Stats.Get`. *(fixed 2026-03-12)*
+- [x] **B-22** `FaBao.lua:106` `Boosts_Filter` — Added `if not stat then return true end` nil guard on `Ext.Stats.Get`. *(fixed 2026-03-12)*
+- [x] **B-23** `FaBao.lua:131` `SamePassives_Check` — Added `if not stat then return true end` nil guard on `Ext.Stats.Get`. *(fixed 2026-03-12)*
+- [x] **B-24** `FaBao.lua:147` `HiddenPassives_Check` — Added `if not stat then return true end` nil guard on `Ext.Stats.Get`. *(fixed 2026-03-12)*
+- [x] **B-25** `FaBao.lua:165` `AddBoosts_AfterChoice` — Added `if not stat then return end` nil guard on `Ext.Stats.Get`. *(fixed 2026-03-12)*
+- [x] **B-26** `FaBao.lua:286–287` `LianHua.AddBoosts` — Added `if not FABAO then return end` + `if not stat then return end` nil guards. *(fixed 2026-03-12)*
+- [x] **B-27** `FaBao.lua:575,580` — Wrapped `GetStatusTurns` for `FIREBREATH_BURNING` in `(... or 0)` in two comparisons. *(fixed 2026-03-12)*
+- [x] **B-28** `GongFa.lua:53` `ZhouTianRestoreResources` — Added `if not entity then return end` nil guard on `Ext.Entity.Get`. *(fixed 2026-03-12)*
+- [x] **B-29** `LingGen.lua:334` `HunDun_ShortRest` — Added `if not entity then return end` nil guard on `Ext.Entity.Get`. *(fixed 2026-03-12)*
+- [x] **WB-23** `Utils.lua:440` `YeHuoSource` — Deepened nil guard to `if not entity or not entity.ServerCharacter or not entity.ServerCharacter.StatusManager`. *(fixed 2026-03-12)*
+- [x] **WB-24** `Utils.lua:444` `YeHuoSource` — Added `and Status.Cause and Status.Cause.Uuid` guard before accessing `.EntityUuid`. *(fixed 2026-03-12)*
+- [x] **WB-25** `Utils.lua:773–778` `CopyPassives` — Cached `Ext.Entity.Get` result; added `cpEntity and cpEntity.PassiveContainer` nil guard. *(fixed 2026-03-12)*
+- [x] **WB-26** `Utils.lua:852–855` `CopyStatus` — Cached `Ext.Entity.Get` result; added `csEntity and csEntity:GetComponent("StatusContainer")` nil guard. *(fixed 2026-03-12)*
+- [x] **WB-27** `DaoHeng.lua:297` — Added `local faction = Osi.GetFaction(Object); if faction then` guard before `ClearIndividualRelation`. *(fixed 2026-03-12)*
 - [x] **B-15** `Utils.lua:848` `CopyStatus()` — Added `and stat` nil guard on `Ext.Stats.Get` result before accessing `.StatusType`. *(fixed 2026-03-12)*
 - [x] **B-16** `Base.lua:184` `Transform` — Added `or -1` fallback to `GetStatusTurns` for status copy Duration. *(fixed 2026-03-12)*
 - [x] **WB-19** `Utils.lua:614` — Wrapped `stat.Rarity` assignment in nil guard. *(fixed 2026-03-12)*

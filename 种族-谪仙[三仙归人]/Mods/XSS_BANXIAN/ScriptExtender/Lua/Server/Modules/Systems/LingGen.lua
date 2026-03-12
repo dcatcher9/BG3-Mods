@@ -331,6 +331,7 @@ end
 --混沌灵根
 function LingGen.HunDun_ShortRest(Object)
     local entity = Ext.Entity.Get(Object)
+    if not entity then return end
     --_D(entity.ActionResources) --DEBUG
 
     for _, ResourceList in pairs(entity.ActionResources.Resources) do

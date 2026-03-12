@@ -63,6 +63,7 @@ function FaBao.OpenChoiceBox_A(Character, BOOST)
 
     local TYPE = PersistentVars['LianQi_Choice_TYPE']
     local stat = Ext.Stats.Get(BOOST)
+    if not stat then return end
     --_D(FABAOstat)
 
     local FABAOName = "XXX"
@@ -102,6 +103,7 @@ end
 --词条过滤_避免冗长
 function FaBao.Boosts_Filter(TYPE,ActiveBOOST,FABAO)
     local stat = Ext.Stats.Get(FABAO)
+    if not stat then return true end
     local Filter = Variables.Constants.Filter.BOOST.Boosts
     local OBT = Utils.GetStatField(stat, TYPE, FABAO)
 
@@ -126,6 +128,7 @@ end
 --被动查重
 function FaBao.SamePassives_Check(TYPE,Passive,FABAO)
     local stat = Ext.Stats.Get(FABAO)
+    if not stat then return true end
     local OBT = stat[TYPE]
 
     --检查词条是否重复
@@ -141,6 +144,7 @@ end
 --隐藏被动检查
 function FaBao.HiddenPassives_Check(Passive)
     local stat = Ext.Stats.Get(Passive)
+    if not stat then return true end
     --_D(stat) --DEBUG
 
     if stat.Properties then
@@ -158,6 +162,7 @@ end
 --炼器·添加增益
 function FaBao.AddBoosts_AfterChoice(FABAO,TYPE,BOOST)
     local stat = Ext.Stats.Get(FABAO)
+    if not stat then return end
 
     local newValue = SafeConcatStrings(Utils.GetStatField(stat, TYPE, FABAO), BOOST)
     Utils.SetStatField(stat, TYPE, newValue)
@@ -278,7 +283,9 @@ end
 --炼器
 function FaBao.LianHua.AddBoosts(Caster,Object,Turns)
     local FABAO,Material = Osi.GetStatString(Object),Variables.Constants.FaBao.ActiveMaterial
+    if not FABAO then return end
     local stat = Ext.Stats.Get(FABAO)
+    if not stat then return end
     local Materialstat = {}
 
     local refineCount = PersistentVars['FABAO_RefineCount_'..FABAO] or 0
@@ -565,12 +572,12 @@ function FaBao.OnStatusApplied_after(Object, Status, Causee)
         --_P(Object) --DEBUG
 
         FaBao.LianHua.LianYao(Object,Causee)  --炼妖判定
-        if Osi.GetStatusTurns(Object,'BANXIAN_FABAO_FIREBREATH_BURNING') >= 10 then
+        if (Osi.GetStatusTurns(Object,'BANXIAN_FABAO_FIREBREATH_BURNING') or 0) >= 10 then
             Osi.ApplyStatus(Object,'BURNING_SUPERHEATED',-1,1,Causee)  --添加过热
         end
 
         local threshold = FaBao.LianHua.GetThreshold(Object)
-        if threshold and Osi.GetStatusTurns(Object,'BANXIAN_FABAO_FIREBREATH_BURNING') >= threshold and Osi.HasActiveStatus(Object,'BANXIAN_FABAO_ACTIVEBOOSTS') == 0 then
+        if threshold and (Osi.GetStatusTurns(Object,'BANXIAN_FABAO_FIREBREATH_BURNING') or 0) >= threshold and Osi.HasActiveStatus(Object,'BANXIAN_FABAO_ACTIVEBOOSTS') == 0 then
             FaBao.LianHua.GetBoosts(Object)
             local JJ = Utils.GetBanxianJingjie(Causee)
             if not JJ then return end
