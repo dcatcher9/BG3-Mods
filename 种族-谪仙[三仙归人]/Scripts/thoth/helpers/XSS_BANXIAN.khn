@@ -146,10 +146,6 @@ function BanXianWildShapeSpellCheck()
     return HasUseCosts('WildShape')
 end
 
-function DHMARKMoreThanYEAR(stringStatusName,entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration(stringStatusName, entity) > GetStatusDuration('BANXIAN_DH_YEAR', entity))
-end
 
 function DaoXinStable(entity)
     local entity = entity or context.Source

@@ -16,8 +16,8 @@ end
 function XiuLian.Ki_Take(Object)
     --获取基础信息
     local Level = Osi.GetLevel(Object)
-    local ConstitutionModifier = math.max(0,((Osi.GetAbility(Object, 'Constitution') - 10)/2))
-    local WisdomModifier = math.max(0,((Osi.GetAbility(Object, 'Wisdom') - 10)/2))
+    local ConstitutionModifier = math.max(0, math.floor((Osi.GetAbility(Object, 'Constitution') - 10)/2))
+    local WisdomModifier = math.max(0, math.floor((Osi.GetAbility(Object, 'Wisdom') - 10)/2))
     local TZ = Osi.GetStatusTurns(Object, 'BANXIAN_LG_TZ') or 0
 
     --获取灵根
@@ -35,7 +35,11 @@ function XiuLian.Ki_Take(Object)
     local CON_M = 100
 
     --获取灵气
-    local LQ_H,LQ_T,LQ_J,LQ_S,LQ_M = Osi.GetStatusTurns(Object, 'BANXIAN_XIULIAN_LINGQI_H'),Osi.GetStatusTurns(Object, 'BANXIAN_XIULIAN_LINGQI_T'),Osi.GetStatusTurns(Object, 'BANXIAN_XIULIAN_LINGQI_J'),Osi.GetStatusTurns(Object, 'BANXIAN_XIULIAN_LINGQI_S'),Osi.GetStatusTurns(Object, 'BANXIAN_XIULIAN_LINGQI_M')
+    local LQ_H = Osi.GetStatusTurns(Object, 'BANXIAN_XIULIAN_LINGQI_H') or 0
+    local LQ_T = Osi.GetStatusTurns(Object, 'BANXIAN_XIULIAN_LINGQI_T') or 0
+    local LQ_J = Osi.GetStatusTurns(Object, 'BANXIAN_XIULIAN_LINGQI_J') or 0
+    local LQ_S = Osi.GetStatusTurns(Object, 'BANXIAN_XIULIAN_LINGQI_S') or 0
+    local LQ_M = Osi.GetStatusTurns(Object, 'BANXIAN_XIULIAN_LINGQI_M') or 0
     local LQ_TOTAL = LQ_H + LQ_T + LQ_J + LQ_S + LQ_M
     local LQ_MAX = 10 + Level + ConstitutionModifier + TZ
     local LQ_AMOUNT = 10 + Level + WisdomModifier + TZ

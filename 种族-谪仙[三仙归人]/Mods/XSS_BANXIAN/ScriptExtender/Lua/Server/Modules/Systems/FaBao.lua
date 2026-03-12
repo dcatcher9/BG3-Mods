@@ -551,7 +551,7 @@ end
 local function BANXIAN_GOLDIFIED_ToGold(Object,Causee)
     local Weight = Utils.GetEntityWeight(Object)
 
-    Osi.AddGold(Causee, Weight*0.1)
+    Osi.AddGold(Causee, math.floor(Weight * 0.1))
 
     Osi.TeleportToPosition(Object, 0, 0, 0, '', 0, 0, 0, 1, 0)
     Osi.RequestDelete(Object)
@@ -569,7 +569,8 @@ function FaBao.OnStatusApplied_after(Object, Status, Causee)
             Osi.ApplyStatus(Object,'BURNING_SUPERHEATED',-1,1,Causee)  --添加过热
         end
 
-        if Osi.GetStatusTurns(Object,'BANXIAN_FABAO_FIREBREATH_BURNING') >= FaBao.LianHua.GetThreshold(Object) and Osi.HasActiveStatus(Object,'BANXIAN_FABAO_ACTIVEBOOSTS') == 0 then
+        local threshold = FaBao.LianHua.GetThreshold(Object)
+        if threshold and Osi.GetStatusTurns(Object,'BANXIAN_FABAO_FIREBREATH_BURNING') >= threshold and Osi.HasActiveStatus(Object,'BANXIAN_FABAO_ACTIVEBOOSTS') == 0 then
             FaBao.LianHua.GetBoosts(Object)
             local JJ = Utils.GetBanxianJingjie(Causee)
             if not JJ then return end

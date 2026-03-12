@@ -63,18 +63,20 @@ function DaoHeng.EGUI.Functors_Steal(Object, BanXian)
     local objectEntity = Ext.Entity.Get(Object)
     if ( objectEntity:GetComponent("StatusContainer") ~= nil ) then
 
+        local snapshot = {}
         for _,entry in pairs(objectEntity.StatusContainer.Statuses) do
-            local status = Ext.Stats.Get(entry.StatusID.ID, 0)
-            if (not Utils.Filter.Status.IsSpecial(entry.StatusID.ID)) and (not Utils.Filter.Status.IsDebuff(entry.StatusID.ID))  then
+            table.insert(snapshot, entry.StatusID.ID)
+        end
+        for _,statusId in ipairs(snapshot) do
+            local status = Ext.Stats.Get(statusId, 0)
+            if (not Utils.Filter.Status.IsSpecial(statusId)) and (not Utils.Filter.Status.IsDebuff(statusId))  then
               if ( status.StatusType == "BOOST" ) or ( status.StatusType == "INVISIBLE" ) then
-                local Duration = Osi.GetStatusTurns(Object, entry.StatusID.ID)
+                local Duration = Osi.GetStatusTurns(Object, statusId)
                 if Duration == -1 then
                     Duration = 1
                 end
-                    Osi.ApplyStatus(BanXian, entry.StatusID.ID, Duration*6)
-                    Osi.RemoveStatus(Object, entry.StatusID.ID)
-                    --Ext.Utils.Print(("触发：饿鬼道·偷取·状态: %s"):format(entry.StatusID.ID))
-                    --break
+                    Osi.ApplyStatus(BanXian, statusId, Duration*6)
+                    Osi.RemoveStatus(Object, statusId)
               end
             end
         end
@@ -90,17 +92,21 @@ function DaoHeng.EGUI.Functors_Eat(EGui,Target)
         -- 快照当前道行天数，避免循环内累加造成指数增长
         local base_days = Osi.GetStatusTurns(EGui, 'BANXIAN_DH_DAY_EGUI') or 0
         local gained = 0
+        local snapshot = {}
         for _,entry in pairs(foodEntity.StatusContainer.Statuses) do
+            table.insert(snapshot, entry.StatusID.ID)
+        end
+        for _,statusId in ipairs(snapshot) do
           -- 排除持续至长休的状态
-          if ( Osi.GetStatusTurns(Food, entry.StatusID.ID) ~= -1 ) then
-            local Filter = Utils.Filter.Status.IsSpecial(entry.StatusID.ID) or Utils.Filter.Status.IsDebuff(entry.StatusID.ID)
+          if ( Osi.GetStatusTurns(Food, statusId) ~= -1 ) then
+            local Filter = Utils.Filter.Status.IsSpecial(statusId) or Utils.Filter.Status.IsDebuff(statusId)
             if EGui == Target then
-              Filter = Utils.Filter.Status.IsSpecial(entry.StatusID.ID) or (not Utils.Filter.Status.IsDebuff(entry.StatusID.ID))
+              Filter = Utils.Filter.Status.IsSpecial(statusId) or (not Utils.Filter.Status.IsDebuff(statusId))
             end
             if Filter == false then
-                  local raw_turns = Osi.GetStatusTurns(Food, entry.StatusID.ID) or 0
+                  local raw_turns = Osi.GetStatusTurns(Food, statusId) or 0
                   gained = gained + raw_turns
-                  Osi.RemoveStatus(Food, entry.StatusID.ID)
+                  Osi.RemoveStatus(Food, statusId)
                   Osi.SetHitpoints(EGui, Osi.GetHitpoints(EGui) + raw_turns*6)  --恢复生命值
             end
           end
@@ -216,7 +222,9 @@ function DaoHeng.Jian.Animation_Before(ID,Animation)
     local spell = Ext.Stats.Get(ID)
     if not spell then return end
     --_D(spell) --DEBUG
-    PersistentVars['Jiandao_Projectile_AnimationBackup'] = spell.SpellAnimation
+    if PersistentVars['Jiandao_Projectile_AnimationBackup'] == nil then
+        PersistentVars['Jiandao_Projectile_AnimationBackup'] = spell.SpellAnimation
+    end
     spell.SpellAnimation = Animation
     spell:Sync()
 

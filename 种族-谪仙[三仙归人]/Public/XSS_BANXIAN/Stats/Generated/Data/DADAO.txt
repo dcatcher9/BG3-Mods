@@ -782,7 +782,7 @@ type "InterruptData"
 using "Interrupt_XSS_DD_TianDao_TianLei"
 data "DisplayName" "stringsofmodmadebyxss20240930dvb01c14;1"
 data "Conditions" "IsAbleToReact(context.Observer) and not Self() and not Item() and Self(context.Source,context.Observer) and HasDamageEffectFlag(DamageFlags.Hit) and IsAttack() and not IsKillingBlow() and IsCritical() and not IsCriticalMiss() and not AnyEntityIsItem()"
-data "Properties" "DealDamage(LevelMapValue(CritcalBanXianDice),Lightning,Magical);IF(not IsLocalBorn(context.Target) and HasStatus('BANXIAN_DH_YEAR',context.Source)):DealDamage((BANXIAN_DH_YEAR.Duration*2)d20,Lightning,Magical);GROUND:SurfaceChange(Electrify); IF(HasStatus('BANXIAN_DH_YEAR',context.Source)):ApplyStatus(TIANDAO_HENG,100,BANXIAN_DH_YEAR.Duration)"
+data "Properties" "DealDamage(LevelMapValue(CriticalBanXianDice),Lightning,Magical);IF(not IsLocalBorn(context.Target) and HasStatus('BANXIAN_DH_YEAR',context.Source)):DealDamage((BANXIAN_DH_YEAR.Duration*2)d20,Lightning,Magical);GROUND:SurfaceChange(Electrify); IF(HasStatus('BANXIAN_DH_YEAR',context.Source)):ApplyStatus(TIANDAO_HENG,100,BANXIAN_DH_YEAR.Duration)"
 
 new entry "Target_CallLightning_TianLei"
 type "SpellData"
@@ -1260,8 +1260,8 @@ data "EnableCondition" "(not HasAnyStatus({'SG_Polymorph','SG_Blinded'}) or Tagg
 data "EnableContext" "OnStatusApplied;OnStatusRemoved;OnEquip"
 
 new entry "Interrupt_JianDao_DodgetoParry_End"
-using "Interrupt_JianDao_ParrytoDodge_End"
 type "InterruptData"
+using "Interrupt_JianDao_ParrytoDodge_End"
 data "DisplayName" "stringsofmodmadebyxss20250504dva02a00;1"
 data "Description" "stringsofmodmadebyxss20250504dva02b00;1"
 data "Icon" "PassiveFeature_Parry"

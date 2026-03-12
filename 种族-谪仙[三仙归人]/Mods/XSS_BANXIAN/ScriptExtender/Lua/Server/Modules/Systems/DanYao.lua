@@ -155,7 +155,6 @@ function DanYao.OnStatusApplied_after(Object, Status, Causee)
     elseif Status == 'DT_WUYUN_DAN' then
         if Osi.HasPassive(Object, 'BanXian_LingGen_T0') == 0 then
             DanYao.Function.WuYunDan(Object)
-        else
         end
     end
 

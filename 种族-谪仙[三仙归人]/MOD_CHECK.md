@@ -3,9 +3,9 @@
 <!-- Last updated: 2026-03-12 -->
 
 ## Status
-- **Coverage:** ~75 of ~107 source files fully read, ~5 partially read, ~27 not yet read (mostly CC/VFX/asset LSX)
-- **Open issues:** 1 (0 red, 0 orange, 0 yellow, 0 blue, 1 white)
-- **Fixed issues:** 30
+- **Coverage:** ~75 of ~107 source files fully read (all re-audited this run), ~5 partially read, ~27 not yet read (mostly CC/VFX/asset LSX)
+- **Open issues:** 2 (0 red, 0 orange, 1 yellow, 0 blue, 1 white)
+- **Fixed issues:** 51
 
 ## Open Issues
 
@@ -16,15 +16,36 @@
 *(none)*
 
 ### 🟡 Logic / Consistency
-*(none)*
+- [ ] **L-15** `LingGen.lua:65,275–296` — `Osi.ApplyStatus()` called with only 3 arguments (missing stack count and source). Valid BG3SE API (defaults to stack=1, source=target) but inconsistent with rest of codebase which uses 4–5 args. *Cosmetic; no runtime impact.*
 
 ### 🔵 Redundancy
 *(none)*
 
 ### ⚪ Minor / Typos
-- [ ] **T-01** `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/LingGen.lua` `LingGen.GetCharacterParams()` — Companion LingGen values are hardcoded in an if/elseif chain by companion name. A data table in `Variables.lua` would be easier to maintain. *Low priority; address if adding/rebalancing companions.*
+- [ ] **T-01** `LingGen.lua` `LingGen.GetCharacterParams()` — Companion LingGen values are hardcoded in an if/elseif chain by companion name. A data table in `Variables.lua` would be easier to maintain. *Low priority; address if adding/rebalancing companions.*
 
 ## Fixed / Resolved Issues
+- [x] **B-08** `BANXIAN_TIAN.txt` + `BANXIAN_YAO.txt` + `DANYAO.txt` — `BanXiangHP` → `BanXianHP` (13 occurrences). *(fixed 2026-03-12)*
+- [x] **B-09** `DADAO.txt:785` — `CritcalBanXianDice` → `CriticalBanXianDice`. *(fixed 2026-03-12)*
+- [x] **B-10** `FABAO.txt:265` — `TIENIU_WEAPON_APBONUS` → `TIENIU_BOOSTS_APBONUS`. *(fixed 2026-03-12)*
+- [x] **B-11** `DANYAO.txt:965` — Duplicate `DR_WenLiSan` renamed to `DR_WENLI_SAN`. *(fixed 2026-03-12)*
+- [x] **B-12** `XiuLian.lua:38–39` — Added `or 0` fallback to all 5 `GetStatusTurns` calls. *(fixed 2026-03-12)*
+- [x] **WB-08** `DaoHeng.lua:66` — Snapshot status IDs before `pairs()` iteration in `Functors_Steal`. *(fixed 2026-03-12)*
+- [x] **WB-09** `DaoHeng.lua:93` — Snapshot status IDs before `pairs()` iteration in `Functors_Eat`. *(fixed 2026-03-12)*
+- [x] **WB-10** `FaBao.lua:554` — `Weight*0.1` → `math.floor(Weight*0.1)`. *(fixed 2026-03-12)*
+- [x] **WB-11** `FaBao.lua:572` — Added nil check on `GetThreshold()` return. *(fixed 2026-03-12)*
+- [x] **WB-12** `Utils.lua:517` — Added nil guard on `Ext.Entity.Get()` in `GetEntityWeight`. *(fixed 2026-03-12)*
+- [x] **WB-13** `Base.lua:134` — Faction PersistentVars keyed by Caster UUID. *(fixed 2026-03-12)*
+- [x] **WB-14** `Base.lua:151,172` — Added entity + component nil guards in `Transform`. *(fixed 2026-03-12)*
+- [x] **WB-15** `FABAO.txt:86,120` — Added missing `GHOST_FENJUE` and `PURPLE` statuses to non-Tian fire tier. *(fixed 2026-03-12)*
+- [x] **L-11** `BANXIAN_TIAN.txt:132` — `BoostCondition` → `BoostConditions`. *(fixed 2026-03-12)*
+- [x] **L-12** `BANXIAN_YAO.txt:130` — Added `Properties "Highlighted"` to `MoQiao3`. *(fixed 2026-03-12)*
+- [x] **L-13** `DADAO.txt:1262` — Reordered `type` before `using`. *(fixed 2026-03-12)*
+- [x] **L-14** `XiuLian.lua:19–20` — Added `math.floor()` to ability modifier division. *(fixed 2026-03-12)*
+- [x] **L-16** `DaoHeng.lua:225` — Added nil guard on animation backup to prevent overwrite. *(fixed 2026-03-12)*
+- [x] **R-02** `BANXIAN_REN.txt:1035,1049` — Removed duplicate `SoundLoop`/`SoundStop` fields. *(fixed 2026-03-12)*
+- [x] **R-03** `XSS_BANXIAN.khn:149` — Removed dead code `DHMARKMoreThanYEAR()`. *(fixed 2026-03-12)*
+- [x] **R-04** `DanYao.lua:158` — Removed empty `else` block. *(fixed 2026-03-12)*
 - [x] **WB-01** `BANXIAN_TIAN.txt` `CuiTi_ZhouTian_2,3,7,8,9,10` — Empty `Boosts` fields intentional; `Utils.BanXian.JingjieBoost()` dynamically creates and applies `BANXIAN_JJ_*` statuses with Ability bonuses scaling to realm. *(by design)*
 - [x] **B-01** `LingGen.lua:225` — `math.random()` called with float arguments (crash in Lua 5.3+). *(fixed)*
 - [x] **B-02** `BANXIAN_TIAN.txt:176` `CuiTi_ZhouTian_6` — `DamageReduction` used raw `BanXianDice` instead of `LevelMapValue(BanXianDice)`. *(fixed)*
@@ -99,6 +120,7 @@
 - `Mods/XSS_BANXIAN/meta.lsx`
 - `Mods/XSS_BANXIAN/ScriptExtender/Config.json`
 - `Mods/XSS_BANXIAN/Localization/zhexian_Books.lsx`
+- `Mods/XSS_BANXIAN/Localization/English/XSS_BANXIAN.xml` *(promoted: fully read this run)*
 - `Mods/XSS_BANXIAN/ScriptExtender/Lua/BootstrapServer.lua`
 - `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Main.lua`
 - `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Variables.lua`
@@ -154,7 +176,6 @@
 - `Public/XSS_BANXIAN/Stats/Generated/ItemCombos.txt`
 
 ### Partially read
-- `Mods/XSS_BANXIAN/Localization/English/XSS_BANXIAN.xml` (lines 1–400 of ~1000+)
 - `Public/XSS_BANXIAN/Races/Races.lsx` (7069 lines; first 100 + UUID cross-refs verified)
 - `Public/XSS_BANXIAN/CharacterCreation/RENXIAN.lsx` (19934 lines; UUID cross-refs verified)
 - `Public/XSS_BANXIAN/CharacterCreation/TIANXIAN.lsx` (19934 lines; UUID cross-refs verified)

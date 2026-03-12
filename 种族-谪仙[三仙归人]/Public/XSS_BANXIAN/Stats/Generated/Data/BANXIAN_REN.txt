@@ -1032,8 +1032,6 @@ data "SoundStop" ""
 data "ApplyEffect" "38edf085-8ed3-4380-92b0-a5ed03be0a7e"
 data "StatusEffect" "a522953e-74e1-447e-88c8-323d549c801f"
 data "StatusSoundState" ""
-data "SoundLoop" ""
-data "SoundStop" ""
 
 new entry "BANXIAN_WZPLG_T_STATUS_K"
 type "StatusData"
@@ -1046,8 +1044,6 @@ data "SoundStop" "Spell_Status_FleshToGold_MO_Stop; Action_Impact_Item_FleshtoGo
 data "ApplyEffect" "26226027-853a-4b9a-86de-7ee4aed17454"
 data "StatusEffect" "d56b562b-f434-4521-b11e-b4e5083af370"
 data "StatusSoundState" ""
-data "SoundLoop" ""
-data "SoundStop" ""
 
 //生克-土
 new entry "BANXIAN_WZPLG_TS"

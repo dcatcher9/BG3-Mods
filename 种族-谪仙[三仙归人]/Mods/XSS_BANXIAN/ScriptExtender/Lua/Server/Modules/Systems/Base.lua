@@ -89,11 +89,13 @@ end
 function Base.ShenTong.TianXian.Transform_Cancel(Caster, Status)
 
     Osi.RemoveTransforms(Caster)
-    if PersistentVars['BanXian_Faction'] ~= nil then
-        Osi.SetFaction(Caster, PersistentVars['BanXian_Faction'])
+    if PersistentVars['BanXian_Faction_'..Caster] ~= nil then
+        Osi.SetFaction(Caster, PersistentVars['BanXian_Faction_'..Caster])
+        PersistentVars['BanXian_Faction_'..Caster] = nil
     end
-    if PersistentVars['BanXian_Target_Faction'] ~= nil then
-        Osi.ClearIndividualRelation(Caster, PersistentVars['BanXian_Target_Faction'])
+    if PersistentVars['BanXian_Target_Faction_'..Caster] ~= nil then
+        Osi.ClearIndividualRelation(Caster, PersistentVars['BanXian_Target_Faction_'..Caster])
+        PersistentVars['BanXian_Target_Faction_'..Caster] = nil
     end
 
         --遍历变身被动组，消除被动
@@ -131,8 +133,8 @@ end
 
 --变身术
 function Base.ShenTong.TianXian.Transform(Caster, Target, Name)
-    PersistentVars['BanXian_Faction'] = Osi.GetFaction(Caster)
-    PersistentVars['BanXian_Target_Faction'] = Osi.GetFaction(Target)
+    PersistentVars['BanXian_Faction_'..Caster] = Osi.GetFaction(Caster)
+    PersistentVars['BanXian_Target_Faction_'..Caster] = Osi.GetFaction(Target)
 
     if Name == 'BANXIAN_Polymorph_72' then
         Base.ShenTong.TianXian.Transform_Apply(Caster, Target, '34ad98e7-b7e4-4563-9772-e23f75c7c85f')
@@ -148,11 +150,12 @@ function Base.ShenTong.TianXian.Transform(Caster, Target, Name)
     end
 
     --复制被动
-    if ( Ext.Entity.Get(Target).PassiveContainer.Passives ~= nil ) then
+    local targetEntity = Ext.Entity.Get(Target)
+    if targetEntity and targetEntity.PassiveContainer and targetEntity.PassiveContainer.Passives ~= nil then
 
       --遍历被动
       local k = 1
-      for _,entry in pairs(Ext.Entity.Get(Target).PassiveContainer.Passives) do
+      for _,entry in pairs(targetEntity.PassiveContainer.Passives) do
         local ID = entry.Passive.PassiveId
 
         --判断是否重复,否则添加并记录在组
@@ -169,10 +172,11 @@ function Base.ShenTong.TianXian.Transform(Caster, Target, Name)
     end
 
     --复制STATUS
-    if ( Ext.Entity.Get(Target).StatusContainer.Statuses ~= nil ) then
+    targetEntity = targetEntity or Ext.Entity.Get(Target)
+    if targetEntity and targetEntity.StatusContainer and targetEntity.StatusContainer.Statuses ~= nil then
       --遍历STATUS
         local k = 1
-      for _,entry in pairs(Ext.Entity.Get(Target).StatusContainer.Statuses) do
+      for _,entry in pairs(targetEntity.StatusContainer.Statuses) do
         local ID = entry.StatusID.ID
 
         --判断是否重复,否则添加并记录在组

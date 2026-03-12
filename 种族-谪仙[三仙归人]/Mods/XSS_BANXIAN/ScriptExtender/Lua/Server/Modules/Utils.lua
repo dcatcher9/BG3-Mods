@@ -515,6 +515,7 @@ end
 --获取重量
 function Utils.GetEntityWeight(Object)
     local entity = Ext.Entity.Get(Object)
+    if not entity then return 0 end
     --_D(entity:GetAllComponents()) --DEBUG
     local Weight = entity.Data.Weight
 
