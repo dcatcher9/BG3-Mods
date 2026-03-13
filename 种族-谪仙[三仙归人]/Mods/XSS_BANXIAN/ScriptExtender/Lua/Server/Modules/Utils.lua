@@ -240,7 +240,7 @@ end
 
 --  获取灵根信息
 function Utils.Get.LingGen(Character)
-    local RESULT = "[灵根配比]（满25点觉醒效果，满100点觉醒天灵根）: \n"
+    local RESULT = "[灵根配比]（凡25/天100/仙300/圣1000）: \n"
     local LingGenNum = {
         ["BANXIAN_LG_H"] = 0,
         ["BANXIAN_LG_T"] = 0,
@@ -258,7 +258,7 @@ function Utils.Get.LingGen(Character)
     end
 
     --如果为0，更改输出结果
-    if RESULT == "[灵根配比]（满25点觉醒效果，满100点觉醒天灵根）: \n" then
+    if RESULT == "[灵根配比]（凡25/天100/仙300/圣1000）: \n" then
         RESULT = "[缺失灵根]"
     end
     local LG_H,LG_T,LG_J,LG_S,LG_M = LingGenNum['BANXIAN_LG_H'],LingGenNum['BANXIAN_LG_T'],LingGenNum['BANXIAN_LG_J'],LingGenNum['BANXIAN_LG_S'],LingGenNum['BANXIAN_LG_M']

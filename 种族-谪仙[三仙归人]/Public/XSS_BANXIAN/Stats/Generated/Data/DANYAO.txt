@@ -456,7 +456,7 @@ type "StatusData"
 data "StatusType" "BOOST"
 data "DisplayName" "stringsofmodmadebyxss20250115bca00a05;1"
 data "StackId" "BC_LINGLONGNEIDAN"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator"
 data "OnApplyFunctors" "ApplyStatus(BANXIAN_DH_YEAR,100,Target.BANXIAN_DH_YEAR.Duration+1)"
 data "ApplyEffect" "4019eeae-d4e3-449b-ba4a-6d7422ec6807"
 
@@ -466,7 +466,7 @@ type "StatusData"
 data "StatusType" "BOOST"
 data "DisplayName" "stringsofmodmadebyxss20250115dya00a00;1"
 data "StackId" "DT_BASE_LONGREST"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator"
 data "OnApplyFunctors" "ResetCooldowns(UntilRest);RegainHitPoints(Target.MaxHP);RemoveStatus(SPELLSLOT_1);RemoveStatus(SPELLSLOT_2);RemoveStatus(SPELLSLOT_3);RemoveStatus(SPELLSLOT_4);RemoveStatus(SPELLSLOT_5);RestoreResource(SpellSlot,100%,1);RestoreResource(SpellSlot,100%,2);RestoreResource(SpellSlot,100%,3);RestoreResource(SpellSlot,100%,4);RestoreResource(SpellSlot,100%,5);RestoreResource(SpellSlot,100%,6);RestoreResource(WarlockSpellSlot,100%,1);RestoreResource(WarlockSpellSlot,100%,2);RestoreResource(WarlockSpellSlot,100%,3);RestoreResource(WarlockSpellSlot,100%,4);RestoreResource(WarlockSpellSlot,100%,5);RestoreResource(WarlockSpellSlot,100%,6);RestoreResource(ShadowSpellSlot,100%,1);RemoveStatus(SORCERYPOINT_1);RemoveStatus(SORCERYPOINT_2);RemoveStatus(SORCERYPOINT_3);RemoveStatus(SORCERYPOINT_4);RemoveStatus(SORCERYPOINT_5);RemoveStatus(TRANSMUTERS_STONE_USED);RestoreResource(SorceryPoint,100%,0);RestoreResource(ChannelDivinity,100%,0);RestoreResource(SuperiorityDie,100%,0);RestoreResource(KiPoint,100%,0);RestoreResource(WildShape,100%,0);RestoreResource(WeaponActionPoint,100%,0);RestoreResource(TidesOfChaos,100%,0);RestoreResource(ChannelOath,100%,0);RestoreResource(Rage,100%,0);RestoreResource(BardicInspiration,100%,0);RestoreResource(HitDice,100%,0);RestoreResource(ArcaneRecoveryPoint,100%,0);RestoreResource(NaturalRecoveryPoint,100%,0);RestoreResource(RitualPoint,100%,0);RestoreResource(LayOnHandsCharge,100%,0);RestoreResource(Interrupt_HellishRebukeTiefling_Charge,100%,0);RestoreResource(Interrupt_HellishRebukeWarlockMI_Charge,100%,0);RestoreResource(FungalInfestationCharge,100%,0);RestoreResource(LuckPoint,100%,0);RestoreResource(WarPriestActionPoint,100%,0)"
 data "ApplyEffect" "4019eeae-d4e3-449b-ba4a-6d7422ec6807"
 
@@ -475,7 +475,7 @@ type "StatusData"
 data "StatusType" "BOOST"
 data "DisplayName" "stringsofmodmadebyxss20250115dya00a00;1"
 data "StackId" "DR_BASE_REMOVEDEBUFF"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator"
 data "OnApplyFunctors" "RemoveStatus(SG_Blinded);RemoveStatus(SG_Disease);RemoveStatus(SG_Exhausted);RemoveStatus(SG_Poisoned);RemoveStatus(SG_Frightened);RemoveStatus(SG_Charmed);RemoveStatus(SG_Cursed);RemoveStatus(SG_Possessed);RemoveStatus(SG_Madness);RegainHitPoints(MaxHP)"
 data "ApplyEffect" "1ba2fb88-7dd0-428f-ad56-2afc6a236f2e"
 
@@ -490,7 +490,7 @@ data "StackId" "DT_BIO_JINDAN"
 data "StackType" "Additive"
 data "Boosts" "IncreaseMaxHP(LevelMapValue(BanXianHP))"
 data "OnApplyFunctors" "ApplyStatus(DT_BASE_LONGREST,100,0)"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;IgnoreResting;FreezeDuration;MultiplyEffectsByDuration"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;IgnoreResting;FreezeDuration;MultiplyEffectsByDuration"
 
 //碧藕小还丹
 new entry "DT_BIO_XIAOHUANDAN"
@@ -504,7 +504,7 @@ data "StackId" "DT_BIO_XIAOHUANDAN"
 data "StackType" "Additive"
 data "Boosts" "IncreaseMaxHP(Level*ConstitutionModifier)"
 data "OnApplyFunctors" "ApplyStatus(DT_BASE_LONGREST,100,0)"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;IgnoreResting;FreezeDuration;MultiplyEffectsByDuration"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;IgnoreResting;FreezeDuration;MultiplyEffectsByDuration"
 
 //补阳丹
 new entry "DT_BUYANG_DAN_SIGNAL"
@@ -523,7 +523,7 @@ data "Icon" "DT_BuYangDan"
 data "StackId" "DT_BUYANG_DAN"
 data "StackType" "Additive"
 data "Boosts" "Resistance(Cold, Resistant);DamageReduction(Cold,Flat,1)"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;IgnoreResting;MultiplyEffectsByDuration;FreezeDuration"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;IgnoreResting;MultiplyEffectsByDuration;FreezeDuration"
 
 //九转金丹
 new entry "DT_JIUZHUAN_JINDAN"
@@ -537,7 +537,7 @@ data "StackId" "DT_JIUZHUAN_JINDAN"
 data "StackType" "Overwrite"
 data "Boosts" ""
 data "OnApplyFunctors" "ApplyStatus(BANXIAN_DH_YEAR,100,Target.BANXIAN_DH_YEAR.Duration+1d100);  ApplyStatus(DT_BASE_LONGREST,100,0)"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;IgnoreResting"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;IgnoreResting"
 
 //九转小还丹
 new entry "DT_JIUZHUAN_XIAOHUANDAN"
@@ -551,7 +551,7 @@ data "StackId" "DT_JIUZHUAN_XIAOHUANDAN"
 data "StackType" "Overwrite"
 data "Boosts" ""
 data "OnApplyFunctors" "ApplyStatus(BANXIAN_DH_YEAR,100,Target.BANXIAN_DH_YEAR.Duration+1d10);  ApplyStatus(DT_BASE_LONGREST,100,0)"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;IgnoreResting"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;IgnoreResting"
 
 //三花九子膏
 new entry "DT_SANHUAJIUZI_GAO"
@@ -565,7 +565,7 @@ data "StackId" "DT_SANHUAJIUZI_GAO"
 data "StackType" "Overwrite"
 data "Boosts" "StatusImmunity(SG_Blinded)"
 data "OnApplyFunctors" "ApplyStatus(DT_BASE_LONGREST,100,0)"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;IgnoreResting"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;IgnoreResting"
 
 //水玉丹
 new entry "DT_SHUIYU_DAN_SIGNAL"
@@ -584,7 +584,7 @@ data "Icon" "DT_ShuiYuDan"
 data "StackId" "DT_SHUIYU_DAN"
 data "StackType" "Additive"
 data "Boosts" "Resistance(Fire,Resistant);DamageReduction(Fire,Flat,1)"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;IgnoreResting;MultiplyEffectsByDuration;FreezeDuration"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;IgnoreResting;MultiplyEffectsByDuration;FreezeDuration"
 
 //太乙小还丹
 new entry "DT_TAIYI_XIAOHUANDAN"
@@ -598,7 +598,7 @@ data "StackId" "DT_TAIYI_XIAOHUANDAN"
 data "StackType" "Overwrite"
 data "Boosts" "ActionResource(SpellSlot,1,1);ActionResource(SpellSlot,1,2);ActionResource(SpellSlot,1,3)"
 data "OnApplyFunctors" "ApplyStatus(DT_BASE_LONGREST,100,0)"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;IgnoreResting"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;IgnoreResting"
 
 //太乙紫金丹
 new entry "DT_TAIYI_ZIJINDAN"
@@ -612,7 +612,7 @@ data "StackId" "DT_TAIYI_ZIJINDAN"
 data "StackType" "Overwrite"
 data "Boosts" "ActionResource(SpellSlot,1,4);ActionResource(SpellSlot,1,5);ActionResource(SpellSlot,1,6)"
 data "OnApplyFunctors" "ApplyStatus(DT_BASE_LONGREST,100,0)"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;IgnoreResting"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;IgnoreResting"
 
 //铁牛丹
 new entry "DT_TIENIU_DAN_SIGNAL"
@@ -632,7 +632,7 @@ data "Icon" "DT_TieNiuDan"
 data "StackId" "DT_TIENIU_DAN"
 data "StackType" "Additive"
 data "Boosts" "Ability(Strength,2);DamageReduction(Slashing,Flat,1);DamageReduction(Piercing,Flat,1);DamageReduction(Bludgeoning,Flat,1);Resistance(Slashing,Resistant);Resistance(Piercing,Resistant);Resistance(Bludgeoning,Resistant);  Attribute(Grounded)"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;IgnoreResting;MultiplyEffectsByDuration;FreezeDuration"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;IgnoreResting;MultiplyEffectsByDuration;FreezeDuration"
 
 //乌金丹
 new entry "DT_WUJIN_DAN_SIGNAL"
@@ -651,7 +651,7 @@ data "Icon" "DT_WuJinDan"
 data "StackId" "DT_WUJIN_DAN"
 data "StackType" "Additive"
 data "Boosts" "Resistance(Poison,Resistant);DamageReduction(Poison,Flat,1)"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;IgnoreResting;MultiplyEffectsByDuration;FreezeDuration"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;IgnoreResting;MultiplyEffectsByDuration;FreezeDuration"
 
 //无心药
 new entry "DT_WUXIN_DAN_SIGNAL"
@@ -670,7 +670,7 @@ data "Icon" "DT_WuXinYao"
 data "StackId" "DT_WUXIN_DAN"
 data "StackType" "Additive"
 data "Boosts" "Ability(Constitution,1)"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;IgnoreResting;MultiplyEffectsByDuration;FreezeDuration"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;IgnoreResting;MultiplyEffectsByDuration;FreezeDuration"
 
 //五蕴丹
 new entry "DT_WUYUN_DAN"
@@ -684,7 +684,7 @@ data "StackId" "DT_WUYUN_DAN"
 data "StackType" "Overwrite"
 data "Boosts" ""
 data "OnApplyFunctors" "ApplyStatus(DT_BASE_LONGREST,100,0)"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;IgnoreResting"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;IgnoreResting"
 
 //宝鳞丸
 new entry "DR_BAOLIN_WAN"
@@ -987,7 +987,7 @@ data "StackId" "DR_YANSHOU_GAO"
 data "StackType" "Additive"
 data "Boosts" "IncreaseMaxHP(ConstitutionModifier)"
 data "OnApplyFunctors" "ApplyStatus(DR_BASE_REMOVEDEBUFF,100,0)"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;IgnoreResting;FreezeDuration;MultiplyEffectsByDuration"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;IgnoreResting;FreezeDuration;MultiplyEffectsByDuration"
 
 //益气膏
 new entry "DR_YIQI_GAO"
@@ -1001,4 +1001,4 @@ data "StackId" "DR_YIQI_GAO"
 data "StackType" "Additive"
 data "Boosts" "ActionResource(KiPoint,1,0)"
 data "OnApplyFunctors" "ApplyStatus(DR_BASE_REMOVEDEBUFF,100,0)"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;IgnoreResting;FreezeDuration;MultiplyEffectsByDuration"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;IgnoreResting;FreezeDuration;MultiplyEffectsByDuration"

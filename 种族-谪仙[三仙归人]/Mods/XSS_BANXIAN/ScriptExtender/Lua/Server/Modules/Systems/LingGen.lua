@@ -322,7 +322,10 @@ function LingGen.Take_Devastatingly(caster, target)
 
     local msg = '夺灵：' .. maxName .. '灵根 ×' .. steal
     if stealTZ > 0 then msg = msg .. '  资质 ×' .. stealTZ end
-    Osi.ShowNotification(caster, msg)
+
+    -- Overhead display on caster
+    Ext.Loca.UpdateTranslatedString('stringsofmodmadebyxss20250312dl_disp', msg)
+    Osi.ApplyStatus(caster, 'BANXIAN_DUOLING_DISPLAY', 6, 1, caster)
 
     -- 重新检测双方灵根效果
     LingGen.ApplyAllChecks(caster)
