@@ -232,16 +232,16 @@ Variables.Constants = {
         BaiMai = {}
     },
     CompanionLingGen = {
-        -- origin_key = {a, b, c, d, e, r, TZ}  (火,土,金,水,木,总,资质)
-        ['ORIGIN_ASTARION']    = {20, 10, 30, 10, 30, 100, 2},
-        ['ORIGIN_LAEZEL']      = {20, 20,120, 20, 20, 200, 1},
-        ['ORIGIN_GALE']        = { 8,  8,  8,  8,  8,  40, 5},
-        ['ORIGIN_SHADOWHEART'] = {40, 40, 50, 50, 20, 200, 1},
-        ['ORIGIN_WYLL']        = { 0, 40, 60,  0,  0, 100, 2},
-        ['ORIGIN_JAHEIRA']     = { 0, 40,  0, 60,100, 200, 1},
-        ['ORIGIN_MINTHARA']    = {60,  0, 10, 30,  0, 100, 2},
-        ['ORIGIN_MINSC']       = {20,160, 20,  0,  0, 200, 1},
-        ['ORIGIN_HALSIN']      = { 0,  0,  0,  0,100, 100, 2},
+        -- template_name = {a, b, c, d, e, r, TZ}  (火,土,金,水,木,总,资质)
+        ['S_Player_Astarion']    = {20, 10, 30, 10, 30, 100, 2},
+        ['S_Player_Laezel']      = {20, 20,120, 20, 20, 200, 1},
+        ['S_Player_Gale']        = { 8,  8,  8,  8,  8,  40, 5},
+        ['S_Player_ShadowHeart'] = {40, 40, 50, 50, 20, 200, 1},
+        ['S_Player_Wyll']        = { 0, 40, 60,  0,  0, 100, 2},
+        ['S_GOB_DrowCommander']  = {60,  0, 10, 30,  0, 100, 2}, -- Minthara
+        ['S_Player_Jaheira']     = { 0, 40,  0, 60,100, 200, 1},
+        ['S_Player_Minsc']       = {20,160, 20,  0,  0, 200, 1},
+        ['S_Player_Halsin']      = { 0,  0,  0,  0,100, 100, 2},
     },
     CompanionLingGen_ByName = {
         -- displayName substring = {a, b, c, d, e, r, TZ}

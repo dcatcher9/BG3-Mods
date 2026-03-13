@@ -124,8 +124,9 @@ end
 
 --获取角色参数
 function LingGen.GetCharacterParams(Object,a,b,c,d,e,r,TZ)
-    local origin = Osi.GetOrigin(Object) or ""
-    local params = Variables.Constants.CompanionLingGen[origin]
+    local entity = Ext.Entity.Get(Object)
+    local templateName = entity and entity.ServerCharacter and entity.ServerCharacter.Template and entity.ServerCharacter.Template.Name or ""
+    local params = Variables.Constants.CompanionLingGen[templateName]
     if params then
         a,b,c,d,e,r,TZ = params[1],params[2],params[3],params[4],params[5],params[6],params[7]
     else
