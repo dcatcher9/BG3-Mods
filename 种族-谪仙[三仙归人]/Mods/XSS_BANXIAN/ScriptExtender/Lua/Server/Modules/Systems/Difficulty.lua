@@ -221,7 +221,7 @@ function Difficulty.OnEnteredCombat_after(Object, CombatGuid)
     and Osi.HasPassive(Object, 'BanXian_LingGen_Blank') == 0
     and Osi.HasPassive(Object, 'BanXian_LingGen_NIL') == 0
     and not PersistentVars['Difficulty_Awakened_' .. Object] then
-        Osi.ApplyStatus(Object, 'BANXIAN_HARDCORE', 100, -1, Object)
+        Osi.ApplyStatus(Object, 'BANXIAN_HARDCORE', -1, 1, Object)
         Utils.BanXianList_AddtoList(Object)
     end
 end

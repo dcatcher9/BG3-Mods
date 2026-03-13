@@ -92,6 +92,7 @@ end
 --获取位置参数
 function Utils.GetXZ(object)
     local x, _, z = Osi.GetPosition(object)
+    if x == nil then return 0, 0 end
     return x,z
 end
 
@@ -193,13 +194,15 @@ end
 -------------------------------------------------------------------------------------------------
 --角色更改·装备
 function Utils.CharacterChange.Equipable(Object)
-    if Ext.Entity.Get(Object) ~= nil then
-        PersistentVars['HEHUAN_FOLLOWER_DisableEquipping_'..Object] = Ext.Entity.Get(Object).ServerCharacter.Template.DisableEquipping
-        PersistentVars['HEHUAN_FOLLOWER_IsEquipmentLootable_'..Object] = Ext.Entity.Get(Object).ServerCharacter.Template.IsEquipmentLootable
-        PersistentVars['HEHUAN_FOLLOWER_IsLootable_'..Object] = Ext.Entity.Get(Object).ServerCharacter.Template.IsLootable
-        Ext.Entity.Get(Object).ServerCharacter.Template.DisableEquipping = false
-        Ext.Entity.Get(Object).ServerCharacter.Template.IsEquipmentLootable = true
-        Ext.Entity.Get(Object).ServerCharacter.Template.IsLootable = true
+    local entity = Ext.Entity.Get(Object)
+    if entity ~= nil then
+        local tmpl = entity.ServerCharacter.Template
+        PersistentVars['HEHUAN_FOLLOWER_DisableEquipping_'..Object] = tmpl.DisableEquipping
+        PersistentVars['HEHUAN_FOLLOWER_IsEquipmentLootable_'..Object] = tmpl.IsEquipmentLootable
+        PersistentVars['HEHUAN_FOLLOWER_IsLootable_'..Object] = tmpl.IsLootable
+        tmpl.DisableEquipping = false
+        tmpl.IsEquipmentLootable = true
+        tmpl.IsLootable = true
     end
 end
 
@@ -547,26 +550,7 @@ function Utils.SetStatField(stat, TYPE, value)
     end
 end
 
---备份/保存所有炼器数据
-function Utils.FaBao_LianQiSaveAllStats(prefix)
-    for _, ID in ipairs(Ext.Stats.GetStats("Weapon")) do
-        local stat = Ext.Stats.Get(ID)
-
-        for TYPE, _ in pairs(Variables.Constants.FaBao.Weapon) do
-            PersistentVars[prefix..ID.."_"..TYPE] = Utils.GetStatField(stat, TYPE)
-        end
-        PersistentVars[prefix..ID.."_Rarity"] = stat.Rarity
-    end
-
-    for _, ID in ipairs(Ext.Stats.GetStats("Armor")) do
-        local stat = Ext.Stats.Get(ID)
-
-        for TYPE, _ in pairs(Variables.Constants.FaBao.Base) do
-            PersistentVars[prefix..ID.."_"..TYPE] = Utils.GetStatField(stat, TYPE)
-        end
-        PersistentVars[prefix..ID.."_Rarity"] = stat.Rarity
-    end
-end
+--保存炼器数据
 
 --保存炼器数据
 function Utils.FaBao_LianQiSaveStats(FABAO)
@@ -852,13 +836,17 @@ function Utils.GongFa.BaiMai.CopyStatus(Object)
     local csEntity = Ext.Entity.Get(Object)
     if csEntity and csEntity:GetComponent("StatusContainer") ~= nil then
 
+        local snapshot = {}
         for _,entry in pairs(csEntity.StatusContainer.Statuses) do
-            local stat = Ext.Stats.Get(entry.StatusID.ID, 0)
-            if string.find(entry.StatusID.ID, 'TECHNICAL') and stat then
+            table.insert(snapshot, entry.StatusID.ID)
+        end
+        for _,statusId in ipairs(snapshot) do
+            local stat = Ext.Stats.Get(statusId, 0)
+            if string.find(statusId, 'TECHNICAL') and stat then
               if ( stat.StatusType == "BOOST" ) then
                 if ( string.find(stat.Boosts, "Invulnerable%(%)") == nil ) then
-                    Osi.ApplyStatus(Object, entry.StatusID.ID, -1)
-                    Ext.Utils.Print(("触发：百脉锻宝诀·吞宝·状态: %s"):format(entry.StatusID.ID))
+                    Osi.ApplyStatus(Object, statusId, -1)
+                    Ext.Utils.Print(("触发：百脉锻宝诀·吞宝·状态: %s"):format(statusId))
                 end
               end
             end

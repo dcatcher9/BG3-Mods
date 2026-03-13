@@ -506,7 +506,8 @@ end
 
 --器纹·铁中血
 function FaBao.Passives.Armor.TieZhongXue_RecoverHP(Defender,DamageAmount)
-    Osi.SetHitpoints(Defender, Osi.GetHitpoints(Defender)+DamageAmount)
+    local hp = Osi.GetHitpoints(Defender)
+    if hp then Osi.SetHitpoints(Defender, hp+DamageAmount) end
     --_P('[FaBao.Passives.Armor.TieZhongXue_RecoverHP]回溯伤害') --DEBUG
 end
 

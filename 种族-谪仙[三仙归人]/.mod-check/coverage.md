@@ -2,9 +2,9 @@
 <!-- Last updated: 2026-03-12 -->
 
 ## Stats
-- Fully read: ~80 of ~107 source files
+- Fully read: ~82 of ~107 source files
 - Partially read: 5
-- Not yet read: ~22 (mostly visual/asset files)
+- Not yet read: ~20 (mostly visual/asset files)
 
 ### Fully read
 - `Mods/XSS_BANXIAN/meta.lsx`

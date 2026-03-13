@@ -319,7 +319,9 @@ function LingGen.Take_Devastatingly(caster, target)
         Osi.ApplyStatus(caster, 'BANXIAN_LG_TZ', (casterTZ + stealTZ) * 6, 1, caster)
     end
 
-    Osi.ShowNotification(caster, '夺灵：' .. maxName .. '灵根 ×' .. steal .. '  资质 ×' .. stealTZ)
+    local msg = '夺灵：' .. maxName .. '灵根 ×' .. steal
+    if stealTZ > 0 then msg = msg .. '  资质 ×' .. stealTZ end
+    Osi.ShowNotification(caster, msg)
 
     -- 重新检测双方灵根效果
     LingGen.ApplyAllChecks(caster)

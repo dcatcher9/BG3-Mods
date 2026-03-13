@@ -109,7 +109,8 @@ function DaoHeng.EGUI.Functors_Eat(EGui,Target)
                   local raw_turns = Osi.GetStatusTurns(Food, statusId) or 0
                   gained = gained + raw_turns
                   Osi.RemoveStatus(Food, statusId)
-                  Osi.SetHitpoints(EGui, Osi.GetHitpoints(EGui) + raw_turns*6)  --恢复生命值
+                  local hp = Osi.GetHitpoints(EGui)
+                  if hp then Osi.SetHitpoints(EGui, hp + raw_turns*6) end  --恢复生命值
             end
           end
         end
@@ -239,10 +240,11 @@ function DaoHeng.Jian.Animation_After(ID)
     if not spell then return end
     --_D(spell) --DEBUG
     local backupKey = 'Jiandao_Projectile_AnimationBackup_'..ID
-    spell.SpellAnimation = PersistentVars[backupKey]
-    spell:Sync()
-
-    PersistentVars[backupKey] = nil
+    if PersistentVars[backupKey] ~= nil then
+        spell.SpellAnimation = PersistentVars[backupKey]
+        spell:Sync()
+        PersistentVars[backupKey] = nil
+    end
 end
 
 -- 事件·大道相关状态前
