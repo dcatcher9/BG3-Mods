@@ -17,7 +17,8 @@ function BanXian.Init()
         Difficulty = require("Server.Modules.Systems.Difficulty"),
         XiuLian = require("Server.Modules.Systems.XiuLian"),
         FaBao = require("Server.Modules.Systems.FaBao"),
-        Base = require("Server.Modules.Systems.Base")
+        Base = require("Server.Modules.Systems.Base"),
+        Debug = require("Server.Modules.Systems.Debug")
     }
 
     BanXian.Modules.Systems.LingGen.Init()
@@ -30,6 +31,7 @@ function BanXian.Init()
     BanXian.Modules.Systems.XiuLian.Init()
     BanXian.Modules.Systems.FaBao.Init()
     BanXian.Modules.Systems.Base.Init()
+    BanXian.Modules.Systems.Debug.Init()
 
     -- 初始化事件处理器
     local EventHandlers = require("Server.Modules.EventHandlers")
