@@ -5,11 +5,45 @@ local Utils = require("Server.Modules.Utils")
 local Variables = require("Server.Modules.Variables")
 
 local ScanDisplayQueue = 0
+local SHENSHI_RESOURCE_UUID = '0032115b-77c3-43c8-9385-630e657b2fcc'
+local SHENSHI_DC_MAX = 30
 
 -- 初始化神识系统
 function ShenShi.Init()
     Ext.Osiris.RegisterListener("StatusApplied", 4, "after", ShenShi.OnStatusApplied_after)
 
+    -- 创建动态SpellSaveDC状态（神识点数 → 法术DC加值）
+    for i = 1, SHENSHI_DC_MAX do
+        local name = 'BANXIAN_SHENSHI_DC_' .. i
+        local ok, existing = pcall(Ext.Stats.Get, name)
+        if not ok or not existing then
+            local stat = Ext.Stats.Create(name, 'StatusData')
+            stat.StatusType = 'BOOST'
+            stat.StackId = 'BANXIAN_SHENSHI_DC'
+            stat.StackType = 'Overwrite'
+            stat.Boosts = 'SpellSaveDC(' .. i .. ')'
+            stat.StatusPropertyFlags = {'DisableOverhead', 'DisableCombatlog', 'DisablePortraitIndicator', 'IgnoreResting', 'ApplyToDead'}
+            Ext.Stats.Sync(name)
+        end
+    end
+end
+
+-- 更新神识DC加值（根据当前神识点数）
+function ShenShi.UpdateDCBoost(Object)
+    local amount = Utils.Get.ActionResource(Object, SHENSHI_RESOURCE_UUID)
+    local oldAmount = PersistentVars['ShenShi_DC_' .. Object] or 0
+
+    -- 移除旧状态
+    if oldAmount > 0 then
+        Osi.RemoveStatus(Object, 'BANXIAN_SHENSHI_DC_' .. oldAmount)
+    end
+
+    -- 应用新状态
+    if amount > 0 then
+        amount = math.min(amount, SHENSHI_DC_MAX)
+        Osi.ApplyStatus(Object, 'BANXIAN_SHENSHI_DC_' .. amount, -1, 1, Object)
+    end
+    PersistentVars['ShenShi_DC_' .. Object] = amount
 end
 
 --事件·分身术内观
@@ -75,23 +109,31 @@ function ShenShi.ScanTarget(Object, Causee)
     if zzText ~= '' then overhead = overhead .. ' ' .. zzText end
     if daoName then overhead = overhead .. ' · ' .. daoName end
 
-    -- Update loca on both server and client, then apply display status
-    ScanDisplayQueue = ScanDisplayQueue + 1
-    local delay = (ScanDisplayQueue - 1) * 200
-    local target = Object
-    Ext.Timer.WaitFor(delay, function()
-        -- Server-side loca update (so server resolves DisplayName correctly)
-        Ext.Loca.UpdateTranslatedString('stringsofmodmadebyxss20250312sc_disp', overhead)
-        -- Client-side loca update (so client renders correctly)
-        Ext.Net.BroadcastMessage('BanXian_OverheadText', Ext.Json.Stringify({
-            handle = 'stringsofmodmadebyxss20250312sc_disp',
-            text = overhead
-        }))
-        Ext.Timer.WaitFor(50, function()
-            Osi.ApplyStatus(target, 'BANXIAN_SCAN_DISPLAY', 30 * 6, 1, target)
-            ScanDisplayQueue = math.max(0, ScanDisplayQueue - 1)
-        end)
-    end)
+    -- 为每个目标创建独立的运行时状态（避免共享loca handle冲突）
+    local cleanUUID = string.gsub(Object, '-', '')
+    local handle = 'banxian_scan_' .. cleanUUID
+    local statName = 'BANXIAN_SCAN_' .. cleanUUID
+
+    -- 更新loca（服务端+客户端）
+    Ext.Loca.UpdateTranslatedString(handle, overhead)
+    Ext.Net.BroadcastMessage('BanXian_OverheadText', Ext.Json.Stringify({
+        handle = handle,
+        text = overhead
+    }))
+
+    -- 创建运行时状态（首次扫描该目标时）
+    local ok, existing = pcall(Ext.Stats.Get, statName)
+    if not ok or not existing then
+        local stat = Ext.Stats.Create(statName, 'StatusData')
+        stat.StatusType = 'BOOST'
+        stat.StackId = statName
+        stat.StackType = 'Overwrite'
+        stat.DisplayName = handle .. ';1'
+        stat.StatusPropertyFlags = {'DisablePortraitIndicator', 'DisableCombatlog', 'OverheadOnTurn'}
+        Ext.Stats.Sync(statName)
+    end
+
+    Osi.ApplyStatus(Object, statName, 5 * 6, 1, Object)
 end
 
 -- 事件·神识状态监听
@@ -99,6 +141,7 @@ function ShenShi.OnStatusApplied_after(Object, Status, Causee)
 
     if Status == "SIGNAL_SS_CHECK" then
         Utils.ShenShi.Check(Object)
+        ShenShi.UpdateDCBoost(Object)
     end
 
     if Status == "SIGNAL_SS_CHECK_TARGET" then
