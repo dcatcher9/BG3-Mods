@@ -109,31 +109,16 @@ function ShenShi.ScanTarget(Object, Causee)
     if zzText ~= '' then overhead = overhead .. ' ' .. zzText end
     if daoName then overhead = overhead .. ' · ' .. daoName end
 
-    -- 为每个目标创建独立的运行时状态（避免共享loca handle冲突）
-    local cleanUUID = string.gsub(Object, '-', '')
-    local handle = 'banxian_scan_' .. cleanUUID
-    local statName = 'BANXIAN_SCAN_' .. cleanUUID
-
-    -- 更新loca（服务端+客户端）
+    -- 更新loca（服务端+客户端），使用已有的XML handle
+    local handle = 'stringsofmodmadebyxss20250312sc_disp'
     Ext.Loca.UpdateTranslatedString(handle, overhead)
     Ext.Net.BroadcastMessage('BanXian_OverheadText', Ext.Json.Stringify({
         handle = handle,
         text = overhead
     }))
 
-    -- 创建运行时状态（首次扫描该目标时）
-    local ok, existing = pcall(Ext.Stats.Get, statName)
-    if not ok or not existing then
-        local stat = Ext.Stats.Create(statName, 'StatusData')
-        stat.StatusType = 'BOOST'
-        stat.StackId = statName
-        stat.StackType = 'Overwrite'
-        stat.DisplayName = handle .. ';1'
-        stat.StatusPropertyFlags = {'DisablePortraitIndicator', 'DisableCombatlog', 'OverheadOnTurn'}
-        Ext.Stats.Sync(statName)
-    end
-
-    Osi.ApplyStatus(Object, statName, 5 * 6, 1, Object)
+    -- 应用预定义状态（OverheadOnTurn显示每回合头顶文字）
+    Osi.ApplyStatus(Object, 'BANXIAN_SCAN_DISPLAY', 5 * 6, 1, Object)
 end
 
 -- 事件·神识状态监听
