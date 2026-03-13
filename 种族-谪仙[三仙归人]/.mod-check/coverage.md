@@ -1,8 +1,8 @@
 # Coverage — 种族·谪仙「三仙归人」
-<!-- Last updated: 2026-03-12 -->
+<!-- Last updated: 2026-03-13 -->
 
 ## Stats
-- Fully read: ~82 of ~107 source files
+- Fully read: ~83 of ~108 source files
 - Partially read: 5
 - Not yet read: ~20 (mostly visual/asset files)
 
@@ -12,6 +12,7 @@
 - `Mods/XSS_BANXIAN/Localization/zhexian_Books.lsx`
 - `Mods/XSS_BANXIAN/Localization/English/XSS_BANXIAN.xml`
 - `Mods/XSS_BANXIAN/ScriptExtender/Lua/BootstrapServer.lua`
+- `Mods/XSS_BANXIAN/ScriptExtender/Lua/BootstrapClient.lua`
 - `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Main.lua`
 - `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Variables.lua`
 - `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/EventHandlers.lua`

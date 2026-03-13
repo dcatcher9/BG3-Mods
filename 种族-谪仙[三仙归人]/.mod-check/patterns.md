@@ -1,5 +1,5 @@
 # Patterns & Design Decisions — 种族·谪仙「三仙归人」
-<!-- Last updated: 2026-03-12 -->
+<!-- Last updated: 2026-03-13 -->
 
 ## Coding Patterns
 
@@ -9,6 +9,8 @@
 - All `Ext.Stats.Get` results are nil-checked before field access
 - All `Osi.GetStatString` results are nil-checked before passing to other functions
 - Status iteration uses snapshot-then-iterate pattern to avoid modifying during `pairs()`
+- Dynamic overhead text uses server→client net message (`BanXian_OverheadText`) + `Ext.Loca.UpdateTranslatedString` on client side, since server-side loca updates don't propagate to client rendering
+- Companion identification uses `entity.ServerCharacter.Template.Name` (not `Osi.GetOrigin` which was removed in newer BG3SE)
 
 ### PersistentVars keying
 - Per-character data is keyed by UUID (e.g., `PersistentVars['JingjieBoost_'..UUID]`)

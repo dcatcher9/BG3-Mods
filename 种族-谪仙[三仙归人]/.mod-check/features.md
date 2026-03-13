@@ -1,16 +1,16 @@
 # Features — 种族·谪仙「三仙归人」
-<!-- Last updated: 2026-03-12 -->
+<!-- Last updated: 2026-03-13 -->
 
 ## Feature Table
 
 | Feature / System | Completeness | Player Access | Key Files |
 |---|---|---|---|
-| LingGen 灵根 | Full | Passive/Aura | BANXIAN_REN.txt, LingGen.lua, Variables.lua |
+| LingGen 灵根 | Full | Passive/Aura | BANXIAN_REN.txt, LingGen.lua, Variables.lua (auto-activates on party join) |
 | ZhouTian 周天淬体 | Full | Spell + Passive | BANXIAN_TIAN.txt, EventHandlers.lua |
 | WZPLG 五转培灵功 | Full | Spell | BANXIAN_REN.txt, SpellLists.lsx |
 | WZCYG 五藏藏元功 | Full | Passive | BANXIAN_REN.txt |
 | HTBG 后天补根 | Stub | Spell | BANXIAN_REN.txt (empty SpellProperties) |
-| Shenshi 神识 | Full | Spell | SHENSHI.txt, ShenShi.lua, XSS_BANXIAN.khn |
+| Shenshi 神识 | Full | Spell | SHENSHI.txt, ShenShi.lua, XSS_BANXIAN.khn (recovers 1/turn in combat) |
 | DaoHeng 大道境界 | Full | Passive/Aura | DADAO.txt, DaoHeng.lua |
 | DaoHeng 合欢道 | Full | Passive/Spell | DADAO.txt, DaoHeng.lua (HeHuan follower) |
 | DaoHeng 力道 | Full | Passive | DADAO.txt |
@@ -37,8 +37,8 @@
 
 ### LingGen 灵根 (Spiritual Root)
 **What**: Assigns elemental spiritual roots determining cultivation affinity.
-**Chain**: Character Creation → LingGen.lua assigns random roots → `BANXIAN_LG_*` statuses applied → PassiveData boosts in BANXIAN_REN.txt activate based on root type
-**Access**: Automatic on character creation; companions get predefined roots via `Variables.Constants.CompanionLingGen`
+**Chain**: Character Creation → LingGen.lua assigns random roots → `BANXIAN_LG_*` statuses applied → PassiveData boosts in BANXIAN_REN.txt activate based on root type. 夺灵 (DuoLing) spell steals half of target's max LingGen + 1/3 TZ, shows overhead display via client-server net message.
+**Access**: Automatic on character creation; companions auto-activate via `CharacterJoinedParty` listener using predefined roots in `Variables.Constants.CompanionLingGen`. Tier thresholds: 凡25/天100/仙300/圣1000.
 **Completeness**: Full — 5 base elements (金木水火土) + 8 composite TianLingGen + Xian/Sheng tiers for all 13 types
 **Notes**: `math.random` calls use integer args (fixed from float bug). Root assignment uses weighted probability in XiuLian.lua.
 

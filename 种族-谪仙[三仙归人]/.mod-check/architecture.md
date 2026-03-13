@@ -1,5 +1,5 @@
 # Architecture — 种族·谪仙「三仙归人」
-<!-- Last updated: 2026-03-12 -->
+<!-- Last updated: 2026-03-13 -->
 
 ## Mod Identity
 - **Mod folder**: `XSS_BANXIAN`
@@ -36,6 +36,7 @@
 | File | Purpose |
 |---|---|
 | `BootstrapServer.lua` | Entry point; initializes PersistentVars |
+| `BootstrapClient.lua` | Client-side: receives net messages for dynamic overhead text |
 | `Server/Main.lua` | Requires all modules, calls Init() |
 | `Server/Modules/Variables.lua` | Constants, tables, config data |
 | `Server/Modules/EventHandlers.lua` | Osiris event registrations and dispatchers |
