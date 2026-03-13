@@ -106,10 +106,11 @@ end
 
 --敌人修为增加：长休
 function Difficulty.IncreaseDH.LongRest()
+    local deadKeys = {}
     for key, Object in pairs(PersistentVars) do
         if string.find(key,'BANXIANLIST_NO_') and Osi.IsPlayer(Object) == 0 then
             if Object ~= nil and Osi.IsDead(Object) == 1 then
-                PersistentVars[key] = nil  -- 清除已死亡的NPC记录，防止列表无限增长
+                table.insert(deadKeys, key)
             elseif Object ~= nil and Osi.IsDead(Object) == 0 then
                 local Level = Osi.GetLevel(Object)
                 local IsBoss = Osi.IsBoss(Object)
@@ -143,6 +144,9 @@ function Difficulty.IncreaseDH.LongRest()
 
             end
         end
+    end
+    for _, key in ipairs(deadKeys) do
+        PersistentVars[key] = nil
     end
 end
 
