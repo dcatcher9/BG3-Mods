@@ -4,7 +4,6 @@ local LingGen = require("Server.Modules.Systems.LingGen")
 local Utils = require("Server.Modules.Utils")
 local Variables = require("Server.Modules.Variables")
 
-local ScanDisplayQueue = 0
 local SHENSHI_RESOURCE_UUID = '0032115b-77c3-43c8-9385-630e657b2fcc'
 local SHENSHI_DC_MAX = 30
 
@@ -73,7 +72,7 @@ function ShenShi.OpenMessage(Object, Causee)
 
 end
 
---事件·洞观扫描目标
+--事件·洞观扫描目标（收集结果，延迟合并显示）
 function ShenShi.ScanTarget(Object, Causee)
     local JingJieNames = {'练气','筑基','结丹','元婴','化神','炼虚','合体','大乘','渡劫','真仙'}
 
@@ -104,20 +103,25 @@ function ShenShi.ScanTarget(Object, Causee)
         end
     end
 
-    -- Build overhead message
-    local overhead = jjName .. ' · ' .. lgText
-    if zzText ~= '' then overhead = overhead .. ' ' .. zzText end
-    if daoName then overhead = overhead .. ' · ' .. daoName end
+    -- Build scan line for this target
+    local nameHandle = Osi.GetDisplayName(Object) or ''
+    local resolvedName = Ext.Loca.GetTranslatedString(nameHandle) or nameHandle
+    if resolvedName == '' then resolvedName = '???' end
+    local line = resolvedName .. ': ' .. jjName .. ' · ' .. lgText
+    if zzText ~= '' then line = line .. ' ' .. zzText end
+    if daoName then line = line .. ' · ' .. daoName end
 
-    -- 更新loca（服务端+客户端），使用已有的XML handle
+    _P('[ShenShi.ScanTarget] ' .. line) --DEBUG
+
+    -- 更新loca用于头顶显示
     local handle = 'stringsofmodmadebyxss20250312sc_disp'
-    Ext.Loca.UpdateTranslatedString(handle, overhead)
+    Ext.Loca.UpdateTranslatedString(handle, line)
     Ext.Net.BroadcastMessage('BanXian_OverheadText', Ext.Json.Stringify({
         handle = handle,
-        text = overhead
+        text = line
     }))
 
-    -- 应用预定义状态（OverheadOnTurn显示每回合头顶文字）
+    -- 应用头顶显示状态
     Osi.ApplyStatus(Object, 'BANXIAN_SCAN_DISPLAY', 5 * 6, 1, Object)
 end
 
