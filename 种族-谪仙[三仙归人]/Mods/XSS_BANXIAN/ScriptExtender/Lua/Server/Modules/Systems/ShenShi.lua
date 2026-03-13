@@ -75,11 +75,14 @@ function ShenShi.ScanTarget(Object, Causee)
     if zzText ~= '' then overhead = overhead .. ' ' .. zzText end
     if daoName then overhead = overhead .. ' · ' .. daoName end
 
-    -- Send overhead text to client, then apply status with staggered timing
+    -- Update loca on both server and client, then apply display status
     ScanDisplayQueue = ScanDisplayQueue + 1
     local delay = (ScanDisplayQueue - 1) * 200
     local target = Object
     Ext.Timer.WaitFor(delay, function()
+        -- Server-side loca update (so server resolves DisplayName correctly)
+        Ext.Loca.UpdateTranslatedString('stringsofmodmadebyxss20250312sc_disp', overhead)
+        -- Client-side loca update (so client renders correctly)
         Ext.Net.BroadcastMessage('BanXian_OverheadText', Ext.Json.Stringify({
             handle = 'stringsofmodmadebyxss20250312sc_disp',
             text = overhead

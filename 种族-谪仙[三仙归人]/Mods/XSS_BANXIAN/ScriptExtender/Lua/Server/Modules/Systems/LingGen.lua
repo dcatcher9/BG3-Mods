@@ -16,7 +16,81 @@ function LingGen.Init()
 
 end
 
--- 事件·角色入队自动觉醒灵根
+-- 完整觉醒：灵根+大道+道行+境界（供入队和硬核模式共用）
+-- DH_DAY_override: 可选，指定道行天数；nil 则按等级随机计算
+function LingGen.AwakeAll(Object, DH_DAY_override)
+    -- 觉醒灵根
+    LingGen.Add_First(Object)
+
+    -- 分配大道（按种族标签）
+    local Race_DaDao = Variables.Constants.Difficulty.Race_DaDao
+    local DaDao_table = {}
+    for _, DDtable in ipairs(Race_DaDao) do
+        if Osi.IsTagged(Object, DDtable.tag) == 1 then
+            for _, entry in pairs(DDtable.DaDao_table) do
+                table.insert(DaDao_table, entry)
+            end
+        end
+    end
+    if #DaDao_table > 0 then
+        local Name = DaDao_table[math.random(#DaDao_table)]
+        local DaDao = Utils.Get.DaDaoPassive(Name)
+        if DaDao then
+            Utils.AddPassive_Safe(Object, DaDao)
+        end
+    end
+
+    -- 添加道行
+    local Level = Osi.GetLevel(Object) or 1
+    local DH_DAY = DH_DAY_override or (math.random(1, 4) * Level + (PersistentVars['GAME_DAYS'] or 1))
+    Osi.ApplyStatus(Object, 'BANXIAN_DH_DAY', DH_DAY * 6, 1, Object)
+
+    -- 刷新大道增益
+    Utils.DaDao.Li(Object)
+    Utils.DaDao.Hehuan(Object)
+
+    -- 境界增益（按等级）
+    if Level >= 5 and Level < 9 then
+        Utils.AddPassive_Safe(Object, 'ExtraAttack_BanXian')
+    elseif Level >= 9 and Level < 13 then
+        Utils.AddPassive_Safe(Object, 'ExtraAttack_2_BanXian')
+        Utils.AddPassive_Safe(Object, 'BANXIAN_JinDan')
+        Utils.AddPassive_Safe(Object, 'BANXIAN_JinDanBoosts')
+    elseif Level >= 13 and Level < 21 then
+        Utils.AddPassive_Safe(Object, 'ExtraAttack_3_BanXian')
+        Utils.AddPassive_Safe(Object, 'BANXIAN_YuanYing')
+        Utils.AddPassive_Safe(Object, 'BANXIAN_YuanYingBoosts')
+    elseif Level >= 21 and Level < 41 then --化神
+        Utils.AddPassive_Safe(Object, 'ExtraAttack_4_BanXian')
+        Utils.AddPassive_Safe(Object, 'BANXIAN_HuaShen')
+        Utils.AddPassive_Safe(Object, 'BANXIAN_HuaShenBoosts')
+    elseif Level >= 41 and Level < 61 then --炼虚
+        Utils.AddPassive_Safe(Object, 'ExtraAttack_5_BanXian')
+        Utils.AddPassive_Safe(Object, 'BANXIAN_LianXu')
+        Utils.AddPassive_Safe(Object, 'BANXIAN_LianXuBoosts')
+    elseif Level >= 61 and Level < 81 then --合体
+        Utils.AddPassive_Safe(Object, 'ExtraAttack_6_BanXian')
+        Utils.AddPassive_Safe(Object, 'BANXIAN_HeTi')
+        Utils.AddPassive_Safe(Object, 'BANXIAN_HeTiBoosts')
+    elseif Level >= 81 and Level < 99 then --大乘
+        Utils.AddPassive_Safe(Object, 'ExtraAttack_7_BanXian')
+        Utils.AddPassive_Safe(Object, 'BANXIAN_DaCheng')
+        Utils.AddPassive_Safe(Object, 'BANXIAN_DaChengBoosts')
+    elseif Level == 99 then --渡劫
+        Utils.AddPassive_Safe(Object, 'ExtraAttack_8_BanXian')
+        Utils.AddPassive_Safe(Object, 'BANXIAN_DuJie')
+        Utils.AddPassive_Safe(Object, 'BANXIAN_DuJieBoosts')
+    elseif Level >= 100 then --真仙
+        Utils.AddPassive_Safe(Object, 'ExtraAttack_9_BanXian')
+        Utils.AddPassive_Safe(Object, 'BANXIAN_ZhenXian')
+        Utils.AddPassive_Safe(Object, 'BANXIAN_ZhenXianBoosts')
+    end
+
+    -- 加入谪仙列表（长休时会刷新增益）
+    Utils.BanXianList_AddtoList(Object)
+end
+
+-- 事件·角色入队自动觉醒
 function LingGen.OnCharacterJoinedParty(Character)
     local hasAwakened = Osi.HasPassive(Character, 'BanXian_LingGen')      == 1
                      or Osi.HasPassive(Character, 'BanXian_LingGen_NIL')  == 1
@@ -26,7 +100,7 @@ function LingGen.OnCharacterJoinedParty(Character)
                      or Osi.HasPassive(Character, 'BanXian_LingGen_T2')   == 1
                      or Osi.HasPassive(Character, 'BanXian_LingGen_T3')   == 1
     if not hasAwakened then
-        LingGen.Add_First(Character)
+        LingGen.AwakeAll(Character)
     end
 end
 
@@ -340,7 +414,8 @@ function LingGen.Take_Devastatingly(caster, target)
     local msg = '夺灵：' .. maxName .. '灵根 ×' .. steal
     if stealTZ > 0 then msg = msg .. '  资质 ×' .. stealTZ end
 
-    -- Overhead display on caster (send to client first, then apply status)
+    -- Overhead display on caster (update loca on both server and client)
+    Ext.Loca.UpdateTranslatedString('stringsofmodmadebyxss20250312dl_disp', msg)
     Ext.Net.BroadcastMessage('BanXian_OverheadText', Ext.Json.Stringify({
         handle = 'stringsofmodmadebyxss20250312dl_disp',
         text = msg

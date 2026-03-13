@@ -43,65 +43,12 @@ end
 --启动敌人修仙
 function Difficulty.HardCore.Start(Object)
     local k = 1 --难度系数
-    local Race_DaDao = Variables.Constants.Difficulty.Race_DaDao
-
-    --觉醒灵根
-    LingGen.Add_First(Object)
-
-    --根据种族偏向获取大道表
-    local DaDao_table = {}
-    for _, DDtable in ipairs(Race_DaDao) do
-        local tag = DDtable.tag
-        if Osi.IsTagged(Object, tag) == 1 then
-            for i, entry in pairs(DDtable.DaDao_table) do
-                table.insert(DaDao_table,entry)
-            end
-        end
-    end
-
-    --开始分配大道
-    if #DaDao_table > 0 then
-        local Name = DaDao_table[math.random(#DaDao_table)]
-        local DaDao = Utils.Get.DaDaoPassive(Name)
-        Utils.AddPassive_Safe(Object, DaDao) --添加大道
-    end
-
-    --添加道行
     local Level = Osi.GetLevel(Object) or 1
     local IsBoss = Osi.IsBoss(Object)
     local Days = PersistentVars['GAME_DAYS'] or 1
-    local DH_DAY = Difficulty.HardCore.Calculate_DaoHeng(k,Level,IsBoss,Days)
-    Osi.ApplyStatus(Object, 'BANXIAN_DH_DAY', DH_DAY*6, 1, Object)
+    local DH_DAY = Difficulty.HardCore.Calculate_DaoHeng(k, Level, IsBoss, Days)
 
-    --刷新大道增益
-    Utils.DaDao.Li(Object)
-    Utils.DaDao.Hehuan(Object)
-
-    --添加境界增益
-    if Level >= 5 and Level < 9 then --筑基
-        Utils.AddPassive_Safe(Object,'ExtraAttack_BanXian')
-    elseif Level >= 9 and Level < 13 then --结丹
-        Utils.AddPassive_Safe(Object,'ExtraAttack_2_BanXian')
-        Utils.AddPassive_Safe(Object,'BANXIAN_JinDan')
-        Utils.AddPassive_Safe(Object,'BANXIAN_JinDanBoosts')
-    elseif Level >= 13 and Level < 21 then --元婴
-        Utils.AddPassive_Safe(Object,'ExtraAttack_3_BanXian')
-        Utils.AddPassive_Safe(Object,'BANXIAN_YuanYing')
-        Utils.AddPassive_Safe(Object,'BANXIAN_YuanYingBoosts')
-    elseif Level >= 21 and Level < 41 then --化神
-        Utils.AddPassive_Safe(Object,'ExtraAttack_4_BanXian')
-    elseif Level >= 41 and Level < 61 then --炼虚
-        Utils.AddPassive_Safe(Object,'ExtraAttack_5_BanXian')
-    elseif Level >= 61 and Level < 81 then --合体
-        Utils.AddPassive_Safe(Object,'ExtraAttack_6_BanXian')
-    elseif Level >= 81 and Level < 99 then --大乘
-        Utils.AddPassive_Safe(Object,'ExtraAttack_7_BanXian')
-    elseif Level == 99 then --渡劫
-        Utils.AddPassive_Safe(Object,'ExtraAttack_8_BanXian')
-    elseif Level >= 100 then --真仙
-        Utils.AddPassive_Safe(Object,'ExtraAttack_9_BanXian')
-    end
-
+    LingGen.AwakeAll(Object, DH_DAY)
 end
 
 --敌人修为增加：长休
