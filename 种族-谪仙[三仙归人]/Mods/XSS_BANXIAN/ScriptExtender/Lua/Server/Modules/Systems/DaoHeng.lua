@@ -202,8 +202,11 @@ function DaoHeng.HeHuan.FollowerProtect(Defender, Attacker, DamageType, DamageAm
     for i = 1, count, 1 do
         if PersistentVars['[HEHUAN_FOLLOWER]'..Leader..'_'..i] ~= nil then
             Osi.ApplyDamage(PersistentVars['[HEHUAN_FOLLOWER]'..Leader..'_'..i], DamageAmount, DamageType, Attacker)
-            local newHP = math.min(Osi.GetHitpoints(Defender) + DamageAmount, Osi.GetMaxHitpoints(Defender))
-            Osi.SetHitpoints(Defender, newHP)
+            local hp = Osi.GetHitpoints(Defender)
+            local maxhp = Osi.GetMaxHitpoints(Defender)
+            if hp and maxhp then
+                Osi.SetHitpoints(Defender, math.min(hp + DamageAmount, maxhp))
+            end
             break
         end
     end
@@ -336,7 +339,7 @@ function DaoHeng.OnUsingSpellOnTarget_after(Caster, Target, Name)
     if (Name == 'Succubus_TakingHeart' or Name == 'Succubus_SpiderKiss' or Name == 'Succubus_SpiderKiss_Extra' or Name == 'Target_DrainingKiss_HEHUAN') and Osi.HasActiveStatus(Target, 'BanXian_DH_HEHUAN_ALREADYTAKE') == 0 then
         if Osi.HasPassive(Caster, 'BanXian_DH_HeHuan') == 1 then
             DaoHeng.HeHuan.TakeDH(Caster,Target)
-            local HP = Osi.GetHitpoints(Caster)
+            local HP = Osi.GetHitpoints(Caster) or 1
             Osi.ApplyStatus(Target, 'BanXian_DH_HEHUAN_EXHOUSTED', HP*6, 1, Caster)
             Osi.ApplyStatus(Target, 'BanXian_DH_HEHUAN_ALREADYTAKE', -1, 1, Caster)
         end

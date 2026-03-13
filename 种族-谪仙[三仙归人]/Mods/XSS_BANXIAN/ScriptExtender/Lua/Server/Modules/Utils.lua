@@ -208,10 +208,12 @@ end
 
 --取消角色更改·装备
 function Utils.CharacterChangeCancel.Equipable(Object)
-    if Ext.Entity.Get(Object) ~= nil then
-        Ext.Entity.Get(Object).ServerCharacter.Template.DisableEquipping = PersistentVars['HEHUAN_FOLLOWER_DisableEquipping_'..Object] or false
-        Ext.Entity.Get(Object).ServerCharacter.Template.IsEquipmentLootable = PersistentVars['HEHUAN_FOLLOWER_IsEquipmentLootable_'..Object] or false
-        Ext.Entity.Get(Object).ServerCharacter.Template.IsLootable = PersistentVars['HEHUAN_FOLLOWER_IsLootable_'..Object] or false
+    local entity = Ext.Entity.Get(Object)
+    if entity ~= nil then
+        local tmpl = entity.ServerCharacter.Template
+        tmpl.DisableEquipping = PersistentVars['HEHUAN_FOLLOWER_DisableEquipping_'..Object] or false
+        tmpl.IsEquipmentLootable = PersistentVars['HEHUAN_FOLLOWER_IsEquipmentLootable_'..Object] or false
+        tmpl.IsLootable = PersistentVars['HEHUAN_FOLLOWER_IsLootable_'..Object] or false
     end
 end
 
@@ -551,10 +553,9 @@ function Utils.SetStatField(stat, TYPE, value)
 end
 
 --保存炼器数据
-
---保存炼器数据
 function Utils.FaBao_LianQiSaveStats(FABAO)
     local stat = Ext.Stats.Get(FABAO)
+    if not stat then return end
     local TYPE_TABLE = Variables.Constants.FaBao.Base
     -- 维护炼器列表索引，用于游戏加载时精准恢复（避免全量扫描所有武器/防具）
     if not PersistentVars[FABAO.."_IsFABAO"] then
@@ -583,6 +584,7 @@ end
 --读取炼器数据
 function Utils.FaBao_LianQiLoadStats(FABAO)
     local stat = Ext.Stats.Get(FABAO)
+    if not stat then return end
     local TYPE_TABLE = Variables.Constants.FaBao.Base
 
     if stat['ModifierList'] == 'Weapon' then
@@ -771,9 +773,10 @@ function Utils.GongFa.BaiMai.CopyPassives(Object)
       local items = {}
       local n = 1
       for _, slot in ipairs(Itemslot) do
-        if Osi.GetEquippedItem(Object, slot) ~= nil then
-            items[n] = Osi.GetEquippedItem(Object, slot)
-            Osi.Unequip(Object, Osi.GetEquippedItem(Object, slot))
+        local item = Osi.GetEquippedItem(Object, slot)
+        if item ~= nil then
+            items[n] = item
+            Osi.Unequip(Object, item)
             n = n + 1
         end
       end
