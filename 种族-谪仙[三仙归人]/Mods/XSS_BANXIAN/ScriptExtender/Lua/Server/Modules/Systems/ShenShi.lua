@@ -7,9 +7,19 @@ local Variables = require("Server.Modules.Variables")
 local SHENSHI_RESOURCE_UUID = '0032115b-77c3-43c8-9385-630e657b2fcc'
 local SHENSHI_DC_MAX = 30
 
+local removingControl = false
+local dismissingCaster = {}
+
+-- 清除掌日控制记录
+local function ClearControlVars(caster, target)
+    PersistentVars['ShenShi_Control_Caster_' .. caster] = nil
+    PersistentVars['ShenShi_Control_Target_' .. target] = nil
+end
+
 -- 初始化神识系统
 function ShenShi.Init()
     Ext.Osiris.RegisterListener("StatusApplied", 4, "after", ShenShi.OnStatusApplied_after)
+    Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", ShenShi.OnStatusRemoved_after)
 
     -- 创建动态SpellSaveDC状态（神识点数 → 法术DC加值）
     for i = 1, SHENSHI_DC_MAX do
@@ -141,6 +151,56 @@ function ShenShi.OnStatusApplied_after(Object, Status, Causee)
         ShenShi.ScanTarget(Object, Causee)
     end
 
+    -- 掌日：记录施法者↔傀儡配对 / 再次施放则解除
+    if Status == "BANXIAN_SHENSHICONTROL_TARGET" then
+        local existingCaster = PersistentVars['ShenShi_Control_Target_' .. Object]
+        if existingCaster == Causee then
+            -- 同一施法者对同一目标再次施放 → 解除控制
+            dismissingCaster[Causee] = true
+            removingControl = true
+            Osi.RemoveStatus(Object, 'BANXIAN_SHENSHICONTROL_TARGET')
+            Osi.RemoveStatus(Causee, 'BANXIAN_SHENSHICONTROL_CASTER')
+            removingControl = false
+            ClearControlVars(Causee, Object)
+            Ext.Timer.WaitFor(100, function() dismissingCaster[Causee] = nil end)
+            return
+        end
+        -- 新控制
+        PersistentVars['ShenShi_Control_Caster_' .. Causee] = Object
+        PersistentVars['ShenShi_Control_Target_' .. Object] = Causee
+    end
+
+    -- 掌日：解除中阻止SpellSuccess重新施加施法者状态
+    if Status == "BANXIAN_SHENSHICONTROL_CASTER" and dismissingCaster[Object] then
+        Osi.RemoveStatus(Object, 'BANXIAN_SHENSHICONTROL_CASTER')
+        return
+    end
+
+end
+
+-- 掌日：状态移除时清理配对
+function ShenShi.OnStatusRemoved_after(Object, Status, Causee, StoryActionID)
+    if removingControl then return end
+
+    if Status == "BANXIAN_SHENSHICONTROL_CASTER" then
+        local controlled = PersistentVars['ShenShi_Control_Caster_' .. Object]
+        if controlled then
+            removingControl = true
+            Osi.RemoveStatus(controlled, 'BANXIAN_SHENSHICONTROL_TARGET')
+            removingControl = false
+            ClearControlVars(Object, controlled)
+        end
+    end
+
+    if Status == "BANXIAN_SHENSHICONTROL_TARGET" then
+        local caster = PersistentVars['ShenShi_Control_Target_' .. Object]
+        if caster then
+            removingControl = true
+            Osi.RemoveStatus(caster, 'BANXIAN_SHENSHICONTROL_CASTER')
+            removingControl = false
+            ClearControlVars(caster, Object)
+        end
+    end
 end
 
 return ShenShi

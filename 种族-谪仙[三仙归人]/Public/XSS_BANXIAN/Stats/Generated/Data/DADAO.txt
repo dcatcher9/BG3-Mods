@@ -71,8 +71,11 @@ new entry "BANXIAN_DH_YEAR_DISPLAY"
 type "StatusData"
 data "StatusType" "BOOST"
 using "BANXIAN_DH_YEAR"
+data "DisplayName" "stringsofmodmadebyxss20250312dh_disp;1"
+data "Icon" "Spell_Divination_TrueStrike"
 data "Boosts" ""
 data "StatusPropertyFlags" "IgnoreResting;FreezeDuration"
+data "HideOverheadUI" "0"
 
 // 每条大道的独立道行计数器 (年/天)
 new entry "BANXIAN_DH_YEAR_XIULUO"

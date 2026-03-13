@@ -420,13 +420,17 @@ function LingGen.Take_Devastatingly(caster, target)
         handle = 'stringsofmodmadebyxss20250312dl_disp',
         text = msg
     }))
-    Ext.Timer.WaitFor(50, function()
-        Osi.ApplyStatus(caster, 'BANXIAN_DUOLING_DISPLAY', 18, 1, caster)
-    end)
+    Osi.ApplyStatus(caster, 'BANXIAN_DUOLING_DISPLAY', 18, 1, caster)
 
     -- 重新检测双方灵根效果
     LingGen.ApplyAllChecks(caster)
-    LingGen.ApplyAllChecks(target)
+
+    -- 50%概率击杀目标
+    if math.random(1, 100) <= 50 then
+        Osi.Die(target, 'None', caster, 1, 1, 0.0)
+    else
+        LingGen.ApplyAllChecks(target)
+    end
 
 end
 
