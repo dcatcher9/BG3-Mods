@@ -49,9 +49,46 @@ local LingGenByName = {
     ['木'] = 'BANXIAN_LG_M',
 }
 
+-- 大道后缀映射
+local DADAO_SUFFIX = {
+    ['BanXian_DH_Tian']='TIAN', ['BanXian_DH_XiuLuo']='XIULUO',
+    ['BanXian_DH_RenJian']='RENJIAN', ['BanXian_DH_ChuSheng']='CHUSHENG',
+    ['BanXian_DH_EGui']='EGUI', ['BanXian_DH_DiYu']='DIYU',
+    ['BanXian_DH_Jian']='JIAN', ['BanXian_DH_Li']='LI',
+    ['BanXian_DH_HeHuan']='HEHUAN', ['BanXian_DH_Yi']='YI',
+}
+
 -- 获取主角UUID
 local function GetHost()
     return Osi.GetHostCharacter()
+end
+
+-- 找到角色道行最高的大道后缀（用于设置道行时同步path day）
+local function GetMaxDaoSuffix(target)
+    local maxDays, maxSuffix = -1, nil
+    for passive, suffix in pairs(DADAO_SUFFIX) do
+        if Osi.HasPassive(target, passive) == 1 then
+            local d = Osi.GetStatusTurns(target, 'BANXIAN_DH_DAY_' .. suffix) or 0
+            if d > maxDays then
+                maxDays, maxSuffix = d, suffix
+            end
+        end
+    end
+    return maxSuffix
+end
+
+-- 设置道行天数（同时更新path day + shared day + 境界）
+local function SetDaoHengDays(target, days)
+    local suffix = GetMaxDaoSuffix(target)
+    if suffix then
+        -- 设置第一个大道的path day，让UpdateSharedDay能同步
+        Osi.ApplyStatus(target, 'BANXIAN_DH_DAY_' .. suffix, days * 6, 1, target)
+        Utils.DaDao.UpdateSharedDay(target)
+    else
+        -- 无大道，直接设共享day（UpdateSharedDay会覆盖，所以不调用它）
+        Osi.ApplyStatus(target, 'BANXIAN_DH_DAY', days * 6, 1, target)
+    end
+    Utils.BanXian.JingjieBoost(target)
 end
 
 -- 打印帮助
@@ -126,16 +163,9 @@ local function ShowInfo(target)
 
     -- 大道
     local daoParts = {}
-    local SUFFIXES = {
-        ['BanXian_DH_Tian']='TIAN', ['BanXian_DH_XiuLuo']='XIULUO',
-        ['BanXian_DH_RenJian']='RENJIAN', ['BanXian_DH_ChuSheng']='CHUSHENG',
-        ['BanXian_DH_EGui']='EGUI', ['BanXian_DH_DiYu']='DIYU',
-        ['BanXian_DH_Jian']='JIAN', ['BanXian_DH_Li']='LI',
-        ['BanXian_DH_HeHuan']='HEHUAN', ['BanXian_DH_Yi']='YI',
-    }
     for ID, NAME in pairs(Variables.Constants.DaDao) do
         if Osi.HasPassive(target, ID) == 1 then
-            local suffix = SUFFIXES[ID]
+            local suffix = DADAO_SUFFIX[ID]
             local d = suffix and (Osi.GetStatusTurns(target, 'BANXIAN_DH_DAY_' .. suffix) or 0) or 0
             daoParts[#daoParts+1] = NAME .. '(' .. d .. '天)'
         end
@@ -258,18 +288,14 @@ function Debug.Init()
             if sub == 'set' then
                 local val = tonumber(args[2])
                 if not val then _P('[错误] 需要数值') return end
-                Osi.ApplyStatus(target, 'BANXIAN_DH_DAY', val * 6, 1, target)
-                Utils.DaDao.UpdateSharedDay(target)
-                Utils.BanXian.JingjieBoost(target)
+                SetDaoHengDays(target, val)
                 _P('[道行] 总道行设为 ' .. val .. ' 天')
 
             elseif sub == 'add' then
                 local val = tonumber(args[2])
                 if not val then _P('[错误] 需要数值') return end
                 local cur = Osi.GetStatusTurns(target, 'BANXIAN_DH_DAY') or 0
-                Osi.ApplyStatus(target, 'BANXIAN_DH_DAY', (cur + val) * 6, 1, target)
-                Utils.DaDao.UpdateSharedDay(target)
-                Utils.BanXian.JingjieBoost(target)
+                SetDaoHengDays(target, cur + val)
                 _P('[道行] 增加 ' .. val .. ' 天，现为 ' .. (cur + val) .. ' 天')
             else
                 _P('[错误] 未知子命令: daoheng ' .. tostring(sub))
@@ -283,11 +309,8 @@ function Debug.Init()
             end
             local threshold = JingjieThresholds[name]
             if not threshold then _P('[错误] 未知境界: ' .. name) return end
-            -- 设定为阈值+1天确保达到该境界
             local days = threshold > 0 and threshold or 1
-            Osi.ApplyStatus(target, 'BANXIAN_DH_DAY', days * 6, 1, target)
-            Utils.DaDao.UpdateSharedDay(target)
-            Utils.BanXian.JingjieBoost(target)
+            SetDaoHengDays(target, days)
             _P('[境界] 已设为 ' .. name .. ' (' .. days .. '天)')
 
         elseif cmd == 'dadao' then
@@ -323,14 +346,7 @@ function Debug.Init()
                 if not name or not val then _P('[错误] 用法: !bx dadao days <大道名> <天数>') return end
                 local passive = DaDaoByName[name]
                 if not passive then _P('[错误] 未知大道: ' .. name) return end
-                local SUFFIX_MAP = {
-                    ['BanXian_DH_Tian']='TIAN', ['BanXian_DH_XiuLuo']='XIULUO',
-                    ['BanXian_DH_RenJian']='RENJIAN', ['BanXian_DH_ChuSheng']='CHUSHENG',
-                    ['BanXian_DH_EGui']='EGUI', ['BanXian_DH_DiYu']='DIYU',
-                    ['BanXian_DH_Jian']='JIAN', ['BanXian_DH_Li']='LI',
-                    ['BanXian_DH_HeHuan']='HEHUAN', ['BanXian_DH_Yi']='YI',
-                }
-                local suffix = SUFFIX_MAP[passive]
+                local suffix = DADAO_SUFFIX[passive]
                 if not suffix then _P('[错误] 无法找到大道后缀') return end
                 Osi.ApplyStatus(target, 'BANXIAN_DH_DAY_' .. suffix, val * 6, 1, target)
                 Utils.DaDao.UpdateSharedDay(target)
