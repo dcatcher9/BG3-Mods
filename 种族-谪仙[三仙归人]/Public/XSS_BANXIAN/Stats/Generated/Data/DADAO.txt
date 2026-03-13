@@ -11,7 +11,7 @@ data "StackId" "BANXIAN_DAOXIN"
 data "StackType" "Overwrite"
 data "Passives" "BanXian_DH_DaoXin;BanXian_DH_Base_S;BanXian_DH_Base_L;BanXian_DH_Base_L_ZT_S;BanXian_DH_Base_L_ZT_L"
 data "TickType" "EndTurn"
-data "TickFunctors" "IF(not Combat()):RestoreResource(ShenshiPoint,1,0)"
+data "TickFunctors" "RestoreResource(ShenshiPoint,1,0)"
 data "StatusPropertyFlags" "IgnoreResting;ApplyToDead;DisableOverhead;DisablePortraitIndicator;DisableCombatlog"
 
 //仙人模式

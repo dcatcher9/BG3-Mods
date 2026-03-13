@@ -11,6 +11,23 @@ function LingGen.Init()
     -- 注册事件监听灵根相关洗点
     Ext.Osiris.RegisterListener("RespecCompleted", 1, "after", LingGen.OnRespecCompleted_after)
 
+    -- 注册入队事件，自动觉醒灵根
+    Ext.Osiris.RegisterListener("CharacterJoinedParty", 1, "after", LingGen.OnCharacterJoinedParty)
+
+end
+
+-- 事件·角色入队自动觉醒灵根
+function LingGen.OnCharacterJoinedParty(Character)
+    local hasAwakened = Osi.HasPassive(Character, 'BanXian_LingGen')      == 1
+                     or Osi.HasPassive(Character, 'BanXian_LingGen_NIL')  == 1
+                     or Osi.HasPassive(Character, 'BanXian_LingGen_Blank') == 1
+                     or Osi.HasPassive(Character, 'BanXian_LingGen_T0')   == 1
+                     or Osi.HasPassive(Character, 'BanXian_LingGen_T1')   == 1
+                     or Osi.HasPassive(Character, 'BanXian_LingGen_T2')   == 1
+                     or Osi.HasPassive(Character, 'BanXian_LingGen_T3')   == 1
+    if not hasAwakened then
+        LingGen.Add_First(Character)
+    end
 end
 
 --灵根层级检测（应用或移除TIAN/XIAN/SHENG三个高阶层级状态）
@@ -323,9 +340,14 @@ function LingGen.Take_Devastatingly(caster, target)
     local msg = '夺灵：' .. maxName .. '灵根 ×' .. steal
     if stealTZ > 0 then msg = msg .. '  资质 ×' .. stealTZ end
 
-    -- Overhead display on caster
-    Ext.Loca.UpdateTranslatedString('stringsofmodmadebyxss20250312dl_disp', msg)
-    Osi.ApplyStatus(caster, 'BANXIAN_DUOLING_DISPLAY', 6, 1, caster)
+    -- Overhead display on caster (send to client first, then apply status)
+    Ext.Net.BroadcastMessage('BanXian_OverheadText', Ext.Json.Stringify({
+        handle = 'stringsofmodmadebyxss20250312dl_disp',
+        text = msg
+    }))
+    Ext.Timer.WaitFor(50, function()
+        Osi.ApplyStatus(caster, 'BANXIAN_DUOLING_DISPLAY', 18, 1, caster)
+    end)
 
     -- 重新检测双方灵根效果
     LingGen.ApplyAllChecks(caster)

@@ -75,14 +75,19 @@ function ShenShi.ScanTarget(Object, Causee)
     if zzText ~= '' then overhead = overhead .. ' ' .. zzText end
     if daoName then overhead = overhead .. ' · ' .. daoName end
 
-    -- Stagger overhead display to avoid loca handle collision across multiple targets
+    -- Send overhead text to client, then apply status with staggered timing
     ScanDisplayQueue = ScanDisplayQueue + 1
-    local delay = (ScanDisplayQueue - 1) * 100
+    local delay = (ScanDisplayQueue - 1) * 200
     local target = Object
     Ext.Timer.WaitFor(delay, function()
-        Ext.Loca.UpdateTranslatedString('stringsofmodmadebyxss20250312sc_disp', overhead)
-        Osi.ApplyStatus(target, 'BANXIAN_SCAN_DISPLAY', 30 * 6, 1, target)
-        ScanDisplayQueue = math.max(0, ScanDisplayQueue - 1)
+        Ext.Net.BroadcastMessage('BanXian_OverheadText', Ext.Json.Stringify({
+            handle = 'stringsofmodmadebyxss20250312sc_disp',
+            text = overhead
+        }))
+        Ext.Timer.WaitFor(50, function()
+            Osi.ApplyStatus(target, 'BANXIAN_SCAN_DISPLAY', 30 * 6, 1, target)
+            ScanDisplayQueue = math.max(0, ScanDisplayQueue - 1)
+        end)
     end)
 end
 
