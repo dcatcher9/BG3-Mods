@@ -48,3 +48,9 @@
 - **LingGen.lua hardcoded UUID**: Line 154 has hardcoded UUID with inline comment pointing to Tags/. Acceptable with comment.
 
 - **FaBao.LianHua.GetThreshold double Osi.GetStatString call**: Lines 189-190 call `Osi.GetStatString(Object)` twice (once for truthiness check, once for value). Minor redundancy, not a bug.
+
+- **Dismiss-on-recast pattern for 掌日 Control**: When SHENSHICONTROL_TARGET is re-applied by same caster on same target, Lua detects the existing pair via PersistentVars and removes both statuses. A `dismissingCaster` table with 100ms timer prevents SpellSuccess from re-applying SHENSHICONTROL_CASTER. StatusRemoved cleanup handles death/dispel with `removingControl` reentry guard.
+
+- **HideOverheadUI without AC(0)**: `Boosts ""` + `HideOverheadUI "0"` is sufficient for overhead display. `AC(0)` is NOT required — confirmed in-game 2026-03-13.
+
+- **Control statuses are permanent by design**: SHENSHICONTROL_TARGET has duration -1; SHENSHICONTROL_CASTER uses FreezeDuration + MultiplyEffectsByDuration to encode ShenshiPoint cost as duration. No concentration, no resource drain over time — only ended by re-cast dismiss, death, or dispel.

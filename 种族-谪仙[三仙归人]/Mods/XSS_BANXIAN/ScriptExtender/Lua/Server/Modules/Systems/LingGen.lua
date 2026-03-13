@@ -1,4 +1,5 @@
 local LingGen = {}
+---@diagnostic disable-next-line: unused-local
 local Variables = require("Server.Modules.Variables")
 local Utils = require("Server.Modules.Utils")
 
@@ -394,8 +395,8 @@ function LingGen.Take_Devastatingly(caster, target)
 
     if not maxLG or maxVal <= 0 then return end
 
-    -- 夺取最大灵根的一半
-    local steal = math.floor(maxVal / 2)
+    -- 夺取最大灵根的一半（至少1）；若灵根归零则击杀
+    local steal = math.max(1, math.floor(maxVal / 2))
     local remain = maxVal - steal
     local casterVal = Osi.GetStatusTurns(caster, maxLG) or 0
 
@@ -425,8 +426,8 @@ function LingGen.Take_Devastatingly(caster, target)
     -- 重新检测双方灵根效果
     LingGen.ApplyAllChecks(caster)
 
-    -- 50%概率击杀目标
-    if math.random(1, 100) <= 50 then
+    -- 灵根归零则必杀，否则50%概率击杀
+    if remain <= 0 or math.random(1, 100) <= 50 then
         Osi.Die(target, 'None', caster, 1, 1, 0.0)
     else
         LingGen.ApplyAllChecks(target)

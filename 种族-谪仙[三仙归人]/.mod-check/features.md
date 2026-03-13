@@ -11,6 +11,7 @@
 | WZCYG 五藏藏元功 | Full | Passive | BANXIAN_REN.txt |
 | HTBG 后天补根 | Stub | Spell | BANXIAN_REN.txt (empty SpellProperties) |
 | Shenshi 神识 | Full | Spell | SHENSHI.txt, ShenShi.lua, XSS_BANXIAN.khn (recovers 1/turn in combat) |
+| Shenshi 掌日 Control | Full | Spell | SHENSHI.txt, ShenShi.lua (permanent mind control, dismiss by re-cast) |
 | DaoHeng 大道境界 | Full | Passive/Aura | DADAO.txt, DaoHeng.lua |
 | DaoHeng 合欢道 | Full | Passive/Spell | DADAO.txt, DaoHeng.lua (HeHuan follower) |
 | DaoHeng 力道 | Full | Passive | DADAO.txt |
@@ -108,6 +109,13 @@
 **Chain**: ExtraAttack_BanXian through 9_BanXian PassiveData → queue statuses → KHN priority checking (HasHigherPriorityExtraAttackQueued)
 **Access**: Passive/Aura (scales with realm)
 **Completeness**: Full
+
+### Shenshi 掌日 Control (Mind Control)
+**What**: Permanent mind control spell targeting Constructs, Undead, or Dead creatures.
+**Chain**: BANXIAN_Shenshi_Control spell → KHN `BanXianShenshiControlCheck` (ShenshiPoints ≥ Target.Level × 2) → SpellSuccess applies SHENSHICONTROL_TARGET (permanent, -1 duration) + SHENSHICONTROL_CASTER (FreezeDuration, duration = Target.Level for cost encoding) → ShenShi.lua tracks pairs in PersistentVars → re-cast on same target by same caster dismisses both → StatusRemoved cleanup handles death/dispel
+**Access**: Spell (requires ShenshiPoint resource)
+**Completeness**: Full
+**Notes**: No concentration or resource drain. Cost is one-time ShenshiPoint reduction via MultiplyEffectsByDuration on caster status. Dismiss by re-casting on controlled target. StatusRemoved has reentry guard (`removingControl`) to prevent infinite loops.
 
 ### Hardcore 仙人模式 (Immortal Mode)
 **What**: NPCs get cultivation awakening on combat start; DaoHeng increases on long rest.
