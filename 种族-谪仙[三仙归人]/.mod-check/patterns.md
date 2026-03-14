@@ -54,3 +54,7 @@
 - **HideOverheadUI without AC(0)**: `Boosts ""` + `HideOverheadUI "0"` is sufficient for overhead display. `AC(0)` is NOT required — confirmed in-game 2026-03-13.
 
 - **Control statuses are permanent by design**: SHENSHICONTROL_TARGET has duration -1; SHENSHICONTROL_CASTER uses FreezeDuration + MultiplyEffectsByDuration to encode ShenshiPoint cost as duration. No concentration, no resource drain over time — only ended by re-cast dismiss, death, or dispel.
+
+- **Empty tooltip passives**: YINGUO_PASSIVE, WUXING_PASSIVE, FAXIANG_AURA have no functors — they exist solely as UI anchors (DisplayName/Description show in the character passive list). Removing them would remove the tooltip from the player.
+
+- **Shared law stance base status**: `BANXIAN_JJ5_FAZE_BASE` provides shared TickFunctors (Shenshi depletion + auto-deactivation), StackId/StackType, and StatusPropertyFlags for all 3 law stances. Individual stances `using` it and override only Icon/DisplayName/Description/Passives.

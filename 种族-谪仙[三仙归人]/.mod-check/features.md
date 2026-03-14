@@ -123,6 +123,20 @@
 **Access**: Script-only (toggled by mode)
 **Completeness**: Full
 
+### JingJie 境界能力 (Tier 5-10 Realm Abilities)
+**What**: Six new gameplay systems unlocked at cultivation tiers 5-10, each introducing unique interactive mechanics.
+**Chain**: JingjieBoost() in Utils.lua → JingJie.ApplyTierPassives() adds passives when tier threshold reached → BANXIAN_JINGJIE.txt stat entries + JingJie.lua event handlers
+**Access**: Automatic passive grant on tier-up + active spells/toggles
+**Completeness**: Full — 72 stat entries, 79 localization strings, 1 Lua module
+**Tiers**:
+- **T5 化神 天地法则**: 3 law stances (因果/生灭/五行) — toggle-exclusive, cost 1 Shenshi/turn, auto-deactivate on empty
+- **T6 炼虚 虚影分身**: Summon shadow clone (8 Shenshi), shares Ki pool, owner gets all-resist, clone death = backlash
+- **T7 合体 法相天地**: Dharma Body toggle (8 Ki + 4/turn), Huge size, +3m melee, +2d8 Force on hit, 6m fear aura
+- **T8 大乘 领域**: 12m domain (16 Shenshi), enemy debuff/ally buff, auto-resonates with highest Dao path
+- **T9 渡劫 天劫试炼**: 劫气 stacking (max 9, +1d4 dmg each), 引劫 gamble (50% max HP self-damage, huge reward if survive)
+- **T10 真仙 仙法**: Condition immunity, +3 all stats, 仙体不灭 (auto-revive 1/LR), 斩仙一剑 (10d12 Force), 袖里乾坤 (banish+5d10/turn), 万法归宗 (absorb spell→Ki), 神足通 (free 30m teleport)
+**Key Files**: BANXIAN_JINGJIE.txt, JingJie.lua, XSS_BANXIAN.khn (DC helpers)
+
 ## Feature Gaps
 - **HTBG 后天补根**: Stub — 5 sub-spells with empty SpellProperties, no Lua handler. Design intent unknown.
 - **FSZMG 梵圣真魔功**: Partial — Levels 1-9 implemented, Level9 capstone fixed, DevilForms ObjectSize capped. Incomplete ability descriptions.

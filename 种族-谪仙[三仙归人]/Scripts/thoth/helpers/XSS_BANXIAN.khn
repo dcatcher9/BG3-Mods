@@ -260,53 +260,35 @@ local LG_YI_XIAN_THRESHOLD  = 600   -- 仙异灵根 (× 2)
 local LG_SHENG_THRESHOLD    = 1000  -- 圣灵根
 local LG_YI_SHENG_THRESHOLD = 2000  -- 圣异灵根 (× 2)
 
--- 冰灵根: 水+土 均达到阈值(>=LG_YI_THRESHOLD)
-function YiLingGen_Bing(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_S', entity) >= LG_YI_THRESHOLD and GetStatusDuration('BANXIAN_LG_T', entity) >= LG_YI_THRESHOLD)
+-- 异灵根通用检测：所有指定元素均达到阈值
+local _YI_ELEMENTS = {
+    Bing   = {'BANXIAN_LG_S', 'BANXIAN_LG_T'},           -- 水+土
+    Lei    = {'BANXIAN_LG_J', 'BANXIAN_LG_S'},           -- 金+水
+    Feng   = {'BANXIAN_LG_T', 'BANXIAN_LG_M'},           -- 土+木
+    Xue    = {'BANXIAN_LG_M', 'BANXIAN_LG_H'},           -- 木+火
+    Guang  = {'BANXIAN_LG_H', 'BANXIAN_LG_M', 'BANXIAN_LG_T'}, -- 火+木+土
+    An     = {'BANXIAN_LG_S', 'BANXIAN_LG_J', 'BANXIAN_LG_M'}, -- 水+金+木
+    Du     = {'BANXIAN_LG_M', 'BANXIAN_LG_H', 'BANXIAN_LG_S'}, -- 木+火+水
+    HunDun = {'BANXIAN_LG_H', 'BANXIAN_LG_T', 'BANXIAN_LG_J', 'BANXIAN_LG_S', 'BANXIAN_LG_M'}, -- 五行
+}
+
+local function _CheckComposite(elements, threshold, entity)
+    entity = entity or context.Source
+    for _, status in ipairs(elements) do
+        if GetStatusDuration(status, entity) < threshold then return ConditionResult(false) end
+    end
+    return ConditionResult(true)
 end
 
--- 雷灵根: 金+水 均达到阈值
-function YiLingGen_Lei(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_J', entity) >= LG_YI_THRESHOLD and GetStatusDuration('BANXIAN_LG_S', entity) >= LG_YI_THRESHOLD)
-end
-
--- 风灵根: 土+木 均达到阈值
-function YiLingGen_Feng(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_T', entity) >= LG_YI_THRESHOLD and GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_THRESHOLD)
-end
-
--- 血灵根: 木+火 均达到阈值
-function YiLingGen_Xue(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_THRESHOLD and GetStatusDuration('BANXIAN_LG_H', entity) >= LG_YI_THRESHOLD)
-end
-
--- 光灵根: 火+木+土 均达到阈值
-function YiLingGen_Guang(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_H', entity) >= LG_YI_THRESHOLD and GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_THRESHOLD and GetStatusDuration('BANXIAN_LG_T', entity) >= LG_YI_THRESHOLD)
-end
-
--- 暗灵根: 水+金+木 均达到阈值
-function YiLingGen_An(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_S', entity) >= LG_YI_THRESHOLD and GetStatusDuration('BANXIAN_LG_J', entity) >= LG_YI_THRESHOLD and GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_THRESHOLD)
-end
-
--- 毒灵根: 木+火+水 均达到阈值
-function YiLingGen_Du(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_THRESHOLD and GetStatusDuration('BANXIAN_LG_H', entity) >= LG_YI_THRESHOLD and GetStatusDuration('BANXIAN_LG_S', entity) >= LG_YI_THRESHOLD)
-end
-
--- 混沌灵根: 五行皆达到阈值
-function YiLingGen_HunDun(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_H', entity) >= LG_YI_THRESHOLD and GetStatusDuration('BANXIAN_LG_T', entity) >= LG_YI_THRESHOLD and GetStatusDuration('BANXIAN_LG_J', entity) >= LG_YI_THRESHOLD and GetStatusDuration('BANXIAN_LG_S', entity) >= LG_YI_THRESHOLD and GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_THRESHOLD)
-end
+-- 普通异灵根 (×2 threshold)
+function YiLingGen_Bing(entity)   return _CheckComposite(_YI_ELEMENTS.Bing, LG_YI_THRESHOLD, entity) end
+function YiLingGen_Lei(entity)    return _CheckComposite(_YI_ELEMENTS.Lei, LG_YI_THRESHOLD, entity) end
+function YiLingGen_Feng(entity)   return _CheckComposite(_YI_ELEMENTS.Feng, LG_YI_THRESHOLD, entity) end
+function YiLingGen_Xue(entity)    return _CheckComposite(_YI_ELEMENTS.Xue, LG_YI_THRESHOLD, entity) end
+function YiLingGen_Guang(entity)  return _CheckComposite(_YI_ELEMENTS.Guang, LG_YI_THRESHOLD, entity) end
+function YiLingGen_An(entity)     return _CheckComposite(_YI_ELEMENTS.An, LG_YI_THRESHOLD, entity) end
+function YiLingGen_Du(entity)     return _CheckComposite(_YI_ELEMENTS.Du, LG_YI_THRESHOLD, entity) end
+function YiLingGen_HunDun(entity) return _CheckComposite(_YI_ELEMENTS.HunDun, LG_YI_THRESHOLD, entity) end
 
 function LG_GUANG_BOOSTCHECK(entity)
     local entity = entity or context.Source
@@ -337,54 +319,15 @@ function IsTianActiveLingGen(Name,entity)
     return ConditionResult(GetStatusDuration(Name, entity) >= LG_TIAN_THRESHOLD)
 end
 
--- 天异灵根：所有组合元素均达到天异灵根阈值（>=200）
--- 天冰灵根: 水+土
-function IsTianLingGenBing(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_S', entity) >= LG_YI_TIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_T', entity) >= LG_YI_TIAN_THRESHOLD)
-end
-
--- 天风灵根: 土+木
-function IsTianLingGenFeng(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_T', entity) >= LG_YI_TIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_TIAN_THRESHOLD)
-end
-
--- 天雷灵根: 金+水
-function IsTianLingGenLei(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_J', entity) >= LG_YI_TIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_S', entity) >= LG_YI_TIAN_THRESHOLD)
-end
-
--- 天血灵根: 木+火
-function IsTianLingGenXue(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_TIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_H', entity) >= LG_YI_TIAN_THRESHOLD)
-end
-
--- 天光灵根: 火+木+土
-function IsTianLingGenGuang(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_H', entity) >= LG_YI_TIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_TIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_T', entity) >= LG_YI_TIAN_THRESHOLD)
-end
-
--- 天暗灵根: 水+金+木
-function IsTianLingGenAn(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_S', entity) >= LG_YI_TIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_J', entity) >= LG_YI_TIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_TIAN_THRESHOLD)
-end
-
--- 天毒灵根: 木+火+水
-function IsTianLingGenDu(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_TIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_H', entity) >= LG_YI_TIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_S', entity) >= LG_YI_TIAN_THRESHOLD)
-end
-
--- 天混沌灵根: 五行皆备达到天异灵根阈值（>=200）
-function IsTianLingGenHunDun(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_H', entity) >= LG_YI_TIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_T', entity) >= LG_YI_TIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_J', entity) >= LG_YI_TIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_S', entity) >= LG_YI_TIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_TIAN_THRESHOLD)
-end
+-- 天异灵根 (>=200)
+function IsTianLingGenBing(entity)   return _CheckComposite(_YI_ELEMENTS.Bing, LG_YI_TIAN_THRESHOLD, entity) end
+function IsTianLingGenFeng(entity)   return _CheckComposite(_YI_ELEMENTS.Feng, LG_YI_TIAN_THRESHOLD, entity) end
+function IsTianLingGenLei(entity)    return _CheckComposite(_YI_ELEMENTS.Lei, LG_YI_TIAN_THRESHOLD, entity) end
+function IsTianLingGenXue(entity)    return _CheckComposite(_YI_ELEMENTS.Xue, LG_YI_TIAN_THRESHOLD, entity) end
+function IsTianLingGenGuang(entity)  return _CheckComposite(_YI_ELEMENTS.Guang, LG_YI_TIAN_THRESHOLD, entity) end
+function IsTianLingGenAn(entity)     return _CheckComposite(_YI_ELEMENTS.An, LG_YI_TIAN_THRESHOLD, entity) end
+function IsTianLingGenDu(entity)     return _CheckComposite(_YI_ELEMENTS.Du, LG_YI_TIAN_THRESHOLD, entity) end
+function IsTianLingGenHunDun(entity) return _CheckComposite(_YI_ELEMENTS.HunDun, LG_YI_TIAN_THRESHOLD, entity) end
 
 -- 仙单系灵根：灵根值达到仙灵根阈值（>=300点）即激活仙灵根效果
 function IsXianActiveLingGen(Name, entity)
@@ -398,103 +341,25 @@ function IsShengActiveLingGen(Name, entity)
     return ConditionResult(GetStatusDuration(Name, entity) >= LG_SHENG_THRESHOLD)
 end
 
--- 仙异灵根：所有组合元素均达到仙异灵根阈值（>=600）
--- 仙冰灵根: 水+土
-function IsXianLingGenBing(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_S', entity) >= LG_YI_XIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_T', entity) >= LG_YI_XIAN_THRESHOLD)
-end
+-- 仙异灵根 (>=600)
+function IsXianLingGenBing(entity)   return _CheckComposite(_YI_ELEMENTS.Bing, LG_YI_XIAN_THRESHOLD, entity) end
+function IsXianLingGenFeng(entity)   return _CheckComposite(_YI_ELEMENTS.Feng, LG_YI_XIAN_THRESHOLD, entity) end
+function IsXianLingGenLei(entity)    return _CheckComposite(_YI_ELEMENTS.Lei, LG_YI_XIAN_THRESHOLD, entity) end
+function IsXianLingGenXue(entity)    return _CheckComposite(_YI_ELEMENTS.Xue, LG_YI_XIAN_THRESHOLD, entity) end
+function IsXianLingGenGuang(entity)  return _CheckComposite(_YI_ELEMENTS.Guang, LG_YI_XIAN_THRESHOLD, entity) end
+function IsXianLingGenAn(entity)     return _CheckComposite(_YI_ELEMENTS.An, LG_YI_XIAN_THRESHOLD, entity) end
+function IsXianLingGenDu(entity)     return _CheckComposite(_YI_ELEMENTS.Du, LG_YI_XIAN_THRESHOLD, entity) end
+function IsXianLingGenHunDun(entity) return _CheckComposite(_YI_ELEMENTS.HunDun, LG_YI_XIAN_THRESHOLD, entity) end
 
--- 仙风灵根: 土+木
-function IsXianLingGenFeng(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_T', entity) >= LG_YI_XIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_XIAN_THRESHOLD)
-end
-
--- 仙雷灵根: 金+水
-function IsXianLingGenLei(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_J', entity) >= LG_YI_XIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_S', entity) >= LG_YI_XIAN_THRESHOLD)
-end
-
--- 仙血灵根: 木+火
-function IsXianLingGenXue(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_XIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_H', entity) >= LG_YI_XIAN_THRESHOLD)
-end
-
--- 仙光灵根: 火+木+土
-function IsXianLingGenGuang(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_H', entity) >= LG_YI_XIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_XIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_T', entity) >= LG_YI_XIAN_THRESHOLD)
-end
-
--- 仙暗灵根: 水+金+木
-function IsXianLingGenAn(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_S', entity) >= LG_YI_XIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_J', entity) >= LG_YI_XIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_XIAN_THRESHOLD)
-end
-
--- 仙毒灵根: 木+火+水
-function IsXianLingGenDu(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_XIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_H', entity) >= LG_YI_XIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_S', entity) >= LG_YI_XIAN_THRESHOLD)
-end
-
--- 仙混沌灵根: 五行皆备达到仙异灵根阈值（>=600）
-function IsXianLingGenHunDun(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_H', entity) >= LG_YI_XIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_T', entity) >= LG_YI_XIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_J', entity) >= LG_YI_XIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_S', entity) >= LG_YI_XIAN_THRESHOLD and GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_XIAN_THRESHOLD)
-end
-
--- 圣异灵根：所有组合元素均达到圣异灵根阈值（>=2000）
--- 圣冰灵根: 水+土
-function IsShengLingGenBing(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_S', entity) >= LG_YI_SHENG_THRESHOLD and GetStatusDuration('BANXIAN_LG_T', entity) >= LG_YI_SHENG_THRESHOLD)
-end
-
--- 圣风灵根: 土+木
-function IsShengLingGenFeng(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_T', entity) >= LG_YI_SHENG_THRESHOLD and GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_SHENG_THRESHOLD)
-end
-
--- 圣雷灵根: 金+水
-function IsShengLingGenLei(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_J', entity) >= LG_YI_SHENG_THRESHOLD and GetStatusDuration('BANXIAN_LG_S', entity) >= LG_YI_SHENG_THRESHOLD)
-end
-
--- 圣血灵根: 木+火
-function IsShengLingGenXue(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_SHENG_THRESHOLD and GetStatusDuration('BANXIAN_LG_H', entity) >= LG_YI_SHENG_THRESHOLD)
-end
-
--- 圣光灵根: 火+木+土
-function IsShengLingGenGuang(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_H', entity) >= LG_YI_SHENG_THRESHOLD and GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_SHENG_THRESHOLD and GetStatusDuration('BANXIAN_LG_T', entity) >= LG_YI_SHENG_THRESHOLD)
-end
-
--- 圣暗灵根: 水+金+木
-function IsShengLingGenAn(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_S', entity) >= LG_YI_SHENG_THRESHOLD and GetStatusDuration('BANXIAN_LG_J', entity) >= LG_YI_SHENG_THRESHOLD and GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_SHENG_THRESHOLD)
-end
-
--- 圣毒灵根: 木+火+水
-function IsShengLingGenDu(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_SHENG_THRESHOLD and GetStatusDuration('BANXIAN_LG_H', entity) >= LG_YI_SHENG_THRESHOLD and GetStatusDuration('BANXIAN_LG_S', entity) >= LG_YI_SHENG_THRESHOLD)
-end
-
--- 圣混沌灵根: 五行皆备达到圣异灵根阈值（>=2000）
-function IsShengLingGenHunDun(entity)
-    local entity = entity or context.Source
-    return ConditionResult(GetStatusDuration('BANXIAN_LG_H', entity) >= LG_YI_SHENG_THRESHOLD and GetStatusDuration('BANXIAN_LG_T', entity) >= LG_YI_SHENG_THRESHOLD and GetStatusDuration('BANXIAN_LG_J', entity) >= LG_YI_SHENG_THRESHOLD and GetStatusDuration('BANXIAN_LG_S', entity) >= LG_YI_SHENG_THRESHOLD and GetStatusDuration('BANXIAN_LG_M', entity) >= LG_YI_SHENG_THRESHOLD)
-end
+-- 圣异灵根 (>=2000)
+function IsShengLingGenBing(entity)   return _CheckComposite(_YI_ELEMENTS.Bing, LG_YI_SHENG_THRESHOLD, entity) end
+function IsShengLingGenFeng(entity)   return _CheckComposite(_YI_ELEMENTS.Feng, LG_YI_SHENG_THRESHOLD, entity) end
+function IsShengLingGenLei(entity)    return _CheckComposite(_YI_ELEMENTS.Lei, LG_YI_SHENG_THRESHOLD, entity) end
+function IsShengLingGenXue(entity)    return _CheckComposite(_YI_ELEMENTS.Xue, LG_YI_SHENG_THRESHOLD, entity) end
+function IsShengLingGenGuang(entity)  return _CheckComposite(_YI_ELEMENTS.Guang, LG_YI_SHENG_THRESHOLD, entity) end
+function IsShengLingGenAn(entity)     return _CheckComposite(_YI_ELEMENTS.An, LG_YI_SHENG_THRESHOLD, entity) end
+function IsShengLingGenDu(entity)     return _CheckComposite(_YI_ELEMENTS.Du, LG_YI_SHENG_THRESHOLD, entity) end
+function IsShengLingGenHunDun(entity) return _CheckComposite(_YI_ELEMENTS.HunDun, LG_YI_SHENG_THRESHOLD, entity) end
 
 function ColdDamageTypeSpellCheck()
     return IsSpell() & (HasUseCosts('SpellSlot') | HasUseCosts('WarlockSpellSlot')) & SpellDamageTypeIs(DamageType.Cold)
@@ -546,82 +411,57 @@ function CuiHuoSpellCheck()
     return SpellId('BANXIAN_FaBao_FireBreath') | SpellId('BANXIAN_FaBao_FireBreath_Cone') | SpellId('BANXIAN_FaBao_FireBreath_Line') | SpellId('BANXIAN_FaBao_FireBreath_YAO') | SpellId('BANXIAN_FaBao_FireBreath_YAO_Cone') | SpellId('BANXIAN_FaBao_FireBreath_YAO_Line')
 end
 
-function BanxianXiulianKiFlashCheck_H(entity)
-    entity = entity or context.Source
+-- 修炼灵气闪烁检测 — data-driven
+local _XIULIAN_ELEMENTS = {'H', 'T', 'J', 'S', 'M'}
 
-    return ConditionResult(GetStatusDuration('BANXIAN_XIULIAN_LINGQI_H', entity) >= LG_THRESHOLD)
+-- 单元素达到阈值检测
+local function _XiulianFlashThreshold(elem, entity)
+    return ConditionResult(GetStatusDuration('BANXIAN_XIULIAN_LINGQI_'..elem, entity) >= LG_THRESHOLD)
 end
 
-function BanxianXiulianKiFlashCheck_HN(entity)
-    entity = entity or context.Source
-
-    return HasStatus('BANXIAN_XIULIAN_LINGQI_T',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_J',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_S',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_M',entity)
+-- 检测是否有其他元素存在（排除指定元素）
+local function _XiulianFlashHasOther(excludeElem, entity)
+    local result = ConditionResult(false)
+    for _, e in ipairs(_XIULIAN_ELEMENTS) do
+        if e ~= excludeElem then
+            result = result | HasStatus('BANXIAN_XIULIAN_LINGQI_'..e, entity)
+        end
+    end
+    return result
 end
 
-function BanxianXiulianKiFlashCheck_T(entity)
-    entity = entity or context.Source
-
-    return ConditionResult(GetStatusDuration('BANXIAN_XIULIAN_LINGQI_T', entity) >= LG_THRESHOLD)
-end
-
-function BanxianXiulianKiFlashCheck_TN(entity)
-    entity = entity or context.Source
-
-    return HasStatus('BANXIAN_XIULIAN_LINGQI_H',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_J',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_S',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_M',entity)
-end
-
-function BanxianXiulianKiFlashCheck_J(entity)
-    entity = entity or context.Source
-
-    return ConditionResult(GetStatusDuration('BANXIAN_XIULIAN_LINGQI_J', entity) >= LG_THRESHOLD)
-end
-
-function BanxianXiulianKiFlashCheck_JN(entity)
-    entity = entity or context.Source
-
-    return HasStatus('BANXIAN_XIULIAN_LINGQI_T',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_H',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_S',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_M',entity)
-end
-
-function BanxianXiulianKiFlashCheck_S(entity)
-    entity = entity or context.Source
-
-    return ConditionResult(GetStatusDuration('BANXIAN_XIULIAN_LINGQI_S', entity) >= LG_THRESHOLD)
-end
-
-function BanxianXiulianKiFlashCheck_SN(entity)
-    entity = entity or context.Source
-
-    return HasStatus('BANXIAN_XIULIAN_LINGQI_T',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_J',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_H',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_M',entity)
-end
-
-function BanxianXiulianKiFlashCheck_M(entity)
-    entity = entity or context.Source
-
-    return ConditionResult(GetStatusDuration('BANXIAN_XIULIAN_LINGQI_M', entity) >= LG_THRESHOLD)
-end
-
-function BanxianXiulianKiFlashCheck_MN(entity)
-    entity = entity or context.Source
-
-    return HasStatus('BANXIAN_XIULIAN_LINGQI_T',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_J',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_S',entity) | HasStatus('BANXIAN_XIULIAN_LINGQI_H',entity)
-end
+-- 保留公开函数名供stat条件引用
+function BanxianXiulianKiFlashCheck_H(entity)  entity = entity or context.Source; return _XiulianFlashThreshold('H', entity) end
+function BanxianXiulianKiFlashCheck_HN(entity) entity = entity or context.Source; return _XiulianFlashHasOther('H', entity) end
+function BanxianXiulianKiFlashCheck_T(entity)  entity = entity or context.Source; return _XiulianFlashThreshold('T', entity) end
+function BanxianXiulianKiFlashCheck_TN(entity) entity = entity or context.Source; return _XiulianFlashHasOther('T', entity) end
+function BanxianXiulianKiFlashCheck_J(entity)  entity = entity or context.Source; return _XiulianFlashThreshold('J', entity) end
+function BanxianXiulianKiFlashCheck_JN(entity) entity = entity or context.Source; return _XiulianFlashHasOther('J', entity) end
+function BanxianXiulianKiFlashCheck_S(entity)  entity = entity or context.Source; return _XiulianFlashThreshold('S', entity) end
+function BanxianXiulianKiFlashCheck_SN(entity) entity = entity or context.Source; return _XiulianFlashHasOther('S', entity) end
+function BanxianXiulianKiFlashCheck_M(entity)  entity = entity or context.Source; return _XiulianFlashThreshold('M', entity) end
+function BanxianXiulianKiFlashCheck_MN(entity) entity = entity or context.Source; return _XiulianFlashHasOther('M', entity) end
 
 function BanxianXiulianKiFlashCheck_ALL(entity)
     entity = entity or context.Source
-
-    return ConditionResult(GetStatusDuration('BANXIAN_XIULIAN_LINGQI_H', entity) >= 2 and GetStatusDuration('BANXIAN_XIULIAN_LINGQI_T', entity) >= 2 and GetStatusDuration('BANXIAN_XIULIAN_LINGQI_J', entity) >= 2 and GetStatusDuration('BANXIAN_XIULIAN_LINGQI_S', entity) >= 2 and GetStatusDuration('BANXIAN_XIULIAN_LINGQI_M', entity) >= 2)
+    for _, e in ipairs(_XIULIAN_ELEMENTS) do
+        if GetStatusDuration('BANXIAN_XIULIAN_LINGQI_'..e, entity) < 2 then return ConditionResult(false) end
+    end
+    return ConditionResult(true)
 end
 
 function BanxianXiulianKiFlashCheck_ALLN(entity)
     entity = entity or context.Source
-
-    return ConditionResult(GetStatusDuration('BANXIAN_XIULIAN_LINGQI_H', entity) == GetStatusDuration('BANXIAN_XIULIAN_LINGQI_T', entity) and GetStatusDuration('BANXIAN_XIULIAN_LINGQI_J', entity) == GetStatusDuration('BANXIAN_XIULIAN_LINGQI_S', entity) and GetStatusDuration('BANXIAN_XIULIAN_LINGQI_H', entity) == GetStatusDuration('BANXIAN_XIULIAN_LINGQI_M', entity) and GetStatusDuration('BANXIAN_XIULIAN_LINGQI_H', entity) == GetStatusDuration('BANXIAN_XIULIAN_LINGQI_J', entity))
+    local base = GetStatusDuration('BANXIAN_XIULIAN_LINGQI_H', entity)
+    for i = 2, #_XIULIAN_ELEMENTS do
+        if GetStatusDuration('BANXIAN_XIULIAN_LINGQI_'.._XIULIAN_ELEMENTS[i], entity) ~= base then return ConditionResult(false) end
+    end
+    return ConditionResult(true)
 end
 
 function BanxianXiulianKiFlashCheck(entity)
     entity = entity or context.Source
-
-    return (BanxianXiulianKiFlashCheck_H(entity) & ~BanxianXiulianKiFlashCheck_HN(entity)) | (BanxianXiulianKiFlashCheck_T(entity) & ~BanxianXiulianKiFlashCheck_TN(entity)) | (BanxianXiulianKiFlashCheck_J(entity) & ~BanxianXiulianKiFlashCheck_JN(entity))  | (BanxianXiulianKiFlashCheck_S(entity) & ~BanxianXiulianKiFlashCheck_SN(entity))  | (BanxianXiulianKiFlashCheck_M(entity) & ~BanxianXiulianKiFlashCheck_MN(entity))  | (BanxianXiulianKiFlashCheck_ALL(entity) & BanxianXiulianKiFlashCheck_ALLN(entity))
+    return (BanxianXiulianKiFlashCheck_H(entity) & ~BanxianXiulianKiFlashCheck_HN(entity)) | (BanxianXiulianKiFlashCheck_T(entity) & ~BanxianXiulianKiFlashCheck_TN(entity)) | (BanxianXiulianKiFlashCheck_J(entity) & ~BanxianXiulianKiFlashCheck_JN(entity)) | (BanxianXiulianKiFlashCheck_S(entity) & ~BanxianXiulianKiFlashCheck_SN(entity)) | (BanxianXiulianKiFlashCheck_M(entity) & ~BanxianXiulianKiFlashCheck_MN(entity)) | (BanxianXiulianKiFlashCheck_ALL(entity) & BanxianXiulianKiFlashCheck_ALLN(entity))
 end
 
 function Ki_FlashCheck(entity)
@@ -702,4 +542,15 @@ end
 function OffHandAttackSpell()
     return HasStringInSpellRoll('WeaponAttack') & HasUseCosts('BonusActionPoint',false)
 end
+
+-- ====== 境界能力 (Tier 5-10) ======
+-- 境界法术DC（法相/领域共用：8 + 熟练 + 感知修正）
+local function _JingJieDC(entity)
+    entity = entity or context.Source
+    if not entity or not entity.IsValid then return 10 end
+    return 8 + entity.ProficiencyBonus + GetModifier(entity.Wisdom)
+end
+
+function BANXIAN_JJ7_FaxiangDC(entity) return _JingJieDC(entity) end
+function BANXIAN_JJ8_LingyuDC(entity) return _JingJieDC(entity) end
 

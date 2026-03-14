@@ -963,6 +963,10 @@ function Utils.BanXian.JingjieBoost(Object)
             Osi.ApplyStatus(Object, arriveStatusName, -1, 1, Object)
         end
     end
+
+    -- 应用境界特殊能力被动（化神→真仙，Tier 5-10）
+    local JingJie = require("Server.Modules.Systems.JingJie")
+    JingJie.ApplyTierPassives(Object)
 end
 
 --记录谪仙名单
@@ -1016,6 +1020,33 @@ function Utils.Difficulty.YesNoChoice()
         Osi.OpenMessageBoxChoice(Osi.GetHostCharacter(), Message_Difficulty_AGE, Message_Difficulty_A1, Message_Difficulty_A2)
     end
 
+end
+
+-- ====== 资源UUID常量 ======
+Utils.ResourceUUID = {
+    KiPoint    = '434d5876-ba29-4c15-a851-df5b0e8a8a70',
+    Shenshi    = '0032115b-77c3-43c8-9385-630e657b2fcc',
+}
+
+-- ====== 通用工具：获取附近敌人 ======
+function Utils.GetNearbyEnemies(origin, attacker, radius, excludeSet)
+    local enemies = {}
+    for _, entity in pairs(Ext.Entity.GetAllEntitiesWithComponent("Health")) do
+        if entity.Uuid then
+            local guid = tostring(entity.Uuid.EntityUuid)
+            local excluded = excludeSet and excludeSet[guid]
+            if not excluded
+                and guid ~= tostring(origin)
+                and Osi.IsDead(guid) == 0
+                and Osi.IsEnemy(guid, attacker) == 1 then
+                local dist = Osi.GetDistanceTo(origin, guid)
+                if dist and dist <= radius then
+                    table.insert(enemies, {guid = guid, dist = dist})
+                end
+            end
+        end
+    end
+    return enemies
 end
 
 return Utils

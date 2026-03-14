@@ -18,6 +18,7 @@ function BanXian.Init()
         XiuLian = require("Server.Modules.Systems.XiuLian"),
         FaBao = require("Server.Modules.Systems.FaBao"),
         Base = require("Server.Modules.Systems.Base"),
+        JingJie = require("Server.Modules.Systems.JingJie"),
         Debug = require("Server.Modules.Systems.Debug")
     }
 
@@ -31,6 +32,7 @@ function BanXian.Init()
     BanXian.Modules.Systems.XiuLian.Init()
     BanXian.Modules.Systems.FaBao.Init()
     BanXian.Modules.Systems.Base.Init()
+    BanXian.Modules.Systems.JingJie.Init()
     BanXian.Modules.Systems.Debug.Init()
 
     -- 初始化事件处理器

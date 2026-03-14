@@ -3,16 +3,16 @@
 <!-- Count: 0 open -->
 
 ### 🔴 Bugs / Errors
-*(none)*
+— none
 
 ### 🟠 Wrong Behavior
-*(none)*
+— none
 
 ### 🟡 Logic / Consistency
-*(none)*
+— none
 
 ### 🔵 Redundancy
-*(none)*
+— none
 
 ### ⚪ Minor / Typos
-*(none)*
+— none
