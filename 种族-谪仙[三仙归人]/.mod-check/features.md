@@ -46,8 +46,8 @@
 ## Feature Details
 
 ### JingJie T5 化神·因果律 (Causality Law)
-**What**: Chain attacks on hit — weapon hits trigger weapon attacks on nearby enemies, spell hits mirror damage with original save.
-**Chain**: `Shout_BANXIAN_JJ5_YINGUO` → `BANXIAN_JJ5_YINGUO_STATUS` (using FAZE_BASE) → JingJie.lua `YinGuoChain()` on AttackedBy → recursive with halving probability, depth 5 cap. Weapon uses `YINGUO_CHAIN_HIT` (ExecuteWeaponAttack), spell uses dynamically created status with parsed SpellRoll save. Kill restores 50% Ki via `YINGUO_KILL` passive.
+**What**: Chain attacks on hit — weapon hits trigger weapon attacks on nearby enemies, spell hits replicate the full spell on chain targets.
+**Chain**: `Shout_BANXIAN_JJ5_YINGUO` → `BANXIAN_JJ5_YINGUO_STATUS` (using FAZE_BASE) → JingJie.lua `YinGuoChain()` on AttackedBy → recursive with halving probability, depth 5 cap. Weapon uses `YINGUO_CHAIN_HIT` (ExecuteWeaponAttack). Spell uses `Osi.UseSpell(attacker, spell, target)` for full engine-level replication (dice, attack roll/save, all spell effects). Kill restores 50% Ki via `YINGUO_KILL` passive.
 **Access**: Toggle spell (BonusAction, activates law stance)
 **Completeness**: Full
 

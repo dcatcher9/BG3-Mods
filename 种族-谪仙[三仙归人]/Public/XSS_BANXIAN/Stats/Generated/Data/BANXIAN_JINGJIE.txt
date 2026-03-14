@@ -78,14 +78,6 @@ data "StackType" "Overwrite"
 data "OnApplyFunctors" "ExecuteWeaponAttack(MainHand)"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
 
-//因果链法术攻击模板（Lua动态创建带豁免+伤害的状态时的base）
-new entry "BANXIAN_JJ5_YINGUO_CHAIN_SPELL"
-type "StatusData"
-data "StatusType" "BOOST"
-data "StackId" "BANXIAN_JJ5_YINGUO_CHAIN_SPELL"
-data "StackType" "Overwrite"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
-
 //因果律 · 击杀回复
 new entry "BANXIAN_JJ5_YINGUO_KILL"
 type "PassiveData"

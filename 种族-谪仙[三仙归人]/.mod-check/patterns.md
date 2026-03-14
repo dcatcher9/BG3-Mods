@@ -28,10 +28,17 @@
 - JingJie.lua registers its own listeners in Init() (not routed through EventHandlers) since it was added later
 - Signals use `SIGNAL_*` statuses applied/removed to trigger cross-system communication
 
+### Spell replication via `Osi.UseSpell`
+- `Osi.UseSpell(caster, spellName, target)` — engine fully casts the spell (dice, attack roll/save, all effects)
+- Used in 因果律 chain (JingJie.lua) for spell chains — replaces manual dynamic status damage
+- Used in 剑道 projectile return (DaoHeng.lua:314) — `Osi.UseSpell(Causee, spell, Object)`
+- Recursion guard (`yinGuoChaining` table) prevents chain spell → AttackedBy → re-chain infinite loop
+
 ### Dynamic status creation
 - Pattern: `Ext.Stats.Create(name, 'StatusData', base) → set fields → :Sync() → Osi.ApplyStatus()`
-- Used extensively in JingJie.lua for variable-damage chain attacks, elemental bursts, THP, CON boosts
+- Used for dice damage (五行崩 bursts), variable Boosts (THP, Ability), status markers
 - Check `Ext.Stats.Get(name) == nil` before creating to avoid re-registration
+- `Osi.ApplyDamage` is flat-integer only — use dynamic statuses when dice expressions are needed for combat log display
 
 ### Stat organization
 - Base shared stats in `BANXIAN_BASE.txt`

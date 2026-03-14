@@ -54,43 +54,7 @@ local yinGuoChaining = {} -- 递归防护：attacker UUID → true
 local yinGuoLastSpell = {} -- 记录最后施放的法术：attacker GUID → spell name
 local PHYSICAL_DAMAGE = {Slashing=true, Piercing=true, Bludgeoning=true}
 
--- 从法术的SpellRoll中提取豁免属性（如 "not SavingThrow(Ability.Wisdom, ...)" → "Wisdom"）
-local function GetSpellSaveAbility(spellName)
-    if not spellName then return nil end
-    local stat = Ext.Stats.Get(spellName)
-    if not stat then return nil end
-    local roll = stat.SpellRoll
-    if roll and type(roll) == 'string' then
-        local ability = roll:match('SavingThrow%(Ability%.(%w+)')
-        if ability then return ability end
-    end
-    return nil
-end
-
--- 获取或创建法术链伤害状态
-local function GetSpellChainStatus(dmgType, dmgAmount, saveAbility)
-    if saveAbility then
-        -- 有豁免：SavingThrow判定，成功减半
-        local statusName = 'BANXIAN_JJ5_YINGUO_SPELL_'..dmgType..'_'..dmgAmount..'_'..saveAbility
-        if Ext.Stats.Get(statusName) == nil then
-            local Stats = Ext.Stats.Create(statusName, 'StatusData', 'BANXIAN_JJ5_YINGUO_CHAIN_SPELL')
-            Stats.OnApplyFunctors = 'IF(not SavingThrow(Ability.'..saveAbility..',SourceSpellDC())):DealDamage('..dmgAmount..','..dmgType..',Magical);IF(SavingThrow(Ability.'..saveAbility..',SourceSpellDC())):DealDamage('..math.floor(dmgAmount/2)..','..dmgType..',Magical)'
-            Stats:Sync()
-        end
-        return statusName
-    else
-        -- 无豁免（法术攻击骰或自动命中）：直接造成伤害
-        local statusName = 'BANXIAN_JJ5_YINGUO_SPELL_'..dmgType..'_'..dmgAmount
-        if Ext.Stats.Get(statusName) == nil then
-            local Stats = Ext.Stats.Create(statusName, 'StatusData', 'BANXIAN_JJ5_YINGUO_CHAIN_SPELL')
-            Stats.OnApplyFunctors = 'DealDamage('..dmgAmount..','..dmgType..',Magical)'
-            Stats:Sync()
-        end
-        return statusName
-    end
-end
-
-local function YinGuoChain_Recurse(origin, attacker, chance, hitSet, depth, isWeapon, dmgType, dmgAmount, saveAbility)
+local function YinGuoChain_Recurse(origin, attacker, chance, hitSet, depth, isWeapon, spellName)
     if depth <= 0 then return end
     local RADIUS = 6
     local candidates = {}
@@ -114,15 +78,14 @@ local function YinGuoChain_Recurse(origin, attacker, chance, hitSet, depth, isWe
         -- 武器攻击：完整武器攻击（AC判定/暴击/on-hit被动）
         Osi.ApplyStatus(picked, 'BANXIAN_JJ5_YINGUO_CHAIN_HIT', 1, 1, attacker)
     else
-        -- 法术攻击：使用原始法术的豁免属性
-        local statusName = GetSpellChainStatus(dmgType, dmgAmount, saveAbility)
-        Osi.ApplyStatus(picked, statusName, 1, 1, attacker)
+        -- 法术攻击：引擎完整施放原始法术（骰子/豁免/攻击骰/附加效果全部保留）
+        Osi.UseSpell(attacker, spellName, picked)
     end
 
     -- 概率递减连锁
     local nextChance = math.floor(chance / 2)
     if nextChance >= 10 and math.random(1, 100) <= nextChance then
-        YinGuoChain_Recurse(picked, attacker, nextChance, hitSet, depth - 1, isWeapon, dmgType, dmgAmount, saveAbility)
+        YinGuoChain_Recurse(picked, attacker, nextChance, hitSet, depth - 1, isWeapon, spellName)
     end
 end
 
@@ -133,11 +96,14 @@ local function YinGuoChain(target, attacker, damageType, damageAmount)
 
     yinGuoChaining[tostring(attacker)] = true
     local isWeapon = PHYSICAL_DAMAGE[damageType] or false
-    local saveAbility = nil
-    if not isWeapon then
-        saveAbility = GetSpellSaveAbility(yinGuoLastSpell[tostring(attacker)])
+    local spellName = not isWeapon and yinGuoLastSpell[tostring(attacker)] or nil
+
+    -- 没有记录到法术名（如被动伤害触发），回退到武器攻击
+    if not isWeapon and not spellName then
+        isWeapon = true
     end
-    YinGuoChain_Recurse(target, attacker, 100, {[tostring(target)] = true}, 5, isWeapon, damageType, damageAmount, saveAbility)
+
+    YinGuoChain_Recurse(target, attacker, 100, {[tostring(target)] = true}, 5, isWeapon, spellName)
     yinGuoChaining[tostring(attacker)] = nil
 end
 
@@ -777,22 +743,12 @@ local function ShengMieDeathMark(attacker, target)
     Osi.ApplyStatus(target, 'BANXIAN_JJ5_SHENGMIE_DEATH_MARK', 3, 1, attacker)
 end
 
--- 灭律：击杀爆炸（对周围敌人造成暗蚀伤害 + 感染死印）
+-- 灭律：击杀爆炸（基于死亡目标最大HP造成暗蚀伤害 + 感染死印）
 local function ShengMieExplode(attacker, deadTarget)
     local hadMark = Osi.HasActiveStatus(deadTarget, 'BANXIAN_JJ5_SHENGMIE_DEATH_MARK') == 1
-    local level = Osi.GetLevel(attacker) or 1
-    local dice = math.max(1, level)
-    if hadMark then dice = dice * 2 end -- 死印目标爆炸加倍
-
-    local dmgStr = dice .. 'd8'
-
-    -- 动态创建爆炸伤害状态
-    local statusName = 'BANXIAN_JJ5_SHENGMIE_BOOM_'..dice
-    if Ext.Stats.Get(statusName) == nil then
-        local Stats = Ext.Stats.Create(statusName, 'StatusData', 'BANXIAN_JJ5_SHENGMIE_EXPLODE')
-        Stats.OnApplyFunctors = 'DealDamage('..dmgStr..',Necrotic,Magical)'
-        Stats:Sync()
-    end
+    local maxHP = Osi.GetMaxHitpoints(deadTarget) or 20
+    local damage = math.max(1, math.floor(maxHP / 4))
+    if hadMark then damage = damage * 2 end -- 死印目标爆炸加倍
 
     -- 获取死亡目标位置
     local enemies = Utils.GetNearbyEnemies(deadTarget, attacker, SHENGMIE_EXPLODE_RADIUS)
@@ -800,7 +756,7 @@ local function ShengMieExplode(attacker, deadTarget)
         -- 先感染死印（如果爆炸伤害直接击杀，连锁爆炸时hadMark=true → 2倍伤害）
         Osi.ApplyStatus(enemy.guid, 'BANXIAN_JJ5_SHENGMIE_DEATH_MARK', 3, 1, attacker)
         -- 再造成爆炸伤害（若击杀触发Dying → 连锁ShengMieExplode）
-        Osi.ApplyStatus(enemy.guid, statusName, 1, 1, attacker)
+        Osi.ApplyDamage(enemy.guid, damage, 'Necrotic', attacker)
     end
 end
 

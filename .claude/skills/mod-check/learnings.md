@@ -30,7 +30,9 @@ Approaches that have been validated to work correctly in BG3 modding.
 
 - **Field length limit ~4000-5000 chars**: Per stat data field (StatsFunctors, ToggleOnFunctors, etc.). Exceeding causes game hang at ~55% loading. Fix: split across multiple PassiveData entries with Conditions gating.
 
-- **Dynamic status creation**: `Ext.Stats.Create(name, "StatusData")` → set fields → `Ext.Stats.Sync(name)` → `Osi.ApplyStatus()`. Works for runtime-generated statuses with variable damage/saves. Remember to Sync before applying.
+- **Dynamic status creation**: `Ext.Stats.Create(name, "StatusData")` → set fields → `Ext.Stats.Sync(name)` → `Osi.ApplyStatus()`. Works for runtime-generated statuses with variable damage/saves. Remember to Sync before applying. Use this for dice damage (`DealDamage(Nd6,Type)`) and variable Boosts — `Osi.ApplyDamage` only supports flat integers.
+
+- **`Osi.UseSpell(caster, spell, target)` for spell replication**: Makes the caster fully cast the spell on the target — engine handles dice, attack roll/save, and all spell effects. Far cleaner than manually recreating damage+save via dynamic statuses. Caveats: may consume spell slots, may trigger on-hit listeners (use recursion guards). Use `IgnoreHasSpell` in stat functor form: `UseSpell(SpellName, true, true)`.
 
 - **LevelMapValue in Boosts**: Must use `LevelMapValue(Name)` wrapper — raw name silently fails.
 

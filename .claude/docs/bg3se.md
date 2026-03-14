@@ -89,6 +89,19 @@ end)
 - Valid in: `StatusImmunity(SG_Stunned)`, `HasStatus('SG_Charmed')` in KHN conditions
 - **Invalid in**: `ApplyStatus(SG_Charmed)` — use specific status IDs like `CHARMED`, `STUNNED`
 
+## When to Use Which Damage/Effect Approach
+
+| Need | Approach | Why |
+|---|---|---|
+| Flat damage (integer) | `Osi.ApplyDamage(target, amount, type, source)` | Simplest, but no dice roll in combat log |
+| Dice damage (e.g. 8d6) | `Ext.Stats.Create` + dynamic status with `OnApplyFunctors "DealDamage(8d6,Fire)"` | Engine rolls dice, shows in combat log |
+| Full spell replica (damage + save + effects) | `Osi.UseSpell(caster, spell, target)` | Engine handles everything; best fidelity |
+| Variable Boosts (Ability, THP) | `Ext.Stats.Create` + dynamic status with `Boosts "Ability(CON,N)"` | No Osi function for dynamic boosts |
+| Weapon attack replica | Stat functor `ExecuteWeaponAttack(MainHand)` | Engine handles AC, crit, on-hit |
+| Cast spell from stat functor | `UseSpell(SpellName, true, true)` | `IgnoreHasSpell=true`, `IgnoreChecks=true` |
+| Nearby enemies query | `Ext.Entity.GetAllEntitiesWithComponent("Health")` + manual filter | No area query API in BG3SE |
+| Action resource manipulation | Direct `entity.ActionResources.Resources[UUID]` access + `Replicate` | No Osi function for this |
+
 ## Notes
 
 - Add specific API patterns, gotchas, and version notes here as you work with bg3se.
