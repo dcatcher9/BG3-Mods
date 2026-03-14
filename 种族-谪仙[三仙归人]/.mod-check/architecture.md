@@ -1,5 +1,5 @@
 # Architecture — 种族·谪仙「三仙归人」
-<!-- Last updated: 2026-03-13 -->
+<!-- Last updated: 2026-03-14 -->
 
 ## Mod Identity
 - **Mod folder**: `XSS_BANXIAN`
@@ -23,6 +23,7 @@
 | `Data/SHENSHI.txt` | 252 | Divine sense (Shenshi) system |
 | `Data/SHENTONG.txt` | 203 | Supernatural abilities (72/36-change polymorphs) |
 | `Data/ZHENFA.txt` | 636 | Formation arrays (ZhenFa) |
+| `Data/BANXIAN_JINGJIE.txt` | 955 | Tier 5-10 realm abilities (化神→真仙) |
 | `Data/GONGFA_SELECTOR.txt` | — | GongFa progression selectors |
 | `Data/DIFFICULTY.txt` | — | Hardcore/difficulty mode stats |
 | `Data/BOOK.txt` | — | Book items |
@@ -51,6 +52,8 @@
 | `Server/Modules/Systems/ShenShi.lua` | Divine sense level calculation |
 | `Server/Modules/Systems/ZhenFa.lua` | Formation array management |
 | `Server/Modules/Systems/Difficulty.lua` | Hardcore mode NPC cultivation |
+| `Server/Modules/Systems/JingJie.lua` | Tier 5-10 realm abilities (因果律/生灭律/五行律/虚影/法相/领域/天劫/仙法) |
+| `Server/Modules/Systems/Debug.lua` | Console debug commands (`!bx`) |
 
 ### KHN (thoth condition scripts)
 | File | Purpose |
@@ -85,7 +88,7 @@
 ### Localization
 | File | Purpose |
 |---|---|
-| `Mods/XSS_BANXIAN/Localization/English/XSS_BANXIAN.xml` | ~993 entries; all display strings |
+| `Mods/XSS_BANXIAN/Localization/English/XSS_BANXIAN.xml` | ~1072 entries; all display strings |
 | `Mods/XSS_BANXIAN/Localization/zhexian_Books.lsx` | Book content |
 
 ### Config
@@ -101,7 +104,8 @@
 
 ## Naming Conventions
 - **Stat prefixes**: `BANXIAN_` for shared, `BANXIAN_TIAN_`/`BANXIAN_YAO_`/`BANXIAN_REN_` for race-specific
+- **JingJie tier prefixes**: `BANXIAN_JJ5_` through `BANXIAN_JJ10_` for Tier 5-10 abilities
 - **DaDao paths**: `MODE_BANXIAN_DH_<PATH>_TECHNICAL` for toggle passives
 - **Signals**: `SIGNAL_DH_*` for Lua event triggers
 - **LevelMapValues**: `BanXianDice`, `BanXianHP`, `BanXianAbilityBonus`, `BanXianCantrip`, `CriticalBanXianDice`
-- **PersistentVars keys**: UUID-keyed for per-character data, `FABAO_*` for weapon state, `BANXIANLIST_NO_*` for NPC tracking
+- **PersistentVars keys**: UUID-keyed for per-character data, `FABAO_*` for weapon state, `BANXIANLIST_NO_*` for NPC tracking, `WUXING_STAGE_*` for five-element cycle, `XUYING_*` for shadow clone state, `SHENGMIE_*` for life/death law state

@@ -58,9 +58,12 @@ local DADAO_SUFFIX = {
     ['BanXian_DH_HeHuan']='HEHUAN', ['BanXian_DH_Yi']='YI',
 }
 
--- 获取主角UUID
+-- 当前选中角色（由客户端通过net message更新）
+local selectedChar = nil
+
+-- 获取当前操作目标：优先使用选中角色，回退到主角
 local function GetHost()
-    return Osi.GetHostCharacter()
+    return selectedChar or Osi.GetHostCharacter()
 end
 
 -- 找到角色道行最高的大道后缀（用于设置道行时同步path day）
@@ -232,6 +235,13 @@ local function SetActionResourceMax(target, uuid, amount)
 end
 
 function Debug.Init()
+
+    -- 接收客户端选中角色更新
+    Ext.RegisterNetListener('BanXian_SelectedChar', function(_, payload)
+        if payload and payload ~= '' then
+            selectedChar = payload
+        end
+    end)
 
     Ext.RegisterConsoleCommand('bx', function(_, cmd, ...)
         local args = {...}

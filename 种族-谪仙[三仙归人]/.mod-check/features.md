@@ -1,5 +1,5 @@
 # Features — 种族·谪仙「三仙归人」
-<!-- Last updated: 2026-03-13 -->
+<!-- Last updated: 2026-03-14 -->
 
 ## Feature Table
 
@@ -33,112 +33,59 @@
 | ExtraAttack 连击 | Full | Passive/Aura | BANXIAN_BASE.txt (up to 10 attacks) |
 | DanYao 丹药 | Full | Item + Passive | DANYAO.txt, DanYao.lua, ItemCombos.txt |
 | Hardcore 仙人模式 | Full | Script-only | Difficulty.lua (NPC cultivation on combat) |
+| JingJie T5 化神·因果律 | Full | Toggle Spell | BANXIAN_JINGJIE.txt, JingJie.lua (chain attacks on hit, weapon→weapon/spell→mirror) |
+| JingJie T5 化神·生灭律 | Full | Toggle Spell | BANXIAN_JINGJIE.txt, JingJie.lua (生: lifesteal→THP→CON, 灭: death mark→explode chain) |
+| JingJie T5 化神·五行律 | Full | Toggle Spell | BANXIAN_JINGJIE.txt, JingJie.lua (5-element marks→WuXingCollapse AoE+stun) |
+| JingJie T6 炼虚·虚影分身 | Full | Spell | BANXIAN_JINGJIE.txt, JingJie.lua (summon clone, share passives, all-resist, backlash on death) |
+| JingJie T7 合体·法相天地 | Full | Toggle Spell | BANXIAN_JINGJIE.txt (Huge size, +3m melee, 2d8 Force, 6m fear aura, 4 Ki/turn) |
+| JingJie T8 大乘·领域 | Partial | Spell | BANXIAN_JINGJIE.txt, JingJie.lua (12m domain, debuff/buff aura, DAO_RESONANCE — **3 resonance effects broken: R-01**) |
+| JingJie T9 渡劫·天劫 | Full | Passive + Spell | BANXIAN_JINGJIE.txt, JingJie.lua (JIEQI stacking, tribulation gamble) |
+| JingJie T10 真仙·仙法 | Full | Passive + Spells | BANXIAN_JINGJIE.txt, JingJie.lua (condition immunity, +3 stats, auto-revive, 斩仙/袖里/万法/神足) |
+| Debug 调试指令 | Full | Console (!bx) | Debug.lua (info/linggen/daoheng/jingjie/dadao/shenshi/gongfa/fabao/refresh commands) |
 
 ## Feature Details
 
-### LingGen 灵根 (Spiritual Root)
-**What**: Assigns elemental spiritual roots determining cultivation affinity.
-**Chain**: Character Creation → LingGen.lua assigns random roots → `BANXIAN_LG_*` statuses applied → PassiveData boosts in BANXIAN_REN.txt activate based on root type. 夺灵 (DuoLing) spell steals half of target's max LingGen + 1/3 TZ, shows overhead display via client-server net message.
-**Access**: Automatic on character creation; companions auto-activate via `CharacterJoinedParty` listener using predefined roots in `Variables.Constants.CompanionLingGen`. Tier thresholds: 凡25/天100/仙300/圣1000.
-**Completeness**: Full — 5 base elements (金木水火土) + 8 composite TianLingGen + Xian/Sheng tiers for all 13 types
-**Notes**: `math.random` calls use integer args (fixed from float bug). Root assignment uses weighted probability in XiuLian.lua.
-
-### ZhouTian 周天淬体 (Acupoint Tempering)
-**What**: 12-acupoint cultivation cycle that grants progressive boosts.
-**Chain**: Spell cast → `CuiTi_ZhouTian_1..12` PassiveData in BANXIAN_TIAN.txt → some with direct Boosts, others use `Utils.BanXian.JingjieBoost()` dynamically → EventHandlers.lua manages long-rest progression
-**Access**: Spell (manual activation) + Passive effects
-**Completeness**: Full — empty Boosts on acupoints 2,3,7,8,9,10 are intentional (JingjieBoost handles them dynamically)
-
-### WZPLG 五转培灵功 (Five-Turn Spirit Cultivation)
-**What**: 5-element + ice/wind/thunder spell variants with 生/克 (creation/destruction) elemental chains.
-**Chain**: SpellLists.lsx → Spells in BANXIAN_REN.txt → status effects with elemental interactions
-**Access**: Spell
+### JingJie T5 化神·因果律 (Causality Law)
+**What**: Chain attacks on hit — weapon hits trigger weapon attacks on nearby enemies, spell hits mirror damage with original save.
+**Chain**: `Shout_BANXIAN_JJ5_YINGUO` → `BANXIAN_JJ5_YINGUO_STATUS` (using FAZE_BASE) → JingJie.lua `YinGuoChain()` on AttackedBy → recursive with halving probability, depth 5 cap. Weapon uses `YINGUO_CHAIN_HIT` (ExecuteWeaponAttack), spell uses dynamically created status with parsed SpellRoll save. Kill restores 50% Ki via `YINGUO_KILL` passive.
+**Access**: Toggle spell (BonusAction, activates law stance)
 **Completeness**: Full
 
-### WZCYG 五藏藏元功 (Five-Organ Yuan Storage)
-**What**: 5-organ passive system linked to WZPLG elemental relationships.
-**Chain**: PassiveData in BANXIAN_REN.txt → boosts linked to WZPLG 生 relationships
-**Access**: Passive
+### JingJie T5 化神·生灭律 (Life/Death Law)
+**What**: 生 mode — lifesteal + overflow THP → permanent CON. 灭 mode — death marks + kill explosion chain.
+**Chain**: `Shout_BANXIAN_JJ5_SHENGMIE` → `SHENGMIE_STATUS` (using FAZE_BASE) → 生: stat passive `SHENGMIE_SHENG` (OnAttack: Necrotic + heal) + Lua `ShengMieLifeExcess` (THP accumulation, CON conversion at CON×20 threshold). 灭: toggle `SHENGMIE_TOGGLE` → `MIE_MODE` → Lua `ShengMieDeathMark` (OnAttacked) + `ShengMieExplode` (OnDying, AoE + infect).
+**Access**: Toggle spell + sub-toggle (生↔灭)
 **Completeness**: Full
 
-### HTBG 后天补根 (Postnatal Root Replenishment)
-**What**: Intended to let players replenish spiritual roots.
-**Chain**: Container spell + 5 sub-spells defined in BANXIAN_REN.txt, but all SpellProperties are empty and no Lua handler exists
-**Access**: Spell (non-functional)
-**Completeness**: Stub — design intent unclear, possibly future mechanic
-
-### DaoHeng 大道境界 (Great Dao Realm System)
-**What**: Core progression system tracking cultivation level via DH_YEAR/MONTH/DAY status stacks.
-**Chain**: Various triggers → DaoHeng.lua manages DH_DAY accumulation → day→month→year conversion → realm thresholds in Variables.lua → JingjieBoost applies ability bonuses
-**Access**: Passive/Aura (automatic accumulation)
+### JingJie T5 化神·五行律 (Five-Element Law)
+**What**: Attacks cycle through 5 elements, applying marks. Gathering all 5 across battlefield triggers WuXingCollapse (massive AoE + stun).
+**Chain**: `Shout_BANXIAN_JJ5_WUXING` → `WUXING_STATUS` (using FAZE_BASE) → Lua `WuXingOnHit` (cycle stage 1-5, apply WUXING_MARK_N, LingGen affinity bonus) → `WuXingScanMarks` checks all enemies → `WuXingCollapse` uses convex hull of marked positions to include bystanders → level×d6 per mark + STUNNED + mark consumption.
+**Access**: Toggle spell
 **Completeness**: Full
-**Notes**: DaoXinStable/DaoXinUnStable conditions check `BANXIAN_DH_HEART_UNSTABLE` which is never applied — intentional placeholder for future "道心不稳" mechanic.
+**Notes**: Convex hull algorithm (Graham Scan) for AoE targeting is elegant. Marks persist permanently (Y-01).
 
-### DaoHeng 地狱道 (Hell Path)
-**What**: Killing BURNING_YEHUO targets grants DaoHeng to the fire source.
-**Chain**: DYING status on YEHUO-burning target → DaoHeng.OnStatusApplied_before → Utils.Get.YeHuoSource finds source → DiYu.AddDH transfers burn duration as DH days
-**Access**: Passive/Signal
+### JingJie T6 炼虚·虚影分身 (Shadow Clone)
+**What**: Summon a clone that inherits passives/statuses, shares Ki pool. Owner gets all-resist while clone lives.
+**Chain**: `Shout_BANXIAN_JJ6_SUMMON` (8 Shenshi) → `XUYING_ACTIVE` status → Lua `SummonShadowClone` (CreateAt from template) → 500ms timer → `SetupShadowClone` (copy passives/statuses, set half HP). Recall: `Shout_BANXIAN_JJ6_RECALL` → RemoveStatus → Lua `RecallShadowClone` (transfer remaining HP). Death: Lua `OnShadowCloneDeath` → `XUYING_BACKLASH` (5d10 Psychic + 2 Shenshi). Long rest cleanup included.
+**Access**: Spell (Action + 8 Shenshi)
 **Completeness**: Full
+**Notes**: Single pending clone setup (XUYING_PENDING_SETUP) means only one clone can initialize at a time — acceptable since each character casts manually.
 
-### DaoHeng 剑道 (Sword Path)
-**What**: 3 sword stances (JianYi/JianXin/JianZhen) with 6 interrupts + ZhenJian Blast.
-**Chain**: MODE_BANXIAN_DH_JIAN_TECHNICAL toggle → stance passives in DADAO.txt → interrupt conditions in XSS_BANXIAN.khn → animation overrides in DaoHeng.lua
-**Access**: Passive/Interrupt
-**Completeness**: Full
+### JingJie T8 大乘·领域 (Domain)
+**What**: 12m aura domain with enemy debuff, ally buff, and Dao resonance effects.
+**Chain**: `Shout_BANXIAN_JJ8_LINGYU_ON` (16 Shenshi) → `LINGYU_STATUS` (12m AuraStatuses: DEBUFF on enemies, ALLYBUFF on allies; 4 Shenshi/turn) → Lua `ApplyDaoResonance` finds highest-DH Dao path → applies resonance status (e.g., LINGYU_DAO_TIAN for lightning ticks).
+**Access**: Spell (Action + 16 Shenshi)
+**Completeness**: **Partial** — 3 of 10 resonance effects broken (XIULUO_P, HEHUAN_P, CHUSHENG_P have wrong context.Target in conditions; JIAN_P has wrong mechanic). Offensive resonances (TIAN, DIYU, EGUI, YI, LI, RENJIAN) work correctly.
 
-### DaoHeng 羿道 (Archer Path)
-**What**: DuLing, ShuangFei, ZhuFeng spells + recursive split-arrow chaining.
-**Chain**: SIGNAL_DH_YI_SPLIT on ranged hit → DaoHeng.Yi.SplitArrow in Lua → deals DaoHeng-scaled Force damage → chains recursively with halving damage/probability, capped at depth=5
-**Access**: Passive/Spell
-**Completeness**: Full
-
-### FaBao 法宝 (Magic Weapons)
-**What**: Weapon refinement system with material choices and progressive enhancement.
-**Chain**: Feat selection → FABAO.txt passives → FaBao.lua manages stat modification + LianHua refinement process → PersistentVars tracks per-weapon state → OnEquipped restores stats
-**Access**: Feat + Progression
-**Completeness**: Full — 点金/吐火/淬火 abilities + 8 BaoCai materials
-
-### DanYao 丹药 (Alchemy)
-**What**: 35 pills with crafting recipes, probability-based brewing, and realm-gated effects.
-**Chain**: ItemCombos.txt recipes → DANYAO.txt status effects → DanYao.lua handles WuYunDan upgrade logic and probability gates
-**Access**: Item + Passive
-**Completeness**: Full — 35 pills, 35 recipes
-
-### ExtraAttack 连击 (Multi-Attack)
-**What**: Extra attack scaling system up to 10 attacks per turn.
-**Chain**: ExtraAttack_BanXian through 9_BanXian PassiveData → queue statuses → KHN priority checking (HasHigherPriorityExtraAttackQueued)
-**Access**: Passive/Aura (scales with realm)
-**Completeness**: Full
-
-### Shenshi 掌日 Control (Mind Control)
-**What**: Permanent mind control spell targeting Constructs, Undead, or Dead creatures.
-**Chain**: BANXIAN_Shenshi_Control spell → KHN `BanXianShenshiControlCheck` (ShenshiPoints ≥ Target.Level × 2) → SpellSuccess applies SHENSHICONTROL_TARGET (permanent, -1 duration) + SHENSHICONTROL_CASTER (FreezeDuration, duration = Target.Level for cost encoding) → ShenShi.lua tracks pairs in PersistentVars → re-cast on same target by same caster dismisses both → StatusRemoved cleanup handles death/dispel
-**Access**: Spell (requires ShenshiPoint resource)
-**Completeness**: Full
-**Notes**: No concentration or resource drain. Cost is one-time ShenshiPoint reduction via MultiplyEffectsByDuration on caster status. Dismiss by re-casting on controlled target. StatusRemoved has reentry guard (`removingControl`) to prevent infinite loops.
-
-### Hardcore 仙人模式 (Immortal Mode)
-**What**: NPCs get cultivation awakening on combat start; DaoHeng increases on long rest.
-**Chain**: BANXIAN_HARDCORE status applied → Difficulty.lua awakens NPC with random LingGen → IncreaseDH.LongRest grows NPC cultivation over time
-**Access**: Script-only (toggled by mode)
-**Completeness**: Full
-
-### JingJie 境界能力 (Tier 5-10 Realm Abilities)
-**What**: Six new gameplay systems unlocked at cultivation tiers 5-10, each introducing unique interactive mechanics.
-**Chain**: JingjieBoost() in Utils.lua → JingJie.ApplyTierPassives() adds passives when tier threshold reached → BANXIAN_JINGJIE.txt stat entries + JingJie.lua event handlers
-**Access**: Automatic passive grant on tier-up + active spells/toggles
-**Completeness**: Full — 72 stat entries, 79 localization strings, 1 Lua module
-**Tiers**:
-- **T5 化神 天地法则**: 3 law stances (因果/生灭/五行) — toggle-exclusive, cost 1 Shenshi/turn, auto-deactivate on empty
-- **T6 炼虚 虚影分身**: Summon shadow clone (8 Shenshi), shares Ki pool, owner gets all-resist, clone death = backlash
-- **T7 合体 法相天地**: Dharma Body toggle (8 Ki + 4/turn), Huge size, +3m melee, +2d8 Force on hit, 6m fear aura
-- **T8 大乘 领域**: 12m domain (16 Shenshi), enemy debuff/ally buff, auto-resonates with highest Dao path
-- **T9 渡劫 天劫试炼**: 劫气 stacking (max 9, +1d4 dmg each), 引劫 gamble (50% max HP self-damage, huge reward if survive)
-- **T10 真仙 仙法**: Condition immunity, +3 all stats, 仙体不灭 (auto-revive 1/LR), 斩仙一剑 (10d12 Force), 袖里乾坤 (banish+5d10/turn), 万法归宗 (absorb spell→Ki), 神足通 (free 30m teleport)
-**Key Files**: BANXIAN_JINGJIE.txt, JingJie.lua, XSS_BANXIAN.khn (DC helpers)
+### Debug 调试指令 (Debug Console)
+**What**: Console commands for testing cultivation mechanics via `!bx` prefix.
+**Chain**: Debug.lua registers `Ext.RegisterConsoleCommand('bx', ...)` → dispatches to subcommands: info/linggen/daoheng/jingjie/dadao/shenshi/gongfa/fabao/refresh.
+**Access**: Console only (`!bx help`)
+**Completeness**: Full — covers all major systems (LingGen set/clear, DaoHeng set/add, JingJie shortcut, DaDao add/remove/days, Shenshi set/max, GongFa add/remove, FaBao add/remove/clear, refresh all)
 
 ## Feature Gaps
 - **HTBG 后天补根**: Stub — 5 sub-spells with empty SpellProperties, no Lua handler. Design intent unknown.
 - **FSZMG 梵圣真魔功**: Partial — Levels 1-9 implemented, Level9 capstone fixed, DevilForms ObjectSize capped. Incomplete ability descriptions.
 - **CaiDao 财道**: Localization stubs exist (XML lines 365-369) with empty descriptions but no stat entries or Lua handler. Planned but unimplemented DaDao path.
 - **EGui 饿鬼道**: Localization text says "(暂未开发！)" but `MODE_BANXIAN_DH_EGUI_TECHNICAL` + passive are implemented. Stale localization.
+- **领域共鸣 XIULUO/HEHUAN/CHUSHENG/JIAN**: Four resonance effects non-functional due to bugs R-01/O-01.

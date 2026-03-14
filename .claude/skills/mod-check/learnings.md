@@ -10,7 +10,7 @@ Cross-mod knowledge accumulated from audit runs. Read this at the start of every
 
 Things that were flagged as bugs but turned out to be wrong, or fixes that broke things.
 
-- **SG_Stunned vs STUNNED**: `SG_Stunned` is a status *group* (used in `StatusImmunity(SG_Stunned)`), NOT an applicable status. Always use `STUNNED` when applying stun via `Osi.ApplyStatus`. Same pattern likely applies to other SG_ prefixed names.
+- **SG_ prefixes are status groups, not applicable statuses**: `SG_Stunned`, `SG_Charmed`, etc. are status *groups* (used in `StatusImmunity(SG_Stunned)`), NOT applicable statuses. Always use specific status IDs: `STUNNED` not `SG_Stunned`, `CHARMED` not `SG_Charmed`. Applies to both `Osi.ApplyStatus` in Lua AND `ApplyStatus()` in stat functors (.txt files).
 
 - **HideOverheadUI does not need AC(0)**: `Boosts ""` with `HideOverheadUI "0"` is sufficient for hiding overhead display. Adding `AC(0)` is unnecessary — confirmed in-game.
 
@@ -58,6 +58,8 @@ Approaches that have been validated to work correctly in BG3 modding.
 
 - **Server→Client net messages**: Server-side loca updates don't propagate to client rendering. Use `Ext.Net.PostMessageToClient` + client-side `Ext.Loca.UpdateTranslatedString` for overhead text.
 
+- **`Osi.GetHostCharacter()` ≠ selected character**: Returns the host player's created character (Tav/Dark Urge), NOT the currently selected party member. To get the selected character, use `ClientControl` tag component on the client side (`Ext.Entity.GetAllEntitiesWithComponent("ClientControl")`) and bridge to server via `Ext.Net.PostMessageToServer`. Source: `bg3se/BG3Extender/GameDefinitions/Components/Data.h:215` defines `DEFINE_TAG_COMPONENT(eoc, ClientControlComponent, ClientControl)`.
+
 ---
 
 ## False Positive Patterns
@@ -68,6 +70,10 @@ Common things that look like bugs but aren't — avoid re-flagging these.
 - **Statuses with duration -1**: Permanent by design, ended by script logic (dismiss/death/dispel).
 - **Double Osi.GetStatString calls**: One for truthiness, one for value — minor redundancy, not a bug.
 - **Hardcoded UUIDs with inline comments**: Acceptable when comment points to source.
+
+- **OnDamaged context in passives**: `context.Target` = the passive OWNER (who took damage), `context.Source` = the attacker (who dealt damage). When checking if the attacker has a debuff (e.g., domain aura debuff), use `context.Source`, NOT `context.Target`. Confirmed by cross-referencing with WANFA passive which checks `context.Target` for the owner's own passive.
+
+- **Duplicated constants in debug tools**: Debug/console tools (like `!bx` commands) intentionally duplicate constants from other modules for self-containment. Don't flag as redundancy.
 
 ---
 
@@ -82,3 +88,5 @@ Elegant implementations worth emulating or recommending.
 - **Excess HP → permanent stat conversion**: Accumulate in PersistentVars, threshold scales with current stat (`entity.Stats.Abilities[N] * multiplier`), convert via dynamic boost status. Self-balancing because threshold grows with the stat.
 
 - **Kill explosion + infection chain**: On kill → AoE damage + apply debuff to survivors → their kills also explode. Creates emergent chain reactions without explicit recursion.
+
+- **Convex hull targeting for AoE**: Graham Scan on XZ coordinates of marked enemies, then PointInConvexHull check for bystanders. Creates dynamic, position-based AoE without fixed radius. Elegant for "area between marked targets" mechanics.

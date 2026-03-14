@@ -559,7 +559,7 @@ new entry "BANXIAN_JJ8_LINGYU_DAO_XIULUO_P"
 type "PassiveData"
 data "Properties" "IsHidden"
 data "StatsFunctorContext" "OnDamaged"
-data "Conditions" "HasStatus('BANXIAN_JJ8_LINGYU_DEBUFF',context.Target)"
+data "Conditions" "HasStatus('BANXIAN_JJ8_LINGYU_DEBUFF',context.Source)"
 data "StatsFunctors" "ApplyStatus(BLEEDING,100,2)"
 
 //地狱道共鸣：领域内敌人持续火伤
@@ -584,8 +584,8 @@ data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndi
 new entry "BANXIAN_JJ8_LINGYU_DAO_JIAN_P"
 type "PassiveData"
 data "Properties" "IsHidden"
-data "StatsFunctorContext" "OnCastResolved"
-data "Conditions" "HasStatus('BANXIAN_JJ8_LINGYU_DEBUFF',context.Target) and IsMovement()"
+data "StatsFunctorContext" "OnAttack"
+data "Conditions" "not (IsMiss() or IsCriticalMiss()) and HasStatus('BANXIAN_JJ8_LINGYU_DEBUFF',context.Target) and not Self(context.Target,context.Source)"
 data "StatsFunctors" "DealDamage(1d8,Slashing,Magical)"
 
 //羿道共鸣：领域内远程攻击弹射
@@ -643,8 +643,8 @@ new entry "BANXIAN_JJ8_LINGYU_DAO_HEHUAN_P"
 type "PassiveData"
 data "Properties" "IsHidden"
 data "StatsFunctorContext" "OnDamaged"
-data "Conditions" "HasStatus('BANXIAN_JJ8_LINGYU_DEBUFF',context.Target) and not SavingThrow(Ability.Wisdom, BANXIAN_JJ8_LingyuDC())"
-data "StatsFunctors" "ApplyStatus(SG_Charmed,100,2)"
+data "Conditions" "HasStatus('BANXIAN_JJ8_LINGYU_DEBUFF',context.Source) and not SavingThrow(Ability.Wisdom, BANXIAN_JJ8_LingyuDC())"
+data "StatsFunctors" "ApplyStatus(CHARMED,100,2)"
 
 //人间道共鸣：领域内每回合治愈自身
 new entry "BANXIAN_JJ8_LINGYU_DAO_RENJIAN"
@@ -669,7 +669,7 @@ new entry "BANXIAN_JJ8_LINGYU_DAO_CHUSHENG_P"
 type "PassiveData"
 data "Properties" "IsHidden"
 data "StatsFunctorContext" "OnDamaged"
-data "Conditions" "HasStatus('BANXIAN_JJ8_LINGYU_DEBUFF',context.Target)"
+data "Conditions" "HasStatus('BANXIAN_JJ8_LINGYU_DEBUFF',context.Source)"
 data "StatsFunctors" "ApplyStatus(THREATENED,100,2)"
 
 //领域 · 关闭

@@ -42,12 +42,6 @@ local DADAO_SUFFIX = {
     ['BanXian_DH_HeHuan']='HEHUAN', ['BanXian_DH_Yi']='YI',
 }
 
--- 通用工具：从列表中随机挑选一个
-local function PickRandom(list)
-    if #list == 0 then return nil end
-    return list[math.random(1, #list)]
-end
-
 --================================
 -- Tier 5 · 化神 · 因果律链式伤害
 --================================
@@ -876,6 +870,21 @@ function JingJie.Init()
         -- Tier 8: 领域关闭时清除共鸣
         if Status == 'BANXIAN_JJ8_LINGYU_STATUS' then
             RemoveDaoResonance(Object)
+        end
+
+        -- Tier 5: 五行律关闭时清除所有五行印
+        if Status == 'BANXIAN_JJ5_WUXING_STATUS' then
+            for _, entity in pairs(Ext.Entity.GetAllEntitiesWithComponent("Health")) do
+                if entity.Uuid then
+                    local guid = tostring(entity.Uuid.EntityUuid)
+                    for _, mark in ipairs(WUXING_MARKS) do
+                        if Osi.HasActiveStatus(guid, mark) == 1 then
+                            Osi.RemoveStatus(guid, mark)
+                        end
+                    end
+                end
+            end
+            PersistentVars['WUXING_STAGE_'..Object] = nil
         end
     end)
 

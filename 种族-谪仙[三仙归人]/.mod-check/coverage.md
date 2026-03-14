@@ -1,8 +1,8 @@
 # Coverage — 种族·谪仙「三仙归人」
-<!-- Last updated: 2026-03-13 -->
+<!-- Last updated: 2026-03-14 -->
 
 ## Stats
-- Fully read: ~83 of ~108 source files
+- Fully read: ~84 of ~109 source files
 - Partially read: 5
 - Not yet read: ~20 (mostly visual/asset files)
 
@@ -27,6 +27,8 @@
 - `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/FaBao.lua`
 - `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/Difficulty.lua`
 - `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/ZhenFa.lua`
+- `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/JingJie.lua`
+- `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/Debug.lua` (NEW)
 - `Scripts/thoth/helpers/XSS_BANXIAN.khn`
 - `Public/XSS_BANXIAN/Progressions/Progressions.lsx`
 - `Public/XSS_BANXIAN/Progressions/ProgressionDescriptions.lsx`
@@ -62,6 +64,7 @@
 - `Public/XSS_BANXIAN/Stats/Generated/Data/ZHENFA.txt`
 - `Public/XSS_BANXIAN/Stats/Generated/Data/FIXS.txt`
 - `Public/XSS_BANXIAN/Stats/Generated/Data/OVERRIDES.txt`
+- `Public/XSS_BANXIAN/Stats/Generated/Data/BANXIAN_JINGJIE.txt`
 - `Public/XSS_BANXIAN/Stats/Generated/SpellSet.txt`
 - `Public/XSS_BANXIAN/Stats/Generated/Equipment.txt`
 - `Public/XSS_BANXIAN/Stats/Generated/ItemCombos.txt`
