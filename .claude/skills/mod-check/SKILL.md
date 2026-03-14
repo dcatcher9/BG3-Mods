@@ -41,9 +41,11 @@ All persistent state lives in `<mod-root>/.mod-check/`. Each file covers a diffe
 
 ---
 
-## Step 0 — Load memory
+## Step 0 — Load memory and learnings
 
-Read all files in `<mod-root>/.mod-check/` if the folder exists.
+**0a — Load skill learnings.** Read `learnings.md` (bundled alongside this SKILL.md). It contains cross-mod knowledge: past mistakes to avoid, proven patterns, false-positive traps, and cleanest solutions. Apply this knowledge throughout the audit to avoid repeating errors and to use validated approaches.
+
+**0b — Load mod memory.** Read all files in `<mod-root>/.mod-check/` if the folder exists.
 
 - **If memory exists**: note what's already known — architecture, coverage, open issues, patterns. Focus this run on uncovered files, recently changed files, and verifying open issues.
 - **If no memory exists**: start fresh. The folder and files will be created at the end.
@@ -352,4 +354,27 @@ After presenting the report, ask:
 
 > "Would you like me to fix the red/orange issues now, or any specific ones?"
 
-If yes, apply fixes, then remove the fixed issues from `open-issues.md`.
+If yes, first read `<project>/.claude/skills/bg3-implement/SKILL.md` for stat syntax rules, Lua patterns, localization format, and the cross-file wiring checklist. Follow those patterns when applying fixes to ensure correctness. Then remove the fixed issues from `open-issues.md`.
+
+---
+
+## Step 8 — Update skill learnings
+
+After the audit (and any fixes), update `learnings.md` (the file bundled with this skill, NOT per-mod) if any of these occurred during this run:
+
+### What to capture
+
+| Category | When to add/update |
+|---|---|
+| **Mistakes & Corrections** | You flagged something as a bug that turned out to be correct, or a fix you applied broke something, or you had to retry with a different approach |
+| **Proven Patterns** | You discovered a BG3 modding technique that works reliably and would help future audits |
+| **False Positive Patterns** | Something looked like a bug but was intentional — and the pattern is general enough to apply across mods |
+| **Cleanest Solutions** | An implementation you encountered or recommended that is particularly elegant or DRY |
+
+### How to update
+
+- **Deduplicate**: check if the learning already exists before adding
+- **Be specific**: include the BG3 API names, field names, exact patterns — vague advice is useless
+- **Include the "why"**: explain *why* the mistake happened or *why* the pattern works, so future runs can apply the knowledge to novel situations
+- **Remove stale entries**: if a learning is contradicted by new evidence, update or remove it
+- **Keep it concise**: each entry should be 1-3 lines. This file is loaded every run — bloat slows things down
