@@ -985,13 +985,6 @@ data "StatsFunctorContext" "OnStatusApplied"
 data "Conditions" "StatusId('BANXIAN_FANSHI') and HasPassive('BANXIAN_JJ9_DUJIE',context.Source)"
 data "StatsFunctors" "ApplyStatus(SELF,BANXIAN_JJ9_JIEQI,100,-1)"
 
-//劫雷护体被动（被攻击时反击雷伤，由Lua计算劫气层数 × 2d6）
-new entry "BANXIAN_JJ9_JIELEI_HUTI"
-type "PassiveData"
-data "DisplayName" "stringsofmodmadebyxss20260313jj9a06;1"
-data "Description" "stringsofmodmadebyxss20260313jj9b06;1"
-data "Properties" "IsHidden"
-
 //劫雷化身 · 变身法术
 new entry "Shout_BANXIAN_JJ9_AVATAR"
 type "SpellData"

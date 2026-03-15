@@ -69,3 +69,4 @@
 - **ProcessTribulation estimated self-damage**: Uses `stacks×16` avg estimate, not actual dice rolls. Design choice for consistent self-damage.
 - **VOID_EROSION no max stack**: 3-turn duration + 1 attack/turn on clone effectively caps at 3 stacks.
 - **JIEQI_PIERCE only ignores Resistant, not Immune**: Design choice — immunity is intentionally stronger than the pierce effect.
+- **SWAP_BLUR uses StatusType BLUR**: Correct — gives attack disadvantage against the user, matching "虚化" (becoming ethereal). Not a type mismatch.

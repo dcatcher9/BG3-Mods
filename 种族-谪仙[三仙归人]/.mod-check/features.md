@@ -1,5 +1,5 @@
 # Features — 种族·谪仙「三仙归人」
-<!-- Last updated: 2026-03-14 -->
+<!-- Last updated: 2026-03-14 (re-audit) -->
 
 ## Feature Table
 
@@ -40,18 +40,18 @@
 | JingJie T6 虚实互换 | Full | Spell | BANXIAN_JINGJIE.txt, JingJie.lua (swap positions, 1-turn blur) |
 | JingJie T6 虚空断裂 | Full | Spell | BANXIAN_JINGJIE.txt, JingJie.lua (6d8 Force + push + kill explosion 4d8) |
 | JingJie T6 虚空侵蚀 | Full | Passive (clone) | BANXIAN_JINGJIE.txt (clone attacks apply AC-1, Additive stack, 3-turn) |
-| JingJie T6 相位游离 | **Broken** | Passive | BANXIAN_JINGJIE.txt (auto-immunity <50% HP — **R-02: passive never granted**) |
+| JingJie T6 相位游离 | Full | Passive | BANXIAN_JINGJIE.txt (auto-immunity <50% HP, once-per-combat CD) |
 | JingJie T7 法相天地 | Full | Toggle Spell | BANXIAN_JINGJIE.txt, JingJie.lua (Huge, +3m, crit-2, stun aura, suppress reactions, quake, dynamic 1d6×enemies Force) |
 | JingJie T7 金刚不坏 | Full | Passive | BANXIAN_JINGJIE.txt (DamageReduction(All,Flat,ProficiencyBonus) + immune to crits) |
 | JingJie T8 领域 | Full | Spell | BANXIAN_JINGJIE.txt, JingJie.lua (12m, +3att/DC, ExtraAttack, -3/half move/no teleport enemies, +2/concentration/resist allies, 3 Shenshi/turn, 3d10 highest-HP) |
-| JingJie T8 领域·绝对 | **Partial** | Spell | BANXIAN_JINGJIE.txt (1-turn ultimate: -5/no reactions enemies, immune allies, +1AP — **R-03: debuff/buff persist after expiry**) |
+| JingJie T8 领域·绝对 | Full | Spell | BANXIAN_JINGJIE.txt (1-turn ultimate: -5/no reactions enemies, immune allies, +1AP) |
 | JingJie T8 大道共鸣 | Full | Auto | BANXIAN_JINGJIE.txt, JingJie.lua (10 Dao paths, all enhanced: 天4d10, 修罗厄运3d8, 地狱3d10, 剑3d8, 羿弹射, 鬼50%吸血, 力击退, 合欢支配, 人间治愈, 畜生全劣势) |
-| JingJie T9 劫气 | **Partial** | Passive | BANXIAN_JINGJIE.txt, JingJie.lua (1d6/stack, max 9 — **R-01: jieqiCount not persistent**) |
-| JingJie T9 引劫 | **Partial** | Spell | BANXIAN_JINGJIE.txt, JingJie.lua (18m AoE: stacks×3d10 thunder+radiant, 25% self-damage — **R-01: breaks on reload**) |
-| JingJie T9 劫雷护体 | **Partial** | Passive | JingJie.lua (counter stacks×2d6 lightning — **R-01: breaks on reload, Y-01: no tooltip**) |
-| JingJie T9 劫雷化身 | **Partial** | Spell | BANXIAN_JINGJIE.txt, JingJie.lua (3-turn: immune, 2x speed, +1 jieqi/turn, exhaustion — **O-01: AoE not implemented, R-01: consume broken on reload**) |
+| JingJie T9 劫气 | Full | Passive | BANXIAN_JINGJIE.txt, JingJie.lua (1d6/stack, max 9, PersistentVars) |
+| JingJie T9 引劫 | Full | Spell | BANXIAN_JINGJIE.txt, JingJie.lua (18m AoE: stacks×3d10 thunder+radiant, 25% self-damage) |
+| JingJie T9 劫雷护体 | Full | Passive | JingJie.lua (counter stacks×2d6 lightning — **Y-01: tooltip passive orphaned**) |
+| JingJie T9 劫雷化身 | Full | Spell | BANXIAN_JINGJIE.txt, JingJie.lua (3-turn: immune, 2x speed, +1 jieqi/turn, AoE splash, exhaustion) |
 | JingJie T9 逆天改命 | Full | Passive | BANXIAN_JINGJIE.txt, JingJie.lua (代死盟友, 承受50%HP精神伤, 殉爆劫气, 长休CD) |
-| JingJie T9 劫气贯体 | **Partial** | Status | BANXIAN_JINGJIE.txt, JingJie.lua (5+层无视Resistant — **R-01: never activates after reload**) |
+| JingJie T9 劫气贯体 | Full | Status | BANXIAN_JINGJIE.txt, JingJie.lua (5+层无视Resistant, PersistentVars) |
 | JingJie T10 斩仙一剑 | Full | Spell (combat 1×) | BANXIAN_JINGJIE.txt (20d12 Force + 25%HP斩杀=extra 40d12) |
 | JingJie T10 袖里乾坤 | Full | Spell (短休 1×) | BANXIAN_JINGJIE.txt (5-turn INCAPACITATED, 8d10/turn, exit→STUNNED 2) |
 | JingJie T10 万法归宗 | Full | Passive | BANXIAN_JINGJIE.txt, JingJie.lua (any damage: heal+Ki+Shenshi, 50% reflect, 3-turn CD — **O-02: multi-trigger in same turn**) |
@@ -76,9 +76,9 @@
 
 ### JingJie T6 炼虚·虚实之道 (Void Path)
 **What**: Expanded T6 with 5 sub-features: shadow clone (75% HP), position swap, void sunder, void erosion, phase shift.
-**Chain**: BANXIAN_JJ6_XUYING → unlocks Summon/Recall/Swap/VoidSunder spells + Evasion. Clone gets XUYING_MARK (includes EROSION_P passive for AC-1 on hit). SwapWithClone Lua swaps positions. VoidSunder does 6d8 Force + push + kill explosion. PHASE_SHIFT is auto-immunity at <50% HP (BROKEN: never granted).
+**Chain**: BANXIAN_JJ6_XUYING → unlocks Summon/Recall/Swap/VoidSunder spells + Evasion. Clone gets XUYING_MARK (includes EROSION_P passive for AC-1 on hit). SwapWithClone Lua swaps positions. VoidSunder does 6d8 Force + push + kill explosion. PHASE_SHIFT auto-immunity at <50% HP (OnDamaged, once-per-combat CD).
 **Access**: Spells + Passive
-**Completeness**: Partial (PHASE_SHIFT not granted)
+**Completeness**: Full
 
 ### JingJie T7 合体·天人合一 (Celestial Unity)
 **What**: Expanded T7 with 金刚不坏 + enhanced 法相 (stun aura, suppress reactions, dynamic force damage).
@@ -90,13 +90,13 @@
 **What**: Enhanced domain + new ABSOLUTE mode. Domain: +3 att/DC, ExtraAttack, 12m aura, 3d10/turn to highest-HP enemy. Absolute: 1-turn ultimate (-5/-5/no reactions enemies, immune allies, +1AP).
 **Chain**: LINGYU_STATUS (enhanced stats, 3 Shenshi/turn) + DomainHighestHPDamage Lua + ApplyDaoResonance. ABSOLUTE_STATUS (1-turn AuraStatuses).
 **Access**: Spells
-**Completeness**: Partial (R-03: absolute debuff/buff persist)
+**Completeness**: Full (RemoveConditions + RemoveEvents added)
 
 ### JingJie T9 渡劫·天劫九重 (Nine Tribulations)
 **What**: Completely reworked T9 — offensive focus. Jieqi 1d6/stack, 5+ ignore resistance, counter-damage, avatar form, sacrifice mechanic.
 **Chain**: DUJIE passive → 引劫 (AoE stacks×3d10), 劫雷护体 (Lua counter), 劫雷化身 (3-turn immune + AoE), 逆天改命 (Dying handler), 劫气贯体 (IgnoreResistance at 5+).
 **Access**: Spells + Passives
-**Completeness**: Partial (R-01: jieqiCount not persistent, O-01: Avatar AoE not implemented)
+**Completeness**: Full (jieqiCount persistent via PersistentVars, Avatar AoE via AvatarAoEDamage)
 
 ### JingJie T10 真仙·超脱轮回 (Transcendence)
 **What**: Enhanced T10 with stronger abilities + new 天道轮回 ultimate.
@@ -109,4 +109,4 @@
 - **FSZMG 梵圣真魔功**: Partial — incomplete ability descriptions.
 - **CaiDao 财道**: Localization stubs, no implementation.
 - **EGui 饿鬼道**: Stale localization says "(暂未开发！)" but implementation exists.
-- **相位游离**: PassiveData exists but never granted (R-02).
+- **相位游离**: FIXED — now granted via TIER_PASSIVES[6].
