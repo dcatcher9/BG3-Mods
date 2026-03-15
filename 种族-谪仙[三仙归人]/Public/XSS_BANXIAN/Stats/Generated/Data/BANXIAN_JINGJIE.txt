@@ -327,16 +327,15 @@ data "TooltipStatusApply" ""
 data "RequirementConditions" "HasStatus('BANXIAN_JJ6_XUYING_ACTIVE')"
 data "SpellFlags" "Temporary"
 
-//虚实互换 · 模糊效果（1回合攻击劣势）
+//虚实互换 · 虚化效果（1回合，对你的攻击具有劣势）
 new entry "BANXIAN_JJ6_SWAP_BLUR"
 type "StatusData"
-data "StatusType" "BOOST"
+data "StatusType" "BLUR"
 data "Icon" "Spell_Illusion_Blur"
 data "DisplayName" "stringsofmodmadebyxss20260313jj6a05;1"
 data "Description" "stringsofmodmadebyxss20260313jj6b05;1"
 data "StackId" "BANXIAN_JJ6_SWAP_BLUR"
 data "StackType" "Overwrite"
-data "Boosts" "Disadvantage(AttackTarget)"
 data "StatusPropertyFlags" "DisableCombatlog"
 
 //虚空断裂 · 撕裂虚空攻击（Force推击代替Lua传送，标记用于击杀爆炸）
@@ -701,6 +700,8 @@ data "Description" "stringsofmodmadebyxss20260313jj8p01;1"
 data "StackId" "BANXIAN_JJ8_LINGYU_ABSOLUTE_DEBUFF"
 data "StackType" "Overwrite"
 data "Boosts" "RollBonus(Attack,-5);RollBonus(SavingThrow,-5);ActionResource(ReactionActionPoint,-1,0)"
+data "RemoveConditions" "not HasStatus('BANXIAN_JJ8_LINGYU_ABSOLUTE_STATUS',context.ObservedEntity)"
+data "RemoveEvents" "OnStatusRemoved"
 data "StatusPropertyFlags" "DisableCombatlog"
 
 //领域·绝对友方护盾
@@ -713,6 +714,8 @@ data "Description" "stringsofmodmadebyxss20260313jj8r01;1"
 data "StackId" "BANXIAN_JJ8_LINGYU_ABSOLUTE_ALLYBUFF"
 data "StackType" "Overwrite"
 data "Boosts" "Resistance(All, Immune)"
+data "RemoveConditions" "not HasStatus('BANXIAN_JJ8_LINGYU_ABSOLUTE_STATUS',context.ObservedEntity)"
+data "RemoveEvents" "OnStatusRemoved"
 data "StatusPropertyFlags" "DisableCombatlog"
 
 //---------- 领域·大道共鸣状态（全部增强）----------
@@ -1030,17 +1033,22 @@ data "StatsFunctorContext" "OnAttack"
 data "Conditions" "not (IsMiss() or IsCriticalMiss()) and not Self(context.Target,context.Source)"
 data "StatsFunctors" "DealDamage(3d8,Lightning,Magical);DealDamage(3d8,Radiant,Magical)"
 
+//力竭共用基础（攻击+豁免劣势）
+new entry "BANXIAN_JINGJIE_EXHAUST_BASE"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackType" "Overwrite"
+data "Boosts" "Disadvantage(Attack);Disadvantage(SavingThrow)"
+data "StatusPropertyFlags" "DisableCombatlog"
+
 //劫雷化身结束·力竭
 new entry "BANXIAN_JJ9_AVATAR_EXHAUSTION"
 type "StatusData"
-data "StatusType" "BOOST"
+using "BANXIAN_JINGJIE_EXHAUST_BASE"
 data "Icon" "Spell_Evocation_ChainLightning"
 data "DisplayName" "stringsofmodmadebyxss20260313jj9a08;1"
 data "Description" "stringsofmodmadebyxss20260313jj9b08;1"
 data "StackId" "BANXIAN_JJ9_AVATAR_EXHAUSTION"
-data "StackType" "Overwrite"
-data "Boosts" "Disadvantage(Attack);Disadvantage(SavingThrow)"
-data "StatusPropertyFlags" "DisableCombatlog"
 
 //逆天改命被动（Lua处理：盟友濒死时代受致命伤）
 new entry "BANXIAN_JJ9_NITIANMING"
@@ -1289,11 +1297,8 @@ data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndi
 //天道轮回·力竭
 new entry "BANXIAN_JJ10_TIANDAO_EXHAUST"
 type "StatusData"
-data "StatusType" "BOOST"
+using "BANXIAN_JINGJIE_EXHAUST_BASE"
 data "Icon" "Spell_Divination_TrueSeeing"
 data "DisplayName" "stringsofmodmadebyxss20260313jj10d05;1"
 data "Description" "stringsofmodmadebyxss20260313jj10e05;1"
 data "StackId" "BANXIAN_JJ10_TIANDAO_EXHAUST"
-data "StackType" "Overwrite"
-data "Boosts" "Disadvantage(Attack);Disadvantage(SavingThrow)"
-data "StatusPropertyFlags" "DisableCombatlog"

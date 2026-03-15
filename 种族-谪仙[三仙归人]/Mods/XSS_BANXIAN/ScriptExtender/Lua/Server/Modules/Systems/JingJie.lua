@@ -55,7 +55,9 @@ local yinGuoLastSpell = {} -- 记录最后施放的法术：attacker GUID → sp
 local PHYSICAL_DAMAGE = {Slashing=true, Piercing=true, Bludgeoning=true}
 
 -- ===== 跨境界追踪变量 =====
-local jieqiCount = {}          -- T9: 劫气层数追踪
+-- 劫气层数持久化：存入PersistentVars以防save/reload丢失
+local function getJieqi(guid) return PersistentVars['JIEQI_COUNT_'..tostring(guid)] or 0 end
+local function setJieqi(guid, val) PersistentVars['JIEQI_COUNT_'..tostring(guid)] = val end
 
 local function YinGuoChain_Recurse(origin, attacker, chance, hitSet, depth, isWeapon, spellName)
     if depth <= 0 then return end
@@ -656,7 +658,7 @@ end
 local function ProcessTribulation(Object)
     if not Object then return end
 
-    local stacks = jieqiCount[tostring(Object)] or 0
+    local stacks = getJieqi(Object)
     if stacks <= 0 then stacks = 1 end
 
     -- 计算伤害
@@ -691,7 +693,7 @@ local function ProcessTribulation(Object)
 
     -- 消耗所有劫气
     Osi.RemoveStatus(Object, 'BANXIAN_JJ9_JIEQI')
-    jieqiCount[tostring(Object)] = 0
+    setJieqi(Object, 0)
 
     -- 延迟检查存活
     PersistentVars['TRIBULATION_TARGET'] = Object
@@ -746,7 +748,7 @@ end
 --================================
 -- 劫气层数追踪 + 5层以上无视抗性
 local function ManageJieqiPierce(guid)
-    local count = jieqiCount[tostring(guid)] or 0
+    local count = getJieqi(guid)
     if count >= 5 then
         if Osi.HasActiveStatus(guid, 'BANXIAN_JJ9_JIEQI_PIERCE') ~= 1 then
             Osi.ApplyStatus(guid, 'BANXIAN_JJ9_JIEQI_PIERCE', -1, 1, guid)
@@ -766,7 +768,7 @@ local function JieleiHutiCounter(target, attacker)
     if not target or not attacker then return end
     if target == attacker then return end
     if Osi.HasPassive(target, 'BANXIAN_JJ9_DUJIE') ~= 1 then return end
-    local stacks = jieqiCount[tostring(target)] or 0
+    local stacks = getJieqi(target)
     if stacks <= 0 then return end
 
     local dice = stacks * 2
@@ -807,7 +809,7 @@ local function NitianmingCheck(dyingAlly, cause1, cause2, cause3)
                 -- 如果代死导致施救者死亡，引爆劫气
                 local saviorHP = Osi.GetHitpoints(savior) or 0
                 if saviorHP <= 0 then
-                    local stacks = jieqiCount[tostring(savior)] or 0
+                    local stacks = getJieqi(savior)
                     if stacks > 0 then
                         local explodeName = 'BANXIAN_JJ9_NITIANMING_EXPLODE_'..stacks
                         if Ext.Stats.Get(explodeName) == nil then
@@ -831,11 +833,30 @@ local function NitianmingCheck(dyingAlly, cause1, cause2, cause3)
 end
 
 --================================
+-- Tier 9 · 渡劫 · 劫雷化身AoE（命中时3m内全体雷+光辉）
+--================================
+local function AvatarAoEDamage(attacker, target)
+    if Osi.HasActiveStatus(attacker, 'BANXIAN_JJ9_AVATAR_STATUS') ~= 1 then return end
+    local enemies = Utils.GetNearbyEnemies(target, attacker, 3)
+    for _, enemy in ipairs(enemies) do
+        if enemy.guid ~= target then
+            local statusName = 'BANXIAN_JJ9_AVATAR_AOE_SPLASH'
+            if Ext.Stats.Get(statusName) == nil then
+                local stat = Ext.Stats.Create(statusName, 'StatusData', 'BANXIAN_JJ5_SHENGMIE_EXPLODE')
+                stat.OnApplyFunctors = 'DealDamage(3d8,Lightning,Magical);DealDamage(3d8,Radiant,Magical)'
+                stat:Sync()
+            end
+            Osi.ApplyStatus(enemy.guid, statusName, 1, 1, attacker)
+        end
+    end
+end
+
+--================================
 -- Tier 9 · 渡劫 · 劫雷化身消耗劫气
 --================================
 local function AvatarConsumeJieqi(Object)
     Osi.RemoveStatus(Object, 'BANXIAN_JJ9_JIEQI')
-    jieqiCount[tostring(Object)] = 0
+    setJieqi(Object, 0)
     ManageJieqiPierce(Object)
     _P('[境界·渡劫] 劫雷化身！消耗全部劫气！')
 end
@@ -877,10 +898,10 @@ end
 --================================
 local TIER_PASSIVES = {
     [5] = {'BANXIAN_JJ5_FAZE', 'BANXIAN_JJ5_YINGUO_KILL'},
-    [6] = {'BANXIAN_JJ6_XUYING'},
+    [6] = {'BANXIAN_JJ6_XUYING', 'BANXIAN_JJ6_PHASE_SHIFT'},
     [7] = {'BANXIAN_JJ7_FAXIANG', 'BANXIAN_JJ7_JINGANG'},
     [8] = {'BANXIAN_JJ8_LINGYU'},
-    [9] = {'BANXIAN_JJ9_DUJIE', 'BANXIAN_JJ9_JIEQI_GAIN', 'BANXIAN_JJ9_JIEQI_NIXING', 'BANXIAN_JJ9_NITIANMING'},
+    [9] = {'BANXIAN_JJ9_DUJIE', 'BANXIAN_JJ9_JIEQI_GAIN', 'BANXIAN_JJ9_JIEQI_NIXING', 'BANXIAN_JJ9_NITIANMING', 'BANXIAN_JJ9_JIELEI_HUTI'},
     [10] = {'BANXIAN_JJ10_ZHENXIAN', 'BANXIAN_JJ10_XIANTI', 'BANXIAN_JJ10_REGEN', 'BANXIAN_JJ10_WANFA', 'BANXIAN_JJ10_SHENZU'},
 }
 
@@ -1036,6 +1057,11 @@ function JingJie.Init()
             FaxiangDynamicDamage(AttackerOwner, Defender)
         end
 
+        -- Tier 9: 劫雷化身AoE（命中时3m内全体雷+光辉）
+        if DamageAmount > 0 and AttackerOwner ~= Defender then
+            AvatarAoEDamage(AttackerOwner, Defender)
+        end
+
         -- Tier 9: 劫雷护体反伤（被攻击时反击雷伤 = 劫气层数 × 2d6）
         if DamageAmount > 0 and AttackerOwner ~= Defender then
             JieleiHutiCounter(Defender, AttackerOwner)
@@ -1068,9 +1094,9 @@ function JingJie.Init()
 
         -- Tier 9: 劫气堆叠追踪
         if Status == 'BANXIAN_JJ9_JIEQI' then
-            local key = tostring(Object)
-            jieqiCount[key] = (jieqiCount[key] or 0) + 1
-            if jieqiCount[key] > 9 then jieqiCount[key] = 9 end
+            local count = getJieqi(Object) + 1
+            if count > 9 then count = 9 end
+            setJieqi(Object, count)
             ManageJieqiPierce(Object)
         end
 
@@ -1097,7 +1123,7 @@ function JingJie.Init()
 
         -- Tier 9: 劫气移除追踪
         if Status == 'BANXIAN_JJ9_JIEQI' then
-            jieqiCount[tostring(Object)] = 0
+            setJieqi(Object, 0)
             ManageJieqiPierce(Object)
         end
 
@@ -1177,8 +1203,7 @@ function JingJie.Init()
             local hp = Osi.GetHitpoints(Object) or 0
             local maxhp = Osi.GetMaxHitpoints(Object) or 1
             if hp >= maxhp then
-                local count = jieqiCount[tostring(Object)] or 0
-                if count < 9 then
+                if getJieqi(Object) < 9 then
                     Osi.ApplyStatus(Object, 'BANXIAN_JJ9_JIEQI', -1, 1, Object)
                 end
             end
@@ -1203,8 +1228,7 @@ function JingJie.Init()
             if Osi.HasPassive(Object, 'BANXIAN_JJ9_DUJIE') == 1 then
                 local gameDays = PersistentVars['GAME_DAYS'] or 0
                 if gameDays % 10 == 0 then
-                    local count = jieqiCount[tostring(Object)] or 0
-                    if count < 9 then
+                    if getJieqi(Object) < 9 then
                         Osi.ApplyStatus(Object, 'BANXIAN_JJ9_JIEQI', -1, 1, Object)
                         _P('[境界·渡劫] 天机感应，劫气+1')
                     end

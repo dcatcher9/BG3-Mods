@@ -28,7 +28,7 @@
 - `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/Difficulty.lua`
 - `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/ZhenFa.lua`
 - `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/JingJie.lua`
-- `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/Debug.lua` (NEW)
+- `Mods/XSS_BANXIAN/ScriptExtender/Lua/Server/Modules/Systems/Debug.lua`
 - `Scripts/thoth/helpers/XSS_BANXIAN.khn`
 - `Public/XSS_BANXIAN/Progressions/Progressions.lsx`
 - `Public/XSS_BANXIAN/Progressions/ProgressionDescriptions.lsx`

@@ -23,7 +23,7 @@
 | `Data/SHENSHI.txt` | 252 | Divine sense (Shenshi) system |
 | `Data/SHENTONG.txt` | 203 | Supernatural abilities (72/36-change polymorphs) |
 | `Data/ZHENFA.txt` | 636 | Formation arrays (ZhenFa) |
-| `Data/BANXIAN_JINGJIE.txt` | 955 | Tier 5-10 realm abilities (化神→真仙) |
+| `Data/BANXIAN_JINGJIE.txt` | 1299 | Tier 5-10 realm abilities (化神→真仙) — expanded T6-T10 |
 | `Data/GONGFA_SELECTOR.txt` | — | GongFa progression selectors |
 | `Data/DIFFICULTY.txt` | — | Hardcore/difficulty mode stats |
 | `Data/BOOK.txt` | — | Book items |

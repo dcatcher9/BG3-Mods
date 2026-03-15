@@ -33,59 +33,80 @@
 | ExtraAttack 连击 | Full | Passive/Aura | BANXIAN_BASE.txt (up to 10 attacks) |
 | DanYao 丹药 | Full | Item + Passive | DANYAO.txt, DanYao.lua, ItemCombos.txt |
 | Hardcore 仙人模式 | Full | Script-only | Difficulty.lua (NPC cultivation on combat) |
-| JingJie T5 化神·因果律 | Full | Toggle Spell | BANXIAN_JINGJIE.txt, JingJie.lua (chain attacks on hit, weapon→weapon/spell→mirror) |
-| JingJie T5 化神·生灭律 | Full | Toggle Spell | BANXIAN_JINGJIE.txt, JingJie.lua (生: lifesteal→THP→CON, 灭: death mark→explode chain) |
-| JingJie T5 化神·五行律 | Full | Toggle Spell | BANXIAN_JINGJIE.txt, JingJie.lua (5-element marks→WuXingCollapse AoE+stun) |
-| JingJie T6 炼虚·虚影分身 | Full | Spell | BANXIAN_JINGJIE.txt, JingJie.lua (summon clone, share passives, all-resist, backlash on death) |
-| JingJie T7 合体·法相天地 | Full | Toggle Spell | BANXIAN_JINGJIE.txt (Huge size, +3m melee, 2d8 Force, 6m fear aura, 4 Ki/turn) |
-| JingJie T8 大乘·领域 | Partial | Spell | BANXIAN_JINGJIE.txt, JingJie.lua (12m domain, debuff/buff aura, DAO_RESONANCE — **3 resonance effects broken: R-01**) |
-| JingJie T9 渡劫·天劫 | Full | Passive + Spell | BANXIAN_JINGJIE.txt, JingJie.lua (JIEQI stacking, tribulation gamble) |
-| JingJie T10 真仙·仙法 | Full | Passive + Spells | BANXIAN_JINGJIE.txt, JingJie.lua (condition immunity, +3 stats, auto-revive, 斩仙/袖里/万法/神足) |
-| Debug 调试指令 | Full | Console (!bx) | Debug.lua (info/linggen/daoheng/jingjie/dadao/shenshi/gongfa/fabao/refresh commands) |
+| JingJie T5 因果律 | Full | Toggle Spell | BANXIAN_JINGJIE.txt, JingJie.lua (chain: weapon→weapon attack, spell→Osi.UseSpell replication) |
+| JingJie T5 生灭律 | Full | Toggle Spell | BANXIAN_JINGJIE.txt, JingJie.lua (生: lifesteal→THP→CON, 灭: death mark→HP%-based explode chain) |
+| JingJie T5 五行律 | Full | Toggle Spell | BANXIAN_JINGJIE.txt, JingJie.lua (5-element marks→WuXingCollapse AoE+stun) |
+| JingJie T6 虚影分身 | Full | Spell | BANXIAN_JINGJIE.txt, JingJie.lua (75% HP clone, all-resist, backlash 3d10) |
+| JingJie T6 虚实互换 | Full | Spell | BANXIAN_JINGJIE.txt, JingJie.lua (swap positions, 1-turn blur) |
+| JingJie T6 虚空断裂 | Full | Spell | BANXIAN_JINGJIE.txt, JingJie.lua (6d8 Force + push + kill explosion 4d8) |
+| JingJie T6 虚空侵蚀 | Full | Passive (clone) | BANXIAN_JINGJIE.txt (clone attacks apply AC-1, Additive stack, 3-turn) |
+| JingJie T6 相位游离 | **Broken** | Passive | BANXIAN_JINGJIE.txt (auto-immunity <50% HP — **R-02: passive never granted**) |
+| JingJie T7 法相天地 | Full | Toggle Spell | BANXIAN_JINGJIE.txt, JingJie.lua (Huge, +3m, crit-2, stun aura, suppress reactions, quake, dynamic 1d6×enemies Force) |
+| JingJie T7 金刚不坏 | Full | Passive | BANXIAN_JINGJIE.txt (DamageReduction(All,Flat,ProficiencyBonus) + immune to crits) |
+| JingJie T8 领域 | Full | Spell | BANXIAN_JINGJIE.txt, JingJie.lua (12m, +3att/DC, ExtraAttack, -3/half move/no teleport enemies, +2/concentration/resist allies, 3 Shenshi/turn, 3d10 highest-HP) |
+| JingJie T8 领域·绝对 | **Partial** | Spell | BANXIAN_JINGJIE.txt (1-turn ultimate: -5/no reactions enemies, immune allies, +1AP — **R-03: debuff/buff persist after expiry**) |
+| JingJie T8 大道共鸣 | Full | Auto | BANXIAN_JINGJIE.txt, JingJie.lua (10 Dao paths, all enhanced: 天4d10, 修罗厄运3d8, 地狱3d10, 剑3d8, 羿弹射, 鬼50%吸血, 力击退, 合欢支配, 人间治愈, 畜生全劣势) |
+| JingJie T9 劫气 | **Partial** | Passive | BANXIAN_JINGJIE.txt, JingJie.lua (1d6/stack, max 9 — **R-01: jieqiCount not persistent**) |
+| JingJie T9 引劫 | **Partial** | Spell | BANXIAN_JINGJIE.txt, JingJie.lua (18m AoE: stacks×3d10 thunder+radiant, 25% self-damage — **R-01: breaks on reload**) |
+| JingJie T9 劫雷护体 | **Partial** | Passive | JingJie.lua (counter stacks×2d6 lightning — **R-01: breaks on reload, Y-01: no tooltip**) |
+| JingJie T9 劫雷化身 | **Partial** | Spell | BANXIAN_JINGJIE.txt, JingJie.lua (3-turn: immune, 2x speed, +1 jieqi/turn, exhaustion — **O-01: AoE not implemented, R-01: consume broken on reload**) |
+| JingJie T9 逆天改命 | Full | Passive | BANXIAN_JINGJIE.txt, JingJie.lua (代死盟友, 承受50%HP精神伤, 殉爆劫气, 长休CD) |
+| JingJie T9 劫气贯体 | **Partial** | Status | BANXIAN_JINGJIE.txt, JingJie.lua (5+层无视Resistant — **R-01: never activates after reload**) |
+| JingJie T10 斩仙一剑 | Full | Spell (combat 1×) | BANXIAN_JINGJIE.txt (20d12 Force + 25%HP斩杀=extra 40d12) |
+| JingJie T10 袖里乾坤 | Full | Spell (短休 1×) | BANXIAN_JINGJIE.txt (5-turn INCAPACITATED, 8d10/turn, exit→STUNNED 2) |
+| JingJie T10 万法归宗 | Full | Passive | BANXIAN_JINGJIE.txt, JingJie.lua (any damage: heal+Ki+Shenshi, 50% reflect, 3-turn CD — **O-02: multi-trigger in same turn**) |
+| JingJie T10 天道轮回 | Full | Spell (长休 1×) | BANXIAN_JINGJIE.txt (3-turn: +2AP/+2BA, 18m AoE 5d10/turn, exhaustion) |
+| JingJie T10 仙体回复 | Full | Passive | BANXIAN_JINGJIE.txt (Level+CON/turn, full HP→THP=Level) |
+| JingJie T10 神足通 | Full | Spell | BANXIAN_JINGJIE.txt (30m teleport, bonus action, no CD) |
+| Debug 调试指令 | Full | Console (!bx) | Debug.lua |
 
 ## Feature Details
 
 ### JingJie T5 化神·因果律 (Causality Law)
-**What**: Chain attacks on hit — weapon hits trigger weapon attacks on nearby enemies, spell hits replicate the full spell on chain targets.
-**Chain**: `Shout_BANXIAN_JJ5_YINGUO` → `BANXIAN_JJ5_YINGUO_STATUS` (using FAZE_BASE) → JingJie.lua `YinGuoChain()` on AttackedBy → recursive with halving probability, depth 5 cap. Weapon uses `YINGUO_CHAIN_HIT` (ExecuteWeaponAttack). Spell uses `Osi.UseSpell(attacker, spell, target)` for full engine-level replication (dice, attack roll/save, all spell effects). Kill restores 50% Ki via `YINGUO_KILL` passive.
-**Access**: Toggle spell (BonusAction, activates law stance)
+**What**: Chain attacks on hit — weapon hits trigger weapon attacks on nearby enemies, spell hits use `Osi.UseSpell` for full engine replication.
+**Chain**: `Shout_BANXIAN_JJ5_YINGUO` → `YINGUO_STATUS` (using FAZE_BASE) → JingJie.lua `YinGuoChain()` on AttackedBy → recursive with halving probability, depth 5 cap. Weapon uses `YINGUO_CHAIN_HIT` (ExecuteWeaponAttack). Spell uses `Osi.UseSpell(attacker, spell, target)`.
+**Access**: Toggle spell (BonusAction)
 **Completeness**: Full
 
 ### JingJie T5 化神·生灭律 (Life/Death Law)
-**What**: 生 mode — lifesteal + overflow THP → permanent CON. 灭 mode — death marks + kill explosion chain.
-**Chain**: `Shout_BANXIAN_JJ5_SHENGMIE` → `SHENGMIE_STATUS` (using FAZE_BASE) → 生: stat passive `SHENGMIE_SHENG` (OnAttack: Necrotic + heal) + Lua `ShengMieLifeExcess` (THP accumulation, CON conversion at CON×20 threshold). 灭: toggle `SHENGMIE_TOGGLE` → `MIE_MODE` → Lua `ShengMieDeathMark` (OnAttacked) + `ShengMieExplode` (OnDying, AoE + infect).
-**Access**: Toggle spell + sub-toggle (生↔灭)
+**What**: 生 mode — lifesteal + overflow THP → permanent CON. 灭 mode — death marks + kill explosion chain (HP%-based damage).
+**Chain**: Shout → SHENGMIE_STATUS → 生: stat passive + Lua ShengMieLifeExcess. 灭: toggle → MIE_MODE → Lua ShengMieDeathMark + ShengMieExplode (now uses deadTarget maxHP/4 via ApplyDamage, mark doubles).
+**Access**: Toggle spell + sub-toggle
 **Completeness**: Full
 
-### JingJie T5 化神·五行律 (Five-Element Law)
-**What**: Attacks cycle through 5 elements, applying marks. Gathering all 5 across battlefield triggers WuXingCollapse (massive AoE + stun).
-**Chain**: `Shout_BANXIAN_JJ5_WUXING` → `WUXING_STATUS` (using FAZE_BASE) → Lua `WuXingOnHit` (cycle stage 1-5, apply WUXING_MARK_N, LingGen affinity bonus) → `WuXingScanMarks` checks all enemies → `WuXingCollapse` uses convex hull of marked positions to include bystanders → level×d6 per mark + STUNNED + mark consumption.
-**Access**: Toggle spell
+### JingJie T6 炼虚·虚实之道 (Void Path)
+**What**: Expanded T6 with 5 sub-features: shadow clone (75% HP), position swap, void sunder, void erosion, phase shift.
+**Chain**: BANXIAN_JJ6_XUYING → unlocks Summon/Recall/Swap/VoidSunder spells + Evasion. Clone gets XUYING_MARK (includes EROSION_P passive for AC-1 on hit). SwapWithClone Lua swaps positions. VoidSunder does 6d8 Force + push + kill explosion. PHASE_SHIFT is auto-immunity at <50% HP (BROKEN: never granted).
+**Access**: Spells + Passive
+**Completeness**: Partial (PHASE_SHIFT not granted)
+
+### JingJie T7 合体·天人合一 (Celestial Unity)
+**What**: Expanded T7 with 金刚不坏 + enhanced 法相 (stun aura, suppress reactions, dynamic force damage).
+**Chain**: BANXIAN_JJ7_FAXIANG + JINGANG passives. Faxiang: Huge size, crit-2, stun aura (WIS save), SUPPRESS (remove reactions), QUAKE (grease on move), PASSIVE (2d8 Force melee), FaxiangDynamicDamage Lua (enemy count × 1d6 Force). Jingang: DamageReduction + CriticalHit(Never).
+**Access**: Toggle spell + Passive
 **Completeness**: Full
-**Notes**: Convex hull algorithm (Graham Scan) for AoE targeting is elegant. Marks persist permanently (Y-01).
 
-### JingJie T6 炼虚·虚影分身 (Shadow Clone)
-**What**: Summon a clone that inherits passives/statuses, shares Ki pool. Owner gets all-resist while clone lives.
-**Chain**: `Shout_BANXIAN_JJ6_SUMMON` (8 Shenshi) → `XUYING_ACTIVE` status → Lua `SummonShadowClone` (CreateAt from template) → 500ms timer → `SetupShadowClone` (copy passives/statuses, set half HP). Recall: `Shout_BANXIAN_JJ6_RECALL` → RemoveStatus → Lua `RecallShadowClone` (transfer remaining HP). Death: Lua `OnShadowCloneDeath` → `XUYING_BACKLASH` (5d10 Psychic + 2 Shenshi). Long rest cleanup included.
-**Access**: Spell (Action + 8 Shenshi)
-**Completeness**: Full
-**Notes**: Single pending clone setup (XUYING_PENDING_SETUP) means only one clone can initialize at a time — acceptable since each character casts manually.
+### JingJie T8 大乘·法域降世 (Domain Descent)
+**What**: Enhanced domain + new ABSOLUTE mode. Domain: +3 att/DC, ExtraAttack, 12m aura, 3d10/turn to highest-HP enemy. Absolute: 1-turn ultimate (-5/-5/no reactions enemies, immune allies, +1AP).
+**Chain**: LINGYU_STATUS (enhanced stats, 3 Shenshi/turn) + DomainHighestHPDamage Lua + ApplyDaoResonance. ABSOLUTE_STATUS (1-turn AuraStatuses).
+**Access**: Spells
+**Completeness**: Partial (R-03: absolute debuff/buff persist)
 
-### JingJie T8 大乘·领域 (Domain)
-**What**: 12m aura domain with enemy debuff, ally buff, and Dao resonance effects.
-**Chain**: `Shout_BANXIAN_JJ8_LINGYU_ON` (16 Shenshi) → `LINGYU_STATUS` (12m AuraStatuses: DEBUFF on enemies, ALLYBUFF on allies; 4 Shenshi/turn) → Lua `ApplyDaoResonance` finds highest-DH Dao path → applies resonance status (e.g., LINGYU_DAO_TIAN for lightning ticks).
-**Access**: Spell (Action + 16 Shenshi)
-**Completeness**: **Partial** — 3 of 10 resonance effects broken (XIULUO_P, HEHUAN_P, CHUSHENG_P have wrong context.Target in conditions; JIAN_P has wrong mechanic). Offensive resonances (TIAN, DIYU, EGUI, YI, LI, RENJIAN) work correctly.
+### JingJie T9 渡劫·天劫九重 (Nine Tribulations)
+**What**: Completely reworked T9 — offensive focus. Jieqi 1d6/stack, 5+ ignore resistance, counter-damage, avatar form, sacrifice mechanic.
+**Chain**: DUJIE passive → 引劫 (AoE stacks×3d10), 劫雷护体 (Lua counter), 劫雷化身 (3-turn immune + AoE), 逆天改命 (Dying handler), 劫气贯体 (IgnoreResistance at 5+).
+**Access**: Spells + Passives
+**Completeness**: Partial (R-01: jieqiCount not persistent, O-01: Avatar AoE not implemented)
 
-### Debug 调试指令 (Debug Console)
-**What**: Console commands for testing cultivation mechanics via `!bx` prefix.
-**Chain**: Debug.lua registers `Ext.RegisterConsoleCommand('bx', ...)` → dispatches to subcommands: info/linggen/daoheng/jingjie/dadao/shenshi/gongfa/fabao/refresh.
-**Access**: Console only (`!bx help`)
-**Completeness**: Full — covers all major systems (LingGen set/clear, DaoHeng set/add, JingJie shortcut, DaDao add/remove/days, Shenshi set/max, GongFa add/remove, FaBao add/remove/clear, refresh all)
+### JingJie T10 真仙·超脱轮回 (Transcendence)
+**What**: Enhanced T10 with stronger abilities + new 天道轮回 ultimate.
+**Chain**: 斩仙 (20d12 + 25% execute 40d12), 袖里 (5-turn 8d10 + stun), 万法 (any damage, heal+reflect+restore, 3-turn CD), 天道轮回 (3-turn: +2AP/+2BA, 18m 5d10 AoE, exhaustion), 仙体回复 (Level+CON/turn + THP).
+**Access**: Spells + Passives
+**Completeness**: Full (O-02: WanfaReflect multi-trigger is minor)
 
 ## Feature Gaps
-- **HTBG 后天补根**: Stub — 5 sub-spells with empty SpellProperties, no Lua handler. Design intent unknown.
-- **FSZMG 梵圣真魔功**: Partial — Levels 1-9 implemented, Level9 capstone fixed, DevilForms ObjectSize capped. Incomplete ability descriptions.
-- **CaiDao 财道**: Localization stubs exist (XML lines 365-369) with empty descriptions but no stat entries or Lua handler. Planned but unimplemented DaDao path.
-- **EGui 饿鬼道**: Localization text says "(暂未开发！)" but `MODE_BANXIAN_DH_EGUI_TECHNICAL` + passive are implemented. Stale localization.
-- **领域共鸣 XIULUO/HEHUAN/CHUSHENG/JIAN**: Four resonance effects non-functional due to bugs R-01/O-01.
+- **HTBG 后天补根**: Stub — empty SpellProperties, no handler.
+- **FSZMG 梵圣真魔功**: Partial — incomplete ability descriptions.
+- **CaiDao 财道**: Localization stubs, no implementation.
+- **EGui 饿鬼道**: Stale localization says "(暂未开发！)" but implementation exists.
+- **相位游离**: PassiveData exists but never granted (R-02).

@@ -77,6 +77,10 @@ Common things that look like bugs but aren't — avoid re-flagging these.
 
 - **Duplicated constants in debug tools**: Debug/console tools (like `!bx` commands) intentionally duplicate constants from other modules for self-containment. Don't flag as redundancy.
 
+- **BG3 AuraStatuses do NOT auto-clean**: When a source status with `AuraStatuses` expires, the applied aura statuses on targets do NOT automatically remove. You must add explicit `RemoveConditions "not HasStatus('SOURCE_STATUS',context.ObservedEntity)"` + `RemoveEvents "OnStatusRemoved"` to each aura-applied status. Verified by comparing LINGYU_DEBUFF (has RemoveConditions, works) vs ABSOLUTE_DEBUFF (missing, persists indefinitely).
+
+- **Non-persistent Lua tables break on reload**: Local Lua tables (not backed by PersistentVars) reset when the game is saved/reloaded. Any mechanic tracking state in local tables (like stack counts) must either persist via PersistentVars or reconstruct state on SessionLoaded/GameStateChanged by reading entity status data.
+
 ---
 
 ## Cleanest Solutions Found
