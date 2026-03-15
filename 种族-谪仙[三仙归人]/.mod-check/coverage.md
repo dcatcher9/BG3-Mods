@@ -1,5 +1,5 @@
 # Coverage — 种族·谪仙「三仙归人」
-<!-- Last updated: 2026-03-15 -->
+<!-- Last updated: 2026-03-15 (synergy audit) -->
 
 ## Stats
 - Fully read: ~84 of ~109 source files

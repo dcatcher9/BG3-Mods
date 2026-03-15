@@ -29,6 +29,29 @@ data "DisplayName" "stringsofmodmadebyxss20260313jj5a00;1"
 data "Description" "stringsofmodmadebyxss20260313jj5b00;1"
 data "Properties" "Highlighted"
 data "Boosts" "UnlockSpell(Shout_BANXIAN_JJ5_YINGUO);UnlockSpell(Shout_BANXIAN_JJ5_SHENGMIE);UnlockSpell(Shout_BANXIAN_JJ5_WUXING)"
+data "Passives" "BANXIAN_JJ5_FAZE_SHENSHI;BANXIAN_JJ5_FAZE_FIRE"
+
+//法则·神识反馈（Synergy 13）：法则激活时洞观/内观免费
+new entry "BANXIAN_JJ5_FAZE_SHENSHI"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20260315syn13a;1"
+data "Description" "stringsofmodmadebyxss20260315syn13b;1"
+data "Icon" "Action_ReadThoughts"
+data "Properties" "IsHidden"
+data "BoostContext" "OnStatusApplied;OnStatusRemoved"
+data "BoostConditions" "HasStatus('BANXIAN_JJ5_YINGUO_STATUS') or HasStatus('BANXIAN_JJ5_SHENGMIE_STATUS') or HasStatus('BANXIAN_JJ5_WUXING_STATUS')"
+data "Boosts" "UnlockSpellVariant(SpellId('BANXIAN_Shenshi_CheckSelf') or SpellId('BANXIAN_Shenshi_DetectSense'),ModifyUseCosts(Replace,ShenshiPoint,0,0,ShenshiPoint),ModifyIconGlow(),ModifyTooltipDescription())"
+
+//法则·弄焰共振（Synergy 12）：法则+火焰光环=法术附加火伤
+new entry "BANXIAN_JJ5_FAZE_FIRE"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20260315syn12a;1"
+data "Description" "stringsofmodmadebyxss20260315syn12b;1"
+data "Icon" "Spell_Conjuration_FlamingSphere"
+data "Properties" "IsHidden"
+data "BoostContext" "OnStatusApplied;OnStatusRemoved"
+data "BoostConditions" "(HasStatus('BANXIAN_JJ5_YINGUO_STATUS') or HasStatus('BANXIAN_JJ5_SHENGMIE_STATUS') or HasStatus('BANXIAN_JJ5_WUXING_STATUS')) and (HasStatus('BURNING_BANXIAN_FIRE_OF_GOLD') or HasStatus('BURNING_BANXIAN_FIRE_OF_PURPLE') or HasStatus('BURNING_BANXIAN_FIRE_OF_GHOST') or HasStatus('BURNING_BANXIAN_FIRE_OF_SIXDING') or HasStatus('BURNING_BANXIAN_FIRE_OF_THREEMEI'))"
+data "Boosts" "IF(IsSpell() or IsCantrip()):DamageBonus(2d6,Fire);IF(IsSpell() or IsCantrip()):IgnoreResistance(Fire,Resistant)"
 
 //---------- 因果律 ----------
 //因果律切换法术
@@ -53,6 +76,21 @@ data "Icon" "PassiveFeature_EldritchInvocations_RepellingBlast"
 data "DisplayName" "stringsofmodmadebyxss20260313jj5a01;1"
 data "Description" "stringsofmodmadebyxss20260313jj5c01;1"
 data "Passives" "BANXIAN_JJ5_YINGUO_PASSIVE"
+data "Boosts" "UnlockInterrupt(Interrupt_BANXIAN_JJ5_YINGUO_BACKLASH)"
+
+//因果反噬（Synergy 20）：因果律激活时被攻击可反弹50%伤害
+new entry "Interrupt_BANXIAN_JJ5_YINGUO_BACKLASH"
+type "InterruptData"
+data "DisplayName" "stringsofmodmadebyxss20260315syn20a;1"
+data "Description" "stringsofmodmadebyxss20260315syn20b;1"
+data "Icon" "PassiveFeature_EldritchInvocations_RepellingBlast"
+data "InterruptContext" "OnHit"
+data "InterruptContextScope" "Target"
+data "Container" "YesNoDecision"
+data "Conditions" "IsAbleToReact(context.Observer) and Self(context.Target,context.Observer) and HasDamageEffectFlag(DamageFlags.Hit) and not Self(context.Source,context.Target) and Character(context.Source)"
+data "Properties" "DealDamage(max(1,context.HitDescription.TotalDamageDone/2),Force,Magical)"
+data "Cost" "ReactionActionPoint:1;KiPoint:2"
+data "Stack" "YinGuoFanShi"
 
 //因果律被动（tooltip用，实际逻辑由Lua AttackedBy处理）
 new entry "BANXIAN_JJ5_YINGUO_PASSIVE"

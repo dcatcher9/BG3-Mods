@@ -9,6 +9,8 @@ type "StatusData"
 data "StatusType" "BOOST"
 data "StackId" "YAOXIAN_STATUS"
 data "StackType" "Overwrite"
+data "Passives" "BANXIAN_Yao_BleedChain"
+data "Boosts" "UnlockInterrupt(Interrupt_BANXIAN_Yao_NiLin)"
 data "StatusPropertyFlags" "IgnoreResting;ApplyToDead;DisableOverhead;DisablePortraitIndicator;DisableCombatlog"
 
 /////////////////////////////
@@ -273,7 +275,7 @@ data "TickFunctors" "DealDamage(SELF,MaxHP/12,,,,0,,true,true,,true)"
 data "BoostContext" "OnStatusApplied;OnStatusRemoved"
 data "BoostConditions" "HasStatus('SG_Rage')"
 data "Boosts" "UnlockSpellVariant(HasSpellFlag(SpellFlags.Melee),ModifyTargetRadius(Multiplicative,1.33));Advantage(Ability, Strength);Advantage(SavingThrow, Strength);CharacterWeaponDamage(1d4);ObjectSize(+1);ScaleMultiplier(1.33);CharacterUnarmedDamage(1d4);CarryCapacityMultiplier(1.25);   RollBonus(Attack, StrengthModifier+1)"
-data "Passives" "EnlargeWeightMedium;EnlargeWeightLarge"
+data "Passives" "EnlargeWeightMedium;EnlargeWeightLarge;BANXIAN_FSZMG_MoYanHeYi"
 data "StatusPropertyFlags" ""
 data "StatusGroups" "SG_RemoveOnRespec"
 data "StatusEffect" "ead75c6a-806e-4db7-8d51-f06beca00fe2"
@@ -328,6 +330,23 @@ data "Boosts" "UnlockSpellVariant(HasSpellFlag(SpellFlags.Melee),ModifyTargetRad
 
 /////////////////////////////
 /
+/        魔焰合一（Synergy）
+/
+/////////////////////////////
+//魔焰合一：魔化期间若有弄焰诀火焰光环，徒手攻击附加火焰伤害
+new entry "BANXIAN_FSZMG_MoYanHeYi"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20260315syn04a;1"
+data "Description" "stringsofmodmadebyxss20260315syn04b;1"
+data "DescriptionParams" "DealDamage(LevelMapValue(BanXianDice),Fire)"
+data "Icon" "Spell_Conjuration_FlamingSphere"
+data "Properties" "Highlighted"
+data "BoostContext" "OnStatusApplied;OnStatusRemoved"
+data "BoostConditions" "HasStatus('SG_Rage') and (HasStatus('BURNING_BANXIAN_FIRE_OF_GOLD') or HasStatus('BURNING_BANXIAN_FIRE_OF_PURPLE') or HasStatus('BURNING_BANXIAN_FIRE_OF_GHOST') or HasStatus('BURNING_BANXIAN_FIRE_OF_SIXDING') or HasStatus('BURNING_BANXIAN_FIRE_OF_THREEMEI'))"
+data "Boosts" "IF(IsMeleeUnarmedAttack()):CharacterUnarmedDamage(LevelMapValue(BanXianDice)*2, Fire);IF(IsMeleeAttack()):ReduceCriticalAttackThreshold(2)"
+
+/////////////////////////////
+/
 /        妖仙本相：Bear 熊
 /
 /////////////////////////////
@@ -362,7 +381,7 @@ data "Properties" "Highlighted"
 data "Icon" "Skill_Druid_WildShape_Bear"
 data "DisplayName" "stringsofmodmadebyxss20250228bca00a01;1"
 data "Description" "stringsofmodmadebyxss20250228bca00b01;1"
-data "Boosts" "UnlockSpell(Shout_WildShape_Bear_YaoXian);  IF(IsMeleeAttack()):DamageBonus(StrengthModifier)"
+data "Boosts" "UnlockSpell(Shout_WildShape_Bear_YaoXian);  IF(IsMeleeAttack()):DamageBonus(StrengthModifier);  IF(IsMeleeAttack() and HasPassive('BanXian_DH_Li',context.Source)):DamageBonus(StrengthModifier)"
 
 /////////////////////////////
 /
@@ -400,7 +419,7 @@ data "Properties" "Highlighted"
 data "Icon" "Skill_Druid_WildShape_Raven"
 data "DisplayName" "stringsofmodmadebyxss20250228bca00a02;1"
 data "Description" "stringsofmodmadebyxss20250228bca00b02;1"
-data "Boosts" "UnlockSpell(Shout_WildShape_Raven_YaoXian);  DarkvisionRangeMin(24);ActiveCharacterLight(c46e7ba8-e746-7020-5146-287474d7b9f7);StatusImmunity(BLINDED_DARKNESS);IgnoreSurfaceCover(SurfaceDarknessCloud)"
+data "Boosts" "UnlockSpell(Shout_WildShape_Raven_YaoXian);  DarkvisionRangeMin(24);ActiveCharacterLight(c46e7ba8-e746-7020-5146-287474d7b9f7);StatusImmunity(BLINDED_DARKNESS);IgnoreSurfaceCover(SurfaceDarknessCloud);  IF(IsAttack() and HasPassive('BanXian_DH_Tian',context.Source)):DamageBonus(WisdomModifier,Lightning)"
 
 /////////////////////////////
 /
@@ -438,7 +457,7 @@ data "Description" "stringsofmodmadebyxss20250228bca00b03;1"
 data "Boosts" "UnlockSpell(Shout_WildShape_Crab_YaoXian)"
 data "StatsFunctorContext" "OnAttack"
 data "Conditions" "IsMeleeUnarmedAttack() and not IsMiss()"
-data "StatsFunctors" "ApplyStatus(BLEEDING,100,2,,,,not SavingThrow(Ability.Constitution,ManeuverSaveDC()))"
+data "StatsFunctors" "IF(not HasPassive('BanXian_DH_XiuLuo',context.Source)):ApplyStatus(BLEEDING,100,2,,,,not SavingThrow(Ability.Constitution,ManeuverSaveDC()));IF(HasPassive('BanXian_DH_XiuLuo',context.Source)):ApplyStatus(BLEEDING,100,3)"
 
 /////////////////////////////
 /
@@ -473,7 +492,7 @@ data "Properties" "Highlighted"
 data "Icon" "Spell_Conjuration_FindFamiliar_Frog"
 data "DisplayName" "stringsofmodmadebyxss20250228bca00a04;1"
 data "Description" "stringsofmodmadebyxss20250228bca00b04;1"
-data "Boosts" "UnlockSpell(Shout_WildShape_Frog_YaoXian);  IF(HasStatus('WET',context.Source) or HasStatus('TWN_DRENCHED',context.Source)):ActionResourceMultiplier(Movement,200,0)"
+data "Boosts" "UnlockSpell(Shout_WildShape_Frog_YaoXian);  IF(HasStatus('WET',context.Source) or HasStatus('TWN_DRENCHED',context.Source)):ActionResourceMultiplier(Movement,200,0);  IF(HasPassive('BanXian_DH_HeHuan',context.Source)):Advantage(skill,Persuasion);IF(HasPassive('BanXian_DH_HeHuan',context.Source)):Advantage(skill,Performance)"
 
 /////////////////////////////
 /
@@ -506,7 +525,7 @@ data "Properties" "Highlighted"
 data "Icon" "Action_WildShape_Panther"
 data "DisplayName" "stringsofmodmadebyxss20250228bca00a05;1"
 data "Description" "stringsofmodmadebyxss20250228bca00b05;1"
-data "Boosts" "UnlockSpell(Shout_WildShape_Panther_YaoXian);  IF(MobileShootingCasterCondition() and IsMeleeAttack()):Reroll(Damage,20,false)"
+data "Boosts" "UnlockSpell(Shout_WildShape_Panther_YaoXian);  IF(MobileShootingCasterCondition() and IsMeleeAttack()):Reroll(Damage,20,false);  IF(MobileShootingCasterCondition() and IsMeleeAttack() and HasPassive('BanXian_DH_ChuSheng',context.Source)):ReduceCriticalAttackThreshold(2)"
 
 /////////////////////////////
 /
@@ -540,7 +559,7 @@ data "Properties" "Highlighted"
 data "Icon" "Spell_Conjuration_FindFamiliar_Rat"
 data "DisplayName" "stringsofmodmadebyxss20250228bca00a06;1"
 data "Description" "stringsofmodmadebyxss20250228bca00b06;1"
-data "Boosts" "UnlockSpell(Shout_WildShape_Rat_YaoXian);  Advantage(skill,Survival);Advantage(skill,Insight);Advantage(skill,Stealth);Advantage(skill,SleightOfHand)"
+data "Boosts" "UnlockSpell(Shout_WildShape_Rat_YaoXian);  Advantage(skill,Survival);Advantage(skill,Insight);Advantage(skill,Stealth);Advantage(skill,SleightOfHand);  IF(HasPassive('BanXian_DH_EGui',context.Source)):Advantage(skill,Deception);IF(HasPassive('BanXian_DH_EGui',context.Source)):Advantage(skill,Intimidation)"
 
 /////////////////////////////
 /
@@ -573,7 +592,7 @@ data "Properties" "Highlighted"
 data "Icon" "Action_WildShape_SaberTooth"
 data "DisplayName" "stringsofmodmadebyxss20250228bca00a07;1"
 data "Description" "stringsofmodmadebyxss20250228bca00b07;1"
-data "Boosts" "UnlockSpell(Shout_WildShape_SaberTooth_YaoXian);  IF(IsMeleeAttack()):CriticalHitExtraDice(1)"
+data "Boosts" "UnlockSpell(Shout_WildShape_SaberTooth_YaoXian);  IF(IsMeleeAttack()):CriticalHitExtraDice(1);  IF(IsMeleeAttack() and HasPassive('BanXian_DH_Jian',context.Source)):CriticalHitExtraDice(1);IF(IsMeleeAttack() and HasPassive('BanXian_DH_Jian',context.Source)):ReduceCriticalAttackThreshold(1)"
 data "StatsFunctorContext" "OnAttack"
 data "Conditions" "IsMeleeAttack() and IsCritical() and not IsCriticalMiss()"
 data "StatsFunctors" "ApplyStatus(WEAKENED_ARMOR,100,2)"
@@ -610,7 +629,7 @@ data "Icon" "Skill_Druid_WildShape_GiantSpider"
 data "DisplayName" "stringsofmodmadebyxss20250228bca00a08;1"
 data "Description" "stringsofmodmadebyxss20250228bca00b08;1"
 data "BoostContext" "OnPushed;OnMovedDistance"
-data "Boosts" "UnlockSpell(Shout_WildShape_Spider_YaoXian);  IF(InSurface('SurfaceWeb',context.Source)):ActionResourceConsumeMultiplier(Movement, 0, 0);IF(InSurface('SurfaceWeb',context.Source)):IgnoreLeaveAttackRange()"
+data "Boosts" "UnlockSpell(Shout_WildShape_Spider_YaoXian);  IF(InSurface('SurfaceWeb',context.Source)):ActionResourceConsumeMultiplier(Movement, 0, 0);IF(InSurface('SurfaceWeb',context.Source)):IgnoreLeaveAttackRange();  IF(HasPassive('BanXian_DH_RenJian',context.Source)):StatusImmunity(SG_DifficultTerrain)"
 
 /////////////////////////////
 /
@@ -643,7 +662,7 @@ data "Properties" "Highlighted"
 data "Icon" "Skill_Druid_WildShape_DireWolf"
 data "DisplayName" "stringsofmodmadebyxss20250228bca00a09;1"
 data "Description" "stringsofmodmadebyxss20250228bca00b09;1"
-data "Boosts" "UnlockSpell(Shout_WildShape_Wolf_YaoXian);  IF(IsMeleeAttack() and HasStatus('BLEEDING',context.Target)):Disadvantage(AttackRoll); IF(IsMeleeAttack() and HasStatus('BLEEDING',context.Target)):CriticalDamageOnHit()"
+data "Boosts" "UnlockSpell(Shout_WildShape_Wolf_YaoXian);  IF(IsMeleeAttack() and HasStatus('BLEEDING',context.Target)):Disadvantage(AttackRoll); IF(IsMeleeAttack() and HasStatus('BLEEDING',context.Target)):CriticalDamageOnHit();  IF(IsMeleeAttack() and HasPassive('BanXian_DH_XiuLuo',context.Source)):CriticalHitExtraDice(2)"
 
 /////////////////////////////
 /
@@ -679,4 +698,43 @@ data "Properties" "IsToggled;ToggledDefaultOn;ToggledDefaultAddToHotbar;Highligh
 data "Icon" "Action_Dragonborn_BreathWeapon_FireCone"
 data "DisplayName" "stringsofmodmadebyxss20250228bca00a10;1"
 data "Description" "stringsofmodmadebyxss20250228bca00b10;1"
-data "Boosts" "UnlockSpell(Shout_WildShape_RedDragon_YaoXian);  UnlockSpellVariant(FireSpellLevel(1),ModifyTooltipDescription(),ModifyUseCosts(Add,SpellSlot,-1,1));UnlockSpellVariant(FireSpellLevel(2),ModifyTooltipDescription(),ModifyUseCosts(Add,SpellSlot,-1,2));UnlockSpellVariant(FireSpellLevel(3),ModifyTooltipDescription(),ModifyUseCosts(Add,SpellSlot,-1,3));UnlockSpellVariant(FireSpellLevel(4),ModifyTooltipDescription(),ModifyUseCosts(Add,SpellSlot,-1,4));UnlockSpellVariant(FireSpellLevel(5),ModifyTooltipDescription(),ModifyUseCosts(Add,SpellSlot,-1,5));UnlockSpellVariant(FireSpellLevel(6),ModifyTooltipDescription(),ModifyUseCosts(Add,SpellSlot,-1,6))"
+data "Boosts" "UnlockSpell(Shout_WildShape_RedDragon_YaoXian);  UnlockSpellVariant(FireSpellLevel(1),ModifyTooltipDescription(),ModifyUseCosts(Add,SpellSlot,-1,1));UnlockSpellVariant(FireSpellLevel(2),ModifyTooltipDescription(),ModifyUseCosts(Add,SpellSlot,-1,2));UnlockSpellVariant(FireSpellLevel(3),ModifyTooltipDescription(),ModifyUseCosts(Add,SpellSlot,-1,3));UnlockSpellVariant(FireSpellLevel(4),ModifyTooltipDescription(),ModifyUseCosts(Add,SpellSlot,-1,4));UnlockSpellVariant(FireSpellLevel(5),ModifyTooltipDescription(),ModifyUseCosts(Add,SpellSlot,-1,5));UnlockSpellVariant(FireSpellLevel(6),ModifyTooltipDescription(),ModifyUseCosts(Add,SpellSlot,-1,6));  IF(IsDamageTypeFire() and HasPassive('BanXian_DH_DiYu',context.Source)):IgnoreResistance(Fire,Resistant)"
+
+/////////////////////////////
+/
+/        嗜血连锁（Synergy）
+/
+/////////////////////////////
+//嗜血连锁：目标同时处于流血+破甲时，近战攻击额外穿刺伤害
+new entry "BANXIAN_Yao_BleedChain"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20260315syn03a;1"
+data "Description" "stringsofmodmadebyxss20260315syn03b;1"
+data "DescriptionParams" "DealDamage(LevelMapValue(BanXianDice),Piercing)"
+data "Icon" "PassiveFeature_Generic_Blood"
+data "Properties" "Highlighted"
+data "StatsFunctorContext" "OnAttack"
+data "Conditions" "IsMeleeAttack() and not IsMiss() and HasStatus('BLEEDING',context.Target) and HasStatus('WEAKENED_ARMOR',context.Target)"
+data "StatsFunctors" "DealDamage(LevelMapValue(BanXianDice)*2,Piercing,Magical);ApplyStatus(PRONE,100,1,,,,not SavingThrow(Ability.Strength,ManeuverSaveDC()))"
+
+/////////////////////////////
+/
+/        反击·逆鳞（Synergy 19）
+/
+/////////////////////////////
+//反击·逆鳞：兽形时被近战攻击命中，可消耗1气反击
+new entry "Interrupt_BANXIAN_Yao_NiLin"
+type "InterruptData"
+data "DisplayName" "stringsofmodmadebyxss20260315syn19a;1"
+data "Description" "stringsofmodmadebyxss20260315syn19b;1"
+data "DescriptionParams" ""
+data "Icon" "Action_WildShape_Panther"
+data "InterruptContext" "OnHit"
+data "InterruptContextScope" "Target"
+data "Container" "YesNoDecision"
+data "Conditions" "IsAbleToReact(context.Observer) and Self(context.Target,context.Observer) and IsMeleeAttack() and HasDamageEffectFlag(DamageFlags.Hit) and not Self(context.Source,context.Target) and (Tagged('BEAST',context.Observer) or Tagged('MONSTROSITY',context.Observer) or HasStatus('SG_Polymorph_BeastShape',context.Observer))"
+data "Properties" "ExecuteWeaponAttack(MainHand)"
+data "Cost" "ReactionActionPoint:1;KiPoint:1"
+data "Stack" "NiLin"
+data "EnableCondition" "Tagged('BEAST',context.Source) or Tagged('MONSTROSITY',context.Source) or HasStatus('SG_Polymorph_BeastShape',context.Source)"
+data "EnableContext" "OnStatusApplied;OnStatusRemoved"

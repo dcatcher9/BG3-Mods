@@ -554,3 +554,93 @@ end
 function BANXIAN_JJ7_FaxiangDC(entity) return _JingJieDC(entity) end
 function BANXIAN_JJ8_LingyuDC(entity) return _JingJieDC(entity) end
 
+-- ====== Synergy KHN Functions ======
+
+-- 灵根主导元素检测：某元素灵根值最高
+function BanXian_LingGen_Dom_H(entity)
+    entity = entity or context.Source
+    local h = GetStatusDuration('BANXIAN_LG_H', entity)
+    local t = GetStatusDuration('BANXIAN_LG_T', entity)
+    local j = GetStatusDuration('BANXIAN_LG_J', entity)
+    local s = GetStatusDuration('BANXIAN_LG_S', entity)
+    local m = GetStatusDuration('BANXIAN_LG_M', entity)
+    return ConditionResult(h >= t and h >= j and h >= s and h >= m and h > 0)
+end
+
+function BanXian_LingGen_Dom_T(entity)
+    entity = entity or context.Source
+    local h = GetStatusDuration('BANXIAN_LG_H', entity)
+    local t = GetStatusDuration('BANXIAN_LG_T', entity)
+    local j = GetStatusDuration('BANXIAN_LG_J', entity)
+    local s = GetStatusDuration('BANXIAN_LG_S', entity)
+    local m = GetStatusDuration('BANXIAN_LG_M', entity)
+    return ConditionResult(t > h and t >= j and t >= s and t >= m)
+end
+
+function BanXian_LingGen_Dom_J(entity)
+    entity = entity or context.Source
+    local h = GetStatusDuration('BANXIAN_LG_H', entity)
+    local t = GetStatusDuration('BANXIAN_LG_T', entity)
+    local j = GetStatusDuration('BANXIAN_LG_J', entity)
+    local s = GetStatusDuration('BANXIAN_LG_S', entity)
+    local m = GetStatusDuration('BANXIAN_LG_M', entity)
+    return ConditionResult(j > h and j > t and j >= s and j >= m)
+end
+
+function BanXian_LingGen_Dom_S(entity)
+    entity = entity or context.Source
+    local h = GetStatusDuration('BANXIAN_LG_H', entity)
+    local t = GetStatusDuration('BANXIAN_LG_T', entity)
+    local j = GetStatusDuration('BANXIAN_LG_J', entity)
+    local s = GetStatusDuration('BANXIAN_LG_S', entity)
+    local m = GetStatusDuration('BANXIAN_LG_M', entity)
+    return ConditionResult(s > h and s > t and s > j and s >= m)
+end
+
+function BanXian_LingGen_Dom_M(entity)
+    entity = entity or context.Source
+    local h = GetStatusDuration('BANXIAN_LG_H', entity)
+    local t = GetStatusDuration('BANXIAN_LG_T', entity)
+    local j = GetStatusDuration('BANXIAN_LG_J', entity)
+    local s = GetStatusDuration('BANXIAN_LG_S', entity)
+    local m = GetStatusDuration('BANXIAN_LG_M', entity)
+    return ConditionResult(m > h and m > t and m > j and m > s)
+end
+
+-- 道心磨砺：受到伤害超过MaxHP的10%
+function DamageTakenGreaterThan(threshold, entity)
+    entity = entity or context.Target
+    if not entity or not entity.IsValid then return ConditionResult(false) end
+    if not context.HitDescription then return ConditionResult(false) end
+    return ConditionResult(context.HitDescription.TotalDamageDone > threshold)
+end
+
+-- 状态叠加层数检测
+function StatusStacksGreaterThan(entity, statusId, count)
+    entity = entity or context.Source
+    if not entity or not entity.IsValid then return ConditionResult(false) end
+    return ConditionResult(GetStatusDuration(statusId, entity) > count)
+end
+
+-- 目标负面状态数量检测
+function TargetHasNegativeStatusCount(minCount, entity)
+    entity = entity or context.Target
+    if not entity or not entity.IsValid then return ConditionResult(false) end
+    local count = 0
+    local negGroups = {'SG_Blinded','SG_Charmed','SG_Cursed','SG_Disease','SG_Exhausted','SG_Frightened','SG_Incapacitated','SG_Paralyzed','SG_Petrified','SG_Poisoned','SG_Prone','SG_Restrained','SG_Stunned','SG_Unconscious','SG_Sleeping','SG_Dominated'}
+    for _, sg in ipairs(negGroups) do
+        if HasStatus(sg, entity).Result then count = count + 1 end
+    end
+    if HasStatus('BLEEDING', entity).Result then count = count + 1 end
+    if HasStatus('BURNING', entity).Result or HasStatus('BURNING_YEHUO', entity).Result then count = count + 1 end
+    if HasStatus('WEAKENED_ARMOR', entity).Result then count = count + 1 end
+    return ConditionResult(count >= minCount)
+end
+
+-- 移动距离检测（近似：使用移动资源消耗）
+function MovedDistanceGreaterThan(dist, entity)
+    entity = entity or context.Source
+    if not entity or not entity.IsValid then return ConditionResult(false) end
+    return MobileShootingCasterCondition(entity)
+end
+

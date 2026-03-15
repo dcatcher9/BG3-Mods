@@ -54,7 +54,7 @@ data "SpellType" "Shout"
 using "Shout_XIULIAN_Ki_Take"
 data "Icon" "Action_Monk_WholenessOfBody"
 data "UseCosts" "ActionPoint:1"
-data "SpellProperties" "RemoveStatus(BANXIAN_XIULIAN_LINGQI_H);RemoveStatus(BANXIAN_XIULIAN_LINGQI_T);RemoveStatus(BANXIAN_XIULIAN_LINGQI_J);RemoveStatus(BANXIAN_XIULIAN_LINGQI_S);RemoveStatus(BANXIAN_XIULIAN_LINGQI_M); ApplyStatus(BANXIAN_XIULIAN_LINGQI_JINGLIAN,100,1); IF(Ki_FlashCheck()):ShortRest();IF(Ki_FlashCheck()):RemoveStatus(BANXIAN_XIULIAN_LINGQI_JINGLIAN)"
+data "SpellProperties" "RemoveStatus(BANXIAN_XIULIAN_LINGQI_H);RemoveStatus(BANXIAN_XIULIAN_LINGQI_T);RemoveStatus(BANXIAN_XIULIAN_LINGQI_J);RemoveStatus(BANXIAN_XIULIAN_LINGQI_S);RemoveStatus(BANXIAN_XIULIAN_LINGQI_M); ApplyStatus(BANXIAN_XIULIAN_LINGQI_JINGLIAN,100,1); IF(Ki_FlashCheck()):ShortRest();IF(Ki_FlashCheck()):RemoveStatus(BANXIAN_XIULIAN_LINGQI_JINGLIAN);IF(Ki_FlashCheck() and Combat()):ApplyStatus(SELF,BANXIAN_XIULIAN_ZHANCHANGRUDING,100,3);IF(Ki_FlashCheck()):ApplyStatus(SELF,BANXIAN_XIULIAN_WUXINGGUANTI,100,10)"
 data "DisplayName" "stringsofmodmadebyxss20250304zfa00a02;1"
 data "Description" "stringsofmodmadebyxss20250304zfa00b02;1"
 data "ExtraDescription" "stringsofmodmadebyxss20250304zfa00c02;1"
@@ -180,3 +180,38 @@ data "StackId" "BANXIAN_XIULIAN_LINGQI_JINGLIAN"
 data "DisplayName" "stringsofmodmadebyxss20250304zfb00a06;1"
 data "Description" "stringsofmodmadebyxss20250304zfb00b06;1"
 data "StatusPropertyFlags" "FreezeDuration"
+
+/////////////////////////////
+/
+/        战场入定（Synergy）
+/
+/////////////////////////////
+//战场入定：战斗中成功吐气后获得战意凝聚
+new entry "BANXIAN_XIULIAN_ZHANCHANGRUDING"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "stringsofmodmadebyxss20260315syn08a;1"
+data "Description" "stringsofmodmadebyxss20260315syn08b;1"
+data "Icon" "Spell_HarmonyOfFireAndWater"
+data "StackId" "BANXIAN_XIULIAN_ZHANCHANGRUDING"
+data "StackType" "Overwrite"
+data "Boosts" "RollBonus(Attack,4);ReduceCriticalAttackThreshold(2);ActionResource(ActionPoint,1,0)"
+data "TickType" "StartTurn"
+data "TickFunctors" "RestoreResource(KiPoint,3,0)"
+data "StatusPropertyFlags" "OverheadOnTurn"
+
+/////////////////////////////
+/
+/        五行灌体（Synergy 24）
+/
+/////////////////////////////
+//五行灌体：成功吐气后获得五行循环伤害buff
+new entry "BANXIAN_XIULIAN_WUXINGGUANTI"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "stringsofmodmadebyxss20260315syn24a;1"
+data "Description" "stringsofmodmadebyxss20260315syn24b;1"
+data "Icon" "PassiveFeature_ElementalAdept"
+data "StackId" "BANXIAN_XIULIAN_WUXINGGUANTI"
+data "Boosts" "IF(IsAttack()):DamageBonus(1d4,Fire);IF(IsAttack()):DamageBonus(1d4,Lightning);IF(IsAttack()):DamageBonus(1d4,Cold);IF(IsAttack()):DamageBonus(1d4,Poison);IF(IsAttack()):DamageBonus(1d4,Thunder)"
+data "StatusPropertyFlags" "OverheadOnTurn"

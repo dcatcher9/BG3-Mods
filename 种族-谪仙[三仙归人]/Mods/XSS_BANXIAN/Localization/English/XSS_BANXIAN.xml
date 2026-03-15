@@ -1671,4 +1671,101 @@
   <content contentuid="stringsofmodmadebyxss20260313jj10c05" version="1">【天道轮回】天道之力降临，时间加速。每回合额外+2动作+2附赠，周围敌人承受5d10力场。</content>
   <content contentuid="stringsofmodmadebyxss20260313jj10d05" version="1">天道力竭</content>
   <content contentuid="stringsofmodmadebyxss20260313jj10e05" version="1">引动天道之力后，暂时陷入虚弱。攻击和豁免具有劣势。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn01a" version="1">杀生化气</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn01b" version="1">击杀敌方生物时，恢复3气点和2神识，并获得熟练加值×2的临时生命值。需要道心稳定。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn02a" version="1">破绽</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn02b" version="1">被神识洞察的目标暴露弱点：对其攻击的暴击阈值-2，受到额外感知调整值×2的伤害，且豁免具有劣势。持续2回合。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn03a" version="1">嗜血连锁</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn03b" version="1">对同时处于流血和破甲状态的目标发动近战攻击时，额外造成双倍穿刺伤害并可能击倒目标（力量豁免）。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn04a" version="1">魔焰合一</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn04b" version="1">魔化状态下若弄焰诀火焰光环处于激活状态，徒手攻击额外造成双倍火焰伤害，且近战暴击阈值-2。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn06a" version="1">血脉傀儡</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn06b" version="1">被掌日控制且自身处于流血状态的傀儡，近战攻击命中时对目标施加2回合流血。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn07a" version="1">气海共振</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn07b" version="1">元婴出窍（双重专注模式）激活期间，每回合额外恢复3气点和2神识。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn08a" version="1">战意凝聚</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn08b" version="1">战斗中成功吐气入定后获得：攻击掷骰+4，暴击阈值-2，额外1动作点，每回合恢复3气点。持续3回合。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn09a" version="1">溢气反冲</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn09b" version="1">气点已满时击杀敌人，对5m内所有敌人造成感知调整值×3的力场伤害。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn10a" version="1">灵根共鸣</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn10b" version="1">根据主要灵根属性获得永久增益：火→火伤+1d8；金→斩刺攻击+3且暴击骰+1；水→治疗+感知×2；木→毒素免疫+黯蚀抗性；土→长休后临时生命=体质×2。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn11a" version="1">阵道合一</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn11b" version="1">仙人模式激活时，武器攻击命中附加大道属性效果：修罗=2回合流血，地狱=2回合业火，天道=2d8雷电，饿鬼=恢复2d6，剑道=1d10斩击，力道=击退3m。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn12a" version="1">法则·弄焰共振</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn12b" version="1">天地法则与弄焰诀火焰光环同时激活时，所有法术额外造成2d6火焰伤害并忽略火焰抗性。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn13a" version="1">法则·神识反馈</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn13b" version="1">天地法则激活期间，内观和洞观不再消耗神识。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn14a" version="1">天仙·法意</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn14b" version="1">天仙种族特性：生命值高于75%时，法术伤害额外加上感知调整值×2，法术豁免DC+1。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn15a" version="1">人仙·七情</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn15b" version="1">人仙种族特性：6m内每个友方使你攻击+2、豁免+2、伤害+1（最多叠加4层）。</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn15c" version="1">七情共鸣</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn15d" version="1">受到附近人仙的七情增益：攻击+2、豁免+2、伤害+1。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn16a" version="1">血焰</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn16b" version="1">修罗道+地狱道共鸣：攻击流血目标时额外造成1d6火焰伤害。</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn16c" version="1">雷剑</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn16d" version="1">天道+剑道共鸣：武器攻击额外造成雷电伤害。</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn16e" version="1">魅噬</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn16f" version="1">饿鬼道+合欢道共鸣：攻击被魅惑的目标时额外造成心灵伤害。</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn16g" version="1">蛮兽</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn16h" version="1">畜生道+力道共鸣：兽形时获得额外最大生命值=力量调整值×5。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn17a" version="1">御空斩</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn17b" version="1">腾云驾雾飞行后，本回合下一次近战攻击必定暴击并额外造成双倍力场伤害。</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn17c" version="1">御空蓄势：下次近战攻击命中额外造成力场伤害。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn19a" version="1">反击·逆鳞</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn19b" version="1">兽形状态下被近战攻击命中时，消耗1反应和1气点发动一次徒手反击。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn20a" version="1">因果反噬</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn20b" version="1">因果律激活时被攻击命中，消耗1反应和2气点将受到伤害的50%以力场伤害反弹给攻击者。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn21a" version="1">变化·道印</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn21b" version="1">七十二变或三十六变期间，武器攻击额外造成道行年数的伤害。修为贯穿变化之身。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn22a" version="1">道心磨砺</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn22b" version="1">每受到超过10%最大生命值的单次伤害，获得1层道心磨砺（每层+1豁免，最多5层）。5层时，下次攻击必定暴击并额外造成3d10力场伤害，随后消耗所有层数。</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn22c" version="1">道心经受磨砺。每层+1豁免。5层时释放毁灭一击。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn23a" version="1">五绝封印</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn23b" version="1">攻击同时承受3种以上负面状态的目标时，忽略其所有伤害抗性和免疫，并额外造成力场伤害。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn24a" version="1">五行灌体</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn24b" version="1">成功吐气后获得五行灌体：每次攻击额外造成1d4火焰+1d4雷电+1d4寒冷+1d4毒素+1d4雷鸣伤害。持续10回合。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn25a" version="1">神行百步</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn25b" version="1">同回合内移动9m以上后，攻击掷骰获得优势，近战攻击额外造成熟练加值的力场伤害。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn26a" version="1">傀儡·自爆</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn26b" version="1">引爆一个被掌日控制的傀儡。傀儡被摧毁，[1]范围内所有生物受到等同于傀儡剩余生命值的力场伤害。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn27a" version="1">以伤化力</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn27b" version="1">满血时受到治疗，过量部分转化为临时生命值，并使法术豁免DC+2持续2回合。</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn27c" version="1">以伤化力：法术豁免DC+2。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn28a" version="1">五行踏地</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn28b" version="1">站在与主要灵根匹配的元素表面时，AC+3并免疫该元素伤害。火=火焰表面，水=水/冰面，金=带电表面，木=毒素表面，土=油脂表面。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn29a" version="1">屠神连斩</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn29b" version="1">同回合内每次击杀敌人，攻击掷骰+2、伤害+2（可无限叠加）。回合结束时重置。</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn29c" version="1">屠神之势！攻击+2，伤害+2。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260315syn30a" version="1">天人感应</content>
+  <content contentuid="stringsofmodmadebyxss20260315syn30b" version="1">道行达到里程碑时获得永久增益：百年→全属性+1；五百年→法术DC+2；千年→死亡豁免自动成功；五千年→所有伤害减免=熟练加值×3。</content>
+
 </contentList>

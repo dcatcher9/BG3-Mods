@@ -28,6 +28,7 @@ type "StatusData"
 data "StatusType" "BOOST"
 data "StackId" "BANXIAN_TAG"
 data "Boosts" "Tag(TIANXIAN)"
+data "Passives" "BANXIAN_TianXian_FaYi"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;ApplyToDead;IgnoreResting"
 
 new entry "BANXIAN_TAG_RENXIAN"
@@ -35,6 +36,7 @@ type "StatusData"
 data "StatusType" "BOOST"
 using "BANXIAN_TAG_TIANXIAN"
 data "Boosts" "Tag(RENXIAN)"
+data "Passives" "BANXIAN_RenXian_QiQing"
 
 /////////////////////////////
 /
@@ -60,6 +62,7 @@ data "DisplayName" "stringsofmodmadebyxss20240930dv001a07;1"
 data "Description" "stringsofmodmadebyxss20240930dv001b07;1"
 data "StackId" "BANXIAN_ANIMATION"
 data "Boosts" "UnlockSpell(Projectile_Fly_BanXian);IgnoreFallDamage();StatusImmunity(SG_DifficultTerrain);IgnoreLowGroundPenalty(RangedWeaponAttack);IgnoreLowGroundPenalty(RangedOffHandWeaponAttack);RollBonus(RangedWeaponAttack, 1);RollBonus(RangedOffHandWeaponAttack, 1);AC(2)"
+data "Passives" "BANXIAN_YuKongZhan"
 data "DynamicAnimationTag" "4e3d6a67-17b8-4ae5-9c09-61e385482862"
 data "ApplyEffect" "367d16e9-9c08-45ab-ba43-5b43c091180a"
 data "StatusEffect" "c5cb3c8e-55cd-4b12-b83a-1499d2b874f2"
@@ -86,6 +89,244 @@ data "SpellFlags" "IsJump;HasHighGroundRangeExtension;IgnoreVisionBlock;RangeIgn
 data "SpellJumpType" "Flight"
 data "PrepareEffect" "e10fa2ab-984e-4ab7-b756-4982dfca4018"
 data "CastEffect" "8b2df096-373b-4323-b5bc-6cf2c3db8281"
+
+/////////////////////////////
+/
+/  Synergies: 灵根·天仙·人仙·御空
+/
+/////////////////////////////
+//灵根共鸣：根据主要灵根获得元素增益（Synergy 10）
+//火灵根主导→火伤+1d4; 金→斩穿刺忽略2AC; 水→治疗+WIS; 木→毒暗抗性; 土→临时HP
+new entry "BANXIAN_LingGen_Resonance"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20260315syn10a;1"
+data "Description" "stringsofmodmadebyxss20260315syn10b;1"
+data "Icon" "PassiveFeature_ElementalAdept"
+data "Properties" "Highlighted"
+data "BoostContext" "OnStatusApplied;OnStatusRemoved"
+data "BoostConditions" "DaoXinStable()"
+data "Boosts" "IF(BanXian_LingGen_Dom_H()):DamageBonus(1d8,Fire);IF(BanXian_LingGen_Dom_J() and (IsDamageTypeSlashing() or IsDamageTypePiercing())):RollBonus(Attack,3);IF(BanXian_LingGen_Dom_J()):CriticalHitExtraDice(1);IF(BanXian_LingGen_Dom_S() and IsHealing()):DamageBonus(WisdomModifier*2);IF(BanXian_LingGen_Dom_M()):Resistance(Poison,Immune);IF(BanXian_LingGen_Dom_M()):Resistance(Necrotic,Resistant)"
+data "StatsFunctorContext" "OnLongRest"
+data "Conditions" "BanXian_LingGen_Dom_T()"
+data "StatsFunctors" "ApplyStatus(SELF,BANXIAN_LINGGEN_EARTH_TEMPHP,100,0)"
+
+new entry "BANXIAN_LINGGEN_EARTH_TEMPHP"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackId" "BANXIAN_LINGGEN_EARTH_TEMPHP"
+data "OnApplyFunctors" "TemporaryHitPoints(ConstitutionModifier*2)"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+//天仙·法意：HP>75%时法术伤害+WIS mod（Synergy 14）
+new entry "BANXIAN_TianXian_FaYi"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20260315syn14a;1"
+data "Description" "stringsofmodmadebyxss20260315syn14b;1"
+data "Icon" "PassiveFeature_BlessingsOfKnowledge"
+data "Properties" "Highlighted"
+data "BoostContext" "OnStatusApplied;OnStatusRemoved"
+data "BoostConditions" "Tagged('TIANXIAN',context.Source) and HasHPPercentageGreaterThan(75)"
+data "Boosts" "IF(IsSpell() or IsCantrip()):DamageBonus(WisdomModifier*2);SpellSaveDC(1)"
+
+//人仙·七情：每个6m内友方+1攻击和豁免（max 4）（Synergy 15）
+new entry "BANXIAN_RenXian_QiQing"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20260315syn15a;1"
+data "Description" "stringsofmodmadebyxss20260315syn15b;1"
+data "Icon" "PassiveFeature_Generic_Magical"
+data "Properties" "IsToggled;ToggledDefaultOn;ToggledDefaultAddToHotbar;Highlighted"
+data "ToggleOnFunctors" "IF(Tagged('RENXIAN',context.Source)):ApplyStatus(BANXIAN_RENXIAN_QIQING_AURA,100,-1)"
+data "ToggleOffFunctors" "RemoveStatus(BANXIAN_RENXIAN_QIQING_AURA)"
+
+new entry "BANXIAN_RENXIAN_QIQING_AURA"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "stringsofmodmadebyxss20260315syn15a;1"
+data "Description" "stringsofmodmadebyxss20260315syn15b;1"
+data "Icon" "PassiveFeature_Generic_Magical"
+data "StackId" "BANXIAN_RENXIAN_QIQING_AURA"
+data "AuraRadius" "6"
+data "AuraStatuses" "IF(Ally() and not Self(context.Source,context.Target) and Character() and not Dead()):ApplyStatus(BANXIAN_RENXIAN_QIQING_BUFF,100,-1)"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;IgnoreResting"
+
+new entry "BANXIAN_RENXIAN_QIQING_BUFF"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "stringsofmodmadebyxss20260315syn15c;1"
+data "Description" "stringsofmodmadebyxss20260315syn15d;1"
+data "Icon" "PassiveFeature_Generic_Magical"
+data "StackId" "BANXIAN_RENXIAN_QIQING_BUFF"
+data "StackType" "Additive"
+data "Boosts" "RollBonus(Attack,2);RollBonus(SavingThrow,2);DamageBonus(1)"
+data "StackLimit" "4"
+data "RemoveConditions" "not HasStatus('BANXIAN_RENXIAN_QIQING_AURA',context.Source)"
+data "RemoveEvents" "OnStatusRemoved"
+data "StatusPropertyFlags" "DisableCombatlog"
+
+//御空斩：腾云后本回合下次近战攻击附加力场伤害=移动距离（Synergy 17）
+new entry "BANXIAN_YuKongZhan"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20260315syn17a;1"
+data "Description" "stringsofmodmadebyxss20260315syn17b;1"
+data "Icon" "Action_Fly"
+data "Properties" "Highlighted"
+data "StatsFunctorContext" "OnCast"
+data "Conditions" "SpellId('Projectile_Fly_BanXian') and HasStatus('BANXIAN_ANIMATION_FLY',context.Source)"
+data "StatsFunctors" "ApplyStatus(SELF,BANXIAN_YUKONGZHAN_BUFF,100,1)"
+
+new entry "BANXIAN_YUKONGZHAN_BUFF"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "stringsofmodmadebyxss20260315syn17a;1"
+data "Description" "stringsofmodmadebyxss20260315syn17c;1"
+data "Icon" "Action_Fly"
+data "StackId" "BANXIAN_YUKONGZHAN_BUFF"
+data "Boosts" "IF(IsMeleeAttack()):DamageBonus(LevelMapValue(BanXianDice)*2,Force);CriticalDamageOnHit()"
+data "RemoveEvents" "OnAttack"
+data "RemoveConditions" "IsMeleeAttack() and not IsMiss()"
+data "StatusPropertyFlags" "DisableCombatlog"
+
+/////////////////////////////
+/
+/   道心磨砺（Synergy 22）
+/
+/////////////////////////////
+//道心磨砺：受到>10%HP伤害时获得道心磨砺层数，5层=下次攻击必定暴击+额外伤害
+new entry "BANXIAN_DaoXinMoLi"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20260315syn22a;1"
+data "Description" "stringsofmodmadebyxss20260315syn22b;1"
+data "Icon" "PassiveFeature_SteadfastHeart"
+data "Properties" "Highlighted"
+data "StatsFunctorContext" "OnDamaged"
+data "Conditions" "HasDamageEffectFlag(DamageFlags.Hit) and not Self() and DamageTakenGreaterThan(MaxHP/10)"
+data "StatsFunctors" "ApplyStatus(SELF,BANXIAN_DAOXINMOLI_STACK,100,-1)"
+
+new entry "BANXIAN_DAOXINMOLI_STACK"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "stringsofmodmadebyxss20260315syn22a;1"
+data "Description" "stringsofmodmadebyxss20260315syn22c;1"
+data "Icon" "PassiveFeature_SteadfastHeart"
+data "StackId" "BANXIAN_DAOXINMOLI_STACK"
+data "StackType" "Additive"
+data "StackLimit" "5"
+data "Boosts" "RollBonus(SavingThrow,1)"
+data "Passives" "BANXIAN_DaoXinMoLi_Release"
+data "StatusPropertyFlags" "OverheadOnTurn;MultiplyEffectsByDuration"
+
+//磨砺释放：5层时下次攻击自动暴击+3d10力场
+new entry "BANXIAN_DaoXinMoLi_Release"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20260315syn22a;1"
+data "Properties" "IsHidden"
+data "BoostContext" "OnStatusApplied;OnStatusRemoved"
+data "BoostConditions" "StatusStacksGreaterThan(context.Source,'BANXIAN_DAOXINMOLI_STACK',4)"
+data "Boosts" "CriticalDamageOnHit();CriticalHitExtraDice(3)"
+data "StatsFunctorContext" "OnAttack"
+data "Conditions" "not IsMiss() and StatusStacksGreaterThan(context.Source,'BANXIAN_DAOXINMOLI_STACK',4)"
+data "StatsFunctors" "DealDamage(3d10,Force,Magical);RemoveStatus(SELF,BANXIAN_DAOXINMOLI_STACK)"
+
+/////////////////////////////
+/
+/   五绝封印（Synergy 23）
+/
+/////////////////////////////
+//五绝封印：目标有3+负面状态时忽略所有抗性免疫+额外伤害
+new entry "BANXIAN_WuJueFengYin"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20260315syn23a;1"
+data "Description" "stringsofmodmadebyxss20260315syn23b;1"
+data "Icon" "Spell_Abjuration_BanishingSmite"
+data "Properties" "Highlighted"
+data "BoostContext" "OnStatusApplied;OnStatusRemoved"
+data "BoostConditions" "TargetHasNegativeStatusCount(3)"
+data "Boosts" "IgnoreResistance(All,Resistant);IgnoreResistance(All,Immune);IF(IsAttack()):DamageBonus(LevelMapValue(BanXianDice),Force)"
+
+/////////////////////////////
+/
+/   神行百步（Synergy 25）
+/
+/////////////////////////////
+//神行百步：移动9m+后首次攻击获得优势+额外伤害
+new entry "BANXIAN_ShenXingBaiBu"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20260315syn25a;1"
+data "Description" "stringsofmodmadebyxss20260315syn25b;1"
+data "Icon" "Action_Dash"
+data "Properties" "Highlighted"
+data "BoostContext" "OnMovedDistance"
+data "BoostConditions" "MovedDistanceGreaterThan(9)"
+data "Boosts" "Advantage(AttackRoll);IF(IsMeleeAttack()):DamageBonus(ProficiencyBonus,Force)"
+
+/////////////////////////////
+/
+/   以伤化力（Synergy 27）
+/
+/////////////////////////////
+//以伤化力：过量治疗转化临时HP，有临时HP时法术DC+2
+new entry "BANXIAN_YiShangHuaLi"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20260315syn27a;1"
+data "Description" "stringsofmodmadebyxss20260315syn27b;1"
+data "Icon" "Spell_Abjuration_AidSpell"
+data "Properties" "Highlighted"
+data "StatsFunctorContext" "OnHealed"
+data "Conditions" "HasHPPercentageGreaterThan(99)"
+data "StatsFunctors" "TemporaryHitPoints(max(1,context.HealAmount));ApplyStatus(SELF,BANXIAN_YISHANGHUALI_BUFF,100,2)"
+
+new entry "BANXIAN_YISHANGHUALI_BUFF"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "stringsofmodmadebyxss20260315syn27a;1"
+data "Description" "stringsofmodmadebyxss20260315syn27c;1"
+data "Icon" "Spell_Abjuration_AidSpell"
+data "StackId" "BANXIAN_YISHANGHUALI_BUFF"
+data "Boosts" "SpellSaveDC(2)"
+data "StatusPropertyFlags" "DisableCombatlog"
+
+/////////////////////////////
+/
+/   屠神连斩（Synergy 29）
+/
+/////////////////////////////
+//屠神连斩：同回合内每次击杀+2攻击掷骰（回合结束重置）
+new entry "BANXIAN_TuShenLianZhan"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20260315syn29a;1"
+data "Description" "stringsofmodmadebyxss20260315syn29b;1"
+data "Icon" "Action_SurgingAction"
+data "Properties" "Highlighted"
+data "StatsFunctorContext" "OnDamage"
+data "Conditions" "IsKillingBlow() and not Item() and Character()"
+data "StatsFunctors" "ApplyStatus(SELF,BANXIAN_TUSHENLIANZHAN_STACK,100,1)"
+
+new entry "BANXIAN_TUSHENLIANZHAN_STACK"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "stringsofmodmadebyxss20260315syn29a;1"
+data "Description" "stringsofmodmadebyxss20260315syn29c;1"
+data "Icon" "Action_SurgingAction"
+data "StackId" "BANXIAN_TUSHENLIANZHAN_STACK"
+data "StackType" "Additive"
+data "Boosts" "RollBonus(Attack,2);IF(IsMeleeAttack()):DamageBonus(2)"
+data "StatusPropertyFlags" "OverheadOnTurn;MultiplyEffectsByDuration"
+
+/////////////////////////////
+/
+/   道行千年（Synergy 30）
+/
+/////////////////////////////
+//道行千年：道行达到里程碑时获得永久增益
+new entry "BANXIAN_DaoHeng_Milestones"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20260315syn30a;1"
+data "Description" "stringsofmodmadebyxss20260315syn30b;1"
+data "Icon" "PassiveFeature_FeyAncestry"
+data "Properties" "IsHidden"
+data "BoostContext" "OnStatusApplied;OnStatusRemoved"
+data "BoostConditions" "HasStatus('BANXIAN_DH_YEAR',context.Source)"
+data "Boosts" "IF(StatusDurationMoreThan(context.Source,'BANXIAN_DH_YEAR',100)):Ability(All,1);IF(StatusDurationMoreThan(context.Source,'BANXIAN_DH_YEAR',500)):SpellSaveDC(2);IF(StatusDurationMoreThan(context.Source,'BANXIAN_DH_YEAR',1000)):DeathSavingThrowSuccess();IF(StatusDurationMoreThan(context.Source,'BANXIAN_DH_YEAR',5000)):DamageReduction(All,Flat,ProficiencyBonus*3)"
 
 /////////////////////////////
 /
@@ -458,10 +699,21 @@ data "StatusType" "BOOST"
 data "Icon" "Spell_HarmonyOfFireAndWater"
 data "StackId" "BANXIAN_YUANYING_TECHNICAL"
 data "StackType" "Overwrite"
-data "Passives" ""
+data "Passives" "BANXIAN_YUANYING_QIHAI_PASSIVE"
 data "TickType" "EndTurn"
 data "TickFunctors" "IF(HasHPPercentageLessThan(100,context.Source)):RegainHitPoints(SELF,ConstitutionModifier+MaxHP/100);RestoreResource(KiPoint,1,0)"
 data "StatusPropertyFlags" "IgnoreResting;ApplyToDead;DisableOverhead;DisablePortraitIndicator"
+
+//元婴·气海共振：元婴出窍（双专注）期间每回合额外恢复1气点+1神识
+new entry "BANXIAN_YUANYING_QIHAI_PASSIVE"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20260315syn07a;1"
+data "Description" "stringsofmodmadebyxss20260315syn07b;1"
+data "Icon" "Spell_HarmonyOfFireAndWater"
+data "Properties" "IsHidden"
+data "StatsFunctorContext" "OnTurn"
+data "Conditions" "HasStatus('BANXIAN_YUANYING_CONCENTRATION',context.Source)"
+data "StatsFunctors" "RestoreResource(KiPoint,3,0);RestoreResource(ShenshiPoint,2,0)"
 
 //元婴术
 new entry "BANXIAN_YYNoMoreConcentration"

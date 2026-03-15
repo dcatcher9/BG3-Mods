@@ -21,7 +21,7 @@ data "Icon" "PassiveFeature_FeyAncestry"
 data "StackId" "BANXIAN_LG_H"
 data "DisplayName" "stringsofmodmadebyxss20240930dv0b1a11;1"
 data "StackType" "Overwrite"
-data "Passives" "BanXian_LingGen"
+data "Passives" "BanXian_LingGen;BANXIAN_LingGen_Resonance;BANXIAN_WuXingTaDi"
 data "StatusPropertyFlags" "IgnoreResting;FreezeDuration;ApplyToDead;DisableOverhead;DisablePortraitIndicator;DisableCombatlog"
 
 new entry "BANXIAN_LG_T"
@@ -29,7 +29,7 @@ type "StatusData"
 data "StatusType" "BOOST"
 using "BANXIAN_LG_H"
 data "StackId" "BANXIAN_LG_T"
-data "Passives" "BanXian_LingGen"
+data "Passives" "BanXian_LingGen;BANXIAN_LingGen_Resonance;BANXIAN_WuXingTaDi"
 data "DisplayName" "stringsofmodmadebyxss20240930dv0b1a12;1"
 
 new entry "BANXIAN_LG_J"
@@ -37,7 +37,7 @@ type "StatusData"
 data "StatusType" "BOOST"
 using "BANXIAN_LG_H"
 data "StackId" "BANXIAN_LG_J"
-data "Passives" "BanXian_LingGen"
+data "Passives" "BanXian_LingGen;BANXIAN_LingGen_Resonance;BANXIAN_WuXingTaDi"
 data "DisplayName" "stringsofmodmadebyxss20240930dv0b1a13;1"
 
 new entry "BANXIAN_LG_S"
@@ -45,7 +45,7 @@ type "StatusData"
 data "StatusType" "BOOST"
 using "BANXIAN_LG_H"
 data "StackId" "BANXIAN_LG_S"
-data "Passives" "BanXian_LingGen"
+data "Passives" "BanXian_LingGen;BANXIAN_LingGen_Resonance;BANXIAN_WuXingTaDi"
 data "DisplayName" "stringsofmodmadebyxss20240930dv0b1a14;1"
 
 new entry "BANXIAN_LG_M"
@@ -53,8 +53,21 @@ type "StatusData"
 data "StatusType" "BOOST"
 using "BANXIAN_LG_H"
 data "StackId" "BANXIAN_LG_M"
-data "Passives" "BanXian_LingGen"
+data "Passives" "BanXian_LingGen;BANXIAN_LingGen_Resonance;BANXIAN_WuXingTaDi"
 data "DisplayName" "stringsofmodmadebyxss20240930dv0b1a15;1"
+
+/////////////////////////////
+/   五行踏地（Synergy 28）
+/////////////////////////////
+//五行踏地：站在与灵根匹配的元素表面时获得AC+3和元素免疫
+new entry "BANXIAN_WuXingTaDi"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20260315syn28a;1"
+data "Description" "stringsofmodmadebyxss20260315syn28b;1"
+data "Icon" "PassiveFeature_ElementalAdept"
+data "Properties" "IsHidden"
+data "BoostContext" "OnMovedDistance;OnPushed"
+data "Boosts" "IF(BanXian_LingGen_Dom_H() and InSurface('SurfaceFire',context.Source)):AC(3);IF(BanXian_LingGen_Dom_H() and InSurface('SurfaceFire',context.Source)):Resistance(Fire,Immune);IF(BanXian_LingGen_Dom_S() and (InSurface('SurfaceWater',context.Source) or InSurface('SurfaceIce',context.Source))):AC(3);IF(BanXian_LingGen_Dom_S() and (InSurface('SurfaceWater',context.Source) or InSurface('SurfaceIce',context.Source))):Resistance(Cold,Immune);IF(BanXian_LingGen_Dom_J() and InSurface('SurfaceElectrified',context.Source)):AC(3);IF(BanXian_LingGen_Dom_J() and InSurface('SurfaceElectrified',context.Source)):Resistance(Lightning,Immune);IF(BanXian_LingGen_Dom_M() and InSurface('SurfacePoison',context.Source)):AC(3);IF(BanXian_LingGen_Dom_M() and InSurface('SurfacePoison',context.Source)):Resistance(Poison,Immune);IF(BanXian_LingGen_Dom_T() and InSurface('SurfaceGrease',context.Source)):AC(3);IF(BanXian_LingGen_Dom_T() and InSurface('SurfaceGrease',context.Source)):StatusImmunity(PRONE)"
 
 ///////////////////////////////////////////////////////////////////////////////////灵根
 //混沌灵根
