@@ -1242,11 +1242,11 @@
 分神术:洞观可以查看一定范围内的人的灵根和道行，灵根和道行是随机的，敌人道行随等级在一定范围内提升，有些人有有些人没有。
 分神术:夺灵可以夺人灵根。
 
-修为道行篇：1-4级为练气前期到练气巅峰，前中后为小境界，巅峰为过度，不算小境界突破，以此类推5-8为筑基期、9-12为结丹期、13-20为元婴期。道行会在长休和短休后增长，增长数量和等级相关。
+修为道行篇：1-4级为练气期，5-8为筑基期，9-12为结丹期，13-20为元婴期。前中后为小境界，巅峰为过渡。道行会在长休和短休后增长，增长数量和等级相关。元婴之上尚有化神、炼虚、合体、大乘、渡劫、真仙六大境界，需积累极深道行方可突破。化神期初窥天地法则（因果律/生灭律/五行律），炼虚期掌握虚空之道（虚影分身/虚实互换），合体期法相降世（巨化/金刚不坏），大乘期法域降世（领域/大道共鸣），渡劫期天劫九重（劫气/劫雷化身/逆天改命），真仙则超脱轮回，仙法无量。
 不同大道有不同特殊方式快速增长道行，如:天道击杀邪魔类生物;力道只要攻击就能涨道行;合欢道可以通过采补有道行的且处于失能状态（昏睡，醉酒，倒地等）的人大量获取道行（邪法;勿要沉迷）
 
 
-灵根篇:开局会自动觉醒五行灵根，可用分神术:内观查询自身与他人灵根配比。气运出众之人可能觉醒异灵根，如:冰风雷血光暗毒混沌等。灵根分为四阶境界：凡灵根（各元素≥10）、天灵根（≥50）、仙灵根（≥150）、圣灵根（≥500），境界越高威能越强，圣灵根境界近乎传说（灵根效果请移步特殊灵根篇）。若是天生灵根混乱未觉醒特殊灵根，也可采用夺灵、炼丹等方式逆天改命。具体为:分神术:夺灵;搜集珍惜药材炼制五行属性丹药改变五行灵根，遵循五行相生调配出异灵根，运气奇佳者更是能调配出高阶灵根（具体移步炼丹篇）
+灵根篇:开局会自动觉醒五行灵根，可用分神术:内观查询自身与他人灵根配比。气运出众之人可能觉醒异灵根，如:冰风雷血光暗毒混沌等。灵根分为四阶境界：凡灵根（各元素≥25）、天灵根（≥100）、仙灵根（≥300）、圣灵根（≥1000），境界越高威能越强，圣灵根境界近乎传说（灵根效果请移步特殊灵根篇）。若是天生灵根混乱未觉醒特殊灵根，也可采用夺灵、炼丹等方式逆天改命。具体为:分神术:夺灵;搜集珍惜药材炼制五行属性丹药改变五行灵根，遵循五行相生调配出异灵根，运气奇佳者更是能调配出高阶灵根（具体移步炼丹篇）
 
 特殊灵根篇:
 光灵根：处于阳光下时，每回合结束时回复生命，若生命值已满则使三维属性获得提升。
@@ -1284,7 +1284,7 @@
 
 灵根配比篇：
 异灵根觉醒无需特定比例，只要所有组合元素均达到对应境界阈值即可自动觉醒。
-境界阈值：凡≥10 / 天≥50 / 仙≥150 / 圣≥500
+境界阈值：凡≥25 / 天≥100 / 仙≥300 / 圣≥1000
 
 冰灵根 = 水 + 土
 风灵根 = 土 + 木
@@ -1495,7 +1495,6 @@
   <content contentuid="stringsofmodmadebyxss20250304zjj01a09" version="1">境界：渡劫期</content>
   <content contentuid="stringsofmodmadebyxss20250304zjj01a10" version="1">境界：真仙</content>
 
-  <!-- ====== Tier 5 · 化神 · 天地法则 ====== -->
   <content contentuid="stringsofmodmadebyxss20260313jj5a00" version="1">天地法则</content>
   <content contentuid="stringsofmodmadebyxss20260313jj5b00" version="1">化神期：初窥天地法则。解锁三种法则姿态，每种从不同角度扭曲战场规则。切换法则需消耗附赠动作，维持法则每回合消耗1点神识。</content>
 
@@ -1527,7 +1526,6 @@
   <content contentuid="stringsofmodmadebyxss20260313jj5wx05" version="1">五行印·水</content>
   <content contentuid="stringsofmodmadebyxss20260313jj5wx06" version="1">被五行律标记。当战场上集齐火、金、木、土、水五种印记时，所有被标记者将承受五行崩——巨量元素伤害并被震慑。标记目标围成的区域内其他敌人也会被波及。</content>
 
-  <!-- ====== Tier 6 · 炼虚 · 虚实之道 ====== -->
   <content contentuid="stringsofmodmadebyxss20260313jj6a00" version="1">虚实之道</content>
   <content contentuid="stringsofmodmadebyxss20260313jj6b00" version="1">炼虚期：掌握虚空奥义。获得闪避特性。可分离虚影分身（75%HP）、虚实互换、虚空断裂。生命值低于50%时自动触发相位游离（免疫一切，每战1次）。</content>
 
@@ -1558,7 +1556,6 @@
   <content contentuid="stringsofmodmadebyxss20260313jj6a10" version="1">相位冷却</content>
   <content contentuid="stringsofmodmadebyxss20260313jj6b10" version="1">相位游离已在本场战斗中触发，短休后恢复。</content>
 
-  <!-- ====== Tier 7 · 合体 · 天人合一 ====== -->
   <content contentuid="stringsofmodmadebyxss20260313jj7a00" version="1">天人合一</content>
   <content contentuid="stringsofmodmadebyxss20260313jj7b00" version="1">合体期：元婴与肉身完美融合。永久免疫眩晕和麻痹。解锁法相天地（大幅增强）和金刚不坏体。</content>
 
@@ -1575,7 +1572,6 @@
   <content contentuid="stringsofmodmadebyxss20260313jj7k01" version="1">金刚不坏</content>
   <content contentuid="stringsofmodmadebyxss20260313jj7l01" version="1">肉身已臻金刚不坏之境。所有伤害减免等于熟练加值。免疫暴击（如精金甲）。</content>
 
-  <!-- ====== Tier 8 · 大乘 · 法域降世 ====== -->
   <content contentuid="stringsofmodmadebyxss20260313jj8a00" version="1">法域降世</content>
   <content contentuid="stringsofmodmadebyxss20260313jj8b00" version="1">大乘期：法则力量化为领域。永久全豁免优势，暴击阈值-1。解锁领域展开（增强）与领域·绝对。</content>
 
@@ -1606,7 +1602,6 @@
   <content contentuid="stringsofmodmadebyxss20260313jj8s01" version="1">厄运印记</content>
   <content contentuid="stringsofmodmadebyxss20260313jj8t01" version="1">修罗道的杀意刻入灵魂。每回合受到3d8暗蚀伤害。</content>
 
-  <!-- ====== Tier 9 · 渡劫 · 天劫九重 ====== -->
   <content contentuid="stringsofmodmadebyxss20260313jj9a00" version="1">天劫九重</content>
   <content contentuid="stringsofmodmadebyxss20260313jj9b00" version="1">渡劫期：以劫雷为兵。免疫雷电/火焰伤害，免疫魅惑/恐惧。劫气每层+1d6全伤害。5层以上无视抗性。被攻击时劫雷护体反伤。可化身劫雷形态。逆天改命可代友受死。</content>
 
@@ -1644,7 +1639,6 @@
   <content contentuid="stringsofmodmadebyxss20260313jj9a11" version="1">劫气贯体</content>
   <content contentuid="stringsofmodmadebyxss20260313jj9b11" version="1">劫气层数达到5层以上，天劫之力贯通全身，攻击无视一切伤害抗性。</content>
 
-  <!-- ====== Tier 10 · 真仙 · 超脱轮回 ====== -->
   <content contentuid="stringsofmodmadebyxss20260313jj10a00" version="1">真仙之体</content>
   <content contentuid="stringsofmodmadebyxss20260313jj10b00" version="1">真仙：超脱轮回，与天同寿。免疫一切负面状态。全属性+3。真视30m。解锁仙术：斩仙一剑（20d12+斩杀）、袖里乾坤（5回合8d10+眩晕）、万法归宗（反射50%）、天道轮回、神足通。</content>
 

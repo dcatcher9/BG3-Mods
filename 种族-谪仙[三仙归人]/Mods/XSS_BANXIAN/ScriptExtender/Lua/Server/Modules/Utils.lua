@@ -965,8 +965,9 @@ function Utils.BanXian.JingjieBoost(Object)
     end
 
     -- 应用境界特殊能力被动（化神→真仙，Tier 5-10）
-    local JingJie = require("Server.Modules.Systems.JingJie")
-    JingJie.ApplyTierPassives(Object)
+    if Utils._JingJieModule then
+        Utils._JingJieModule.ApplyTierPassives(Object)
+    end
 end
 
 --记录谪仙名单

@@ -82,7 +82,7 @@
 
 ### JingJie T7 合体·天人合一 (Celestial Unity)
 **What**: Expanded T7 with 金刚不坏 + enhanced 法相 (stun aura, suppress reactions, dynamic force damage).
-**Chain**: BANXIAN_JJ7_FAXIANG + JINGANG passives. Faxiang: Huge size, crit-2, stun aura (WIS save), SUPPRESS (remove reactions), QUAKE (grease on move), PASSIVE (2d8 Force melee), FaxiangDynamicDamage Lua (enemy count × 1d6 Force). Jingang: DamageReduction + CriticalHit(Never).
+**Chain**: BANXIAN_JJ7_FAXIANG + JINGANG passives. Faxiang: Huge size, crit-2, stun aura (WIS save), SUPPRESS (remove reactions), QUAKE (Lua: TurnEnd moved >1m → 3m AoE DEX save or Prone), PASSIVE (2d8 Force melee), FaxiangDynamicDamage Lua (enemy count × 1d6 Force). Jingang: DamageReduction + CriticalHit(Never).
 **Access**: Toggle spell + Passive
 **Completeness**: Full
 

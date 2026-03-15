@@ -2,7 +2,7 @@
 
 Cross-mod knowledge accumulated from audit runs. Read this at the start of every mod-check to avoid repeating past mistakes and to apply proven patterns.
 
-<!-- Last updated: 2026-03-14 -->
+<!-- Last updated: 2026-03-15 -->
 
 ---
 
@@ -19,6 +19,14 @@ Things that were flagged as bugs but turned out to be wrong, or fixes that broke
 - **Hardcoded save ability mapping is wrong**: Don't map damage types to save abilities (Fire→DEX, Cold→CON). The original spell already has save data in its `SpellRoll` field — extract it with `Ext.Stats.Get(spellName).SpellRoll` and pattern match `SavingThrow%(Ability%.(%w+)`.
 
 - **ExecuteWeaponAttack handles melee and ranged**: `ExecuteWeaponAttack(MainHand)` uses whatever weapon is equipped — no need for separate melee/ranged handling.
+
+- **No XML comments in BG3 localization files**: `<!-- -->` comments in localization `.xml` files crash the game at ~50% loading. BG3's localization XML parser does not support standard XML comments. Never add them.
+
+- **Invalid stat functions — confirmed not in engine**: Verified via bg3se source + web search (no BG3 modding documentation or community usage found). These do NOT exist and would silently fail or crash at runtime:
+  - `HasStatusWithStackAmount(status, N)` — no stack-amount condition exists. Use `HasStatus` with a Lua-managed marker status instead.
+  - `IsWithinCombatRange(a, b, R)` — no distance condition exists in stat system. AuraRadius handles range for aura statuses.
+  - `OnMoveStatus` as StatsFunctorContext — not a valid value. Valid FunctorContextTypes: None, AttackTarget, AttackPosition, Move, Target, NearbyAttacked, NearbyAttacking, Equip, Source, Interrupt. `OnMove` is only for `SurfaceStatusApplyType`. Use `OnCast` + `IsMovement()` for movement-triggered passives.
+  - `context.ObservedEntity` — does not exist. Only `Observer` exists in InterruptContextData. For aura RemoveConditions, use `context.Source` (the entity that applied the status).
 
 ---
 
@@ -77,7 +85,7 @@ Common things that look like bugs but aren't — avoid re-flagging these.
 
 - **Duplicated constants in debug tools**: Debug/console tools (like `!bx` commands) intentionally duplicate constants from other modules for self-containment. Don't flag as redundancy.
 
-- **BG3 AuraStatuses do NOT auto-clean**: When a source status with `AuraStatuses` expires, the applied aura statuses on targets do NOT automatically remove. You must add explicit `RemoveConditions "not HasStatus('SOURCE_STATUS',context.ObservedEntity)"` + `RemoveEvents "OnStatusRemoved"` to each aura-applied status. Verified by comparing LINGYU_DEBUFF (has RemoveConditions, works) vs ABSOLUTE_DEBUFF (missing, persists indefinitely).
+- **BG3 AuraStatuses do NOT auto-clean**: When a source status with `AuraStatuses` expires, the applied aura statuses on targets do NOT automatically remove. You must add explicit `RemoveConditions "not HasStatus('SOURCE_STATUS',context.Source)"` + `RemoveEvents "OnStatusRemoved"` to each aura-applied status. Use `context.Source` (NOT `context.ObservedEntity` which doesn't exist).
 
 - **Non-persistent Lua tables break on reload**: Local Lua tables (not backed by PersistentVars) reset when the game is saved/reloaded. Any mechanic tracking state in local tables (like stack counts) must either persist via PersistentVars or reconstruct state on SessionLoaded/GameStateChanged by reading entity status data.
 

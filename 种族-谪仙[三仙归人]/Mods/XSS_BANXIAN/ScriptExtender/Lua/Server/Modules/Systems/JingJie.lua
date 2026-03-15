@@ -551,6 +551,44 @@ local function VoidSunderKillExplosion(attacker, deadTarget)
 end
 
 --================================
+-- Tier 7 · 合体 · 法相裂地（移动时3m内敌人DEX豁免否则倒地）
+--================================
+local faxiangTurnStartPos = {} -- guid → {x, y, z}
+
+local function FaxiangQuakeOnTurnStart(Object)
+    if Osi.HasActiveStatus(Object, 'BANXIAN_JJ7_FAXIANG_STATUS') ~= 1 then
+        faxiangTurnStartPos[tostring(Object)] = nil
+        return
+    end
+    local x, y, z = Osi.GetPosition(Object)
+    if x then
+        faxiangTurnStartPos[tostring(Object)] = {x = x, y = y, z = z}
+    end
+end
+
+local function FaxiangQuakeOnTurnEnd(Object)
+    local key = tostring(Object)
+    local startPos = faxiangTurnStartPos[key]
+    if not startPos then return end
+    faxiangTurnStartPos[key] = nil
+
+    if Osi.HasActiveStatus(Object, 'BANXIAN_JJ7_FAXIANG_STATUS') ~= 1 then return end
+
+    local x, y, z = Osi.GetPosition(Object)
+    if not x then return end
+
+    -- 检查是否移动了（距离 > 1m）
+    local dx, dz = x - startPos.x, z - startPos.z
+    if dx * dx + dz * dz < 1 then return end
+
+    -- 对3m内所有敌人施加DEX豁免否则倒地
+    local enemies = Utils.GetNearbyEnemies(Object, Object, 3)
+    for _, enemy in ipairs(enemies) do
+        Osi.ApplyStatus(enemy.guid, 'BANXIAN_JJ7_FAXIANG_QUAKE_HIT', 1, 1, Object)
+    end
+end
+
+--================================
 -- Tier 7 · 合体 · 法力共振动态伤害
 --================================
 -- 法相近战命中时，额外造成（6m内敌人数 × 1d6）力场伤害
@@ -1011,6 +1049,8 @@ end
 -- 初始化：注册事件监听
 --================================
 function JingJie.Init()
+    -- 注册自身到Utils，避免console命令中require无mod context的问题
+    Utils._JingJieModule = JingJie
 
     -- ===== 施法追踪 =====
     Ext.Osiris.RegisterListener("UsingSpell", 5, "after", function(Caster, Spell, SpellType, SpellElement, StoryActionID)
@@ -1194,7 +1234,17 @@ function JingJie.Init()
     end)
 
     -- ===== 回合开始 =====
+    -- ===== 回合结束 =====
+    Ext.Osiris.RegisterListener("TurnEnded", 1, "after", function(Object)
+        -- Tier 7: 法相裂地（移动后3m内敌人DEX豁免否则倒地）
+        FaxiangQuakeOnTurnEnd(Object)
+    end)
+
+    -- ===== 回合开始 =====
     Ext.Osiris.RegisterListener("TurnStarted", 1, "after", function(Object)
+        -- Tier 7: 法相裂地记录起始位置
+        FaxiangQuakeOnTurnStart(Object)
+
         -- Tier 8: 领域每回合对最高HP敌人造成3d10力场
         DomainHighestHPDamage(Object)
 

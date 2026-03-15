@@ -28,6 +28,10 @@
 - JingJie.lua registers its own listeners in Init() (not routed through EventHandlers)
 - Signals use `SIGNAL_*` statuses applied/removed
 
+### Movement detection via position tracking
+- No stat-only `OnMove` trigger exists for passives. Use Lua: record position on TurnStarted, compare on TurnEnded, if distance > threshold → trigger effect.
+- Pattern: `faxiangTurnStartPos[guid] = {x,y,z}` on TurnStarted → check `dx*dx + dz*dz` on TurnEnded → AoE via Utils.GetNearbyEnemies.
+
 ### Spell replication via `Osi.UseSpell`
 - Used in 因果律 chain for spell chains (replaces old dynamic status approach)
 - Used in 剑道 projectile return
