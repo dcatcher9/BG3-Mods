@@ -1527,64 +1527,97 @@
   <content contentuid="stringsofmodmadebyxss20260313jj5wx05" version="1">五行印·水</content>
   <content contentuid="stringsofmodmadebyxss20260313jj5wx06" version="1">被五行律标记。当战场上集齐火、金、木、土、水五种印记时，所有被标记者将承受五行崩——巨量元素伤害并被震慑。标记目标围成的区域内其他敌人也会被波及。</content>
 
-  <!-- ====== Tier 6 · 炼虚 · 虚影分身 ====== -->
-  <content contentuid="stringsofmodmadebyxss20260313jj6a00" version="1">虚影遁形</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj6b00" version="1">炼虚期：元婴化为虚影。获得闪避特性。可分离虚影分身独立战斗，分身存在期间本体获得全伤害抗性。</content>
+  <!-- ====== Tier 6 · 炼虚 · 虚实之道 ====== -->
+  <content contentuid="stringsofmodmadebyxss20260313jj6a00" version="1">虚实之道</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj6b00" version="1">炼虚期：掌握虚空奥义。获得闪避特性。可分离虚影分身（75%HP）、虚实互换、虚空断裂。生命值低于50%时自动触发相位游离（免疫一切，每战1次）。</content>
 
   <content contentuid="stringsofmodmadebyxss20260313jj6a01" version="1">虚影分身·出</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj6b01" version="1">消耗8神识，分离虚影分身。分身继承你的属性和一半生命值，与你共享气池。分身存在期间，本体获得全伤害抗性。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj6b01" version="1">消耗8神识，分离虚影分身。分身继承你的属性和75%生命值。分身存在期间本体获得全伤害抗性。分身攻击可侵蚀敌人护甲（-1AC，叠加3层）。</content>
 
   <content contentuid="stringsofmodmadebyxss20260313jj6a02" version="1">虚影分身·收</content>
   <content contentuid="stringsofmodmadebyxss20260313jj6b02" version="1">召回虚影分身，其剩余生命值转化为你的治疗量。</content>
 
   <content contentuid="stringsofmodmadebyxss20260313jj6a03" version="1">虚影激活</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj6b03" version="1">虚影分身存在中。本体获得全伤害抗性。若分身被击杀，遭受灵魂反噬（5d10精神伤害 + 失去2神识）。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj6b03" version="1">虚影分身存在中。本体获得全伤害抗性。若分身被击杀，遭受灵魂反噬（3d10精神伤害 + 失去2神识）。</content>
 
-  <!-- ====== Tier 7 · 合体 · 法相天地 ====== -->
-  <content contentuid="stringsofmodmadebyxss20260313jj7a00" version="1">神体合一</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj7b00" version="1">合体期：元婴与肉身完美融合。永久免疫眩晕和麻痹。解锁法相天地变身。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj6a04" version="1">虚实互换</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj6b04" version="1">与虚影分身瞬间交换位置。交换后双方获得1回合虚化效果（对你的攻击具有劣势）。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260313jj6a05" version="1">虚化</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj6b05" version="1">虚实交错之间，形体模糊不定。对你的攻击具有劣势。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260313jj6a06" version="1">虚空断裂</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj6b06" version="1">撕裂目标周围的虚空，造成6d8力场伤害并将其传送至随机位置。击杀目标时引发虚空爆炸，对4m内所有敌人造成4d8力场伤害。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260313jj6a07" version="1">虚空侵蚀</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj6b07" version="1">虚空之力侵蚀护甲结构。AC-1（叠加至3层）。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260313jj6a08" version="1">相位游离</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj6b08" version="1">当生命值降至50%以下时，自动游离至虚空夹层，1回合内免疫一切伤害。每场战斗触发1次。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj6b09" version="1">身处虚空夹层中，免疫一切伤害和效果。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj6a10" version="1">相位冷却</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj6b10" version="1">相位游离已在本场战斗中触发，短休后恢复。</content>
+
+  <!-- ====== Tier 7 · 合体 · 天人合一 ====== -->
+  <content contentuid="stringsofmodmadebyxss20260313jj7a00" version="1">天人合一</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj7b00" version="1">合体期：元婴与肉身完美融合。永久免疫眩晕和麻痹。解锁法相天地（大幅增强）和金刚不坏体。</content>
 
   <content contentuid="stringsofmodmadebyxss20260313jj7a01" version="1">法相天地</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj7b01" version="1">消耗8气，显化法相。体型变为巨型，近战范围+3m，暴击阈值-1，每回合额外获得1附赠动作。6m内敌人需通过感知豁免否则恐惧。每回合消耗4气维持。</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj7c01" version="1">【法相天地】体型巨型，近战+3m，暴击阈值-1，+1附赠动作。近战命中附加2d8力场伤害。6m威压光环。每回合消耗4气。</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj7d01" version="1">天地一击</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj7e01" version="1">法相之力注入拳脚，近战命中额外造成2d8力场伤害。</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj7f01" version="1">地震步</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj7b01" version="1">消耗8气，显化法相。体型巨型，近战+3m，暴击阈值-2，+1附赠动作。法力共振：近战附加[附近敌人数×1d6]力场伤害。6m内敌人感知豁免否则眩晕，且无法使用反应。每回合消耗4气。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj7c01" version="1">【法相天地】巨型法相降临。暴击阈值-2，+1附赠动作。法力共振+2d8力场。威压光环：眩晕+禁反应。移动造成裂地。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj7d01" version="1">法力共振</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj7e01" version="1">法相之力共振，近战命中额外造成2d8力场伤害。此外，6m内每一个敌人都会增加1d6力场伤害（由法力共振叠加）。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj7f01" version="1">裂地</content>
   <content contentuid="stringsofmodmadebyxss20260313jj7g01" version="1">法相威压</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj7h01" version="1">处于法相天地范围内，被无上威压笼罩，陷入恐惧。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj7h01" version="1">被法相天地的无上威压笼罩，陷入眩晕。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj7i01" version="1">天地压制</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj7j01" version="1">处于法相天地范围内，天地法则压制之下无法使用反应动作。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj7k01" version="1">金刚不坏</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj7l01" version="1">肉身已臻金刚不坏之境。所有伤害减免等于熟练加值。免疫暴击（如精金甲）。</content>
 
-  <!-- ====== Tier 8 · 大乘 · 领域 ====== -->
-  <content contentuid="stringsofmodmadebyxss20260313jj8a00" version="1">法则之力</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj8b00" version="1">大乘期：掌握法则力量。永久获得全豁免优势和暴击阈值-1。解锁领域展开。</content>
+  <!-- ====== Tier 8 · 大乘 · 法域降世 ====== -->
+  <content contentuid="stringsofmodmadebyxss20260313jj8a00" version="1">法域降世</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj8b00" version="1">大乘期：法则力量化为领域。永久全豁免优势，暴击阈值-1。解锁领域展开（增强）与领域·绝对。</content>
 
   <content contentuid="stringsofmodmadebyxss20260313jj8a01" version="1">领域·展开</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj8b01" version="1">消耗16神识，展开12m领域。领域内：自身攻击+2、法术DC+2、真实视觉18m。敌方攻击-2、豁免-2、移动减半。友方攻击+1、专注优势。领域自动与你最高道行的大道产生共鸣。</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj8c01" version="1">【领域·展开】12m法则领域。自身：攻击+2，DC+2，真视18m。敌方：攻击-2，豁免-2，移动减半。大道共鸣效果激活。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj8b01" version="1">消耗12神识展开12m领域。自身：攻击/DC+3，真视18m，额外攻击次数+1。敌方：攻击/豁免-3，移动减半，禁止传送，每回合最高血量敌人受3d10力场。友方：攻击+2，专注优势，法术伤害抗性。3神识/回合维持。大道共鸣自动激活。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj8c01" version="1">【领域·展开】12m法则领域。攻击/DC+3，额外攻击+1。敌-3攻/豁+禁传送。友+2攻+法术抗性。大道共鸣激活。</content>
 
   <content contentuid="stringsofmodmadebyxss20260313jj8d01" version="1">法则压制</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj8e01" version="1">处于敌方领域中，受法则力量压制。攻击-2，豁免-2，移动减半。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj8e01" version="1">处于敌方领域中，法则力量无情压制。攻击-3，豁免-3，移动减半，无法传送。</content>
 
   <content contentuid="stringsofmodmadebyxss20260313jj8f01" version="1">法则庇护</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj8g01" version="1">处于友方领域中，受法则力量庇护。攻击+1，专注豁免优势。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj8g01" version="1">处于友方领域中，法则力量庇护全身。攻击+2，专注优势，力场/光辉/暗蚀/精神伤害抗性。</content>
 
   <content contentuid="stringsofmodmadebyxss20260313jj8h01" version="1">大道共鸣</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj8i01" version="1">领域根据你修行最深的大道产生共鸣效果：天道-雷击、修罗-流血、地狱-火焰、剑道-剑气、羿道-弹射、饿鬼-吸血、力道-减速、合欢-魅惑。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj8i01" version="1">领域与你修行最深的大道共鸣。天道-4d10雷击、修罗-厄运印记、地狱-3d10火焰、剑道-3d8剑气、羿道-弹射2目标、饿鬼-50%吸血、力道-击退倒地、合欢-支配、人间-全体治愈、畜生-全骰劣势。</content>
 
   <content contentuid="stringsofmodmadebyxss20260313jj8j01" version="1">领域·收束</content>
   <content contentuid="stringsofmodmadebyxss20260313jj8k01" version="1">收回领域。</content>
 
-  <!-- ====== Tier 9 · 渡劫 · 天劫试炼 ====== -->
-  <content contentuid="stringsofmodmadebyxss20260313jj9a00" version="1">天劫淬体</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj9b00" version="1">渡劫期：历经天劫洗礼。永久免疫雷电、火焰伤害，免疫魅惑、恐惧。战斗中积累劫气（满血回合开始+1，逆行经脉+1，最多9层）。劫气提供每层+1d4全伤害加成。可主动引劫。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj8l01" version="1">领域·绝对</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj8m01" version="1">以8神识引动领域至绝对状态。1回合内：领域内敌人攻击/豁免额外-5且无法反应；友方免疫全部伤害；自身获得额外动作点。每长休1次。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj8n01" version="1">领域进入绝对状态！法则力量达到巅峰。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj8o01" version="1">绝对压制</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj8p01" version="1">领域绝对状态下，法则力量碾压一切。攻击-5，豁免-5，无法使用反应。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj8q01" version="1">绝对庇护</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj8r01" version="1">领域绝对状态下，法则力量化为绝对护盾，免疫一切伤害。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260313jj8s01" version="1">厄运印记</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj8t01" version="1">修罗道的杀意刻入灵魂。每回合受到3d8暗蚀伤害。</content>
+
+  <!-- ====== Tier 9 · 渡劫 · 天劫九重 ====== -->
+  <content contentuid="stringsofmodmadebyxss20260313jj9a00" version="1">天劫九重</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj9b00" version="1">渡劫期：以劫雷为兵。免疫雷电/火焰伤害，免疫魅惑/恐惧。劫气每层+1d6全伤害。5层以上无视抗性。被攻击时劫雷护体反伤。可化身劫雷形态。逆天改命可代友受死。</content>
 
   <content contentuid="stringsofmodmadebyxss20260313jj9a01" version="1">劫气</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj9b01" version="1">天地劫气凝聚于体内。每层+1d4全伤害。可通过引劫术消耗全部劫气，换取强大增益。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj9b01" version="1">天地劫气凝聚于体内。每层+1d6全伤害。5层以上无视一切抗性。被攻击时每层释放2d6雷电反伤。最多9层。</content>
 
   <content contentuid="stringsofmodmadebyxss20260313jj9a02" version="1">引劫</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj9b02" version="1">主动召唤天劫降临！对自身造成50%最大生命值的雷霆+光辉伤害（无法抵抗）。若存活：消耗全部劫气，获得1回合全伤害免疫 + 3回合伤害加成（+等级），恢复全部气和神识。若死亡：真死，无法豁免。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj9b02" version="1">以劫气为引，对18m内所有敌人降下天劫！伤害：（劫气层数 × 3d10）雷霆+光辉。自身承受总伤害的25%。存活后：1回合全免疫 + 3回合+等级伤害 + 恢复全部气/神识。</content>
 
   <content contentuid="stringsofmodmadebyxss20260313jj9a03" version="1">天劫降临</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj9b03" version="1">天劫正在降临！即将承受50%最大生命值的雷霆+光辉伤害。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj9b03" version="1">天劫之力正在聚集！即将化作毁灭之雷降临战场。</content>
 
   <content contentuid="stringsofmodmadebyxss20260313jj9a04" version="1">劫后余生·护体</content>
   <content contentuid="stringsofmodmadebyxss20260313jj9b04" version="1">渡劫成功！天地法则暂时庇护，免疫全部伤害。</content>
@@ -1592,9 +1625,28 @@
   <content contentuid="stringsofmodmadebyxss20260313jj9a05" version="1">劫后余生·增幅</content>
   <content contentuid="stringsofmodmadebyxss20260313jj9b05" version="1">渡劫成功！战意爆发，全伤害加成等于等级。</content>
 
-  <!-- ====== Tier 10 · 真仙 · 仙法 ====== -->
+  <content contentuid="stringsofmodmadebyxss20260313jj9a06" version="1">劫雷护体</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj9b06" version="1">劫气化为雷甲护体。被攻击时，攻击者承受（劫气层数 × 2d6）雷电伤害。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260313jj9a07" version="1">劫雷化身</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj9b07" version="1">消耗全部劫气（至少5层），化身为劫雷形态3回合。期间：免疫全部伤害，攻击附加3d8雷电+3d8光辉AoE，移动速度翻倍，每回合自动获得1层劫气。结束后1回合力竭。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj9c07" version="1">【劫雷化身】化为天劫之雷。免疫全伤，攻击AoE化，移速翻倍。每回合+1劫气。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260313jj9a08" version="1">劫后力竭</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj9b08" version="1">劫雷化身消散后，身体暂时陷入虚弱。攻击和豁免具有劣势。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260313jj9a09" version="1">逆天改命</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj9b09" version="1">当12m内盟友即将死亡时，你可代其承受致命伤害。若因此死亡，自动引爆所有劫气对周围敌人造成天劫。每长休1次。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260313jj9a10" version="1">逆天改命冷却</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj9b10" version="1">逆天改命已在本次休息中使用。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260313jj9a11" version="1">劫气贯体</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj9b11" version="1">劫气层数达到5层以上，天劫之力贯通全身，攻击无视一切伤害抗性。</content>
+
+  <!-- ====== Tier 10 · 真仙 · 超脱轮回 ====== -->
   <content contentuid="stringsofmodmadebyxss20260313jj10a00" version="1">真仙之体</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj10b00" version="1">真仙：超脱凡俗，天地同寿。免疫一切负面状态。全属性+3。真实视觉30m。解锁仙术：斩仙一剑、袖里乾坤、神足通、万法归宗。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj10b00" version="1">真仙：超脱轮回，与天同寿。免疫一切负面状态。全属性+3。真视30m。解锁仙术：斩仙一剑（20d12+斩杀）、袖里乾坤（5回合8d10+眩晕）、万法归宗（反射50%）、天道轮回、神足通。</content>
 
   <content contentuid="stringsofmodmadebyxss20260313jj10c00" version="1">仙体不灭</content>
   <content contentuid="stringsofmodmadebyxss20260313jj10d00" version="1">当生命值降至0时，不进入濒死状态，而是以50%生命值复活。每次长休重置。</content>
@@ -1605,18 +1657,24 @@
   <content contentuid="stringsofmodmadebyxss20260313jj10g00" version="1">仙体回复</content>
 
   <content contentuid="stringsofmodmadebyxss20260313jj10a01" version="1">斩仙一剑</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj10b01" version="1">凝聚仙力于一击。消耗10神识，下一次攻击额外造成10d12力场伤害。每场战斗1次。</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj10c01" version="1">斩仙一剑蓄力中。下一次攻击命中将额外造成10d12力场伤害。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj10b01" version="1">凝聚仙力于一剑。消耗10神识，下一次攻击额外造成20d12力场伤害。若目标生命值低于25%，直接斩杀（Boss级目标改为三倍伤害）。每场战斗1次。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj10c01" version="1">斩仙一剑蓄力中。下一次攻击命中将额外造成20d12力场伤害。目标血量低于25%时直接斩杀。</content>
 
   <content contentuid="stringsofmodmadebyxss20260313jj10a02" version="1">袖里乾坤</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj10b02" version="1">将目标放逐至袖中小世界3回合。放逐期间每回合受到5d10力场伤害。感知豁免可抵抗。每次短休1次。</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj10c02" version="1">被放逐至袖中小世界。无法行动，每回合受到5d10力场伤害。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj10b02" version="1">将目标收入袖中小世界5回合。放逐期间每回合受到8d10力场伤害。放逐结束后目标眩晕2回合。感知豁免可抵抗。每次短休1次。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj10c02" version="1">被放逐至袖中小世界。无法行动，每回合受到8d10力场伤害。放逐结束后陷入眩晕。</content>
 
   <content contentuid="stringsofmodmadebyxss20260313jj10a03" version="1">万法归宗</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj10b03" version="1">当受到法术伤害时，吸收法术能量，恢复9点气和3点神识。每次短休1次。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj10b03" version="1">受到任何伤害时自动触发：吸收伤害能量，回复生命值、9气和3神识，并将50%伤害反射给攻击者。冷却3回合。</content>
   <content contentuid="stringsofmodmadebyxss20260313jj10c03" version="1">万法归宗冷却</content>
-  <content contentuid="stringsofmodmadebyxss20260313jj10d03" version="1">万法归宗已使用，需短休后恢复。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj10d03" version="1">万法归宗冷却中。</content>
 
   <content contentuid="stringsofmodmadebyxss20260313jj10a04" version="1">神足通</content>
   <content contentuid="stringsofmodmadebyxss20260313jj10b04" version="1">仙人之步，瞬息千里。附赠动作传送至30m内任意位置，无冷却，无消耗。</content>
+
+  <content contentuid="stringsofmodmadebyxss20260313jj10a05" version="1">天道轮回</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj10b05" version="1">以20神识引动天道之力。3回合内：每回合获得额外2动作点和2附赠动作点，18m内所有敌人每回合受到5d10力场伤害。结束后1回合力竭。每长休1次。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj10c05" version="1">【天道轮回】天道之力降临，时间加速。每回合额外+2动作+2附赠，周围敌人承受5d10力场。</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj10d05" version="1">天道力竭</content>
+  <content contentuid="stringsofmodmadebyxss20260313jj10e05" version="1">引动天道之力后，暂时陷入虚弱。攻击和豁免具有劣势。</content>
 </contentList>

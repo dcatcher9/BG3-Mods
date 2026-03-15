@@ -267,17 +267,17 @@ data "Icon" "Spell_Evocation_RayOfFrost"
 
 /////////////////////////////
 /
-/  Tier 6 · 炼虚 · 虚影分身    / 元婴化虚影，分灵行天下
+/  Tier 6 · 炼虚 · 虚实之道    / 元婴化虚影，虚空碎裂
 /
 /////////////////////////////
-//主被动：解锁虚影分身术
+//主被动：解锁虚影分身术 + 虚空断裂 + 相位游离
 new entry "BANXIAN_JJ6_XUYING"
 type "PassiveData"
 data "Icon" "PassiveFeature_ShadowyDisguise"
 data "DisplayName" "stringsofmodmadebyxss20260313jj6a00;1"
 data "Description" "stringsofmodmadebyxss20260313jj6b00;1"
 data "Properties" "Highlighted"
-data "Boosts" "UnlockSpell(Shout_BANXIAN_JJ6_SUMMON);UnlockSpell(Shout_BANXIAN_JJ6_RECALL);Evasion()"
+data "Boosts" "UnlockSpell(Shout_BANXIAN_JJ6_SUMMON);UnlockSpell(Shout_BANXIAN_JJ6_RECALL);UnlockSpell(Shout_BANXIAN_JJ6_SWAP);UnlockSpell(Target_BANXIAN_JJ6_VOID_SUNDER);Evasion()"
 
 //虚影分身 · 召唤法术
 new entry "Shout_BANXIAN_JJ6_SUMMON"
@@ -311,6 +311,60 @@ data "TooltipStatusApply" ""
 data "RequirementConditions" "HasStatus('BANXIAN_JJ6_XUYING_ACTIVE')"
 data "SpellFlags" "Temporary"
 
+//虚实互换 · 与分身交换位置
+new entry "Shout_BANXIAN_JJ6_SWAP"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_WholenessOfBody"
+data "Cooldown" ""
+data "SpellProperties" "ApplyStatus(SELF,BANXIAN_JJ6_SWAP_BLUR,100,1)"
+data "UseCosts" "BonusActionPoint:1"
+data "DisplayName" "stringsofmodmadebyxss20260313jj6a04;1"
+data "Description" "stringsofmodmadebyxss20260313jj6b04;1"
+data "Icon" "Spell_Illusion_Blur"
+data "TooltipDamageList" ""
+data "TooltipStatusApply" ""
+data "RequirementConditions" "HasStatus('BANXIAN_JJ6_XUYING_ACTIVE')"
+data "SpellFlags" "Temporary"
+
+//虚实互换 · 模糊效果（1回合攻击劣势）
+new entry "BANXIAN_JJ6_SWAP_BLUR"
+type "StatusData"
+data "StatusType" "BOOST"
+data "Icon" "Spell_Illusion_Blur"
+data "DisplayName" "stringsofmodmadebyxss20260313jj6a05;1"
+data "Description" "stringsofmodmadebyxss20260313jj6b05;1"
+data "StackId" "BANXIAN_JJ6_SWAP_BLUR"
+data "StackType" "Overwrite"
+data "Boosts" "Disadvantage(AttackTarget)"
+data "StatusPropertyFlags" "DisableCombatlog"
+
+//虚空断裂 · 撕裂虚空攻击（Force推击代替Lua传送，标记用于击杀爆炸）
+new entry "Target_BANXIAN_JJ6_VOID_SUNDER"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_MistyStep"
+data "Cooldown" ""
+data "SpellProperties" "DealDamage(6d8,Force,Magical);Force(9,OriginToTarget,Aggressive);ApplyStatus(BANXIAN_JJ6_VOID_SUNDER_MARK,100,1)"
+data "TargetConditions" "Character() and not Self() and not Dead() and Enemy()"
+data "SpellRoll" ""
+data "UseCosts" "ActionPoint:1;ShenshiPoint:6"
+data "TargetRadius" "18"
+data "DisplayName" "stringsofmodmadebyxss20260313jj6a06;1"
+data "Description" "stringsofmodmadebyxss20260313jj6b06;1"
+data "Icon" "Spell_Conjuration_DimensionDoor"
+data "TooltipDamageList" "DealDamage(6d8,Force)"
+data "TooltipStatusApply" ""
+data "SpellFlags" "Temporary;HasSomaticComponent"
+
+//虚空断裂 · 击杀标记（1回合，用于Dying检查）
+new entry "BANXIAN_JJ6_VOID_SUNDER_MARK"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackId" "BANXIAN_JJ6_VOID_SUNDER_MARK"
+data "StackType" "Overwrite"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
 //虚影激活状态：本体获得全伤害抗性
 new entry "BANXIAN_JJ6_XUYING_ACTIVE"
 type "StatusData"
@@ -323,7 +377,7 @@ data "StackType" "Overwrite"
 data "Boosts" "Resistance(Bludgeoning, Resistant);Resistance(Piercing, Resistant);Resistance(Slashing, Resistant);Resistance(Fire, Resistant);Resistance(Cold, Resistant);Resistance(Lightning, Resistant);Resistance(Poison, Resistant);Resistance(Psychic, Resistant);Resistance(Thunder, Resistant);Resistance(Acid, Resistant);Resistance(Necrotic, Resistant);Resistance(Radiant, Resistant);Resistance(Force, Resistant)"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;IgnoreResting"
 
-//虚影标记（应用在分身上的视觉标记）
+//虚影标记（应用在分身上的视觉标记 + 虚空侵蚀被动）
 new entry "BANXIAN_JJ6_XUYING_MARK"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -331,23 +385,80 @@ data "Icon" "PassiveFeature_ShadowyDisguise"
 data "DisplayName" "stringsofmodmadebyxss20260313jj6a03;1"
 data "StackId" "BANXIAN_JJ6_XUYING_MARK"
 data "StackType" "Overwrite"
+data "Passives" "BANXIAN_JJ6_XUYING_EROSION_P"
 data "StatusEffect" "c5cb3c8e-55cd-4b12-b83a-1499d2b874f2"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;ApplyToDead;IgnoreResting"
+
+//虚影攻击 · 虚空侵蚀（分身命中时施加AC-1，Additive叠加）
+new entry "BANXIAN_JJ6_XUYING_EROSION_P"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "StatsFunctorContext" "OnAttack"
+data "Conditions" "not (IsMiss() or IsCriticalMiss()) and not Self(context.Target,context.Source)"
+data "StatsFunctors" "ApplyStatus(BANXIAN_JJ6_VOID_EROSION,100,3,context.Target)"
 
 //虚影死亡反噬信号（由Lua处理）
 new entry "BANXIAN_JJ6_XUYING_BACKLASH"
 type "StatusData"
 data "StatusType" "BOOST"
 data "StackId" "BANXIAN_JJ6_XUYING_BACKLASH"
-data "OnApplyFunctors" "DealDamage(5d10,Psychic,Magical);UseActionResource(ShenshiPoint,2,0)"
+data "OnApplyFunctors" "DealDamage(3d10,Psychic,Magical);UseActionResource(ShenshiPoint,2,0)"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+//虚空侵蚀 · AC减少（叠加至3层）
+new entry "BANXIAN_JJ6_VOID_EROSION"
+type "StatusData"
+data "StatusType" "BOOST"
+data "Icon" "Spell_Conjuration_DimensionDoor"
+data "DisplayName" "stringsofmodmadebyxss20260313jj6a07;1"
+data "Description" "stringsofmodmadebyxss20260313jj6b07;1"
+data "StackId" "BANXIAN_JJ6_VOID_EROSION"
+data "StackType" "Additive"
+data "Boosts" "AC(-1)"
+data "StatusPropertyFlags" "DisableCombatlog"
+
+//相位游离 · 自动触发虚空免疫（OnDamaged + HP<50%，纯stat实现）
+new entry "BANXIAN_JJ6_PHASE_SHIFT"
+type "PassiveData"
+data "Icon" "Spell_Illusion_Blur"
+data "DisplayName" "stringsofmodmadebyxss20260313jj6a08;1"
+data "Description" "stringsofmodmadebyxss20260313jj6b08;1"
+data "Properties" "Highlighted"
+data "StatsFunctorContext" "OnDamaged"
+data "Conditions" "HasHPPercentageLessThan(50) and not HasStatus('BANXIAN_JJ6_PHASE_SHIFT_CD')"
+data "StatsFunctors" "ApplyStatus(SELF,BANXIAN_JJ6_PHASE_SHIFT_STATUS,100,1);ApplyStatus(SELF,BANXIAN_JJ6_PHASE_SHIFT_CD,100,-1)"
+
+//相位游离 · 免疫状态
+new entry "BANXIAN_JJ6_PHASE_SHIFT_STATUS"
+type "StatusData"
+data "StatusType" "BOOST"
+data "Icon" "Spell_Illusion_Blur"
+data "DisplayName" "stringsofmodmadebyxss20260313jj6a08;1"
+data "Description" "stringsofmodmadebyxss20260313jj6b09;1"
+data "StackId" "BANXIAN_JJ6_PHASE_SHIFT"
+data "StackType" "Overwrite"
+data "Boosts" "Resistance(All, Immune);Invulnerable()"
+data "StatusPropertyFlags" "DisableCombatlog"
+
+//相位游离 · 冷却
+new entry "BANXIAN_JJ6_PHASE_SHIFT_CD"
+type "StatusData"
+data "StatusType" "BOOST"
+data "Icon" "Spell_Illusion_Blur"
+data "DisplayName" "stringsofmodmadebyxss20260313jj6a10;1"
+data "Description" "stringsofmodmadebyxss20260313jj6b10;1"
+data "StackId" "BANXIAN_JJ6_PHASE_SHIFT_CD"
+data "StackType" "Overwrite"
+data "RemoveConditions" "not Combat()"
+data "RemoveEvents" "OnShortRest"
+data "StatusPropertyFlags" "DisableCombatlog"
 
 /////////////////////////////
 /
-/  Tier 7 · 合体 · 法相天地    / 神体合一，法相降世
+/  Tier 7 · 合体 · 天人合一    / 神体合一，法相降世，金刚不灭
 /
 /////////////////////////////
-//主被动：解锁法相天地
+//主被动：解锁法相天地 + 金刚不坏
 new entry "BANXIAN_JJ7_FAXIANG"
 type "PassiveData"
 data "Icon" "PassiveFeature_SavageAttacker"
@@ -372,7 +483,7 @@ data "TooltipStatusApply" "ApplyStatus(BANXIAN_JJ7_FAXIANG_STATUS,100,-1)"
 data "RequirementConditions" "not HasStatus('BANXIAN_JJ7_FAXIANG_STATUS')"
 data "SpellFlags" "Temporary"
 
-//法相天地状态
+//法相天地状态（大幅增强）
 new entry "BANXIAN_JJ7_FAXIANG_STATUS"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -381,15 +492,15 @@ data "DisplayName" "stringsofmodmadebyxss20260313jj7a01;1"
 data "Description" "stringsofmodmadebyxss20260313jj7c01;1"
 data "StackId" "BANXIAN_JJ7_FAXIANG_STATUS"
 data "StackType" "Overwrite"
-data "Boosts" "ActionResource(BonusActionPoint,1,0);ObjectSize(Huge);MeleeAttackRange(3);ReduceCriticalAttackThreshold(1)"
+data "Boosts" "ActionResource(BonusActionPoint,1,0);ObjectSize(Huge);MeleeAttackRange(3);ReduceCriticalAttackThreshold(2)"
 data "Passives" "BANXIAN_JJ7_FAXIANG_PASSIVE;BANXIAN_JJ7_FAXIANG_QUAKE;BANXIAN_JJ7_FAXIANG_AURA"
 data "TickType" "StartTurn"
 data "TickFunctors" "IF(HasActionResource('KiPoint', 4, 0, false, true)):UseActionResource(KiPoint,4,0);IF(not HasActionResource('KiPoint', 4, 0, false, true)):RemoveStatus(SELF)"
 data "AuraRadius" "6"
-data "AuraStatuses" "IF(not Ally() and Character() and not Dead()):ApplyStatus(BANXIAN_JJ7_FAXIANG_FEAR)"
+data "AuraStatuses" "IF(not Ally() and Character() and not Dead()):ApplyStatus(BANXIAN_JJ7_FAXIANG_STUN);IF(not Ally() and Character() and not Dead()):ApplyStatus(BANXIAN_JJ7_FAXIANG_SUPPRESS)"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;IgnoreResting"
 
-//法相·天地一击：攻击附加力场伤害
+//法相·法力共振：近战附加动态力场伤害（由Lua计算附近敌人数 × 1d6）
 new entry "BANXIAN_JJ7_FAXIANG_PASSIVE"
 type "PassiveData"
 data "DisplayName" "stringsofmodmadebyxss20260313jj7d01;1"
@@ -399,7 +510,7 @@ data "StatsFunctorContext" "OnAttack"
 data "Conditions" "not (IsMiss() or IsCriticalMiss()) and not Self(context.Target, context.Source) and (IsMeleeAttack() or IsMeleeUnarmedAttack())"
 data "StatsFunctors" "DealDamage(2d8,Force,Magical)"
 
-//法相·地震步：移动3m以上造成困难地形
+//法相·裂地：移动时敌人DEX豁免否则倒地（由Lua处理）
 new entry "BANXIAN_JJ7_FAXIANG_QUAKE"
 type "PassiveData"
 data "DisplayName" "stringsofmodmadebyxss20260313jj7f01;1"
@@ -408,25 +519,39 @@ data "StatsFunctorContext" "OnMoveStatus"
 data "Conditions" "HasStatus('BANXIAN_JJ7_FAXIANG_STATUS',context.Source)"
 data "StatsFunctors" "CreateSurface(3,3,Grease)"
 
-//法相·威压光环被动
+//法相·威压光环被动（tooltip用）
 new entry "BANXIAN_JJ7_FAXIANG_AURA"
 type "PassiveData"
 data "DisplayName" "stringsofmodmadebyxss20260313jj7g01;1"
 data "Description" "stringsofmodmadebyxss20260313jj7h01;1"
 data "Properties" "IsHidden"
 
-//法相·恐惧光环状态
-new entry "BANXIAN_JJ7_FAXIANG_FEAR"
+//法相·威压：感知豁免否则眩晕1回合（升级自恐惧）
+new entry "BANXIAN_JJ7_FAXIANG_STUN"
 type "StatusData"
-data "StatusType" "FEAR"
+data "StatusType" "STUNNED"
 data "DisplayName" "stringsofmodmadebyxss20260313jj7g01;1"
 data "Description" "stringsofmodmadebyxss20260313jj7h01;1"
-data "OnApplyFunctors" "IF(SavingThrow(Ability.Wisdom, BANXIAN_JJ7_FaxiangDC())):RemoveStatus(SELF,BANXIAN_JJ7_FAXIANG_FEAR)"
+data "OnApplyFunctors" "IF(SavingThrow(Ability.Wisdom, BANXIAN_JJ7_FaxiangDC())):RemoveStatus(SELF,BANXIAN_JJ7_FAXIANG_STUN)"
 data "OnApplyRoll" "SavingThrow(Ability.Wisdom, BANXIAN_JJ7_FaxiangDC())"
-data "StackId" "BANXIAN_JJ7_FAXIANG_FEAR"
+data "StackId" "BANXIAN_JJ7_FAXIANG_STUN"
 data "StackType" "Overwrite"
 data "RemoveConditions" "not HasStatus('BANXIAN_JJ7_FAXIANG_STATUS',context.ObservedEntity) or not IsWithinCombatRange(context.Source, context.ObservedEntity, 6)"
 data "RemoveEvents" "OnTurnEnded"
+data "StatusPropertyFlags" "DisableCombatlog"
+
+//法相·天地压制：敌人无法使用反应
+new entry "BANXIAN_JJ7_FAXIANG_SUPPRESS"
+type "StatusData"
+data "StatusType" "BOOST"
+data "Icon" "Spell_Enchantment_Slow"
+data "DisplayName" "stringsofmodmadebyxss20260313jj7i01;1"
+data "Description" "stringsofmodmadebyxss20260313jj7j01;1"
+data "StackId" "BANXIAN_JJ7_FAXIANG_SUPPRESS"
+data "StackType" "Overwrite"
+data "Boosts" "ActionResource(ReactionActionPoint,-1,0)"
+data "RemoveConditions" "not HasStatus('BANXIAN_JJ7_FAXIANG_STATUS',context.ObservedEntity) or not IsWithinCombatRange(context.Source, context.ObservedEntity, 6)"
+data "RemoveEvents" "OnStatusRemoved"
 data "StatusPropertyFlags" "DisableCombatlog"
 
 //法相·关闭
@@ -445,28 +570,37 @@ data "TooltipStatusApply" ""
 data "RequirementConditions" "HasStatus('BANXIAN_JJ7_FAXIANG_STATUS')"
 data "SpellFlags" "Temporary"
 
+//金刚不坏 · 减伤+免暴击（伤害减免 = 熟练加值，免疫暴击如精金甲）
+new entry "BANXIAN_JJ7_JINGANG"
+type "PassiveData"
+data "Icon" "PassiveFeature_HeavyArmorMaster"
+data "DisplayName" "stringsofmodmadebyxss20260313jj7k01;1"
+data "Description" "stringsofmodmadebyxss20260313jj7l01;1"
+data "Properties" "Highlighted"
+data "Boosts" "DamageReduction(All,Flat,ProficiencyBonus);CriticalHit(AttackTarget,Success,Never)"
+
 /////////////////////////////
 /
-/  Tier 8 · 大乘 · 领域        / 以法则力量投射领域，改写战场规则
+/  Tier 8 · 大乘 · 法域降世    / 以法则力量投射领域，改写战场规则
 /
 /////////////////////////////
-//主被动：解锁领域
+//主被动：解锁领域 + 领域绝对
 new entry "BANXIAN_JJ8_LINGYU"
 type "PassiveData"
 data "Icon" "PassiveFeature_GreatWeaponMaster_BonusAttack"
 data "DisplayName" "stringsofmodmadebyxss20260313jj8a00;1"
 data "Description" "stringsofmodmadebyxss20260313jj8b00;1"
 data "Properties" "Highlighted"
-data "Boosts" "UnlockSpell(Shout_BANXIAN_JJ8_LINGYU_ON);UnlockSpell(Shout_BANXIAN_JJ8_LINGYU_OFF);Advantage(SavingThrow);ReduceCriticalAttackThreshold(1)"
+data "Boosts" "UnlockSpell(Shout_BANXIAN_JJ8_LINGYU_ON);UnlockSpell(Shout_BANXIAN_JJ8_LINGYU_OFF);UnlockSpell(Shout_BANXIAN_JJ8_LINGYU_ABSOLUTE);Advantage(SavingThrow);ReduceCriticalAttackThreshold(1)"
 
-//领域 · 展开
+//领域 · 展开（降低消耗）
 new entry "Shout_BANXIAN_JJ8_LINGYU_ON"
 type "SpellData"
 data "SpellType" "Shout"
 using "Shout_WholenessOfBody"
 data "Cooldown" ""
 data "SpellProperties" "ApplyStatus(SELF,BANXIAN_JJ8_LINGYU_STATUS,100,-1)"
-data "UseCosts" "ActionPoint:1;ShenshiPoint:16"
+data "UseCosts" "ActionPoint:1;ShenshiPoint:12"
 data "DisplayName" "stringsofmodmadebyxss20260313jj8a01;1"
 data "Description" "stringsofmodmadebyxss20260313jj8b01;1"
 data "Icon" "PassiveFeature_GreatWeaponMaster_BonusAttack"
@@ -475,7 +609,7 @@ data "TooltipStatusApply" "ApplyStatus(BANXIAN_JJ8_LINGYU_STATUS,100,-1)"
 data "RequirementConditions" "not HasStatus('BANXIAN_JJ8_LINGYU_STATUS')"
 data "SpellFlags" "Temporary"
 
-//领域状态（12m光环，跟随施法者）
+//领域状态（增强：+3攻击/DC，额外攻击，维持3/turn）
 new entry "BANXIAN_JJ8_LINGYU_STATUS"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -484,15 +618,15 @@ data "DisplayName" "stringsofmodmadebyxss20260313jj8a01;1"
 data "Description" "stringsofmodmadebyxss20260313jj8c01;1"
 data "StackId" "BANXIAN_JJ8_LINGYU_STATUS"
 data "StackType" "Overwrite"
-data "Boosts" "RollBonus(Attack,2);SpellSaveDC(2);Sight(Truesight,18)"
+data "Boosts" "RollBonus(Attack,3);SpellSaveDC(3);Sight(Truesight,18);ExtraAttack(1)"
 data "Passives" "BANXIAN_JJ8_LINGYU_PASSIVE"
 data "TickType" "StartTurn"
-data "TickFunctors" "IF(HasActionResource('ShenshiPoint', 4, 0, false, true)):UseActionResource(ShenshiPoint,4,0);IF(not HasActionResource('ShenshiPoint', 4, 0, false, true)):RemoveStatus(SELF)"
+data "TickFunctors" "IF(HasActionResource('ShenshiPoint', 3, 0, false, true)):UseActionResource(ShenshiPoint,3,0);IF(not HasActionResource('ShenshiPoint', 3, 0, false, true)):RemoveStatus(SELF)"
 data "AuraRadius" "12"
 data "AuraStatuses" "IF(not Ally() and Character() and not Dead()):ApplyStatus(BANXIAN_JJ8_LINGYU_DEBUFF);IF(Ally() and Character() and not Dead() and not Self(context.Source,context.Target)):ApplyStatus(BANXIAN_JJ8_LINGYU_ALLYBUFF)"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;IgnoreResting"
 
-//领域·法则压制（敌方）
+//领域·法则压制（敌方·增强：-3，禁传送，每回合3d10力场最高HP目标由Lua处理）
 new entry "BANXIAN_JJ8_LINGYU_DEBUFF"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -501,12 +635,12 @@ data "DisplayName" "stringsofmodmadebyxss20260313jj8d01;1"
 data "Description" "stringsofmodmadebyxss20260313jj8e01;1"
 data "StackId" "BANXIAN_JJ8_LINGYU_DEBUFF"
 data "StackType" "Overwrite"
-data "Boosts" "RollBonus(Attack,-2);RollBonus(SavingThrow,-2);ActionResourceMultiplier(Movement,50,0)"
+data "Boosts" "RollBonus(Attack,-3);RollBonus(SavingThrow,-3);ActionResourceMultiplier(Movement,50,0);Lock(Teleport)"
 data "RemoveConditions" "not HasStatus('BANXIAN_JJ8_LINGYU_STATUS',context.ObservedEntity)"
 data "RemoveEvents" "OnStatusRemoved"
 data "StatusPropertyFlags" "DisableCombatlog"
 
-//领域·法则庇护（友方）
+//领域·法则庇护（友方·增强：+2攻击，专注优势，法术抗性）
 new entry "BANXIAN_JJ8_LINGYU_ALLYBUFF"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -515,7 +649,7 @@ data "DisplayName" "stringsofmodmadebyxss20260313jj8f01;1"
 data "Description" "stringsofmodmadebyxss20260313jj8g01;1"
 data "StackId" "BANXIAN_JJ8_LINGYU_ALLYBUFF"
 data "StackType" "Overwrite"
-data "Boosts" "RollBonus(Attack,1);Advantage(Concentration)"
+data "Boosts" "RollBonus(Attack,2);Advantage(Concentration);Resistance(Force,Resistant);Resistance(Radiant,Resistant);Resistance(Necrotic,Resistant);Resistance(Psychic,Resistant)"
 data "RemoveConditions" "not HasStatus('BANXIAN_JJ8_LINGYU_STATUS',context.ObservedEntity)"
 data "RemoveEvents" "OnStatusRemoved"
 data "StatusPropertyFlags" "DisableCombatlog"
@@ -527,18 +661,72 @@ data "DisplayName" "stringsofmodmadebyxss20260313jj8h01;1"
 data "Description" "stringsofmodmadebyxss20260313jj8i01;1"
 data "Properties" "IsHidden"
 
-//---------- 领域·大道共鸣状态 ----------
-//天道共鸣：领域内每回合雷击随机敌人
+//领域·绝对 · 终极形态（每长休1次）
+new entry "Shout_BANXIAN_JJ8_LINGYU_ABSOLUTE"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_WholenessOfBody"
+data "Cooldown" "OncePerLongRest"
+data "SpellProperties" "ApplyStatus(SELF,BANXIAN_JJ8_LINGYU_ABSOLUTE_STATUS,100,1)"
+data "UseCosts" "ActionPoint:1;ShenshiPoint:8"
+data "DisplayName" "stringsofmodmadebyxss20260313jj8l01;1"
+data "Description" "stringsofmodmadebyxss20260313jj8m01;1"
+data "Icon" "Spell_Evocation_Sunbeam"
+data "TooltipDamageList" ""
+data "TooltipStatusApply" ""
+data "RequirementConditions" "HasStatus('BANXIAN_JJ8_LINGYU_STATUS')"
+data "SpellFlags" "Temporary"
+
+//领域·绝对状态（1回合：敌-5/无反应，友免疫，自身额外动作）AuraStatuses自动分发
+new entry "BANXIAN_JJ8_LINGYU_ABSOLUTE_STATUS"
+type "StatusData"
+data "StatusType" "BOOST"
+data "Icon" "Spell_Evocation_Sunbeam"
+data "DisplayName" "stringsofmodmadebyxss20260313jj8l01;1"
+data "Description" "stringsofmodmadebyxss20260313jj8n01;1"
+data "StackId" "BANXIAN_JJ8_LINGYU_ABSOLUTE"
+data "StackType" "Overwrite"
+data "Boosts" "ActionResource(ActionPoint,1,0)"
+data "AuraRadius" "12"
+data "AuraStatuses" "IF(not Ally() and Character() and not Dead()):ApplyStatus(BANXIAN_JJ8_LINGYU_ABSOLUTE_DEBUFF);IF(Ally() and Character() and not Dead() and not Self(context.Source,context.Target)):ApplyStatus(BANXIAN_JJ8_LINGYU_ABSOLUTE_ALLYBUFF)"
+data "StatusPropertyFlags" "DisableCombatlog"
+
+//领域·绝对敌方压制
+new entry "BANXIAN_JJ8_LINGYU_ABSOLUTE_DEBUFF"
+type "StatusData"
+data "StatusType" "BOOST"
+data "Icon" "Spell_Evocation_Sunbeam"
+data "DisplayName" "stringsofmodmadebyxss20260313jj8o01;1"
+data "Description" "stringsofmodmadebyxss20260313jj8p01;1"
+data "StackId" "BANXIAN_JJ8_LINGYU_ABSOLUTE_DEBUFF"
+data "StackType" "Overwrite"
+data "Boosts" "RollBonus(Attack,-5);RollBonus(SavingThrow,-5);ActionResource(ReactionActionPoint,-1,0)"
+data "StatusPropertyFlags" "DisableCombatlog"
+
+//领域·绝对友方护盾
+new entry "BANXIAN_JJ8_LINGYU_ABSOLUTE_ALLYBUFF"
+type "StatusData"
+data "StatusType" "BOOST"
+data "Icon" "Spell_Evocation_Sunbeam"
+data "DisplayName" "stringsofmodmadebyxss20260313jj8q01;1"
+data "Description" "stringsofmodmadebyxss20260313jj8r01;1"
+data "StackId" "BANXIAN_JJ8_LINGYU_ABSOLUTE_ALLYBUFF"
+data "StackType" "Overwrite"
+data "Boosts" "Resistance(All, Immune)"
+data "StatusPropertyFlags" "DisableCombatlog"
+
+//---------- 领域·大道共鸣状态（全部增强）----------
+//天道共鸣：4d10雷击（由Lua处理链式）
 new entry "BANXIAN_JJ8_LINGYU_DAO_TIAN"
 type "StatusData"
 data "StatusType" "BOOST"
 data "StackId" "BANXIAN_JJ8_LINGYU_DAO"
 data "StackType" "Overwrite"
 data "TickType" "StartTurn"
-data "TickFunctors" "DealDamage(2d10,Lightning,Magical)"
+data "TickFunctors" "DealDamage(4d10,Lightning,Magical)"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
 
-//修罗道共鸣：领域内受伤敌人流血
+//修罗道共鸣：命中施加厄运印记（3d8暗蚀/回合，2回合）
 new entry "BANXIAN_JJ8_LINGYU_DAO_XIULUO"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -550,21 +738,34 @@ data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndi
 new entry "BANXIAN_JJ8_LINGYU_DAO_XIULUO_P"
 type "PassiveData"
 data "Properties" "IsHidden"
-data "StatsFunctorContext" "OnDamaged"
-data "Conditions" "HasStatus('BANXIAN_JJ8_LINGYU_DEBUFF',context.Source)"
-data "StatsFunctors" "ApplyStatus(BLEEDING,100,2)"
+data "StatsFunctorContext" "OnAttack"
+data "Conditions" "not (IsMiss() or IsCriticalMiss()) and not Self(context.Target,context.Source)"
+data "StatsFunctors" "ApplyStatus(BANXIAN_JJ8_DOOM_MARK,100,2,context.Target)"
 
-//地狱道共鸣：领域内敌人持续火伤
+//厄运印记（修罗道共鸣）
+new entry "BANXIAN_JJ8_DOOM_MARK"
+type "StatusData"
+data "StatusType" "BOOST"
+data "Icon" "GenericIcon_DamageType_Necrotic"
+data "DisplayName" "stringsofmodmadebyxss20260313jj8s01;1"
+data "Description" "stringsofmodmadebyxss20260313jj8t01;1"
+data "StackId" "BANXIAN_JJ8_DOOM_MARK"
+data "StackType" "Overwrite"
+data "TickType" "StartTurn"
+data "TickFunctors" "DealDamage(3d8,Necrotic,Magical)"
+data "StatusPropertyFlags" "DisableCombatlog"
+
+//地狱道共鸣：3d10火伤 + 火焰易伤
 new entry "BANXIAN_JJ8_LINGYU_DAO_DIYU"
 type "StatusData"
 data "StatusType" "BOOST"
 data "StackId" "BANXIAN_JJ8_LINGYU_DAO"
 data "StackType" "Overwrite"
 data "TickType" "StartTurn"
-data "TickFunctors" "DealDamage(1d10,Fire,Magical)"
+data "TickFunctors" "DealDamage(3d10,Fire,Magical)"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
 
-//剑道共鸣：领域内移动3m以上受剑气伤害
+//剑道共鸣：攻击+3d8斩击，移动受2d8
 new entry "BANXIAN_JJ8_LINGYU_DAO_JIAN"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -577,10 +778,10 @@ new entry "BANXIAN_JJ8_LINGYU_DAO_JIAN_P"
 type "PassiveData"
 data "Properties" "IsHidden"
 data "StatsFunctorContext" "OnAttack"
-data "Conditions" "not (IsMiss() or IsCriticalMiss()) and HasStatus('BANXIAN_JJ8_LINGYU_DEBUFF',context.Target) and not Self(context.Target,context.Source)"
-data "StatsFunctors" "DealDamage(1d8,Slashing,Magical)"
+data "Conditions" "not (IsMiss() or IsCriticalMiss()) and not Self(context.Target,context.Source)"
+data "StatsFunctors" "DealDamage(3d8,Slashing,Magical)"
 
-//羿道共鸣：领域内远程攻击弹射
+//羿道共鸣：远程攻击链式弹射2目标（由Lua处理）
 new entry "BANXIAN_JJ8_LINGYU_DAO_YI"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -596,7 +797,7 @@ data "StatsFunctorContext" "OnAttack"
 data "Conditions" "IsRangedAttack() and not (IsMiss() or IsCriticalMiss()) and not Self(context.Target,context.Source)"
 data "StatsFunctors" "ApplyStatus(BANXIAN_JJ5_YINGUO_CHAIN,100,1,context.Target)"
 
-//饿鬼道共鸣：领域内伤害吸血25%
+//饿鬼道共鸣：50%吸血（由Lua处理）
 new entry "BANXIAN_JJ8_LINGYU_DAO_EGUI"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -610,19 +811,25 @@ type "PassiveData"
 data "Properties" "IsHidden"
 data "StatsFunctorContext" "OnAttack"
 data "Conditions" "not (IsMiss() or IsCriticalMiss()) and not Self(context.Target,context.Source)"
-data "StatsFunctors" "RegainHitPoints(max(1,LevelMapValue(BanXianDice)),Guaranteed)"
+data "StatsFunctors" "RegainHitPoints(max(1,LevelMapValue(BanXianDice)),Guaranteed);RegainHitPoints(max(1,LevelMapValue(BanXianDice)),Guaranteed)"
 
-//力道共鸣：领域内敌人永久减速
+//力道共鸣：-6m移动 + 力量豁免否则倒地
 new entry "BANXIAN_JJ8_LINGYU_DAO_LI"
 type "StatusData"
 data "StatusType" "BOOST"
 data "StackId" "BANXIAN_JJ8_LINGYU_DAO"
 data "StackType" "Overwrite"
-data "TickType" "StartTurn"
-data "TickFunctors" "ApplyStatus(SLOW,100,2)"
+data "Passives" "BANXIAN_JJ8_LINGYU_DAO_LI_P"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
 
-//合欢道共鸣：领域内魅惑敌人为己方战斗
+new entry "BANXIAN_JJ8_LINGYU_DAO_LI_P"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "StatsFunctorContext" "OnAttack"
+data "Conditions" "not (IsMiss() or IsCriticalMiss()) and HasStatus('BANXIAN_JJ8_LINGYU_DEBUFF',context.Target) and not Self(context.Target,context.Source)"
+data "StatsFunctors" "Force(6,OriginToTarget,Aggressive);ApplyStatus(PRONE,100,1,context.Target)"
+
+//合欢道共鸣：感知豁免否则支配1回合
 new entry "BANXIAN_JJ8_LINGYU_DAO_HEHUAN"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -636,9 +843,9 @@ type "PassiveData"
 data "Properties" "IsHidden"
 data "StatsFunctorContext" "OnDamaged"
 data "Conditions" "HasStatus('BANXIAN_JJ8_LINGYU_DEBUFF',context.Source) and not SavingThrow(Ability.Wisdom, BANXIAN_JJ8_LingyuDC())"
-data "StatsFunctors" "ApplyStatus(CHARMED,100,2)"
+data "StatsFunctors" "ApplyStatus(YOURCONTROL,100,1)"
 
-//人间道共鸣：领域内每回合治愈自身
+//人间道共鸣：治愈所有领域内友方（由Lua处理）
 new entry "BANXIAN_JJ8_LINGYU_DAO_RENJIAN"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -648,7 +855,7 @@ data "TickType" "StartTurn"
 data "TickFunctors" "RegainHitPoints(max(1,LevelMapValue(BanXianDice)),Guaranteed)"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
 
-//畜生道共鸣：领域内敌人攻击骰劣势
+//畜生道共鸣：全骰劣势
 new entry "BANXIAN_JJ8_LINGYU_DAO_CHUSHENG"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -662,7 +869,7 @@ type "PassiveData"
 data "Properties" "IsHidden"
 data "StatsFunctorContext" "OnDamaged"
 data "Conditions" "HasStatus('BANXIAN_JJ8_LINGYU_DEBUFF',context.Source)"
-data "StatsFunctors" "ApplyStatus(THREATENED,100,2)"
+data "StatsFunctors" "ApplyStatus(THREATENED,100,2);ApplyStatus(BANE,100,2)"
 
 //领域 · 关闭
 new entry "Shout_BANXIAN_JJ8_LINGYU_OFF"
@@ -682,19 +889,19 @@ data "SpellFlags" "Temporary"
 
 /////////////////////////////
 /
-/  Tier 9 · 渡劫 · 天劫试炼    / 天地大劫临身，浴火涅槃
+/  Tier 9 · 渡劫 · 天劫九重    / 劫雷为兵，天劫为刃
 /
 /////////////////////////////
-//主被动：劫气系统 + 引劫术
+//主被动：劫气系统 + 引劫 + 劫雷化身 + 逆天改命
 new entry "BANXIAN_JJ9_DUJIE"
 type "PassiveData"
 data "Icon" "PassiveFeature_WarCaster_Opportunity"
 data "DisplayName" "stringsofmodmadebyxss20260313jj9a00;1"
 data "Description" "stringsofmodmadebyxss20260313jj9b00;1"
 data "Properties" "Highlighted"
-data "Boosts" "UnlockSpell(Shout_BANXIAN_JJ9_YINJIE);Resistance(Lightning, Immune);Resistance(Fire, Immune);StatusImmunity(SG_Charmed);StatusImmunity(SG_Frightened)"
+data "Boosts" "UnlockSpell(Shout_BANXIAN_JJ9_YINJIE);UnlockSpell(Shout_BANXIAN_JJ9_AVATAR);Resistance(Lightning, Immune);Resistance(Fire, Immune);StatusImmunity(SG_Charmed);StatusImmunity(SG_Frightened)"
 
-//劫气标记状态（Additive堆叠，由Lua管理）
+//劫气标记状态（Additive堆叠，增强为1d6）
 new entry "BANXIAN_JJ9_JIEQI"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -703,10 +910,10 @@ data "DisplayName" "stringsofmodmadebyxss20260313jj9a01;1"
 data "Description" "stringsofmodmadebyxss20260313jj9b01;1"
 data "StackId" "BANXIAN_JJ9_JIEQI"
 data "StackType" "Additive"
-data "Boosts" "DamageBonus(1d4)"
+data "Boosts" "DamageBonus(1d6)"
 data "StatusPropertyFlags" "DisableCombatlog;IgnoreResting;ApplyToDead"
 
-//引劫术 · 主动召唤天劫
+//引劫术（改为攻击性：对18m范围敌人降下天劫，由Lua处理）
 new entry "Shout_BANXIAN_JJ9_YINJIE"
 type "SpellData"
 data "SpellType" "Shout"
@@ -722,7 +929,7 @@ data "TooltipStatusApply" ""
 data "RequirementConditions" "HasStatus('BANXIAN_JJ9_JIEQI')"
 data "SpellFlags" "Temporary"
 
-//天劫降临状态：对自身造成50%最大生命的雷霆+光辉伤害
+//天劫降临信号
 new entry "BANXIAN_JJ9_TIANJIE_STRIKE"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -733,7 +940,7 @@ data "StackId" "BANXIAN_JJ9_TIANJIE_STRIKE"
 data "StackType" "Overwrite"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
 
-//劫后余生状态：渡劫成功后的增益
+//劫后余生·护体
 new entry "BANXIAN_JJ9_JIEHUO"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -745,7 +952,7 @@ data "StackType" "Overwrite"
 data "Boosts" "Resistance(All, Immune)"
 data "StatusPropertyFlags" "DisableCombatlog;IgnoreResting"
 
-//劫后余生 · 伤害倍增
+//劫后余生·增幅
 new entry "BANXIAN_JJ9_JIEHUO_DAMAGE"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -757,7 +964,7 @@ data "StackType" "Overwrite"
 data "Boosts" "DamageBonus(Level)"
 data "StatusPropertyFlags" "DisableCombatlog"
 
-//劫气回合开始自动获取（战斗开始满血时获得）
+//劫气回合开始自动获取
 new entry "BANXIAN_JJ9_JIEQI_GAIN"
 type "PassiveData"
 data "DisplayName" "stringsofmodmadebyxss20260313jj9a01;1"
@@ -775,19 +982,110 @@ data "StatsFunctorContext" "OnStatusApplied"
 data "Conditions" "StatusId('BANXIAN_FANSHI') and HasPassive('BANXIAN_JJ9_DUJIE',context.Source)"
 data "StatsFunctors" "ApplyStatus(SELF,BANXIAN_JJ9_JIEQI,100,-1)"
 
+//劫雷护体被动（被攻击时反击雷伤，由Lua计算劫气层数 × 2d6）
+new entry "BANXIAN_JJ9_JIELEI_HUTI"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20260313jj9a06;1"
+data "Description" "stringsofmodmadebyxss20260313jj9b06;1"
+data "Properties" "IsHidden"
+
+//劫雷化身 · 变身法术
+new entry "Shout_BANXIAN_JJ9_AVATAR"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_WholenessOfBody"
+data "Cooldown" ""
+data "SpellProperties" "ApplyStatus(SELF,BANXIAN_JJ9_AVATAR_STATUS,100,3)"
+data "UseCosts" "ActionPoint:1"
+data "DisplayName" "stringsofmodmadebyxss20260313jj9a07;1"
+data "Description" "stringsofmodmadebyxss20260313jj9b07;1"
+data "Icon" "Spell_Evocation_ChainLightning"
+data "TooltipDamageList" ""
+data "TooltipStatusApply" ""
+data "RequirementConditions" "HasStatusWithStackAmount('BANXIAN_JJ9_JIEQI',5)"
+data "SpellFlags" "Temporary"
+
+//劫雷化身状态（3回合：全伤害免疫，攻击AoE化，移动翻倍）
+new entry "BANXIAN_JJ9_AVATAR_STATUS"
+type "StatusData"
+data "StatusType" "BOOST"
+data "Icon" "Spell_Evocation_ChainLightning"
+data "DisplayName" "stringsofmodmadebyxss20260313jj9a07;1"
+data "Description" "stringsofmodmadebyxss20260313jj9c07;1"
+data "StackId" "BANXIAN_JJ9_AVATAR"
+data "StackType" "Overwrite"
+data "Boosts" "Resistance(All, Immune);ActionResourceMultiplier(Movement,200,0)"
+data "Passives" "BANXIAN_JJ9_AVATAR_AOE"
+data "TickType" "StartTurn"
+data "TickFunctors" "ApplyStatus(SELF,BANXIAN_JJ9_JIEQI,100,-1)"
+data "OnRemoveFunctors" "ApplyStatus(SELF,BANXIAN_JJ9_AVATAR_EXHAUSTION,100,1)"
+data "StatusPropertyFlags" "DisableCombatlog;IgnoreResting"
+
+//劫雷化身AoE攻击（命中时3m内全体雷+光辉，由Lua处理）
+new entry "BANXIAN_JJ9_AVATAR_AOE"
+type "PassiveData"
+data "DisplayName" "stringsofmodmadebyxss20260313jj9a07;1"
+data "Properties" "IsHidden"
+data "StatsFunctorContext" "OnAttack"
+data "Conditions" "not (IsMiss() or IsCriticalMiss()) and not Self(context.Target,context.Source)"
+data "StatsFunctors" "DealDamage(3d8,Lightning,Magical);DealDamage(3d8,Radiant,Magical)"
+
+//劫雷化身结束·力竭
+new entry "BANXIAN_JJ9_AVATAR_EXHAUSTION"
+type "StatusData"
+data "StatusType" "BOOST"
+data "Icon" "Spell_Evocation_ChainLightning"
+data "DisplayName" "stringsofmodmadebyxss20260313jj9a08;1"
+data "Description" "stringsofmodmadebyxss20260313jj9b08;1"
+data "StackId" "BANXIAN_JJ9_AVATAR_EXHAUSTION"
+data "StackType" "Overwrite"
+data "Boosts" "Disadvantage(Attack);Disadvantage(SavingThrow)"
+data "StatusPropertyFlags" "DisableCombatlog"
+
+//逆天改命被动（Lua处理：盟友濒死时代受致命伤）
+new entry "BANXIAN_JJ9_NITIANMING"
+type "PassiveData"
+data "Icon" "PassiveFeature_WarCaster_Opportunity"
+data "DisplayName" "stringsofmodmadebyxss20260313jj9a09;1"
+data "Description" "stringsofmodmadebyxss20260313jj9b09;1"
+data "Properties" "Highlighted"
+
+//逆天改命冷却（长休重置）
+new entry "BANXIAN_JJ9_NITIANMING_CD"
+type "StatusData"
+data "StatusType" "BOOST"
+data "Icon" "PassiveFeature_WarCaster_Opportunity"
+data "DisplayName" "stringsofmodmadebyxss20260313jj9a10;1"
+data "Description" "stringsofmodmadebyxss20260313jj9b10;1"
+data "StackId" "BANXIAN_JJ9_NITIANMING_CD"
+data "StackType" "Overwrite"
+data "StatusPropertyFlags" "DisableCombatlog;IgnoreResting;ApplyToDead"
+
+//5层劫气以上无视抗性状态
+new entry "BANXIAN_JJ9_JIEQI_PIERCE"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackId" "BANXIAN_JJ9_JIEQI_PIERCE"
+data "StackType" "Overwrite"
+data "Boosts" "IgnoreResistance(Slashing,Resistant);IgnoreResistance(Piercing,Resistant);IgnoreResistance(Bludgeoning,Resistant);IgnoreResistance(Fire,Resistant);IgnoreResistance(Cold,Resistant);IgnoreResistance(Lightning,Resistant);IgnoreResistance(Poison,Resistant);IgnoreResistance(Psychic,Resistant);IgnoreResistance(Thunder,Resistant);IgnoreResistance(Acid,Resistant);IgnoreResistance(Necrotic,Resistant);IgnoreResistance(Radiant,Resistant);IgnoreResistance(Force,Resistant)"
+data "DisplayName" "stringsofmodmadebyxss20260313jj9a11;1"
+data "Description" "stringsofmodmadebyxss20260313jj9b11;1"
+data "Icon" "Spell_Evocation_CallLightning"
+data "StatusPropertyFlags" "DisableCombatlog;IgnoreResting"
+
 /////////////////////////////
 /
-/  Tier 10 · 真仙 · 仙法        / 超脱凡俗，天地同寿
+/  Tier 10 · 真仙 · 超脱轮回    / 仙法无量，天道轮回
 /
 /////////////////////////////
-//主被动：真仙之体
+//主被动：真仙之体（增加天道轮回）
 new entry "BANXIAN_JJ10_ZHENXIAN"
 type "PassiveData"
 data "Icon" "PassiveFeature_DivineIntervention"
 data "DisplayName" "stringsofmodmadebyxss20260313jj10a00;1"
 data "Description" "stringsofmodmadebyxss20260313jj10b00;1"
 data "Properties" "Highlighted"
-data "Boosts" "UnlockSpell(Shout_BANXIAN_JJ10_ZHANSHEN);UnlockSpell(Target_BANXIAN_JJ10_XIULIQIANKUN);StatusImmunity(SG_Stunned);StatusImmunity(SG_Paralyzed);StatusImmunity(SG_Charmed);StatusImmunity(SG_Frightened);StatusImmunity(SG_Blinded);StatusImmunity(SG_Petrified);Sight(Truesight,30);Ability(Strength,3);Ability(Dexterity,3);Ability(Constitution,3);Ability(Intelligence,3);Ability(Wisdom,3);Ability(Charisma,3)"
+data "Boosts" "UnlockSpell(Shout_BANXIAN_JJ10_ZHANSHEN);UnlockSpell(Target_BANXIAN_JJ10_XIULIQIANKUN);UnlockSpell(Shout_BANXIAN_JJ10_TIANDAO);StatusImmunity(SG_Stunned);StatusImmunity(SG_Paralyzed);StatusImmunity(SG_Charmed);StatusImmunity(SG_Frightened);StatusImmunity(SG_Blinded);StatusImmunity(SG_Petrified);Sight(Truesight,30);Ability(Strength,3);Ability(Dexterity,3);Ability(Constitution,3);Ability(Intelligence,3);Ability(Wisdom,3);Ability(Charisma,3)"
 
 //仙体 · 不死被动
 new entry "BANXIAN_JJ10_XIANTI"
@@ -798,7 +1096,7 @@ data "Icon" "PassiveFeature_DivineIntervention"
 data "Properties" "Highlighted"
 data "Boosts" "DownedStatus(BANXIAN_JJ10_XIANTI_DOWNED,999)"
 
-//仙体假死 → 复活（CD检查在此处：若已有CD则不回血，正常倒地）
+//仙体假死 → 复活
 new entry "BANXIAN_JJ10_XIANTI_DOWNED"
 type "StatusData"
 data "StatusType" "DOWNED"
@@ -818,16 +1116,16 @@ data "StackId" "BANXIAN_JJ10_XIANTI_CD"
 data "StackType" "Overwrite"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;ApplyToDead;IgnoreResting"
 
-//仙体回复被动：每回合回复Con修正+等级HP
+//仙体回复（增强：Level + CON修正，满血时额外临时HP = Level）
 new entry "BANXIAN_JJ10_REGEN"
 type "PassiveData"
 data "DisplayName" "stringsofmodmadebyxss20260313jj10g00;1"
 data "Properties" "IsHidden"
 data "StatsFunctorContext" "OnTurn"
 data "Conditions" "HasPassive('BANXIAN_JJ10_ZHENXIAN',context.Source)"
-data "StatsFunctors" "RegainHitPoints(Level,Guaranteed)"
+data "StatsFunctors" "RegainHitPoints(Level+ConstitutionModifier,Guaranteed);IF(not HasHPPercentageLessThan(100)):GainTemporaryHitPoints(SELF,Level)"
 
-//---------- 仙术：斩仙一剑 ----------
+//---------- 仙术：斩仙一剑（20d12 + 斩杀线）----------
 new entry "Shout_BANXIAN_JJ10_ZHANSHEN"
 type "SpellData"
 data "SpellType" "Shout"
@@ -842,7 +1140,7 @@ data "TooltipDamageList" ""
 data "TooltipStatusApply" ""
 data "SpellFlags" "Temporary"
 
-//斩仙剑增幅状态：下一次攻击附加10d12力场
+//斩仙剑增幅状态：下次攻击20d12力场 + 斩杀（Lua处理25%血线即杀）
 new entry "BANXIAN_JJ10_ZHANSHEN_BUFF"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -856,16 +1154,16 @@ data "RemoveEvents" "OnAttack"
 data "RemoveConditions" "not (IsMiss() or IsCriticalMiss())"
 data "StatusPropertyFlags" "DisableCombatlog"
 
-//斩仙剑被动：命中时附加10d12力场伤害，无视抗性
+//斩仙剑被动：20d12力场 + 25%血线以下额外40d12（总60d12≈斩杀）
 new entry "BANXIAN_JJ10_ZHANSHEN_PASSIVE"
 type "PassiveData"
 data "DisplayName" "stringsofmodmadebyxss20260313jj10a01;1"
 data "Properties" "IsHidden"
 data "StatsFunctorContext" "OnAttack"
 data "Conditions" "not (IsMiss() or IsCriticalMiss()) and not Self(context.Target, context.Source)"
-data "StatsFunctors" "DealDamage(10d12,Force,Magical)"
+data "StatsFunctors" "DealDamage(20d12,Force,Magical);IF(HasHPPercentageLessThan(25)):DealDamage(40d12,Force,Magical)"
 
-//---------- 仙术：袖里乾坤 ----------
+//---------- 仙术：袖里乾坤（增强：5回合，8d10/turn，脱出后眩晕2回合）----------
 new entry "Target_BANXIAN_JJ10_XIULIQIANKUN"
 type "SpellData"
 data "SpellType" "Target"
@@ -879,13 +1177,13 @@ data "Icon" "Spell_Abjuration_Banishment"
 data "TargetRadius" "18"
 data "TargetConditions" "Character() and not Self() and not Dead()"
 data "SpellRoll" "not SavingThrow(Ability.Wisdom, SourceSpellDC())"
-data "SpellSuccess" "ApplyStatus(BANXIAN_JJ10_XIULIQIANKUN_STATUS,100,3)"
+data "SpellSuccess" "ApplyStatus(BANXIAN_JJ10_XIULIQIANKUN_STATUS,100,5)"
 data "SpellFail" ""
-data "TooltipDamageList" "DealDamage(5d10,Force)"
+data "TooltipDamageList" "DealDamage(8d10,Force)"
 data "SpellFlags" "Temporary;HasSomaticComponent;HasVerbalComponent"
 data "RequirementConditions" ""
 
-//袖里乾坤 · 放逐状态
+//袖里乾坤 · 放逐状态（增强：8d10/turn，结束后眩晕）
 new entry "BANXIAN_JJ10_XIULIQIANKUN_STATUS"
 type "StatusData"
 data "StatusType" "INCAPACITATED"
@@ -895,11 +1193,12 @@ data "Description" "stringsofmodmadebyxss20260313jj10c02;1"
 data "StackId" "BANXIAN_JJ10_XIULIQIANKUN"
 data "StackType" "Overwrite"
 data "TickType" "StartTurn"
-data "TickFunctors" "DealDamage(5d10,Force,Magical)"
+data "TickFunctors" "DealDamage(8d10,Force,Magical)"
+data "OnRemoveFunctors" "ApplyStatus(SELF,STUNNED,100,2)"
 data "StatusPropertyFlags" "DisableOverhead;LoseControl"
 data "StatusEffect" "7318e3cf-fd8d-4383-bfe4-342078649edb"
 
-//---------- 仙术：万法归宗 ----------
+//---------- 仙术：万法归宗（增强：任何伤害触发，3回合CD，反射50%由Lua处理）----------
 new entry "BANXIAN_JJ10_WANFA"
 type "PassiveData"
 data "Icon" "PassiveFeature_CounterSpell"
@@ -907,10 +1206,10 @@ data "DisplayName" "stringsofmodmadebyxss20260313jj10a03;1"
 data "Description" "stringsofmodmadebyxss20260313jj10b03;1"
 data "Properties" "Highlighted"
 data "StatsFunctorContext" "OnDamaged"
-data "Conditions" "IsSpell() and HasPassive('BANXIAN_JJ10_ZHENXIAN',context.Target) and not HasStatus('BANXIAN_JJ10_WANFA_CD',context.Target)"
-data "StatsFunctors" "RegainHitPoints(max(1,LevelMapValue(BanXianDice)),Guaranteed);ApplyStatus(SELF,BANXIAN_JJ10_WANFA_CD,100,6);RestoreResource(KiPoint,9,0);RestoreResource(ShenshiPoint,3,0)"
+data "Conditions" "HasPassive('BANXIAN_JJ10_ZHENXIAN',context.Target) and not HasStatus('BANXIAN_JJ10_WANFA_CD',context.Target)"
+data "StatsFunctors" "RegainHitPoints(max(1,LevelMapValue(BanXianDice)),Guaranteed);ApplyStatus(SELF,BANXIAN_JJ10_WANFA_CD,100,3);RestoreResource(KiPoint,9,0);RestoreResource(ShenshiPoint,3,0)"
 
-//万法归宗冷却
+//万法归宗冷却（3回合）
 new entry "BANXIAN_JJ10_WANFA_CD"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -944,3 +1243,57 @@ data "DisplayName" "stringsofmodmadebyxss20260313jj10a04;1"
 data "Description" "stringsofmodmadebyxss20260313jj10b04;1"
 data "Icon" "Spell_Conjuration_MistyStep"
 data "SpellFlags" "Temporary;HasSomaticComponent;IsJump;RangeIgnoreVerticalThreshold;IgnoreVisionBlock"
+
+//---------- 仙术：天道轮回（终极：3回合时间停止 + AoE）----------
+new entry "Shout_BANXIAN_JJ10_TIANDAO"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_WholenessOfBody"
+data "Cooldown" "OncePerLongRest"
+data "SpellProperties" "ApplyStatus(SELF,BANXIAN_JJ10_TIANDAO_STATUS,100,3)"
+data "UseCosts" "ActionPoint:1;ShenshiPoint:20"
+data "DisplayName" "stringsofmodmadebyxss20260313jj10a05;1"
+data "Description" "stringsofmodmadebyxss20260313jj10b05;1"
+data "Icon" "Spell_Divination_TrueSeeing"
+data "TooltipDamageList" ""
+data "TooltipStatusApply" ""
+data "SpellFlags" "Temporary"
+
+//天道轮回状态（3回合：额外回合 + 18m内敌人5d10力场/回合）AuraStatuses自动AoE
+new entry "BANXIAN_JJ10_TIANDAO_STATUS"
+type "StatusData"
+data "StatusType" "BOOST"
+data "Icon" "Spell_Divination_TrueSeeing"
+data "DisplayName" "stringsofmodmadebyxss20260313jj10a05;1"
+data "Description" "stringsofmodmadebyxss20260313jj10c05;1"
+data "StackId" "BANXIAN_JJ10_TIANDAO"
+data "StackType" "Overwrite"
+data "Boosts" "ActionResource(ActionPoint,2,0);ActionResource(BonusActionPoint,2,0)"
+data "AuraRadius" "18"
+data "AuraStatuses" "IF(not Ally() and Character() and not Dead()):ApplyStatus(BANXIAN_JJ10_TIANDAO_AURA_DMG)"
+data "OnRemoveFunctors" "ApplyStatus(SELF,BANXIAN_JJ10_TIANDAO_EXHAUST,100,1)"
+data "StatusPropertyFlags" "DisableCombatlog;IgnoreResting"
+
+//天道轮回 · 光环伤害（敌人每回合受5d10力场）
+new entry "BANXIAN_JJ10_TIANDAO_AURA_DMG"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackId" "BANXIAN_JJ10_TIANDAO_AURA_DMG"
+data "StackType" "Overwrite"
+data "TickType" "StartTurn"
+data "TickFunctors" "DealDamage(5d10,Force,Magical)"
+data "RemoveConditions" "not HasStatus('BANXIAN_JJ10_TIANDAO_STATUS',context.ObservedEntity)"
+data "RemoveEvents" "OnStatusRemoved"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+//天道轮回·力竭
+new entry "BANXIAN_JJ10_TIANDAO_EXHAUST"
+type "StatusData"
+data "StatusType" "BOOST"
+data "Icon" "Spell_Divination_TrueSeeing"
+data "DisplayName" "stringsofmodmadebyxss20260313jj10d05;1"
+data "Description" "stringsofmodmadebyxss20260313jj10e05;1"
+data "StackId" "BANXIAN_JJ10_TIANDAO_EXHAUST"
+data "StackType" "Overwrite"
+data "Boosts" "Disadvantage(Attack);Disadvantage(SavingThrow)"
+data "StatusPropertyFlags" "DisableCombatlog"

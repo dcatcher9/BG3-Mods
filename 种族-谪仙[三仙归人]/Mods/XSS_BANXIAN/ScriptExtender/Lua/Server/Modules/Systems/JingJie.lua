@@ -54,6 +54,9 @@ local yinGuoChaining = {} -- 递归防护：attacker UUID → true
 local yinGuoLastSpell = {} -- 记录最后施放的法术：attacker GUID → spell name
 local PHYSICAL_DAMAGE = {Slashing=true, Piercing=true, Bludgeoning=true}
 
+-- ===== 跨境界追踪变量 =====
+local jieqiCount = {}          -- T9: 劫气层数追踪
+
 local function YinGuoChain_Recurse(origin, attacker, chance, hitSet, depth, isWeapon, spellName)
     if depth <= 0 then return end
     local RADIUS = 6
@@ -360,9 +363,9 @@ local function SummonShadowClone(Object)
     Osi.AddPartyFollower(clone, Object)
     Osi.AddAttitudeTowardsPlayer(clone, Object, 100)
 
-    -- 设置HP为本体一半
+    -- 设置HP为本体75%
     local maxHP = Osi.GetMaxHitpoints(Object) or 100
-    local halfHP = math.max(1, math.floor(maxHP / 2))
+    local halfHP = math.max(1, math.floor(maxHP * 3 / 4))
 
     -- 延迟设置HP和复制被动（等待实体完全初始化）
     PersistentVars['XUYING_PENDING_SETUP'] = clone
@@ -510,6 +513,93 @@ local function OnShadowCloneDeath(clone)
 end
 
 --================================
+-- Tier 6 · 炼虚 · 虚实互换
+--================================
+local function SwapWithClone(owner)
+    local clone = PersistentVars['XUYING_CLONE_'..owner]
+    if not clone then return end
+    local ox, oy, oz = Osi.GetPosition(owner)
+    local cx, cy, cz = Osi.GetPosition(clone)
+    if not ox or not cx then return end
+    Osi.TeleportToPosition(owner, cx, cy, cz, "", 0, 0, 0, 0, 1)
+    Osi.TeleportToPosition(clone, ox, oy, oz, "", 0, 0, 0, 0, 1)
+    Osi.ApplyStatus(clone, 'BANXIAN_JJ6_SWAP_BLUR', 1, 1, owner)
+    _P('[境界·炼虚] 虚实互换！')
+end
+
+-- Tier 6 · 相位游离：纯stat实现（OnDamaged + HasHPPercentageLessThan(50)）
+-- Tier 6 · 虚空侵蚀：纯stat实现（XUYING_MARK status → XUYING_EROSION_P passive）
+-- Tier 6 · 虚空断裂传送：纯stat实现（Force(9,OriginToTarget,Aggressive)）
+
+--================================
+-- Tier 6 · 炼虚 · 虚空断裂击杀爆炸（仍需Lua检查Dying + MARK）
+--================================
+local function VoidSunderKillExplosion(attacker, deadTarget)
+    local statusName = 'BANXIAN_JJ6_VOID_EXPLODE_DMG'
+    if Ext.Stats.Get(statusName) == nil then
+        local stat = Ext.Stats.Create(statusName, 'StatusData', 'BANXIAN_JJ5_SHENGMIE_EXPLODE')
+        stat.OnApplyFunctors = 'DealDamage(4d8,Force,Magical)'
+        stat:Sync()
+    end
+    local enemies = Utils.GetNearbyEnemies(deadTarget, attacker, 4)
+    for _, enemy in ipairs(enemies) do
+        Osi.ApplyStatus(enemy.guid, statusName, 1, 1, attacker)
+    end
+    _P('[境界·炼虚] 虚空爆炸！')
+end
+
+--================================
+-- Tier 7 · 合体 · 法力共振动态伤害
+--================================
+-- 法相近战命中时，额外造成（6m内敌人数 × 1d6）力场伤害
+local function FaxiangDynamicDamage(attacker, target)
+    if Osi.HasActiveStatus(attacker, 'BANXIAN_JJ7_FAXIANG_STATUS') ~= 1 then return end
+    local enemies = Utils.GetNearbyEnemies(attacker, attacker, 6)
+    local enemyCount = #enemies
+    if enemyCount <= 0 then return end
+
+    local statusName = 'BANXIAN_JJ7_FAXIANG_RESONANCE_'..enemyCount
+    if Ext.Stats.Get(statusName) == nil then
+        local stat = Ext.Stats.Create(statusName, 'StatusData', 'BANXIAN_JJ5_SHENGMIE_EXPLODE')
+        stat.OnApplyFunctors = 'DealDamage('..enemyCount..'d6,Force,Magical)'
+        stat:Sync()
+    end
+    Osi.ApplyStatus(target, statusName, 1, 1, attacker)
+end
+
+-- Tier 7 · 金刚不坏：全部由stat被动BANXIAN_JJ7_JINGANG处理
+-- DamageReduction(All,Flat,ProficiencyBonus) + CriticalHit(AttackTarget,Success,Never)
+
+--================================
+-- Tier 8 · 大乘 · 领域最高HP敌人伤害
+--================================
+local function DomainHighestHPDamage(Object)
+    if Osi.HasActiveStatus(Object, 'BANXIAN_JJ8_LINGYU_STATUS') ~= 1 then return end
+    -- 找到领域内最高HP的敌人
+    local enemies = Utils.GetNearbyEnemies(Object, Object, 12)
+    if #enemies == 0 then return end
+    local maxHP, maxTarget = -1, nil
+    for _, enemy in ipairs(enemies) do
+        local hp = Osi.GetHitpoints(enemy.guid) or 0
+        if hp > maxHP then
+            maxHP = hp
+            maxTarget = enemy.guid
+        end
+    end
+    if maxTarget then
+        local statusName = 'BANXIAN_JJ8_LINGYU_SMITE'
+        if Ext.Stats.Get(statusName) == nil then
+            local stat = Ext.Stats.Create(statusName, 'StatusData', 'BANXIAN_JJ5_SHENGMIE_EXPLODE')
+            stat.OnApplyFunctors = 'DealDamage(3d10,Force,Magical)'
+            stat:Sync()
+        end
+        Osi.ApplyStatus(maxTarget, statusName, 1, 1, Object)
+    end
+end
+
+-- Tier 8 · 领域绝对光环：纯stat实现（AuraStatuses on ABSOLUTE_STATUS）
+
+--================================
 -- Tier 8 · 大乘 · 领域大道共鸣
 --================================
 -- 当领域激活时，根据当前最高道行的大道应用共鸣效果到施法者身上
@@ -559,51 +649,67 @@ local function RemoveDaoResonance(Object)
 end
 
 --================================
--- Tier 9 · 渡劫 · 天劫系统
+-- Tier 9 · 渡劫 · 引劫（攻击性AoE）
 --================================
--- 天劫降临处理：对自身造成50%最大生命值的雷霆+光辉伤害
+-- 引劫：对18m内所有敌人造成（劫气层数 × 3d10）雷霆+光辉伤害
+-- 自身承受总伤害25%，存活后获得巨大增益
 local function ProcessTribulation(Object)
     if not Object then return end
 
-    -- 真仙免疫天劫死亡（仍受伤但不会致死）
-    local isZhenXian = Utils.GetBanxianJingjie(Object) >= 10
+    local stacks = jieqiCount[tostring(Object)] or 0
+    if stacks <= 0 then stacks = 1 end
 
-    local maxHP = Osi.GetMaxHitpoints(Object) or 100
-    local damage = math.floor(maxHP * 0.5)
+    -- 计算伤害
+    local enemies = Utils.GetNearbyEnemies(Object, Object, 18)
+    local totalDamage = 0
 
-    -- 如果是真仙，限制伤害不超过当前HP - 1
-    if isZhenXian then
-        local currentHP = Osi.GetHitpoints(Object) or 1
-        damage = math.min(damage, currentHP - 1)
-        _P('[境界·真仙] 天劫降临，真仙之体减免致命伤害')
+    for _, enemy in ipairs(enemies) do
+        -- 每层劫气3d10 → 2d10雷霆 + 1d10光辉
+        local lightningName = 'BANXIAN_JJ9_YINJIE_L_'..stacks
+        local radiantName = 'BANXIAN_JJ9_YINJIE_R_'..stacks
+        if Ext.Stats.Get(lightningName) == nil then
+            local stat = Ext.Stats.Create(lightningName, 'StatusData', 'BANXIAN_JJ5_SHENGMIE_EXPLODE')
+            stat.OnApplyFunctors = 'DealDamage('..(stacks*2)..'d10,Lightning,Magical)'
+            stat:Sync()
+        end
+        if Ext.Stats.Get(radiantName) == nil then
+            local stat = Ext.Stats.Create(radiantName, 'StatusData', 'BANXIAN_JJ5_SHENGMIE_EXPLODE')
+            stat.OnApplyFunctors = 'DealDamage('..stacks..'d10,Radiant,Magical)'
+            stat:Sync()
+        end
+        Osi.ApplyStatus(enemy.guid, lightningName, 1, 1, Object)
+        Osi.ApplyStatus(enemy.guid, radiantName, 1, 1, Object)
+        -- 存活者眩晕1回合
+        Osi.ApplyStatus(enemy.guid, 'STUNNED', 1, 1, Object)
+        totalDamage = totalDamage + stacks * 16 -- 估算avg(3d10)≈16 per stack
     end
 
-    -- 造成天劫伤害（雷霆+光辉各半）
-    local halfDmg = math.max(1, math.floor(damage / 2))
-    Osi.ApplyDamage(Object, halfDmg, 'Thunder', Object)
-    Osi.ApplyDamage(Object, halfDmg, 'Radiant', Object)
+    -- 自身承受25%总伤害
+    local selfDamage = math.max(1, math.floor(totalDamage / 4))
+    Osi.ApplyDamage(Object, math.floor(selfDamage / 2), 'Lightning', Object)
+    Osi.ApplyDamage(Object, math.floor(selfDamage / 2), 'Radiant', Object)
 
-    -- 延迟检查存活（等伤害结算完毕）
+    -- 消耗所有劫气
+    Osi.RemoveStatus(Object, 'BANXIAN_JJ9_JIEQI')
+    jieqiCount[tostring(Object)] = 0
+
+    -- 延迟检查存活
     PersistentVars['TRIBULATION_TARGET'] = Object
     Osi.TimerLaunch('BanXian_Tribulation_Check', 500)
 end
 
--- 天劫存活检查
+-- 引劫存活检查
 local function TribulationCheckSurvival(Object)
     if not Object then return end
 
     local hp = Osi.GetHitpoints(Object) or 0
     if hp > 0 then
-        -- ===== 渡劫成功 =====
-        _P('[境界·渡劫] 渡劫成功！获得劫后余生增益！')
+        _P('[境界·渡劫] 引劫成功！天劫之力反哺！')
 
-        -- 消耗所有劫气
-        Osi.RemoveStatus(Object, 'BANXIAN_JJ9_JIEQI')
-
-        -- 劫后余生·护体：1回合全伤害免疫
+        -- 1回合全伤害免疫
         Osi.ApplyStatus(Object, 'BANXIAN_JJ9_JIEHUO', 1 * 6, 1, Object)
 
-        -- 劫后余生·增幅：3回合伤害加成(+Level)
+        -- 3回合伤害加成(+Level)
         Osi.ApplyStatus(Object, 'BANXIAN_JJ9_JIEHUO_DAMAGE', 3 * 6, 1, Object)
 
         -- 恢复全部Ki和神识
@@ -620,21 +726,118 @@ local function TribulationCheckSurvival(Object)
             entity:Replicate("ActionResources")
         end
 
-        -- 虚影增幅：如果有虚影分身且虚影也存活，额外获得增益
+        -- 虚影增幅
         local clone = PersistentVars['XUYING_CLONE_'..Object]
         if clone then
             local cloneHP = Osi.GetHitpoints(clone) or 0
             if cloneHP > 0 then
-                -- 虚影也存活，奖励翻倍：6回合伤害加成
                 Osi.RemoveStatus(Object, 'BANXIAN_JJ9_JIEHUO_DAMAGE')
                 Osi.ApplyStatus(Object, 'BANXIAN_JJ9_JIEHUO_DAMAGE', 6 * 6, 1, Object)
                 _P('[境界·渡劫] 虚影同渡天劫！增幅翻倍！')
             end
         end
     else
-        _P('[境界·渡劫] 渡劫失败……')
-        -- 渡劫失败：真死（天劫之下无生还，除非是真仙）
+        _P('[境界·渡劫] 引劫失败……以身殉劫！')
     end
+end
+
+--================================
+-- Tier 9 · 渡劫 · 劫气管理
+--================================
+-- 劫气层数追踪 + 5层以上无视抗性
+local function ManageJieqiPierce(guid)
+    local count = jieqiCount[tostring(guid)] or 0
+    if count >= 5 then
+        if Osi.HasActiveStatus(guid, 'BANXIAN_JJ9_JIEQI_PIERCE') ~= 1 then
+            Osi.ApplyStatus(guid, 'BANXIAN_JJ9_JIEQI_PIERCE', -1, 1, guid)
+            _P('[境界·渡劫] 劫气贯体！无视一切抗性！')
+        end
+    else
+        if Osi.HasActiveStatus(guid, 'BANXIAN_JJ9_JIEQI_PIERCE') == 1 then
+            Osi.RemoveStatus(guid, 'BANXIAN_JJ9_JIEQI_PIERCE')
+        end
+    end
+end
+
+--================================
+-- Tier 9 · 渡劫 · 劫雷护体反伤
+--================================
+local function JieleiHutiCounter(target, attacker)
+    if not target or not attacker then return end
+    if target == attacker then return end
+    if Osi.HasPassive(target, 'BANXIAN_JJ9_DUJIE') ~= 1 then return end
+    local stacks = jieqiCount[tostring(target)] or 0
+    if stacks <= 0 then return end
+
+    local dice = stacks * 2
+    local statusName = 'BANXIAN_JJ9_JIELEI_COUNTER_'..dice
+    if Ext.Stats.Get(statusName) == nil then
+        local stat = Ext.Stats.Create(statusName, 'StatusData', 'BANXIAN_JJ5_SHENGMIE_EXPLODE')
+        stat.OnApplyFunctors = 'DealDamage('..dice..'d6,Lightning,Magical)'
+        stat:Sync()
+    end
+    Osi.ApplyStatus(attacker, statusName, 1, 1, target)
+end
+
+--================================
+-- Tier 9 · 渡劫 · 逆天改命
+--================================
+-- 盟友濒死时，代其承受致命伤害
+local function NitianmingCheck(dyingAlly, cause1, cause2, cause3)
+    -- 遍历所有谪仙角色寻找可以代死的
+    local k = 1
+    while PersistentVars['BANXIANLIST_NO_'..k] ~= nil do
+        local savior = PersistentVars['BANXIANLIST_NO_'..k]
+        if savior ~= dyingAlly
+            and Osi.HasPassive(savior, 'BANXIAN_JJ9_NITIANMING') == 1
+            and Osi.HasActiveStatus(savior, 'BANXIAN_JJ9_NITIANMING_CD') ~= 1
+            and Osi.IsDead(savior) == 0 then
+            -- 检查距离
+            local dist = Osi.GetDistanceTo(savior, dyingAlly)
+            if dist and dist <= 12 then
+                -- 代受死亡：治愈盟友至1HP
+                Osi.SetHitpoints(dyingAlly, 1)
+                -- 自身承受巨大伤害
+                local allyMaxHP = Osi.GetMaxHitpoints(dyingAlly) or 100
+                Osi.ApplyDamage(savior, math.floor(allyMaxHP / 2), 'Psychic', savior)
+                -- 施加冷却
+                Osi.ApplyStatus(savior, 'BANXIAN_JJ9_NITIANMING_CD', -1, 1, savior)
+                _P('[境界·渡劫] 逆天改命！'..tostring(savior)..'代'..tostring(dyingAlly)..'受死！')
+
+                -- 如果代死导致施救者死亡，引爆劫气
+                local saviorHP = Osi.GetHitpoints(savior) or 0
+                if saviorHP <= 0 then
+                    local stacks = jieqiCount[tostring(savior)] or 0
+                    if stacks > 0 then
+                        local explodeName = 'BANXIAN_JJ9_NITIANMING_EXPLODE_'..stacks
+                        if Ext.Stats.Get(explodeName) == nil then
+                            local stat = Ext.Stats.Create(explodeName, 'StatusData', 'BANXIAN_JJ5_SHENGMIE_EXPLODE')
+                            stat.OnApplyFunctors = 'DealDamage('..(stacks*3)..'d10,Lightning,Magical);DealDamage('..(stacks*2)..'d10,Radiant,Magical)'
+                            stat:Sync()
+                        end
+                        local enemies = Utils.GetNearbyEnemies(savior, savior, 12)
+                        for _, enemy in ipairs(enemies) do
+                            Osi.ApplyStatus(enemy.guid, explodeName, 1, 1, savior)
+                        end
+                        _P('[境界·渡劫] 逆天改命者殉爆！劫气引爆天劫！')
+                    end
+                end
+                return true
+            end
+        end
+        k = k + 1
+    end
+    return false
+end
+
+--================================
+-- Tier 9 · 渡劫 · 劫雷化身消耗劫气
+--================================
+local function AvatarConsumeJieqi(Object)
+    Osi.RemoveStatus(Object, 'BANXIAN_JJ9_JIEQI')
+    jieqiCount[tostring(Object)] = 0
+    ManageJieqiPierce(Object)
+    _P('[境界·渡劫] 劫雷化身！消耗全部劫气！')
 end
 
 --================================
@@ -646,15 +849,38 @@ local function ResetXiantiCooldown(Object)
     end
 end
 
+-- Tier 10 · 斩仙斩杀：纯stat实现（IF(HasHPPercentageLessThan(25)):DealDamage(40d12)）
+
+--================================
+-- Tier 10 · 真仙 · 万法归宗反射
+--================================
+local function WanfaReflect(defender, attacker, damageAmount)
+    if not defender or not attacker then return end
+    if defender == attacker then return end
+    if Osi.HasPassive(defender, 'BANXIAN_JJ10_WANFA') ~= 1 then return end
+    if Osi.HasPassive(defender, 'BANXIAN_JJ10_ZHENXIAN') ~= 1 then return end
+    -- 检查CD：CD刚被stat passive施加（3回合=刚触发）
+    if Osi.HasActiveStatus(defender, 'BANXIAN_JJ10_WANFA_CD') ~= 1 then return end
+    local cdTurns = Osi.GetStatusTurns(defender, 'BANXIAN_JJ10_WANFA_CD') or 0
+    if cdTurns ~= 3 then return end -- 只在刚触发时反射
+
+    local reflect = math.max(1, math.floor(damageAmount / 2))
+    Osi.ApplyDamage(attacker, reflect, 'Force', defender)
+    _P('[境界·真仙] 万法归宗！反射'..reflect..'点伤害！')
+end
+
+-- Tier 10 · 天道轮回AoE：纯stat实现（AuraStatuses on TIANDAO_STATUS）
+-- Tier 10 · 仙体回复临时HP：纯stat实现（GainTemporaryHitPoints(SELF,Level)）
+
 --================================
 -- 境界被动应用：根据境界等级添加/移除被动
 --================================
 local TIER_PASSIVES = {
     [5] = {'BANXIAN_JJ5_FAZE', 'BANXIAN_JJ5_YINGUO_KILL'},
     [6] = {'BANXIAN_JJ6_XUYING'},
-    [7] = {'BANXIAN_JJ7_FAXIANG'},
+    [7] = {'BANXIAN_JJ7_FAXIANG', 'BANXIAN_JJ7_JINGANG'},
     [8] = {'BANXIAN_JJ8_LINGYU'},
-    [9] = {'BANXIAN_JJ9_DUJIE', 'BANXIAN_JJ9_JIEQI_GAIN', 'BANXIAN_JJ9_JIEQI_NIXING'},
+    [9] = {'BANXIAN_JJ9_DUJIE', 'BANXIAN_JJ9_JIEQI_GAIN', 'BANXIAN_JJ9_JIEQI_NIXING', 'BANXIAN_JJ9_NITIANMING'},
     [10] = {'BANXIAN_JJ10_ZHENXIAN', 'BANXIAN_JJ10_XIANTI', 'BANXIAN_JJ10_REGEN', 'BANXIAN_JJ10_WANFA', 'BANXIAN_JJ10_SHENZU'},
 }
 
@@ -765,9 +991,15 @@ end
 --================================
 function JingJie.Init()
 
-    -- ===== 施法追踪（因果律需要知道最后使用的法术来获取豁免属性）=====
+    -- ===== 施法追踪 =====
     Ext.Osiris.RegisterListener("UsingSpell", 5, "after", function(Caster, Spell, SpellType, SpellElement, StoryActionID)
+        -- 因果律：记录最后施放法术
         yinGuoLastSpell[tostring(Caster)] = Spell
+
+        -- Tier 6: 虚实互换
+        if Spell == 'Shout_BANXIAN_JJ6_SWAP' then
+            SwapWithClone(Caster)
+        end
     end)
 
     -- ===== 攻击事件（因果律 + 五行律）=====
@@ -796,6 +1028,25 @@ function JingJie.Init()
                 ShengMieLifeExcess(AttackerOwner)
             end
         end
+
+        -- Tier 6: 虚空侵蚀/相位游离/虚空断裂传送 → 纯stat实现，无需Lua
+
+        -- Tier 7: 法相法力共振动态伤害（附近敌人数 × 1d6力场）
+        if DamageAmount > 0 and AttackerOwner ~= Defender then
+            FaxiangDynamicDamage(AttackerOwner, Defender)
+        end
+
+        -- Tier 9: 劫雷护体反伤（被攻击时反击雷伤 = 劫气层数 × 2d6）
+        if DamageAmount > 0 and AttackerOwner ~= Defender then
+            JieleiHutiCounter(Defender, AttackerOwner)
+        end
+
+        -- Tier 10: 斩仙斩杀 → 纯stat实现（IF(HasHPPercentageLessThan(25)):DealDamage）
+
+        -- Tier 10: 万法归宗50%反射
+        if DamageAmount > 0 and AttackerOwner ~= Defender then
+            WanfaReflect(Defender, AttackerOwner, DamageAmount)
+        end
     end)
 
     -- ===== 状态应用事件 =====
@@ -810,10 +1061,26 @@ function JingJie.Init()
             ApplyDaoResonance(Object)
         end
 
-        -- Tier 9: 天劫降临
+        -- Tier 9: 引劫（攻击性天劫）
         if Status == 'BANXIAN_JJ9_TIANJIE_STRIKE' then
             ProcessTribulation(Object)
         end
+
+        -- Tier 9: 劫气堆叠追踪
+        if Status == 'BANXIAN_JJ9_JIEQI' then
+            local key = tostring(Object)
+            jieqiCount[key] = (jieqiCount[key] or 0) + 1
+            if jieqiCount[key] > 9 then jieqiCount[key] = 9 end
+            ManageJieqiPierce(Object)
+        end
+
+        -- Tier 9: 劫雷化身消耗全部劫气
+        if Status == 'BANXIAN_JJ9_AVATAR_STATUS' then
+            AvatarConsumeJieqi(Object)
+        end
+
+        -- Tier 8: 领域绝对光环 → 纯stat实现（AuraStatuses）
+        -- Tier 10: 斩仙斩杀 → 纯stat实现（IF条件）
     end)
 
     -- ===== 状态移除事件 =====
@@ -826,6 +1093,12 @@ function JingJie.Init()
         -- Tier 8: 领域关闭时清除共鸣
         if Status == 'BANXIAN_JJ8_LINGYU_STATUS' then
             RemoveDaoResonance(Object)
+        end
+
+        -- Tier 9: 劫气移除追踪
+        if Status == 'BANXIAN_JJ9_JIEQI' then
+            jieqiCount[tostring(Object)] = 0
+            ManageJieqiPierce(Object)
         end
 
         -- Tier 5: 五行律关闭时清除所有五行印
@@ -851,8 +1124,22 @@ function JingJie.Init()
             OnShadowCloneDeath(Object)
         end
 
+        -- Tier 6: 虚空断裂击杀爆炸（检查目标是否有MARK状态）
+        if Osi.HasActiveStatus(Object, 'BANXIAN_JJ6_VOID_SUNDER_MARK') == 1 then
+            for _, cause in ipairs({Cause1, Cause2, Cause3}) do
+                if cause and cause ~= '' and cause ~= Object then
+                    VoidSunderKillExplosion(cause, Object)
+                    break
+                end
+            end
+        end
+
+        -- Tier 9: 逆天改命 - 友方濒死时代受
+        if Osi.IsAlly(Object, Osi.GetHostCharacter()) == 1 then
+            NitianmingCheck(Object, Cause1, Cause2, Cause3)
+        end
+
         -- Tier 5: 生灭律·灭 - 击杀爆炸+死印感染
-        -- 检查所有可能的击杀者来源（Cause1/Cause2/Cause3）
         for _, cause in ipairs({Cause1, Cause2, Cause3}) do
             if cause and cause ~= '' and cause ~= Object
                 and Osi.HasStatus(cause, 'BANXIAN_JJ5_SHENGMIE_STATUS') == 1
@@ -870,7 +1157,7 @@ function JingJie.Init()
             SetupShadowClone()
         end
 
-        -- Tier 9: 天劫存活检查
+        -- Tier 9: 引劫存活检查
         if Timer == 'BanXian_Tribulation_Check' then
             local target = PersistentVars['TRIBULATION_TARGET']
             PersistentVars['TRIBULATION_TARGET'] = nil
@@ -882,17 +1169,23 @@ function JingJie.Init()
 
     -- ===== 回合开始 =====
     Ext.Osiris.RegisterListener("TurnStarted", 1, "after", function(Object)
+        -- Tier 8: 领域每回合对最高HP敌人造成3d10力场
+        DomainHighestHPDamage(Object)
+
         -- Tier 9: 战斗中满血时每回合积累1劫气（最多9层）
         if Osi.HasPassive(Object, 'BANXIAN_JJ9_DUJIE') == 1 then
             local hp = Osi.GetHitpoints(Object) or 0
             local maxhp = Osi.GetMaxHitpoints(Object) or 1
             if hp >= maxhp then
-                local jieqi = Osi.GetStatusTurns(Object, 'BANXIAN_JJ9_JIEQI') or 0
-                if jieqi < 9 then
+                local count = jieqiCount[tostring(Object)] or 0
+                if count < 9 then
                     Osi.ApplyStatus(Object, 'BANXIAN_JJ9_JIEQI', -1, 1, Object)
                 end
             end
         end
+
+        -- Tier 10: 天道轮回AoE → 纯stat实现（AuraStatuses）
+        -- Tier 10: 仙体回复临时HP → 纯stat实现（GainTemporaryHitPoints）
     end)
 
     -- ===== 长休事件 =====
@@ -910,12 +1203,17 @@ function JingJie.Init()
             if Osi.HasPassive(Object, 'BANXIAN_JJ9_DUJIE') == 1 then
                 local gameDays = PersistentVars['GAME_DAYS'] or 0
                 if gameDays % 10 == 0 then
-                    local jieqi = Osi.GetStatusTurns(Object, 'BANXIAN_JJ9_JIEQI') or 0
-                    if jieqi < 9 then
+                    local count = jieqiCount[tostring(Object)] or 0
+                    if count < 9 then
                         Osi.ApplyStatus(Object, 'BANXIAN_JJ9_JIEQI', -1, 1, Object)
                         _P('[境界·渡劫] 天机感应，劫气+1')
                     end
                 end
+            end
+
+            -- Tier 9: 重置逆天改命冷却
+            if Osi.HasActiveStatus(Object, 'BANXIAN_JJ9_NITIANMING_CD') == 1 then
+                Osi.RemoveStatus(Object, 'BANXIAN_JJ9_NITIANMING_CD')
             end
 
             -- Tier 6: 长休时如果虚影还存在，清除（避免跨休虚影残留）
