@@ -1,5 +1,5 @@
 # Patterns & Design Decisions — 种族·谪仙「三仙归人」
-<!-- Last updated: 2026-03-14 -->
+<!-- Last updated: 2026-03-15 -->
 
 ## Coding Patterns
 
@@ -74,3 +74,5 @@
 - **VOID_EROSION no max stack**: 3-turn duration + 1 attack/turn on clone effectively caps at 3 stacks.
 - **JIEQI_PIERCE only ignores Resistant, not Immune**: Design choice — immunity is intentionally stronger than the pierce effect.
 - **SWAP_BLUR uses StatusType BLUR**: Correct — gives attack disadvantage against the user, matching "虚化" (becoming ethereal). Not a type mismatch.
+- **WanfaReflect multi-trigger on multi-hit attacks**: Intentional design. When hit by multi-hit attacks (Magic Missile, ExtraAttack chain), multiple AttackedBy events each trigger 50% reflect since cdTurns==3 for all within same turn. This makes multi-hit attacks risky against T10 immortals.
+- **Shared exhaustion base status**: `BANXIAN_JINGJIE_EXHAUST_BASE` provides Disadvantage(Attack/SavingThrow). Avatar and Tiandao exhaustion statuses `using` it with unique StackIds.

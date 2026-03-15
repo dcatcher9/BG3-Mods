@@ -27,6 +27,7 @@ Things that were flagged as bugs but turned out to be wrong, or fixes that broke
   - `IsWithinCombatRange(a, b, R)` — no distance condition exists in stat system. AuraRadius handles range for aura statuses.
   - `OnMoveStatus` as StatsFunctorContext — not a valid value. Valid FunctorContextTypes: None, AttackTarget, AttackPosition, Move, Target, NearbyAttacked, NearbyAttacking, Equip, Source, Interrupt. `OnMove` is only for `SurfaceStatusApplyType`. Use `OnCast` + `IsMovement()` for movement-triggered passives.
   - `context.ObservedEntity` — does not exist. Only `Observer` exists in InterruptContextData. For aura RemoveConditions, use `context.Source` (the entity that applied the status).
+  - `Lock(Teleport)` — `Lock()` boost takes a GUID (DifficultyClass resource), not a string. `Lock(Teleport)` silently fails. Source: `bg3se/BG3Extender/GameDefinitions/Components/Boosts.h:485` defines `Lock` with single `Guid Lock` field; lslib LSLibDefinitions.xml confirms `Lock(Guid DC)`. There is no simple stat-only way to prevent teleportation in BG3.
 
 ---
 

@@ -401,7 +401,7 @@ new entry "BANXIAN_JJ6_XUYING_BACKLASH"
 type "StatusData"
 data "StatusType" "BOOST"
 data "StackId" "BANXIAN_JJ6_XUYING_BACKLASH"
-data "OnApplyFunctors" "DealDamage(3d10,Psychic,Magical);UseActionResource(ShenshiPoint,2,0)"
+data "OnApplyFunctors" "DealDamage(5d10,Psychic,Magical);UseActionResource(ShenshiPoint,2,0)"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
 
 //虚空侵蚀 · AC减少（叠加至3层）
@@ -641,7 +641,7 @@ data "DisplayName" "stringsofmodmadebyxss20260313jj8d01;1"
 data "Description" "stringsofmodmadebyxss20260313jj8e01;1"
 data "StackId" "BANXIAN_JJ8_LINGYU_DEBUFF"
 data "StackType" "Overwrite"
-data "Boosts" "RollBonus(Attack,-3);RollBonus(SavingThrow,-3);ActionResourceMultiplier(Movement,50,0);Lock(Teleport)"
+data "Boosts" "RollBonus(Attack,-3);RollBonus(SavingThrow,-3);ActionResourceMultiplier(Movement,50,0)"
 data "RemoveConditions" "not HasStatus('BANXIAN_JJ8_LINGYU_STATUS',context.Source)"
 data "RemoveEvents" "OnStatusRemoved"
 data "StatusPropertyFlags" "DisableCombatlog"
@@ -982,6 +982,14 @@ data "Properties" "IsHidden"
 data "StatsFunctorContext" "OnCombatStarted"
 data "Conditions" "not HasHPPercentageLessThan(100)"
 data "StatsFunctors" "ApplyStatus(SELF,BANXIAN_JJ9_JIEQI,100,-1)"
+
+//劫雷护体 · 被攻击时雷电反伤（Lua处理）
+new entry "BANXIAN_JJ9_JIELEI_HUTI"
+type "PassiveData"
+data "Icon" "Spell_Evocation_CallLightning"
+data "DisplayName" "stringsofmodmadebyxss20260313jj9a06;1"
+data "Description" "stringsofmodmadebyxss20260313jj9b06;1"
+data "Properties" "Highlighted"
 
 //逆行经脉产生劫气
 new entry "BANXIAN_JJ9_JIEQI_NIXING"

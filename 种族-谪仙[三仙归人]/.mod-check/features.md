@@ -1,5 +1,5 @@
 # Features — 种族·谪仙「三仙归人」
-<!-- Last updated: 2026-03-14 (re-audit) -->
+<!-- Last updated: 2026-03-15 -->
 
 ## Feature Table
 
@@ -48,7 +48,7 @@
 | JingJie T8 大道共鸣 | Full | Auto | BANXIAN_JINGJIE.txt, JingJie.lua (10 Dao paths, all enhanced: 天4d10, 修罗厄运3d8, 地狱3d10, 剑3d8, 羿弹射, 鬼50%吸血, 力击退, 合欢支配, 人间治愈, 畜生全劣势) |
 | JingJie T9 劫气 | Full | Passive | BANXIAN_JINGJIE.txt, JingJie.lua (1d6/stack, max 9, PersistentVars) |
 | JingJie T9 引劫 | Full | Spell | BANXIAN_JINGJIE.txt, JingJie.lua (18m AoE: stacks×3d10 thunder+radiant, 25% self-damage) |
-| JingJie T9 劫雷护体 | Full | Passive | JingJie.lua (counter stacks×2d6 lightning — **Y-01: tooltip passive orphaned**) |
+| JingJie T9 劫雷护体 | Full | Passive | JingJie.lua (counter stacks×2d6 lightning — **Y-01: no tooltip passive**) |
 | JingJie T9 劫雷化身 | Full | Spell | BANXIAN_JINGJIE.txt, JingJie.lua (3-turn: immune, 2x speed, +1 jieqi/turn, AoE splash, exhaustion) |
 | JingJie T9 逆天改命 | Full | Passive | BANXIAN_JINGJIE.txt, JingJie.lua (代死盟友, 承受50%HP精神伤, 殉爆劫气, 长休CD) |
 | JingJie T9 劫气贯体 | Full | Status | BANXIAN_JINGJIE.txt, JingJie.lua (5+层无视Resistant, PersistentVars) |
@@ -88,25 +88,24 @@
 
 ### JingJie T8 大乘·法域降世 (Domain Descent)
 **What**: Enhanced domain + new ABSOLUTE mode. Domain: +3 att/DC, ExtraAttack, 12m aura, 3d10/turn to highest-HP enemy. Absolute: 1-turn ultimate (-5/-5/no reactions enemies, immune allies, +1AP).
-**Chain**: LINGYU_STATUS (enhanced stats, 3 Shenshi/turn) + DomainHighestHPDamage Lua + ApplyDaoResonance. ABSOLUTE_STATUS (1-turn AuraStatuses).
+**Chain**: LINGYU_STATUS (enhanced stats, 3 Shenshi/turn) + DomainHighestHPDamage Lua + ApplyDaoResonance. ABSOLUTE_STATUS (1-turn AuraStatuses). Resonance enhanced: 天4d10, 修罗DOOM_MARK 3d8/turn, 地狱3d10, 剑3d8 melee, 羿弹射, 鬼50%吸血(doubled RegainHitPoints), 力击退+倒地, 合欢YOURCONTROL支配, 人间治愈, 畜生THREATENED+BANE.
 **Access**: Spells
-**Completeness**: Full (RemoveConditions + RemoveEvents added)
+**Completeness**: Full (Y-02: Lock(Teleport) in debuff may be invalid)
 
 ### JingJie T9 渡劫·天劫九重 (Nine Tribulations)
-**What**: Completely reworked T9 — offensive focus. Jieqi 1d6/stack, 5+ ignore resistance, counter-damage, avatar form, sacrifice mechanic.
-**Chain**: DUJIE passive → 引劫 (AoE stacks×3d10), 劫雷护体 (Lua counter), 劫雷化身 (3-turn immune + AoE), 逆天改命 (Dying handler), 劫气贯体 (IgnoreResistance at 5+).
+**What**: Offensive T9 rework. Jieqi 1d6/stack (max 9), 5+ ignore resistance, counter-damage, avatar form, sacrifice mechanic.
+**Chain**: DUJIE passive → 引劫 (AoE stacks×3d10), 劫雷护体 (Lua counter stacks×2d6), 劫雷化身 (3-turn immune + AoE + jieqi/turn, consumes all jieqi on activate, requires 5+ stacks, exhaustion), 逆天改命 (Dying handler, 12m range, 50% ally maxHP psychic, death→jieqi explosion), 劫气贯体 (IgnoreResistance at 5+).
 **Access**: Spells + Passives
-**Completeness**: Full (jieqiCount persistent via PersistentVars, Avatar AoE via AvatarAoEDamage)
+**Completeness**: Full (Y-01: 劫雷护体 no tooltip passive)
 
 ### JingJie T10 真仙·超脱轮回 (Transcendence)
 **What**: Enhanced T10 with stronger abilities + new 天道轮回 ultimate.
-**Chain**: 斩仙 (20d12 + 25% execute 40d12), 袖里 (5-turn 8d10 + stun), 万法 (any damage, heal+reflect+restore, 3-turn CD), 天道轮回 (3-turn: +2AP/+2BA, 18m 5d10 AoE, exhaustion), 仙体回复 (Level+CON/turn + THP).
+**Chain**: 斩仙 (20d12 + 25% execute 40d12), 袖里 (5-turn 8d10 + stun on exit), 万法 (any damage, heal+reflect+restore, 3-turn CD), 天道轮回 (3-turn: +2AP/+2BA, 18m 5d10 AoE via AuraStatuses, exhaustion), 仙体回复 (Level+CON/turn + THP).
 **Access**: Spells + Passives
-**Completeness**: Full (O-02: WanfaReflect multi-trigger is minor)
+**Completeness**: Full (O-02: WanfaReflect multi-trigger minor)
 
 ## Feature Gaps
 - **HTBG 后天补根**: Stub — empty SpellProperties, no handler.
 - **FSZMG 梵圣真魔功**: Partial — incomplete ability descriptions.
 - **CaiDao 财道**: Localization stubs, no implementation.
 - **EGui 饿鬼道**: Stale localization says "(暂未开发！)" but implementation exists.
-- **相位游离**: FIXED — now granted via TIER_PASSIVES[6].
