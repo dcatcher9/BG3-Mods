@@ -1054,32 +1054,257 @@ final_distance = (Σ 所有步) % 5 = 阵法整体效果
 
 # 第五部分：实现
 
-## UI：经脉图（内视身体）
+## UI：ImGui 经脉图（bg3se）
+
+> 使用 bg3se 内置 ImGui 实现自定义面板。支持绘图（DrawList）和用户交互。
+
+### 主面板布局
 
 ```
-┌─────────────────────────────────┐
-│         经脉图（内视）            │
-│                                 │
-│           ◆丹田                 │
-│          /|╌|╌|\                │
-│         / |   | \               │
-│    ●肝(木) ●心(火) ●肺(金)      │
-│         \     /    |            │
-│          \   /     |            │
-│       ●脾(土)══●肾(水)          │
-│                                 │
-│  ══ 已开脉（显示方向箭头）        │
-│  ╌╌ 未开脉（显示开脉条件）        │
-│  ►► 当前运功路线（高亮）          │
-│  ◆  丹田（中性枢纽，金色）        │
-└─────────────────────────────────┘
+┌─── 经脉图 ──────────────────────────────┐
+│                                          │
+│            ◆丹田(火)                     │
+│           ╱   |   ╲                      │
+│     燃↗ ╱  锻↗|    ╲                    │
+│       ╱       |      ╲                   │
+│   ●肝(木T2) ●心(火T3) ●脾(土T1)         │
+│     │╲       ╱│╲      ╱│                │
+│   刺│ ╲侵  ╱灭│ ╲熔 ╱困│                │
+│     │  ╲  ╱   │  ╲ ╱   │                │
+│     ●肺(金T1)───●肾(水T2)               │
+│            雷→                            │
+│                                          │
+│  当前路径：水 →灭→ 火 →熔→ 金            │
+│  Cost: 4神识 2气  效果: DoT+破甲          │
+│  [确认为技能]  [继续延伸]  [成环为被动]    │
+│                                          │
+│  ─── 活跃被动 ───                        │
+│  ☑ 灭律 (预留6)  ☑ 相生周天 (预留5)      │
+│  神识：9/20  气：45/60                    │
+└──────────────────────────────────────────┘
 ```
 
+### 视觉元素
+
 ```
-Level 0（默认）：只看技能图标
-Level 1（探索）：打开经脉图
-Level 2（深入）：查看每条经脉的方向效果
-Level 3（高阶）：图-图复合，功法层级视图
+节点 = 填充圆（颜色=元素色，大小=tier）
+  木=绿  火=红  土=黄  金=白  水=蓝  丹田=金
+
+边 = 箭头线（颜色=distance类型）
+  d=1生=绿  d=2克=红  d=3侮=紫  d=4泄=灰  d=0共鸣=金
+  已开脉=实线  未开脉=虚线
+
+高亮 = 当前构建中的 walk 路径（粗亮线 + 流动动画）
+```
+
+### 用户交互
+
+| 操作 | 功能 |
+|------|------|
+| 左键点节点 | 添加到当前 walk 路径（逐步构建） |
+| 右键点节点 | 弹出详情（灵根tier、天然精华、可达边列表） |
+| 悬浮边 | tooltip 显示边效果名 + 当前tier具体数值 |
+| 左键点 [确认为技能] | 注册当前路径为主动技能 |
+| 左键点 [成环为被动] | 自动连回起点，注册为被动（显示预留cost） |
+| 左键点活跃被动 | 关闭该被动，归还预留神识 |
+| 双击节点 | 快捷：自动补全包含该节点的最短环 |
+| ESC / 右键空白 | 清除当前路径，重新选择 |
+
+### 构建 Walk 的交互流程
+
+```
+1. 玩家点击起始节点 → 路径=[水]
+   → 可达节点高亮（已开脉的邻居）
+   → 不可达节点灰化
+
+2. 点击下一节点 → 路径=[水→火]
+   → 底部实时显示：边效果"灭"、cost累计、tier
+   → 可达节点更新
+
+3. 继续点击 → 路径=[水→火→金]
+   → 显示累计：灭+熔、总cost、Layer3 final预览
+
+4. 选择结束方式：
+   [确认为技能] → 注册为主动（链型walk）
+   [成环为被动] → 连回水，注册为被动环，扣除预留神识
+   [继续延伸]   → 继续添加节点
+```
+
+### 面板层级
+
+```
+Level 0（默认）：只看技能图标（BG3 原生法术书）
+Level 1（打开经脉图）：节点+边+tier，基础交互
+Level 2（详细模式）：边效果tooltip、Layer2/3复合预览
+Level 3（高阶模式）：功法修正可视化、法宝子图、双层图（化神+）
+```
+
+### ImGui 实现要点
+
+```lua
+-- 节点绘制
+local draw = window:GetDrawList()
+for _, node in pairs(NODES) do
+    local color = ELEM_COLORS[node.element]
+    local radius = 15 + node.tier * 5
+    draw:AddCircleFilled(node.pos, radius, color)
+    draw:AddText(node.pos, node.name .. "(" .. node.element .. "T" .. node.tier .. ")")
+end
+
+-- 边绘制（箭头）
+for _, edge in pairs(EDGES) do
+    if edge.open then
+        local color = DIST_COLORS[edge.distance]
+        draw:AddLine(edge.from.pos, edge.to.pos, color, 2.0)
+        -- 箭头
+        DrawArrowHead(draw, edge.from.pos, edge.to.pos, color)
+        -- 边效果名
+        local mid = Midpoint(edge.from.pos, edge.to.pos)
+        draw:AddText(mid, edge.effect_name)
+    else
+        draw:AddLine(edge.from.pos, edge.to.pos, COLOR_DISABLED, 1.0)
+    end
+end
+
+-- 点击检测
+for _, node in pairs(NODES) do
+    local mouse = Imgui.GetMousePos()
+    if Distance(mouse, node.pos) < radius then
+        if Imgui.IsMouseClicked(0) then
+            AddToWalkPath(node)
+            UpdateCostPreview()
+            UpdateReachableNodes()
+        end
+        if Imgui.IsMouseClicked(1) then
+            ShowNodeDetail(node)
+        end
+    end
+end
+
+-- 悬浮 tooltip
+for _, edge in pairs(EDGES) do
+    if DistToLine(mouse, edge.from.pos, edge.to.pos) < 6 then
+        Imgui.BeginTooltip()
+        Imgui.Text(edge.effect_name .. " (" .. edge.from.element .. "→" .. edge.to.element .. ")")
+        Imgui.Text("T" .. edge.tier .. ": " .. edge.effect_desc)
+        Imgui.Text("Cost: " .. edge.distance .. " 神识")
+        Imgui.EndTooltip()
+    end
+end
+
+-- 底部面板：当前路径 + cost + 操作按钮
+Imgui.Separator()
+Imgui.Text("路径: " .. FormatWalkPath(current_path))
+Imgui.Text("Cost: " .. total_shenshi .. "神识  " .. total_qi .. "气")
+if Imgui.Button("确认为技能") then RegisterAsSkill(current_path) end
+Imgui.SameLine()
+if Imgui.Button("成环为被动") then RegisterAsPassive(current_path) end
+Imgui.SameLine()
+if Imgui.Button("清除") then ClearPath() end
+```
+
+---
+
+## 动态技能/被动生成
+
+> 玩家在 ImGui 面板构建 walk → Lua 运行时创建对应的 BG3 spell/passive 条目。
+> 名称和描述完全动态，图标从预制模板选择。
+
+### bg3se API 支持
+
+```lua
+-- 1. 运行时创建 spell/passive 条目
+local spell = Ext.Stats.Create("WALK_" .. walk_id, "SpellData", "Shout_BANXIAN_WalkTemplate")
+spell.Icon = GetTemplateIcon(walk)
+spell.UseCosts = BuildCostString(walk)
+
+-- 2. 动态设置名称和描述
+Ext.Loca.UpdateTranslatedString(spell.DisplayName, walk.display_name)
+Ext.Loca.UpdateTranslatedString(spell.Description, BuildDescription(walk))
+
+-- 3. 同步到游戏
+Ext.Stats.Sync("WALK_" .. walk_id)
+
+-- 4. 添加到玩家法术书
+Osi.AddSpell(character, "WALK_" .. walk_id)
+```
+
+### 自动命名规则
+
+```
+Walk 名 = 边效果名串联 + 类型后缀
+
+命名后缀：
+  链(主动2节点) → "X式"       如 "灭式"
+  链(主动3节点) → "XY式"      如 "灭熔式"
+  链(主动4+)   → "XYZ诀"     如 "灭熔雷诀"
+  环(被动)     → "X律"/"XY律" 如 "灭熔律"
+  含丹田       → 加"归"或"元"  如 "燃归生律"
+  大周天       → "XX周天"      如 "相生周天"
+
+玩家可在 ImGui 面板中重命名，存入 PersistentVars。
+```
+
+```lua
+function AutoName(walk)
+    local names = {}
+    for i = 1, #walk - 1 do
+        local edge = GetEdge(walk[i], walk[i+1])
+        table.insert(names, edge.effect_name)
+    end
+    local base = table.concat(names)
+    if walk.is_cycle then return base .. "律"
+    elseif #walk <= 3 then return base .. "式"
+    else return base .. "诀" end
+end
+```
+
+### 自动描述生成
+
+```lua
+function BuildDescription(walk)
+    local lines = {}
+    -- 路径
+    table.insert(lines, "路径：" .. FormatPath(walk))
+    -- 每条边效果
+    for i, edge in ipairs(walk.edges) do
+        table.insert(lines, edge.effect_name .. "(T" .. edge.tier .. "): " .. edge.effect_desc)
+    end
+    -- Layer 3 final
+    table.insert(lines, "总效果：" .. REACTION_NAMES[walk.final_dist] .. "(d=" .. walk.final_dist .. ")")
+    -- Cost
+    table.insert(lines, "消耗：" .. walk.shenshi_cost .. "神识 " .. walk.qi_cost .. "气")
+    return table.concat(lines, "\n")
+end
+```
+
+### 图标模板（预制 .png）
+
+```
+5 元素底色 × 4 类型边框 = 20 个图标模板
+
+底色（起始节点元素）：
+  木=绿底  火=红底  土=黄底  金=白底  水=蓝底
+
+边框（walk 类型）：
+  链(主动) = 方形边框
+  环(被动) = 圆形边框
+  含丹田   = 金色边框
+  大周天   = 五彩边框
+
+运行时选择：
+  Icon = ICON_PREFIX .. element .. "_" .. type
+  如 "BANXIAN_Icon_Water_Ring" = 水底+环形 = 水系被动
+```
+
+```lua
+function GetTemplateIcon(walk)
+    local elem = walk.nodes[1]  -- 起始元素
+    local type = walk.is_cycle and "Ring" or "Chain"
+    if walk.has_dantian then type = "Dantian" end
+    if walk.is_full_cycle then type = "Zhou" end
+    return "BANXIAN_Icon_" .. elem .. "_" .. type
+end
 ```
 
 ---
