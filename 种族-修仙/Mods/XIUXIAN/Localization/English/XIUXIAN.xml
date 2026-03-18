@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<contentList date="17/03/2026 12:00">
+  <content contentuid="hXIUXIAN_Race_DisplayName_001" version="1">修仙</content>
+  <content contentuid="hXIUXIAN_Race_Description_001" version="1">凡人踏入修行之路，以五行经脉淬炼己身，追寻长生大道。</content>
+  <content contentuid="hXIUXIAN_Tag_DisplayName_001" version="1">修仙者</content>
+  <content contentuid="hXIUXIAN_Tag_Description_001" version="1">此生物踏入修行之路。</content>
+  <content contentuid="hXIUXIAN_Qi_DisplayName" version="1">气</content>
+  <content contentuid="hXIUXIAN_Qi_Description" version="1">修行者体内蕴含的元气，用于驱动经脉Walk技能。长休后恢复。</content>
+  <content contentuid="hXIUXIAN_Shenshi_DisplayName" version="1">神识</content>
+  <content contentuid="hXIUXIAN_Shenshi_Description" version="1">修行者的精神力量，用于引导气的流向。短休后恢复。</content>
+  <content contentuid="hXIUXIAN_Passive_Racial_Name" version="1">修行之体</content>
+  <content contentuid="hXIUXIAN_Passive_Racial_Desc" version="1">你已踏入修行之路。获得气与神识资源。</content>
+</contentList>

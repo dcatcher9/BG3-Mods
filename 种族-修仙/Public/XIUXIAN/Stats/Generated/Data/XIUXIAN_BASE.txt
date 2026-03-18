@@ -1,0 +1,11 @@
+// ============================================================
+// 种族-修仙 — Base Stats
+// ============================================================
+
+// 修仙者种族被动：标记身份 + 初始资源
+new entry "XIUXIAN_Racial_Passive"
+type "PassiveData"
+data "DisplayName" "hXIUXIAN_Passive_Racial_Name"
+data "Description" "hXIUXIAN_Passive_Racial_Desc"
+data "Icon" "PassiveFeature_Rage"
+data "Properties" "Highlighted"

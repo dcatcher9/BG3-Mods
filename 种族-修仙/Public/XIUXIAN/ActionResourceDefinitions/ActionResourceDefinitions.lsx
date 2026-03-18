@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+  <version major="4" minor="0" revision="9" build="328" />
+  <region id="ActionResourceDefinitions">
+    <node id="root">
+      <children>
+        <node id="ActionResourceDefinition">
+          <attribute id="Description" type="TranslatedString" handle="hXIUXIAN_Qi_Description" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="hXIUXIAN_Qi_DisplayName" version="1" />
+          <attribute id="MaxLevel" type="uint32" value="0" />
+          <attribute id="Name" type="FixedString" value="QiPoint" />
+          <attribute id="ReplenishType" type="FixedString" value="LongRest" />
+          <attribute id="ShowOnActionResourcePanel" type="bool" value="true" />
+          <attribute id="UUID" type="guid" value="99465841-c763-4f1f-b025-02af228116b0" />
+        </node>
+        <node id="ActionResourceDefinition">
+          <attribute id="Description" type="TranslatedString" handle="hXIUXIAN_Shenshi_Description" version="1" />
+          <attribute id="DisplayName" type="TranslatedString" handle="hXIUXIAN_Shenshi_DisplayName" version="1" />
+          <attribute id="MaxLevel" type="uint32" value="0" />
+          <attribute id="Name" type="FixedString" value="ShenshiPoint" />
+          <attribute id="ReplenishType" type="FixedString" value="ShortRest" />
+          <attribute id="ShowOnActionResourcePanel" type="bool" value="true" />
+          <attribute id="UUID" type="guid" value="469d454d-8778-4412-a8b4-49c6becbe18e" />
+        </node>
+      </children>
+    </node>
+  </region>
+</save>
