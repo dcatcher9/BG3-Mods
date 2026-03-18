@@ -2,7 +2,10 @@
 
 ## Overview
 
-This mod adds a Human subrace "修仙" to BG3, implementing a Wu Xing (五行) cultivation system based on graph theory. The system uses 6 nodes (5 organs + DanTian), 30 directed edges (meridians), and "walks" through the graph as skills. All mechanics emerge from the same distance formula: `(to_index - from_index + 5) % 5`.
+This mod adds a Wu Xing (五行) cultivation system to BG3. All characters receive the system automatically (no subrace restriction). The system uses 6 nodes (5 organs + DanTian), 30 directed edges (meridians), and "walks" through the graph as skills. All mechanics emerge from the same distance formula: `(to_index - from_index + 5) % 5`.
+
+境界 (realm) is derived from 丹田/识海 capacity — no manual breakthroughs.
+被动 cost the same as 主动 per the unified cost formula, consumed per turn.
 
 The plan is split into 8 phases, each producing a playable/testable state.
 
@@ -15,244 +18,187 @@ Server/
 ├── Main.lua                    -- Module loader
 ├── Modules/
 │   ├── Variables.lua           -- Constants, tables, config
-│   ├── Utils.lua               -- Shared utilities
+│   ├── Utils.lua               -- Shared utilities (GrantXiuXian, etc.)
 │   ├── EventHandlers.lua       -- Osiris event routing
 │   └── Systems/
+│       ├── LingGen.lua         -- Spiritual root values & tiers       [Phase 0]
+│       ├── DanTian.lua         -- 丹田/识海 resource pools             [Phase 1]
 │       ├── JingMai.lua         -- Graph: nodes, edges, open/close     [Phase 1]
-│       ├── LingGen.lua         -- Spiritual root values & tiers       [Phase 1]
-│       ├── XingWei.lua         -- Behavioral experience tracking      [Phase 1]
 │       ├── WalkEngine.lua      -- Walk calculation (L1/L2/L3)         [Phase 2]
 │       ├── EdgeEffects.lua     -- 20 edge effects x 4 tiers           [Phase 2/5]
+│       ├── GongMing.lua        -- Self-loop (共鸣) passives            [Phase 2]
 │       ├── WalkBuilder.lua     -- Dynamic spell/passive generation    [Phase 3]
 │       ├── ImGuiPanel.lua      -- ImGui meridian graph UI             [Phase 3]
-│       ├── JingJie.lua         -- Realm progression                   [Phase 4/7]
-│       ├── Breakthrough.lua    -- Realm breakthrough events           [Phase 4]
-│       ├── PassiveCycle.lua    -- Passive walk round-start execution  [Phase 5]
+│       ├── JingJie.lua         -- Realm progression (derived)         [Phase 4]
+│       ├── PassiveCycle.lua    -- Passive walk turn-start execution   [Phase 5]
 │       ├── GongFa.lua          -- Cultivation methods                 [Phase 6]
 │       ├── TianRanJingHua.lua  -- Natural essences                   [Phase 6]
 │       ├── FaBao.lua           -- Magical artifacts                   [Phase 8a]
 │       ├── ZhenFa.lua          -- Formation system                    [Phase 8b]
-│       └── Debug.lua           -- Debug commands                      [Phase 0]
+│       └── Debug.lua           -- Debug commands (!xx)                [Phase 0]
 ```
 
 ---
 
-## Phase 0: Foundation & Data Model
+## Phase 0: Foundation ✅
 
-**Goal:** Lua module architecture, custom resources, auto-grant to all characters. Qi/ShenShi bars visible.
+**Goal:** Lua module architecture, custom resources, auto-grant to all characters.
 
-### Files to create/modify
+### What was built
+- Module loader + event routing skeleton
+- `XIUXIAN_Racial_Passive` auto-granted via Lua to all characters (party + enemies)
+- `QiPoint` + `ShenshiPoint` ActionResourceDefinitions (Qi = LongRest, ShenShi = ShortRest)
+- `LingGen.Awake()` — random initial values using pool-cut algorithm
+- Debug commands: `!xx info`, `!xx linggen`, `!xx scan`, `!xx setlg`
+- PersistentVars initialization
+- Config.json with ModuleUUID
 
-1. **`Mods/XIUXIAN/ScriptExtender/Lua/BootstrapServer.lua`**
-   - Initialize PersistentVars, require `Server/Main.lua`
-
-2. **`Server/Main.lua`**
-   - Module loader: create `XiuXian` table, require each system module, call `.Init()`, load EventHandlers
-
-3. **`Server/Modules/Variables.lua`**
-   - `ELEM_INDEX = { ["木"]=0, ["火"]=1, ["土"]=2, ["金"]=3, ["水"]=4 }`
-   - `ELEM_NAMES`, `ORGAN_NAMES` (肝/心/脾/肺/肾), `ORGAN_ELEM` mapping
-   - Tier thresholds: `{T0=25, T1=100, T2=300, T3=1000}`
-   - Distance-to-reaction: `{[0]="共鸣", [1]="生", [2]="克", [3]="侮", [4]="泄"}`
-   - Edge effect name table (20 entries): `{["木火"]="燃", ["火土"]="锻", ...}`
-
-4. **`Server/Modules/Utils.lua`**
-   - `EdgeDistance(from, to)`, `SafeStatSync`, `AddPassive_Safe`, `contains`
-
-5. **`Server/Modules/EventHandlers.lua`**
-   - Skeleton: register `SavegameLoaded`, `StatusApplied`, `TimerFinished`, `LongRestFinished`, `LeveledUp`
-
-6. **`Server/Modules/Systems/Debug.lua`**
-   - Console commands to inspect/modify state
-
-7. **`Public/XIUXIAN/ActionResourceDefinitions/ActionResourceDefinitions.lsx`**
-   - `QiPoint` (气) — ReplenishType: LongRest
-   - `ShenshiPoint` (神识) — ReplenishType: ShortRest
-
-8. **`Public/XIUXIAN/Stats/Generated/Data/XIUXIAN_BASE.txt`**
-   - Racial passive granting initial Qi/ShenShi
-
-9. **`Public/XIUXIAN/Progressions/Progressions.lsx`**
-   - Update L1 to grant racial passive(s)
-
-10. **`Public/XIUXIAN/Lists/PassiveLists.lsx`** + **`SpellLists.lsx`**
-    - L1 passive list, empty spell list
-
-### Verification
-- [x] Create character with XiuXian subrace
-- [x] Qi and ShenShi resource bars appear
-- [x] Tag applied
-- [x] PersistentVars initializes on first load
+### Verified
+- [x] Mod loads, passive granted to all characters
+- [x] Qi and ShenShi bars visible in UI
+- [x] LingGen values initialize on first encounter
+- [x] Debug commands work
+- [x] PersistentVars persists across saves
 
 ---
 
-## Phase 1: Meridian Graph & LingGen
+## Phase 1: Data Model — LingGen, DanTian, JingMai ✅
 
-**Goal:** 6-node graph, 15 meridians, LingGen values, behavioral experience. No walk execution yet.
+**Goal:** Complete data model. No walk execution yet — just storage, queries, and debug inspection.
 
-### Files to create
+### Step 1a — LingGen ✅
+- 5 status turns: `XIUXIAN_LG_MU/HUO/TU/JIN/SHUI` with `FreezeDuration`
+- `LingGen.Get/Set/Add/GetTier/GetTotal`
+- Awake guard prevents double-init
+- Debug: `!xx linggen`, `!xx setlg <elem> <value>`
 
-1. **`Server/Modules/Systems/JingMai.lua`** — Core graph module
-   - `PersistentVars['JINGMAI']` — 15 boolean meridian states
-   - `JingMai.GetTier(element)` — LingGen value → T0/T1/T2/T3
-   - `JingMai.EdgeDistance(from, to)` — distance formula
-   - `JingMai.CanOpenMeridian(a, b)` — both LingGen ≥ 50
-   - `JingMai.OpenMeridian(character, a, b)` — set state
-   - `JingMai.GetOpenEdges()`, `JingMai.GetReachableFrom(node)`
+### Step 1b — DanTian/ShiHai ✅
+- Status turns: `XIUXIAN_DANTIAN`, `XIUXIAN_SHIHAI`
+- Init: 丹田=2, 识海=1
+- `DanTian.SyncResources()` — sync actual Qi/ShenShi max via `Osi.AddBoosts`
+- Debug: `!xx resources`
 
-2. **`Server/Modules/Systems/LingGen.lua`** — Spiritual root system
-   - Stored as status turns: `XIUXIAN_LG_MU`, `XIUXIAN_LG_HUO`, `XIUXIAN_LG_TU`, `XIUXIAN_LG_JIN`, `XIUXIAN_LG_SHUI`
-   - `LingGen.Awake(character)` — roll initial values
-   - `LingGen.AddExperience(character, element, amount)`
-   - `LingGen.GetAll(character)` — read all 5 values from status turns
+### Step 1c — JingMai (Meridian Graph) ✅
+- `PersistentVars['JINGMAI_<guid>']` — 15 boolean meridian states
+- Pure data model: `IsOpen/CanOpen/Open/GetOpenEdges/GetReachableFrom`
+- Init: all closed on first encounter
+- Debug: `!xx jingmai`, `!xx open <elemA> <elemB>`
 
-3. **`Server/Modules/Systems/DanTian.lua`** — 丹田 & 识海 (Qi/ShenShi max pools)
-   - Stored as status turns: `XIUXIAN_DANTIAN` (Qi max), `XIUXIAN_SHIHAI` (ShenShi max)
-   - Base values set by realm breakthroughs
-   - Special expansion: 大周天运转(+1/day), 丹药(+N), 吞噬精元(+1 on kill), 灵脉长休(+2)
-   - 识海 expansion: 冥想(accumulate→+1), 精神淬炼(survive psychic→+1), 玉简(+1), 洞观历练(accumulate→+1)
-   - `DanTian.SyncResources(character)` — sync actual Qi/ShenShi max to 丹田/识海 values via Osi.AddBoosts
-
-4. **Walk-driven growth** (in WalkEngine.lua, called after every walk execution)
-   - `WalkEngine.ApplyGrowth(character, walk)` — called after each walk (active or passive tick)
-   - **Three growth dimensions per walk (growth = scaled cost):**
-     - **灵根:** pool = `BASE_LG × qi_cost`, distributed by `contribution(N) = max(0,tier(N))+1 × visits(N)`
-     - **丹田:** `BASE_DT × qi_cost` — flat
-     - **识海:** `BASE_SS × shenshi_cost` — flat
-   - Where `qi_cost = Σ(min(tier_A,tier_B)+1)`, `shenshi_cost = Σ(distance)` — same as skill cost
-   - Fractional accumulators in PersistentVars (party only):
-     - `LGACC_<guid>` = { 木=float, 火=float, ... }
-     - `DTACC_<guid>` = float
-     - `SSACC_<guid>` = float
-   - Constants: `BASE_LG = 0.05`, `BASE_DT = 0.02`, `BASE_SS = 0.02` (tunable)
-   - Enemies: no growth tracking (short-lived)
-   - Auto-opens meridians when both endpoints reach ≥ 50
-
-### Verification
-- [x] LingGen values initialize on character creation
-- [x] Debug command shows 5 LingGen values and tiers
-- [x] Meridians open/close via debug commands
-- [ ] LingGen grows from walk execution (Phase 2 integration)
-- [ ] 丹田 grows from walk execution (Phase 2 integration)
-- [ ] 识海 grows from walk execution (Phase 2 integration)
-- [ ] Meridians auto-open when LingGen threshold met
+### Verified
+- [x] LingGen values persist across saves
+- [x] DanTian/ShiHai values persist and sync to resource bars
+- [x] Meridians stored per-character in PersistentVars
+- [x] Debug commands for all three subsystems
 
 ---
 
-## Phase 2: Walk Engine & Edge Effects (T0)
+## Phase 2: Walk Engine & Combat Effects
 
-**Goal:** Walk calculation engine + first batch of edge effects. Hand-crafted starter walks as real BG3 spells.
+**Goal:** Walk calculation engine + self-loop (共鸣) passives + first batch of edge effects as real BG3 spells.
 
-### Files to create
+### Step 2a — WalkEngine.lua
+Core calculator, no BG3 stat integration yet:
+- `CalcWalkEffects(walk)` → `{edge_effects, node_effects, final_dist}`
+- Layer 1: per-edge distance + effect lookup
+- Layer 2: node compound `(d_in + d_out) % 5`
+- Layer 3: `final_distance = (Σ all d) % 5`
+- `CalcCost(walk)` — ShenShi = Σ(distance), Qi = Σ(min(tier)+1)
+- `ClassifyWalk(walk)` — self-loop / chain / cycle
+- Self-loop support (A→A, distance=0)
 
-1. **`Server/Modules/Systems/WalkEngine.lua`** — Core calculator
-   - `CalcWalkEffects(walk)` → `{edge_effects, node_effects, final_dist, final_effect}`
-   - Layer 1: per-edge distance + effect lookup, `reaction_tier = min(tier_A, tier_B)`
-   - Layer 2: intermediate node compound `(d_in + d_out) % 5`
-   - Layer 3: `final_distance = (Σ all d) % 5`
-   - `CalcCost(walk)` — ShenShi = Σ(distance), Qi = Σ(min(tier_A,tier_B)+1)
-   - `ClassifyWalk(walk)` — self-loop / chain / cycle
-   - `ApplyGrowth(character, walk)` — LingGen (per node by contribution), 丹田, 识海
-   - Support self-loop walks (A→A, single node, distance=0, 共鸣)
+### Step 2b — Walk Growth System
+Called after every walk execution (active use or passive tick):
+- **灵根 growth:** `pool = BASE_LG × qi_cost`, distributed by `contribution(N) = (max(0,tier(N))+1) × visits(N)`
+- **丹田 growth:** `BASE_DT × qi_cost`
+- **识海 growth:** `BASE_SS × shenshi_cost`
+- Fractional accumulators in PersistentVars (party only):
+  - `LGACC_<guid>` = {木=float, ...}, `DTACC_<guid>` = float, `SSACC_<guid>` = float
+- Auto-open meridians when both endpoints ≥ 50
+- Constants: `BASE_LG=0.05`, `BASE_DT=0.02`, `BASE_SS=0.02`
 
-2. **`Server/Modules/Systems/EdgeEffects.lua`** — Effect table
-   - `EDGE_EFFECTS[edge_name][tier]` = function(caster, target, tier)
-   - T0 only for all 20 edges:
-     - 燃 T0: 1d4 fire damage
-     - 侵 T0: target AC-1
-     - 灰 T0: lifesteal 15%
-     - etc. (see idea.md edge effect table)
+### Step 2c — GongMing.lua (Self-Loop Passives)
+5 elements × 5 tiers (<T0, T0, T1, T2, T3) = 25 passive stat entries:
+- Each activates when LingGen > 0 for that element
+- Auto-upgrade with tier change (shared StackId per element)
+- **Consumes qi per turn** (tier+1), shenshi = 0
+- Also applies walk growth each turn (self-loop walk execution)
+- See idea.md "共鸣被动" section for per-element effects
 
-3. **`Public/XIUXIAN/Stats/Generated/Data/XIUXIAN_EFFECTS.txt`**
-   - 20 status entries: `XIUXIAN_EDGE_RAN_T0`, `XIUXIAN_EDGE_DUAN_T0`, etc.
+### Step 2d — EdgeEffects.lua (T0 only)
+- `EDGE_EFFECTS[edge_name][tier]` = function(caster, target, tier)
+- T0 implementations for all 20 edges
+- Status entries: `XIUXIAN_EDGE_RAN_T0`, etc.
 
-4. **`Public/XIUXIAN/Stats/Generated/Data/XIUXIAN_WALKS.txt`**
-   - 5 × 5 self-loop passives (共鸣被动, per-tier upgrade):
-     - Each element has 5 tiers: <T0, T0, T1, T2, T3
-     - e.g. `XIUXIAN_GONGMING_MU_0` through `XIUXIAN_GONGMING_MU_4`
-     - Activate when LingGen > 0, auto-upgrade with tier
-     - Shared StackId per element for mutual exclusion across tiers
-   - 5-10 starter walk spells (2-3 node):
-     - `XIUXIAN_Walk_Ran` (木→火, Bonus Action)
-     - `XIUXIAN_Walk_Duan` (金→木, Bonus Action)
-     - `XIUXIAN_Walk_MieRong` (水→火→金, Action)
-     - `XIUXIAN_Walk_ZiQin` (水→木→土, Action)
-   - Use `UseCosts` with QiPoint and ShenshiPoint
+### Step 2e — Starter Walk Spells
+5-10 hand-crafted walk spells as real BG3 spells:
+- 2-node (Bonus Action): 灭式(水→火), 燃式(木→火), 斩式(金→木)
+- 3-node (Action): 灭熔式(水→火→金), 滋侵式(水→木→土)
+- `UseCosts` with QiPoint and ShenshiPoint
+- Validate against open meridians on cast
 
 ### Verification
 - [ ] Self-loop passives activate when LingGen > 0
-- [ ] Passives auto-upgrade when tier increases (<T0 → T0 → T1 → T2 → T3)
-- [ ] Self-loop passives provide combat benefit + LingGen growth
+- [ ] Passives auto-upgrade when tier changes
+- [ ] Self-loop passives consume qi per turn, stop when qi = 0
 - [ ] 2-node walks work as Bonus Actions
 - [ ] 3-node walks work as Actions
 - [ ] Edge effects apply correct statuses/damage
-- [ ] Qi and ShenShi consumed
-- [ ] Walk growth: LingGen, 丹田, 识海 all increment correctly
+- [ ] Walk growth: LingGen, 丹田, 识海 all increment
 - [ ] Walks fail if required meridian not open
 
 ---
 
 ## Phase 3: Dynamic Walk Builder & ImGui UI
 
-**Goal:** ImGui panel for constructing custom walks. Runtime spell generation from walk definitions.
+**Goal:** ImGui panel for constructing custom walks. Runtime spell generation.
 
 ### Files to create
 
-1. **`Server/Modules/Systems/WalkBuilder.lua`** — Walk management
-   - `PersistentVars['WALKS']` — saved walk definitions
-   - `PersistentVars['ACTIVE_PASSIVES']` — active passive walks with reserved ShenShi
-   - `RegisterAsSkill(character, walk)` — `Ext.Stats.Create()` + `Ext.Loca.UpdateTranslatedString()` + `Ext.Stats.Sync()` + `Osi.AddSpell()`
-   - `RegisterAsPassive(character, walk)` — create passive, reserve ShenShi
+1. **WalkBuilder.lua** — Walk management
+   - `PersistentVars['WALKS_<guid>']` — saved walk definitions
+   - `PersistentVars['ACTIVE_PASSIVES_<guid>']` — active passive walks
+   - `RegisterAsSkill(character, walk)` — `Ext.Stats.Create()` + `Ext.Stats.Sync()` + `Osi.AddSpell()`
+   - `RegisterAsPassive(character, walk)` — create passive, start consuming resources
    - Auto-naming: edge names + suffix (式/诀/律)
 
-2. **`Server/Modules/Systems/ImGuiPanel.lua`** — ImGui UI
-   - Pentagon + center node layout via `DrawList:AddCircleFilled`
-   - Colored arrows: green=生, red=克, purple=侮, gray=泄, gold=共鸣
-   - Solid (open) vs dashed (closed) meridians
+2. **ImGuiPanel.lua** — ImGui UI
+   - Pentagon + center node layout via `DrawList`
+   - Colored arrows by distance type
    - Click-to-add-node walk construction
    - Real-time cost/effect preview
-   - Buttons: [确认为技能] [成环为被动] [清除]
-   - Active passives list with toggle
-   - Resource display (ShenShi/Qi)
-
-3. **`Public/XIUXIAN/Stats/Generated/Data/XIUXIAN_TEMPLATES.txt`** — Template stats
-   - `XIUXIAN_WalkTemplate_BonusAction` — base for 2-node
-   - `XIUXIAN_WalkTemplate_Action` — base for 3-node
-   - `XIUXIAN_WalkTemplate_Ultimate` — base for 4+
-   - `XIUXIAN_WalkTemplate_Passive` — base for cycles
+   - Active passives list with per-turn cost display
+   - Resource display (ShenShi/Qi remaining)
 
 ### Verification
 - [ ] ImGui panel opens via hotkey/spell
 - [ ] Click nodes to build walk path
 - [ ] Walk validated against open meridians
 - [ ] [确认为技能] creates real spell in spellbook
-- [ ] Passive walks reserve ShenShi
+- [ ] Passive walks consume resources per turn
 - [ ] Walks survive save/load
 
 ---
 
-## Phase 4: Cultivation Realms — 境界 by 丹田/识海
+## Phase 4: Realm System — 境界
 
-**Goal:** Realm system derived from 丹田/识海 thresholds. No manual breakthroughs — realms advance automatically. 金丹 element choice is the only player decision.
+**Goal:** Realm derived from 丹田/识海 thresholds. Auto-advances. 金丹 element choice.
 
 ### Files to create
 
-1. **`Server/Modules/Systems/JingJie.lua`** — Realm system
-   - `JingJie.GetRealm(character)` — compute realm from DanTian.GetQiMax + DanTian.GetShenshiMax
+1. **JingJie.lua** — Realm system
+   - `GetRealm(character)` — compute from DanTian/ShiHai values
+   - `CheckAdvancement(character)` — called after growth
    - Realm thresholds: `{炼气={0,0}, 筑基={6,1}, 金丹={15,3}, 元婴={30,8}, ...}`
-   - `JingJie.CheckAdvancement(character)` — called after growth, triggers realm-up effects
-   - On realm change: unlock graph features (丹田 node, parallel walk, dual layer, etc.)
-   - 金丹: prompt element choice when thresholds met (store in PersistentVars, irreversible)
-   - No `Breakthrough.lua` needed — realm is a derived value
+   - On realm change: unlock graph features (丹田 node activation, etc.)
+   - 金丹: prompt element choice (irreversible, stored in PersistentVars)
 
-2. **`Public/XIUXIAN/Stats/Generated/Data/XIUXIAN_JINGJIE.txt`**
-   - Display statuses per realm (visible icon showing current 境界)
+2. **XIUXIAN_JINGJIE.txt** — Display statuses per realm
 
 ### Verification
-- [ ] Realm auto-advances when 丹田/识海 cross thresholds
-- [ ] 筑基 unlocks DanTian node + meridians
+- [ ] Realm auto-advances when thresholds crossed
+- [ ] 筑基 unlocks DanTian node + 5 meridians
 - [ ] 金丹 prompts element choice
-- [ ] Debug: `!xx jingjie` shows current realm + progress to next
+- [ ] Debug: `!xx jingjie` shows realm + progress
 
 ---
 
@@ -262,61 +208,48 @@ Server/
 
 ### Files to modify
 
-1. **`Server/Modules/Systems/EdgeEffects.lua`** — Expand to all tiers
-   - T1: moderate effects (see idea.md tables)
-   - T2: strong with qualitative changes
-   - T3: extreme with cooldowns
-   - Total: ~80 implementations (20 edges × 4 tiers)
+1. **EdgeEffects.lua** — Expand all 20 edges × T1/T2/T3
+   - Total: ~80 effect implementations
+   - T3 effects have cooldowns
 
-2. **`Public/XIUXIAN/Stats/Generated/Data/XIUXIAN_EFFECTS_T1.txt`**, **`T2.txt`**, **`T3.txt`**
-   - Split across files to respect 4000-char stat field limit
-
-3. **`Server/Modules/Systems/PassiveCycle.lua`** — Passive walk execution
-   - On `ObjectTurnStarted`, iterate active passive walks
-   - Execute edge effects in sequence
+2. **PassiveCycle.lua** — Passive walk execution
+   - On `ObjectTurnStarted`, execute active passive walks
+   - Consume qi + shenshi per turn
+   - Stop when resources depleted
    - T3 edges fire every N rounds
-   - Track ShenShi reservation
+   - Apply walk growth each tick
 
 ### Verification
 - [ ] Effects scale noticeably with tier
 - [ ] T3 effects have cooldowns
-- [ ] Passive cycles fire at round start
-- [ ] Multiple passives limited by ShenShi pool
-- [ ] Deactivating passive returns ShenShi
+- [ ] Passive cycles fire at turn start
+- [ ] Multiple passives limited by qi + shenshi pools
+- [ ] Passive stops when resources run out
 
 ---
 
 ## Phase 6: GongFa & Natural Essences
 
-**Goal:** Complete the core gameplay loop with cultivation methods and organ-modifying essences.
+**Goal:** Cultivation methods and organ-modifying essences.
 
 ### Files to create
 
-1. **`Server/Modules/Systems/GongFa.lua`** — Cultivation methods
-   - Data: `{node_modifiers, edge_modifiers, fold_rule, unlock}`
-   - `PersistentVars['GONGFA']` — equipped per character
-   - Internal crystallization: track walk counts → auto-crystallize
+1. **GongFa.lua** — Cultivation methods
+   - Modifiers: `{node_modifiers, edge_modifiers, fold_rule, unlock}`
+   - Internal crystallization: walk repetition → auto-crystallize
    - External: jade slip items
-   - Modify `WalkEngine.CalcWalkEffects` to apply GongFa modifiers
    - Element matching: GongFa vs JinDan = bonus/penalty
 
-2. **`Server/Modules/Systems/TianRanJingHua.lua`** — Natural essences
+2. **TianRanJingHua.lua** — Natural essences
    - 25 essences (5 per element: T1/T1/T2/T2/T3)
-   - `PersistentVars['JINGHUA']` — one slot per organ
-   - Modify walk engine when walk passes through enhanced node
-   - Acquisition via quest/combat/exploration triggers
-
-3. **`Public/XIUXIAN/Stats/Generated/Data/XIUXIAN_GONGFA.txt`** — Starter GongFa items
-4. **`Public/XIUXIAN/Stats/Generated/Data/XIUXIAN_JINGHUA.txt`** — 25 essence statuses
-
-5. **Update ImGui panel** — Show GongFa modifiers on graph, essence icons on nodes, crystallization progress
+   - One slot per organ, replaceable
+   - Modify walk engine when walk passes enhanced node
 
 ### Verification
-- [ ] GongFa changes walk calculation visibly
-- [ ] Same path → different effects with/without GongFa
-- [ ] Essences boost organ tier permanently
+- [ ] GongFa visibly changes walk effects
+- [ ] Essences permanently boost organ tier
 - [ ] Crystallization triggers after repeated walk usage
-- [ ] Full loop: fight → XP → meridians → walks → crystallize → stronger walks
+- [ ] Full loop: walk → grow → open meridian → new walks → crystallize
 
 ---
 
@@ -326,23 +259,21 @@ Server/
 
 ### Files to modify
 
-1. **`Server/Modules/Systems/JingJie.lua`** — Add realms:
-   - **元婴期:** 7th node, parallel walk, ShenShi = YuanYing tier
-   - **化神期:** 12 nodes (physical + spiritual mirror), cross-layer walk
+1. **JingJie.lua** — Add realms:
+   - 元婴: 7th node, parallel walk, element choice
+   - 化神: 12 nodes (physical + spiritual mirror), cross-layer walk
 
-2. **`Server/Modules/Systems/WalkEngine.lua`** — Extend:
-   - Parallel walk execution (two independent walks)
-   - Cross-layer edges: same-organ = d=0, different-organ = normal
+2. **WalkEngine.lua** — Parallel walk execution, cross-layer edges
 
-3. **`Server/Modules/Systems/JingMai.lua`** — Expand graph to 7/12 nodes
+3. **JingMai.lua** — Expand graph to 7/12 nodes
 
-4. **Update ImGui panel** — 7th node, dual-layer visualization, parallel walk UI
+4. **ImGuiPanel.lua** — 7th node, dual-layer visualization
 
 ### Verification
 - [ ] 元婴 adds 7th node + parallel walk slot
 - [ ] Two walks execute simultaneously
 - [ ] 化神 doubles graph to 12 nodes
-- [ ] Cross-layer walks follow correct distance rules
+- [ ] Cross-layer walks use correct distance rules
 
 ---
 
@@ -352,9 +283,8 @@ Server/
 
 ### 8a: FaBao (Magical Artifacts)
 - External nodes attaching to organs
-- Refinement process (open artifact-organ meridians)
+- Refinement (open artifact-organ meridians)
 - Simple (single node) → complex (internal sub-graph)
-- Walk extension through artifact nodes
 
 ### 8b: ZhenFa (Formations)
 - Multi-character spatial graph (8 trigram positions)
@@ -362,9 +292,9 @@ Server/
 - Formation types: line/ring/star/full
 
 ### 8c: Late Realms
-- **炼虚:** walk through enemy nodes (target routing: self/enemy/ally)
-- **合体:** environment nodes (天/地), fold_rule min→max
-- **大乘:** FaXiang (graph clone as summon entity)
+- **炼虚:** walk through enemy nodes (target routing)
+- **合体:** environment nodes, fold_rule min→max
+- **大乘:** FaXiang (graph clone as summon)
 - **渡劫:** adversarial walk collision `(your_d + tiandao_d) % 5`
 - **真仙:** void node (player-chosen distance 0-4)
 
@@ -374,9 +304,11 @@ Server/
 
 | Risk | Mitigation |
 |------|-----------|
-| Stat field length limit (~4000 chars) | Split passives across multiple stat entries per tier |
-| `Ext.Stats.Create` + `Sync` performance | Cache in PersistentVars; only recreate on load/change |
-| Save/Load persistence | All state in PersistentVars; restore on `SavegameLoaded` timer |
+| Stat field length limit (~4000 chars) | Split passives across multiple stat entries |
+| `Ext.Stats.Create` + `Sync` performance | Cache in PersistentVars; recreate on load only |
+| Save/Load persistence | All state in PersistentVars + status turns; restore on timer |
 | ImGui feature gaps | Keep default view simple; detail on demand |
-| Combat event timing | Use `ObjectTurnStarted` not `CombatRoundStarted` for passives |
+| Combat event timing | Use `ObjectTurnStarted` for passives, not `CombatRoundStarted` |
 | Walk validation | Always validate against open meridians before execution |
+| New init inside idempotency guard | Keep new subsystem init OUTSIDE `HasPassive` checks |
+| Double-fire in same Osiris batch | Use local guards for same-tick dedup |
