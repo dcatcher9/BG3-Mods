@@ -231,38 +231,28 @@ Server/
 
 ---
 
-## Phase 4: Cultivation Realms — 炼气/筑基/金丹
+## Phase 4: Cultivation Realms — 境界 by 丹田/识海
 
-**Goal:** First three realms with breakthrough mechanics and real progression.
+**Goal:** Realm system derived from 丹田/识海 thresholds. No manual breakthroughs — realms advance automatically. 金丹 element choice is the only player decision.
 
 ### Files to create
 
 1. **`Server/Modules/Systems/JingJie.lua`** — Realm system
-   - `PersistentVars['JINGJIE']` — current realm per character
-   - **炼气期:** 5 nodes, walk depth ≤ 3, no ShenShi
-   - **筑基期:** +丹田 as neutral hub, 5 DanTian meridians, depth ≤ 5
-     - Breakthrough: all LingGen ≥ T0 (25) + behavioral XP threshold
-   - **金丹期:** 丹田 crystallizes with chosen element (irreversible), full distance formula, depth ≤ 8, ShenShi = JinDan tier
-     - Breakthrough: one LingGen ≥ T1 (100) + total behavioral XP
+   - `JingJie.GetRealm(character)` — compute realm from DanTian.GetQiMax + DanTian.GetShenshiMax
+   - Realm thresholds: `{炼气={0,0}, 筑基={6,1}, 金丹={15,3}, 元婴={30,8}, ...}`
+   - `JingJie.CheckAdvancement(character)` — called after growth, triggers realm-up effects
+   - On realm change: unlock graph features (丹田 node, parallel walk, dual layer, etc.)
+   - 金丹: prompt element choice when thresholds met (store in PersistentVars, irreversible)
+   - No `Breakthrough.lua` needed — realm is a derived value
 
-2. **`Server/Modules/Systems/Breakthrough.lua`** — Breakthrough events
-   - Condition checking
-   - Choice UI (金丹 element selection)
-   - Permanent changes
-
-3. **`Public/XIUXIAN/Stats/Generated/Data/XIUXIAN_JINGJIE.txt`**
-   - `XIUXIAN_JingJie_LianQi` — basic racial passive
-   - `XIUXIAN_JingJie_ZhuJi` — DanTian unlock
-   - `XIUXIAN_JingJie_JinDan` — full distance unification
-
-4. **Update `Progressions.lsx`** — L5 (筑基), L9 (金丹) entries
+2. **`Public/XIUXIAN/Stats/Generated/Data/XIUXIAN_JINGJIE.txt`**
+   - Display statuses per realm (visible icon showing current 境界)
 
 ### Verification
-- [ ] Start in 炼气 with limited walks
-- [ ] 筑基 unlocks DanTian + more paths
-- [ ] 金丹 breakthrough prompts element choice
-- [ ] DanTian edges use real distance after 金丹
-- [ ] ShenShi appears after 金丹
+- [ ] Realm auto-advances when 丹田/识海 cross thresholds
+- [ ] 筑基 unlocks DanTian node + meridians
+- [ ] 金丹 prompts element choice
+- [ ] Debug: `!xx jingjie` shows current realm + progress to next
 
 ---
 
