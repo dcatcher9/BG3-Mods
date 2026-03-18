@@ -2,6 +2,8 @@ local Debug = {}
 local Variables = require("Server.Modules.Variables")
 local Utils = require("Server.Modules.Utils")
 local LingGen = require("Server.Modules.Systems.LingGen")
+local DanTian = require("Server.Modules.Systems.DanTian")
+local JingMai = require("Server.Modules.Systems.JingMai")
 
 -- 获取角色显示名（优先用名字，没有则用GUID）
 local function GetDisplayName(guid)
@@ -95,8 +97,71 @@ function Debug.Init()
                 _P("[修仙] 用法: !xx setlg <元素> <值>")
             end
 
+        elseif subcmd == "dantian" then
+            for _, entity in pairs(Ext.Entity.GetAllEntitiesWithComponent("PartyMember")) do
+                if entity.Uuid then
+                    local guid = tostring(entity.Uuid.EntityUuid)
+                    _P("[修仙] " .. GetDisplayName(guid))
+                    DanTian.PrintInfo(guid)
+                end
+            end
+
+        elseif subcmd == "setdt" then
+            local field = args[1]  -- "qi" or "ss"
+            local value = tonumber(args[2])
+            if field and value then
+                local host = Osi.GetHostCharacter()
+                if field == "qi" then
+                    DanTian.SetQiMax(host, value)
+                    DanTian.SyncResources(host)
+                    _P("[修仙] " .. GetDisplayName(host) .. " 丹田=" .. value)
+                elseif field == "ss" then
+                    DanTian.SetShenshiMax(host, value)
+                    DanTian.SyncResources(host)
+                    _P("[修仙] " .. GetDisplayName(host) .. " 识海=" .. value)
+                else
+                    _P("[修仙] 用法: !xx setdt qi|ss <值>")
+                end
+            else
+                _P("[修仙] 用法: !xx setdt qi|ss <值>")
+            end
+
+        elseif subcmd == "jingmai" then
+            local host = Osi.GetHostCharacter()
+            _P("[修仙] " .. GetDisplayName(host))
+            JingMai.PrintInfo(host)
+
+        elseif subcmd == "open" then
+            local elemA = args[1]
+            local elemB = args[2]
+            if elemA and elemB then
+                local host = Osi.GetHostCharacter()
+                if JingMai.IsOpen(host, elemA, elemB) then
+                    _P("[修仙] 经脉 " .. elemA .. "─" .. elemB .. " 已开通")
+                elseif JingMai.Open(host, elemA, elemB) then
+                    _P("[修仙] " .. GetDisplayName(host) .. " 开通 " .. elemA .. "─" .. elemB)
+                else
+                    _P("[修仙] 开脉失败")
+                end
+                JingMai.PrintInfo(host)
+            else
+                _P("[修仙] 用法: !xx open <元素A> <元素B>")
+            end
+
+        elseif subcmd == "close" then
+            local elemA = args[1]
+            local elemB = args[2]
+            if elemA and elemB then
+                local host = Osi.GetHostCharacter()
+                JingMai.Close(host, elemA, elemB)
+                _P("[修仙] " .. GetDisplayName(host) .. " 关闭 " .. elemA .. "─" .. elemB)
+                JingMai.PrintInfo(host)
+            else
+                _P("[修仙] 用法: !xx close <元素A> <元素B>")
+            end
+
         else
-            _P("[修仙] 命令: !xx debug | info | distance | linggen | scan | setlg")
+            _P("[修仙] 命令: !xx debug|info|distance|linggen|scan|setlg|dantian|setdt|jingmai|open|close")
         end
     end)
 

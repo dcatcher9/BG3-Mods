@@ -74,6 +74,20 @@ Variables.LINGGEN_STATUS = {
     ["水"] = "XIUXIAN_LG_SHUI"
 }
 
+-- 15条经脉（无向，排序键：index小的在前）
+-- 10条脏器间 + 5条丹田经脉
+Variables.MERIDIAN_PAIRS = {
+    -- 相生序 (d=1/4)
+    "木火", "火土", "土金", "金水", "水木",
+    -- 相克序 (d=2/3)
+    "木土", "土水", "水火", "火金", "金木",
+    -- 丹田经脉（Phase 4 筑基后激活）
+    -- "丹田木", "丹田火", "丹田土", "丹田金", "丹田水"
+}
+
+-- 开脉灵根门槛
+Variables.MERIDIAN_OPEN_THRESHOLD = 50
+
 -- Tier 名称
 Variables.TIER_NAMES = {
     [-1] = "无",

@@ -95,18 +95,18 @@ function Utils.IsRealCharacter(object)
     return true
 end
 
--- 为角色授予修仙被动+资源+灵根，幂等（所有真实角色，含敌人）
+-- 为角色授予修仙被动+灵根+丹田，幂等（所有真实角色，含敌人）
 function Utils.GrantXiuXian(object)
     if not Utils.IsRealCharacter(object) then return end
 
     if Osi.HasPassive(object, 'XIUXIAN_Racial_Passive') ~= 1 then
         Osi.AddPassive(object, 'XIUXIAN_Racial_Passive')
-        Osi.AddBoosts(object, 'ActionResource(QiPoint,2,0);ActionResource(ShenshiPoint,1,0)', '', '')
     end
 
-    -- 灵根觉醒（通过缓存引用，避免 Osiris 回调中 require 失败）
-    if Utils._Systems and Utils._Systems.LingGen then
-        Utils._Systems.LingGen.Awake(object)
+    -- 子系统初始化（外置于 idempotency guard，各自内部幂等）
+    if Utils._Systems then
+        if Utils._Systems.LingGen then Utils._Systems.LingGen.Awake(object) end
+        if Utils._Systems.DanTian then Utils._Systems.DanTian.InitCharacter(object) end
     end
 end
 

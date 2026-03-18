@@ -1,0 +1,30 @@
+// ============================================================
+// 种族-修仙 — 丹田/识海状态（用 status turns 存储容量值）
+// ============================================================
+
+// 丹田（气的容器，turns = Qi max）
+new entry "XIUXIAN_DANTIAN"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackId" "XIUXIAN_DANTIAN"
+data "StackType" "Overwrite"
+data "Boosts" ""
+data "StatusPropertyFlags" "IgnoreResting;FreezeDuration;ApplyToDead;DisableOverhead;DisablePortraitIndicator;DisableCombatlog"
+
+// 识海（神识的容器，turns = ShenShi max）
+new entry "XIUXIAN_SHIHAI"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackId" "XIUXIAN_SHIHAI"
+data "StackType" "Overwrite"
+data "Boosts" ""
+data "StatusPropertyFlags" "IgnoreResting;FreezeDuration;ApplyToDead;DisableOverhead;DisablePortraitIndicator;DisableCombatlog"
+
+// 动态资源同步状态模板（由 Lua 运行时创建具体实例）
+new entry "XIUXIAN_RESOURCE_SYNC"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackId" "XIUXIAN_RESOURCE_SYNC"
+data "StackType" "Overwrite"
+data "Boosts" ""
+data "StatusPropertyFlags" "IgnoreResting;FreezeDuration;ApplyToDead;DisableOverhead;DisablePortraitIndicator;DisableCombatlog"

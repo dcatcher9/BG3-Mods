@@ -113,23 +113,29 @@ Server/
    - 识海 expansion: 冥想(accumulate→+1), 精神淬炼(survive psychic→+1), 玉简(+1), 洞观历练(accumulate→+1)
    - `DanTian.SyncResources(character)` — sync actual Qi/ShenShi max to 丹田/识海 values via Osi.AddBoosts
 
-3. **`Server/Modules/Systems/XingWei.lua`** — Behavioral experience
-   - 5 counters: `PersistentVars['XINGWEI']`
-   - Combat event listeners:
-     - `OnHeal` → 木之行
-     - `OnDamage` / `IsKillingBlow` → 火之行
-     - `OnAttacked` + no movement → 土之行
-     - `IsCritical` / reaction used → 金之行
-     - Status steal / polymorph → 水之行
-
-4. **`Public/XIUXIAN/Stats/Generated/Data/XIUXIAN_JINGMAI.txt`**
-   - 30 passives for directed edges (display-only initially)
+4. **Walk-driven growth** (in WalkEngine.lua, called after every walk execution)
+   - `WalkEngine.ApplyGrowth(character, walk)` — called after each walk (active or passive tick)
+   - **Three growth dimensions per walk (growth = scaled cost):**
+     - **灵根:** pool = `BASE_LG × qi_cost`, distributed by `contribution(N) = max(0,tier(N))+1 × visits(N)`
+     - **丹田:** `BASE_DT × qi_cost` — flat
+     - **识海:** `BASE_SS × shenshi_cost` — flat
+   - Where `qi_cost = Σ(min(tier_A,tier_B)+1)`, `shenshi_cost = Σ(distance)` — same as skill cost
+   - Fractional accumulators in PersistentVars (party only):
+     - `LGACC_<guid>` = { 木=float, 火=float, ... }
+     - `DTACC_<guid>` = float
+     - `SSACC_<guid>` = float
+   - Constants: `BASE_LG = 0.05`, `BASE_DT = 0.02`, `BASE_SS = 0.02` (tunable)
+   - Enemies: no growth tracking (short-lived)
+   - Auto-opens meridians when both endpoints reach ≥ 50
 
 ### Verification
-- [ ] LingGen values initialize on character creation
-- [ ] Debug command shows 5 LingGen values and tiers
-- [ ] Meridians open when conditions met
-- [ ] Behavioral experience accumulates in combat
+- [x] LingGen values initialize on character creation
+- [x] Debug command shows 5 LingGen values and tiers
+- [x] Meridians open/close via debug commands
+- [ ] LingGen grows from walk execution (Phase 2 integration)
+- [ ] 丹田 grows from walk execution (Phase 2 integration)
+- [ ] 识海 grows from walk execution (Phase 2 integration)
+- [ ] Meridians auto-open when LingGen threshold met
 
 ---
 
@@ -144,8 +150,10 @@ Server/
    - Layer 1: per-edge distance + effect lookup, `reaction_tier = min(tier_A, tier_B)`
    - Layer 2: intermediate node compound `(d_in + d_out) % 5`
    - Layer 3: `final_distance = (Σ all d) % 5`
-   - `CalcCost(walk)` — ShenShi = Σ(distance), Qi = Σ(reaction_tier)
-   - `ClassifyWalk(walk)` — chain vs cycle, bonus/action/ultimate
+   - `CalcCost(walk)` — ShenShi = Σ(distance), Qi = Σ(min(tier_A,tier_B)+1)
+   - `ClassifyWalk(walk)` — self-loop / chain / cycle
+   - `ApplyGrowth(character, walk)` — LingGen (per node by contribution), 丹田, 识海
+   - Support self-loop walks (A→A, single node, distance=0, 共鸣)
 
 2. **`Server/Modules/Systems/EdgeEffects.lua`** — Effect table
    - `EDGE_EFFECTS[edge_name][tier]` = function(caster, target, tier)
@@ -159,7 +167,12 @@ Server/
    - 20 status entries: `XIUXIAN_EDGE_RAN_T0`, `XIUXIAN_EDGE_DUAN_T0`, etc.
 
 4. **`Public/XIUXIAN/Stats/Generated/Data/XIUXIAN_WALKS.txt`**
-   - 5-10 starter walk spells:
+   - 5 × 5 self-loop passives (共鸣被动, per-tier upgrade):
+     - Each element has 5 tiers: <T0, T0, T1, T2, T3
+     - e.g. `XIUXIAN_GONGMING_MU_0` through `XIUXIAN_GONGMING_MU_4`
+     - Activate when LingGen > 0, auto-upgrade with tier
+     - Shared StackId per element for mutual exclusion across tiers
+   - 5-10 starter walk spells (2-3 node):
      - `XIUXIAN_Walk_Ran` (木→火, Bonus Action)
      - `XIUXIAN_Walk_Duan` (金→木, Bonus Action)
      - `XIUXIAN_Walk_MieRong` (水→火→金, Action)
@@ -167,10 +180,14 @@ Server/
    - Use `UseCosts` with QiPoint and ShenshiPoint
 
 ### Verification
+- [ ] Self-loop passives activate when LingGen > 0
+- [ ] Passives auto-upgrade when tier increases (<T0 → T0 → T1 → T2 → T3)
+- [ ] Self-loop passives provide combat benefit + LingGen growth
 - [ ] 2-node walks work as Bonus Actions
 - [ ] 3-node walks work as Actions
 - [ ] Edge effects apply correct statuses/damage
 - [ ] Qi and ShenShi consumed
+- [ ] Walk growth: LingGen, 丹田, 识海 all increment correctly
 - [ ] Walks fail if required meridian not open
 
 ---
