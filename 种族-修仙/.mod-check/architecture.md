@@ -6,10 +6,7 @@
 - **ModuleUUID**: aa2e0d85-aed6-4125-a16c-ecfc846ee744
 - **Display name**: 种族-修仙
 - **Author**: DCatcher
-- **Type**: Human subrace (ParentGuid = 0eb594cb-8820-4be6-a58d-8be7a1a98fba)
-- **Race UUID**: 95ee3322-742a-4c06-8946-1f47f0ec10c7
-- **Progression Table UUID**: 4c410729-21d2-43b6-89e2-0e09a026ba8d
-- **Tag UUID**: e600bc79-6e7d-41cb-b90f-dc6f8fef63ee
+- **Type**: Universal mod (grants system to all characters via Lua, no subrace)
 
 ## Resource UUIDs
 - QiPoint: 99465841-c763-4f1f-b025-02af228116b0 (LongRest)
@@ -17,35 +14,39 @@
 
 ## File Tree
 
-### LSX (8 files)
+### LSX (2 files)
 - `Mods/XIUXIAN/meta.lsx` — mod metadata
-- `Public/XIUXIAN/Races/Races.lsx` — subrace definition
-- `Public/XIUXIAN/Tags/e600bc79-...lsx` — XIUXIAN tag
 - `Public/XIUXIAN/ActionResourceDefinitions/ActionResourceDefinitions.lsx` — QiPoint + ShenshiPoint
-- `Public/XIUXIAN/Progressions/Progressions.lsx` — L1 progression
-- `Public/XIUXIAN/Progressions/ProgressionDescriptions.lsx` — empty stub
-- `Public/XIUXIAN/Lists/SpellLists.lsx` — empty stub
-- `Public/XIUXIAN/Lists/PassiveLists.lsx` — empty stub
 
-### Stats (1 file)
+### Stats (2 files)
 - `Public/XIUXIAN/Stats/Generated/Data/XIUXIAN_BASE.txt` — XIUXIAN_Racial_Passive
+- `Public/XIUXIAN/Stats/Generated/Data/XIUXIAN_LINGGEN.txt` — 5 LingGen statuses + base template
 
-### Lua (7 files)
+### Lua (8 files)
 - `ScriptExtender/Lua/BootstrapServer.lua` — PersistentVars + require Main
 - `ScriptExtender/Lua/BootstrapClient.lua` — empty stub
-- `ScriptExtender/Lua/Server/Main.lua` — module loader
+- `ScriptExtender/Lua/Server/Main.lua` — module loader (LingGen, Debug)
 - `ScriptExtender/Lua/Server/Modules/Variables.lua` — constants
-- `ScriptExtender/Lua/Server/Modules/Utils.lua` — utilities
+- `ScriptExtender/Lua/Server/Modules/Utils.lua` — utilities + GrantXiuXian
 - `ScriptExtender/Lua/Server/Modules/EventHandlers.lua` — event routing
 - `ScriptExtender/Lua/Server/Modules/Systems/Debug.lua` — console commands
+- `ScriptExtender/Lua/Server/Modules/Systems/LingGen.lua` — spiritual root system
 
 ### Localization (1 file)
-- `Mods/XIUXIAN/Localization/English/XIUXIAN.xml` — 8 content entries
+- `Mods/XIUXIAN/Localization/English/XIUXIAN.xml` — 10 content entries
 
 ### Config (1 file)
 - `ScriptExtender/Config.json` — RequiredVersion 14, Osiris+Lua
 
+### Icons (6 DDS files)
+- `Public/Game/GUI/Assets/ActionResources_c/Icons/QiPoint.DDS`
+- `Public/Game/GUI/Assets/ActionResources_c/Icons/ShenshiPoint.DDS`
+- `Public/Game/GUI/Assets/CC/icons_resources/QiPoint.DDS`
+- `Public/Game/GUI/Assets/CC/icons_resources/ShenshiPoint.DDS`
+- `Public/Game/GUI/Assets/Shared/Resources/QiPoint.DDS`
+- `Public/Game/GUI/Assets/Shared/Resources/ShenshiPoint.DDS`
+
 ## Naming Conventions
 - Stat prefix: `XIUXIAN_`
 - Loca handle prefix: `hXIUXIAN_`
-- PersistentVars key prefix: `XIUXIANLIST_`
+- LingGen status prefix: `XIUXIAN_LG_`

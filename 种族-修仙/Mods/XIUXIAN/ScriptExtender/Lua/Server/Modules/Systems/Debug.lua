@@ -1,10 +1,29 @@
 local Debug = {}
 local Variables = require("Server.Modules.Variables")
 local Utils = require("Server.Modules.Utils")
+local LingGen = require("Server.Modules.Systems.LingGen")
+
+-- 获取角色显示名（优先用名字，没有则用GUID）
+local function GetDisplayName(guid)
+    local entity = Ext.Entity.Get(guid)
+    if entity and entity.DisplayName and entity.DisplayName.NameKey then
+        local name = Ext.Loca.GetTranslatedString(entity.DisplayName.NameKey.Handle.Handle)
+        if name and name ~= "" then return name end
+    end
+    return tostring(guid)
+end
+
+-- 获取阵营标签：友/敌/中
+local function GetFactionTag(guid)
+    local host = Osi.GetHostCharacter()
+    if not host then return "[?]" end
+    if Osi.IsAlly(guid, host) == 1 then return "[友]" end
+    if Osi.IsEnemy(guid, host) == 1 then return "[敌]" end
+    return "[中]"
+end
 
 function Debug.Init()
-    -- 注册控制台命令
-    Ext.RegisterConsoleCommand("xiuxian", function(cmd, subcmd, ...)
+    Ext.RegisterConsoleCommand("xx", function(cmd, subcmd, ...)
         local args = {...}
 
         if subcmd == "debug" then
@@ -12,14 +31,13 @@ function Debug.Init()
             _P("[修仙] Debug mode: " .. tostring(Variables.DEBUG_MODE))
 
         elseif subcmd == "info" then
-            -- 显示所有队伍成员的修仙状态
             local count = 0
             for _, entity in pairs(Ext.Entity.GetAllEntitiesWithComponent("PartyMember")) do
                 if entity.Uuid then
                     local guid = tostring(entity.Uuid.EntityUuid)
                     local hasPassive = Osi.HasPassive(guid, 'XIUXIAN_Racial_Passive') == 1
                     count = count + 1
-                    _P("[修仙] #" .. count .. ": " .. guid .. (hasPassive and " [已修仙]" or " [未修仙]"))
+                    _P("[修仙] #" .. count .. ": " .. GetDisplayName(guid) .. (hasPassive and " [已修仙]" or " [未修仙]"))
                 end
             end
             if count == 0 then
@@ -27,7 +45,6 @@ function Debug.Init()
             end
 
         elseif subcmd == "distance" then
-            -- 测试五行距离: !xiuxian distance 木 火
             local from = args[1]
             local to = args[2]
             if from and to then
@@ -38,12 +55,52 @@ function Debug.Init()
                     .. " 效果=" .. (name or "无"))
             end
 
+        elseif subcmd == "linggen" then
+            for _, entity in pairs(Ext.Entity.GetAllEntitiesWithComponent("PartyMember")) do
+                if entity.Uuid then
+                    local guid = tostring(entity.Uuid.EntityUuid)
+                    _P("[修仙] " .. GetDisplayName(guid))
+                    LingGen.PrintInfo(guid)
+                end
+            end
+
+        elseif subcmd == "scan" then
+            local count = 0
+            for _, entity in pairs(Ext.Entity.GetAllEntitiesWithComponent("Health")) do
+                if entity.Uuid then
+                    local guid = tostring(entity.Uuid.EntityUuid)
+                    if Osi.HasPassive(guid, 'XIUXIAN_Racial_Passive') == 1 then
+                        local total = LingGen.GetTotal(guid)
+                        if total > 0 then
+                            count = count + 1
+                            _P("[修仙] " .. GetFactionTag(guid) .. " " .. GetDisplayName(guid))
+                            LingGen.PrintInfo(guid)
+                        end
+                    end
+                end
+            end
+            if count == 0 then
+                _P("[修仙] 未找到有灵根的角色（敌人需先进入战斗触发）")
+            end
+
+        elseif subcmd == "setlg" then
+            local elem = args[1]
+            local value = tonumber(args[2])
+            if elem and value then
+                local host = Osi.GetHostCharacter()
+                LingGen.Set(host, elem, value)
+                _P("[修仙] " .. GetDisplayName(host) .. " 设置 " .. elem .. " 灵根 = " .. value)
+                LingGen.PrintInfo(host)
+            else
+                _P("[修仙] 用法: !xx setlg <元素> <值>")
+            end
+
         else
-            _P("[修仙] 命令: !xiuxian debug | info | distance <元素> <元素>")
+            _P("[修仙] 命令: !xx debug | info | distance | linggen | scan | setlg")
         end
     end)
 
-    _P("[修仙] Debug module loaded. Use !xiuxian in console.")
+    _P("[修仙] Debug loaded. Use !xx in console.")
 end
 
 return Debug

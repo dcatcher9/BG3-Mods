@@ -1,6 +1,9 @@
 local Utils = {}
 local Variables = require("Server.Modules.Variables")
 
+-- 系统模块引用（由 Main.lua 初始化后注入）
+Utils._Systems = nil
+
 -- 计算五行距离 (from_elem, to_elem) → 0-4
 function Utils.EdgeDistance(from, to)
     if from == "丹田" or to == "丹田" then
@@ -76,11 +79,35 @@ function Utils.GetActionResourceMax(object, resourceId)
     return 0
 end
 
--- 为角色授予修仙被动+资源，幂等（所有角色，含敌人）
+-- 检查是否为真实角色（排除dummy/helper/invisible等游戏内部实体）
+function Utils.IsRealCharacter(object)
+    -- 必须有 Health 组件（活物）
+    local entity = Ext.Entity.Get(object)
+    if not entity then return false end
+    if not entity.Health then return false end
+    -- 排除模板名包含 Dummy/Helper/Invisible 的实体
+    if entity.ServerCharacter and entity.ServerCharacter.Template then
+        local name = entity.ServerCharacter.Template.Name or ""
+        if name:find("Dummy") or name:find("Helper") or name:find("Invisible") or name:find("Intangible") then
+            return false
+        end
+    end
+    return true
+end
+
+-- 为角色授予修仙被动+资源+灵根，幂等（所有真实角色，含敌人）
 function Utils.GrantXiuXian(object)
-    if Osi.HasPassive(object, 'XIUXIAN_Racial_Passive') == 1 then return end
-    Osi.AddPassive(object, 'XIUXIAN_Racial_Passive')
-    Osi.AddBoosts(object, 'ActionResource(QiPoint,2,0);ActionResource(ShenshiPoint,1,0)', '', '')
+    if not Utils.IsRealCharacter(object) then return end
+
+    if Osi.HasPassive(object, 'XIUXIAN_Racial_Passive') ~= 1 then
+        Osi.AddPassive(object, 'XIUXIAN_Racial_Passive')
+        Osi.AddBoosts(object, 'ActionResource(QiPoint,2,0);ActionResource(ShenshiPoint,1,0)', '', '')
+    end
+
+    -- 灵根觉醒（通过缓存引用，避免 Osiris 回调中 require 失败）
+    if Utils._Systems and Utils._Systems.LingGen then
+        Utils._Systems.LingGen.Awake(object)
+    end
 end
 
 return Utils

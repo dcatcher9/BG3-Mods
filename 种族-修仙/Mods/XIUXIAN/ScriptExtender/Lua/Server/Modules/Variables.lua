@@ -65,7 +65,22 @@ Variables.ResourceUUID = {
     ShenshiPoint = '469d454d-8778-4412-a8b4-49c6becbe18e',
 }
 
--- 种族标签
-Variables.TAG_XIUXIAN = 'e600bc79-6e7d-41cb-b90f-dc6f8fef63ee'
+-- 灵根状态名（status turns 存储）
+Variables.LINGGEN_STATUS = {
+    ["木"] = "XIUXIAN_LG_MU",
+    ["火"] = "XIUXIAN_LG_HUO",
+    ["土"] = "XIUXIAN_LG_TU",
+    ["金"] = "XIUXIAN_LG_JIN",
+    ["水"] = "XIUXIAN_LG_SHUI"
+}
+
+-- Tier 名称
+Variables.TIER_NAMES = {
+    [-1] = "无",
+    [0] = "凡品",
+    [1] = "天品",
+    [2] = "仙品",
+    [3] = "圣品"
+}
 
 return Variables

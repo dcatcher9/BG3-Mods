@@ -90,6 +90,16 @@ Common things that look like bugs but aren't — avoid re-flagging these.
 
 - **Non-persistent Lua tables break on reload**: Local Lua tables (not backed by PersistentVars) reset when the game is saved/reloaded. Any mechanic tracking state in local tables (like stack counts) must either persist via PersistentVars or reconstruct state on SessionLoaded/GameStateChanged by reading entity status data.
 
+- **`require()` fails inside Osiris callbacks**: `Ext.Require()` / `require()` called from Osiris event handlers (StatusApplied, CharacterJoinedParty, EnteredCombat, etc.) fails with "current mod UUID is not known". The mod context is lost during Osiris dispatch. Fix: cache module references at init time via dependency injection (e.g. `Utils._Systems = Systems`), use cached refs in callbacks.
+
+- **`Osi.GetStatusTurns` returns 0 for statuses applied in the same Osiris batch**: When `CharacterJoinedParty` fires for multiple characters in one batch, `ApplyStatus` + `GetStatusTurns` on the same entity within the batch returns 0 — the status hasn't committed yet. Use a local Lua table guard (`awakeGuard[key] = true`) for same-frame dedup, with status-turns as the durable cross-session guard.
+
+- **`CharacterJoinedParty` fires for ALL existing party members when a new member joins**: Not just the new member. If Laezel joins, the engine also re-fires for existing members. Any per-character init in this handler must be idempotent.
+
+- **`FreezeDuration` is REQUIRED for status-turns-as-data-store**: Without `FreezeDuration` in `StatusPropertyFlags`, BOOST status turns count down each combat round and eventually expire. For any status used to store persistent integer data (like LingGen values), use: `"IgnoreResting;FreezeDuration;ApplyToDead;DisableOverhead;DisablePortraitIndicator;DisableCombatlog"`. Found by comparing with reference mod's working LingGen statuses.
+
+- **New init logic inside idempotency guards is dead code for existing saves**: When adding a new subsystem init (e.g. LingGen.Awake) inside `if not HasPassive then ... end`, characters from saves made before the subsystem existed already have the passive, so the guard skips the init. New subsystem calls must go outside the guard with their own internal idempotency.
+
 ---
 
 ## Cleanest Solutions Found

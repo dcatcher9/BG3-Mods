@@ -2,13 +2,13 @@
 <!-- Last updated: 2026-03-17 -->
 
 ## Stats
-- Fully read: 1 of 1
+- Fully read: 2 of 2 (XIUXIAN_BASE.txt, XIUXIAN_LINGGEN.txt)
 
 ## LSX
-- Fully read: 8 of 8
+- Fully read: 2 of 2 (meta.lsx, ActionResourceDefinitions.lsx)
 
 ## Lua
-- Fully read: 7 of 7
+- Fully read: 8 of 8
 
 ## Localization
 - Fully read: 1 of 1
@@ -16,4 +16,4 @@
 ## Config
 - Fully read: 1 of 1
 
-### All files fully read this run (18 total)
+### Total: 14 source files fully read

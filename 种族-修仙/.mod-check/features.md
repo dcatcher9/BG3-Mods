@@ -5,30 +5,24 @@
 
 | Feature / System | Completeness | Player Access | Key Files |
 |---|---|---|---|
-| Subrace (修仙) | Full | Character Creation | Races.lsx, Progressions.lsx |
-| Qi Resource | Full | Action Bar | ActionResourceDefinitions.lsx, Progressions.lsx |
-| ShenShi Resource | Full | Action Bar | ActionResourceDefinitions.lsx, Progressions.lsx |
+| Auto-grant system | Full | Automatic (all chars) | Utils.lua GrantXiuXian, EventHandlers.lua |
+| Qi Resource | Full | Action Bar | ActionResourceDefinitions.lsx, Utils.lua |
+| ShenShi Resource | Full | Action Bar | ActionResourceDefinitions.lsx, Utils.lua |
 | Racial Passive (修行之体) | Full | Passive | XIUXIAN_BASE.txt |
+| LingGen (灵根) | Full | Console (!xiuxian linggen) | LingGen.lua, XIUXIAN_LINGGEN.txt, Variables.lua |
 | Debug Console | Full | Console (!xiuxian) | Debug.lua |
-| Meridian Graph | Stub | N/A | Variables.lua (constants only) |
-| Walk Engine | Stub | N/A | Utils.lua (EdgeDistance only) |
 
 ## Feature Details
 
-### Subrace
-**What**: Human subrace "修仙" selectable in character creation
-**Chain**: Races.lsx → Progressions.lsx → grants passive + resources
-**Access**: Character Creation
+### Auto-grant System
+**What**: Automatically grants cultivation passive + resources + LingGen to all characters
+**Chain**: EventHandlers (SavegameLoaded/EnteredCombat/CharacterJoinedParty/LeveledUp) → Utils.GrantXiuXian → AddPassive + AddBoosts + LingGen.Awake
+**Access**: Automatic — party on load, enemies on combat enter
 **Completeness**: Full
 
-### Resources (Qi + ShenShi)
-**What**: Two custom action resources for the cultivation system
-**Chain**: ActionResourceDefinitions.lsx defines them → Progressions.lsx Boosts grant initial amounts
-**Access**: Action bar resource display
-**Completeness**: Full
-
-### Debug Console
-**What**: Console commands for inspecting mod state
-**Chain**: Debug.lua registers `!xiuxian` console command
-**Access**: SE console
-**Completeness**: Full — supports `debug`, `info`, `distance` subcommands
+### LingGen (灵根)
+**What**: 5-element spiritual root values stored as status turns, randomly initialized
+**Chain**: Utils.GrantXiuXian → LingGen.Awake (random roll) → Osi.ApplyStatus (XIUXIAN_LG_MU/HUO/TU/JIN/SHUI)
+**Access**: Console (`!xiuxian linggen`, `!xiuxian scan`, `!xiuxian setlg`)
+**Completeness**: Full — init, read, write, tier calculation, debug display
+**Notes**: Distribution: 1% godly(200), 4% excellent(100), 10% good(50), 25% average(25), 60% weak(10). Values * 6 for status turns.

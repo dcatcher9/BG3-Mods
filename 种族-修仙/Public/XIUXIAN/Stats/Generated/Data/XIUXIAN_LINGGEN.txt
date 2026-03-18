@@ -1,0 +1,42 @@
+// ============================================================
+// 种族-修仙 — 灵根状态（用 status turns 存储灵根值）
+// ============================================================
+
+// 灵根基础状态模板（隐藏，不显示图标）
+new entry "XIUXIAN_LG_BASE"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackId" "XIUXIAN_LG_BASE"
+data "StackType" "Overwrite"
+data "Boosts" ""
+data "StatusPropertyFlags" "IgnoreResting;FreezeDuration;ApplyToDead;DisableOverhead;DisablePortraitIndicator;DisableCombatlog"
+
+// 木灵根（肝）
+new entry "XIUXIAN_LG_MU"
+type "StatusData"
+using "XIUXIAN_LG_BASE"
+data "StackId" "XIUXIAN_LG_MU"
+
+// 火灵根（心）
+new entry "XIUXIAN_LG_HUO"
+type "StatusData"
+using "XIUXIAN_LG_BASE"
+data "StackId" "XIUXIAN_LG_HUO"
+
+// 土灵根（脾）
+new entry "XIUXIAN_LG_TU"
+type "StatusData"
+using "XIUXIAN_LG_BASE"
+data "StackId" "XIUXIAN_LG_TU"
+
+// 金灵根（肺）
+new entry "XIUXIAN_LG_JIN"
+type "StatusData"
+using "XIUXIAN_LG_BASE"
+data "StackId" "XIUXIAN_LG_JIN"
+
+// 水灵根（肾）
+new entry "XIUXIAN_LG_SHUI"
+type "StatusData"
+using "XIUXIAN_LG_BASE"
+data "StackId" "XIUXIAN_LG_SHUI"
